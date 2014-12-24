@@ -1,1 +1,0 @@
-/usr/local/src/workingwiki/wmd/wmd.rb
