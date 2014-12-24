@@ -1,0 +1,13 @@
+Tue Dec 23 16:13:50 2014
+/usr/bin/make -C /usr/local/src/jekyll-research/wmd_files/Selection_Gradients \
+    maclev-1-1.sage.out.html
+Including .mk files: sage.mk sage-inline.mk 
+Including .mk files from .sage-inline files: avec.sage.mk a-careful.sage.mk
+make: Entering directory `/usr/local/src/jekyll-research/wmd_files/Selection_Gradients'
+sage-inline.mk:14: avec.sage.mk: No such file or directory
+sage-inline.mk:14: a-careful.sage.mk: No such file or directory
+Including .tex.d files: 
+make: *** No rule to make target `a-careful.sage.mk'.  Stop.
+make: Leaving directory `/usr/local/src/jekyll-research/wmd_files/Selection_Gradients'
+Make failed with exit code 2.
+Tue Dec 23 16:13:50 2014
