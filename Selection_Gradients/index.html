@@ -74,21 +74,17 @@
   </li>
 </ul>
 
-<p>This project also uses Sage code that’s stored on wiki pages:</p>
+<p>This project also uses Sage code that’s stored in an external Git repository:</p>
 
 <ul>
-  <li><a href="http://lalashan.mcmaster.ca/theobio/worden/index.php/SageUtils">SageUtils</a></li>
-  <li><a href="http://lalashan.mcmaster.ca/theobio/worden/index.php/SageDynamics">SageDynamics</a></li>
-  <li><a href="http://lalashan.mcmaster.ca/theobio/worden/index.php/SageAdaptiveDynamics">SageAdaptiveDynamics</a>.</li>
+  <li><a href="https://github.com/worden-lee/SageDynamics.git">SageDynamics</a></li>
 </ul>
-
-<p>I’m sorry to say I’ve made essential edits in these projects that hasn’t been checked in currently.</p>
 
 <h2 id="code">Code</h2>
 
 <p>Here are some makefiles that are used by all the code on the various pages in this project.</p>
 
-<p><!-- sage.mk --><fieldset class="ww-project-file-source ww-collapsible"><legend><span>sage.mk</span></legend><div class="ww-collapsible-content"><pre># Makefile to connect the Sage code here with the code in SageDynamics and elsewhere
+<p><!-- sage.mk --><fieldset class="ww-project-file-source ww-collapsible"><legend><span>sage.mk</span></legend><div class="ww-collapsible-content"><pre># Makefile to connect the Sage code here with the code in SageDynamics
 
 # the three upstream projects are all bundled into one git repo
 export SageUtils            = $(realpath $(SageDynamicsRepo)/SageUtils)

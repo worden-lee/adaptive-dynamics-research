@@ -1,4 +1,4 @@
-# Makefile to connect the Sage code here with the code in SageDynamics and elsewhere
+# Makefile to connect the Sage code here with the code in SageDynamics
 
 # the three upstream projects are all bundled into one git repo
 export SageUtils            = $(realpath $(SageDynamicsRepo)/SageUtils)
