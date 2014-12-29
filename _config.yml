@@ -3,5 +3,6 @@ markdown: kramdown
 highlighter: true
 description: "Lee Worden prototype research website"
 #url: "jekyll-new.joelglovier.com"
+baseurl: /adaptive-dynamics-research
 permalink: /posts/:title
 exclude: wmd_files/SageDynamicsRepo/.git
