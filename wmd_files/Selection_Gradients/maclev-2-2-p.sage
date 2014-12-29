@@ -32,13 +32,18 @@ def make_arrow( base, vec, scale=1, **args ):
     #print [ aa for aa in arr ]
     return arr
 
-# plot c_0 vs c_1, with arrows
+# plot c_1 vs c_0, with arrows
+
+print 'plot c vs c'
+sys.stdout.flush()
 
 # first put in the curves in the c_0-c_1 plane
 c_phase_plane = Graphics()
+c_phase_plane += parametric_plot( (c_func( 0, 0 ), c_func( 0, 1 )), (u_0, 0, 1), color='gray' )
 for i in maclev._population_indices:
     ci = [ rescomp._indexers['c'][i][0], rescomp._indexers['c'][i][1] ]
     c_phase_plane += c_evolution.plot( ci[0], ci[1], color=[ 'blue', 'red' ][i] )
+
 # then add the arrows at intervals of 0.1 time step
 last_t = -oo
 maclev_bindings = ad_bindings + numeric_params

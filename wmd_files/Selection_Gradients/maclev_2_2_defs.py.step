@@ -35,6 +35,14 @@ u_indexer = indexer('u')
 u_0, u_1 = (u_indexer[0], u_indexer[1])
 gamma = SR.var( 'gamma' )
 
+def linear_c_func(i,j):
+    return j + (1 - 2*j)*u_indexer[i]
+
+def linear_bindings(indices):
+    return Bindings( dict(
+        (rescomp._indexers['c'][i][j], linear_c_func(i,j))
+        for i in indices for j in (0,1) ) )
+
 def quadratic_c_func(i,j):
     if j == 0:
         return 1/(1 + u_indexer[i]**2*5)
@@ -54,37 +62,47 @@ def quadratic_bindings(indices):
         [ (rescomp._indexers['m'][i], 1) for i in indices ]
     ) )
 
-def linear_c_func(i,j):
-    return j + (1 - 2*j)*u_indexer[i]
+def exponential_c_func(i,j):
+    if j == 0 or j == 1:
+        return exp( -(u_indexer[i] - j)**2*2 )
+    return -inf
 
-def linear_bindings(indices):
+def make_bindings( c_func, indices ):
     return Bindings( dict(
-        (rescomp._indexers['c'][i][j], linear_c_func(i,j))
-        for i in indices for j in (0,1) ) )
+        [ (rescomp._indexers['c'][i][0], c_func(i,0))
+          for i in indices
+        ] +
+        [ (rescomp._indexers['c'][i][1], c_func(i,1))
+          for i in indices
+        ] +
+        [ (rescomp._indexers['b'][i], 1) for i in indices ] +
+        [ (rescomp._indexers['m'][i], 1) for i in indices ]
+    ) )
 
 which_model = 'quadratic'
 
-if which_model == 'quadratic':
-    c_func = quadratic_c_func
-    bindings_func = quadratic_bindings
-    bmc_bindings = bindings_func( (0,1,'i') )
-
-    initial_conditions = Bindings( {
-        # in a .sage file, could just write u_0: 1/3
-        # in a .py, fractions need special care
-        u_0 : Rational('1/3'),
-        u_1 : Rational('4/9')
-    } )
-else:
+if which_model == 'linear':
     c_func = linear_c_func
-    bindings_func = linear_bindings
-    bmc_bindings = bindings_func( (0,1,'i') )
-
+    bmc_bindings = make_bindings( c_func, (0,1,'i') )
     initial_conditions = Bindings( {
         # in a .sage file, could just write u_0: 1/3
         # in a .py, fractions need special care
         u_0 : Rational('1/3'),
         u_1 : Rational('5/11')
+    } )
+elif which_model == 'quadratic':
+    c_func = quadratic_c_func
+    bmc_bindings = make_bindings( c_func, (0,1,'i') )
+    initial_conditions = Bindings( {
+        u_0 : Rational('1/3'),
+        u_1 : Rational('4/9')
+    } )
+elif which_model == 'exponential':
+    c_func = exponential_c_func
+    bmc_bindings = make_bindings( c_func, (0,1,'i') )
+    initial_conditions = Bindings( {
+        u_0 : Rational('1/3'),
+        u_1 : Rational('4/9')
     } )
 
 gamma_bindings = Bindings( { gamma: 1 } )

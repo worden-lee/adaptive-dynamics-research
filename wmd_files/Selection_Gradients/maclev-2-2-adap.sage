@@ -1,6 +1,7 @@
 # requires: $(SageDynamics)/dynamicalsystems.py $(SageAdaptiveDynamics)/adaptivedynamics.py maclevmodels.py maclev_2_2_defs.py
 # produces: maclev-2-2-adap.sage.out.tex maclev-2-2-adap.sobj
-# produces: maclev-2-2-u-vs-t.png maclev-2-2-u-vs-u.png maclev-2-2-c-vs-c.png
+# produces: maclev-2-2-c-vs-u.png maclev-2-2-u-vs-t.png 
+# produces: maclev-2-2-u-vs-u.png maclev-2-2-c-vs-c.png
 from maclev_2_2_defs import *
 
 ltx = latex_output( 'maclev-2-2-adap.sage.out.tex' )
@@ -30,6 +31,15 @@ bmc_from_fn_bindings = Bindings( FunctionBindings( dict(
 
 #print 'bmc_to_fn_bindings:', bmc_to_fn_bindings
 #print 'bmc_from_fn_bindings:', bmc_from_fn_bindings
+
+print 'plot c vs u'
+sys.stdout.flush()
+
+# and plot c vs u
+u_timeseries = plot( c_func( 0, 0 ), (u_0, 0, 1) )
+u_timeseries += plot( c_func( 1, 1 ), (u_1, 0, 1), color="green" )
+u_timeseries.axes_labels( [ '$u$', '$c_i(u)$' ] )
+u_timeseries.save( 'maclev-2-2-c-vs-u.png', figsize=(4,4) )
 
 print "starting adaptive dynamics"
 sys.stdout.flush()

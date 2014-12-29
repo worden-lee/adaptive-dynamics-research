@@ -14,7 +14,7 @@ ltx.write_block( maclev.bind( ad_bindings ) )
 maclev_initial_system = maclev.bind( ad_bindings + numeric_params + initial_conditions )
 p = maclev_initial_system.plot_vector_field( (X_0, 0, 2), (X_1, 0, 2), color="gray", figsize=(5,5) )
 p += maclev_initial_system.plot_ZNGIs( (X_0, 0, 2), (X_1, 0, 2), color="gray" )
-s = maclev_initial_system.solve( [0, 0.02, 0.05], end_points=50 )
+s = maclev_initial_system.solve( [0, 0.02, 0.05], end_points=500 )
 p += s.plot( X_0, X_1, color='red' )
 p.save( 'maclev-2-2-popdyn.png' )
 
@@ -67,7 +67,8 @@ ltx.write( "In our initial model, $c$ values are" )
 for i in ( 0, 1 ):
     for j in ( 0, 1 ):
         cij = rescomp_abstract._indexers['c'][i][j]
-        ltx.write_block( cij == (initial_conditions + bmc_bindings)( cij ) )
+        ncij = (initial_conditions + bmc_bindings)( cij )
+        ltx.write_block( cij, '=', ncij, '=', N(ncij, digits=4) )
 
 ltx.close()
 
