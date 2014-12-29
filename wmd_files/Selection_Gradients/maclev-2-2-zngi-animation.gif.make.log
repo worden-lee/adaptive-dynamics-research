@@ -1,4 +1,4 @@
-Sun Dec 28 16:26:59 2014
+Sun Dec 28 16:33:07 2014
 /usr/bin/make -C /usr/local/src/jekyll-research/wmd_files/Selection_Gradients \
     maclev-2-2-zngi-animation.gif
 Including .mk files: sage.mk sage-inline.mk 
@@ -16,4 +16,4 @@ Including .tex.d files:
 make[1]: Nothing to be done for `adaptivedynamics.py'.
 make: Leaving directory `/usr/local/src/jekyll-research/wmd_files/Selection_Gradients'
 Make succeeded.
-Sun Dec 28 16:26:59 2014
+Sun Dec 28 16:33:07 2014
