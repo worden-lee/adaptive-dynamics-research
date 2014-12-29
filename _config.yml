@@ -4,3 +4,4 @@ highlighter: true
 description: "Lee Worden prototype research website"
 #url: "jekyll-new.joelglovier.com"
 permalink: /posts/:title
+exclude: wmd_files/SageDynamicsRepo/.git
