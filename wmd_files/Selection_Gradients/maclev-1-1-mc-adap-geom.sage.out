@@ -1,0 +1,88 @@
+Original pop-dyn system: 
+\[ \begin{align*}
+\frac{dX_{0}}{dt} &= -{\left(\frac{{\left(X_{0} c_{00} - K_{0} r_{0}\right)} c_{00} w_{0}}{r_{0}} + m_{0}\right)} X_{0} b_{0}
+\end{align*} \
+ \]
+ Extended pop-dyn system: 
+\[ \begin{align*}
+\frac{dX_{0}}{dt} &= -{\left(\frac{{\left(X_{0} c_{00} + X_{i} c_{i0} - K_{0} r_{0}\right)} c_{00} w_{0}}{r_{0}} + m_{0}\right)} X_{0} b_{0}\\
+\frac{dX_{i}}{dt} &= -{\left(\frac{{\left(X_{0} c_{00} + X_{i} c_{i0} - K_{0} r_{0}\right)} c_{i0} w_{0}}{r_{0}} + m_{i}\right)} X_{i} b_{i}
+\end{align*} \
+ \]
+ The invasion rate for population $i$ is:
+\begin{align*}
+  \mathscr I = \frac{1}{X_{i}}\frac{dX_{i}}{dt} &= -{\left(\frac{{\left(X_{0} c_{00} + X_{i} c_{i0} - K_{0} r_{0}\right)} c_{i0} w_{0}}{r_{0}} + m_{i}\right)} b_{i} 
+\end{align*}
+ And the invasion exponent is
+\begin{align*}
+  \frac{\partial\mathscr I}{\partial b_{0}} = \lim_{b_{i}\to b_{0},m_{i}\to m_{0},c_{i0}\to c_{00},X_{i}\to0}-\frac{{\left(X_{0} c_{00} + X_{i} c_{i0} - K_{0} r_{0}\right)} c_{i0} w_{0}}{r_{0}} - m_{i}\\
+  \frac{\partial\mathscr I}{\partial m_{0}} = \lim_{b_{i}\to b_{0},m_{i}\to m_{0},c_{i0}\to c_{00},X_{i}\to0}-b_{i}\\
+  \frac{\partial\mathscr I}{\partial c_{00}} = \lim_{b_{i}\to b_{0},m_{i}\to m_{0},c_{i0}\to c_{00},X_{i}\to0}-{\left(\frac{X_{i} c_{i0} w_{0}}{r_{0}} + \frac{{\left(X_{0} c_{00} + X_{i} c_{i0} - K_{0} r_{0}\right)} w_{0}}{r_{0}}\right)} b_{i} .
+\end{align*}
+ Which comes out to
+\begin{align*}
+  \frac{\partial\mathscr I}{\partial b_{0}} = -\frac{X_{0} c_{00}^{2} w_{0} - K_{0} c_{00} r_{0} w_{0} + m_{0} r_{0}}{r_{0}}\\
+  \frac{\partial\mathscr I}{\partial m_{0}} = -b_{0}\\
+  \frac{\partial\mathscr I}{\partial c_{00}} = -\frac{X_{0} b_{0} c_{00} w_{0} - K_{0} b_{0} r_{0} w_{0}}{r_{0}} .
+\end{align*}
+ \[ \mathbf S \left(\begin{array}{c}
+  c_{00}\\
+  m_{0}\\
+  b_{0}
+\end{array}\right) = \left(\begin{array}{c}
+  -\frac{\hat{X}_{0} b_{0} c_{00} w_{0} - K_{0} b_{0} r_{0} w_{0}}{r_{0}}\\
+  -b_{0}\\
+  -\frac{\hat{X}_{0} c_{00}^{2} w_{0} - K_{0} c_{00} r_{0} w_{0} + m_{0} r_{0}}{r_{0}}
+\end{array}\right) \]
+ Equilibrium of the population dynamics: 
+\[ \begin{align*}
+  \hat{X}_{0} &\to \frac{K_{0} c_{00} r_{0} w_{0} - m_{0} r_{0}}{c_{00}^{2} w_{0}}
+\end{align*} \
+ \]
+ The adaptive dynamics comes out to 
+\[ \begin{align*}
+\frac{dc_{00}}{dt} &= \frac{{\left(K_{0} b_{0} r_{0} w_{0} - \frac{{\left(K_{0} c_{00} r_{0} w_{0} - m_{0} r_{0}\right)} b_{0}}{c_{00}}\right)} {\left(K_{0} c_{00} r_{0} w_{0} - m_{0} r_{0}\right)} \gamma}{c_{00}^{2} r_{0} w_{0}}\\
+\frac{dm_{0}}{dt} &= -\frac{{\left(K_{0} c_{00} r_{0} w_{0} - m_{0} r_{0}\right)} b_{0} \gamma}{c_{00}^{2} w_{0}}\\
+\frac{db_{0}}{dt} &= 0
+\end{align*} \
+ \]
+
+Original pop-dyn system: 
+\[ \begin{align*}
+\frac{dX_{0}}{dt} &= {\left(\frac{{\left(K_{0} r_{0} - X_{0} u_{0}\right)} u_{0} w_{0}}{r_{0}} - 1\right)} X_{0}
+\end{align*} \
+ \]
+ Extended pop-dyn system: 
+\[ \begin{align*}
+\frac{dX_{0}}{dt} &= {\left(\frac{{\left(K_{0} r_{0} - X_{0} u_{0} - X_{i} u_{i}\right)} u_{0} w_{0}}{r_{0}} - 1\right)} X_{0}\\
+\frac{dX_{i}}{dt} &= {\left(\frac{{\left(K_{0} r_{0} - X_{0} u_{0} - X_{i} u_{i}\right)} u_{i} w_{0}}{r_{0}} - 1\right)} X_{i}
+\end{align*} \
+ \]
+ The invasion rate for population $i$ is:
+\begin{align*}
+  \mathscr I = \frac{1}{X_{i}}\frac{dX_{i}}{dt} &= \frac{{\left(K_{0} r_{0} - X_{0} u_{0} - X_{i} u_{i}\right)} u_{i} w_{0}}{r_{0}} - 1 
+\end{align*}
+ And the invasion exponent is
+\begin{align*}
+  \frac{\partial\mathscr I}{\partial u_{0}} = \lim_{u_{i}\to u_{0},X_{i}\to0}-\frac{X_{i} u_{i} w_{0}}{r_{0}} + \frac{{\left(K_{0} r_{0} - X_{0} u_{0} - X_{i} u_{i}\right)} w_{0}}{r_{0}} .
+\end{align*}
+ Which comes out to
+\begin{align*}
+  \frac{\partial\mathscr I}{\partial u_{0}} = \frac{K_{0} r_{0} w_{0} - X_{0} u_{0} w_{0}}{r_{0}} .
+\end{align*}
+ \[ \mathbf S \left(\begin{array}{c}
+  u_{0}
+\end{array}\right) = \left(\begin{array}{c}
+  \frac{K_{0} r_{0} w_{0} - \hat{X}_{0} u_{0} w_{0}}{r_{0}}
+\end{array}\right) \]
+ Equilibrium of the population dynamics: 
+\[ \begin{align*}
+  \hat{X}_{0} &\to \frac{K_{0} r_{0} u_{0} w_{0} - r_{0}}{u_{0}^{2} w_{0}}
+\end{align*} \
+ \]
+ The adaptive dynamics comes out to 
+\[ \begin{align*}
+\frac{du_{0}}{dt} &= \frac{{\left(K_{0} r_{0} u_{0} w_{0} - r_{0}\right)} {\left(K_{0} r_{0} w_{0} - \frac{K_{0} r_{0} u_{0} w_{0} - r_{0}}{u_{0}}\right)} \gamma}{r_{0} u_{0}^{2} w_{0}}
+\end{align*} \
+ \]
+

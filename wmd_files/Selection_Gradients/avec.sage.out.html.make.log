@@ -1,13 +1,12 @@
-Tue Dec 23 16:16:30 2014
+Sun Dec 28 16:04:10 2014
 /usr/bin/make -C /usr/local/src/jekyll-research/wmd_files/Selection_Gradients \
     avec.sage.out.html
 Including .mk files: sage.mk sage-inline.mk 
+Including .mk files from .step files: maclev-1-1.sage.mk maclev-1-1-adap.sage.mk maclev-1-1-mc-adap-geom.sage.mk maclev-1-1-ak-adap-geom.sage.mk S-A-vector-field.sage.mk maclev-1-1-d1A-vector-field.sage.mk maclev-1-1-S-and-d1A-on-curve.sage.mk maclev-1-1-S-and-D-on-curve.sage.mk maclev_2_2_defs.py.mk maclev-2-2-popdyn.sage.mk maclev-2-2-adap.sage.mk maclev-2-2-p.sage.mk maclev-2-2-zngi.sage.mk maclev-2-2-geom.sage.mk maclevmodels.py.mk lotkavolterra.py.mk maclev-2-2-zngi-invasion.sage.mk
 Including .mk files from .sage-inline files: avec.sage.mk a-careful.sage.mk
-make: Entering directory `/usr/local/src/jekyll-research/wmd_files/Selection_Gradients'
-sage-inline.mk:14: avec.sage.mk: No such file or directory
-sage-inline.mk:14: a-careful.sage.mk: No such file or directory
 Including .tex.d files: 
-make: *** No rule to make target `a-careful.sage.mk'.  Stop.
+make: Entering directory `/usr/local/src/jekyll-research/wmd_files/Selection_Gradients'
+make: `avec.sage.out.html' is up to date.
 make: Leaving directory `/usr/local/src/jekyll-research/wmd_files/Selection_Gradients'
-Make failed with exit code 2.
-Tue Dec 23 16:16:30 2014
+Make succeeded.
+Sun Dec 28 16:04:10 2014

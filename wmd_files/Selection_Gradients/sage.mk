@@ -1,4 +1,9 @@
 # Makefile to connect the Sage code here with the code in SageDynamics and elsewhere
+
+# the three upstream projects are all bundled into one git repo
+export SageUtils            = $(realpath $(SageDynamicsRepo)/SageUtils)
+export SageDynamics         = $(realpath $(SageDynamicsRepo)/SageDynamics)
+export SageAdaptiveDynamics = $(realpath $(SageDynamicsRepo)/SageAdaptiveDynamics)
  
 # When we need something from the upstream projects, make it there
 $(SageDynamics)/% : /proc/uptime

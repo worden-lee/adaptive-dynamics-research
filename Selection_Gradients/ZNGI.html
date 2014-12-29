@@ -87,15 +87,14 @@ zngi_generic_parametric = (rescomp_abstract._flow[X_0]/X_0) == 0
 u = SR('u')
 zngi_generic_parametric = bmc_bindings( zngi_generic_parametric ).subs( { u_0:u } )
 
-#print 'c\_bindings: ' + latex( c_bindings )
 zngis_generic = [ zngi_R1( x ) for x in ( X_0, X_1 ) ]
-ltx.write( &quot;zngis:\n&quot; )
-for z in zngis_generic:
-	ltx.write_block( R_1 == z )
-ltx.write( &quot;R intercepts are:\n&quot; )
-for z in zngis_generic:
-	R1int = solve( z, R_0, solution_dict=True )[0][R_0]
-	ltx.write_block( [ (R1int, 0), (0, z.subs( { R_0: 0 } )) ] )
+#ltx.write( &quot;zngis:\n&quot; )
+#for z in zngis_generic:
+#	ltx.write_block( R_1 == z )
+#ltx.write( &quot;R intercepts are:\n&quot; )
+#for z in zngis_generic:
+#	R1int = solve( z, R_0, solution_dict=True )[0][R_0]
+#	ltx.write_block( [ (R1int, 0), (0, z.subs( { R_0: 0 } )) ] )
 
 zngis_numeric = [
     [ Bindings(p)( bmc_bindings( r ) ) for r in zngis_generic ]
@@ -118,23 +117,22 @@ envelope_condition = diff( zngi_generic_parametric, u )
 envelope_curves = solve( [ zngi_generic_parametric, envelope_condition ], [ R_0, R_1 ], solution_dict=True )
 envelope_curve = [ envelope_curves[0][r] for r in (R_0,R_1) ]
 #ltx.write_block( envelope_curve )
-envelope_plot = parametric_plot( envelope_curve, (u,0.1,0.9) )
+envelope_plot = parametric_plot( envelope_curve, (u,0.05,0.95) )
 
 def main():
     zplot = Graphics()
     anima = []
 
+    print 'create frames'; sys.stdout.flush()
     for zs, r0s in zip(zngis_numeric, rmax):
-    #for zs, r0s in [zip(zngis_numeric, rmax)[0]]:
-        frame = Graphics()
+        frame = envelope_plot
         for r1, r0max in zip(zs, r0s):
-            print r1; sys.stdout.flush()
             frame += plot( r1, (R_0, 0, r0max), **plot_fill_args )
             zplot += plot( r1, (R_0, 0, r0max), **plot_line_args )
-        frame += envelope_plot
         frame.axes_labels( [ '$%s$'%latex(r) for r in (R_0, R_1) ] )
         anima += [ frame ]
 
+    print 'create animate gif'; sys.stdout.flush()
     animation = animate( anima, xmin=0, xmax=4, ymin=0, ymax=4, figsize=(5,5) )
     animation.save( 'maclev-2-2-zngi-animation.gif' )
     return 0
@@ -148,44 +146,6 @@ ltx.close()
 save_session('maclev-2-2-zngi')
 sys.exit(int(status))
 </pre></div></fieldset></p>
-
-<p><fieldset class="ww-messages"><legend><ww-messages-legend: ></legend><p class='error'>Error: File ‘maclev-2-2-zngi.sage.out.html’ not found in working directory.</p>
-</fieldset>
-<!-- maclev-2-2-zngi.sage.out.html --></p>
-
-<p>Here is an animation of the changing ZNGI curves of the
-two species.  For each species, its line is <!-- 3b0d309db579432ca0546730b58ac2e4.tex-math.latexml.html --><span class="latexml"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="(R_{0},R_{1})" display="inline"><mrow><mo stretchy="false">(</mo><msub xml:id="XM1b"><mi xml:id="XM1">R</mi><mn xml:id="XM1a">0</mn></msub><mo>,</mo><msub xml:id="XM2b"><mi xml:id="XM2">R</mi><mn xml:id="XM2a">1</mn></msub><mo stretchy="false">)</mo></mrow></math></span>
-combinations for which it is at equilibrium, and the gray
-region below is resource concentrations that are too low
-for it.</p>
-
-<p><!-- maclev-2-2-zngi-animation.gif --><img src="/wmd_files/Selection_Gradients/maclev-2-2-zngi-animation.gif" alt="(maclev-2-2-zngi-animation.gif)"/></p>
-
-<p>The <!-- f29d7d215dd27a9702745a0b43081d28.tex-math.latexml.html --><span class="latexml"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="R_{0}" display="inline"><msub><mi>R</mi><mn>0</mn></msub></math></span>- and <!-- b7000dd9eb57a731c41f8c85a55ff36a.tex-math.latexml.html --><span class="latexml"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="R_{1}" display="inline"><msub><mi>R</mi><mn>1</mn></msub></math></span>-intercepts of the line are <!-- f70daf0989b208fe7dbf6e0889cb731a.tex-math.latexml.html --><span class="latexml"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="\frac{m}{c_{j}}" display="inline"><mfrac><mi>m</mi><msub><mi>c</mi><mi>j</mi></msub></mfrac></math></span>
-for that species and that resource.  If the species’s two <!-- 4a8a08f09d37b73795649038408b5f33.tex-math.latexml.html --><span class="latexml"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="c" display="inline"><mi>c</mi></math></span> values
-were allowed to vary independently, it would be able to try all diagonal
-lines.  But since they are constrained by a single, scalar phenotype <!-- 7b774effe4a349c6dd82ad4f4f21d34c.tex-math.latexml.html --><span class="latexml"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="u" display="inline"><mi>u</mi></math></span>,
-a choice of <!-- 179474ed9fdcb4ad56770fe1228e1a75.tex-math.latexml.html --><span class="latexml"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="c_{0}" display="inline"><msub><mi>c</mi><mn>0</mn></msub></math></span> compels the value of <!-- 576f1dacd615219d9f8bea06b26d5fdc.tex-math.latexml.html --><span class="latexml"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="c_{1}" display="inline"><msub><mi>c</mi><mn>1</mn></msub></math></span> as well.</p>
-
-<p>The blue curve is the geometric face of that constraint: all ZNGI lines
-parametrized by the scalar <!-- 7b774effe4a349c6dd82ad4f4f21d34c.tex-math.latexml.html --><span class="latexml"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="u" display="inline"><mi>u</mi></math></span> are tangent to that curve (thank you, <a href="http://www.amazon.com/Differential-Integral-Calculus-Volume-Set/product-reviews/0471588814/ref=cm_cr_dp_text?ie=UTF8&amp;showViewpoints=0&amp;sortBy=byRankDescending#R3LJKOYQ9TUWVZ">Courant</a>!).</p>
-
-<p>The current resource concentration <!-- 3b0d309db579432ca0546730b58ac2e4.tex-math.latexml.html --><span class="latexml"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="(R_{0},R_{1})" display="inline"><mrow><mo stretchy="false">(</mo><msub xml:id="XM1b"><mi xml:id="XM1">R</mi><mn xml:id="XM1a">0</mn></msub><mo>,</mo><msub xml:id="XM2b"><mi xml:id="XM2">R</mi><mn xml:id="XM2a">1</mn></msub><mo stretchy="false">)</mo></mrow></math></span> is the point of 
-intersection of the two gray ZNGI lines.</p>
-
-<p>Evolution proceeds by invasion into the gray region: each line “rolls”
-along the blue (envelope) curve, in whichever direction places the current
-resources <!-- 3b0d309db579432ca0546730b58ac2e4.tex-math.latexml.html --><span class="latexml"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="(R_{0},R_{1})" display="inline"><mrow><mo stretchy="false">(</mo><msub xml:id="XM1b"><mi xml:id="XM1">R</mi><mn xml:id="XM1a">0</mn></msub><mo>,</mo><msub xml:id="XM2b"><mi xml:id="XM2">R</mi><mn xml:id="XM2a">1</mn></msub><mo stretchy="false">)</mo></mrow></math></span> in the white region above the line.</p>
-
-<p>So to understand the dynamics of this evolution, and the conditions
-responsible for <a href="https://en.wikipedia.org/wiki/Character_displacement">character displacement</a>, we’ll want to understand the shape of that envelope
-curve and how it relates to the form of the function <!-- facbeda47ad35f46d1d53c1ccbf0fea7.tex-math.latexml.html --><span class="latexml"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="c_{j}(u)" display="inline"><mrow><msub><mi>c</mi><mi>j</mi></msub><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mi xml:id="XM1">u</mi><mo stretchy="false">)</mo></mrow></mrow></math></span>.</p>
-
-<p>Here is the time evolution of the resource concentrations <!-- 3b0d309db579432ca0546730b58ac2e4.tex-math.latexml.html --><span class="latexml"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="(R_{0},R_{1})" display="inline"><mrow><mo stretchy="false">(</mo><msub xml:id="XM1b"><mi xml:id="XM1">R</mi><mn xml:id="XM1a">0</mn></msub><mo>,</mo><msub xml:id="XM2b"><mi xml:id="XM2">R</mi><mn xml:id="XM2a">1</mn></msub><mo stretchy="false">)</mo></mrow></math></span>:</p>
-
-<p><!-- maclev-2-2-Rhat-vs-t.png --><img src="/wmd_files/Selection_Gradients/maclev-2-2-Rhat-vs-t.png" alt="(maclev-2-2-Rhat-vs-t.png)"/></p>
-
-<p></p>
 
 <p></p>
 

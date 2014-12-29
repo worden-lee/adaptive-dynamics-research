@@ -1,0 +1,100 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{graphicx}
+\pagestyle{empty}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\oddsidemargin 0.0in
+\evensidemargin 0.0in
+\textwidth 6.45in
+\topmargin 0.0in
+\headheight 0.0in
+\headsep 0.0in
+\textheight 9.0in
+\usepackage{amsmath}
+\newcommand{\ZZ}{\Bold{Z}}
+\newcommand{\NN}{\Bold{N}}
+\newcommand{\RR}{\Bold{R}}
+\newcommand{\CC}{\Bold{C}}
+\newcommand{\QQ}{\Bold{Q}}
+\newcommand{\QQbar}{\overline{\QQ}}
+\newcommand{\GF}[1]{\Bold{F}_{#1}}
+\newcommand{\Zp}[1]{\ZZ_{#1}}
+\newcommand{\Qp}[1]{\QQ_{#1}}
+\newcommand{\Zmod}[1]{\ZZ/#1\ZZ}
+\newcommand{\CDF}{\Bold{C}}
+\newcommand{\CIF}{\Bold{C}}
+\newcommand{\CLF}{\Bold{C}}
+\newcommand{\RDF}{\Bold{R}}
+\newcommand{\RIF}{\Bold{I} \Bold{R}}
+\newcommand{\RLF}{\Bold{R}}
+\newcommand{\CFF}{\Bold{CFF}}
+\newcommand{\Bold}[1]{\mathbf{#1}}
+\begin{document}
+The Mac-Lev model in generic form: 
+\[\begin{align*}
+\frac{dX_{0}}{dt} &= -{\left(\frac{{\left(X_{0} c_{00} + X_{1} c_{10} - K_{0} r_{0}\right)} c_{00} w_{0}}{r_{0}} + \frac{{\left(X_{0} c_{01} + X_{1} c_{11} - K_{1} r_{1}\right)} c_{01} w_{1}}{r_{1}} + m_{0}\right)} X_{0} b_{0}\\
+\frac{dX_{1}}{dt} &= -{\left(\frac{{\left(X_{0} c_{00} + X_{1} c_{10} - K_{0} r_{0}\right)} c_{10} w_{0}}{r_{0}} + \frac{{\left(X_{0} c_{01} + X_{1} c_{11} - K_{1} r_{1}\right)} c_{11} w_{1}}{r_{1}} + m_{1}\right)} X_{1} b_{1}
+\end{align*} \
+\]
+The Mac-Lev model with $b, m$, and $c$ bound to functions of $u$:
+
+\[\begin{align*}
+\frac{dX_{0}}{dt} &= X_{0} {\left(\frac{{\left(K_{0} r_{0} - \frac{X_{0}}{5 \, u_{0}^{2} + 1} - \frac{X_{1}}{5 \, u_{1}^{2} + 1}\right)} w_{0}}{{\left(5 \, u_{0}^{2} + 1\right)} r_{0}} + \frac{{\left(K_{1} r_{1} - \frac{X_{0}}{5 \, {\left(u_{0} - 1\right)}^{2} + 1} - \frac{X_{1}}{5 \, {\left(u_{1} - 1\right)}^{2} + 1}\right)} w_{1}}{{\left(5 \, {\left(u_{0} - 1\right)}^{2} + 1\right)} r_{1}} - 1\right)}\\
+\frac{dX_{1}}{dt} &= X_{1} {\left(\frac{{\left(K_{0} r_{0} - \frac{X_{0}}{5 \, u_{0}^{2} + 1} - \frac{X_{1}}{5 \, u_{1}^{2} + 1}\right)} w_{0}}{{\left(5 \, u_{1}^{2} + 1\right)} r_{0}} + \frac{{\left(K_{1} r_{1} - \frac{X_{0}}{5 \, {\left(u_{0} - 1\right)}^{2} + 1} - \frac{X_{1}}{5 \, {\left(u_{1} - 1\right)}^{2} + 1}\right)} w_{1}}{{\left(5 \, {\left(u_{1} - 1\right)}^{2} + 1\right)} r_{1}} - 1\right)}
+\end{align*} \
+\]
+The coexistence criteria depend on the invasion rates at the boundary equilibria.
+
+Invasion of $X_{0}$:
+
+\[\frac{2 \, b_{0} c_{01} c_{10}^{2} + 2 \, b_{0} c_{00} c_{11}^{2} - 2 \, {\left(b_{0} c_{00} + b_{0} c_{01}\right)} c_{10} c_{11} - {\left(b_{0} c_{10}^{2} + b_{0} c_{11}^{2}\right)} m_{0} + {\left(b_{0} c_{00} c_{10} + b_{0} c_{01} c_{11}\right)} m_{1}}{c_{10}^{2} + c_{11}^{2}} > 0 \
+\]
+Invasion of $X_{1}$:
+
+\[-\frac{2 \, {\left(b_{1} c_{00} c_{01} - b_{1} c_{01}^{2}\right)} c_{10} - 2 \, {\left(b_{1} c_{00}^{2} - b_{1} c_{00} c_{01}\right)} c_{11} - {\left(b_{1} c_{00} c_{10} + b_{1} c_{01} c_{11}\right)} m_{0} + {\left(b_{1} c_{00}^{2} + b_{1} c_{01}^{2}\right)} m_{1}}{c_{00}^{2} + c_{01}^{2}} > 0 \
+\]
+But those invasion criteria are really about the resources.
+\begin{align*}
+\frac{dR_{0}}{dt} &= -X_{0} c_{00} - X_{1} c_{10} - R_{0} + 2\\
+\frac{dR_{1}}{dt} &= -X_{0} c_{01} - X_{1} c_{11} - R_{1} + 2\\
+\frac{dX_{0}}{dt} &= {\left(R_{0} c_{00} + R_{1} c_{01} - m_{0}\right)} X_{0} b_{0}\\
+\frac{dX_{1}}{dt} &= {\left(R_{0} c_{10} + R_{1} c_{11} - m_{1}\right)} X_{1} b_{1}
+\end{align*}Here's a boundary solution: \begin{align*}
+  X_{0} &\to 0 \\
+  R_{1} &\to \frac{2 \, c_{10}^{2} - 2 \, c_{10} c_{11} + c_{11} m_{1}}{c_{10}^{2} + c_{11}^{2}} \\
+  R_{0} &\to -\frac{2 \, c_{10} c_{11} - 2 \, c_{11}^{2} - c_{10} m_{1}}{c_{10}^{2} + c_{11}^{2}} \\
+  X_{1} &\to \frac{2 \, c_{10} + 2 \, c_{11} - m_{1}}{c_{10}^{2} + c_{11}^{2}}
+\end{align*}
+
+Invasion condition for $X_{0}$:
+
+\[R_{0} b_{0} c_{00} + R_{1} b_{0} c_{01} - b_{0} m_{0} > 0 \
+\]
+Here's a boundary solution: \begin{align*}
+  X_{0} &\to \frac{2 \, c_{00} + 2 \, c_{01} - m_{0}}{c_{00}^{2} + c_{01}^{2}} \\
+  R_{1} &\to \frac{2 \, c_{00}^{2} - 2 \, c_{00} c_{01} + c_{01} m_{0}}{c_{00}^{2} + c_{01}^{2}} \\
+  R_{0} &\to -\frac{2 \, c_{00} c_{01} - 2 \, c_{01}^{2} - c_{00} m_{0}}{c_{00}^{2} + c_{01}^{2}} \\
+  X_{1} &\to 0
+\end{align*}
+
+Invasion condition for $X_{1}$:
+
+\[R_{0} b_{1} c_{10} + R_{1} b_{1} c_{11} - b_{1} m_{1} > 0 \
+\]
+In our initial model, $c$ values are
+\[c_{00} = \left(\frac{9}{14}\right) \
+\]
+
+\[c_{01} = \left(\frac{9}{29}\right) \
+\]
+
+\[c_{10} = \left(\frac{81}{161}\right) \
+\]
+
+\[c_{11} = \left(\frac{81}{206}\right) \
+\]
+
+\end{document}

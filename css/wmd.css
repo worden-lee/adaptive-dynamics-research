@@ -12,6 +12,18 @@ fieldset.ww-project-file-source legend
 table, fieldset
   { margin-bottom:15px; }
 
+/* and make rhythm of latexml paragraphs match.  Probably need to add 
+ * exceptions for paragraphs within minipages, captions, etc.
+ */
+.ltx_p
+  { margin-bottom:15px; }
+
+/* 'div.latexml' itself doesn't need a margin - the things in it should
+ * have it instead
+ */
+.post-content > .latexml
+  { margin:0px; }
+
 /* the big margin-bottom on the pre doesn't look right when it's in our fieldset */
 fieldset.ww-project-file-source pre
   { margin-bottom:6px; }
