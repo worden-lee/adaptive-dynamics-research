@@ -1,4 +1,4 @@
-Sun Dec 28 16:04:10 2014
+Sun Dec 28 16:10:34 2014
 /usr/bin/make -C /usr/local/src/jekyll-research/wmd_files/Selection_Gradients \
     avec.sage.out.html
 Including .mk files: sage.mk sage-inline.mk 
@@ -9,4 +9,4 @@ make: Entering directory `/usr/local/src/jekyll-research/wmd_files/Selection_Gra
 make: `avec.sage.out.html' is up to date.
 make: Leaving directory `/usr/local/src/jekyll-research/wmd_files/Selection_Gradients'
 Make succeeded.
-Sun Dec 28 16:04:10 2014
+Sun Dec 28 16:10:34 2014
