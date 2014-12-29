@@ -49,7 +49,7 @@ envelope_condition = diff( zngi_generic_parametric, u )
 envelope_curves = solve( [ zngi_generic_parametric, envelope_condition ], [ R_0, R_1 ], solution_dict=True )
 envelope_curve = [ envelope_curves[0][r] for r in (R_0,R_1) ]
 #ltx.write_block( envelope_curve )
-envelope_plot = parametric_plot( envelope_curve, (u,0.05,0.95) )
+envelope_plot = parametric_plot( envelope_curve, (u,0.02,0.98) )
 
 def main():
     zplot = Graphics()
