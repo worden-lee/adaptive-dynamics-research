@@ -1,13 +1,6 @@
-Sun Dec 28 17:52:39 2014
+Sat Jan  3 14:57:19 2015
 /usr/bin/make -C /usr/local/src/jekyll-research/wmd_files/Selection_Gradients \
     maclev-1-1.sage.out.html
-Including .mk files: sage.mk sage-inline.mk 
-Including .mk files from .step files: maclev-1-1.sage.mk maclev-1-1-adap.sage.mk maclev-1-1-mc-adap-geom.sage.mk maclev-1-1-ak-adap-geom.sage.mk S-A-vector-field.sage.mk maclev-1-1-d1A-vector-field.sage.mk maclev-1-1-S-and-d1A-on-curve.sage.mk maclev-1-1-S-and-D-on-curve.sage.mk maclev_2_2_defs.py.mk maclev-2-2-popdyn.sage.mk maclev-2-2-adap.sage.mk maclev-2-2-p.sage.mk maclev-2-2-zngi.sage.mk maclev-2-2-geom.sage.mk maclevmodels.py.mk lotkavolterra.py.mk maclev-2-2-zngi-invasion.sage.mk
-Including .mk files from .sage-inline files: avec.sage.mk a-careful.sage.mk
-Including .tex.d files: 
-make: Entering directory `/usr/local/src/jekyll-research/wmd_files/Selection_Gradients'
-perl -f /usr/local/src/jekyll-research/wmd_files/SageDynamicsRepo/SageUtils/step.pl maclev-2-2-popdyn.sage '#'
-make: Leaving directory `/usr/local/src/jekyll-research/wmd_files/Selection_Gradients'
 Including .mk files: sage.mk sage-inline.mk 
 Including .mk files from .step files: maclev-1-1.sage.mk maclev-1-1-adap.sage.mk maclev-1-1-mc-adap-geom.sage.mk maclev-1-1-ak-adap-geom.sage.mk S-A-vector-field.sage.mk maclev-1-1-d1A-vector-field.sage.mk maclev-1-1-S-and-d1A-on-curve.sage.mk maclev-1-1-S-and-D-on-curve.sage.mk maclev_2_2_defs.py.mk maclev-2-2-popdyn.sage.mk maclev-2-2-adap.sage.mk maclev-2-2-p.sage.mk maclev-2-2-zngi.sage.mk maclev-2-2-geom.sage.mk maclevmodels.py.mk lotkavolterra.py.mk maclev-2-2-zngi-invasion.sage.mk
 Including .mk files from .sage-inline files: avec.sage.mk a-careful.sage.mk
@@ -23,4 +16,4 @@ Including .tex.d files:
 make[1]: Nothing to be done for `adaptivedynamics.py'.
 make: Leaving directory `/usr/local/src/jekyll-research/wmd_files/Selection_Gradients'
 Make succeeded.
-Sun Dec 28 17:52:39 2014
+Sat Jan  3 14:57:19 2015

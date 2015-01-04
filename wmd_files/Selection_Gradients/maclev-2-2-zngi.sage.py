@@ -41,12 +41,12 @@ rmax = [
 plot_line_args = dict( ymin=_sage_const_0 , ymax=_sage_const_4 , xmax=_sage_const_4 , figsize=(_sage_const_5 ,_sage_const_5 ), color='gray' )
 plot_fill_args = dict( plot_line_args, fill=True, fillcolor='gray', fillalpha=_sage_const_0p3 , thickness=_sage_const_2  )
 
-#ltx.write( 'generic ZNGI curve:' )
-#ltx.write_block( zngi_generic_parametric )
+ltx.write( 'generic ZNGI curve:' )
+ltx.write_block( zngi_generic_parametric )
 
 envelope_condition = diff( zngi_generic_parametric, u )
-#ltx.write( 'envelope condition:' )
-#ltx.write_block( envelope_condition )
+ltx.write( 'envelope condition:' )
+ltx.write_block( envelope_condition )
 
 envelope_curves = solve( [ zngi_generic_parametric, envelope_condition ], [ R_0, R_1 ], solution_dict=True )
 envelope_curve = [ envelope_curves[_sage_const_0 ][r] for r in (R_0,R_1) ]

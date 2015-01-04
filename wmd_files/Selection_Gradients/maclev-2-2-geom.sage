@@ -150,7 +150,7 @@ for i in (0, 1):
         #A_to_u_bindings( lv_adap_c._lv_model._indexers['r'][i] ),
         #color=[ 'blue', 'red' ][i] )
 a_phase_plane.axes_labels( [ '$a(u_0,\cdot)$', '$a(u_1,\cdot)$' ] )
-a_phase_plane.save( 'maclev-2-2-a-vs-a.png', figsize=(4,4) )
+a_phase_plane.save( 'maclev-2-2-a-vs-a.png', figsize=(4,4), xmax=0, ymax=0 )
 ##a_3d.axes_labels( [ '$a(u_0,u)$', '$a(u_1,u)$', '$k(u)' ] )
 #a_3d.save( 'maclev-2-2-a-vs-k.png' )
 
@@ -162,6 +162,29 @@ def a_arrow( base, vec, scale=1, **args ):
     return arrow( (base[1], base[2]), (base[1] + scale*vec[1], base[2] + scale*vec[2]), **args )
 
 a_phase_plane_annotated = a_phase_plane
+
+A01 = A_to_u_bindings( lv_adap_c.A(0) )[2] # a(u_0, u_1)
+import numpy
+grid_range = numpy.arange(0,1.01,0.1)
+for u_val in grid_range:
+    # hold u_1=u_val and vary u_0
+    a_phase_plane_annotated += parametric_plot(
+        ( Bindings( { u_1:u_0 } )(A01),                # a(u_0,u_0)
+          Bindings( { u_1:u_0 } )( Bindings( { u_0:u_val } )(A01) ) ), # a(u_1,u_0)
+        (u_0,0,1), color=hue( 0, 0, 0.8 ) )
+    a_phase_plane_annotated += parametric_plot(
+        ( Bindings( { u_1:u_val } )(A01),              # a(u_0,u_1)
+          Bindings( { u_0:u_val, u_1:u_val } )(A01) ), # a(u_1,u_1)
+        (u_0,0,1), color=hue( 0, 0, 0.8 ) )
+    # hold u_0=u_val and vary u_1
+    a_phase_plane_annotated += parametric_plot(
+        ( Bindings( { u_0:u_val, u_1:u_val } )(A01),   # a(u_0,u_0)
+          Bindings( { u_0:u_1 } )( Bindings( { u_1:u_val } )(A01) ) ), # a(u_1,u_0)
+        (u_1,0,1), color=hue( 0, 0, 0.8 ) )
+    a_phase_plane_annotated += parametric_plot(
+        ( Bindings( { u_0:u_val } )(A01),              # a(u_0,u_1)
+          Bindings( { u_0:u_1 } )(A01) ),              # a(u_1,u_1)
+        (u_1,0,1), color=hue( 0, 0, 0.8 ) )
 
 last_t = -oo
 scale = 1/12
@@ -206,8 +229,9 @@ for p in c_evolution._timeseries:
             a_phase_plane_annotated += S_A_arrow + D_arrow + I_arrow + dA_du_arrow
 
 a_phase_plane_annotated.axes_labels( [ '$a(u_0,\cdot)$', '$a(u_1,\cdot)$' ] )
-a_phase_plane_annotated.save( 'maclev-2-2-a-arrows.png', figsize=(10,10)
+a_phase_plane_annotated.save( 'maclev-2-2-a-arrows.png', figsize=(8,8)
     #, xmin=-0.6, xmax=-0.3, ymin=-0.6, ymax=-0.3
+    , xmax=0, ymax=0
 )
 
 #stop there for now

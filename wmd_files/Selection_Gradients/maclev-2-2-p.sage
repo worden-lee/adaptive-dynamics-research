@@ -1,7 +1,8 @@
 # requires: $(SageDynamics)/dynamicalsystems.py $(SageUtils)/latex_output.py
-# requires: $(SageAdaptiveDynamics)/adaptivedynamics.py maclevmodels.py 
+# requires: $(SageAdaptiveDynamics)/adaptivedynamics.py maclevmodels.py
 # requires: maclev_2_2_defs.py maclev-2-2-adap.sobj
-# produces: maclev-2-2-p.sage.out.tex
+# produces: maclev-2-2-p.sage.out.tex maclev-2-2-c-vs-c.png
+# produces: maclev-2-2-total-c-vs-u.png
 from maclev_2_2_defs import *
 
 load_session( 'maclev-2-2-adap' )
@@ -18,13 +19,22 @@ maclev_adap_p = AdaptiveDynamicsModel(
 
 print 'adaptive dynamics of b, m, c:', maclev_adap_p
 
-if False:
+if True:
     ltx.write('adaptive dynamics of $b$, $m$, $c$:')
     for i in maclev._population_indices:
         ltx.write_block(
             column_vector( [ pi[i] for pi in p_indexers ] ),
             wrap_latex( r'\to' ),
-            column_vector( [ maclev_adap_p._S[pi[i]] for pi in p_indexers ] ) )
+            maclev_p._bindings( column_vector( [ maclev_adap_p._S[pi[i]] for pi in p_indexers ] ) ) )
+    ltx.write( 'and note\n' )
+    rhats = column_vector( [ hat( maclev_p._rescomp_model._indexers['R'][i] ) for i in maclev_p._rescomp_model._r_indices ] )
+    ltx.write_equality( rhats, maclev_p._bindings( rhats ) )
+    ltx.write( 'so that when $b_0=b_1=1$, $S(\mathbf{c}_0)=S(\mathbf{c}_1)=\hat{\mathbf{R}}$.\n\n' )
+    ltx.write( '(Also, ' ) 
+    #xhats = column_vector( maclev_p.equilibrium_vars() )
+    #ltx.write_equality( xhats, maclev_adap_p._equilibrium( xhats ) )
+    ltx.write( 'the selection gradient on $b_i$ is directly from the '
+        '$\\frac{dX_i}{dt}$ equation, and can be seen to be equal to 0.)\n' )
 
 def make_arrow( base, vec, scale=1, **args ):
     #print 'arrow: $%s \\to %s%s$' % (latex(base),latex(scale),latex(vec))
@@ -74,6 +84,15 @@ for p in c_evolution._timeseries:
 
 c_phase_plane.axes_labels( [ '$c_0$', '$c_1$' ] )
 c_phase_plane.save( 'maclev-2-2-c-vs-c.png', figsize=(6,6) )
+
+print 'plot total c vs u' 
+sys.stdout.flush()
+
+c_curve = plot( c_func( 0, 0 ) + c_func( 0, 1 ), (u_0, 0, 1) )
+c_curve += point( initial_conditions( vector( [ u_0, c_func( 0, 0 ) + c_func( 0, 1 ) ] ) ), color='blue', size=30 )
+c_curve += point( initial_conditions( vector( [ u_1, c_func( 1, 0 ) + c_func( 1, 1 ) ] ) ), color='red', size=30 )
+c_curve.axes_labels( [ '$u$', '$c_0(u) + c_1(u)$' ] )
+c_curve.save( 'maclev-2-2-total-c-vs-u.png', figsize=(4,4), ymin=0 )
 
 ltx.close()
 save_session( 'maclev-2-2-p' )

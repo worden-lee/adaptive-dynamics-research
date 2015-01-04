@@ -1,1 +1,1 @@
-dynamicalsystems.py.out : $(SageAdaptiveDynamics)/adaptivedynamics.py
+# helper makefile automatically generated from dynamicalsystems.py.step

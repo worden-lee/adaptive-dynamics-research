@@ -106,12 +106,12 @@ rmax = [
 plot_line_args = dict( ymin=0, ymax=4, xmax=4, figsize=(5,5), color='gray' )
 plot_fill_args = dict( plot_line_args, fill=True, fillcolor='gray', fillalpha=0.3, thickness=2 )
 
-#ltx.write( 'generic ZNGI curve:' )
-#ltx.write_block( zngi_generic_parametric )
+ltx.write( 'generic ZNGI curve:' )
+ltx.write_block( zngi_generic_parametric )
 
 envelope_condition = diff( zngi_generic_parametric, u )
-#ltx.write( 'envelope condition:' )
-#ltx.write_block( envelope_condition )
+ltx.write( 'envelope condition:' )
+ltx.write_block( envelope_condition )
 
 envelope_curves = solve( [ zngi_generic_parametric, envelope_condition ], [ R_0, R_1 ], solution_dict=True )
 envelope_curve = [ envelope_curves[0][r] for r in (R_0,R_1) ]

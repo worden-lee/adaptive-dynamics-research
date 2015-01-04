@@ -1,6 +1,75 @@
-plot c vs u
-starting adaptive dynamics
-did adaptive dynamics
+find adaptive dynamics equilibria
+grid point (0.100000000000000, 0.100000000000000)
+grid point (0.100000000000000, 0.400000000000000)
+grid point (0.100000000000000, 0.600000000000000)
+minimize
+Optimization terminated successfully.
+         Current function value: 0.000000
+         Iterations: 35
+         Function evaluations: 68
+found (0.071, 0.93)
+grid point (0.100000000000000, 0.900000000000000)
+minimize
+Optimization terminated successfully.
+         Current function value: 0.000000
+         Iterations: 26
+         Function evaluations: 51
+found (0.071, 0.93)
+grid point (0.400000000000000, 0.100000000000000)
+grid point (0.400000000000000, 0.400000000000000)
+grid point (0.400000000000000, 0.600000000000000)
+minimize
+Optimization terminated successfully.
+         Current function value: 0.000000
+         Iterations: 25
+         Function evaluations: 57
+found (0.50, 0.50)
+grid point (0.400000000000000, 0.900000000000000)
+minimize
+Optimization terminated successfully.
+         Current function value: 0.000000
+         Iterations: 27
+         Function evaluations: 62
+found (0.50, 0.50)
+grid point (0.600000000000000, 0.100000000000000)
+minimize
+Optimization terminated successfully.
+         Current function value: 0.000000
+         Iterations: 35
+         Function evaluations: 68
+found (0.93, 0.071)
+grid point (0.600000000000000, 0.400000000000000)
+minimize
+Optimization terminated successfully.
+         Current function value: 0.000000
+         Iterations: 25
+         Function evaluations: 57
+found (0.50, 0.50)
+grid point (0.600000000000000, 0.600000000000000)
+grid point (0.600000000000000, 0.900000000000000)
+grid point (0.900000000000000, 0.100000000000000)
+minimize
+Optimization terminated successfully.
+         Current function value: 0.000000
+         Iterations: 26
+         Function evaluations: 51
+found (0.93, 0.071)
+grid point (0.900000000000000, 0.400000000000000)
+minimize
+Optimization terminated successfully.
+         Current function value: 0.000000
+         Iterations: 27
+         Function evaluations: 62
+found (0.50, 0.50)
+grid point (0.900000000000000, 0.600000000000000)
+grid point (0.900000000000000, 0.900000000000000)
+construct u vector field plot
+eq {uhat_1: 0.071, uhat_0: 0.93}
+eq u_0 0.93
+eq {uhat_1: 0.93, uhat_0: 0.071}
+eq u_0 0.071
+eq {uhat_1: 0.50, uhat_0: 0.50}
+eq u_0 0.50
 solve
 plot u vs t
 plot u vs u

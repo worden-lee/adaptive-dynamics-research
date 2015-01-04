@@ -27,12 +27,12 @@ Original pop-dyn system:
 \end{align*}
  \[ \mathbf S \left(\begin{array}{c}
   c_{00}\\
-  m_{0}\\
-  b_{0}
+  b_{0}\\
+  m_{0}
 \end{array}\right) = \left(\begin{array}{c}
   -\frac{\hat{X}_{0} b_{0} c_{00} w_{0} - K_{0} b_{0} r_{0} w_{0}}{r_{0}}\\
-  -b_{0}\\
-  -\frac{\hat{X}_{0} c_{00}^{2} w_{0} - K_{0} c_{00} r_{0} w_{0} + m_{0} r_{0}}{r_{0}}
+  -\frac{\hat{X}_{0} c_{00}^{2} w_{0} - K_{0} c_{00} r_{0} w_{0} + m_{0} r_{0}}{r_{0}}\\
+  -b_{0}
 \end{array}\right) \]
  Equilibrium of the population dynamics: 
 \[ \begin{align*}
@@ -42,8 +42,8 @@ Original pop-dyn system:
  The adaptive dynamics comes out to 
 \[ \begin{align*}
 \frac{dc_{00}}{dt} &= \frac{{\left(K_{0} b_{0} r_{0} w_{0} - \frac{{\left(K_{0} c_{00} r_{0} w_{0} - m_{0} r_{0}\right)} b_{0}}{c_{00}}\right)} {\left(K_{0} c_{00} r_{0} w_{0} - m_{0} r_{0}\right)} \gamma}{c_{00}^{2} r_{0} w_{0}}\\
-\frac{dm_{0}}{dt} &= -\frac{{\left(K_{0} c_{00} r_{0} w_{0} - m_{0} r_{0}\right)} b_{0} \gamma}{c_{00}^{2} w_{0}}\\
-\frac{db_{0}}{dt} &= 0
+\frac{db_{0}}{dt} &= 0\\
+\frac{dm_{0}}{dt} &= -\frac{{\left(K_{0} c_{00} r_{0} w_{0} - m_{0} r_{0}\right)} b_{0} \gamma}{c_{00}^{2} w_{0}}
 \end{align*} \
  \]
 

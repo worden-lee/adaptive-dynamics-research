@@ -62,10 +62,11 @@ def quadratic_bindings(indices):
         [ (rescomp._indexers['m'][i], 1) for i in indices ]
     ) )
 
+exp_focus = 3 #0.25
 def exponential_c_func(i,j):
     if j == 0 or j == 1:
-        return exp( -(u_indexer[i] - j)**2*2 )
-    return -inf
+        return exp( -(u_indexer[i] - j)**2 * exp_focus )
+    return -oo
 
 def make_bindings( c_func, indices ):
     return Bindings( dict(
@@ -74,36 +75,49 @@ def make_bindings( c_func, indices ):
         ] +
         [ (rescomp._indexers['c'][i][1], c_func(i,1))
           for i in indices
-        ] +
-        [ (rescomp._indexers['b'][i], 1) for i in indices ] +
-        [ (rescomp._indexers['m'][i], 1) for i in indices ]
+        ]
     ) )
 
-which_model = 'quadratic'
+bm_bindings = Bindings( dict(
+    [ (rescomp._indexers['b'][i], 1) for i in (0,1) ] +
+    [ (rescomp._indexers['m'][i], 1) for i in (0,1) ]
+) )
+
+integrate_popdyn_to = 30
+integrate_adapdyn_to = 1
+integrate_adapdyn_step = 0.02
+
+which_model = 'exponential'
 
 if which_model == 'linear':
     c_func = linear_c_func
-    bmc_bindings = make_bindings( c_func, (0,1,'i') )
+    c_bindings = make_bindings( c_func, (0,1,'i') )
+    bmc_bindings = bm_bindings + c_bindings
     initial_conditions = Bindings( {
         # in a .sage file, could just write u_0: 1/3
         # in a .py, fractions need special care
-        u_0 : Rational('1/3'),
-        u_1 : Rational('5/11')
+        u_0 : Rational('2/5'),
+        u_1 : Rational('4/7')
     } )
+    integrate_popdyn_to = 500
 elif which_model == 'quadratic':
     c_func = quadratic_c_func
-    bmc_bindings = make_bindings( c_func, (0,1,'i') )
+    c_bindings = make_bindings( c_func, (0,1,'i') )
+    bmc_bindings = bm_bindings + c_bindings
     initial_conditions = Bindings( {
         u_0 : Rational('1/3'),
         u_1 : Rational('4/9')
     } )
 elif which_model == 'exponential':
     c_func = exponential_c_func
-    bmc_bindings = make_bindings( c_func, (0,1,'i') )
+    c_bindings = make_bindings( c_func, (0,1,'i') )
+    bmc_bindings = bm_bindings + c_bindings
     initial_conditions = Bindings( {
-        u_0 : Rational('1/3'),
-        u_1 : Rational('4/9')
+        u_0 : Rational('1/4'),
+        u_1 : Rational('3/4'),
     } )
+    integrate_adapdyn_to = 5
+    integrate_adapdyn_step = 0.1
 
 gamma_bindings = Bindings( { gamma: 1 } )
 
