@@ -24,6 +24,13 @@ table, fieldset
 .post-content > .latexml
   { margin:0px; }
 
+/* Supposedly this obviates <br clear=all/> at the end of the latex document
+ * http://www.sitepoint.com/simple-clearing-of-floats/
+ * But it looks like this isn't needed bc latexml is using the :after trick
+.latexml
+  { overflow:hidden; }
+ */
+
 /* the big margin-bottom on the pre doesn't look right when it's in our fieldset */
 fieldset.ww-project-file-source pre
   { margin-bottom:6px; }
