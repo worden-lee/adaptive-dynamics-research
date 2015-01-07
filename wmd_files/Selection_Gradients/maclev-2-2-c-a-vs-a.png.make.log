@@ -1,0 +1,19 @@
+Tue Jan  6 16:54:29 2015
+/usr/bin/make -C /usr/local/src/jekyll-research/wmd_files/Selection_Gradients \
+    maclev-2-2-c-a-vs-a.png
+Including .mk files: sage.mk sage-inline.mk 
+Including .mk files from .step files: maclev-1-1.sage.mk maclev-1-1-adap.sage.mk maclev-1-1-mc-adap-geom.sage.mk maclev-1-1-ak-adap-geom.sage.mk S-A-vector-field.sage.mk maclev-1-1-d1A-vector-field.sage.mk maclev-1-1-S-and-d1A-on-curve.sage.mk maclev-1-1-S-and-D-on-curve.sage.mk maclev-2-2-c-popdyn.sage.mk maclev-2-2-c-adap.sage.mk maclev-2-2-c-p.sage.mk maclev-2-2-c-zngi.sage.mk maclev-2-2-c-geom.sage.mk maclev_2_2_defs.py.mk maclev-2-2-popdyn.sage.mk maclev-2-2-adap.sage.mk maclev-2-2-p.sage.mk maclev-2-2-zngi.sage.mk maclev-2-2-geom.sage.mk maclevmodels.py.mk lotkavolterra.py.mk maclev-2-2-zngi-invasion.sage.mk
+Including .mk files from .sage-inline files: avec.sage.mk a-careful.sage.mk
+Including .tex.d files: 
+make: Entering directory `/usr/local/src/jekyll-research/wmd_files/Selection_Gradients'
+/usr/bin/make --no-print-directory -C /usr/local/src/jekyll-research/wmd_files/SageDynamicsRepo/SageDynamics dynamicalsystems.py
+Including .mk files:  
+Including .tex.d files: 
+make[1]: Nothing to be done for `dynamicalsystems.py'.
+/usr/bin/make --no-print-directory -C /usr/local/src/jekyll-research/wmd_files/SageDynamicsRepo/SageAdaptiveDynamics adaptivedynamics.py
+Including .mk files:  
+Including .tex.d files: 
+make[1]: Nothing to be done for `adaptivedynamics.py'.
+make: Leaving directory `/usr/local/src/jekyll-research/wmd_files/Selection_Gradients'
+Make succeeded.
+Tue Jan  6 16:54:29 2015

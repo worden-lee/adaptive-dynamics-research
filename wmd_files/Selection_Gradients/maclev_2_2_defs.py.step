@@ -79,15 +79,15 @@ def make_bindings( c_func, indices ):
     ) )
 
 bm_bindings = Bindings( dict(
-    [ (rescomp._indexers['b'][i], 1) for i in (0,1) ] +
-    [ (rescomp._indexers['m'][i], 1) for i in (0,1) ]
+    [ (rescomp._indexers['b'][i], 1) for i in (0,1,'i') ] +
+    [ (rescomp._indexers['m'][i], 1) for i in (0,1,'i') ]
 ) )
 
 integrate_popdyn_to = 30
 integrate_adapdyn_to = 1
 integrate_adapdyn_step = 0.02
 
-which_model = 'exponential'
+which_model = 'quadratic'
 
 if which_model == 'linear':
     c_func = linear_c_func

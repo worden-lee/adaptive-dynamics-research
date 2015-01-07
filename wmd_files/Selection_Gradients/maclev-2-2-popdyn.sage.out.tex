@@ -42,8 +42,8 @@ The Mac-Lev model in generic form:
 The Mac-Lev model with $b, m$, and $c$ bound to functions of $u$:
 
 \[\begin{align*}
-\frac{dX_{0}}{dt} &= {\left(\frac{{\left(K_{1} r_{1} - X_{0} e^{\left(-3 \, {\left(u_{0} - 1\right)}^{2}\right)} - X_{1} e^{\left(-3 \, {\left(u_{1} - 1\right)}^{2}\right)}\right)} w_{1} e^{\left(-3 \, {\left(u_{0} - 1\right)}^{2}\right)}}{r_{1}} + \frac{{\left(K_{0} r_{0} - X_{0} e^{\left(-3 \, u_{0}^{2}\right)} - X_{1} e^{\left(-3 \, u_{1}^{2}\right)}\right)} w_{0} e^{\left(-3 \, u_{0}^{2}\right)}}{r_{0}} - 1\right)} X_{0}\\
-\frac{dX_{1}}{dt} &= {\left(\frac{{\left(K_{1} r_{1} - X_{0} e^{\left(-3 \, {\left(u_{0} - 1\right)}^{2}\right)} - X_{1} e^{\left(-3 \, {\left(u_{1} - 1\right)}^{2}\right)}\right)} w_{1} e^{\left(-3 \, {\left(u_{1} - 1\right)}^{2}\right)}}{r_{1}} + \frac{{\left(K_{0} r_{0} - X_{0} e^{\left(-3 \, u_{0}^{2}\right)} - X_{1} e^{\left(-3 \, u_{1}^{2}\right)}\right)} w_{0} e^{\left(-3 \, u_{1}^{2}\right)}}{r_{0}} - 1\right)} X_{1}
+\frac{dX_{0}}{dt} &= X_{0} {\left(\frac{{\left(K_{0} r_{0} - \frac{X_{0}}{5 \, u_{0}^{2} + 1} - \frac{X_{1}}{5 \, u_{1}^{2} + 1}\right)} w_{0}}{{\left(5 \, u_{0}^{2} + 1\right)} r_{0}} + \frac{{\left(K_{1} r_{1} - \frac{X_{0}}{5 \, {\left(u_{0} - 1\right)}^{2} + 1} - \frac{X_{1}}{5 \, {\left(u_{1} - 1\right)}^{2} + 1}\right)} w_{1}}{{\left(5 \, {\left(u_{0} - 1\right)}^{2} + 1\right)} r_{1}} - 1\right)}\\
+\frac{dX_{1}}{dt} &= X_{1} {\left(\frac{{\left(K_{0} r_{0} - \frac{X_{0}}{5 \, u_{0}^{2} + 1} - \frac{X_{1}}{5 \, u_{1}^{2} + 1}\right)} w_{0}}{{\left(5 \, u_{1}^{2} + 1\right)} r_{0}} + \frac{{\left(K_{1} r_{1} - \frac{X_{0}}{5 \, {\left(u_{0} - 1\right)}^{2} + 1} - \frac{X_{1}}{5 \, {\left(u_{1} - 1\right)}^{2} + 1}\right)} w_{1}}{{\left(5 \, {\left(u_{1} - 1\right)}^{2} + 1\right)} r_{1}} - 1\right)}
 \end{align*} \
 \]
 One coexistence solution:
@@ -100,30 +100,30 @@ Invasion condition for $X_{1}$:
 In our initial model, $c$ values are
 \[c_{00} \
 =\
-e^{\left(-\frac{3}{16}\right)} \
+\frac{9}{14} \
 =\
-0.8290 \
+0.6429 \
 \]
 
 \[c_{01} \
 =\
-e^{\left(-\frac{27}{16}\right)} \
+\frac{9}{29} \
 =\
-0.1850 \
+0.3103 \
 \]
 
 \[c_{10} \
 =\
-e^{\left(-\frac{27}{16}\right)} \
+\frac{81}{161} \
 =\
-0.1850 \
+0.5031 \
 \]
 
 \[c_{11} \
 =\
-e^{\left(-\frac{3}{16}\right)} \
+\frac{81}{206} \
 =\
-0.8290 \
+0.3932 \
 \]
 
 \end{document}

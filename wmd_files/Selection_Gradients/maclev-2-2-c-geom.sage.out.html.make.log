@@ -1,0 +1,189 @@
+Tue Jan  6 16:53:51 2015
+/usr/bin/make -C /usr/local/src/jekyll-research/wmd_files/Selection_Gradients \
+    maclev-2-2-c-geom.sage.out.html
+Including .mk files: sage.mk sage-inline.mk 
+Including .mk files from .step files: maclev-1-1.sage.mk maclev-1-1-adap.sage.mk maclev-1-1-mc-adap-geom.sage.mk maclev-1-1-ak-adap-geom.sage.mk S-A-vector-field.sage.mk maclev-1-1-d1A-vector-field.sage.mk maclev-1-1-S-and-d1A-on-curve.sage.mk maclev-1-1-S-and-D-on-curve.sage.mk maclev-2-2-c-popdyn.sage.mk maclev-2-2-c-adap.sage.mk maclev-2-2-c-p.sage.mk maclev-2-2-c-zngi.sage.mk maclev-2-2-c-geom.sage.mk maclev_2_2_defs.py.mk maclev-2-2-popdyn.sage.mk maclev-2-2-adap.sage.mk maclev-2-2-p.sage.mk maclev-2-2-zngi.sage.mk maclev-2-2-geom.sage.mk maclevmodels.py.mk lotkavolterra.py.mk maclev-2-2-zngi-invasion.sage.mk
+Including .mk files from .sage-inline files: avec.sage.mk a-careful.sage.mk
+Including .tex.d files: 
+make: Entering directory `/usr/local/src/jekyll-research/wmd_files/Selection_Gradients'
+/usr/bin/make --no-print-directory -C /usr/local/src/jekyll-research/wmd_files/SageDynamicsRepo/SageDynamics dynamicalsystems.py
+Including .mk files:  
+Including .tex.d files: 
+make[1]: Nothing to be done for `dynamicalsystems.py'.
+/usr/bin/make --no-print-directory -C /usr/local/src/jekyll-research/wmd_files/SageDynamicsRepo/SageAdaptiveDynamics adaptivedynamics.py
+Including .mk files:  
+Including .tex.d files: 
+make[1]: Nothing to be done for `adaptivedynamics.py'.
+touch maclev-2-2-c-geom.sage.tried
+rm -f maclev-2-2-c-geom.sage.out maclev-2-2-c-geom.sage.status maclev-2-2-c-geom.sage.out.tex maclev-2-2-c-k-vs-t.png maclev-2-2-c-a-vs-t.png maclev-2-2-c-Xhat-vs-t.png maclev-2-2-c-Rhat-vs-t.png maclev-2-2-c-a-vs-a.png maclev-2-2-c-a-vs-k.png maclev-2-2-c-a-arrows.png
+(sage maclev-2-2-c-geom.sage && touch maclev-2-2-c-geom.sage.status) | tee maclev-2-2-c-geom.sage.dmp
+ad bindings: {w_1: 1, w_0: 1, r_1: 1, Rhat_0: -Xhat_0*c_0_0 - Xhat_1*c_1_0 + 2, R_0: -X_0*c_0_0 - X_1*c_1_0 + 2, K_0: 2, m_1: 1, m_i: 1, m_0: 1, gamma: 1, b_i: 1, Rhat_1: -Xhat_0*c_0_1 - Xhat_1*c_1_1 + 2, b_1: 1, r_0: 1, K_1: 2, b_0: 1, R_1: -X_0*c_0_1 - X_1*c_1_1 + 2}, {}
+model bindings: {R_0: -(X_0*c_0_0 + X_1*c_1_0 - K_0*r_0)/r_0, Rhat_1: -(Xhat_0*c_0_1 + Xhat_1*c_1_1 - K_1*r_1)/r_1, Rhat_0: -(Xhat_0*c_0_0 + Xhat_1*c_1_0 - K_0*r_0)/r_0, R_1: -(X_0*c_0_1 + X_1*c_1_1 - K_1*r_1)/r_1}, {}
+_early_bindings: {}, {}
+_late_bindings: {w_1: 1, w_0: 1, r_1: 1, K_0: 2, m_1: 1, m_i: 1, m_0: 1, gamma: 1, b_i: 1, b_1: 1, r_0: 1, K_1: 2, b_0: 1}, {}
+make LV model
+Inferring LV coefficients from X_0 equation: K_0*X_0*b_0*c_0_0*w_0 - X_0^2*b_0*c_0_0^2*w_0/r_0 - X_0*X_1*b_0*c_0_0*c_1_0*w_0/r_0 + K_1*X_0*b_0*c_0_1*w_1 - X_0^2*b_0*c_0_1^2*w_1/r_1 - X_0*X_1*b_0*c_0_1*c_1_1*w_1/r_1 - X_0*b_0*m_0
+a_0_1 : -b_0*c_0_0*c_1_0*w_0/r_0 - b_0*c_0_1*c_1_1*w_1/r_1
+k_0 : K_0*b_0*c_0_0*w_0 + K_1*b_0*c_0_1*w_1 - b_0*m_0
+Inferring LV coefficients from X_1 equation: K_0*X_1*b_1*c_1_0*w_0 - X_0*X_1*b_1*c_0_0*c_1_0*w_0/r_0 - X_1^2*b_1*c_1_0^2*w_0/r_0 + K_1*X_1*b_1*c_1_1*w_1 - X_0*X_1*b_1*c_0_1*c_1_1*w_1/r_1 - X_1^2*b_1*c_1_1^2*w_1/r_1 - X_1*b_1*m_1
+a_1_0 : -b_1*c_0_0*c_1_0*w_0/r_0 - b_1*c_0_1*c_1_1*w_1/r_1
+k_1 : K_0*b_1*c_1_0*w_0 + K_1*b_1*c_1_1*w_1 - b_1*m_1
+_A_bindings: {a_1_0: -b_1*c_0_0*c_1_0*w_0/r_0 - b_1*c_0_1*c_1_1*w_1/r_1, a_0_1: -b_0*c_0_0*c_1_0*w_0/r_0 - b_0*c_0_1*c_1_1*w_1/r_1, a_1_1: -b_1*c_1_0^2*w_0/r_0 - b_1*c_1_1^2*w_1/r_1, a_0_0: -b_0*c_0_0^2*w_0/r_0 - b_0*c_0_1^2*w_1/r_1, k_1: K_0*b_1*c_1_0*w_0 + K_1*b_1*c_1_1*w_1 - b_1*m_1, k_0: K_0*b_0*c_0_0*w_0 + K_1*b_0*c_0_1*w_1 - b_0*m_0}, {}
+Inferring LV coefficients from X_0 equation: K_0*X_0*b_0*c_0_0*w_0 - X_0^2*b_0*c_0_0^2*w_0/r_0 - X_0*X_1*b_0*c_0_0*c_1_0*w_0/r_0 - X_0*X_i*b_0*c_0_0*c_i_0*w_0/r_0 + K_1*X_0*b_0*c_0_1*w_1 - X_0^2*b_0*c_0_1^2*w_1/r_1 - X_0*X_1*b_0*c_0_1*c_1_1*w_1/r_1 - X_0*X_i*b_0*c_0_1*c_i_1*w_1/r_1 - X_0*b_0*m_0
+a_0_1 : -b_0*c_0_0*c_1_0*w_0/r_0 - b_0*c_0_1*c_1_1*w_1/r_1
+a_0_i : -b_0*c_0_0*c_i_0*w_0/r_0 - b_0*c_0_1*c_i_1*w_1/r_1
+k_0 : K_0*b_0*c_0_0*w_0 + K_1*b_0*c_0_1*w_1 - b_0*m_0
+Inferring LV coefficients from X_1 equation: K_0*X_1*b_1*c_1_0*w_0 - X_0*X_1*b_1*c_0_0*c_1_0*w_0/r_0 - X_1^2*b_1*c_1_0^2*w_0/r_0 - X_1*X_i*b_1*c_1_0*c_i_0*w_0/r_0 + K_1*X_1*b_1*c_1_1*w_1 - X_0*X_1*b_1*c_0_1*c_1_1*w_1/r_1 - X_1^2*b_1*c_1_1^2*w_1/r_1 - X_1*X_i*b_1*c_1_1*c_i_1*w_1/r_1 - X_1*b_1*m_1
+a_1_0 : -b_1*c_0_0*c_1_0*w_0/r_0 - b_1*c_0_1*c_1_1*w_1/r_1
+a_1_i : -b_1*c_1_0*c_i_0*w_0/r_0 - b_1*c_1_1*c_i_1*w_1/r_1
+k_1 : K_0*b_1*c_1_0*w_0 + K_1*b_1*c_1_1*w_1 - b_1*m_1
+Inferring LV coefficients from X_i equation: K_0*X_i*b_i*c_i_0*w_0 - X_0*X_i*b_i*c_0_0*c_i_0*w_0/r_0 - X_1*X_i*b_i*c_1_0*c_i_0*w_0/r_0 - X_i^2*b_i*c_i_0^2*w_0/r_0 + K_1*X_i*b_i*c_i_1*w_1 - X_0*X_i*b_i*c_0_1*c_i_1*w_1/r_1 - X_1*X_i*b_i*c_1_1*c_i_1*w_1/r_1 - X_i^2*b_i*c_i_1^2*w_1/r_1 - X_i*b_i*m_i
+a_i_0 : -b_i*c_0_0*c_i_0*w_0/r_0 - b_i*c_0_1*c_i_1*w_1/r_1
+a_i_1 : -b_i*c_1_0*c_i_0*w_0/r_0 - b_i*c_1_1*c_i_1*w_1/r_1
+k_i : K_0*b_i*c_i_0*w_0 + K_1*b_i*c_i_1*w_1 - b_i*m_i
+a_to_u_bindings: {w_1: 1, r_1: 1, a_0_1: -c_0_0*c_1_0 - c_0_1*c_1_1, R_0: -X_0*c_0_0 - X_1*c_1_0 + 2, K_0: 2, m_1: 1, a_i_1: -c_1_0*c_i_0 - c_1_1*c_i_1, k_i: 2*c_i_0 + 2*c_i_1 - 1, a_1_i: -c_1_0*c_i_0 - c_1_1*c_i_1, Rhat_1: -Xhat_0*c_0_1 - Xhat_1*c_1_1 + 2, b_1: 1, a_i_0: -c_0_0*c_i_0 - c_0_1*c_i_1, a_1_0: -c_0_0*c_1_0 - c_0_1*c_1_1, K_1: 2, a_0_i: -c_0_0*c_i_0 - c_0_1*c_i_1, R_1: -X_0*c_0_1 - X_1*c_1_1 + 2, m_0: 1, w_0: 1, Rhat_0: -Xhat_0*c_0_0 - Xhat_1*c_1_0 + 2, a_0_0: -c_0_0^2 - c_0_1^2, k_1: 2*c_1_0 + 2*c_1_1 - 1, m_i: 1, gamma: 1, b_i: 1, a_1_1: -c_1_0^2 - c_1_1^2, k_0: 2*c_0_0 + 2*c_0_1 - 1, r_0: 1, b_0: 1, a_i_i: -c_i_0^2 - c_i_1^2}, {}
+a_func: (c_0_0, c_0_1, c_i_0, c_i_1) |--> -c_0_0*c_i_0 - c_0_1*c_i_1
+r_func: (c_0_0, c_0_1) |--> 2*c_0_0 + 2*c_0_1 - 1
+make LV adaptive dynamics
+Original pop-dyn system: 
+\[ \begin{align*}
+\frac{dX_{0}}{dt} &= {\left(X_{0} a_{00} + X_{1} a_{01} + k_{0}\right)} X_{0}\\
+\frac{dX_{1}}{dt} &= {\left(X_{0} a_{10} + X_{1} a_{11} + k_{1}\right)} X_{1}
+\end{align*} \
+ \]
+ Extended pop-dyn system: 
+\[ \begin{align*}
+\frac{dX_{0}}{dt} &= {\left(X_{0} a_{00} + X_{1} a_{01} + X_{i} a_{0i} + k_{0}\right)} X_{0}\\
+\frac{dX_{1}}{dt} &= {\left(X_{0} a_{10} + X_{1} a_{11} + X_{i} a_{1i} + k_{1}\right)} X_{1}\\
+\frac{dX_{i}}{dt} &= {\left(X_{0} a_{i0} + X_{1} a_{i1} + X_{i} a_{ii} + k_{i}\right)} X_{i}
+\end{align*} \
+ \]
+ The invasion rate for population $i$ is:
+\begin{align*}
+  \mathscr I = \frac{1}{X_{i}}\frac{dX_{i}}{dt} &= X_{0} a_{i0} + X_{1} a_{i1} + X_{i} a_{ii} + k_{i} 
+\end{align*}
+ And the invasion exponent is
+\begin{align*}
+  \frac{\partial\mathscr I}{\partial k_{0}} = \lim_{k_{i}\to k_{0},a_{i0}\to a_{00},a_{i1}\to a_{01},X_{i}\to0}1\\
+  \frac{\partial\mathscr I}{\partial a_{00}} = \lim_{k_{i}\to k_{0},a_{i0}\to a_{00},a_{i1}\to a_{01},X_{i}\to0}X_{0}\\
+  \frac{\partial\mathscr I}{\partial a_{01}} = \lim_{k_{i}\to k_{0},a_{i0}\to a_{00},a_{i1}\to a_{01},X_{i}\to0}X_{1}\\
+  \frac{\partial\mathscr I}{\partial k_{1}} = \lim_{k_{i}\to k_{1},a_{i0}\to a_{10},a_{i1}\to a_{11},X_{i}\to0}1\\
+  \frac{\partial\mathscr I}{\partial a_{10}} = \lim_{k_{i}\to k_{1},a_{i0}\to a_{10},a_{i1}\to a_{11},X_{i}\to0}X_{0}\\
+  \frac{\partial\mathscr I}{\partial a_{11}} = \lim_{k_{i}\to k_{1},a_{i0}\to a_{10},a_{i1}\to a_{11},X_{i}\to0}X_{1} .
+\end{align*}
+ Which comes out to
+\begin{align*}
+  \frac{\partial\mathscr I}{\partial k_{0}} = 1\\
+  \frac{\partial\mathscr I}{\partial a_{00}} = X_{0}\\
+  \frac{\partial\mathscr I}{\partial a_{01}} = X_{1}\\
+  \frac{\partial\mathscr I}{\partial k_{1}} = 1\\
+  \frac{\partial\mathscr I}{\partial a_{10}} = X_{0}\\
+  \frac{\partial\mathscr I}{\partial a_{11}} = X_{1} .
+\end{align*}
+ \[ \mathbf S \left(\begin{array}{c}
+  a_{10}\\
+  a_{01}\\
+  a_{11}\\
+  a_{00}\\
+  k_{1}\\
+  k_{0}
+\end{array}\right) = \left(\begin{array}{c}
+  \hat{X}_{0}\\
+  \hat{X}_{1}\\
+  \hat{X}_{1}\\
+  \hat{X}_{0}\\
+  1\\
+  1
+\end{array}\right) \]
+ Equilibrium of the population dynamics: 
+\[ \begin{align*}
+  X_{0} &\to \hat{X}_{0} \\
+  X_{1} &\to \hat{X}_{1}
+\end{align*} \
+ \]
+ The adaptive dynamics comes out to 
+\[ \begin{align*}
+\frac{da_{10}}{dt} &= \hat{X}_{0} \hat{X}_{1} \gamma\\
+\frac{da_{01}}{dt} &= \hat{X}_{0} \hat{X}_{1} \gamma\\
+\frac{da_{11}}{dt} &= \hat{X}_{1}^{2} \gamma\\
+\frac{da_{00}}{dt} &= \hat{X}_{0}^{2} \gamma\\
+\frac{dk_{1}}{dt} &= \hat{X}_{1} \gamma\\
+\frac{dk_{0}}{dt} &= \hat{X}_{0} \gamma
+\end{align*} \
+ \]
+
+make LV evolution bindings
+dudts: {0: (-Xhat_0^2*c_0_0*gamma - Xhat_0*Xhat_1*c_1_0*gamma + 2*Xhat_0*gamma, -Xhat_0^2*c_0_1*gamma - Xhat_0*Xhat_1*c_1_1*gamma + 2*Xhat_0*gamma), 1: (-Xhat_0*Xhat_1*c_0_0*gamma - Xhat_1^2*c_1_0*gamma + 2*Xhat_1*gamma, -Xhat_0*Xhat_1*c_0_1*gamma - Xhat_1^2*c_1_1*gamma + 2*Xhat_1*gamma)}
+printing things in LaTeX
+plot k vs. t
+k_0: 2*c_0_0 + 2*c_0_1 - 1
+k_1: 2*c_1_0 + 2*c_1_1 - 1
+plot a vs. t
+plot X vs. t
+plot R vs. t
+plot a vs. a
+plot a vs. a with arrows
+[ -e maclev-2-2-c-geom.sage.status ] && (rm -f maclev-2-2-c-geom.sage.status && mv maclev-2-2-c-geom.sage.dmp maclev-2-2-c-geom.sage.out) || exit 1
+latexml  --destination=maclev-2-2-c-geom.sage.out.latexml.xml maclev-2-2-c-geom.sage.out.tex
+latexml (LaTeXML version v0.8.0; revision 70f0ce4)
+processing started Tue Jan  6 16:54:21 2015
+
+(Digesting TeX maclev-2-2-c-geom.sage.out...
+(Loading /usr/local/share/perl/5.18.2/LaTeXML/Package/TeX.pool.ltxml...
+(Loading /usr/local/share/perl/5.18.2/LaTeXML/Package/eTeX.pool.ltxml... 0.01 sec)
+(Loading /usr/local/share/perl/5.18.2/LaTeXML/Package/pdfTeX.pool.ltxml... 0.01 sec) 0.32 sec)
+(Processing content /usr/local/src/jekyll-research/wmd_files/Selection_Gradients/maclev-2-2-c-geom.sage.out.tex...
+(Loading /usr/local/share/perl/5.18.2/LaTeXML/Package/LaTeX.pool.ltxml... 0.30 sec)
+(Loading /usr/local/share/perl/5.18.2/LaTeXML/Package/article.cls.ltxml... 0.04 sec)
+(Loading /usr/local/share/perl/5.18.2/LaTeXML/Package/amsmath.sty.ltxml...
+(Loading /usr/local/share/perl/5.18.2/LaTeXML/Package/amsbsy.sty.ltxml... 0.00 sec)
+(Loading /usr/local/share/perl/5.18.2/LaTeXML/Package/amstext.sty.ltxml... 0.00 sec)
+(Loading /usr/local/share/perl/5.18.2/LaTeXML/Package/amsopn.sty.ltxml... 0.01 sec) 0.08 sec)
+(Loading /usr/local/share/perl/5.18.2/LaTeXML/Package/amssymb.sty.ltxml...
+(Loading /usr/local/share/perl/5.18.2/LaTeXML/Package/amsfonts.sty.ltxml... 0.01 sec) 0.05 sec)
+(Loading /usr/local/share/perl/5.18.2/LaTeXML/Package/graphicx.sty.ltxml...
+(Loading /usr/local/share/perl/5.18.2/LaTeXML/Package/graphics.sty.ltxml... 0.01 sec) 0.04 sec)
+(Loading /usr/local/share/perl/5.18.2/LaTeXML/Package/inputenc.sty.ltxml...
+(Loading /usr/local/share/perl/5.18.2/LaTeXML/Package/utf8.def.ltxml... 0.00 sec) 0.02 sec)
+(Loading /usr/local/share/perl/5.18.2/LaTeXML/Package/fontenc.sty.ltxml...
+(Loading /usr/local/share/perl/5.18.2/LaTeXML/Package/t1enc.def.ltxml...
+(Processing definitions /usr/share/texlive/texmf-dist/tex/latex/base/t1enc.def...
+(Loading /usr/local/share/perl/5.18.2/LaTeXML/Package/t1.fontmap.ltxml... 0.00 sec) 0.14 sec) 0.18 sec) 0.19 sec) 1.14 sec) 1.47 sec)
+(Building...
+(Loading compiled schema /usr/local/share/perl/5.18.2/LaTeXML/resources/RelaxNG/LaTeXML.model... 0.03 sec)..................................... 1.54 sec)
+(Rewriting... 0.05 sec)
+(Math Parsing...7 formulae ...[1][2][3][4][5][6][7]
+Math parsing succeeded:
+   ltx:XMath: 7/7
+   ltx:XMArg: 134/134
+Symbols assumed as simple identifiers (with # of occurences):
+   'A{italic}' (5), 'D{italic}' (17), 'I{italic}' (1), 'S{italic}' (2), 'a{italic}' (28), 'c{italic}' (44), 'd{italic}' (2), 'k{italic}' (10), 't{italic}' (29), 'u{italic}' (2)
+Possibly used as functions?
+  'A{italic}' (4/5 usages), 'D{italic}' (17/17 usages), 'I{italic}' (1/1 usages), 'S{italic}' (2/2 usages), 'c{italic}' (12/44 usages)
+ 3.28 sec)
+(Finalizing... 0.25 sec)
+Conversion complete: No obvious problems.
+processing finished Tue Jan  6 16:54:28 2015
+Updating .workingwiki/maclev-2-2-c-geom.sage.out.latexml.xml
+rm -f maclev-2-2-c-geom.sage.out.latexml.html5
+bibxmls=`perl -ne '($_)=/^[^%]*\\\bibliography\{([^\\\\#]*?)\}/;@_=split /,/;foreach $b (@_) { $b =~ s/\.bib$//; print "$b.bib.xml "}' maclev-2-2-c-geom.sage.out.latexml.xml`; bibxargs=`perl -ne '($_)=/^[^%]*\\\bibliography\{([^\\\\#]*?)\}/;@_=split /,/;foreach $b (@_) { $b =~ s/\.bib$//; print "--bibliography=$b.bib.xml "}' maclev-2-2-c-geom.sage.out.latexml.xml` && \
+	(test -z "$bibxmls" || /usr/bin/make -f /usr/local/src/workingwiki-trunk/ProjectEngine/resources/makefile $bibxmls) && \
+	lxpost="latexmlpost --noplane1 --novalidate --destination=maclev-2-2-c-geom.sage.out.intermediate.latexml.html5 --format=html5 $bibxargs maclev-2-2-c-geom.sage.out.latexml.xml" && echo $lxpost && $lxpost
+latexmlpost --noplane1 --novalidate --destination=maclev-2-2-c-geom.sage.out.intermediate.latexml.html5 --format=html5 maclev-2-2-c-geom.sage.out.latexml.xml
+latexmlpost (LaTeXML version v0.8.0; revision 70f0ce4)
+processing started Tue Jan  6 16:54:28 2015
+(maclev-2-2-c-geom.sage.out.intermediate.latexml.html5 post-processing...
+(Scan maclev-2-2-c-geom.sage.out.intermediate.latexml.html5 processing...
+(CrossRef maclev-2-2-c-geom.sage.out.intermediate.latexml.html5 processing...
+(MathML::Presentation maclev-2-2-c-geom.sage.out.intermediate.latexml.html5 7 to process...
+(XSLT maclev-2-2-c-geom.sage.out.intermediate.latexml.html5 processing...
+(Writer maclev-2-2-c-geom.sage.out.intermediate.latexml.html5 processing... 0.46 sec)
+Postprocessing complete: No obvious problems
+processing finished Tue Jan  6 16:54:29 2015
+/usr/local/src/workingwiki-trunk/ProjectEngine/resources/wiki-inclusion.latexml.pl maclev-2-2-c-geom.sage.out.intermediate.latexml.html5 >maclev-2-2-c-geom.sage.out.latexml.html5
+ln -f maclev-2-2-c-geom.sage.out.latexml.html5 maclev-2-2-c-geom.sage.out.latexml.html
+ln -f maclev-2-2-c-geom.sage.out.latexml.html maclev-2-2-c-geom.sage.out.html
+rm maclev-2-2-c-geom.sage.out.latexml.html5 maclev-2-2-c-geom.sage.out.latexml.xml maclev-2-2-c-geom.sage.out.latexml.html
+make: Leaving directory `/usr/local/src/jekyll-research/wmd_files/Selection_Gradients'
+Make succeeded.
+Tue Jan  6 16:54:29 2015

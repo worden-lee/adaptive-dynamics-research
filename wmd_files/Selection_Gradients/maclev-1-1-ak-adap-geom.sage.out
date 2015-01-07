@@ -12,7 +12,7 @@ k_0 : K_0*u_0*w_0 - 1
 Inferring LV coefficients from X_i equation: K_0*X_i*u_i*w_0 - X_0*X_i*u_0*u_i*w_0/r_0 - X_i^2*u_i^2*w_0/r_0 - X_i
 a_i_0 : -u_0*u_i*w_0/r_0
 k_i : K_0*u_i*w_0 - 1
-a_to_u_bindings: {c_i_0: u_i, w_0: 1, gamma: 1, a_0_i: -u_0*u_i, a_0_0: -u_0^2, R_0: -X_0*u_0 + 2, K_0: 2, r_0: 1, b_0: 1, c_0_0: u_0, Rhat_0: -(2*u_0 - 1)/u_0 + 2, a_i_0: -u_0*u_i, m_i: 1, m_0: 1, a_i_i: -u_i^2, k_0: 2*u_0 - 1, b_i: 1, k_i: 2*u_i - 1, Xhat_0: (2*u_0 - 1)/u_0^2}, {}
+a_to_u_bindings: {c_i_0: u_i, w_0: 1, gamma: 1, a_0_i: -u_0*u_i, a_i_i: -u_i^2, R_0: -X_0*u_0 + 2, K_0: 2, r_0: 1, b_0: 1, c_0_0: u_0, Rhat_0: -(2*u_0 - 1)/u_0 + 2, a_i_0: -u_0*u_i, m_i: 1, m_0: 1, a_0_0: -u_0^2, k_0: 2*u_0 - 1, b_i: 1, k_i: 2*u_i - 1, Xhat_0: (2*u_0 - 1)/u_0^2}, {}
 a_func: (u_0, u_i) |--> -u_0*u_i
 r_func: u_0 |--> 2*u_0 - 1
 make LV adaptive dynamics
@@ -33,17 +33,17 @@ Original pop-dyn system:
 \end{align*}
  And the invasion exponent is
 \begin{align*}
-  \frac{\partial\mathscr I}{\partial k_{0}} = \lim_{k_{i}\to k_{0},a_\{i0\}\to a_\{00\},X_{i}\to0}1\\
-  \frac{\partial\mathscr I}{\partial a_\{00\}} = \lim_{k_{i}\to k_{0},a_\{i0\}\to a_\{00\},X_{i}\to0}X_{0} .
+  \frac{\partial\mathscr I}{\partial k_{0}} = \lim_{k_{i}\to k_{0},a_{i0}\to a_{00},X_{i}\to0}1\\
+  \frac{\partial\mathscr I}{\partial a_{00}} = \lim_{k_{i}\to k_{0},a_{i0}\to a_{00},X_{i}\to0}X_{0} .
 \end{align*}
  Which comes out to
 \begin{align*}
   \frac{\partial\mathscr I}{\partial k_{0}} = 1\\
-  \frac{\partial\mathscr I}{\partial a_\{00\}} = X_{0} .
+  \frac{\partial\mathscr I}{\partial a_{00}} = X_{0} .
 \end{align*}
  \[ \mathbf S \left(\begin{array}{c}
   k_{0}\\
-  a_\{00\}
+  a_{00}
 \end{array}\right) = \left(\begin{array}{c}
   1\\
   \hat{X}_{0}
@@ -56,7 +56,7 @@ Original pop-dyn system:
  The adaptive dynamics comes out to 
 \[ \begin{align*}
 \frac{dk_{0}}{dt} &= \hat{X}_{0} \gamma\\
-\frac{da_\{00\}}{dt} &= \hat{X}_{0}^{2} \gamma
+\frac{da_{00}}{dt} &= \hat{X}_{0}^{2} \gamma
 \end{align*} \
  \]
 
