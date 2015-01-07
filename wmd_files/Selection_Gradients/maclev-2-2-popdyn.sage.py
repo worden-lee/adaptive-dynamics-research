@@ -47,72 +47,74 @@ c_curve.save( 'maclev-2-2-c-vs-u.png', figsize=(_sage_const_4 ,_sage_const_4 ), 
 
 # analysis
 
-maclev_abstract = maclev.bind( numeric_params )
+def analysis():
+    maclev_abstract = maclev.bind( numeric_params )
 
-interior_eq = maclev_abstract.interior_equilibria()
-if len(interior_eq) == _sage_const_0 :
-    ltx.write( "??? No interior equilibria?" )
-elif len(interior_eq) > _sage_const_1 :
-    ltx.write( "??? Multiple interior equilibria ", latex(interior_eq) )
-else:
-    generic_eq = column_vector( [ hat(X_0), hat(X_1) ] )
-    interior_eq = Bindings( interior_eq[_sage_const_0 ] )( generic_eq )
-    print 'interior eq:', interior_eq
-    coexistence_criteria = solve( [ x > _sage_const_0  for x in interior_eq ], [ maclev._rescomp_model._indexers['c'][i][j] for i in (_sage_const_0 ,_sage_const_1 ) for j in (_sage_const_0 ,_sage_const_1 ) ] )
-    print 'coexistence criteria:', coexistence_criteria
-    for soln in coexistence_criteria:
-        ltx.write( 'One coexistence solution:\n' )
-        for crit in soln:
-            ltx.write_block(crit)
+    interior_eq = maclev_abstract.interior_equilibria()
+    if len(interior_eq) == _sage_const_0 :
+        ltx.write( "??? No interior equilibria?" )
+    elif len(interior_eq) > _sage_const_1 :
+        ltx.write( "??? Multiple interior equilibria ", latex(interior_eq) )
+    else:
+        generic_eq = column_vector( [ hat(X_0), hat(X_1) ] )
+        interior_eq = Bindings( interior_eq[_sage_const_0 ] )( generic_eq )
+        print 'interior eq:', interior_eq
+        coexistence_criteria = solve( [ x > _sage_const_0  for x in interior_eq ], [ maclev._rescomp_model._indexers['c'][i][j] for i in (_sage_const_0 ,_sage_const_1 ) for j in (_sage_const_0 ,_sage_const_1 ) ] )
+        print 'coexistence criteria:', coexistence_criteria
+        for soln in coexistence_criteria:
+            ltx.write( 'One coexistence solution:\n' )
+            for crit in soln:
+                ltx.write_block(crit)
 
-ltx.write( "The coexistence criteria depend on the invasion rates at the boundary equilibria.\n\n" )
+    ltx.write( "The coexistence criteria depend on the invasion rates at the boundary equilibria.\n\n" )
 
-for x_inv, x_res in ( (X_0, X_1), (X_1, X_0) ):
-    assume( x_res > _sage_const_0  )
-    assume( x_inv == _sage_const_0  )
-    boundary_solutions = solve( maclev_abstract._flow[x_res] == _sage_const_0 , x_res, solution_dict=True )
-    forget()
-    if ( len( boundary_solutions ) != _sage_const_1  ):
-        raise Exception( 'wrong number of boundary solutions' )
-    boundary_solution = boundary_solutions[_sage_const_0 ]
-    #ltx.write_block( x_res.subs( boundary_solution ) )
-    ltx.write( "Invasion of $%s$:\n" % latex( x_inv ) )
-    inv_rate_abstract = maclev_abstract._flow[x_inv] / x_inv
-    #ltx.write_block( inv_rate_abstract > 0 )
-    inv_rate = inv_rate_abstract.subs( boundary_solution ).subs( { x_inv: _sage_const_0  } )
-    ltx.write_block( inv_rate.full_simplify() > _sage_const_0  )
+    for x_inv, x_res in ( (X_0, X_1), (X_1, X_0) ):
+        assume( x_res > _sage_const_0  )
+        assume( x_inv == _sage_const_0  )
+        boundary_solutions = solve( maclev_abstract._flow[x_res] == _sage_const_0 , x_res, solution_dict=True )
+        forget()
+        if ( len( boundary_solutions ) != _sage_const_1  ):
+            raise Exception( 'wrong number of boundary solutions' )
+        boundary_solution = boundary_solutions[_sage_const_0 ]
+        #ltx.write_block( x_res.subs( boundary_solution ) )
+        ltx.write( "Invasion of $%s$:\n" % latex( x_inv ) )
+        inv_rate_abstract = maclev_abstract._flow[x_inv] / x_inv
+        #ltx.write_block( inv_rate_abstract > 0 )
+        inv_rate = inv_rate_abstract.subs( boundary_solution ).subs( { x_inv: _sage_const_0  } )
+        ltx.write_block( inv_rate.full_simplify() > _sage_const_0  )
 
-rescomp_abstract = rescomp.bind( numeric_params )
+    rescomp_abstract = rescomp.bind( numeric_params )
 
-ltx.write( "But those invasion criteria are really about the resources.\n" ) # The resource levels are:\n" )
-ltx.write( latex( rescomp_abstract ) )
+    ltx.write( "But those invasion criteria are really about the resources.\n" ) # The resource levels are:\n" )
+    ltx.write( latex( rescomp_abstract ) )
 
-for x_inv, x_res in ( (X_0, X_1), (X_1, X_0) ):
-    #assume( x_res > 0 )
-    #assume( x_inv == 0 )
-    assume( R_0 > _sage_const_0 , R_1 > _sage_const_0  )
-    boundary_solutions = solve( [ rescomp_abstract._flow[v] == _sage_const_0  for v in (x_res, R_0, R_1) ] + [ x_inv == _sage_const_0  ], [ x_res, x_inv, R_0, R_1 ], solution_dict=True )
-    forget()
-    #ltx.write( "boundary solutions: $%s$\n" % latex(boundary_solutions) )
-    boundary_solutions = [ s for s in boundary_solutions if s[x_res] != _sage_const_0  ]
-    if ( len( boundary_solutions ) != _sage_const_1  ):
-        raise Exception( 'wrong number of boundary solutions' )
-    boundary_solution = boundary_solutions[_sage_const_0 ]
-    ltx.write( "Here's a boundary solution: %s\n\n" % latex( Bindings( boundary_solution ) ) )
-    #ltx.write_block( x_res.subs( boundary_solution ) )
-    ltx.write( "Invasion condition for $%s$:\n" % latex( x_inv ) )
-    inv_rate_abstract = rescomp_abstract._flow[x_inv] / x_inv
-    #ltx.write_block( inv_rate_abstract > 0 )
-    inv_rate = inv_rate_abstract.subs( { x_inv: _sage_const_0  } )
-    ltx.write_block( inv_rate.full_simplify() > _sage_const_0  )
+    for x_inv, x_res in ( (X_0, X_1), (X_1, X_0) ):
+        #assume( x_res > 0 )
+        #assume( x_inv == 0 )
+        assume( R_0 > _sage_const_0 , R_1 > _sage_const_0  )
+        boundary_solutions = solve( [ rescomp_abstract._flow[v] == _sage_const_0  for v in (x_res, R_0, R_1) ] + [ x_inv == _sage_const_0  ], [ x_res, x_inv, R_0, R_1 ], solution_dict=True )
+        forget()
+        #ltx.write( "boundary solutions: $%s$\n" % latex(boundary_solutions) )
+        boundary_solutions = [ s for s in boundary_solutions if s[x_res] != _sage_const_0  ]
+        if ( len( boundary_solutions ) != _sage_const_1  ):
+            raise Exception( 'wrong number of boundary solutions' )
+        boundary_solution = boundary_solutions[_sage_const_0 ]
+        ltx.write( "Here's a boundary solution: %s\n\n" % latex( Bindings( boundary_solution ) ) )
+        #ltx.write_block( x_res.subs( boundary_solution ) )
+        ltx.write( "Invasion condition for $%s$:\n" % latex( x_inv ) )
+        inv_rate_abstract = rescomp_abstract._flow[x_inv] / x_inv
+        #ltx.write_block( inv_rate_abstract > 0 )
+        inv_rate = inv_rate_abstract.subs( { x_inv: _sage_const_0  } )
+        ltx.write_block( inv_rate.full_simplify() > _sage_const_0  )
 
-ltx.write( "In our initial model, $c$ values are" )
-for i in ( _sage_const_0 , _sage_const_1  ):
-    for j in ( _sage_const_0 , _sage_const_1  ):
-        cij = rescomp_abstract._indexers['c'][i][j]
-        ncij = (initial_conditions + bmc_bindings)( cij )
-        ltx.write_block( cij, '=', ncij, '=', N(ncij, digits=_sage_const_4 ) )
+    ltx.write( "In our initial model, $c$ values are" )
+    for i in ( _sage_const_0 , _sage_const_1  ):
+        for j in ( _sage_const_0 , _sage_const_1  ):
+            cij = rescomp_abstract._indexers['c'][i][j]
+            ncij = (initial_conditions + bmc_bindings)( cij )
+            ltx.write_block( cij, '=', ncij, '=', N(ncij, digits=_sage_const_4 ) )
 
+# analysis()
 ltx.close()
 
 save_session('maclev-2-2-popdyn')

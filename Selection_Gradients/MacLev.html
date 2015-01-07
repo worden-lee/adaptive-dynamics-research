@@ -594,14 +594,15 @@ class LotkaVolterraAdaptiveDynamics( object ):
         A_ij = self._A_to_function_bindings( self.A(i) )
 	u = self._adaptivedynamics._phenotype_indexers[0]
         if j == i:
-	    uis = column_vector( [ u[i] for u in self._adaptivedynamics._phenotype_indexers ] )
-	    uxs = column_vector( [ u['x'] for u in self._adaptivedynamics._phenotype_indexers ] )
+	    uis = [ u[i] for u in self._adaptivedynamics._phenotype_indexers ]
+	    uxs = [ u['x'] for u in self._adaptivedynamics._phenotype_indexers ]
             A_ij_hacked = A_ij.apply_map( lambda x: x.subs_expr( function( self._lv_model._a_name )( *(uis+uis) ) == function( self._lv_model._a_name )( *(uis+uxs) ) ) )
+            #print A_ij,', with', function( self._lv_model._a_name )( *(uis+uis) ), ' =&gt; ', function( self._lv_model._a_name )( *(uis+uxs) ), ' == ', A_ij_hacked
 	    #print 'd2A: derivative of $%s$ wrt $%s$' %(latex(A_ij_hacked), latex(uxs))
             d2A_hacked = matrix( [ [ aij.derivative( uxi ) for uxi in uxs ] for aij in A_ij_hacked ] )
 	    #print 'is $%s$' % latex(d2A_hacked)
             d2A = Bindings( { uxi:uii for uxi, uii in zip(uxs, uis) } )( d2A_hacked )
-            #ltx.write( 'on diagonal: $\partial_2 A = %s$\n\n' % latex( d2A ) )
+            #print 'on diagonal: $\partial_2 A = %s$\n\n' % latex( d2A )
         else:
 	    #print 'd2A: derivative of $%s$ wrt $%s$' %(latex(A_ij), latex(u[j]))
             d2A = matrix( [ [ aij.derivative( u[j] ) for u in self._adaptivedynamics._phenotype_indexers ] for aij in A_ij ] )
@@ -616,7 +617,7 @@ class LotkaVolterraAdaptiveDynamics( object ):
 	        self._phenotypes_to_fn_bindings( vector( [ u[j] for u in self._adaptivedynamics._phenotype_indexers ] ) ),
 	        self._adaptivedynamics._time_variable
 	    ) for j in self._lv_model._population_indices ]
-	import operator
+	#import operator
 	return reduce( operator.add, components )
     def dudt_bindings( self ):
 	# TODO: AD class should provide one of these, and

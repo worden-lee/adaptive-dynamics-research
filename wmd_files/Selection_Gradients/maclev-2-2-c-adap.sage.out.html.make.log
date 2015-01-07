@@ -1,4 +1,4 @@
-Tue Jan  6 16:52:17 2015
+Tue Jan  6 19:08:21 2015
 /usr/bin/make -C /usr/local/src/jekyll-research/wmd_files/Selection_Gradients \
     maclev-2-2-c-adap.sage.out.html
 Including .mk files: sage.mk sage-inline.mk 
@@ -14,75 +14,6 @@ make[1]: Nothing to be done for `dynamicalsystems.py'.
 Including .mk files:  
 Including .tex.d files: 
 make[1]: Nothing to be done for `adaptivedynamics.py'.
-touch maclev-2-2-c-adap.sage.tried
-rm -f maclev-2-2-c-adap.sage.out maclev-2-2-c-adap.sage.status maclev-2-2-c-adap.sage.out.tex maclev-2-2-c-adap.sobj
-(sage maclev-2-2-c-adap.sage && touch maclev-2-2-c-adap.sage.status) | tee maclev-2-2-c-adap.sage.dmp
-c_0_0 -> -(Xhat_0*c_0_0 + Xhat_1*c_1_0 - 2)*Xhat_0
-c_0_1 -> -(Xhat_0*c_0_1 + Xhat_1*c_1_1 - 2)*Xhat_0
-c_1_0 -> -(Xhat_0*c_0_0 + Xhat_1*c_1_0 - 2)*Xhat_1
-c_1_1 -> -(Xhat_0*c_0_1 + Xhat_1*c_1_1 - 2)*Xhat_1
-(bindings:  {m_0: 1, w_0: 1, r_1: 1, w_1: 1, K_0: 2, m_1: 1, m_i: 1, gamma: 1, b_i: 1, b_1: 1, r_0: 1, K_1: 2, b_0: 1}, {} )
-solve
-done
-[ -e maclev-2-2-c-adap.sage.status ] && (rm -f maclev-2-2-c-adap.sage.status && mv maclev-2-2-c-adap.sage.dmp maclev-2-2-c-adap.sage.out) || exit 1
-latexml  --destination=maclev-2-2-c-adap.sage.out.latexml.xml maclev-2-2-c-adap.sage.out.tex
-latexml (LaTeXML version v0.8.0; revision 70f0ce4)
-processing started Tue Jan  6 16:52:30 2015
-
-(Digesting TeX maclev-2-2-c-adap.sage.out...
-(Loading /usr/local/share/perl/5.18.2/LaTeXML/Package/TeX.pool.ltxml...
-(Loading /usr/local/share/perl/5.18.2/LaTeXML/Package/eTeX.pool.ltxml... 0.01 sec)
-(Loading /usr/local/share/perl/5.18.2/LaTeXML/Package/pdfTeX.pool.ltxml... 0.01 sec) 0.32 sec)
-(Processing content /usr/local/src/jekyll-research/wmd_files/Selection_Gradients/maclev-2-2-c-adap.sage.out.tex...
-(Loading /usr/local/share/perl/5.18.2/LaTeXML/Package/LaTeX.pool.ltxml... 0.30 sec)
-(Loading /usr/local/share/perl/5.18.2/LaTeXML/Package/article.cls.ltxml... 0.04 sec)
-(Loading /usr/local/share/perl/5.18.2/LaTeXML/Package/amsmath.sty.ltxml...
-(Loading /usr/local/share/perl/5.18.2/LaTeXML/Package/amsbsy.sty.ltxml... 0.00 sec)
-(Loading /usr/local/share/perl/5.18.2/LaTeXML/Package/amstext.sty.ltxml... 0.00 sec)
-(Loading /usr/local/share/perl/5.18.2/LaTeXML/Package/amsopn.sty.ltxml... 0.01 sec) 0.08 sec)
-(Loading /usr/local/share/perl/5.18.2/LaTeXML/Package/amssymb.sty.ltxml...
-(Loading /usr/local/share/perl/5.18.2/LaTeXML/Package/amsfonts.sty.ltxml... 0.01 sec) 0.05 sec)
-(Loading /usr/local/share/perl/5.18.2/LaTeXML/Package/graphicx.sty.ltxml...
-(Loading /usr/local/share/perl/5.18.2/LaTeXML/Package/graphics.sty.ltxml... 0.01 sec) 0.04 sec)
-(Loading /usr/local/share/perl/5.18.2/LaTeXML/Package/inputenc.sty.ltxml...
-(Loading /usr/local/share/perl/5.18.2/LaTeXML/Package/utf8.def.ltxml... 0.00 sec) 0.02 sec)
-(Loading /usr/local/share/perl/5.18.2/LaTeXML/Package/fontenc.sty.ltxml...
-(Loading /usr/local/share/perl/5.18.2/LaTeXML/Package/t1enc.def.ltxml...
-(Processing definitions /usr/share/texlive/texmf-dist/tex/latex/base/t1enc.def...
-(Loading /usr/local/share/perl/5.18.2/LaTeXML/Package/t1.fontmap.ltxml... 0.00 sec) 0.15 sec) 0.18 sec) 0.19 sec) 1.01 sec) 1.34 sec)
-(Building...
-(Loading compiled schema /usr/local/share/perl/5.18.2/LaTeXML/resources/RelaxNG/LaTeXML.model... 0.03 sec)................. 0.50 sec)
-(Rewriting... 0.02 sec)
-(Math Parsing...3 formulae ...[1][2][3]
-Math parsing succeeded:
-   ltx:XMath: 3/3
-   ltx:XMArg: 84/84
-Symbols assumed as simple identifiers (with # of occurences):
-   'X{italic}' (12), 'c{italic}' (24), 'd{italic}' (12), 't{italic}' (6)
- 0.87 sec)
-(Finalizing... 0.09 sec)
-Conversion complete: No obvious problems.
-processing finished Tue Jan  6 16:52:33 2015
-Updating .workingwiki/maclev-2-2-c-adap.sage.out.latexml.xml
-rm -f maclev-2-2-c-adap.sage.out.latexml.html5
-bibxmls=`perl -ne '($_)=/^[^%]*\\\bibliography\{([^\\\\#]*?)\}/;@_=split /,/;foreach $b (@_) { $b =~ s/\.bib$//; print "$b.bib.xml "}' maclev-2-2-c-adap.sage.out.latexml.xml`; bibxargs=`perl -ne '($_)=/^[^%]*\\\bibliography\{([^\\\\#]*?)\}/;@_=split /,/;foreach $b (@_) { $b =~ s/\.bib$//; print "--bibliography=$b.bib.xml "}' maclev-2-2-c-adap.sage.out.latexml.xml` && \
-	(test -z "$bibxmls" || /usr/bin/make -f /usr/local/src/workingwiki-trunk/ProjectEngine/resources/makefile $bibxmls) && \
-	lxpost="latexmlpost --noplane1 --novalidate --destination=maclev-2-2-c-adap.sage.out.intermediate.latexml.html5 --format=html5 $bibxargs maclev-2-2-c-adap.sage.out.latexml.xml" && echo $lxpost && $lxpost
-latexmlpost --noplane1 --novalidate --destination=maclev-2-2-c-adap.sage.out.intermediate.latexml.html5 --format=html5 maclev-2-2-c-adap.sage.out.latexml.xml
-latexmlpost (LaTeXML version v0.8.0; revision 70f0ce4)
-processing started Tue Jan  6 16:52:34 2015
-(maclev-2-2-c-adap.sage.out.intermediate.latexml.html5 post-processing...
-(Scan maclev-2-2-c-adap.sage.out.intermediate.latexml.html5 processing...
-(CrossRef maclev-2-2-c-adap.sage.out.intermediate.latexml.html5 processing...
-(MathML::Presentation maclev-2-2-c-adap.sage.out.intermediate.latexml.html5 3 to process...
-(XSLT maclev-2-2-c-adap.sage.out.intermediate.latexml.html5 processing...
-(Writer maclev-2-2-c-adap.sage.out.intermediate.latexml.html5 processing... 0.20 sec)
-Postprocessing complete: No obvious problems
-processing finished Tue Jan  6 16:52:34 2015
-/usr/local/src/workingwiki-trunk/ProjectEngine/resources/wiki-inclusion.latexml.pl maclev-2-2-c-adap.sage.out.intermediate.latexml.html5 >maclev-2-2-c-adap.sage.out.latexml.html5
-ln -f maclev-2-2-c-adap.sage.out.latexml.html5 maclev-2-2-c-adap.sage.out.latexml.html
-ln -f maclev-2-2-c-adap.sage.out.latexml.html maclev-2-2-c-adap.sage.out.html
-rm maclev-2-2-c-adap.sage.out.latexml.html maclev-2-2-c-adap.sage.out.latexml.html5 maclev-2-2-c-adap.sage.out.latexml.xml
 make: Leaving directory `/usr/local/src/jekyll-research/wmd_files/Selection_Gradients'
 Make succeeded.
-Tue Jan  6 16:52:34 2015
+Tue Jan  6 19:08:21 2015

@@ -50,8 +50,10 @@ ltx.write_block( envelope_condition )
 
 envelope_curves = solve( [ zngi_generic_parametric, envelope_condition ], [ R_0, R_1 ], solution_dict=True )
 envelope_curve = [ envelope_curves[_sage_const_0 ][r] for r in (R_0,R_1) ]
-#ltx.write_block( envelope_curve )
 envelope_plot = parametric_plot( envelope_curve, (u,_sage_const_0p02 ,_sage_const_0p98 ) )
+
+ltx.write( 'And the $(R_0,R_1)$ solution of those together is the envelope curve:' )
+ltx.write_block( envelope_curve )
 
 def main():
     zplot = Graphics()

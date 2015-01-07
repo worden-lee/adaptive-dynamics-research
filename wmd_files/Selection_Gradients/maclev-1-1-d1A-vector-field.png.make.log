@@ -1,4 +1,4 @@
-Tue Jan  6 16:51:22 2015
+Tue Jan  6 19:08:20 2015
 /usr/bin/make -C /usr/local/src/jekyll-research/wmd_files/Selection_Gradients \
     maclev-1-1-d1A-vector-field.png
 Including .mk files: sage.mk sage-inline.mk 
@@ -14,11 +14,6 @@ make[1]: Nothing to be done for `adaptivedynamics.py'.
 Including .mk files:  
 Including .tex.d files: 
 make[1]: Nothing to be done for `dynamicalsystems.py'.
-touch maclev-1-1-d1A-vector-field.sage.tried
-rm -f maclev-1-1-d1A-vector-field.sage.out maclev-1-1-d1A-vector-field.sage.status maclev-1-1-d1A-vector-field.png
-(sage maclev-1-1-d1A-vector-field.sage && touch maclev-1-1-d1A-vector-field.sage.status) | tee maclev-1-1-d1A-vector-field.sage.dmp
-[-1/2*k - 1/2, 2]
-[ -e maclev-1-1-d1A-vector-field.sage.status ] && (rm -f maclev-1-1-d1A-vector-field.sage.status && mv maclev-1-1-d1A-vector-field.sage.dmp maclev-1-1-d1A-vector-field.sage.out) || exit 1
 make: Leaving directory `/usr/local/src/jekyll-research/wmd_files/Selection_Gradients'
 Make succeeded.
-Tue Jan  6 16:51:32 2015
+Tue Jan  6 19:08:20 2015

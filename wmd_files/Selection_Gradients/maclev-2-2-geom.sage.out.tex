@@ -35,31 +35,75 @@
 \begin{document}
 
 \[
-  A\left(0\right) = \left(k_{0},\,a_{00},\,a_{01}\right) = \left(\frac{2}{5 \, {\left(u_{0} - 1\right)}^{2} + 1} + \frac{2}{5 \, u_{0}^{2} + 1} - 1,\,-\frac{1}{{\left(5 \, {\left(u_{0} - 1\right)}^{2} + 1\right)}^{2}} - \frac{1}{{\left(5 \, u_{0}^{2} + 1\right)}^{2}},\,-\frac{1}{{\left(5 \, {\left(u_{0} - 1\right)}^{2} + 1\right)} {\left(5 \, {\left(u_{1} - 1\right)}^{2} + 1\right)}} - \frac{1}{{\left(5 \, u_{0}^{2} + 1\right)} {\left(5 \, u_{1}^{2} + 1\right)}}\right)
+  A\left(0\right) = \left(\begin{array}{r}
+k_{0} \\
+a_{00} \\
+a_{01}
+\end{array}\right) = \left(\begin{array}{r}
+\frac{2}{5 \, {\left(u_{0} - 1\right)}^{2} + 1} + \frac{2}{5 \, u_{0}^{2} + 1} - 1 \\
+-\frac{1}{{\left(5 \, {\left(u_{0} - 1\right)}^{2} + 1\right)}^{2}} - \frac{1}{{\left(5 \, u_{0}^{2} + 1\right)}^{2}} \\
+-\frac{1}{{\left(5 \, {\left(u_{0} - 1\right)}^{2} + 1\right)} {\left(5 \, {\left(u_{1} - 1\right)}^{2} + 1\right)}} - \frac{1}{{\left(5 \, u_{0}^{2} + 1\right)} {\left(5 \, u_{1}^{2} + 1\right)}}
+\end{array}\right)
 \]
 
 \[
-  A\left(1\right) = \left(k_{1},\,a_{10},\,a_{11}\right) = \left(\frac{2}{5 \, {\left(u_{1} - 1\right)}^{2} + 1} + \frac{2}{5 \, u_{1}^{2} + 1} - 1,\,-\frac{1}{{\left(5 \, {\left(u_{0} - 1\right)}^{2} + 1\right)} {\left(5 \, {\left(u_{1} - 1\right)}^{2} + 1\right)}} - \frac{1}{{\left(5 \, u_{0}^{2} + 1\right)} {\left(5 \, u_{1}^{2} + 1\right)}},\,-\frac{1}{{\left(5 \, {\left(u_{1} - 1\right)}^{2} + 1\right)}^{2}} - \frac{1}{{\left(5 \, u_{1}^{2} + 1\right)}^{2}}\right)
+  A\left(1\right) = \left(\begin{array}{r}
+k_{1} \\
+a_{10} \\
+a_{11}
+\end{array}\right) = \left(\begin{array}{r}
+\frac{2}{5 \, {\left(u_{1} - 1\right)}^{2} + 1} + \frac{2}{5 \, u_{1}^{2} + 1} - 1 \\
+-\frac{1}{{\left(5 \, {\left(u_{0} - 1\right)}^{2} + 1\right)} {\left(5 \, {\left(u_{1} - 1\right)}^{2} + 1\right)}} - \frac{1}{{\left(5 \, u_{0}^{2} + 1\right)} {\left(5 \, u_{1}^{2} + 1\right)}} \\
+-\frac{1}{{\left(5 \, {\left(u_{1} - 1\right)}^{2} + 1\right)}^{2}} - \frac{1}{{\left(5 \, u_{1}^{2} + 1\right)}^{2}}
+\end{array}\right)
 \]
 
 \[
-  S\left(A\left(0\right)\right) = \left(1,\,\hat{X}_{0},\,\hat{X}_{1}\right) = \left(1,\,\frac{a_{11} k_{0} - a_{01} k_{1}}{a_{01} a_{10} - a_{00} a_{11}},\,-\frac{a_{10} k_{0} - a_{00} k_{1}}{a_{01} a_{10} - a_{00} a_{11}}\right)
+  S\left(A\left(0\right)\right) = \left(\begin{array}{r}
+1 \\
+\hat{X}_{0} \\
+\hat{X}_{1}
+\end{array}\right) = \left(\begin{array}{r}
+1 \\
+\frac{a_{11} k_{0} - a_{01} k_{1}}{a_{01} a_{10} - a_{00} a_{11}} \\
+-\frac{a_{10} k_{0} - a_{00} k_{1}}{a_{01} a_{10} - a_{00} a_{11}}
+\end{array}\right)
 \]
 
 \[
-  S\left(A\left(1\right)\right) = \left(1,\,\hat{X}_{0},\,\hat{X}_{1}\right) = \left(1,\,\frac{a_{11} k_{0} - a_{01} k_{1}}{a_{01} a_{10} - a_{00} a_{11}},\,-\frac{a_{10} k_{0} - a_{00} k_{1}}{a_{01} a_{10} - a_{00} a_{11}}\right)
+  S\left(A\left(1\right)\right) = \left(\begin{array}{r}
+1 \\
+\hat{X}_{0} \\
+\hat{X}_{1}
+\end{array}\right) = \left(\begin{array}{r}
+1 \\
+\frac{a_{11} k_{0} - a_{01} k_{1}}{a_{01} a_{10} - a_{00} a_{11}} \\
+-\frac{a_{10} k_{0} - a_{00} k_{1}}{a_{01} a_{10} - a_{00} a_{11}}
+\end{array}\right)
 \]
 
 \[
-  D(u_0) = \left(-20 \, {\left(\frac{u_{0}\left(t\right) - 1}{{\left(5 \, {\left(u_{0}\left(t\right) - 1\right)}^{2} + 1\right)}^{2}} + \frac{u_{0}\left(t\right)}{{\left(5 \, u_{0}\left(t\right)^{2} + 1\right)}^{2}}\right)} D[0]\left(u_{0}\right)\left(t\right),\,10 \, {\left(\frac{u_{0}\left(t\right) - 1}{{\left(5 \, {\left(u_{0}\left(t\right) - 1\right)}^{2} + 1\right)}^{3}} + \frac{u_{0}\left(t\right)}{{\left(5 \, u_{0}\left(t\right)^{2} + 1\right)}^{3}}\right)} D[0]\left(u_{0}\right)\left(t\right),\,10 \, {\left(\frac{u_{0}\left(t\right) - 1}{{\left(5 \, {\left(u_{0}\left(t\right) - 1\right)}^{2} + 1\right)}^{2} {\left(5 \, {\left(u_{1}\left(t\right) - 1\right)}^{2} + 1\right)}} + \frac{u_{0}\left(t\right)}{{\left(5 \, u_{0}\left(t\right)^{2} + 1\right)}^{2} {\left(5 \, u_{1}\left(t\right)^{2} + 1\right)}}\right)} D[0]\left(u_{0}\right)\left(t\right)\right)
+  D(u_0) = \left(\begin{array}{r}
+-20 \, {\left(\frac{u_{0}\left(t\right) - 1}{{\left(5 \, {\left(u_{0}\left(t\right) - 1\right)}^{2} + 1\right)}^{2}} + \frac{u_{0}\left(t\right)}{{\left(5 \, u_{0}\left(t\right)^{2} + 1\right)}^{2}}\right)} D[0]\left(u_{0}\right)\left(t\right) \\
+10 \, {\left(\frac{u_{0}\left(t\right) - 1}{{\left(5 \, {\left(u_{0}\left(t\right) - 1\right)}^{2} + 1\right)}^{3}} + \frac{u_{0}\left(t\right)}{{\left(5 \, u_{0}\left(t\right)^{2} + 1\right)}^{3}}\right)} D[0]\left(u_{0}\right)\left(t\right) \\
+10 \, {\left(\frac{u_{0}\left(t\right) - 1}{{\left(5 \, {\left(u_{0}\left(t\right) - 1\right)}^{2} + 1\right)}^{2} {\left(5 \, {\left(u_{1}\left(t\right) - 1\right)}^{2} + 1\right)}} + \frac{u_{0}\left(t\right)}{{\left(5 \, u_{0}\left(t\right)^{2} + 1\right)}^{2} {\left(5 \, u_{1}\left(t\right)^{2} + 1\right)}}\right)} D[0]\left(u_{0}\right)\left(t\right)
+\end{array}\right)
 \]
 
 \[
-  I(u_0) = \left(0,\,0,\,10 \, {\left(\frac{u_{1}\left(t\right) - 1}{{\left(5 \, {\left(u_{0}\left(t\right) - 1\right)}^{2} + 1\right)} {\left(5 \, {\left(u_{1}\left(t\right) - 1\right)}^{2} + 1\right)}^{2}} + \frac{u_{1}\left(t\right)}{{\left(5 \, u_{0}\left(t\right)^{2} + 1\right)} {\left(5 \, u_{1}\left(t\right)^{2} + 1\right)}^{2}}\right)} D[0]\left(u_{1}\right)\left(t\right)\right)
+  I(u_0) = \left(\begin{array}{r}
+0 \\
+10 \, {\left(\frac{u_{0}\left(t\right) - 1}{{\left(5 \, {\left(u_{0}\left(t\right) - 1\right)}^{2} + 1\right)}^{3}} + \frac{u_{0}\left(t\right)}{{\left(5 \, u_{0}\left(t\right)^{2} + 1\right)}^{3}}\right)} D[0]\left(u_{0}\right)\left(t\right) \\
+10 \, {\left(\frac{u_{1}\left(t\right) - 1}{{\left(5 \, {\left(u_{0}\left(t\right) - 1\right)}^{2} + 1\right)} {\left(5 \, {\left(u_{1}\left(t\right) - 1\right)}^{2} + 1\right)}^{2}} + \frac{u_{1}\left(t\right)}{{\left(5 \, u_{0}\left(t\right)^{2} + 1\right)} {\left(5 \, u_{1}\left(t\right)^{2} + 1\right)}^{2}}\right)} D[0]\left(u_{1}\right)\left(t\right)
+\end{array}\right)
 \]
 
 \[
-  \frac{dA}{dt} = \left(-20 \, {\left(\frac{u_{0}\left(t\right) - 1}{{\left(5 \, {\left(u_{0}\left(t\right) - 1\right)}^{2} + 1\right)}^{2}} + \frac{u_{0}\left(t\right)}{{\left(5 \, u_{0}\left(t\right)^{2} + 1\right)}^{2}}\right)} D[0]\left(u_{0}\right)\left(t\right),\,20 \, {\left(\frac{u_{0}\left(t\right) - 1}{{\left(5 \, {\left(u_{0}\left(t\right) - 1\right)}^{2} + 1\right)}^{3}} + \frac{u_{0}\left(t\right)}{{\left(5 \, u_{0}\left(t\right)^{2} + 1\right)}^{3}}\right)} D[0]\left(u_{0}\right)\left(t\right),\,10 \, {\left(\frac{u_{0}\left(t\right) - 1}{{\left(5 \, {\left(u_{0}\left(t\right) - 1\right)}^{2} + 1\right)}^{2} {\left(5 \, {\left(u_{1}\left(t\right) - 1\right)}^{2} + 1\right)}} + \frac{u_{0}\left(t\right)}{{\left(5 \, u_{0}\left(t\right)^{2} + 1\right)}^{2} {\left(5 \, u_{1}\left(t\right)^{2} + 1\right)}}\right)} D[0]\left(u_{0}\right)\left(t\right) + 10 \, {\left(\frac{u_{1}\left(t\right) - 1}{{\left(5 \, {\left(u_{0}\left(t\right) - 1\right)}^{2} + 1\right)} {\left(5 \, {\left(u_{1}\left(t\right) - 1\right)}^{2} + 1\right)}^{2}} + \frac{u_{1}\left(t\right)}{{\left(5 \, u_{0}\left(t\right)^{2} + 1\right)} {\left(5 \, u_{1}\left(t\right)^{2} + 1\right)}^{2}}\right)} D[0]\left(u_{1}\right)\left(t\right)\right)
+  \frac{dA}{dt} = \left(\begin{array}{r}
+-20 \, {\left(\frac{u_{0}\left(t\right) - 1}{{\left(5 \, {\left(u_{0}\left(t\right) - 1\right)}^{2} + 1\right)}^{2}} + \frac{u_{0}\left(t\right)}{{\left(5 \, u_{0}\left(t\right)^{2} + 1\right)}^{2}}\right)} D[0]\left(u_{0}\right)\left(t\right) \\
+20 \, {\left(\frac{u_{0}\left(t\right) - 1}{{\left(5 \, {\left(u_{0}\left(t\right) - 1\right)}^{2} + 1\right)}^{3}} + \frac{u_{0}\left(t\right)}{{\left(5 \, u_{0}\left(t\right)^{2} + 1\right)}^{3}}\right)} D[0]\left(u_{0}\right)\left(t\right) \\
+10 \, {\left(\frac{u_{0}\left(t\right) - 1}{{\left(5 \, {\left(u_{0}\left(t\right) - 1\right)}^{2} + 1\right)}^{2} {\left(5 \, {\left(u_{1}\left(t\right) - 1\right)}^{2} + 1\right)}} + \frac{u_{0}\left(t\right)}{{\left(5 \, u_{0}\left(t\right)^{2} + 1\right)}^{2} {\left(5 \, u_{1}\left(t\right)^{2} + 1\right)}}\right)} D[0]\left(u_{0}\right)\left(t\right) + 10 \, {\left(\frac{u_{1}\left(t\right) - 1}{{\left(5 \, {\left(u_{0}\left(t\right) - 1\right)}^{2} + 1\right)} {\left(5 \, {\left(u_{1}\left(t\right) - 1\right)}^{2} + 1\right)}^{2}} + \frac{u_{1}\left(t\right)}{{\left(5 \, u_{0}\left(t\right)^{2} + 1\right)} {\left(5 \, u_{1}\left(t\right)^{2} + 1\right)}^{2}}\right)} D[0]\left(u_{1}\right)\left(t\right)
+\end{array}\right)
 \]
 
 \end{document}

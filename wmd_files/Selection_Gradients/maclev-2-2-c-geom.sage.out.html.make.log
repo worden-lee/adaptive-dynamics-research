@@ -1,4 +1,4 @@
-Tue Jan  6 16:53:51 2015
+Tue Jan  6 19:08:22 2015
 /usr/bin/make -C /usr/local/src/jekyll-research/wmd_files/Selection_Gradients \
     maclev-2-2-c-geom.sage.out.html
 Including .mk files: sage.mk sage-inline.mk 
@@ -41,7 +41,7 @@ Inferring LV coefficients from X_i equation: K_0*X_i*b_i*c_i_0*w_0 - X_0*X_i*b_i
 a_i_0 : -b_i*c_0_0*c_i_0*w_0/r_0 - b_i*c_0_1*c_i_1*w_1/r_1
 a_i_1 : -b_i*c_1_0*c_i_0*w_0/r_0 - b_i*c_1_1*c_i_1*w_1/r_1
 k_i : K_0*b_i*c_i_0*w_0 + K_1*b_i*c_i_1*w_1 - b_i*m_i
-a_to_u_bindings: {w_1: 1, r_1: 1, a_0_1: -c_0_0*c_1_0 - c_0_1*c_1_1, R_0: -X_0*c_0_0 - X_1*c_1_0 + 2, K_0: 2, m_1: 1, a_i_1: -c_1_0*c_i_0 - c_1_1*c_i_1, k_i: 2*c_i_0 + 2*c_i_1 - 1, a_1_i: -c_1_0*c_i_0 - c_1_1*c_i_1, Rhat_1: -Xhat_0*c_0_1 - Xhat_1*c_1_1 + 2, b_1: 1, a_i_0: -c_0_0*c_i_0 - c_0_1*c_i_1, a_1_0: -c_0_0*c_1_0 - c_0_1*c_1_1, K_1: 2, a_0_i: -c_0_0*c_i_0 - c_0_1*c_i_1, R_1: -X_0*c_0_1 - X_1*c_1_1 + 2, m_0: 1, w_0: 1, Rhat_0: -Xhat_0*c_0_0 - Xhat_1*c_1_0 + 2, a_0_0: -c_0_0^2 - c_0_1^2, k_1: 2*c_1_0 + 2*c_1_1 - 1, m_i: 1, gamma: 1, b_i: 1, a_1_1: -c_1_0^2 - c_1_1^2, k_0: 2*c_0_0 + 2*c_0_1 - 1, r_0: 1, b_0: 1, a_i_i: -c_i_0^2 - c_i_1^2}, {}
+a_to_u_bindings: {w_1: 1, r_1: 1, a_0_1: -c_0_0*c_1_0 - c_0_1*c_1_1, k_i: 2*c_i_0 + 2*c_i_1 - 1, R_0: -X_0*c_0_0 - X_1*c_1_0 + 2, K_0: 2, m_1: 1, a_i_1: -c_1_0*c_i_0 - c_1_1*c_i_1, a_1_i: -c_1_0*c_i_0 - c_1_1*c_i_1, Rhat_1: -Xhat_0*c_0_1 - Xhat_1*c_1_1 + 2, b_1: 1, a_i_0: -c_0_0*c_i_0 - c_0_1*c_i_1, a_1_0: -c_0_0*c_1_0 - c_0_1*c_1_1, K_1: 2, a_0_i: -c_0_0*c_i_0 - c_0_1*c_i_1, R_1: -X_0*c_0_1 - X_1*c_1_1 + 2, m_0: 1, w_0: 1, Rhat_0: -Xhat_0*c_0_0 - Xhat_1*c_1_0 + 2, a_0_0: -c_0_0^2 - c_0_1^2, k_1: 2*c_1_0 + 2*c_1_1 - 1, m_i: 1, gamma: 1, k_0: 2*c_0_0 + 2*c_0_1 - 1, b_i: 1, a_1_1: -c_1_0^2 - c_1_1^2, r_0: 1, b_0: 1, a_i_i: -c_i_0^2 - c_i_1^2}, {}
 a_func: (c_0_0, c_0_1, c_i_0, c_i_1) |--> -c_0_0*c_i_0 - c_0_1*c_i_1
 r_func: (c_0_0, c_0_1) |--> 2*c_0_0 + 2*c_0_1 - 1
 make LV adaptive dynamics
@@ -115,6 +115,21 @@ Original pop-dyn system:
 make LV evolution bindings
 dudts: {0: (-Xhat_0^2*c_0_0*gamma - Xhat_0*Xhat_1*c_1_0*gamma + 2*Xhat_0*gamma, -Xhat_0^2*c_0_1*gamma - Xhat_0*Xhat_1*c_1_1*gamma + 2*Xhat_0*gamma), 1: (-Xhat_0*Xhat_1*c_0_0*gamma - Xhat_1^2*c_1_0*gamma + 2*Xhat_1*gamma, -Xhat_0*Xhat_1*c_0_1*gamma - Xhat_1^2*c_1_1*gamma + 2*Xhat_1*gamma)}
 printing things in LaTeX
+(k(c_0_0, c_0_1), a(c_0_0, c_0_1, c_0_0, c_0_1), a(c_0_0, c_0_1, c_1_0, c_1_1)) , with a(c_0_0, c_0_1, c_0_0, c_0_1)  =>  a(c_0_0, c_0_1, c_x_0, c_x_1)  ==  (k(c_0_0, c_0_1), a(c_0_0, c_0_1, c_x_0, c_x_1), a(c_0_0, c_0_1, c_1_0, c_1_1))
+d2A: derivative of $\left(k\left(c_{00}, c_{01}\right),\,a\left(c_{00}, c_{01}, c_{x0}, c_{x1}\right),\,a\left(c_{00}, c_{01}, c_{10}, c_{11}\right)\right)$ wrt $\left[c_{x0}, c_{x1}\right]$
+is $\left(\begin{array}{rr}
+0 & 0 \\
+D[2]\left(a\right)\left(c_{00}, c_{01}, c_{x0}, c_{x1}\right) & D[3]\left(a\right)\left(c_{00}, c_{01}, c_{x0}, c_{x1}\right) \\
+0 & 0
+\end{array}\right)$
+on diagonal: $\partial_2 A = \left(\begin{array}{rr}
+0 & 0 \\
+D[2]\left(a\right)\left(c_{00}, c_{01}, c_{00}, c_{01}\right) & D[3]\left(a\right)\left(c_{00}, c_{01}, c_{00}, c_{01}\right) \\
+0 & 0
+\end{array}\right)$
+
+
+indirect effect components: [(0, -c_0_0(t)*D[0](c_0_0)(t) - c_0_1(t)*D[0](c_0_1)(t), 0), (0, 0, -c_0_0(t)*D[0](c_1_0)(t) - c_0_1(t)*D[0](c_1_1)(t))]
 plot k vs. t
 k_0: 2*c_0_0 + 2*c_0_1 - 1
 k_1: 2*c_1_0 + 2*c_1_1 - 1
@@ -123,47 +138,77 @@ plot X vs. t
 plot R vs. t
 plot a vs. a
 plot a vs. a with arrows
+(k(c_0_0, c_0_1), a(c_0_0, c_0_1, c_0_0, c_0_1), a(c_0_0, c_0_1, c_1_0, c_1_1)) , with a(c_0_0, c_0_1, c_0_0, c_0_1)  =>  a(c_0_0, c_0_1, c_x_0, c_x_1)  ==  (k(c_0_0, c_0_1), a(c_0_0, c_0_1, c_x_0, c_x_1), a(c_0_0, c_0_1, c_1_0, c_1_1))
+d2A: derivative of $\left(k\left(c_{00}, c_{01}\right),\,a\left(c_{00}, c_{01}, c_{x0}, c_{x1}\right),\,a\left(c_{00}, c_{01}, c_{10}, c_{11}\right)\right)$ wrt $\left[c_{x0}, c_{x1}\right]$
+is $\left(\begin{array}{rr}
+0 & 0 \\
+D[2]\left(a\right)\left(c_{00}, c_{01}, c_{x0}, c_{x1}\right) & D[3]\left(a\right)\left(c_{00}, c_{01}, c_{x0}, c_{x1}\right) \\
+0 & 0
+\end{array}\right)$
+on diagonal: $\partial_2 A = \left(\begin{array}{rr}
+0 & 0 \\
+D[2]\left(a\right)\left(c_{00}, c_{01}, c_{00}, c_{01}\right) & D[3]\left(a\right)\left(c_{00}, c_{01}, c_{00}, c_{01}\right) \\
+0 & 0
+\end{array}\right)$
+
+
+indirect effect components: [(0, -c_0_0(t)*D[0](c_0_0)(t) - c_0_1(t)*D[0](c_0_1)(t), 0), (0, 0, -c_0_0(t)*D[0](c_1_0)(t) - c_0_1(t)*D[0](c_1_1)(t))]
+(k(c_1_0, c_1_1), a(c_1_0, c_1_1, c_0_0, c_0_1), a(c_1_0, c_1_1, c_1_0, c_1_1)) , with a(c_1_0, c_1_1, c_1_0, c_1_1)  =>  a(c_1_0, c_1_1, c_x_0, c_x_1)  ==  (k(c_1_0, c_1_1), a(c_1_0, c_1_1, c_0_0, c_0_1), a(c_1_0, c_1_1, c_x_0, c_x_1))
+d2A: derivative of $\left(k\left(c_{10}, c_{11}\right),\,a\left(c_{10}, c_{11}, c_{00}, c_{01}\right),\,a\left(c_{10}, c_{11}, c_{x0}, c_{x1}\right)\right)$ wrt $\left[c_{x0}, c_{x1}\right]$
+is $\left(\begin{array}{rr}
+0 & 0 \\
+0 & 0 \\
+D[2]\left(a\right)\left(c_{10}, c_{11}, c_{x0}, c_{x1}\right) & D[3]\left(a\right)\left(c_{10}, c_{11}, c_{x0}, c_{x1}\right)
+\end{array}\right)$
+on diagonal: $\partial_2 A = \left(\begin{array}{rr}
+0 & 0 \\
+0 & 0 \\
+D[2]\left(a\right)\left(c_{10}, c_{11}, c_{10}, c_{11}\right) & D[3]\left(a\right)\left(c_{10}, c_{11}, c_{10}, c_{11}\right)
+\end{array}\right)$
+
+
+indirect effect components: [(0, -c_1_0(t)*D[0](c_0_0)(t) - c_1_1(t)*D[0](c_0_1)(t), 0), (0, 0, -c_1_0(t)*D[0](c_1_0)(t) - c_1_1(t)*D[0](c_1_1)(t))]
 [ -e maclev-2-2-c-geom.sage.status ] && (rm -f maclev-2-2-c-geom.sage.status && mv maclev-2-2-c-geom.sage.dmp maclev-2-2-c-geom.sage.out) || exit 1
 latexml  --destination=maclev-2-2-c-geom.sage.out.latexml.xml maclev-2-2-c-geom.sage.out.tex
 latexml (LaTeXML version v0.8.0; revision 70f0ce4)
-processing started Tue Jan  6 16:54:21 2015
+processing started Tue Jan  6 19:08:59 2015
 
 (Digesting TeX maclev-2-2-c-geom.sage.out...
 (Loading /usr/local/share/perl/5.18.2/LaTeXML/Package/TeX.pool.ltxml...
-(Loading /usr/local/share/perl/5.18.2/LaTeXML/Package/eTeX.pool.ltxml... 0.01 sec)
-(Loading /usr/local/share/perl/5.18.2/LaTeXML/Package/pdfTeX.pool.ltxml... 0.01 sec) 0.32 sec)
+(Loading /usr/local/share/perl/5.18.2/LaTeXML/Package/eTeX.pool.ltxml... 0.02 sec)
+(Loading /usr/local/share/perl/5.18.2/LaTeXML/Package/pdfTeX.pool.ltxml... 0.05 sec) 0.51 sec)
 (Processing content /usr/local/src/jekyll-research/wmd_files/Selection_Gradients/maclev-2-2-c-geom.sage.out.tex...
-(Loading /usr/local/share/perl/5.18.2/LaTeXML/Package/LaTeX.pool.ltxml... 0.30 sec)
-(Loading /usr/local/share/perl/5.18.2/LaTeXML/Package/article.cls.ltxml... 0.04 sec)
+(Loading /usr/local/share/perl/5.18.2/LaTeXML/Package/LaTeX.pool.ltxml... 0.45 sec)
+(Loading /usr/local/share/perl/5.18.2/LaTeXML/Package/article.cls.ltxml... 0.06 sec)
 (Loading /usr/local/share/perl/5.18.2/LaTeXML/Package/amsmath.sty.ltxml...
-(Loading /usr/local/share/perl/5.18.2/LaTeXML/Package/amsbsy.sty.ltxml... 0.00 sec)
-(Loading /usr/local/share/perl/5.18.2/LaTeXML/Package/amstext.sty.ltxml... 0.00 sec)
-(Loading /usr/local/share/perl/5.18.2/LaTeXML/Package/amsopn.sty.ltxml... 0.01 sec) 0.08 sec)
+(Loading /usr/local/share/perl/5.18.2/LaTeXML/Package/amsbsy.sty.ltxml... 0.02 sec)
+(Loading /usr/local/share/perl/5.18.2/LaTeXML/Package/amstext.sty.ltxml... 0.05 sec)
+(Loading /usr/local/share/perl/5.18.2/LaTeXML/Package/amsopn.sty.ltxml... 0.04 sec) 0.21 sec)
 (Loading /usr/local/share/perl/5.18.2/LaTeXML/Package/amssymb.sty.ltxml...
-(Loading /usr/local/share/perl/5.18.2/LaTeXML/Package/amsfonts.sty.ltxml... 0.01 sec) 0.05 sec)
+(Loading /usr/local/share/perl/5.18.2/LaTeXML/Package/amsfonts.sty.ltxml... 0.02 sec) 0.10 sec)
 (Loading /usr/local/share/perl/5.18.2/LaTeXML/Package/graphicx.sty.ltxml...
-(Loading /usr/local/share/perl/5.18.2/LaTeXML/Package/graphics.sty.ltxml... 0.01 sec) 0.04 sec)
+(Loading /usr/local/share/perl/5.18.2/LaTeXML/Package/graphics.sty.ltxml... 0.04 sec) 0.14 sec)
 (Loading /usr/local/share/perl/5.18.2/LaTeXML/Package/inputenc.sty.ltxml...
-(Loading /usr/local/share/perl/5.18.2/LaTeXML/Package/utf8.def.ltxml... 0.00 sec) 0.02 sec)
+(Loading /usr/local/share/perl/5.18.2/LaTeXML/Package/utf8.def.ltxml... 0.07 sec) 0.16 sec)
 (Loading /usr/local/share/perl/5.18.2/LaTeXML/Package/fontenc.sty.ltxml...
 (Loading /usr/local/share/perl/5.18.2/LaTeXML/Package/t1enc.def.ltxml...
 (Processing definitions /usr/share/texlive/texmf-dist/tex/latex/base/t1enc.def...
-(Loading /usr/local/share/perl/5.18.2/LaTeXML/Package/t1.fontmap.ltxml... 0.00 sec) 0.14 sec) 0.18 sec) 0.19 sec) 1.14 sec) 1.47 sec)
+(Loading /usr/local/share/perl/5.18.2/LaTeXML/Package/t1.fontmap.ltxml... 0.10 sec) 0.24 sec) 1.44 sec) 1.51 sec) 3.18 sec) 3.74 sec)
 (Building...
-(Loading compiled schema /usr/local/share/perl/5.18.2/LaTeXML/resources/RelaxNG/LaTeXML.model... 0.03 sec)..................................... 1.54 sec)
+(Loading compiled schema /usr/local/share/perl/5.18.2/LaTeXML/resources/RelaxNG/LaTeXML.model... 0.11 sec)....................................... 2.54 sec)
 (Rewriting... 0.05 sec)
 (Math Parsing...7 formulae ...[1][2][3][4][5][6][7]
 Math parsing succeeded:
+   ltx:XMArg: 142/142
    ltx:XMath: 7/7
-   ltx:XMArg: 134/134
 Symbols assumed as simple identifiers (with # of occurences):
-   'A{italic}' (5), 'D{italic}' (17), 'I{italic}' (1), 'S{italic}' (2), 'a{italic}' (28), 'c{italic}' (44), 'd{italic}' (2), 'k{italic}' (10), 't{italic}' (29), 'u{italic}' (2)
+   'A{italic}' (5), 'D{italic}' (19), 'I{italic}' (1), 'S{italic}' (2), 'a{italic}' (28), 'c{italic}' (48), 'd{italic}' (2), 'k{italic}' (10), 't{italic}' (33), 'u{italic}' (2)
 Possibly used as functions?
-  'A{italic}' (4/5 usages), 'D{italic}' (17/17 usages), 'I{italic}' (1/1 usages), 'S{italic}' (2/2 usages), 'c{italic}' (12/44 usages)
- 3.28 sec)
-(Finalizing... 0.25 sec)
+  'A{italic}' (4/5 usages), 'D{italic}' (19/19 usages), 'I{italic}' (1/1 usages), 'S{italic}' (2/2 usages), 'c{italic}' (14/48 usages)
+ 3.61 sec)
+(Finalizing... 0.27 sec)
 Conversion complete: No obvious problems.
-processing finished Tue Jan  6 16:54:28 2015
+processing finished Tue Jan  6 19:09:10 2015
 Updating .workingwiki/maclev-2-2-c-geom.sage.out.latexml.xml
 rm -f maclev-2-2-c-geom.sage.out.latexml.html5
 bibxmls=`perl -ne '($_)=/^[^%]*\\\bibliography\{([^\\\\#]*?)\}/;@_=split /,/;foreach $b (@_) { $b =~ s/\.bib$//; print "$b.bib.xml "}' maclev-2-2-c-geom.sage.out.latexml.xml`; bibxargs=`perl -ne '($_)=/^[^%]*\\\bibliography\{([^\\\\#]*?)\}/;@_=split /,/;foreach $b (@_) { $b =~ s/\.bib$//; print "--bibliography=$b.bib.xml "}' maclev-2-2-c-geom.sage.out.latexml.xml` && \
@@ -171,19 +216,19 @@ bibxmls=`perl -ne '($_)=/^[^%]*\\\bibliography\{([^\\\\#]*?)\}/;@_=split /,/;for
 	lxpost="latexmlpost --noplane1 --novalidate --destination=maclev-2-2-c-geom.sage.out.intermediate.latexml.html5 --format=html5 $bibxargs maclev-2-2-c-geom.sage.out.latexml.xml" && echo $lxpost && $lxpost
 latexmlpost --noplane1 --novalidate --destination=maclev-2-2-c-geom.sage.out.intermediate.latexml.html5 --format=html5 maclev-2-2-c-geom.sage.out.latexml.xml
 latexmlpost (LaTeXML version v0.8.0; revision 70f0ce4)
-processing started Tue Jan  6 16:54:28 2015
+processing started Tue Jan  6 19:09:10 2015
 (maclev-2-2-c-geom.sage.out.intermediate.latexml.html5 post-processing...
 (Scan maclev-2-2-c-geom.sage.out.intermediate.latexml.html5 processing...
 (CrossRef maclev-2-2-c-geom.sage.out.intermediate.latexml.html5 processing...
 (MathML::Presentation maclev-2-2-c-geom.sage.out.intermediate.latexml.html5 7 to process...
 (XSLT maclev-2-2-c-geom.sage.out.intermediate.latexml.html5 processing...
-(Writer maclev-2-2-c-geom.sage.out.intermediate.latexml.html5 processing... 0.46 sec)
+(Writer maclev-2-2-c-geom.sage.out.intermediate.latexml.html5 processing... 0.52 sec)
 Postprocessing complete: No obvious problems
-processing finished Tue Jan  6 16:54:29 2015
+processing finished Tue Jan  6 19:09:12 2015
 /usr/local/src/workingwiki-trunk/ProjectEngine/resources/wiki-inclusion.latexml.pl maclev-2-2-c-geom.sage.out.intermediate.latexml.html5 >maclev-2-2-c-geom.sage.out.latexml.html5
 ln -f maclev-2-2-c-geom.sage.out.latexml.html5 maclev-2-2-c-geom.sage.out.latexml.html
 ln -f maclev-2-2-c-geom.sage.out.latexml.html maclev-2-2-c-geom.sage.out.html
 rm maclev-2-2-c-geom.sage.out.latexml.html5 maclev-2-2-c-geom.sage.out.latexml.xml maclev-2-2-c-geom.sage.out.latexml.html
 make: Leaving directory `/usr/local/src/jekyll-research/wmd_files/Selection_Gradients'
 Make succeeded.
-Tue Jan  6 16:54:29 2015
+Tue Jan  6 19:09:12 2015
