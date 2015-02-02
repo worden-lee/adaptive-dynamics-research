@@ -161,7 +161,7 @@ ltx.write_equality( X_0, maclev_adap_lv_c00_bound._bindings( X_0 ) )
 initcond_bindings = Bindings({u_0: initial_u})
 
 # integrate the adaptive dynamics and get a numeric trajectory
-lv_c00_evolution = maclev_adap_lv_c00_bound.solve( [_sage_const_0 ,initcond_bindings(u_0)] )
+lv_c00_evolution = maclev_adap_lv_c00_bound.solve( [initcond_bindings(u_0)] )
 
 c00_bindings = maclev_adap_lv_c00_bound._bindings
 #print 'c00_bindings:', c00_bindings

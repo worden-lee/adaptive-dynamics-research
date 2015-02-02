@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html>
+
+      <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Adaptive Geometry and Resource Competition: Two Species, Two Resources, With A Values only depending on C Values</title>
+        <meta name="viewport" content="width=device-width">
+        <meta name="description" content="Lee Worden prototype research website" />
+        <link rel="canonical" href="/Selection_Gradients/MacLev-unconstrained-c-a-only.html/" />
+
+        <!-- Custom CSS -->
+	<link rel="stylesheet" href="/adaptive-dynamics-research/css/main.css">
+	<link rel="stylesheet" href="/adaptive-dynamics-research/css/auto-generated-from-ww.css">
+	<link rel="stylesheet" href="/adaptive-dynamics-research/css/wmd.css">
+        <script type="text/x-mathjax-config">MathJax.Hub.Config({ jax: ["input/MathML", "output/HTML-CSS"] });</script>
+        <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=MML_HTMLorMML"></script>
+
+    </head>
+
+
+    <body>
+
+    <header class="site-header">
+
+  <div class="wrap">
+
+    <a class="site-title" href="/adaptive-dynamics-research/">Lee Worden research prototype website</a>
+
+    <nav class="site-nav">
+      <a href="#" class="menu-icon">
+        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+           viewBox="0 0 18 15" enable-background="new 0 0 18 15" xml:space="preserve">
+          <path fill="#505050" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0
+            h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+          <path fill="#505050" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484
+            h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+          <path fill="#505050" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0
+            c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+        </svg>
+      </a>
+      <div class="trigger">
+        <a class="page-link" href="/adaptive-dynamics-research/about">About</a>
+	<a class="page-link" href="/adaptive-dynamics-research/projects">Projects</a>
+      </div>
+    </nav>
+
+  </div>
+
+</header>
+
+
+    <div class="page-content">
+      <div class="wrap">
+      <div class="post">
+
+  <header class="post-header">
+    <h1>Adaptive Geometry and Resource Competition: Two Species, Two Resources, With A Values only depending on C Values</h1>
+  </header>
+
+  <article class="post-content">
+  <p><!-- maclev_a_c.py.step --><a href="/adaptive-dynamics-research/wmd_files/Selection_Gradients/maclev_a_c.py.step">maclev_a_c.py.step</a></p>
+
+<p><!-- maclev-2-2-a-c-popdyn.sage.step --><a href="/adaptive-dynamics-research/wmd_files/Selection_Gradients/maclev-2-2-a-c-popdyn.sage.step">maclev-2-2-a-c-popdyn.sage.step</a></p>
+
+<p>The model equations, according to Sage:</p>
+
+<p><!-- maclev-2-2-a-c-popdyn.sage.out.html --><div class="latexml">
+
+<div class="ltx_page_main">
+<div class="ltx_page_content">
+<article class="ltx_document">
+<div id="p1" class="ltx_para">
+<p class="ltx_p">The Mac-Lev model in generic form:</p>
+<table id="S0.Ex1" class="ltx_equation">
+
+<tr class="ltx_equation ltx_align_baseline">
+<td class="ltx_eqn_center_padleft"></td>
+<td class="ltx_align_center"><math xmlns="http://www.w3.org/1998/Math/MathML" id="S0.Ex1.m1" class="ltx_Math" alttext="\begin{aligned}\displaystyle\frac{dX_{0}}{dt}&amp;\displaystyle=-{\left(\frac{{%
+\left(X_{0}c_{00}+X_{1}c_{10}-K_{0}r_{0}\right)}c_{00}w_{0}}{r_{0}}+\frac{{%
+\left(X_{0}c_{01}+X_{1}c_{11}-K_{1}r_{1}\right)}c_{01}w_{1}}{r_{1}}+m_{0}%
+\right)}X_{0}b_{0}\\
+\displaystyle\frac{dX_{1}}{dt}&amp;\displaystyle=-{\left(\frac{{\left(X_{0}c_{00}+%
+X_{1}c_{10}-K_{0}r_{0}\right)}c_{10}w_{0}}{r_{0}}+\frac{{\left(X_{0}c_{01}+X_{%
+1}c_{11}-K_{1}r_{1}\right)}c_{11}w_{1}}{r_{1}}+m_{1}\right)}X_{1}b_{1}\end{%
+aligned}\ " display="block"><mpadded width="+5pt"><mtable displaystyle="true"><mtr><mtd columnalign="right"><mfrac><mrow><mi>d</mi><mo>⁢</mo><msub><mi>X</mi><mn>0</mn></msub></mrow><mrow><mi>d</mi><mo>⁢</mo><mi>t</mi></mrow></mfrac></mtd><mtd columnalign="left"><mrow><mi></mi><mo>=</mo><mrow><mo>-</mo><mrow><mrow><mo>(</mo><mrow id="XM3ak"><mfrac id="XM3o"><mrow id="XM3k"><mrow id="XM3b"><mo id="XM3">(</mo><mrow id="XM1aa"><mrow id="XM1q"><mrow id="XM1g"><msub id="XM1b"><mi id="XM1">X</mi><mn id="XM1a">0</mn></msub><mo id="XM1c">⁢</mo><msub id="XM1f"><mi id="XM1d">c</mi><mn id="XM1e">00</mn></msub></mrow><mo id="XM1h">+</mo><mrow id="XM1p"><msub id="XM1k"><mi id="XM1i">X</mi><mn id="XM1j">1</mn></msub><mo id="XM1l">⁢</mo><msub id="XM1o"><mi id="XM1m">c</mi><mn id="XM1n">10</mn></msub></mrow></mrow><mo id="XM1r">-</mo><mrow id="XM1z"><msub id="XM1u"><mi id="XM1s">K</mi><mn id="XM1t">0</mn></msub><mo id="XM1v">⁢</mo><msub id="XM1y"><mi id="XM1w">r</mi><mn id="XM1x">0</mn></msub></mrow></mrow><mo id="XM3a">)</mo></mrow><mo id="XM3c">⁢</mo><msub id="XM3f"><mi id="XM3d">c</mi><mn id="XM3e">00</mn></msub><mo id="XM3g">⁢</mo><msub id="XM3j"><mi id="XM3h">w</mi><mn id="XM3i">0</mn></msub></mrow><msub id="XM3n"><mi id="XM3l">r</mi><mn id="XM3m">0</mn></msub></mfrac><mo id="XM3p">+</mo><mfrac id="XM3af"><mrow id="XM3ab"><mrow id="XM3s"><mo id="XM3q">(</mo><mrow id="XM2aa"><mrow id="XM2q"><mrow id="XM2g"><msub id="XM2b"><mi id="XM2">X</mi><mn id="XM2a">0</mn></msub><mo id="XM2c">⁢</mo><msub id="XM2f"><mi id="XM2d">c</mi><mn id="XM2e">01</mn></msub></mrow><mo id="XM2h">+</mo><mrow id="XM2p"><msub id="XM2k"><mi id="XM2i">X</mi><mn id="XM2j">1</mn></msub><mo id="XM2l">⁢</mo><msub id="XM2o"><mi id="XM2m">c</mi><mn id="XM2n">11</mn></msub></mrow></mrow><mo id="XM2r">-</mo><mrow id="XM2z"><msub id="XM2u"><mi id="XM2s">K</mi><mn id="XM2t">1</mn></msub><mo id="XM2v">⁢</mo><msub id="XM2y"><mi id="XM2w">r</mi><mn id="XM2x">1</mn></msub></mrow></mrow><mo id="XM3r">)</mo></mrow><mo id="XM3t">⁢</mo><msub id="XM3w"><mi id="XM3u">c</mi><mn id="XM3v">01</mn></msub><mo id="XM3x">⁢</mo><msub id="XM3aa"><mi id="XM3y">w</mi><mn id="XM3z">1</mn></msub></mrow><msub id="XM3ae"><mi id="XM3ac">r</mi><mn id="XM3ad">1</mn></msub></mfrac><mo id="XM3ag">+</mo><msub id="XM3aj"><mi id="XM3ah">m</mi><mn id="XM3ai">0</mn></msub></mrow><mo>)</mo></mrow><mo>⁢</mo><msub><mi>X</mi><mn>0</mn></msub><mo>⁢</mo><msub><mi>b</mi><mn>0</mn></msub></mrow></mrow></mrow></mtd></mtr><mtr><mtd columnalign="right"><mfrac><mrow><mi>d</mi><mo>⁢</mo><msub><mi>X</mi><mn>1</mn></msub></mrow><mrow><mi>d</mi><mo>⁢</mo><mi>t</mi></mrow></mfrac></mtd><mtd columnalign="left"><mrow><mi></mi><mo>=</mo><mrow><mo>-</mo><mrow><mrow><mo>(</mo><mrow id="XM6ak"><mfrac id="XM6o"><mrow id="XM6k"><mrow id="XM6b"><mo id="XM6">(</mo><mrow id="XM4aa"><mrow id="XM4q"><mrow id="XM4g"><msub id="XM4b"><mi id="XM4">X</mi><mn id="XM4a">0</mn></msub><mo id="XM4c">⁢</mo><msub id="XM4f"><mi id="XM4d">c</mi><mn id="XM4e">00</mn></msub></mrow><mo id="XM4h">+</mo><mrow id="XM4p"><msub id="XM4k"><mi id="XM4i">X</mi><mn id="XM4j">1</mn></msub><mo id="XM4l">⁢</mo><msub id="XM4o"><mi id="XM4m">c</mi><mn id="XM4n">10</mn></msub></mrow></mrow><mo id="XM4r">-</mo><mrow id="XM4z"><msub id="XM4u"><mi id="XM4s">K</mi><mn id="XM4t">0</mn></msub><mo id="XM4v">⁢</mo><msub id="XM4y"><mi id="XM4w">r</mi><mn id="XM4x">0</mn></msub></mrow></mrow><mo id="XM6a">)</mo></mrow><mo id="XM6c">⁢</mo><msub id="XM6f"><mi id="XM6d">c</mi><mn id="XM6e">10</mn></msub><mo id="XM6g">⁢</mo><msub id="XM6j"><mi id="XM6h">w</mi><mn id="XM6i">0</mn></msub></mrow><msub id="XM6n"><mi id="XM6l">r</mi><mn id="XM6m">0</mn></msub></mfrac><mo id="XM6p">+</mo><mfrac id="XM6af"><mrow id="XM6ab"><mrow id="XM6s"><mo id="XM6q">(</mo><mrow id="XM5aa"><mrow id="XM5q"><mrow id="XM5g"><msub id="XM5b"><mi id="XM5">X</mi><mn id="XM5a">0</mn></msub><mo id="XM5c">⁢</mo><msub id="XM5f"><mi id="XM5d">c</mi><mn id="XM5e">01</mn></msub></mrow><mo id="XM5h">+</mo><mrow id="XM5p"><msub id="XM5k"><mi id="XM5i">X</mi><mn id="XM5j">1</mn></msub><mo id="XM5l">⁢</mo><msub id="XM5o"><mi id="XM5m">c</mi><mn id="XM5n">11</mn></msub></mrow></mrow><mo id="XM5r">-</mo><mrow id="XM5z"><msub id="XM5u"><mi id="XM5s">K</mi><mn id="XM5t">1</mn></msub><mo id="XM5v">⁢</mo><msub id="XM5y"><mi id="XM5w">r</mi><mn id="XM5x">1</mn></msub></mrow></mrow><mo id="XM6r">)</mo></mrow><mo id="XM6t">⁢</mo><msub id="XM6w"><mi id="XM6u">c</mi><mn id="XM6v">11</mn></msub><mo id="XM6x">⁢</mo><msub id="XM6aa"><mi id="XM6y">w</mi><mn id="XM6z">1</mn></msub></mrow><msub id="XM6ae"><mi id="XM6ac">r</mi><mn id="XM6ad">1</mn></msub></mfrac><mo id="XM6ag">+</mo><msub id="XM6aj"><mi id="XM6ah">m</mi><mn id="XM6ai">1</mn></msub></mrow><mo>)</mo></mrow><mo>⁢</mo><msub><mi>X</mi><mn>1</mn></msub><mo>⁢</mo><msub><mi>b</mi><mn>1</mn></msub></mrow></mrow></mrow></mtd></mtr></mtable></mpadded></math></td>
+<td class="ltx_eqn_center_padright"></td>
+</tr>
+</table>
+<p class="ltx_p">The Mac-Lev model with <math xmlns="http://www.w3.org/1998/Math/MathML" id="p1.m1" class="ltx_Math" alttext="c" display="inline"><mi>c</mi></math> varying freely:</p>
+<table id="S0.Ex2" class="ltx_equation">
+
+<tr class="ltx_equation ltx_align_baseline">
+<td class="ltx_eqn_center_padleft"></td>
+<td class="ltx_align_center"><math xmlns="http://www.w3.org/1998/Math/MathML" id="S0.Ex2.m1" class="ltx_Math" alttext="\begin{aligned}\displaystyle\frac{dX_{0}}{dt}&amp;\displaystyle=-{\left({\left(X_{%
+0}c_{00}+X_{1}c_{10}-2\right)}c_{00}+{\left(X_{0}c_{01}+X_{1}c_{11}-2\right)}c%
+_{01}+2\,c_{00}+2\,c_{01}-1\right)}X_{0}\\
+\displaystyle\frac{dX_{1}}{dt}&amp;\displaystyle=-{\left({\left(X_{0}c_{00}+X_{1}c%
+_{10}-2\right)}c_{10}+{\left(X_{0}c_{01}+X_{1}c_{11}-2\right)}c_{11}+2\,c_{10}%
++2\,c_{11}-1\right)}X_{1}\end{aligned}\ " display="block"><mpadded width="+5pt"><mtable displaystyle="true"><mtr><mtd columnalign="right"><mfrac><mrow><mi>d</mi><mo>⁢</mo><msub><mi>X</mi><mn>0</mn></msub></mrow><mrow><mi>d</mi><mo>⁢</mo><mi>t</mi></mrow></mfrac></mtd><mtd columnalign="left"><mrow><mi></mi><mo>=</mo><mrow><mo>-</mo><mrow><mrow><mo>(</mo><mrow id="XM10aj"><mrow id="XM10ag"><mrow id="XM10g"><mrow id="XM10b"><mo id="XM10">(</mo><mrow id="XM8t"><mrow id="XM8q"><mrow id="XM8g"><msub id="XM8b"><mi id="XM8">X</mi><mn id="XM8a">0</mn></msub><mo id="XM8c">⁢</mo><msub id="XM8f"><mi id="XM8d">c</mi><mn id="XM8e">00</mn></msub></mrow><mo id="XM8h">+</mo><mrow id="XM8p"><msub id="XM8k"><mi id="XM8i">X</mi><mn id="XM8j">1</mn></msub><mo id="XM8l">⁢</mo><msub id="XM8o"><mi id="XM8m">c</mi><mn id="XM8n">10</mn></msub></mrow></mrow><mo id="XM8r">-</mo><mn id="XM8s">2</mn></mrow><mo id="XM10a">)</mo></mrow><mo id="XM10c">⁢</mo><msub id="XM10f"><mi id="XM10d">c</mi><mn id="XM10e">00</mn></msub></mrow><mo id="XM10h">+</mo><mrow id="XM10p"><mrow id="XM10k"><mo id="XM10i">(</mo><mrow id="XM9t"><mrow id="XM9q"><mrow id="XM9g"><msub id="XM9b"><mi id="XM9">X</mi><mn id="XM9a">0</mn></msub><mo id="XM9c">⁢</mo><msub id="XM9f"><mi id="XM9d">c</mi><mn id="XM9e">01</mn></msub></mrow><mo id="XM9h">+</mo><mrow id="XM9p"><msub id="XM9k"><mi id="XM9i">X</mi><mn id="XM9j">1</mn></msub><mo id="XM9l">⁢</mo><msub id="XM9o"><mi id="XM9m">c</mi><mn id="XM9n">11</mn></msub></mrow></mrow><mo id="XM9r">-</mo><mn id="XM9s">2</mn></mrow><mo id="XM10j">)</mo></mrow><mo id="XM10l">⁢</mo><msub id="XM10o"><mi id="XM10m">c</mi><mn id="XM10n">01</mn></msub></mrow><mo id="XM10q">+</mo><mrow id="XM10x"><mpadded width="+1.7pt" id="XM10r"><mn id="XM10s">2</mn></mpadded><mo id="XM10t">⁢</mo><msub id="XM10w"><mi id="XM10u">c</mi><mn id="XM10v">00</mn></msub></mrow><mo id="XM10y">+</mo><mrow id="XM10af"><mpadded width="+1.7pt" id="XM10z"><mn id="XM10aa">2</mn></mpadded><mo id="XM10ab">⁢</mo><msub id="XM10ae"><mi id="XM10ac">c</mi><mn id="XM10ad">01</mn></msub></mrow></mrow><mo id="XM10ah">-</mo><mn id="XM10ai">1</mn></mrow><mo>)</mo></mrow><mo>⁢</mo><msub><mi>X</mi><mn>0</mn></msub></mrow></mrow></mrow></mtd></mtr><mtr><mtd columnalign="right"><mfrac><mrow><mi>d</mi><mo>⁢</mo><msub><mi>X</mi><mn>1</mn></msub></mrow><mrow><mi>d</mi><mo>⁢</mo><mi>t</mi></mrow></mfrac></mtd><mtd columnalign="left"><mrow><mi></mi><mo>=</mo><mrow><mo>-</mo><mrow><mrow><mo>(</mo><mrow id="XM14aj"><mrow id="XM14ag"><mrow id="XM14g"><mrow id="XM14b"><mo id="XM14">(</mo><mrow id="XM12t"><mrow id="XM12q"><mrow id="XM12g"><msub id="XM12b"><mi id="XM12">X</mi><mn id="XM12a">0</mn></msub><mo id="XM12c">⁢</mo><msub id="XM12f"><mi id="XM12d">c</mi><mn id="XM12e">00</mn></msub></mrow><mo id="XM12h">+</mo><mrow id="XM12p"><msub id="XM12k"><mi id="XM12i">X</mi><mn id="XM12j">1</mn></msub><mo id="XM12l">⁢</mo><msub id="XM12o"><mi id="XM12m">c</mi><mn id="XM12n">10</mn></msub></mrow></mrow><mo id="XM12r">-</mo><mn id="XM12s">2</mn></mrow><mo id="XM14a">)</mo></mrow><mo id="XM14c">⁢</mo><msub id="XM14f"><mi id="XM14d">c</mi><mn id="XM14e">10</mn></msub></mrow><mo id="XM14h">+</mo><mrow id="XM14p"><mrow id="XM14k"><mo id="XM14i">(</mo><mrow id="XM13t"><mrow id="XM13q"><mrow id="XM13g"><msub id="XM13b"><mi id="XM13">X</mi><mn id="XM13a">0</mn></msub><mo id="XM13c">⁢</mo><msub id="XM13f"><mi id="XM13d">c</mi><mn id="XM13e">01</mn></msub></mrow><mo id="XM13h">+</mo><mrow id="XM13p"><msub id="XM13k"><mi id="XM13i">X</mi><mn id="XM13j">1</mn></msub><mo id="XM13l">⁢</mo><msub id="XM13o"><mi id="XM13m">c</mi><mn id="XM13n">11</mn></msub></mrow></mrow><mo id="XM13r">-</mo><mn id="XM13s">2</mn></mrow><mo id="XM14j">)</mo></mrow><mo id="XM14l">⁢</mo><msub id="XM14o"><mi id="XM14m">c</mi><mn id="XM14n">11</mn></msub></mrow><mo id="XM14q">+</mo><mrow id="XM14x"><mpadded width="+1.7pt" id="XM14r"><mn id="XM14s">2</mn></mpadded><mo id="XM14t">⁢</mo><msub id="XM14w"><mi id="XM14u">c</mi><mn id="XM14v">10</mn></msub></mrow><mo id="XM14y">+</mo><mrow id="XM14af"><mpadded width="+1.7pt" id="XM14z"><mn id="XM14aa">2</mn></mpadded><mo id="XM14ab">⁢</mo><msub id="XM14ae"><mi id="XM14ac">c</mi><mn id="XM14ad">11</mn></msub></mrow></mrow><mo id="XM14ah">-</mo><mn id="XM14ai">1</mn></mrow><mo>)</mo></mrow><mo>⁢</mo><msub><mi>X</mi><mn>1</mn></msub></mrow></mrow></mrow></mtd></mtr></mtable></mpadded></math></td>
+<td class="ltx_eqn_center_padright"></td>
+</tr>
+</table>
+</div>
+</article>
+</div>
+<footer class="ltx_page_footer">
+<div class="ltx_page_logo">Generated  on Sun Jan 25 22:07:47 2015 by <a href="http://dlmf.nist.gov/LaTeXML/">LaTeXML <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAsAAAAOCAYAAAD5YeaVAAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAALEwAACxMBAJqcGAAAAAd0SU1FB9wKExQZLWTEaOUAAAAddEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIFRoZSBHSU1Q72QlbgAAAdpJREFUKM9tkL+L2nAARz9fPZNCKFapUn8kyI0e4iRHSR1Kb8ng0lJw6FYHFwv2LwhOpcWxTjeUunYqOmqd6hEoRDhtDWdA8ApRYsSUCDHNt5ul13vz4w0vWCgUnnEc975arX6ORqN3VqtVZbfbTQC4uEHANM3jSqXymFI6yWazP2KxWAXAL9zCUa1Wy2tXVxheKA9YNoR8Pt+aTqe4FVVVvz05O6MBhqUIBGk8Hn8HAOVy+T+XLJfLS4ZhTiRJgqIoVBRFIoric47jPnmeB1mW/9rr9ZpSSn3Lsmir1fJZlqWlUonKsvwWwD8ymc/nXwVBeLjf7xEKhdBut9Hr9WgmkyGEkJwsy5eHG5vN5g0AKIoCAEgkEkin0wQAfN9/cXPdheu6P33fBwB4ngcAcByHJpPJl+fn54mD3Gg0NrquXxeLRQAAwzAYj8cwTZPwPH9/sVg8PXweDAauqqr2cDjEer1GJBLBZDJBs9mE4zjwfZ85lAGg2+06hmGgXq+j3+/DsixYlgVN03a9Xu8jgCNCyIegIAgx13Vfd7vdu+FweG8YRkjXdWy329+dTgeSJD3ieZ7RNO0VAXAPwDEAO5VKndi2fWrb9jWl9Esul6PZbDY9Go1OZ7PZ9z/lyuD3OozU2wAAAABJRU5ErkJggg==" alt="[LOGO]"></a>
+</div></footer>
+</div>
+
+</div>
+</p>
+
+<p>State space of this population dynamics model:</p>
+
+<p><!-- maclev-2-2-a-c-popdyn.png --><img src="/adaptive-dynamics-research/wmd_files/Selection_Gradients/maclev-2-2-a-c-popdyn.png" alt="(maclev-2-2-a-c-popdyn.png)"/></p>
+
+<p>ZNGI mutual invasion diagram.  Write more about this here.</p>
+
+<p><!-- maclev-2-2-a-c-r-zngis.png --><img src="/adaptive-dynamics-research/wmd_files/Selection_Gradients/maclev-2-2-a-c-r-zngis.png" alt="(maclev-2-2-a-c-r-zngis.png)"/></p>
+
+<h2 id="adaptive-dynamics-of-uniq-ww-1850204760-qinu">Adaptive dynamics of <!-- 4a8a08f09d37b73795649038408b5f33.tex-math.latexml.html --><span class="latexml"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="c" display="inline"><mi>c</mi></math></span></h2>
+
+<p><!-- maclev-2-2-a-c-adap.sage.step --><a href="/adaptive-dynamics-research/wmd_files/Selection_Gradients/maclev-2-2-a-c-adap.sage.step">maclev-2-2-a-c-adap.sage.step</a></p>
+
+<p>Here we derive the adaptive dynamics equations when it is the uptake rates <!-- 98b138f960a584c015cd9ce83d71ca55.tex-math.latexml.html --><span class="latexml"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="c_{ij}" display="inline"><msub><mi>c</mi><mrow><mi>i</mi><mo>⁢</mo><mi>j</mi></mrow></msub></math></span> that is evolving – that is, when <!-- 8725ac49437e72de318f345a8820f055.tex-math.latexml.html --><span class="latexml"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="c_{ij}=c_{j}(u_{i})" display="inline"><mrow><msub><mi>c</mi><mrow><mi>i</mi><mo>⁢</mo><mi>j</mi></mrow></msub><mo>=</mo><mrow><msub><mi>c</mi><mi>j</mi></msub><mo>⁢</mo><mrow><mo stretchy="false">(</mo><msub xml:id="XM1b"><mi xml:id="XM1">u</mi><mi xml:id="XM1a">i</mi></msub><mo stretchy="false">)</mo></mrow></mrow></mrow></math></span>, <!-- 4d8a4767fa9713181473bbc7e6dfdfe7.tex-math.latexml.html --><span class="latexml"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="b_{0}=1" display="inline"><mrow><msub><mi>b</mi><mn>0</mn></msub><mo>=</mo><mn>1</mn></mrow></math></span>, and <!-- 295d1f86eb1d5ac5826608957e7e0287.tex-math.latexml.html --><span class="latexml"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="m_{0}=1" display="inline"><mrow><msub><mi>m</mi><mn>0</mn></msub><mo>=</mo><mn>1</mn></mrow></math></span>; and then we bind the remaining parameters to get a realization of the system that we can integrate and plot.</p>
+
+<p><!-- maclev-2-2-a-c-adap.sage.out.html --><div class="latexml">
+
+<div class="ltx_page_main">
+<div class="ltx_page_content">
+<article class="ltx_document">
+<div id="p1" class="ltx_para">
+<table id="S0.Ex1" class="ltx_equation">
+
+<tr class="ltx_equation ltx_align_baseline">
+<td class="ltx_eqn_center_padleft"></td>
+<td class="ltx_align_center"><math xmlns="http://www.w3.org/1998/Math/MathML" id="S0.Ex1.m1" class="ltx_Math" alttext="\begin{aligned}\displaystyle\frac{dX_{0}}{dt}&amp;\displaystyle=-{\left({\left(X_{%
+0}c_{00}+X_{1}c_{10}-2\right)}c_{00}+{\left(X_{0}c_{01}+X_{1}c_{11}-2\right)}c%
+_{01}+2\,c_{00}+2\,c_{01}-1\right)}X_{0}\\
+\displaystyle\frac{dX_{1}}{dt}&amp;\displaystyle=-{\left({\left(X_{0}c_{00}+X_{1}c%
+_{10}-2\right)}c_{10}+{\left(X_{0}c_{01}+X_{1}c_{11}-2\right)}c_{11}+2\,c_{10}%
++2\,c_{11}-1\right)}X_{1}\end{aligned}\ " display="block"><mpadded width="+5pt"><mtable displaystyle="true"><mtr><mtd columnalign="right"><mfrac><mrow><mi>d</mi><mo>⁢</mo><msub><mi>X</mi><mn>0</mn></msub></mrow><mrow><mi>d</mi><mo>⁢</mo><mi>t</mi></mrow></mfrac></mtd><mtd columnalign="left"><mrow><mi></mi><mo>=</mo><mrow><mo>-</mo><mrow><mrow><mo>(</mo><mrow id="XM4aj"><mrow id="XM4ag"><mrow id="XM4g"><mrow id="XM4b"><mo id="XM4">(</mo><mrow id="XM2t"><mrow id="XM2q"><mrow id="XM2g"><msub id="XM2b"><mi id="XM2">X</mi><mn id="XM2a">0</mn></msub><mo id="XM2c">⁢</mo><msub id="XM2f"><mi id="XM2d">c</mi><mn id="XM2e">00</mn></msub></mrow><mo id="XM2h">+</mo><mrow id="XM2p"><msub id="XM2k"><mi id="XM2i">X</mi><mn id="XM2j">1</mn></msub><mo id="XM2l">⁢</mo><msub id="XM2o"><mi id="XM2m">c</mi><mn id="XM2n">10</mn></msub></mrow></mrow><mo id="XM2r">-</mo><mn id="XM2s">2</mn></mrow><mo id="XM4a">)</mo></mrow><mo id="XM4c">⁢</mo><msub id="XM4f"><mi id="XM4d">c</mi><mn id="XM4e">00</mn></msub></mrow><mo id="XM4h">+</mo><mrow id="XM4p"><mrow id="XM4k"><mo id="XM4i">(</mo><mrow id="XM3t"><mrow id="XM3q"><mrow id="XM3g"><msub id="XM3b"><mi id="XM3">X</mi><mn id="XM3a">0</mn></msub><mo id="XM3c">⁢</mo><msub id="XM3f"><mi id="XM3d">c</mi><mn id="XM3e">01</mn></msub></mrow><mo id="XM3h">+</mo><mrow id="XM3p"><msub id="XM3k"><mi id="XM3i">X</mi><mn id="XM3j">1</mn></msub><mo id="XM3l">⁢</mo><msub id="XM3o"><mi id="XM3m">c</mi><mn id="XM3n">11</mn></msub></mrow></mrow><mo id="XM3r">-</mo><mn id="XM3s">2</mn></mrow><mo id="XM4j">)</mo></mrow><mo id="XM4l">⁢</mo><msub id="XM4o"><mi id="XM4m">c</mi><mn id="XM4n">01</mn></msub></mrow><mo id="XM4q">+</mo><mrow id="XM4x"><mpadded width="+1.7pt" id="XM4r"><mn id="XM4s">2</mn></mpadded><mo id="XM4t">⁢</mo><msub id="XM4w"><mi id="XM4u">c</mi><mn id="XM4v">00</mn></msub></mrow><mo id="XM4y">+</mo><mrow id="XM4af"><mpadded width="+1.7pt" id="XM4z"><mn id="XM4aa">2</mn></mpadded><mo id="XM4ab">⁢</mo><msub id="XM4ae"><mi id="XM4ac">c</mi><mn id="XM4ad">01</mn></msub></mrow></mrow><mo id="XM4ah">-</mo><mn id="XM4ai">1</mn></mrow><mo>)</mo></mrow><mo>⁢</mo><msub><mi>X</mi><mn>0</mn></msub></mrow></mrow></mrow></mtd></mtr><mtr><mtd columnalign="right"><mfrac><mrow><mi>d</mi><mo>⁢</mo><msub><mi>X</mi><mn>1</mn></msub></mrow><mrow><mi>d</mi><mo>⁢</mo><mi>t</mi></mrow></mfrac></mtd><mtd columnalign="left"><mrow><mi></mi><mo>=</mo><mrow><mo>-</mo><mrow><mrow><mo>(</mo><mrow id="XM8aj"><mrow id="XM8ag"><mrow id="XM8g"><mrow id="XM8b"><mo id="XM8">(</mo><mrow id="XM6t"><mrow id="XM6q"><mrow id="XM6g"><msub id="XM6b"><mi id="XM6">X</mi><mn id="XM6a">0</mn></msub><mo id="XM6c">⁢</mo><msub id="XM6f"><mi id="XM6d">c</mi><mn id="XM6e">00</mn></msub></mrow><mo id="XM6h">+</mo><mrow id="XM6p"><msub id="XM6k"><mi id="XM6i">X</mi><mn id="XM6j">1</mn></msub><mo id="XM6l">⁢</mo><msub id="XM6o"><mi id="XM6m">c</mi><mn id="XM6n">10</mn></msub></mrow></mrow><mo id="XM6r">-</mo><mn id="XM6s">2</mn></mrow><mo id="XM8a">)</mo></mrow><mo id="XM8c">⁢</mo><msub id="XM8f"><mi id="XM8d">c</mi><mn id="XM8e">10</mn></msub></mrow><mo id="XM8h">+</mo><mrow id="XM8p"><mrow id="XM8k"><mo id="XM8i">(</mo><mrow id="XM7t"><mrow id="XM7q"><mrow id="XM7g"><msub id="XM7b"><mi id="XM7">X</mi><mn id="XM7a">0</mn></msub><mo id="XM7c">⁢</mo><msub id="XM7f"><mi id="XM7d">c</mi><mn id="XM7e">01</mn></msub></mrow><mo id="XM7h">+</mo><mrow id="XM7p"><msub id="XM7k"><mi id="XM7i">X</mi><mn id="XM7j">1</mn></msub><mo id="XM7l">⁢</mo><msub id="XM7o"><mi id="XM7m">c</mi><mn id="XM7n">11</mn></msub></mrow></mrow><mo id="XM7r">-</mo><mn id="XM7s">2</mn></mrow><mo id="XM8j">)</mo></mrow><mo id="XM8l">⁢</mo><msub id="XM8o"><mi id="XM8m">c</mi><mn id="XM8n">11</mn></msub></mrow><mo id="XM8q">+</mo><mrow id="XM8x"><mpadded width="+1.7pt" id="XM8r"><mn id="XM8s">2</mn></mpadded><mo id="XM8t">⁢</mo><msub id="XM8w"><mi id="XM8u">c</mi><mn id="XM8v">10</mn></msub></mrow><mo id="XM8y">+</mo><mrow id="XM8af"><mpadded width="+1.7pt" id="XM8z"><mn id="XM8aa">2</mn></mpadded><mo id="XM8ab">⁢</mo><msub id="XM8ae"><mi id="XM8ac">c</mi><mn id="XM8ad">11</mn></msub></mrow></mrow><mo id="XM8ah">-</mo><mn id="XM8ai">1</mn></mrow><mo>)</mo></mrow><mo>⁢</mo><msub><mi>X</mi><mn>1</mn></msub></mrow></mrow></mrow></mtd></mtr></mtable></mpadded></math></td>
+<td class="ltx_eqn_center_padright"></td>
+</tr>
+</table>
+<p class="ltx_p">adaptive dynamics of <math xmlns="http://www.w3.org/1998/Math/MathML" id="p1.m1" class="ltx_Math" alttext="c" display="inline"><mi>c</mi></math> in that model:</p>
+<table id="S0.Ex2" class="ltx_equation">
+
+<tr class="ltx_equation ltx_align_baseline">
+<td class="ltx_eqn_center_padleft"></td>
+<td class="ltx_align_center"><math xmlns="http://www.w3.org/1998/Math/MathML" id="S0.Ex2.m1" class="ltx_Math" alttext="\begin{aligned}\displaystyle\frac{dc_{00}}{dt}&amp;\displaystyle=-{\left(\hat{X}_{%
+0}c_{00}+\hat{X}_{1}c_{10}\right)}\hat{X}_{0}\\
+\displaystyle\frac{dc_{01}}{dt}&amp;\displaystyle=-{\left(\hat{X}_{0}c_{01}+\hat{X%
+}_{1}c_{11}\right)}\hat{X}_{0}\\
+\displaystyle\frac{dc_{10}}{dt}&amp;\displaystyle=-{\left(\hat{X}_{0}c_{00}+\hat{X%
+}_{1}c_{10}\right)}\hat{X}_{1}\\
+\displaystyle\frac{dc_{11}}{dt}&amp;\displaystyle=-{\left(\hat{X}_{0}c_{01}+\hat{X%
+}_{1}c_{11}\right)}\hat{X}_{1}\end{aligned}\ " display="block"><mpadded width="+5pt"><mtable displaystyle="true"><mtr><mtd columnalign="right"><mfrac><mrow><mi>d</mi><mo>⁢</mo><msub><mi>c</mi><mn>00</mn></msub></mrow><mrow><mi>d</mi><mo>⁢</mo><mi>t</mi></mrow></mfrac></mtd><mtd columnalign="left"><mrow><mi></mi><mo>=</mo><mrow><mo>-</mo><mrow><mrow><mo>(</mo><mrow id="XM9u"><mrow id="XM9i"><msub id="XM9d"><mover accent="true" id="XM9b"><mi id="XM9">X</mi><mo stretchy="false" id="XM9a">^</mo></mover><mn id="XM9c">0</mn></msub><mo id="XM9e">⁢</mo><msub id="XM9h"><mi id="XM9f">c</mi><mn id="XM9g">00</mn></msub></mrow><mo id="XM9j">+</mo><mrow id="XM9t"><msub id="XM9o"><mover accent="true" id="XM9m"><mi id="XM9k">X</mi><mo stretchy="false" id="XM9l">^</mo></mover><mn id="XM9n">1</mn></msub><mo id="XM9p">⁢</mo><msub id="XM9s"><mi id="XM9q">c</mi><mn id="XM9r">10</mn></msub></mrow></mrow><mo>)</mo></mrow><mo>⁢</mo><msub><mover accent="true"><mi>X</mi><mo stretchy="false">^</mo></mover><mn>0</mn></msub></mrow></mrow></mrow></mtd></mtr><mtr><mtd columnalign="right"><mfrac><mrow><mi>d</mi><mo>⁢</mo><msub><mi>c</mi><mn>01</mn></msub></mrow><mrow><mi>d</mi><mo>⁢</mo><mi>t</mi></mrow></mfrac></mtd><mtd columnalign="left"><mrow><mi></mi><mo>=</mo><mrow><mo>-</mo><mrow><mrow><mo>(</mo><mrow id="XM10u"><mrow id="XM10i"><msub id="XM10d"><mover accent="true" id="XM10b"><mi id="XM10">X</mi><mo stretchy="false" id="XM10a">^</mo></mover><mn id="XM10c">0</mn></msub><mo id="XM10e">⁢</mo><msub id="XM10h"><mi id="XM10f">c</mi><mn id="XM10g">01</mn></msub></mrow><mo id="XM10j">+</mo><mrow id="XM10t"><msub id="XM10o"><mover accent="true" id="XM10m"><mi id="XM10k">X</mi><mo stretchy="false" id="XM10l">^</mo></mover><mn id="XM10n">1</mn></msub><mo id="XM10p">⁢</mo><msub id="XM10s"><mi id="XM10q">c</mi><mn id="XM10r">11</mn></msub></mrow></mrow><mo>)</mo></mrow><mo>⁢</mo><msub><mover accent="true"><mi>X</mi><mo stretchy="false">^</mo></mover><mn>0</mn></msub></mrow></mrow></mrow></mtd></mtr><mtr><mtd columnalign="right"><mfrac><mrow><mi>d</mi><mo>⁢</mo><msub><mi>c</mi><mn>10</mn></msub></mrow><mrow><mi>d</mi><mo>⁢</mo><mi>t</mi></mrow></mfrac></mtd><mtd columnalign="left"><mrow><mi></mi><mo>=</mo><mrow><mo>-</mo><mrow><mrow><mo>(</mo><mrow id="XM11u"><mrow id="XM11i"><msub id="XM11d"><mover accent="true" id="XM11b"><mi id="XM11">X</mi><mo stretchy="false" id="XM11a">^</mo></mover><mn id="XM11c">0</mn></msub><mo id="XM11e">⁢</mo><msub id="XM11h"><mi id="XM11f">c</mi><mn id="XM11g">00</mn></msub></mrow><mo id="XM11j">+</mo><mrow id="XM11t"><msub id="XM11o"><mover accent="true" id="XM11m"><mi id="XM11k">X</mi><mo stretchy="false" id="XM11l">^</mo></mover><mn id="XM11n">1</mn></msub><mo id="XM11p">⁢</mo><msub id="XM11s"><mi id="XM11q">c</mi><mn id="XM11r">10</mn></msub></mrow></mrow><mo>)</mo></mrow><mo>⁢</mo><msub><mover accent="true"><mi>X</mi><mo stretchy="false">^</mo></mover><mn>1</mn></msub></mrow></mrow></mrow></mtd></mtr><mtr><mtd columnalign="right"><mfrac><mrow><mi>d</mi><mo>⁢</mo><msub><mi>c</mi><mn>11</mn></msub></mrow><mrow><mi>d</mi><mo>⁢</mo><mi>t</mi></mrow></mfrac></mtd><mtd columnalign="left"><mrow><mi></mi><mo>=</mo><mrow><mo>-</mo><mrow><mrow><mo>(</mo><mrow id="XM12u"><mrow id="XM12i"><msub id="XM12d"><mover accent="true" id="XM12b"><mi id="XM12">X</mi><mo stretchy="false" id="XM12a">^</mo></mover><mn id="XM12c">0</mn></msub><mo id="XM12e">⁢</mo><msub id="XM12h"><mi id="XM12f">c</mi><mn id="XM12g">01</mn></msub></mrow><mo id="XM12j">+</mo><mrow id="XM12t"><msub id="XM12o"><mover accent="true" id="XM12m"><mi id="XM12k">X</mi><mo stretchy="false" id="XM12l">^</mo></mover><mn id="XM12n">1</mn></msub><mo id="XM12p">⁢</mo><msub id="XM12s"><mi id="XM12q">c</mi><mn id="XM12r">11</mn></msub></mrow></mrow><mo>)</mo></mrow><mo>⁢</mo><msub><mover accent="true"><mi>X</mi><mo stretchy="false">^</mo></mover><mn>1</mn></msub></mrow></mrow></mrow></mtd></mtr></mtable></mpadded></math></td>
+<td class="ltx_eqn_center_padright"></td>
+</tr>
+</table>
+</div>
+</article>
+</div>
+<footer class="ltx_page_footer">
+<div class="ltx_page_logo">Generated  on Sun Jan 25 22:16:31 2015 by <a href="http://dlmf.nist.gov/LaTeXML/">LaTeXML <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAsAAAAOCAYAAAD5YeaVAAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAALEwAACxMBAJqcGAAAAAd0SU1FB9wKExQZLWTEaOUAAAAddEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIFRoZSBHSU1Q72QlbgAAAdpJREFUKM9tkL+L2nAARz9fPZNCKFapUn8kyI0e4iRHSR1Kb8ng0lJw6FYHFwv2LwhOpcWxTjeUunYqOmqd6hEoRDhtDWdA8ApRYsSUCDHNt5ul13vz4w0vWCgUnnEc975arX6ORqN3VqtVZbfbTQC4uEHANM3jSqXymFI6yWazP2KxWAXAL9zCUa1Wy2tXVxheKA9YNoR8Pt+aTqe4FVVVvz05O6MBhqUIBGk8Hn8HAOVy+T+XLJfLS4ZhTiRJgqIoVBRFIoric47jPnmeB1mW/9rr9ZpSSn3Lsmir1fJZlqWlUonKsvwWwD8ymc/nXwVBeLjf7xEKhdBut9Hr9WgmkyGEkJwsy5eHG5vN5g0AKIoCAEgkEkin0wQAfN9/cXPdheu6P33fBwB4ngcAcByHJpPJl+fn54mD3Gg0NrquXxeLRQAAwzAYj8cwTZPwPH9/sVg8PXweDAauqqr2cDjEer1GJBLBZDJBs9mE4zjwfZ85lAGg2+06hmGgXq+j3+/DsixYlgVN03a9Xu8jgCNCyIegIAgx13Vfd7vdu+FweG8YRkjXdWy329+dTgeSJD3ieZ7RNO0VAXAPwDEAO5VKndi2fWrb9jWl9Esul6PZbDY9Go1OZ7PZ9z/lyuD3OozU2wAAAABJRU5ErkJggg==" alt="[LOGO]"></a>
+</div></footer>
+</div>
+
+</div>
+</p>
+
+<p><!-- maclev-2-2-a-c-p.sage.step --><a href="/adaptive-dynamics-research/wmd_files/Selection_Gradients/maclev-2-2-a-c-p.sage.step">maclev-2-2-a-c-p.sage.step</a></p>
+
+<p><!-- maclev-2-2-a-c-p.sage.out.html --><div class="latexml">
+
+<div class="ltx_page_main">
+<div class="ltx_page_content">
+<article class="ltx_document">
+</article>
+</div>
+<footer class="ltx_page_footer">
+<div class="ltx_page_logo">Generated  on Sun Jan 25 22:17:07 2015 by <a href="http://dlmf.nist.gov/LaTeXML/">LaTeXML <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAsAAAAOCAYAAAD5YeaVAAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAALEwAACxMBAJqcGAAAAAd0SU1FB9wKExQZLWTEaOUAAAAddEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIFRoZSBHSU1Q72QlbgAAAdpJREFUKM9tkL+L2nAARz9fPZNCKFapUn8kyI0e4iRHSR1Kb8ng0lJw6FYHFwv2LwhOpcWxTjeUunYqOmqd6hEoRDhtDWdA8ApRYsSUCDHNt5ul13vz4w0vWCgUnnEc975arX6ORqN3VqtVZbfbTQC4uEHANM3jSqXymFI6yWazP2KxWAXAL9zCUa1Wy2tXVxheKA9YNoR8Pt+aTqe4FVVVvz05O6MBhqUIBGk8Hn8HAOVy+T+XLJfLS4ZhTiRJgqIoVBRFIoric47jPnmeB1mW/9rr9ZpSSn3Lsmir1fJZlqWlUonKsvwWwD8ymc/nXwVBeLjf7xEKhdBut9Hr9WgmkyGEkJwsy5eHG5vN5g0AKIoCAEgkEkin0wQAfN9/cXPdheu6P33fBwB4ngcAcByHJpPJl+fn54mD3Gg0NrquXxeLRQAAwzAYj8cwTZPwPH9/sVg8PXweDAauqqr2cDjEer1GJBLBZDJBs9mE4zjwfZ85lAGg2+06hmGgXq+j3+/DsixYlgVN03a9Xu8jgCNCyIegIAgx13Vfd7vdu+FweG8YRkjXdWy329+dTgeSJD3ieZ7RNO0VAXAPwDEAO5VKndi2fWrb9jWl9Esul6PZbDY9Go1OZ7PZ9z/lyuD3OozU2wAAAABJRU5ErkJggg==" alt="[LOGO]"></a>
+</div></footer>
+</div>
+
+</div>
+</p>
+
+<p><!-- maclev-2-2-a-c-c-vs-t.png --><img src="/adaptive-dynamics-research/wmd_files/Selection_Gradients/maclev-2-2-a-c-c-vs-t.png" alt="(maclev-2-2-a-c-c-vs-t.png)"/></p>
+
+<p><!-- maclev-2-2-a-c-c-vs-c.png --><img src="/adaptive-dynamics-research/wmd_files/Selection_Gradients/maclev-2-2-a-c-c-vs-c.png" alt="(maclev-2-2-a-c-c-vs-c.png)"/></p>
+
+<p><!-- maclev-2-2-a-c-zngi.sage.step --><a href="/adaptive-dynamics-research/wmd_files/Selection_Gradients/maclev-2-2-a-c-zngi.sage.step">maclev-2-2-a-c-zngi.sage.step</a></p>
+
+<p><!-- maclev-2-2-a-c-zngi.sage.out.html --><div class="latexml">
+
+<div class="ltx_page_main">
+<div class="ltx_page_content">
+<article class="ltx_document">
+<div id="p1" class="ltx_para">
+<p class="ltx_p">generic ZNGI curve:</p>
+<table id="S0.Ex1" class="ltx_equation">
+
+<tr class="ltx_equation ltx_align_baseline">
+<td class="ltx_eqn_center_padleft"></td>
+<td class="ltx_align_center"><math xmlns="http://www.w3.org/1998/Math/MathML" id="S0.Ex1.m1" class="ltx_Math" alttext="R_{0}c_{00}+R_{1}c_{01}-2\,c_{00}-2\,c_{01}+1=0\ " display="block"><mrow><mrow><mrow><msub><mi>R</mi><mn>0</mn></msub><mo>⁢</mo><msub><mi>c</mi><mn>00</mn></msub></mrow><mo>+</mo><mrow><msub><mi>R</mi><mn>1</mn></msub><mo>⁢</mo><msub><mi>c</mi><mn>01</mn></msub></mrow><mo>-</mo><mrow><mpadded width="+1.7pt"><mn>2</mn></mpadded><mo>⁢</mo><msub><mi>c</mi><mn>00</mn></msub></mrow><mo>-</mo><mrow><mpadded width="+1.7pt"><mn>2</mn></mpadded><mo>⁢</mo><msub><mi>c</mi><mn>01</mn></msub></mrow><mo>+</mo><mn>1</mn></mrow><mo>=</mo><mpadded width="+5pt"><mn>0</mn></mpadded></mrow></math></td>
+<td class="ltx_eqn_center_padright"></td>
+</tr>
+</table>
+</div>
+</article>
+</div>
+<footer class="ltx_page_footer">
+<div class="ltx_page_logo">Generated  on Sun Jan 25 22:19:17 2015 by <a href="http://dlmf.nist.gov/LaTeXML/">LaTeXML <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAsAAAAOCAYAAAD5YeaVAAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAALEwAACxMBAJqcGAAAAAd0SU1FB9wKExQZLWTEaOUAAAAddEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIFRoZSBHSU1Q72QlbgAAAdpJREFUKM9tkL+L2nAARz9fPZNCKFapUn8kyI0e4iRHSR1Kb8ng0lJw6FYHFwv2LwhOpcWxTjeUunYqOmqd6hEoRDhtDWdA8ApRYsSUCDHNt5ul13vz4w0vWCgUnnEc975arX6ORqN3VqtVZbfbTQC4uEHANM3jSqXymFI6yWazP2KxWAXAL9zCUa1Wy2tXVxheKA9YNoR8Pt+aTqe4FVVVvz05O6MBhqUIBGk8Hn8HAOVy+T+XLJfLS4ZhTiRJgqIoVBRFIoric47jPnmeB1mW/9rr9ZpSSn3Lsmir1fJZlqWlUonKsvwWwD8ymc/nXwVBeLjf7xEKhdBut9Hr9WgmkyGEkJwsy5eHG5vN5g0AKIoCAEgkEkin0wQAfN9/cXPdheu6P33fBwB4ngcAcByHJpPJl+fn54mD3Gg0NrquXxeLRQAAwzAYj8cwTZPwPH9/sVg8PXweDAauqqr2cDjEer1GJBLBZDJBs9mE4zjwfZ85lAGg2+06hmGgXq+j3+/DsixYlgVN03a9Xu8jgCNCyIegIAgx13Vfd7vdu+FweG8YRkjXdWy329+dTgeSJD3ieZ7RNO0VAXAPwDEAO5VKndi2fWrb9jWl9Esul6PZbDY9Go1OZ7PZ9z/lyuD3OozU2wAAAABJRU5ErkJggg==" alt="[LOGO]"></a>
+</div></footer>
+</div>
+
+</div>
+</p>
+
+<p><!-- maclev-2-2-a-c-zngi-animation.gif --><img src="/adaptive-dynamics-research/wmd_files/Selection_Gradients/maclev-2-2-a-c-zngi-animation.gif" alt="(maclev-2-2-a-c-zngi-animation.gif)"/></p>
+
+<p>The <!-- f29d7d215dd27a9702745a0b43081d28.tex-math.latexml.html --><span class="latexml"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="R_{0}" display="inline"><msub><mi>R</mi><mn>0</mn></msub></math></span>- and <!-- b7000dd9eb57a731c41f8c85a55ff36a.tex-math.latexml.html --><span class="latexml"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="R_{1}" display="inline"><msub><mi>R</mi><mn>1</mn></msub></math></span>-intercepts of a given line are <!-- 66393575be59f7a6b9cc8bc78324921c.tex-math.latexml.html --><span class="latexml"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="\frac{m_{i}}{c_{ji}}" display="inline"><mfrac><msub><mi>m</mi><mi>i</mi></msub><msub><mi>c</mi><mrow><mi>j</mi><mo>⁢</mo><mi>i</mi></mrow></msub></mfrac></math></span>
+for that species <!-- 865c0c0b4ab0e063e5caa3387c1a8741.tex-math.latexml.html --><span class="latexml"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="i" display="inline"><mi>i</mi></math></span> and that resource <!-- 363b122c528f54df4a0446b6bab05515.tex-math.latexml.html --><span class="latexml"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="j" display="inline"><mi>j</mi></math></span>.</p>
+
+<p>The current resource concentration <!-- 3b0d309db579432ca0546730b58ac2e4.tex-math.latexml.html --><span class="latexml"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="(R_{0},R_{1})" display="inline"><mrow><mo stretchy="false">(</mo><msub xml:id="XM1b"><mi xml:id="XM1">R</mi><mn xml:id="XM1a">0</mn></msub><mo>,</mo><msub xml:id="XM2b"><mi xml:id="XM2">R</mi><mn xml:id="XM2a">1</mn></msub><mo stretchy="false">)</mo></mrow></math></span> is the point of
+intersection of the two gray ZNGI lines.</p>
+
+<p>Evolution proceeds by invasion into the gray region: each line shifts
+in whichever direction places the current
+resources <!-- 3b0d309db579432ca0546730b58ac2e4.tex-math.latexml.html --><span class="latexml"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="(R_{0},R_{1})" display="inline"><mrow><mo stretchy="false">(</mo><msub xml:id="XM1b"><mi xml:id="XM1">R</mi><mn xml:id="XM1a">0</mn></msub><mo>,</mo><msub xml:id="XM2b"><mi xml:id="XM2">R</mi><mn xml:id="XM2a">1</mn></msub><mo stretchy="false">)</mo></mrow></math></span> in the white region above the line.</p>
+
+<h2 id="adaptive-geometry-community-structure-measures-uniq-ww-295734459-qinu-and-uniq-ww-188152547-qinu">Adaptive Geometry: Community-structure measures <!-- 0cc175b9c0f1b6a831c399e269772661.tex-math.latexml.html --><span class="latexml"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="a" display="inline"><mi>a</mi></math></span> and <!-- 8ce4b16b22b58894aa86c421e8759df3.tex-math.latexml.html --><span class="latexml"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="k" display="inline"><mi>k</mi></math></span></h2>
+
+<p><!-- maclev-2-2-a-c-geom.sage.step --><a href="/adaptive-dynamics-research/wmd_files/Selection_Gradients/maclev-2-2-a-c-geom.sage.step">maclev-2-2-a-c-geom.sage.step</a></p>
+
+<p><!-- maclev-2-2-a-c-geom.sage.out.html --><div class="latexml">
+
+<div class="ltx_page_main">
+<div class="ltx_page_content">
+<article class="ltx_document">
+<div id="p1" class="ltx_para">
+<table id="S0.Ex1" class="ltx_equation">
+
+<tr class="ltx_equation ltx_align_baseline">
+<td class="ltx_eqn_center_padleft"></td>
+<td class="ltx_align_center"><math xmlns="http://www.w3.org/1998/Math/MathML" id="S0.Ex1.m1" class="ltx_Math" alttext="A\left(0\right)=\left(k_{0},\,a_{00},\,a_{01}\right)=\left(1,\,-c_{00}^{2}-c_{%
+01}^{2},\,-c_{00}c_{10}-c_{01}c_{11}\right)" display="block"><mrow><mrow><mi>A</mi><mo>⁢</mo><mrow><mo>(</mo><mn id="XM1">0</mn><mo>)</mo></mrow></mrow><mo>=</mo><mrow><mo>(</mo><msub id="XM2b"><mi id="XM2">k</mi><mn id="XM2a">0</mn></msub><mo rspace="4.2pt">,</mo><msub id="XM3b"><mi id="XM3">a</mi><mn id="XM3a">00</mn></msub><mo rspace="4.2pt">,</mo><msub id="XM4b"><mi id="XM4">a</mi><mn id="XM4a">01</mn></msub><mo>)</mo></mrow><mo>=</mo><mrow><mo>(</mo><mn id="XM5">1</mn><mo rspace="4.2pt">,</mo><mrow id="XM6k"><mrow id="XM6e"><mo id="XM6">-</mo><msubsup id="XM6d"><mi id="XM6a">c</mi><mn id="XM6b">00</mn><mn id="XM6c">2</mn></msubsup></mrow><mo id="XM6f">-</mo><msubsup id="XM6j"><mi id="XM6g">c</mi><mn id="XM6h">01</mn><mn id="XM6i">2</mn></msubsup></mrow><mo rspace="4.2pt">,</mo><mrow id="XM7s"><mrow id="XM7i"><mo id="XM7">-</mo><mrow id="XM7h"><msub id="XM7c"><mi id="XM7a">c</mi><mn id="XM7b">00</mn></msub><mo id="XM7d">⁢</mo><msub id="XM7g"><mi id="XM7e">c</mi><mn id="XM7f">10</mn></msub></mrow></mrow><mo id="XM7j">-</mo><mrow id="XM7r"><msub id="XM7m"><mi id="XM7k">c</mi><mn id="XM7l">01</mn></msub><mo id="XM7n">⁢</mo><msub id="XM7q"><mi id="XM7o">c</mi><mn id="XM7p">11</mn></msub></mrow></mrow><mo>)</mo></mrow></mrow></math></td>
+<td class="ltx_eqn_center_padright"></td>
+</tr>
+</table>
+</div>
+<div id="p2" class="ltx_para">
+<table id="S0.Ex2" class="ltx_equation">
+
+<tr class="ltx_equation ltx_align_baseline">
+<td class="ltx_eqn_center_padleft"></td>
+<td class="ltx_align_center"><math xmlns="http://www.w3.org/1998/Math/MathML" id="S0.Ex2.m1" class="ltx_Math" alttext="A\left(1\right)=\left(k_{1},\,a_{10},\,a_{11}\right)=\left(1,\,-c_{00}c_{10}-c%
+_{01}c_{11},\,-c_{10}^{2}-c_{11}^{2}\right)" display="block"><mrow><mrow><mi>A</mi><mo>⁢</mo><mrow><mo>(</mo><mn id="XM8">1</mn><mo>)</mo></mrow></mrow><mo>=</mo><mrow><mo>(</mo><msub id="XM9b"><mi id="XM9">k</mi><mn id="XM9a">1</mn></msub><mo rspace="4.2pt">,</mo><msub id="XM10b"><mi id="XM10">a</mi><mn id="XM10a">10</mn></msub><mo rspace="4.2pt">,</mo><msub id="XM11b"><mi id="XM11">a</mi><mn id="XM11a">11</mn></msub><mo>)</mo></mrow><mo>=</mo><mrow><mo>(</mo><mn id="XM12">1</mn><mo rspace="4.2pt">,</mo><mrow id="XM13s"><mrow id="XM13i"><mo id="XM13">-</mo><mrow id="XM13h"><msub id="XM13c"><mi id="XM13a">c</mi><mn id="XM13b">00</mn></msub><mo id="XM13d">⁢</mo><msub id="XM13g"><mi id="XM13e">c</mi><mn id="XM13f">10</mn></msub></mrow></mrow><mo id="XM13j">-</mo><mrow id="XM13r"><msub id="XM13m"><mi id="XM13k">c</mi><mn id="XM13l">01</mn></msub><mo id="XM13n">⁢</mo><msub id="XM13q"><mi id="XM13o">c</mi><mn id="XM13p">11</mn></msub></mrow></mrow><mo rspace="4.2pt">,</mo><mrow id="XM14k"><mrow id="XM14e"><mo id="XM14">-</mo><msubsup id="XM14d"><mi id="XM14a">c</mi><mn id="XM14b">10</mn><mn id="XM14c">2</mn></msubsup></mrow><mo id="XM14f">-</mo><msubsup id="XM14j"><mi id="XM14g">c</mi><mn id="XM14h">11</mn><mn id="XM14i">2</mn></msubsup></mrow><mo>)</mo></mrow></mrow></math></td>
+<td class="ltx_eqn_center_padright"></td>
+</tr>
+</table>
+</div>
+<div id="p3" class="ltx_para">
+<table id="S0.Ex3" class="ltx_equation">
+
+<tr class="ltx_equation ltx_align_baseline">
+<td class="ltx_eqn_center_padleft"></td>
+<td class="ltx_align_center"><math xmlns="http://www.w3.org/1998/Math/MathML" id="S0.Ex3.m1" class="ltx_Math" alttext="S\left(A\left(0\right)\right)=\left(1,\,\hat{X}_{0},\,\hat{X}_{1}\right)=\left%
+(1,\,\frac{a_{11}k_{0}-a_{01}k_{1}}{a_{01}a_{10}-a_{00}a_{11}},\,-\frac{a_{10}%
+k_{0}-a_{00}k_{1}}{a_{01}a_{10}-a_{00}a_{11}}\right)" display="block"><mrow><mrow><mi>S</mi><mo>⁢</mo><mrow><mo>(</mo><mrow id="XM16e"><mi id="XM16">A</mi><mo id="XM16a">⁢</mo><mrow id="XM16d"><mo id="XM16b">(</mo><mn id="XM15">0</mn><mo id="XM16c">)</mo></mrow></mrow><mo>)</mo></mrow></mrow><mo>=</mo><mrow><mo>(</mo><mn id="XM17">1</mn><mo rspace="4.2pt">,</mo><msub id="XM18d"><mover accent="true" id="XM18b"><mi id="XM18">X</mi><mo stretchy="false" id="XM18a">^</mo></mover><mn id="XM18c">0</mn></msub><mo rspace="4.2pt">,</mo><msub id="XM19d"><mover accent="true" id="XM19b"><mi id="XM19">X</mi><mo stretchy="false" id="XM19a">^</mo></mover><mn id="XM19c">1</mn></msub><mo>)</mo></mrow><mo>=</mo><mrow><mo>(</mo><mn id="XM20">1</mn><mo rspace="4.2pt">,</mo><mfrac id="XM21aj"><mrow id="XM21q"><mrow id="XM21g"><msub id="XM21b"><mi id="XM21">a</mi><mn id="XM21a">11</mn></msub><mo id="XM21c">⁢</mo><msub id="XM21f"><mi id="XM21d">k</mi><mn id="XM21e">0</mn></msub></mrow><mo id="XM21h">-</mo><mrow id="XM21p"><msub id="XM21k"><mi id="XM21i">a</mi><mn id="XM21j">01</mn></msub><mo id="XM21l">⁢</mo><msub id="XM21o"><mi id="XM21m">k</mi><mn id="XM21n">1</mn></msub></mrow></mrow><mrow id="XM21ai"><mrow id="XM21y"><msub id="XM21t"><mi id="XM21r">a</mi><mn id="XM21s">01</mn></msub><mo id="XM21u">⁢</mo><msub id="XM21x"><mi id="XM21v">a</mi><mn id="XM21w">10</mn></msub></mrow><mo id="XM21z">-</mo><mrow id="XM21ah"><msub id="XM21ac"><mi id="XM21aa">a</mi><mn id="XM21ab">00</mn></msub><mo id="XM21ad">⁢</mo><msub id="XM21ag"><mi id="XM21ae">a</mi><mn id="XM21af">11</mn></msub></mrow></mrow></mfrac><mo rspace="4.2pt">,</mo><mrow id="XM22al"><mo id="XM22">-</mo><mfrac id="XM22ak"><mrow id="XM22r"><mrow id="XM22h"><msub id="XM22c"><mi id="XM22a">a</mi><mn id="XM22b">10</mn></msub><mo id="XM22d">⁢</mo><msub id="XM22g"><mi id="XM22e">k</mi><mn id="XM22f">0</mn></msub></mrow><mo id="XM22i">-</mo><mrow id="XM22q"><msub id="XM22l"><mi id="XM22j">a</mi><mn id="XM22k">00</mn></msub><mo id="XM22m">⁢</mo><msub id="XM22p"><mi id="XM22n">k</mi><mn id="XM22o">1</mn></msub></mrow></mrow><mrow id="XM22aj"><mrow id="XM22z"><msub id="XM22u"><mi id="XM22s">a</mi><mn id="XM22t">01</mn></msub><mo id="XM22v">⁢</mo><msub id="XM22y"><mi id="XM22w">a</mi><mn id="XM22x">10</mn></msub></mrow><mo id="XM22aa">-</mo><mrow id="XM22ai"><msub id="XM22ad"><mi id="XM22ab">a</mi><mn id="XM22ac">00</mn></msub><mo id="XM22ae">⁢</mo><msub id="XM22ah"><mi id="XM22af">a</mi><mn id="XM22ag">11</mn></msub></mrow></mrow></mfrac></mrow><mo>)</mo></mrow></mrow></math></td>
+<td class="ltx_eqn_center_padright"></td>
+</tr>
+</table>
+</div>
+<div id="p4" class="ltx_para">
+<table id="S0.Ex4" class="ltx_equation">
+
+<tr class="ltx_equation ltx_align_baseline">
+<td class="ltx_eqn_center_padleft"></td>
+<td class="ltx_align_center"><math xmlns="http://www.w3.org/1998/Math/MathML" id="S0.Ex4.m1" class="ltx_Math" alttext="S\left(A\left(1\right)\right)=\left(1,\,\hat{X}_{0},\,\hat{X}_{1}\right)=\left%
+(1,\,\frac{a_{11}k_{0}-a_{01}k_{1}}{a_{01}a_{10}-a_{00}a_{11}},\,-\frac{a_{10}%
+k_{0}-a_{00}k_{1}}{a_{01}a_{10}-a_{00}a_{11}}\right)" display="block"><mrow><mrow><mi>S</mi><mo>⁢</mo><mrow><mo>(</mo><mrow id="XM24e"><mi id="XM24">A</mi><mo id="XM24a">⁢</mo><mrow id="XM24d"><mo id="XM24b">(</mo><mn id="XM23">1</mn><mo id="XM24c">)</mo></mrow></mrow><mo>)</mo></mrow></mrow><mo>=</mo><mrow><mo>(</mo><mn id="XM25">1</mn><mo rspace="4.2pt">,</mo><msub id="XM26d"><mover accent="true" id="XM26b"><mi id="XM26">X</mi><mo stretchy="false" id="XM26a">^</mo></mover><mn id="XM26c">0</mn></msub><mo rspace="4.2pt">,</mo><msub id="XM27d"><mover accent="true" id="XM27b"><mi id="XM27">X</mi><mo stretchy="false" id="XM27a">^</mo></mover><mn id="XM27c">1</mn></msub><mo>)</mo></mrow><mo>=</mo><mrow><mo>(</mo><mn id="XM28">1</mn><mo rspace="4.2pt">,</mo><mfrac id="XM29aj"><mrow id="XM29q"><mrow id="XM29g"><msub id="XM29b"><mi id="XM29">a</mi><mn id="XM29a">11</mn></msub><mo id="XM29c">⁢</mo><msub id="XM29f"><mi id="XM29d">k</mi><mn id="XM29e">0</mn></msub></mrow><mo id="XM29h">-</mo><mrow id="XM29p"><msub id="XM29k"><mi id="XM29i">a</mi><mn id="XM29j">01</mn></msub><mo id="XM29l">⁢</mo><msub id="XM29o"><mi id="XM29m">k</mi><mn id="XM29n">1</mn></msub></mrow></mrow><mrow id="XM29ai"><mrow id="XM29y"><msub id="XM29t"><mi id="XM29r">a</mi><mn id="XM29s">01</mn></msub><mo id="XM29u">⁢</mo><msub id="XM29x"><mi id="XM29v">a</mi><mn id="XM29w">10</mn></msub></mrow><mo id="XM29z">-</mo><mrow id="XM29ah"><msub id="XM29ac"><mi id="XM29aa">a</mi><mn id="XM29ab">00</mn></msub><mo id="XM29ad">⁢</mo><msub id="XM29ag"><mi id="XM29ae">a</mi><mn id="XM29af">11</mn></msub></mrow></mrow></mfrac><mo rspace="4.2pt">,</mo><mrow id="XM30al"><mo id="XM30">-</mo><mfrac id="XM30ak"><mrow id="XM30r"><mrow id="XM30h"><msub id="XM30c"><mi id="XM30a">a</mi><mn id="XM30b">10</mn></msub><mo id="XM30d">⁢</mo><msub id="XM30g"><mi id="XM30e">k</mi><mn id="XM30f">0</mn></msub></mrow><mo id="XM30i">-</mo><mrow id="XM30q"><msub id="XM30l"><mi id="XM30j">a</mi><mn id="XM30k">00</mn></msub><mo id="XM30m">⁢</mo><msub id="XM30p"><mi id="XM30n">k</mi><mn id="XM30o">1</mn></msub></mrow></mrow><mrow id="XM30aj"><mrow id="XM30z"><msub id="XM30u"><mi id="XM30s">a</mi><mn id="XM30t">01</mn></msub><mo id="XM30v">⁢</mo><msub id="XM30y"><mi id="XM30w">a</mi><mn id="XM30x">10</mn></msub></mrow><mo id="XM30aa">-</mo><mrow id="XM30ai"><msub id="XM30ad"><mi id="XM30ab">a</mi><mn id="XM30ac">00</mn></msub><mo id="XM30ae">⁢</mo><msub id="XM30ah"><mi id="XM30af">a</mi><mn id="XM30ag">11</mn></msub></mrow></mrow></mfrac></mrow><mo>)</mo></mrow></mrow></math></td>
+<td class="ltx_eqn_center_padright"></td>
+</tr>
+</table>
+</div>
+<div id="p5" class="ltx_para">
+<table id="S0.Ex5" class="ltx_equation">
+
+<tr class="ltx_equation ltx_align_baseline">
+<td class="ltx_eqn_center_padleft"></td>
+<td class="ltx_align_center"><math xmlns="http://www.w3.org/1998/Math/MathML" id="S0.Ex5.m1" class="ltx_Math" alttext="D(u_{0})=\left(0,\,-c_{00}\left(t\right)D[0]\left(c_{00}\right)\left(t\right)-%
+c_{01}\left(t\right)D[0]\left(c_{01}\right)\left(t\right),\,-c_{10}\left(t%
+\right)D[0]\left(c_{00}\right)\left(t\right)-c_{11}\left(t\right)D[0]\left(c_{%
+01}\right)\left(t\right)\right)" display="block"><mrow><mrow><mi>D</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><msub id="XM31b"><mi id="XM31">u</mi><mn id="XM31a">0</mn></msub><mo stretchy="false">)</mo></mrow></mrow><mo>=</mo><mrow><mo>(</mo><mn id="XM48">0</mn><mo rspace="4.2pt">,</mo><mrow id="XM49au"><mrow id="XM49w"><mo id="XM49">-</mo><mrow id="XM49v"><msub id="XM49c"><mi id="XM49a">c</mi><mn id="XM49b">00</mn></msub><mo id="XM49d">⁢</mo><mrow id="XM49g"><mo id="XM49e">(</mo><mi id="XM32">t</mi><mo id="XM49f">)</mo></mrow><mo id="XM49h">⁢</mo><mi id="XM49i">D</mi><mo id="XM49j">⁢</mo><mrow id="XM49m"><mo stretchy="false" id="XM49k">[</mo><mn id="XM33">0</mn><mo stretchy="false" id="XM49l">]</mo></mrow><mo id="XM49n">⁢</mo><mrow id="XM49q"><mo id="XM49o">(</mo><msub id="XM34b"><mi id="XM34">c</mi><mn id="XM34a">00</mn></msub><mo id="XM49p">)</mo></mrow><mo id="XM49r">⁢</mo><mrow id="XM49u"><mo id="XM49s">(</mo><mi id="XM35">t</mi><mo id="XM49t">)</mo></mrow></mrow></mrow><mo id="XM49x">-</mo><mrow id="XM49at"><msub id="XM49aa"><mi id="XM49y">c</mi><mn id="XM49z">01</mn></msub><mo id="XM49ab">⁢</mo><mrow id="XM49ae"><mo id="XM49ac">(</mo><mi id="XM36">t</mi><mo id="XM49ad">)</mo></mrow><mo id="XM49af">⁢</mo><mi id="XM49ag">D</mi><mo id="XM49ah">⁢</mo><mrow id="XM49ak"><mo stretchy="false" id="XM49ai">[</mo><mn id="XM37">0</mn><mo stretchy="false" id="XM49aj">]</mo></mrow><mo id="XM49al">⁢</mo><mrow id="XM49ao"><mo id="XM49am">(</mo><msub id="XM38b"><mi id="XM38">c</mi><mn id="XM38a">01</mn></msub><mo id="XM49an">)</mo></mrow><mo id="XM49ap">⁢</mo><mrow id="XM49as"><mo id="XM49aq">(</mo><mi id="XM39">t</mi><mo id="XM49ar">)</mo></mrow></mrow></mrow><mo rspace="4.2pt">,</mo><mrow id="XM50au"><mrow id="XM50w"><mo id="XM50">-</mo><mrow id="XM50v"><msub id="XM50c"><mi id="XM50a">c</mi><mn id="XM50b">10</mn></msub><mo id="XM50d">⁢</mo><mrow id="XM50g"><mo id="XM50e">(</mo><mi id="XM40">t</mi><mo id="XM50f">)</mo></mrow><mo id="XM50h">⁢</mo><mi id="XM50i">D</mi><mo id="XM50j">⁢</mo><mrow id="XM50m"><mo stretchy="false" id="XM50k">[</mo><mn id="XM41">0</mn><mo stretchy="false" id="XM50l">]</mo></mrow><mo id="XM50n">⁢</mo><mrow id="XM50q"><mo id="XM50o">(</mo><msub id="XM42b"><mi id="XM42">c</mi><mn id="XM42a">00</mn></msub><mo id="XM50p">)</mo></mrow><mo id="XM50r">⁢</mo><mrow id="XM50u"><mo id="XM50s">(</mo><mi id="XM43">t</mi><mo id="XM50t">)</mo></mrow></mrow></mrow><mo id="XM50x">-</mo><mrow id="XM50at"><msub id="XM50aa"><mi id="XM50y">c</mi><mn id="XM50z">11</mn></msub><mo id="XM50ab">⁢</mo><mrow id="XM50ae"><mo id="XM50ac">(</mo><mi id="XM44">t</mi><mo id="XM50ad">)</mo></mrow><mo id="XM50af">⁢</mo><mi id="XM50ag">D</mi><mo id="XM50ah">⁢</mo><mrow id="XM50ak"><mo stretchy="false" id="XM50ai">[</mo><mn id="XM45">0</mn><mo stretchy="false" id="XM50aj">]</mo></mrow><mo id="XM50al">⁢</mo><mrow id="XM50ao"><mo id="XM50am">(</mo><msub id="XM46b"><mi id="XM46">c</mi><mn id="XM46a">01</mn></msub><mo id="XM50an">)</mo></mrow><mo id="XM50ap">⁢</mo><mrow id="XM50as"><mo id="XM50aq">(</mo><mi id="XM47">t</mi><mo id="XM50ar">)</mo></mrow></mrow></mrow><mo>)</mo></mrow></mrow></math></td>
+<td class="ltx_eqn_center_padright"></td>
+</tr>
+</table>
+</div>
+<div id="p6" class="ltx_para">
+<table id="S0.Ex6" class="ltx_equation">
+
+<tr class="ltx_equation ltx_align_baseline">
+<td class="ltx_eqn_center_padleft"></td>
+<td class="ltx_align_center"><math xmlns="http://www.w3.org/1998/Math/MathML" id="S0.Ex6.m1" class="ltx_Math" alttext="I(u_{0})=\left(0,\,-c_{00}\left(t\right)D[0]\left(c_{00}\right)\left(t\right)-%
+c_{01}\left(t\right)D[0]\left(c_{01}\right)\left(t\right),\,-c_{00}\left(t%
+\right)D[0]\left(c_{10}\right)\left(t\right)-c_{01}\left(t\right)D[0]\left(c_{%
+11}\right)\left(t\right)\right)" display="block"><mrow><mrow><mi>I</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><msub id="XM51b"><mi id="XM51">u</mi><mn id="XM51a">0</mn></msub><mo stretchy="false">)</mo></mrow></mrow><mo>=</mo><mrow><mo>(</mo><mn id="XM68">0</mn><mo rspace="4.2pt">,</mo><mrow id="XM69au"><mrow id="XM69w"><mo id="XM69">-</mo><mrow id="XM69v"><msub id="XM69c"><mi id="XM69a">c</mi><mn id="XM69b">00</mn></msub><mo id="XM69d">⁢</mo><mrow id="XM69g"><mo id="XM69e">(</mo><mi id="XM52">t</mi><mo id="XM69f">)</mo></mrow><mo id="XM69h">⁢</mo><mi id="XM69i">D</mi><mo id="XM69j">⁢</mo><mrow id="XM69m"><mo stretchy="false" id="XM69k">[</mo><mn id="XM53">0</mn><mo stretchy="false" id="XM69l">]</mo></mrow><mo id="XM69n">⁢</mo><mrow id="XM69q"><mo id="XM69o">(</mo><msub id="XM54b"><mi id="XM54">c</mi><mn id="XM54a">00</mn></msub><mo id="XM69p">)</mo></mrow><mo id="XM69r">⁢</mo><mrow id="XM69u"><mo id="XM69s">(</mo><mi id="XM55">t</mi><mo id="XM69t">)</mo></mrow></mrow></mrow><mo id="XM69x">-</mo><mrow id="XM69at"><msub id="XM69aa"><mi id="XM69y">c</mi><mn id="XM69z">01</mn></msub><mo id="XM69ab">⁢</mo><mrow id="XM69ae"><mo id="XM69ac">(</mo><mi id="XM56">t</mi><mo id="XM69ad">)</mo></mrow><mo id="XM69af">⁢</mo><mi id="XM69ag">D</mi><mo id="XM69ah">⁢</mo><mrow id="XM69ak"><mo stretchy="false" id="XM69ai">[</mo><mn id="XM57">0</mn><mo stretchy="false" id="XM69aj">]</mo></mrow><mo id="XM69al">⁢</mo><mrow id="XM69ao"><mo id="XM69am">(</mo><msub id="XM58b"><mi id="XM58">c</mi><mn id="XM58a">01</mn></msub><mo id="XM69an">)</mo></mrow><mo id="XM69ap">⁢</mo><mrow id="XM69as"><mo id="XM69aq">(</mo><mi id="XM59">t</mi><mo id="XM69ar">)</mo></mrow></mrow></mrow><mo rspace="4.2pt">,</mo><mrow id="XM70au"><mrow id="XM70w"><mo id="XM70">-</mo><mrow id="XM70v"><msub id="XM70c"><mi id="XM70a">c</mi><mn id="XM70b">00</mn></msub><mo id="XM70d">⁢</mo><mrow id="XM70g"><mo id="XM70e">(</mo><mi id="XM60">t</mi><mo id="XM70f">)</mo></mrow><mo id="XM70h">⁢</mo><mi id="XM70i">D</mi><mo id="XM70j">⁢</mo><mrow id="XM70m"><mo stretchy="false" id="XM70k">[</mo><mn id="XM61">0</mn><mo stretchy="false" id="XM70l">]</mo></mrow><mo id="XM70n">⁢</mo><mrow id="XM70q"><mo id="XM70o">(</mo><msub id="XM62b"><mi id="XM62">c</mi><mn id="XM62a">10</mn></msub><mo id="XM70p">)</mo></mrow><mo id="XM70r">⁢</mo><mrow id="XM70u"><mo id="XM70s">(</mo><mi id="XM63">t</mi><mo id="XM70t">)</mo></mrow></mrow></mrow><mo id="XM70x">-</mo><mrow id="XM70at"><msub id="XM70aa"><mi id="XM70y">c</mi><mn id="XM70z">01</mn></msub><mo id="XM70ab">⁢</mo><mrow id="XM70ae"><mo id="XM70ac">(</mo><mi id="XM64">t</mi><mo id="XM70ad">)</mo></mrow><mo id="XM70af">⁢</mo><mi id="XM70ag">D</mi><mo id="XM70ah">⁢</mo><mrow id="XM70ak"><mo stretchy="false" id="XM70ai">[</mo><mn id="XM65">0</mn><mo stretchy="false" id="XM70aj">]</mo></mrow><mo id="XM70al">⁢</mo><mrow id="XM70ao"><mo id="XM70am">(</mo><msub id="XM66b"><mi id="XM66">c</mi><mn id="XM66a">11</mn></msub><mo id="XM70an">)</mo></mrow><mo id="XM70ap">⁢</mo><mrow id="XM70as"><mo id="XM70aq">(</mo><mi id="XM67">t</mi><mo id="XM70ar">)</mo></mrow></mrow></mrow><mo>)</mo></mrow></mrow></math></td>
+<td class="ltx_eqn_center_padright"></td>
+</tr>
+</table>
+</div>
+<div id="p7" class="ltx_para">
+<table id="S0.Ex7" class="ltx_equation">
+
+<tr class="ltx_equation ltx_align_baseline">
+<td class="ltx_eqn_center_padleft"></td>
+<td class="ltx_align_center"><math xmlns="http://www.w3.org/1998/Math/MathML" id="S0.Ex7.m1" class="ltx_Math" alttext="\frac{dA}{dt}=\left(0,\,-2\,c_{00}\left(t\right)D[0]\left(c_{00}\right)\left(t%
+\right)-2\,c_{01}\left(t\right)D[0]\left(c_{01}\right)\left(t\right),\,-c_{10}%
+\left(t\right)D[0]\left(c_{00}\right)\left(t\right)-c_{11}\left(t\right)D[0]%
+\left(c_{01}\right)\left(t\right)-c_{00}\left(t\right)D[0]\left(c_{10}\right)%
+\left(t\right)-c_{01}\left(t\right)D[0]\left(c_{11}\right)\left(t\right)\right)" display="block"><mrow><mfrac><mrow><mi>d</mi><mo>⁢</mo><mi>A</mi></mrow><mrow><mi>d</mi><mo>⁢</mo><mi>t</mi></mrow></mfrac><mo>=</mo><mrow><mo>(</mo><mn id="XM95">0</mn><mo rspace="4.2pt">,</mo><mrow id="XM96ba"><mrow id="XM96z"><mo id="XM96">-</mo><mrow id="XM96y"><mpadded width="+1.7pt" id="XM96a"><mn id="XM96b">2</mn></mpadded><mo id="XM96c">⁢</mo><msub id="XM96f"><mi id="XM96d">c</mi><mn id="XM96e">00</mn></msub><mo id="XM96g">⁢</mo><mrow id="XM96j"><mo id="XM96h">(</mo><mi id="XM71">t</mi><mo id="XM96i">)</mo></mrow><mo id="XM96k">⁢</mo><mi id="XM96l">D</mi><mo id="XM96m">⁢</mo><mrow id="XM96p"><mo stretchy="false" id="XM96n">[</mo><mn id="XM72">0</mn><mo stretchy="false" id="XM96o">]</mo></mrow><mo id="XM96q">⁢</mo><mrow id="XM96t"><mo id="XM96r">(</mo><msub id="XM73b"><mi id="XM73">c</mi><mn id="XM73a">00</mn></msub><mo id="XM96s">)</mo></mrow><mo id="XM96u">⁢</mo><mrow id="XM96x"><mo id="XM96v">(</mo><mi id="XM74">t</mi><mo id="XM96w">)</mo></mrow></mrow></mrow><mo id="XM96aa">-</mo><mrow id="XM96az"><mpadded width="+1.7pt" id="XM96ab"><mn id="XM96ac">2</mn></mpadded><mo id="XM96ad">⁢</mo><msub id="XM96ag"><mi id="XM96ae">c</mi><mn id="XM96af">01</mn></msub><mo id="XM96ah">⁢</mo><mrow id="XM96ak"><mo id="XM96ai">(</mo><mi id="XM75">t</mi><mo id="XM96aj">)</mo></mrow><mo id="XM96al">⁢</mo><mi id="XM96am">D</mi><mo id="XM96an">⁢</mo><mrow id="XM96aq"><mo stretchy="false" id="XM96ao">[</mo><mn id="XM76">0</mn><mo stretchy="false" id="XM96ap">]</mo></mrow><mo id="XM96ar">⁢</mo><mrow id="XM96au"><mo id="XM96as">(</mo><msub id="XM77b"><mi id="XM77">c</mi><mn id="XM77a">01</mn></msub><mo id="XM96at">)</mo></mrow><mo id="XM96av">⁢</mo><mrow id="XM96ay"><mo id="XM96aw">(</mo><mi id="XM78">t</mi><mo id="XM96ax">)</mo></mrow></mrow></mrow><mo rspace="4.2pt">,</mo><mrow id="XM97co"><mrow id="XM97w"><mo id="XM97">-</mo><mrow id="XM97v"><msub id="XM97c"><mi id="XM97a">c</mi><mn id="XM97b">10</mn></msub><mo id="XM97d">⁢</mo><mrow id="XM97g"><mo id="XM97e">(</mo><mi id="XM79">t</mi><mo id="XM97f">)</mo></mrow><mo id="XM97h">⁢</mo><mi id="XM97i">D</mi><mo id="XM97j">⁢</mo><mrow id="XM97m"><mo stretchy="false" id="XM97k">[</mo><mn id="XM80">0</mn><mo stretchy="false" id="XM97l">]</mo></mrow><mo id="XM97n">⁢</mo><mrow id="XM97q"><mo id="XM97o">(</mo><msub id="XM81b"><mi id="XM81">c</mi><mn id="XM81a">00</mn></msub><mo id="XM97p">)</mo></mrow><mo id="XM97r">⁢</mo><mrow id="XM97u"><mo id="XM97s">(</mo><mi id="XM82">t</mi><mo id="XM97t">)</mo></mrow></mrow></mrow><mo id="XM97x">-</mo><mrow id="XM97at"><msub id="XM97aa"><mi id="XM97y">c</mi><mn id="XM97z">11</mn></msub><mo id="XM97ab">⁢</mo><mrow id="XM97ae"><mo id="XM97ac">(</mo><mi id="XM83">t</mi><mo id="XM97ad">)</mo></mrow><mo id="XM97af">⁢</mo><mi id="XM97ag">D</mi><mo id="XM97ah">⁢</mo><mrow id="XM97ak"><mo stretchy="false" id="XM97ai">[</mo><mn id="XM84">0</mn><mo stretchy="false" id="XM97aj">]</mo></mrow><mo id="XM97al">⁢</mo><mrow id="XM97ao"><mo id="XM97am">(</mo><msub id="XM85b"><mi id="XM85">c</mi><mn id="XM85a">01</mn></msub><mo id="XM97an">)</mo></mrow><mo id="XM97ap">⁢</mo><mrow id="XM97as"><mo id="XM97aq">(</mo><mi id="XM86">t</mi><mo id="XM97ar">)</mo></mrow></mrow><mo id="XM97au">-</mo><mrow id="XM97bq"><msub id="XM97ax"><mi id="XM97av">c</mi><mn id="XM97aw">00</mn></msub><mo id="XM97ay">⁢</mo><mrow id="XM97bb"><mo id="XM97az">(</mo><mi id="XM87">t</mi><mo id="XM97ba">)</mo></mrow><mo id="XM97bc">⁢</mo><mi id="XM97bd">D</mi><mo id="XM97be">⁢</mo><mrow id="XM97bh"><mo stretchy="false" id="XM97bf">[</mo><mn id="XM88">0</mn><mo stretchy="false" id="XM97bg">]</mo></mrow><mo id="XM97bi">⁢</mo><mrow id="XM97bl"><mo id="XM97bj">(</mo><msub id="XM89b"><mi id="XM89">c</mi><mn id="XM89a">10</mn></msub><mo id="XM97bk">)</mo></mrow><mo id="XM97bm">⁢</mo><mrow id="XM97bp"><mo id="XM97bn">(</mo><mi id="XM90">t</mi><mo id="XM97bo">)</mo></mrow></mrow><mo id="XM97br">-</mo><mrow id="XM97cn"><msub id="XM97bu"><mi id="XM97bs">c</mi><mn id="XM97bt">01</mn></msub><mo id="XM97bv">⁢</mo><mrow id="XM97by"><mo id="XM97bw">(</mo><mi id="XM91">t</mi><mo id="XM97bx">)</mo></mrow><mo id="XM97bz">⁢</mo><mi id="XM97ca">D</mi><mo id="XM97cb">⁢</mo><mrow id="XM97ce"><mo stretchy="false" id="XM97cc">[</mo><mn id="XM92">0</mn><mo stretchy="false" id="XM97cd">]</mo></mrow><mo id="XM97cf">⁢</mo><mrow id="XM97ci"><mo id="XM97cg">(</mo><msub id="XM93b"><mi id="XM93">c</mi><mn id="XM93a">11</mn></msub><mo id="XM97ch">)</mo></mrow><mo id="XM97cj">⁢</mo><mrow id="XM97cm"><mo id="XM97ck">(</mo><mi id="XM94">t</mi><mo id="XM97cl">)</mo></mrow></mrow></mrow><mo>)</mo></mrow></mrow></math></td>
+<td class="ltx_eqn_center_padright"></td>
+</tr>
+</table>
+</div>
+</article>
+</div>
+<footer class="ltx_page_footer">
+<div class="ltx_page_logo">Generated  on Mon Jan 26 12:21:08 2015 by <a href="http://dlmf.nist.gov/LaTeXML/">LaTeXML <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAsAAAAOCAYAAAD5YeaVAAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAALEwAACxMBAJqcGAAAAAd0SU1FB9wKExQZLWTEaOUAAAAddEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIFRoZSBHSU1Q72QlbgAAAdpJREFUKM9tkL+L2nAARz9fPZNCKFapUn8kyI0e4iRHSR1Kb8ng0lJw6FYHFwv2LwhOpcWxTjeUunYqOmqd6hEoRDhtDWdA8ApRYsSUCDHNt5ul13vz4w0vWCgUnnEc975arX6ORqN3VqtVZbfbTQC4uEHANM3jSqXymFI6yWazP2KxWAXAL9zCUa1Wy2tXVxheKA9YNoR8Pt+aTqe4FVVVvz05O6MBhqUIBGk8Hn8HAOVy+T+XLJfLS4ZhTiRJgqIoVBRFIoric47jPnmeB1mW/9rr9ZpSSn3Lsmir1fJZlqWlUonKsvwWwD8ymc/nXwVBeLjf7xEKhdBut9Hr9WgmkyGEkJwsy5eHG5vN5g0AKIoCAEgkEkin0wQAfN9/cXPdheu6P33fBwB4ngcAcByHJpPJl+fn54mD3Gg0NrquXxeLRQAAwzAYj8cwTZPwPH9/sVg8PXweDAauqqr2cDjEer1GJBLBZDJBs9mE4zjwfZ85lAGg2+06hmGgXq+j3+/DsixYlgVN03a9Xu8jgCNCyIegIAgx13Vfd7vdu+FweG8YRkjXdWy329+dTgeSJD3ieZ7RNO0VAXAPwDEAO5VKndi2fWrb9jWl9Esul6PZbDY9Go1OZ7PZ9z/lyuD3OozU2wAAAABJRU5ErkJggg==" alt="[LOGO]"></a>
+</div></footer>
+</div>
+
+</div>
+</p>
+
+<p>And the motion of the Lotka-Volterra coefficients <!-- 8ce4b16b22b58894aa86c421e8759df3.tex-math.latexml.html --><span class="latexml"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="k" display="inline"><mi>k</mi></math></span> and <!-- 0cc175b9c0f1b6a831c399e269772661.tex-math.latexml.html --><span class="latexml"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="a" display="inline"><mi>a</mi></math></span>:</p>
+
+<p><!-- maclev-2-2-a-c-k-vs-t.png --><img src="/adaptive-dynamics-research/wmd_files/Selection_Gradients/maclev-2-2-a-c-k-vs-t.png" alt="(maclev-2-2-a-c-k-vs-t.png)"/>
+<!-- maclev-2-2-a-c-a-vs-t.png --><img src="/adaptive-dynamics-research/wmd_files/Selection_Gradients/maclev-2-2-a-c-a-vs-t.png" alt="(maclev-2-2-a-c-a-vs-t.png)"/></p>
+
+<p><!-- maclev-2-2-a-c-Xhat-vs-t.png --><img src="/adaptive-dynamics-research/wmd_files/Selection_Gradients/maclev-2-2-a-c-Xhat-vs-t.png" alt="(maclev-2-2-a-c-Xhat-vs-t.png)"/>
+<!-- maclev-2-2-a-c-a-vs-a.png --><img src="/adaptive-dynamics-research/wmd_files/Selection_Gradients/maclev-2-2-a-c-a-vs-a.png" alt="(maclev-2-2-a-c-a-vs-a.png)"/></p>
+
+<p><!-- maclev-2-2-a-c-a-arrows.png --><img src="/adaptive-dynamics-research/wmd_files/Selection_Gradients/maclev-2-2-a-c-a-arrows.png" alt="(maclev-2-2-a-c-a-arrows.png)"/></p>
+
+
+  </article>
+
+</div>
+
+      </div>
+    </div>
+
+    <footer class="site-footer">
+
+  <div class="wrap">
+
+    <h2 class="footer-heading">Lee Worden</h2>
+
+    <div class="footer-col-1 column">
+      <ul>
+        <li><a href="mailto:worden.lee@gmail.com">worden.lee@gmail.com</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col-2 column">
+      <ul>
+        <li>
+          <a href="https://github.com/worden-lee">
+            <span class="icon github">
+              <svg version="1.1" class="github-icon-svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                 viewBox="0 0 16 16" enable-background="new 0 0 16 16" xml:space="preserve">
+                <path fill-rule="evenodd" clip-rule="evenodd" fill="#C2C2C2" d="M7.999,0.431c-4.285,0-7.76,3.474-7.76,7.761
+                c0,3.428,2.223,6.337,5.307,7.363c0.388,0.071,0.53-0.168,0.53-0.374c0-0.184-0.007-0.672-0.01-1.32
+                c-2.159,0.469-2.614-1.04-2.614-1.04c-0.353-0.896-0.862-1.135-0.862-1.135c-0.705-0.481,0.053-0.472,0.053-0.472
+                c0.779,0.055,1.189,0.8,1.189,0.8c0.692,1.186,1.816,0.843,2.258,0.645c0.071-0.502,0.271-0.843,0.493-1.037
+                C4.86,11.425,3.049,10.76,3.049,7.786c0-0.847,0.302-1.54,0.799-2.082C3.768,5.507,3.501,4.718,3.924,3.65
+                c0,0,0.652-0.209,2.134,0.796C6.677,4.273,7.34,4.187,8,4.184c0.659,0.003,1.323,0.089,1.943,0.261
+                c1.482-1.004,2.132-0.796,2.132-0.796c0.423,1.068,0.157,1.857,0.077,2.054c0.497,0.542,0.798,1.235,0.798,2.082
+                c0,2.981-1.814,3.637-3.543,3.829c0.279,0.24,0.527,0.713,0.527,1.437c0,1.037-0.01,1.874-0.01,2.129
+                c0,0.208,0.14,0.449,0.534,0.373c3.081-1.028,5.302-3.935,5.302-7.362C15.76,3.906,12.285,0.431,7.999,0.431z"/>
+              </svg>
+            </span>
+            <span class="username">worden-lee</span>
+          </a>
+        </li>
+        <li>
+          <a href="https://twitter.com/leeworden">
+            <span class="icon twitter">
+              <svg version="1.1" class="twitter-icon-svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                 viewBox="0 0 16 16" enable-background="new 0 0 16 16" xml:space="preserve">
+                <path fill="#C2C2C2" d="M15.969,3.058c-0.586,0.26-1.217,0.436-1.878,0.515c0.675-0.405,1.194-1.045,1.438-1.809
+                c-0.632,0.375-1.332,0.647-2.076,0.793c-0.596-0.636-1.446-1.033-2.387-1.033c-1.806,0-3.27,1.464-3.27,3.27
+                c0,0.256,0.029,0.506,0.085,0.745C5.163,5.404,2.753,4.102,1.14,2.124C0.859,2.607,0.698,3.168,0.698,3.767
+                c0,1.134,0.577,2.135,1.455,2.722C1.616,6.472,1.112,6.325,0.671,6.08c0,0.014,0,0.027,0,0.041c0,1.584,1.127,2.906,2.623,3.206
+                C3.02,9.402,2.731,9.442,2.433,9.442c-0.211,0-0.416-0.021-0.615-0.059c0.416,1.299,1.624,2.245,3.055,2.271
+                c-1.119,0.877-2.529,1.4-4.061,1.4c-0.264,0-0.524-0.015-0.78-0.046c1.447,0.928,3.166,1.469,5.013,1.469
+                c6.015,0,9.304-4.983,9.304-9.304c0-0.142-0.003-0.283-0.009-0.423C14.976,4.29,15.531,3.714,15.969,3.058z"/>
+              </svg>
+            </span>
+            <span class="username">leeworden</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="footer-col-3 column">
+	    <p class="text"><!-- Any additional text --></p>
+    </div>
+
+  </div>
+
+</footer>
+
+
+    </body>
+</html>

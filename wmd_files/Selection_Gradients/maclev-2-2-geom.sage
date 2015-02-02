@@ -44,11 +44,13 @@ class SeriesOfBindings( Bindings ):
         from operator import add
         return reduce( add, map( latex, self._series ) )
 
-A_to_u_bindings = SeriesOfBindings(
-    bmc_bindings + numeric_params + ad_bindings
+A_to_c_bindings = (bm_bindings + numeric_params + gamma_bindings
         + lv_adap_c._lv_model._A_bindings
         + lv_adap_c._adaptivedynamics._late_bindings
-        + lv_adap_c._lv_model.interior_equilibrium_bindings(),
+        + lv_adap_c._lv_model.interior_equilibrium_bindings())
+
+A_to_u_bindings = SeriesOfBindings(
+    A_to_c_bindings + c_bindings,
     lv_adap_c._phenotypes_from_fn_bindings,
     lv_adap_c.dudt_bindings(),
     lv_adap_c._phenotypes_to_fn_bindings )
@@ -58,8 +60,8 @@ sys.stdout.flush()
 
 #ltx.write( 'A\_to\_u\_bindings is ' + latex( A_to_u_bindings ) )
 
-ltx.write_equality( SR('A(0)'), lv_adap_c.A(0).column(), A_to_u_bindings( lv_adap_c.A(0).column() ) )
-ltx.write_equality( SR('A(1)'), lv_adap_c.A(1).column(), A_to_u_bindings( lv_adap_c.A(1).column() ) )
+ltx.write_equality( SR('A(0)'), lv_adap_c.A(0).column(), A_to_c_bindings( lv_adap_c.A(0).column() ) )
+ltx.write_equality( SR('A(1)'), lv_adap_c.A(1).column(), A_to_c_bindings( lv_adap_c.A(1).column() ) )
 ltx.write_equality( SR('S(A(0))'), lv_adap_c.S( lv_adap_c.A(0) ).column(), lv_adap_c._lv_model.interior_equilibrium_bindings()( lv_adap_c.S( lv_adap_c.A(0) ) ).column() )
 ltx.write_equality( SR('S(A(1))'), lv_adap_c.S( lv_adap_c.A(1) ).column(), lv_adap_c._lv_model.interior_equilibrium_bindings()( lv_adap_c.S( lv_adap_c.A(1) ) ).column() ) 
 

@@ -43,11 +43,11 @@ def linear_bindings(indices):
         (rescomp._indexers['c'][i][j], linear_c_func(i,j))
         for i in indices for j in (0,1) ) )
 
+#quadratic_focus = 5 # narrow, selects for specialists
+quadratic_focus = 2
 def quadratic_c_func(i,j):
-    if j == 0:
-        return 1/(1 + u_indexer[i]**2*5)
-    if j == 1:
-        return 1/(1 + (u_indexer[i]-1)**2*5)
+    if j == 0 or j == 1:
+        return 1/(1 + (u_indexer[i]-j)**2 * quadratic_focus)
     return -inf
 
 def quadratic_bindings(indices):
@@ -62,7 +62,8 @@ def quadratic_bindings(indices):
         [ (rescomp._indexers['m'][i], 1) for i in indices ]
     ) )
 
-exp_focus = 3 #0.25
+#exp_focus = 0.25 # very broad, selects for generalist
+exp_focus = 3    # narrow, selects for specialists
 def exponential_c_func(i,j):
     if j == 0 or j == 1:
         return exp( -(u_indexer[i] - j)**2 * exp_focus )
@@ -87,7 +88,9 @@ integrate_popdyn_to = 30
 integrate_adapdyn_to = 1
 integrate_adapdyn_step = 0.02
 
-which_model = 'quadratic'
+gamma_bindings = Bindings( { gamma: 1 } )
+
+which_model = 'exponential'
 
 if which_model == 'linear':
     c_func = linear_c_func
@@ -113,13 +116,11 @@ elif which_model == 'exponential':
     c_bindings = make_bindings( c_func, (0,1,'i') )
     bmc_bindings = bm_bindings + c_bindings
     initial_conditions = Bindings( {
-        u_0 : Rational('1/4'),
-        u_1 : Rational('3/4'),
+        u_0 : Rational('3/7'), #'1/4'),
+        u_1 : Rational('4/7')  #'3/4'),
     } )
     integrate_adapdyn_to = 5
     integrate_adapdyn_step = 0.1
-
-gamma_bindings = Bindings( { gamma: 1 } )
 
 ad_bindings = bmc_bindings + gamma_bindings
 

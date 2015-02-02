@@ -1,18 +1,18 @@
-ad bindings: {c_i_0: u_i, w_0: 1, gamma: 1, Rhat_0: -(2*u_0 - 1)/u_0 + 2, R_0: -X_0*u_0 + 2, K_0: 2, r_0: 1, b_0: 1, c_0_0: u_0, b_i: 1, m_i: 1, m_0: 1, Xhat_0: (2*u_0 - 1)/u_0^2}, {}
-model bindings: {Rhat_0: -(Xhat_0*c_0_0 - K_0*r_0)/r_0, R_0: -(X_0*c_0_0 - K_0*r_0)/r_0}, {}
-_early_bindings: {c_i_0: u_i, b_0: 1, c_0_0: u_0, b_i: 1, m_i: 1, m_0: 1}, {}
-_late_bindings: {}, {}
+ad bindings: {c_i_0 -> u_i, Rhat_0 -> -(2*u_0 - 1)/u_0 + 2, r_0 -> 1, m_i -> 1, R_0 -> -X_0*u_0 + 2, gamma -> 1, m_0 -> 1, c_0_0 -> u_0, b_i -> 1, w_0 -> 1, K_0 -> 2, b_0 -> 1, Xhat_0 -> (2*u_0 - 1)/u_0^2}
+model bindings: {Rhat_0 -> -(Xhat_0*c_0_0 - K_0*r_0)/r_0, R_0 -> -(X_0*c_0_0 - K_0*r_0)/r_0}
+_early_bindings: {c_i_0 -> u_i, m_i -> 1, m_0 -> 1, c_0_0 -> u_0, b_i -> 1, b_0 -> 1}
+_late_bindings: {}
 make LV model
 Inferring LV coefficients from X_0 equation: K_0*X_0*b_0*c_0_0*w_0 - X_0^2*b_0*c_0_0^2*w_0/r_0 - X_0*b_0*m_0
 k_0 : K_0*b_0*c_0_0*w_0 - b_0*m_0
-_A_bindings: {k_0: K_0*b_0*c_0_0*w_0 - b_0*m_0, a_0_0: -b_0*c_0_0^2*w_0/r_0}, {}
+_A_bindings: {k_0 -> K_0*b_0*c_0_0*w_0 - b_0*m_0, a_0_0 -> -b_0*c_0_0^2*w_0/r_0}
 Inferring LV coefficients from X_0 equation: K_0*X_0*u_0*w_0 - X_0^2*u_0^2*w_0/r_0 - X_0*X_i*u_0*u_i*w_0/r_0 - X_0
 a_0_i : -u_0*u_i*w_0/r_0
 k_0 : K_0*u_0*w_0 - 1
 Inferring LV coefficients from X_i equation: K_0*X_i*u_i*w_0 - X_0*X_i*u_0*u_i*w_0/r_0 - X_i^2*u_i^2*w_0/r_0 - X_i
 a_i_0 : -u_0*u_i*w_0/r_0
 k_i : K_0*u_i*w_0 - 1
-a_to_u_bindings: {c_i_0: u_i, w_0: 1, gamma: 1, a_0_i: -u_0*u_i, a_i_i: -u_i^2, R_0: -X_0*u_0 + 2, K_0: 2, r_0: 1, b_0: 1, c_0_0: u_0, Rhat_0: -(2*u_0 - 1)/u_0 + 2, a_i_0: -u_0*u_i, m_i: 1, m_0: 1, a_0_0: -u_0^2, k_0: 2*u_0 - 1, b_i: 1, k_i: 2*u_i - 1, Xhat_0: (2*u_0 - 1)/u_0^2}, {}
+a_to_u_bindings: {c_i_0 -> u_i, Rhat_0 -> -(2*u_0 - 1)/u_0 + 2, a_i_0 -> -u_0*u_i, k_i -> 2*u_i - 1, k_0 -> 2*u_0 - 1, a_i_i -> -u_i^2, m_i -> 1, R_0 -> -X_0*u_0 + 2, a_0_0 -> -u_0^2, gamma -> 1, m_0 -> 1, c_0_0 -> u_0, r_0 -> 1, a_0_i -> -u_0*u_i, w_0 -> 1, K_0 -> 2, b_0 -> 1, b_i -> 1, Xhat_0 -> (2*u_0 - 1)/u_0^2}
 a_func: (u_0, u_i) |--> -u_0*u_i
 r_func: u_0 |--> 2*u_0 - 1
 make LV adaptive dynamics

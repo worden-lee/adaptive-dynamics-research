@@ -59,51 +59,9 @@
   </header>
 
   <article class="post-content">
-  <p><!-- maclev-2-2-c-popdyn.sage.step --><fieldset class="ww-project-file-source ww-collapsible"><legend><span>maclev-2-2-c-popdyn.sage.step</span></legend><div class="ww-collapsible-content"><pre># requires: maclev_2_2_defs.py
-# requires: $(SageDynamics)/dynamicalsystems.py maclevmodels.py
-# produces: maclev-2-2-c-popdyn.sage.out.tex maclev-2-2-c-popdyn.sobj
-# produces: maclev-2-2-c-popdyn.png maclev-2-2-c-r-zngis.png
-from maclev_2_2_defs import *
+  <p><!-- maclev_unconstrained_c.py.step --><a href="/adaptive-dynamics-research/wmd_files/Selection_Gradients/maclev_unconstrained_c.py.step">maclev_unconstrained_c.py.step</a></p>
 
-print 'start'
-sys.stdout.flush()
-
-ltx = latex_output( 'maclev-2-2-c-popdyn.sage.out.tex' )
-
-ltx.write( 'The Mac-Lev model in generic form: ' )
-ltx.write_block( maclev )
-
-ad_bindings = bm_bindings + gamma_bindings
-initial_conditions = Bindings( {
-    rescomp._indexers['c'][0][0] : 1/2,
-    rescomp._indexers['c'][0][1] : 1/4,
-    rescomp._indexers['c'][1][0] : 1/4,
-    rescomp._indexers['c'][1][1] : 1/2,
-} )
-
-print 'apply bindings:', ad_bindings
-sys.stdout.flush()
-
-ltx.write( 'The Mac-Lev model with $c$ varying freely:' )
-ltx.write_block( maclev.bind( ad_bindings + numeric_params ) )
-
-print 'plot state space'
-sys.stdout.flush()
-
-maclev_initial_system = maclev.bind( ad_bindings + numeric_params + initial_conditions )
-p = maclev_initial_system.plot_vector_field( (X_0, 0, 2), (X_1, 0, 2), color=&quot;gray&quot;, figsize=(5,5) )
-p += maclev_initial_system.plot_ZNGIs( (X_0, 0, 2), (X_1, 0, 2), color=&quot;gray&quot; )
-s = maclev_initial_system.solve( [0, 0.02, 0.05], end_points=integrate_popdyn_to )
-p += s.plot( X_0, X_1, color='red' )
-p.save( 'maclev-2-2-c-popdyn.png' )
-
-rescomp_initial_system = maclev._rescomp_model.bind( ad_bindings + numeric_params + initial_conditions )
-rescomp_initial_system.plot_R_ZNGIs( filename='maclev-2-2-c-r-zngis.png', figsize=(4,4), ymin=0, ymax=4, xmin=0, xmax=4 )
-
-ltx.close()
-
-save_session('maclev-2-2-c-popdyn')
-</pre></div></fieldset></p>
+<p><!-- maclev-2-2-c-popdyn.sage.step --><a href="/adaptive-dynamics-research/wmd_files/Selection_Gradients/maclev-2-2-c-popdyn.sage.step">maclev-2-2-c-popdyn.sage.step</a></p>
 
 <p>The model equations, according to Sage:</p>
 
@@ -147,7 +105,7 @@ X_{1}\end{aligned}\ " display="block"><mpadded width="+5pt"><mtable displaystyle
 </article>
 </div>
 <footer class="ltx_page_footer">
-<div class="ltx_page_logo">Generated  on Tue Jan  6 16:52:17 2015 by <a href="http://dlmf.nist.gov/LaTeXML/">LaTeXML <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAsAAAAOCAYAAAD5YeaVAAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAALEwAACxMBAJqcGAAAAAd0SU1FB9wKExQZLWTEaOUAAAAddEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIFRoZSBHSU1Q72QlbgAAAdpJREFUKM9tkL+L2nAARz9fPZNCKFapUn8kyI0e4iRHSR1Kb8ng0lJw6FYHFwv2LwhOpcWxTjeUunYqOmqd6hEoRDhtDWdA8ApRYsSUCDHNt5ul13vz4w0vWCgUnnEc975arX6ORqN3VqtVZbfbTQC4uEHANM3jSqXymFI6yWazP2KxWAXAL9zCUa1Wy2tXVxheKA9YNoR8Pt+aTqe4FVVVvz05O6MBhqUIBGk8Hn8HAOVy+T+XLJfLS4ZhTiRJgqIoVBRFIoric47jPnmeB1mW/9rr9ZpSSn3Lsmir1fJZlqWlUonKsvwWwD8ymc/nXwVBeLjf7xEKhdBut9Hr9WgmkyGEkJwsy5eHG5vN5g0AKIoCAEgkEkin0wQAfN9/cXPdheu6P33fBwB4ngcAcByHJpPJl+fn54mD3Gg0NrquXxeLRQAAwzAYj8cwTZPwPH9/sVg8PXweDAauqqr2cDjEer1GJBLBZDJBs9mE4zjwfZ85lAGg2+06hmGgXq+j3+/DsixYlgVN03a9Xu8jgCNCyIegIAgx13Vfd7vdu+FweG8YRkjXdWy329+dTgeSJD3ieZ7RNO0VAXAPwDEAO5VKndi2fWrb9jWl9Esul6PZbDY9Go1OZ7PZ9z/lyuD3OozU2wAAAABJRU5ErkJggg==" alt="[LOGO]"></a>
+<div class="ltx_page_logo">Generated  on Sun Jan 25 21:53:32 2015 by <a href="http://dlmf.nist.gov/LaTeXML/">LaTeXML <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAsAAAAOCAYAAAD5YeaVAAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAALEwAACxMBAJqcGAAAAAd0SU1FB9wKExQZLWTEaOUAAAAddEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIFRoZSBHSU1Q72QlbgAAAdpJREFUKM9tkL+L2nAARz9fPZNCKFapUn8kyI0e4iRHSR1Kb8ng0lJw6FYHFwv2LwhOpcWxTjeUunYqOmqd6hEoRDhtDWdA8ApRYsSUCDHNt5ul13vz4w0vWCgUnnEc975arX6ORqN3VqtVZbfbTQC4uEHANM3jSqXymFI6yWazP2KxWAXAL9zCUa1Wy2tXVxheKA9YNoR8Pt+aTqe4FVVVvz05O6MBhqUIBGk8Hn8HAOVy+T+XLJfLS4ZhTiRJgqIoVBRFIoric47jPnmeB1mW/9rr9ZpSSn3Lsmir1fJZlqWlUonKsvwWwD8ymc/nXwVBeLjf7xEKhdBut9Hr9WgmkyGEkJwsy5eHG5vN5g0AKIoCAEgkEkin0wQAfN9/cXPdheu6P33fBwB4ngcAcByHJpPJl+fn54mD3Gg0NrquXxeLRQAAwzAYj8cwTZPwPH9/sVg8PXweDAauqqr2cDjEer1GJBLBZDJBs9mE4zjwfZ85lAGg2+06hmGgXq+j3+/DsixYlgVN03a9Xu8jgCNCyIegIAgx13Vfd7vdu+FweG8YRkjXdWy329+dTgeSJD3ieZ7RNO0VAXAPwDEAO5VKndi2fWrb9jWl9Esul6PZbDY9Go1OZ7PZ9z/lyuD3OozU2wAAAABJRU5ErkJggg==" alt="[LOGO]"></a>
 </div></footer>
 </div>
 
@@ -162,67 +120,9 @@ X_{1}\end{aligned}\ " display="block"><mpadded width="+5pt"><mtable displaystyle
 
 <p><!-- maclev-2-2-c-r-zngis.png --><img src="/adaptive-dynamics-research/wmd_files/Selection_Gradients/maclev-2-2-c-r-zngis.png" alt="(maclev-2-2-c-r-zngis.png)"/></p>
 
-<h2 id="adaptive-dynamics-of-uniq-ww-1470867670-qinu">Adaptive dynamics of <!-- 4a8a08f09d37b73795649038408b5f33.tex-math.latexml.html --><span class="latexml"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="c" display="inline"><mi>c</mi></math></span></h2>
+<h2 id="adaptive-dynamics-of-uniq-ww-1921246342-qinu">Adaptive dynamics of <!-- 4a8a08f09d37b73795649038408b5f33.tex-math.latexml.html --><span class="latexml"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="c" display="inline"><mi>c</mi></math></span></h2>
 
-<p><!-- maclev-2-2-c-adap.sage.step --><fieldset class="ww-project-file-source ww-collapsible"><legend><span>maclev-2-2-c-adap.sage.step</span></legend><div class="ww-collapsible-content"><pre># requires: $(SageDynamics)/dynamicalsystems.py
-# requires: $(SageAdaptiveDynamics)/adaptivedynamics.py maclevmodels.py
-# requires: maclev-2-2-c-popdyn.sobj maclev_2_2_defs.py
-# produces: maclev-2-2-c-adap.sage.out.tex maclev-2-2-c-adap.sobj
-from maclev_2_2_defs import *
-
-load_session( 'maclev-2-2-c-popdyn' )
-
-ltx = latex_output( 'maclev-2-2-c-adap.sage.out.tex' )
-
-#ltx.write_block( maclev )
-
-#ltx.write( 'and with the functional and numeric bindings: ' )
-ltx.write_block( maclev.bind( ad_bindings + numeric_params ) )
-
-try:
-    maclev_adap_c = NumericalAdaptiveDynamicsModel( maclev,
-        [ indexer_2d_reverse('c')[j] for j in (0,1) ],
-        late_bindings = ad_bindings + numeric_params,
-        equilibrium_function = find_interior_equilibrium )
-    ltx.write( 'adaptive dynamics of $c$ in that model:' )
-    ltx.write_block( maclev_adap_c )
-    print maclev_adap_c
-
-    print '(bindings: ', ad_bindings + numeric_params, ')'
-
-    #print ( 'find adaptive dynamics equilibria' )
-    #sys.stdout.flush()
-
-    #ltx.write( 'equilibria:' )
-    #adap_equilibria = maclev_adap_c.equilibria( ranges={ u_0:(0.1,0.4,0.6,0.9), u_1:(0.1,0.4,0.6,0.9) } )
-    #for eq in adap_equilibria:
-    #    ltx.write_block( eq )
-
-    print 'solve'
-    sys.stdout.flush()
-
-    try:
-        c_evolution = maclev_adap_c.solve( [0] + [ initial_conditions( c ) for c in maclev_adap_c._vars ], end_points=integrate_adapdyn_to, step=integrate_adapdyn_step )
-    except AdaptiveDynamicsException, e:
-        print( 'AdaptiveDynamicsException: %s' % e ) 
-        print 'Failed to integrate adaptive dynamics'
-        sys.stdout.flush()
-        ltx.write( e._latex_str or '', r'\\Exception: %s\\' % e )
-except AdaptiveDynamicsException, e:
-    print( 'AdaptiveDynamicsException: %s' % e )
-    print 'Failed to construct adaptive dynamics'
-    sys.stdout.flush()
-    ltx.write( e._latex_str or '', r'\\Exception: %s\\' % e )
-
-ltx.close()
-save_session( 'maclev-2-2-c-adap' )
-try:
-    c_evolution
-except NameError:
-    sys.exit( int(1) )
-print 'done'
-sys.exit()
-</pre></div></fieldset></p>
+<p><!-- maclev-2-2-c-adap.sage.step --><a href="/adaptive-dynamics-research/wmd_files/Selection_Gradients/maclev-2-2-c-adap.sage.step">maclev-2-2-c-adap.sage.step</a></p>
 
 <p>Here we derive the adaptive dynamics equations when it is the uptake rates <!-- 98b138f960a584c015cd9ce83d71ca55.tex-math.latexml.html --><span class="latexml"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="c_{ij}" display="inline"><msub><mi>c</mi><mrow><mi>i</mi><mo>⁢</mo><mi>j</mi></mrow></msub></math></span> that is evolving – that is, when <!-- 8725ac49437e72de318f345a8820f055.tex-math.latexml.html --><span class="latexml"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="c_{ij}=c_{j}(u_{i})" display="inline"><mrow><msub><mi>c</mi><mrow><mi>i</mi><mo>⁢</mo><mi>j</mi></mrow></msub><mo>=</mo><mrow><msub><mi>c</mi><mi>j</mi></msub><mo>⁢</mo><mrow><mo stretchy="false">(</mo><msub xml:id="XM1b"><mi xml:id="XM1">u</mi><mi xml:id="XM1a">i</mi></msub><mo stretchy="false">)</mo></mrow></mrow></mrow></math></span>, <!-- 4d8a4767fa9713181473bbc7e6dfdfe7.tex-math.latexml.html --><span class="latexml"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="b_{0}=1" display="inline"><mrow><msub><mi>b</mi><mn>0</mn></msub><mo>=</mo><mn>1</mn></mrow></math></span>, and <!-- 295d1f86eb1d5ac5826608957e7e0287.tex-math.latexml.html --><span class="latexml"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="m_{0}=1" display="inline"><mrow><msub><mi>m</mi><mn>0</mn></msub><mo>=</mo><mn>1</mn></mrow></math></span>; and then we bind the remaining parameters to get a realization of the system that we can integrate and plot.</p>
 
@@ -265,40 +165,14 @@ X_{1}\end{aligned}\ " display="block"><mpadded width="+5pt"><mtable displaystyle
 </article>
 </div>
 <footer class="ltx_page_footer">
-<div class="ltx_page_logo">Generated  on Tue Jan  6 16:52:34 2015 by <a href="http://dlmf.nist.gov/LaTeXML/">LaTeXML <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAsAAAAOCAYAAAD5YeaVAAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAALEwAACxMBAJqcGAAAAAd0SU1FB9wKExQZLWTEaOUAAAAddEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIFRoZSBHSU1Q72QlbgAAAdpJREFUKM9tkL+L2nAARz9fPZNCKFapUn8kyI0e4iRHSR1Kb8ng0lJw6FYHFwv2LwhOpcWxTjeUunYqOmqd6hEoRDhtDWdA8ApRYsSUCDHNt5ul13vz4w0vWCgUnnEc975arX6ORqN3VqtVZbfbTQC4uEHANM3jSqXymFI6yWazP2KxWAXAL9zCUa1Wy2tXVxheKA9YNoR8Pt+aTqe4FVVVvz05O6MBhqUIBGk8Hn8HAOVy+T+XLJfLS4ZhTiRJgqIoVBRFIoric47jPnmeB1mW/9rr9ZpSSn3Lsmir1fJZlqWlUonKsvwWwD8ymc/nXwVBeLjf7xEKhdBut9Hr9WgmkyGEkJwsy5eHG5vN5g0AKIoCAEgkEkin0wQAfN9/cXPdheu6P33fBwB4ngcAcByHJpPJl+fn54mD3Gg0NrquXxeLRQAAwzAYj8cwTZPwPH9/sVg8PXweDAauqqr2cDjEer1GJBLBZDJBs9mE4zjwfZ85lAGg2+06hmGgXq+j3+/DsixYlgVN03a9Xu8jgCNCyIegIAgx13Vfd7vdu+FweG8YRkjXdWy329+dTgeSJD3ieZ7RNO0VAXAPwDEAO5VKndi2fWrb9jWl9Esul6PZbDY9Go1OZ7PZ9z/lyuD3OozU2wAAAABJRU5ErkJggg==" alt="[LOGO]"></a>
+<div class="ltx_page_logo">Generated  on Sun Jan 25 21:53:38 2015 by <a href="http://dlmf.nist.gov/LaTeXML/">LaTeXML <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAsAAAAOCAYAAAD5YeaVAAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAALEwAACxMBAJqcGAAAAAd0SU1FB9wKExQZLWTEaOUAAAAddEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIFRoZSBHSU1Q72QlbgAAAdpJREFUKM9tkL+L2nAARz9fPZNCKFapUn8kyI0e4iRHSR1Kb8ng0lJw6FYHFwv2LwhOpcWxTjeUunYqOmqd6hEoRDhtDWdA8ApRYsSUCDHNt5ul13vz4w0vWCgUnnEc975arX6ORqN3VqtVZbfbTQC4uEHANM3jSqXymFI6yWazP2KxWAXAL9zCUa1Wy2tXVxheKA9YNoR8Pt+aTqe4FVVVvz05O6MBhqUIBGk8Hn8HAOVy+T+XLJfLS4ZhTiRJgqIoVBRFIoric47jPnmeB1mW/9rr9ZpSSn3Lsmir1fJZlqWlUonKsvwWwD8ymc/nXwVBeLjf7xEKhdBut9Hr9WgmkyGEkJwsy5eHG5vN5g0AKIoCAEgkEkin0wQAfN9/cXPdheu6P33fBwB4ngcAcByHJpPJl+fn54mD3Gg0NrquXxeLRQAAwzAYj8cwTZPwPH9/sVg8PXweDAauqqr2cDjEer1GJBLBZDJBs9mE4zjwfZ85lAGg2+06hmGgXq+j3+/DsixYlgVN03a9Xu8jgCNCyIegIAgx13Vfd7vdu+FweG8YRkjXdWy329+dTgeSJD3ieZ7RNO0VAXAPwDEAO5VKndi2fWrb9jWl9Esul6PZbDY9Go1OZ7PZ9z/lyuD3OozU2wAAAABJRU5ErkJggg==" alt="[LOGO]"></a>
 </div></footer>
 </div>
 
 </div>
 </p>
 
-<p><!-- maclev-2-2-c-p.sage.step --><fieldset class="ww-project-file-source ww-collapsible"><legend><span>maclev-2-2-c-p.sage.step</span></legend><div class="ww-collapsible-content"><pre># requires: $(SageDynamics)/dynamicalsystems.py $(SageUtils)/latex_output.py
-# requires: $(SageAdaptiveDynamics)/adaptivedynamics.py maclevmodels.py
-# requires: maclev_2_2_defs.py maclev-2-2-c-adap.sobj
-# produces: maclev-2-2-c-p.sage.out.tex maclev-2-2-c-c-vs-c.png
-from maclev_2_2_defs import *
-
-load_session( 'maclev-2-2-c-adap' )
-
-ltx = latex_output( 'maclev-2-2-c-p.sage.out.tex' )
-
-# plot c_1 vs c_0, with arrows
-
-print 'plot c vs c'
-sys.stdout.flush()
-
-# first put in the curves in the c_0-c_1 plane
-c_phase_plane = Graphics()
-for i in maclev._population_indices:
-    ci = [ rescomp._indexers['c'][i][0], rescomp._indexers['c'][i][1] ]
-    c_phase_plane += c_evolution.plot( ci[0], ci[1], color=[ 'blue', 'red' ][i] )
-
-c_phase_plane.axes_labels( [ '$c_0$', '$c_1$' ] )
-c_phase_plane.save( 'maclev-2-2-c-c-vs-c.png', figsize=(6,6), xmin=0, ymin=0 )
-
-ltx.close()
-save_session( 'maclev-2-2-c-p' )
-</pre></div></fieldset></p>
+<p><!-- maclev-2-2-c-p.sage.step --><a href="/adaptive-dynamics-research/wmd_files/Selection_Gradients/maclev-2-2-c-p.sage.step">maclev-2-2-c-p.sage.step</a></p>
 
 <p><!-- maclev-2-2-c-p.sage.out.html --><div class="latexml">
 
@@ -308,7 +182,7 @@ save_session( 'maclev-2-2-c-p' )
 </article>
 </div>
 <footer class="ltx_page_footer">
-<div class="ltx_page_logo">Generated  on Tue Jan  6 16:52:44 2015 by <a href="http://dlmf.nist.gov/LaTeXML/">LaTeXML <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAsAAAAOCAYAAAD5YeaVAAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAALEwAACxMBAJqcGAAAAAd0SU1FB9wKExQZLWTEaOUAAAAddEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIFRoZSBHSU1Q72QlbgAAAdpJREFUKM9tkL+L2nAARz9fPZNCKFapUn8kyI0e4iRHSR1Kb8ng0lJw6FYHFwv2LwhOpcWxTjeUunYqOmqd6hEoRDhtDWdA8ApRYsSUCDHNt5ul13vz4w0vWCgUnnEc975arX6ORqN3VqtVZbfbTQC4uEHANM3jSqXymFI6yWazP2KxWAXAL9zCUa1Wy2tXVxheKA9YNoR8Pt+aTqe4FVVVvz05O6MBhqUIBGk8Hn8HAOVy+T+XLJfLS4ZhTiRJgqIoVBRFIoric47jPnmeB1mW/9rr9ZpSSn3Lsmir1fJZlqWlUonKsvwWwD8ymc/nXwVBeLjf7xEKhdBut9Hr9WgmkyGEkJwsy5eHG5vN5g0AKIoCAEgkEkin0wQAfN9/cXPdheu6P33fBwB4ngcAcByHJpPJl+fn54mD3Gg0NrquXxeLRQAAwzAYj8cwTZPwPH9/sVg8PXweDAauqqr2cDjEer1GJBLBZDJBs9mE4zjwfZ85lAGg2+06hmGgXq+j3+/DsixYlgVN03a9Xu8jgCNCyIegIAgx13Vfd7vdu+FweG8YRkjXdWy329+dTgeSJD3ieZ7RNO0VAXAPwDEAO5VKndi2fWrb9jWl9Esul6PZbDY9Go1OZ7PZ9z/lyuD3OozU2wAAAABJRU5ErkJggg==" alt="[LOGO]"></a>
+<div class="ltx_page_logo">Generated  on Sun Jan 25 21:53:50 2015 by <a href="http://dlmf.nist.gov/LaTeXML/">LaTeXML <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAsAAAAOCAYAAAD5YeaVAAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAALEwAACxMBAJqcGAAAAAd0SU1FB9wKExQZLWTEaOUAAAAddEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIFRoZSBHSU1Q72QlbgAAAdpJREFUKM9tkL+L2nAARz9fPZNCKFapUn8kyI0e4iRHSR1Kb8ng0lJw6FYHFwv2LwhOpcWxTjeUunYqOmqd6hEoRDhtDWdA8ApRYsSUCDHNt5ul13vz4w0vWCgUnnEc975arX6ORqN3VqtVZbfbTQC4uEHANM3jSqXymFI6yWazP2KxWAXAL9zCUa1Wy2tXVxheKA9YNoR8Pt+aTqe4FVVVvz05O6MBhqUIBGk8Hn8HAOVy+T+XLJfLS4ZhTiRJgqIoVBRFIoric47jPnmeB1mW/9rr9ZpSSn3Lsmir1fJZlqWlUonKsvwWwD8ymc/nXwVBeLjf7xEKhdBut9Hr9WgmkyGEkJwsy5eHG5vN5g0AKIoCAEgkEkin0wQAfN9/cXPdheu6P33fBwB4ngcAcByHJpPJl+fn54mD3Gg0NrquXxeLRQAAwzAYj8cwTZPwPH9/sVg8PXweDAauqqr2cDjEer1GJBLBZDJBs9mE4zjwfZ85lAGg2+06hmGgXq+j3+/DsixYlgVN03a9Xu8jgCNCyIegIAgx13Vfd7vdu+FweG8YRkjXdWy329+dTgeSJD3ieZ7RNO0VAXAPwDEAO5VKndi2fWrb9jWl9Esul6PZbDY9Go1OZ7PZ9z/lyuD3OozU2wAAAABJRU5ErkJggg==" alt="[LOGO]"></a>
 </div></footer>
 </div>
 
@@ -317,69 +191,7 @@ save_session( 'maclev-2-2-c-p' )
 
 <p><!-- maclev-2-2-c-c-vs-c.png --><img src="/adaptive-dynamics-research/wmd_files/Selection_Gradients/maclev-2-2-c-c-vs-c.png" alt="(maclev-2-2-c-c-vs-c.png)"/></p>
 
-<p><!-- maclev-2-2-c-zngi.sage.step --><fieldset class="ww-project-file-source ww-collapsible"><legend><span>maclev-2-2-c-zngi.sage.step</span></legend><div class="ww-collapsible-content"><pre># requires: maclev_2_2_defs.py maclev-2-2-c-adap.sobj
-# produces: maclev-2-2-c-zngi.sage.out.tex maclev-2-2-c-zngi-animation.gif
-from maclev_2_2_defs import *
-
-load_session( 'maclev-2-2-c-adap.sobj' )
-
-ltx = latex_output( 'maclev-2-2-c-zngi.sage.out.tex' )
-
-rescomp_abstract = rescomp.bind( numeric_params )
-rescomp_initial = rescomp_abstract.bind( ad_bindings, initial_conditions )
-
-def zngi_R1( x ):
-    assume( R_0 &gt; 0, R_1 &gt; 0 )
-    zngi = solve( rescomp_abstract._flow[x] == 0, R_1, solution_dict=True )[0][R_1]
-    forget()
-    return numeric_params( zngi )
-
-zngi_generic_parametric = (rescomp_abstract._flow[X_0]/X_0) == 0
-zngi_generic_parametric = bm_bindings( zngi_generic_parametric )
-
-zngis_generic = [ zngi_R1( x ) for x in ( X_0, X_1 ) ]
-
-zngis_numeric = [
-    [ Bindings(p)( ad_bindings( r ) ) for r in zngis_generic ]
-    for p in c_evolution._timeseries ]
-
-rmax = [
-    [ solve( r1, R_0, solution_dict=True )[0][R_0] for r1 in zs ]
-    for zs in zngis_numeric ]
-
-plot_line_args = dict( ymin=0, ymax=4, xmax=4, figsize=(5,5), color='gray' )
-plot_fill_args = dict( plot_line_args, fill=True, fillcolor='gray', fillalpha=0.3, thickness=2 )
-
-ltx.write( 'generic ZNGI curve:' )
-ltx.write_block( zngi_generic_parametric )
-
-def main():
-    zplot = Graphics()
-    anima = []
-
-    print 'create frames'; sys.stdout.flush()
-    for zs, r0s in zip(zngis_numeric, rmax):
-        frame = Graphics()
-        for r1, r0max in zip(zs, r0s):
-            frame += plot( r1, (R_0, 0, r0max), **plot_fill_args )
-            zplot += plot( r1, (R_0, 0, r0max), **plot_line_args )
-        frame.axes_labels( [ '$%s$'%latex(r) for r in (R_0, R_1) ] )
-        anima += [ frame ]
-
-    print 'create animate gif'; sys.stdout.flush()
-    animation = animate( anima, xmin=0, xmax=4, ymin=0, ymax=4, figsize=(5,5) )
-    animation.save( 'maclev-2-2-c-zngi-animation.gif' )
-    return 0
-
-if __name__ == '__main__':
-    status = main()
-else:
-    status = 0
-
-ltx.close()
-save_session('maclev-2-2-zngi')
-sys.exit(int(status))
-</pre></div></fieldset></p>
+<p><!-- maclev-2-2-c-zngi.sage.step --><a href="/adaptive-dynamics-research/wmd_files/Selection_Gradients/maclev-2-2-c-zngi.sage.step">maclev-2-2-c-zngi.sage.step</a></p>
 
 <p><!-- maclev-2-2-c-zngi.sage.out.html --><div class="latexml">
 
@@ -400,7 +212,7 @@ sys.exit(int(status))
 </article>
 </div>
 <footer class="ltx_page_footer">
-<div class="ltx_page_logo">Generated  on Tue Jan  6 16:53:50 2015 by <a href="http://dlmf.nist.gov/LaTeXML/">LaTeXML <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAsAAAAOCAYAAAD5YeaVAAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAALEwAACxMBAJqcGAAAAAd0SU1FB9wKExQZLWTEaOUAAAAddEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIFRoZSBHSU1Q72QlbgAAAdpJREFUKM9tkL+L2nAARz9fPZNCKFapUn8kyI0e4iRHSR1Kb8ng0lJw6FYHFwv2LwhOpcWxTjeUunYqOmqd6hEoRDhtDWdA8ApRYsSUCDHNt5ul13vz4w0vWCgUnnEc975arX6ORqN3VqtVZbfbTQC4uEHANM3jSqXymFI6yWazP2KxWAXAL9zCUa1Wy2tXVxheKA9YNoR8Pt+aTqe4FVVVvz05O6MBhqUIBGk8Hn8HAOVy+T+XLJfLS4ZhTiRJgqIoVBRFIoric47jPnmeB1mW/9rr9ZpSSn3Lsmir1fJZlqWlUonKsvwWwD8ymc/nXwVBeLjf7xEKhdBut9Hr9WgmkyGEkJwsy5eHG5vN5g0AKIoCAEgkEkin0wQAfN9/cXPdheu6P33fBwB4ngcAcByHJpPJl+fn54mD3Gg0NrquXxeLRQAAwzAYj8cwTZPwPH9/sVg8PXweDAauqqr2cDjEer1GJBLBZDJBs9mE4zjwfZ85lAGg2+06hmGgXq+j3+/DsixYlgVN03a9Xu8jgCNCyIegIAgx13Vfd7vdu+FweG8YRkjXdWy329+dTgeSJD3ieZ7RNO0VAXAPwDEAO5VKndi2fWrb9jWl9Esul6PZbDY9Go1OZ7PZ9z/lyuD3OozU2wAAAABJRU5ErkJggg==" alt="[LOGO]"></a>
+<div class="ltx_page_logo">Generated  on Sun Jan 25 21:54:46 2015 by <a href="http://dlmf.nist.gov/LaTeXML/">LaTeXML <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAsAAAAOCAYAAAD5YeaVAAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAALEwAACxMBAJqcGAAAAAd0SU1FB9wKExQZLWTEaOUAAAAddEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIFRoZSBHSU1Q72QlbgAAAdpJREFUKM9tkL+L2nAARz9fPZNCKFapUn8kyI0e4iRHSR1Kb8ng0lJw6FYHFwv2LwhOpcWxTjeUunYqOmqd6hEoRDhtDWdA8ApRYsSUCDHNt5ul13vz4w0vWCgUnnEc975arX6ORqN3VqtVZbfbTQC4uEHANM3jSqXymFI6yWazP2KxWAXAL9zCUa1Wy2tXVxheKA9YNoR8Pt+aTqe4FVVVvz05O6MBhqUIBGk8Hn8HAOVy+T+XLJfLS4ZhTiRJgqIoVBRFIoric47jPnmeB1mW/9rr9ZpSSn3Lsmir1fJZlqWlUonKsvwWwD8ymc/nXwVBeLjf7xEKhdBut9Hr9WgmkyGEkJwsy5eHG5vN5g0AKIoCAEgkEkin0wQAfN9/cXPdheu6P33fBwB4ngcAcByHJpPJl+fn54mD3Gg0NrquXxeLRQAAwzAYj8cwTZPwPH9/sVg8PXweDAauqqr2cDjEer1GJBLBZDJBs9mE4zjwfZ85lAGg2+06hmGgXq+j3+/DsixYlgVN03a9Xu8jgCNCyIegIAgx13Vfd7vdu+FweG8YRkjXdWy329+dTgeSJD3ieZ7RNO0VAXAPwDEAO5VKndi2fWrb9jWl9Esul6PZbDY9Go1OZ7PZ9z/lyuD3OozU2wAAAABJRU5ErkJggg==" alt="[LOGO]"></a>
 </div></footer>
 </div>
 
@@ -419,253 +231,9 @@ intersection of the two gray ZNGI lines.</p>
 in whichever direction places the current
 resources <!-- 3b0d309db579432ca0546730b58ac2e4.tex-math.latexml.html --><span class="latexml"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="(R_{0},R_{1})" display="inline"><mrow><mo stretchy="false">(</mo><msub xml:id="XM1b"><mi xml:id="XM1">R</mi><mn xml:id="XM1a">0</mn></msub><mo>,</mo><msub xml:id="XM2b"><mi xml:id="XM2">R</mi><mn xml:id="XM2a">1</mn></msub><mo stretchy="false">)</mo></mrow></math></span> in the white region above the line.</p>
 
-<h2 id="adaptive-geometry-community-structure-measures-uniq-ww-2026190209-qinu-and-uniq-ww-1188256434-qinu">Adaptive Geometry: Community-structure measures <!-- 0cc175b9c0f1b6a831c399e269772661.tex-math.latexml.html --><span class="latexml"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="a" display="inline"><mi>a</mi></math></span> and <!-- 8ce4b16b22b58894aa86c421e8759df3.tex-math.latexml.html --><span class="latexml"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="k" display="inline"><mi>k</mi></math></span></h2>
+<h2 id="adaptive-geometry-community-structure-measures-uniq-ww-985053237-qinu-and-uniq-ww-729941007-qinu">Adaptive Geometry: Community-structure measures <!-- 0cc175b9c0f1b6a831c399e269772661.tex-math.latexml.html --><span class="latexml"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="a" display="inline"><mi>a</mi></math></span> and <!-- 8ce4b16b22b58894aa86c421e8759df3.tex-math.latexml.html --><span class="latexml"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="k" display="inline"><mi>k</mi></math></span></h2>
 
-<p><!-- maclev-2-2-c-geom.sage.step --><fieldset class="ww-project-file-source ww-collapsible"><legend><span>maclev-2-2-c-geom.sage.step</span></legend><div class="ww-collapsible-content"><pre># requires: $(SageDynamics)/dynamicalsystems.py $(SageUtils)/latex_output.py
-# requires: $(SageAdaptiveDynamics)/adaptivedynamics.py maclevmodels.py 
-# requires: lotkavolterra.py
-# requires: maclev_2_2_defs.py maclev-2-2-c-adap.sobj
-# produces: maclev-2-2-c-geom.sage.out.tex
-# produces: maclev-2-2-c-k-vs-t.png maclev-2-2-c-a-vs-t.png
-# produces: maclev-2-2-c-Xhat-vs-t.png maclev-2-2-c-Rhat-vs-t.png
-# produces: maclev-2-2-c-a-vs-a.png
-# produces: maclev-2-2-c-a-vs-k.png maclev-2-2-c-a-arrows.png
-from maclev_2_2_defs import *
-from lotkavolterra import *
-
-load_session( 'maclev-2-2-c-adap' )
-
-ltx = latex_output( 'maclev-2-2-c-geom.sage.out.tex' )
-
-# I don't trust FunctionBindings any more, but I need to use it briefly
-# to get tractable adaptive dynamics here.
-bmc_to_fn_bindings = Bindings( dict(
-    [ ( maclev._rescomp_model._indexers['c'][i][j],
-        function( 'c_%s'%j )( u_indexer[i] ) )
-      for i in (0,1,'i') for j in (0,1) ] +
-    [ ( maclev._rescomp_model._indexers['b'][i], function('b')( u_indexer[i] ) ) for i in (0,1,'i') ] +
-    [ ( maclev._rescomp_model._indexers['m'][i], function('m')( u_indexer[i] ) ) for i in (0,1,'i') ]
-    ) )
-bmc_from_fn_bindings = Bindings( FunctionBindings( dict(
-    [ ( function( 'c_%s'%j ), c_func(0,j).function( u_indexer[0] ) )
-        for j in (0,1) ] +
-    [ ( function( 'b' ), SR(1) ), ( function('m'), SR(1) ) ]
-    ) ) )
-
-lv_adap_c = LotkaVolterraAdaptiveDynamics( maclev_adap_c, r_name='k' )
-
-class SeriesOfBindings( Bindings ):
-    def __init__( self, *args ):
-        # this list of bindings will be applied from right to left
-        self._series = args
-    def substitute( self, expr ):
-        return self.substitute_list( self._series, expr )
-    def substitute_list( self, series, expr ):
-        if not series: return expr
-        return series[0]( self.substitute_list( series[1:], expr ) )
-    def _latex_(self):
-        from operator import add
-        return reduce( add, map( latex, self._series ) )
-
-A_to_u_bindings = SeriesOfBindings(
-    bm_bindings + numeric_params + ad_bindings
-        + lv_adap_c._lv_model._A_bindings
-        + lv_adap_c._adaptivedynamics._late_bindings
-        + lv_adap_c._lv_model.interior_equilibrium_bindings(),
-    lv_adap_c._phenotypes_from_fn_bindings,
-    lv_adap_c.dudt_bindings(),
-    lv_adap_c._phenotypes_to_fn_bindings )
-
-print 'printing things in LaTeX'
-sys.stdout.flush()
-
-#ltx.write( 'A\_to\_u\_bindings is ' + latex( A_to_u_bindings ) )
-
-ltx.write_equality( SR('A(0)'), lv_adap_c.A(0), A_to_u_bindings( lv_adap_c.A(0) ) )
-ltx.write_equality( SR('A(1)'), lv_adap_c.A(1), A_to_u_bindings( lv_adap_c.A(1) ) )
-ltx.write_equality( SR('S(A(0))'), lv_adap_c.S( lv_adap_c.A(0) ), lv_adap_c._lv_model.interior_equilibrium_bindings()( lv_adap_c.S( lv_adap_c.A(0) ) ) )
-ltx.write_equality( SR('S(A(1))'), lv_adap_c.S( lv_adap_c.A(1) ), lv_adap_c._lv_model.interior_equilibrium_bindings()( lv_adap_c.S( lv_adap_c.A(1) ) ) ) 
-
-ltx.write_equality( wrap_latex( 'D(u_0)' ), lv_adap_c.direct_effect(0)
-    #, A_to_u_bindings( lv_adap_c.direct_effect(0) )
-)
-ltx._output.flush()
-ltx.write_equality( wrap_latex( 'I(u_0)' ), lv_adap_c.indirect_effect(0)
-    #, A_to_u_bindings( lv_adap_c.indirect_effect(0) )
-)
-ltx._output.flush()
-ltx.write_equality( wrap_latex( r'\frac{dA}{dt}' ), lv_adap_c.dAdt(0)
-    #, A_to_u_bindings( lv_adap_c.dAdt(0) )
-)
-ltx._output.flush()
-
-t = maclev_adap_c._time_variable
-
-print 'plot k vs. t'
-sys.stdout.flush()
-
-# plot k values vs. time
-k_timeseries = Graphics();
-for i in (0, 1):
-    print ( str( lv_adap_c._lv_model._indexers['r'][i] ) + ': ' +
-        str( A_to_u_bindings( lv_adap_c._lv_model._A_bindings( lv_adap_c._lv_model._indexers['r'][i] ) ) ) )
-    k_timeseries += c_evolution.plot( t,
-        A_to_u_bindings( lv_adap_c._lv_model._A_bindings( lv_adap_c._lv_model._indexers['r'][i] ) ),
-        color=[ 'blue', 'red' ][i], figsize=(4,4) )
-k_timeseries.axes_labels( [ '$t$', '$k(\cdot)$' ] )
-k_timeseries.save( 'maclev-2-2-c-k-vs-t.png' )
-
-print 'plot a vs. t'
-sys.stdout.flush()
-
-# plot interactions vs. time in Xmas colors
-a_timeseries = Graphics()
-for i in (0, 1):
-    for j in (0, 1):
-        a_timeseries += c_evolution.plot( t,
-            A_to_u_bindings( lv_adap_c._lv_model._A_bindings( lv_adap_c._lv_model._indexers['a'][i][j] ) ), 
-            color=(i == j and 'red' or 'lime'), figsize=(4,4) )
-a_timeseries.axes_labels( [ '$t$', '$a(\cdot,\cdot)$' ] )
-a_timeseries.save( 'maclev-2-2-c-a-vs-t.png' )
-
-print 'plot X vs. t'
-sys.stdout.flush()
-
-# population size vs time
-X_timeseries = Graphics()
-for i in (0, 1):
-    #print ( str( hat( lv_adap_c._lv_model._population_indexer[i] ) ) + ': ' +
-        #str( A_to_u_bindings( lv_adap_c._lv_model.interior_equilibrium_bindings()( hat( lv_adap_c._lv_model._population_indexer[i] ) ) ) ) )
-    X_timeseries += c_evolution.plot( t,
-        A_to_u_bindings( lv_adap_c._lv_model.interior_equilibrium_bindings()( hat( lv_adap_c._lv_model._population_indexer[i] ) ) ),
-        color=[ 'blue', 'red' ][i], figsize=(4,4) )
-X_timeseries.axes_labels( [ '$t$', '$\hat{X}$' ] )
-X_timeseries.save( 'maclev-2-2-c-Xhat-vs-t.png' )
-
-print 'plot R vs. t'
-sys.stdout.flush()
-
-# population size vs time
-R_timeseries = Graphics()
-for i in (0, 1):
-    ri = A_to_u_bindings( Bindings( { X_0: hat(X_0), X_1: hat(X_1) } )( maclev._bindings( SR('R_%s'%i) ) ) )
-    #print ri
-    #print Bindings( c_evolution._timeseries[0] )( ri )
-    sys.stdout.flush()
-    R_timeseries += c_evolution.plot( t, ri,
-        color=[ 'blue', 'red' ][i], figsize=(4,4) )
-R_timeseries.axes_labels( [ '$t$', '$\hat{R}$' ] )
-R_timeseries.save( 'maclev-2-2-c-Rhat-vs-t.png' )
-
-print 'plot a vs. a'
-sys.stdout.flush()
-
-# plot interactions in A space
-a_phase_plane = Graphics()
-#from sage.plot.plot3d.base import Graphics3d
-#a_3d = Graphics3d()
-for i in (0, 1):
-    a_phase_plane += c_evolution.plot(
-        A_to_u_bindings( lv_adap_c._lv_model._indexers['a'][i][0] ),
-        A_to_u_bindings( lv_adap_c._lv_model._indexers['a'][i][1] ),
-        color=[ 'blue', 'red' ][i] )
-    #a_3d += c_evolution.plot3d(
-        #A_to_u_bindings( lv_adap_c._lv_model._indexers['a'][i][0] ),
-        #A_to_u_bindings( lv_adap_c._lv_model._indexers['a'][i][1] ),
-        #A_to_u_bindings( lv_adap_c._lv_model._indexers['r'][i] ),
-        #color=[ 'blue', 'red' ][i] )
-a_phase_plane.axes_labels( [ '$a(u_0,\cdot)$', '$a(u_1,\cdot)$' ] )
-a_phase_plane.save( 'maclev-2-2-c-a-vs-a.png', figsize=(4,4), xmax=0, ymax=0 )
-##a_3d.axes_labels( [ '$a(u_0,u)$', '$a(u_1,u)$', '$k(u)' ] )
-#a_3d.save( 'maclev-2-2-c-a-vs-k.png' )
-
-print 'plot a vs. a with arrows'
-sys.stdout.flush()
-
-def a_arrow( base, vec, scale=1, **args ):
-    #ltx.write( 'arrow: $%s \\to %s%s$\n\n' % (latex(base),latex(scale),latex(vec)) )
-    return arrow( (base[1], base[2]), (base[1] + scale*vec[1], base[2] + scale*vec[2]), **args )
-
-a_phase_plane_annotated = a_phase_plane
-
-#A01 = A_to_u_bindings( lv_adap_c.A(0) )[2] # a(u_0, u_1)
-#import numpy
-#grid_range = numpy.arange(0,1.01,0.1)
-#for u_val in grid_range:
-    # hold u_1=u_val and vary u_0
-    #a_phase_plane_annotated += parametric_plot(
-    #    ( Bindings( { u_1:u_0 } )(A01),                # a(u_0,u_0)
-    #      Bindings( { u_1:u_0 } )( Bindings( { u_0:u_val } )(A01) ) ), # a(u_1,u_0)
-    #    (u_0,0,1), color=hue( 0, 0, 0.8 ) )
-    #a_phase_plane_annotated += parametric_plot(
-    #    ( Bindings( { u_1:u_val } )(A01),              # a(u_0,u_1)
-    #      Bindings( { u_0:u_val, u_1:u_val } )(A01) ), # a(u_1,u_1)
-    #    (u_0,0,1), color=hue( 0, 0, 0.8 ) )
-    # hold u_0=u_val and vary u_1
-    #a_phase_plane_annotated += parametric_plot(
-    #    ( Bindings( { u_0:u_val, u_1:u_val } )(A01),   # a(u_0,u_0)
-    #      Bindings( { u_0:u_1 } )( Bindings( { u_1:u_val } )(A01) ) ), # a(u_1,u_0)
-    #    (u_1,0,1), color=hue( 0, 0, 0.8 ) )
-    #a_phase_plane_annotated += parametric_plot(
-    #    ( Bindings( { u_0:u_val } )(A01),              # a(u_0,u_1)
-    #      Bindings( { u_0:u_1 } )(A01) ),              # a(u_1,u_1)
-    #    (u_1,0,1), color=hue( 0, 0, 0.8 ) )
-
-last_t = -oo
-scale = 1/12
-vectors = dict()
-for p in c_evolution._timeseries:
-    next_t = p[t]
-    pp = Bindings( p )
-    if next_t &gt;= last_t + 0.1:
-        last_t = next_t
-        for i in (0,1):
-            if not i in vectors:
-                vectors[i] = ( A_to_u_bindings( lv_adap_c.A(i) ),
-                    A_to_u_bindings( lv_adap_c.S(lv_adap_c.A(i)) ),
-                    A_to_u_bindings( lv_adap_c.direct_effect(i) ),
-                    A_to_u_bindings( lv_adap_c.indirect_effect(i) ),
-                    A_to_u_bindings( lv_adap_c.dAdt(i) ) )
-            (Ai, SAi, Di, Ii, dAdti) = vectors[i]
-            # check equality
-            #print ( '$D(%s) + I(%s) = %s \\overset{?}{=} \\frac{dA(u)}{du} = %s$\n\n' % (
-            #        latex(i), latex(i), latex(
-            #          pp( A_to_u_bindings( Di ) ) +
-            #          pp( A_to_u_bindings( Ii ) )
-            #        ), latex(
-            #          pp( A_to_u_bindings( dAdti ) )
-            #        ) ) )
-            S_A_arrow = a_arrow(
-                pp( Ai ),
-                pp( SAi ),
-                scale=scale, color='red' )
-            D_arrow = a_arrow(
-                pp( Ai ),
-                pp( Di ),
-                scale=scale, color='green' )
-            I_arrow = a_arrow(
-                pp( Ai + Di.apply_map( lambda x:x*scale ) ),
-                pp( Ii ),
-                scale=scale, color='purple' )
-            dA_du_arrow = a_arrow(
-                pp( Ai ),
-                pp( dAdti ),
-                scale=scale, color='blue' )
-            a_phase_plane_annotated += S_A_arrow + D_arrow + I_arrow + dA_du_arrow
-
-a_phase_plane_annotated.axes_labels( [ '$a(u_0,\cdot)$', '$a(u_1,\cdot)$' ] )
-a_phase_plane_annotated.save( 'maclev-2-2-c-a-arrows.png', figsize=(8,8)
-    #, xmin=-0.6, xmax=-0.3, ymin=-0.6, ymax=-0.3
-    , xmax=0, ymax=0
-)
-
-#stop there for now
-ltx.close()
-save_session('maclev-2-2-c-geom')
-sys.exit()
-
-ltx.close()
-</pre></div></fieldset></p>
+<p><!-- maclev-2-2-c-geom.sage.step --><a href="/adaptive-dynamics-research/wmd_files/Selection_Gradients/maclev-2-2-c-geom.sage.step">maclev-2-2-c-geom.sage.step</a></p>
 
 <p><!-- maclev-2-2-c-geom.sage.out.html --><div class="latexml">
 
@@ -764,7 +332,7 @@ _{0_{1}}\right)\left(t\right),\,-2\,c_{0_{0}}\left(t\right)D[0]\left(c_{0_{0}}%
 </article>
 </div>
 <footer class="ltx_page_footer">
-<div class="ltx_page_logo">Generated  on Tue Jan  6 19:09:11 2015 by <a href="http://dlmf.nist.gov/LaTeXML/">LaTeXML <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAsAAAAOCAYAAAD5YeaVAAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAALEwAACxMBAJqcGAAAAAd0SU1FB9wKExQZLWTEaOUAAAAddEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIFRoZSBHSU1Q72QlbgAAAdpJREFUKM9tkL+L2nAARz9fPZNCKFapUn8kyI0e4iRHSR1Kb8ng0lJw6FYHFwv2LwhOpcWxTjeUunYqOmqd6hEoRDhtDWdA8ApRYsSUCDHNt5ul13vz4w0vWCgUnnEc975arX6ORqN3VqtVZbfbTQC4uEHANM3jSqXymFI6yWazP2KxWAXAL9zCUa1Wy2tXVxheKA9YNoR8Pt+aTqe4FVVVvz05O6MBhqUIBGk8Hn8HAOVy+T+XLJfLS4ZhTiRJgqIoVBRFIoric47jPnmeB1mW/9rr9ZpSSn3Lsmir1fJZlqWlUonKsvwWwD8ymc/nXwVBeLjf7xEKhdBut9Hr9WgmkyGEkJwsy5eHG5vN5g0AKIoCAEgkEkin0wQAfN9/cXPdheu6P33fBwB4ngcAcByHJpPJl+fn54mD3Gg0NrquXxeLRQAAwzAYj8cwTZPwPH9/sVg8PXweDAauqqr2cDjEer1GJBLBZDJBs9mE4zjwfZ85lAGg2+06hmGgXq+j3+/DsixYlgVN03a9Xu8jgCNCyIegIAgx13Vfd7vdu+FweG8YRkjXdWy329+dTgeSJD3ieZ7RNO0VAXAPwDEAO5VKndi2fWrb9jWl9Esul6PZbDY9Go1OZ7PZ9z/lyuD3OozU2wAAAABJRU5ErkJggg==" alt="[LOGO]"></a>
+<div class="ltx_page_logo">Generated  on Sun Jan 25 21:55:09 2015 by <a href="http://dlmf.nist.gov/LaTeXML/">LaTeXML <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAsAAAAOCAYAAAD5YeaVAAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAALEwAACxMBAJqcGAAAAAd0SU1FB9wKExQZLWTEaOUAAAAddEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIFRoZSBHSU1Q72QlbgAAAdpJREFUKM9tkL+L2nAARz9fPZNCKFapUn8kyI0e4iRHSR1Kb8ng0lJw6FYHFwv2LwhOpcWxTjeUunYqOmqd6hEoRDhtDWdA8ApRYsSUCDHNt5ul13vz4w0vWCgUnnEc975arX6ORqN3VqtVZbfbTQC4uEHANM3jSqXymFI6yWazP2KxWAXAL9zCUa1Wy2tXVxheKA9YNoR8Pt+aTqe4FVVVvz05O6MBhqUIBGk8Hn8HAOVy+T+XLJfLS4ZhTiRJgqIoVBRFIoric47jPnmeB1mW/9rr9ZpSSn3Lsmir1fJZlqWlUonKsvwWwD8ymc/nXwVBeLjf7xEKhdBut9Hr9WgmkyGEkJwsy5eHG5vN5g0AKIoCAEgkEkin0wQAfN9/cXPdheu6P33fBwB4ngcAcByHJpPJl+fn54mD3Gg0NrquXxeLRQAAwzAYj8cwTZPwPH9/sVg8PXweDAauqqr2cDjEer1GJBLBZDJBs9mE4zjwfZ85lAGg2+06hmGgXq+j3+/DsixYlgVN03a9Xu8jgCNCyIegIAgx13Vfd7vdu+FweG8YRkjXdWy329+dTgeSJD3ieZ7RNO0VAXAPwDEAO5VKndi2fWrb9jWl9Esul6PZbDY9Go1OZ7PZ9z/lyuD3OozU2wAAAABJRU5ErkJggg==" alt="[LOGO]"></a>
 </div></footer>
 </div>
 

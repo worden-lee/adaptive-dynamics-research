@@ -2,6 +2,6 @@ c_0_0 -> -(Xhat_0*c_0_0 + Xhat_1*c_1_0 - 2)*Xhat_0
 c_0_1 -> -(Xhat_0*c_0_1 + Xhat_1*c_1_1 - 2)*Xhat_0
 c_1_0 -> -(Xhat_0*c_0_0 + Xhat_1*c_1_0 - 2)*Xhat_1
 c_1_1 -> -(Xhat_0*c_0_1 + Xhat_1*c_1_1 - 2)*Xhat_1
-(bindings:  {m_0: 1, w_0: 1, r_1: 1, w_1: 1, K_0: 2, m_1: 1, m_i: 1, gamma: 1, b_i: 1, b_1: 1, r_0: 1, K_1: 2, b_0: 1}, {} )
+(bindings:  {m_0 -> 1, w_0 -> 1, r_1 -> 1, w_1 -> 1, K_0 -> 2, m_1 -> 1, m_i -> 1, gamma -> 1, b_i -> 1, b_1 -> 1, r_0 -> 1, K_1 -> 2, b_0 -> 1} )
 solve
 done

@@ -62,26 +62,26 @@ try:
     print ( 'find adaptive dynamics equilibria' )
     sys.stdout.flush()
 
-    ltx.write( 'equilibria:' )
-    adap_equilibria = maclev_adap_c.equilibria( ranges={ u_0:(0.1,0.4,0.6,0.9), u_1:(0.1,0.4,0.6,0.9) } )
-    for eq in adap_equilibria:
-        ltx.write_block( eq )
+    #ltx.write( 'equilibria:' )
+    #adap_equilibria = maclev_adap_c.equilibria( ranges={ u_0:(0.1,0.4,0.6,0.9), u_1:(0.1,0.4,0.6,0.9) } )
+    #for eq in adap_equilibria:
+        #ltx.write_block( eq )
 
     print 'construct u vector field plot'
     sys.stdout.flush()
 
     # plot phase plane of u vs u
     u_phase_plane = maclev_adap_c.plot_vector_field( (u_0,0,1), (u_1,0,1), color='gray', plot_points=(19,20) )
-    for eq in adap_equilibria:
-        print 'eq',eq
-        print 'eq u_0', Bindings( eq )( hat(u_0) )
-        u_phase_plane += point( Bindings( eq )( vector( [ hat(u_0), hat(u_1) ] ) ), color='black', size=30 )
+    #for eq in adap_equilibria:
+        #print 'eq',eq
+        #print 'eq u_0', Bindings( eq )( hat(u_0) )
+        #u_phase_plane += point( Bindings( eq )( vector( [ hat(u_0), hat(u_1) ] ) ), color='black', size=30 )
 
     print 'solve'
     sys.stdout.flush()
 
     try:
-        c_evolution = maclev_adap_c.solve( [0, initial_conditions( u_0 ), initial_conditions( u_1 ) ], end_points=integrate_adapdyn_to, step=integrate_adapdyn_step )
+        c_evolution = maclev_adap_c.solve( [ initial_conditions( u_0 ), initial_conditions( u_1 ) ], end_time=integrate_adapdyn_to, step=integrate_adapdyn_step )
 
         print 'plot u vs t'
         sys.stdout.flush()

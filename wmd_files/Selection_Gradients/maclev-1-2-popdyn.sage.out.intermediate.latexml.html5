@@ -1,0 +1,49 @@
+<!DOCTYPE html><html>
+<head>
+<title>Untitled Document</title>
+<!--Generated on Sun Jan 25 21:48:09 2015 by LaTeXML (version v0.8.0) http://dlmf.nist.gov/LaTeXML/.-->
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" href="LaTeXML.css" type="text/css">
+<link rel="stylesheet" href="ltx-article.css" type="text/css">
+</head>
+<body>
+<div class="ltx_page_main">
+<div class="ltx_page_content">
+<article class="ltx_document">
+<div id="p1" class="ltx_para">
+<p class="ltx_p">The Mac-Lev model in generic form:</p>
+<table id="S0.Ex1" class="ltx_equation">
+
+<tr class="ltx_equation ltx_align_baseline">
+<td class="ltx_eqn_center_padleft"></td>
+<td class="ltx_align_center"><math id="S0.Ex1.m1" class="ltx_Math" alttext="\begin{aligned}\displaystyle\frac{dX_{0}}{dt}&amp;\displaystyle=-{\left(\frac{{%
+\left(X_{0}c_{00}-K_{0}r_{0}\right)}c_{00}w_{0}}{r_{0}}+\frac{{\left(X_{0}c_{0%
+1}-K_{1}r_{1}\right)}c_{01}w_{1}}{r_{1}}+m_{0}\right)}X_{0}b_{0}\end{aligned}\ " display="block"><mpadded width="+5pt"><mtable displaystyle="true"><mtr><mtd columnalign="right"><mfrac><mrow><mi>d</mi><mo>⁢</mo><msub><mi>X</mi><mn>0</mn></msub></mrow><mrow><mi>d</mi><mo>⁢</mo><mi>t</mi></mrow></mfrac></mtd><mtd columnalign="left"><mrow><mi></mi><mo>=</mo><mrow><mo>-</mo><mrow><mrow><mo>(</mo><mrow id="XM3ak"><mfrac id="XM3o"><mrow id="XM3k"><mrow id="XM3b"><mo id="XM3">(</mo><mrow id="XM1q"><mrow id="XM1g"><msub id="XM1b"><mi id="XM1">X</mi><mn id="XM1a">0</mn></msub><mo id="XM1c">⁢</mo><msub id="XM1f"><mi id="XM1d">c</mi><mn id="XM1e">00</mn></msub></mrow><mo id="XM1h">-</mo><mrow id="XM1p"><msub id="XM1k"><mi id="XM1i">K</mi><mn id="XM1j">0</mn></msub><mo id="XM1l">⁢</mo><msub id="XM1o"><mi id="XM1m">r</mi><mn id="XM1n">0</mn></msub></mrow></mrow><mo id="XM3a">)</mo></mrow><mo id="XM3c">⁢</mo><msub id="XM3f"><mi id="XM3d">c</mi><mn id="XM3e">00</mn></msub><mo id="XM3g">⁢</mo><msub id="XM3j"><mi id="XM3h">w</mi><mn id="XM3i">0</mn></msub></mrow><msub id="XM3n"><mi id="XM3l">r</mi><mn id="XM3m">0</mn></msub></mfrac><mo id="XM3p">+</mo><mfrac id="XM3af"><mrow id="XM3ab"><mrow id="XM3s"><mo id="XM3q">(</mo><mrow id="XM2q"><mrow id="XM2g"><msub id="XM2b"><mi id="XM2">X</mi><mn id="XM2a">0</mn></msub><mo id="XM2c">⁢</mo><msub id="XM2f"><mi id="XM2d">c</mi><mn id="XM2e">01</mn></msub></mrow><mo id="XM2h">-</mo><mrow id="XM2p"><msub id="XM2k"><mi id="XM2i">K</mi><mn id="XM2j">1</mn></msub><mo id="XM2l">⁢</mo><msub id="XM2o"><mi id="XM2m">r</mi><mn id="XM2n">1</mn></msub></mrow></mrow><mo id="XM3r">)</mo></mrow><mo id="XM3t">⁢</mo><msub id="XM3w"><mi id="XM3u">c</mi><mn id="XM3v">01</mn></msub><mo id="XM3x">⁢</mo><msub id="XM3aa"><mi id="XM3y">w</mi><mn id="XM3z">1</mn></msub></mrow><msub id="XM3ae"><mi id="XM3ac">r</mi><mn id="XM3ad">1</mn></msub></mfrac><mo id="XM3ag">+</mo><msub id="XM3aj"><mi id="XM3ah">m</mi><mn id="XM3ai">0</mn></msub></mrow><mo>)</mo></mrow><mo>⁢</mo><msub><mi>X</mi><mn>0</mn></msub><mo>⁢</mo><msub><mi>b</mi><mn>0</mn></msub></mrow></mrow></mrow></mtd></mtr></mtable></mpadded></math></td>
+<td class="ltx_eqn_center_padright"></td>
+</tr>
+</table>
+<p class="ltx_p">The Mac-Lev model with <math id="p1.m1" class="ltx_Math" alttext="b,m" display="inline"><mrow><mi id="XM4">b</mi><mo>,</mo><mi id="XM5">m</mi></mrow></math>, and <math id="p1.m2" class="ltx_Math" alttext="c" display="inline"><mi>c</mi></math> bound to functions of <math id="p1.m3" class="ltx_Math" alttext="u" display="inline"><mi>u</mi></math>:</p>
+</div>
+<div id="p2" class="ltx_para">
+<table id="S0.Ex2" class="ltx_equation">
+
+<tr class="ltx_equation ltx_align_baseline">
+<td class="ltx_eqn_center_padleft"></td>
+<td class="ltx_align_center"><math id="S0.Ex2.m1" class="ltx_Math" alttext="\begin{aligned}\displaystyle\frac{dX_{0}}{dt}&amp;\displaystyle={\left(\frac{{%
+\left(K_{1}r_{1}-X_{0}e^{\left(-3\,{\left(u_{0}-1\right)}^{2}\right)}\right)}w%
+_{1}e^{\left(-3\,{\left(u_{0}-1\right)}^{2}\right)}}{r_{1}}+\frac{{\left(K_{0}%
+r_{0}-X_{0}e^{\left(-3\,u_{0}^{2}\right)}\right)}w_{0}e^{\left(-3\,u_{0}^{2}%
+\right)}}{r_{0}}-1\right)}X_{0}\end{aligned}\ " display="block"><mpadded width="+5pt"><mtable displaystyle="true"><mtr><mtd columnalign="right"><mfrac><mrow><mi>d</mi><mo>⁢</mo><msub><mi>X</mi><mn>0</mn></msub></mrow><mrow><mi>d</mi><mo>⁢</mo><mi>t</mi></mrow></mfrac></mtd><mtd columnalign="left"><mrow><mi></mi><mo>=</mo><mrow><mrow><mo>(</mo><mrow id="XM14an"><mrow id="XM14ak"><mfrac id="XM14q"><mrow id="XM14m"><mrow id="XM14b"><mo id="XM14">(</mo><mrow id="XM10s"><mrow id="XM10g"><msub id="XM10b"><mi id="XM10">K</mi><mn id="XM10a">1</mn></msub><mo id="XM10c">⁢</mo><msub id="XM10f"><mi id="XM10d">r</mi><mn id="XM10e">1</mn></msub></mrow><mo id="XM10h">-</mo><mrow id="XM10r"><msub id="XM10k"><mi id="XM10i">X</mi><mn id="XM10j">0</mn></msub><mo id="XM10l">⁢</mo><msup id="XM10q"><mi id="XM10m">e</mi><mrow id="XM10p"><mo id="XM10n">(</mo><mrow id="XM7j"><mo id="XM7">-</mo><mrow id="XM7i"><mpadded width="+1.7pt" id="XM7a"><mn id="XM7b">3</mn></mpadded><mo id="XM7c">⁢</mo><msup id="XM7h"><mrow id="XM7f"><mo id="XM7d">(</mo><mrow id="XM6e"><msub id="XM6b"><mi id="XM6">u</mi><mn id="XM6a">0</mn></msub><mo id="XM6c">-</mo><mn id="XM6d">1</mn></mrow><mo id="XM7e">)</mo></mrow><mn id="XM7g">2</mn></msup></mrow></mrow><mo id="XM10o">)</mo></mrow></msup></mrow></mrow><mo id="XM14a">)</mo></mrow><mo id="XM14c">⁢</mo><msub id="XM14f"><mi id="XM14d">w</mi><mn id="XM14e">1</mn></msub><mo id="XM14g">⁢</mo><msup id="XM14l"><mi id="XM14h">e</mi><mrow id="XM14k"><mo id="XM14i">(</mo><mrow id="XM9j"><mo id="XM9">-</mo><mrow id="XM9i"><mpadded width="+1.7pt" id="XM9a"><mn id="XM9b">3</mn></mpadded><mo id="XM9c">⁢</mo><msup id="XM9h"><mrow id="XM9f"><mo id="XM9d">(</mo><mrow id="XM8e"><msub id="XM8b"><mi id="XM8">u</mi><mn id="XM8a">0</mn></msub><mo id="XM8c">-</mo><mn id="XM8d">1</mn></mrow><mo id="XM9e">)</mo></mrow><mn id="XM9g">2</mn></msup></mrow></mrow><mo id="XM14j">)</mo></mrow></msup></mrow><msub id="XM14p"><mi id="XM14n">r</mi><mn id="XM14o">1</mn></msub></mfrac><mo id="XM14r">+</mo><mfrac id="XM14aj"><mrow id="XM14af"><mrow id="XM14u"><mo id="XM14s">(</mo><mrow id="XM13s"><mrow id="XM13g"><msub id="XM13b"><mi id="XM13">K</mi><mn id="XM13a">0</mn></msub><mo id="XM13c">⁢</mo><msub id="XM13f"><mi id="XM13d">r</mi><mn id="XM13e">0</mn></msub></mrow><mo id="XM13h">-</mo><mrow id="XM13r"><msub id="XM13k"><mi id="XM13i">X</mi><mn id="XM13j">0</mn></msub><mo id="XM13l">⁢</mo><msup id="XM13q"><mi id="XM13m">e</mi><mrow id="XM13p"><mo id="XM13n">(</mo><mrow id="XM11i"><mo id="XM11">-</mo><mrow id="XM11h"><mpadded width="+1.7pt" id="XM11a"><mn id="XM11b">3</mn></mpadded><mo id="XM11c">⁢</mo><msubsup id="XM11g"><mi id="XM11d">u</mi><mn id="XM11e">0</mn><mn id="XM11f">2</mn></msubsup></mrow></mrow><mo id="XM13o">)</mo></mrow></msup></mrow></mrow><mo id="XM14t">)</mo></mrow><mo id="XM14v">⁢</mo><msub id="XM14y"><mi id="XM14w">w</mi><mn id="XM14x">0</mn></msub><mo id="XM14z">⁢</mo><msup id="XM14ae"><mi id="XM14aa">e</mi><mrow id="XM14ad"><mo id="XM14ab">(</mo><mrow id="XM12i"><mo id="XM12">-</mo><mrow id="XM12h"><mpadded width="+1.7pt" id="XM12a"><mn id="XM12b">3</mn></mpadded><mo id="XM12c">⁢</mo><msubsup id="XM12g"><mi id="XM12d">u</mi><mn id="XM12e">0</mn><mn id="XM12f">2</mn></msubsup></mrow></mrow><mo id="XM14ac">)</mo></mrow></msup></mrow><msub id="XM14ai"><mi id="XM14ag">r</mi><mn id="XM14ah">0</mn></msub></mfrac></mrow><mo id="XM14al">-</mo><mn id="XM14am">1</mn></mrow><mo>)</mo></mrow><mo>⁢</mo><msub><mi>X</mi><mn>0</mn></msub></mrow></mrow></mtd></mtr></mtable></mpadded></math></td>
+<td class="ltx_eqn_center_padright"></td>
+</tr>
+</table>
+</div>
+</article>
+</div>
+<footer class="ltx_page_footer">
+<div class="ltx_page_logo">Generated  on Sun Jan 25 21:48:09 2015 by <a href="http://dlmf.nist.gov/LaTeXML/">LaTeXML <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAsAAAAOCAYAAAD5YeaVAAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAALEwAACxMBAJqcGAAAAAd0SU1FB9wKExQZLWTEaOUAAAAddEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIFRoZSBHSU1Q72QlbgAAAdpJREFUKM9tkL+L2nAARz9fPZNCKFapUn8kyI0e4iRHSR1Kb8ng0lJw6FYHFwv2LwhOpcWxTjeUunYqOmqd6hEoRDhtDWdA8ApRYsSUCDHNt5ul13vz4w0vWCgUnnEc975arX6ORqN3VqtVZbfbTQC4uEHANM3jSqXymFI6yWazP2KxWAXAL9zCUa1Wy2tXVxheKA9YNoR8Pt+aTqe4FVVVvz05O6MBhqUIBGk8Hn8HAOVy+T+XLJfLS4ZhTiRJgqIoVBRFIoric47jPnmeB1mW/9rr9ZpSSn3Lsmir1fJZlqWlUonKsvwWwD8ymc/nXwVBeLjf7xEKhdBut9Hr9WgmkyGEkJwsy5eHG5vN5g0AKIoCAEgkEkin0wQAfN9/cXPdheu6P33fBwB4ngcAcByHJpPJl+fn54mD3Gg0NrquXxeLRQAAwzAYj8cwTZPwPH9/sVg8PXweDAauqqr2cDjEer1GJBLBZDJBs9mE4zjwfZ85lAGg2+06hmGgXq+j3+/DsixYlgVN03a9Xu8jgCNCyIegIAgx13Vfd7vdu+FweG8YRkjXdWy329+dTgeSJD3ieZ7RNO0VAXAPwDEAO5VKndi2fWrb9jWl9Esul6PZbDY9Go1OZ7PZ9z/lyuD3OozU2wAAAABJRU5ErkJggg==" alt="[LOGO]"></a>
+</div></footer>
+</div>
+</body>
+</html>

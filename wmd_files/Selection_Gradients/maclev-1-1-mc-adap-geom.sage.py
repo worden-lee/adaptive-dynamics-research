@@ -83,7 +83,7 @@ maclev_adap_c00_bound = maclev_adap_c00.bind( Bindings(
 #ltx.write( 'And with parameters bound:' )
 #ltx.write_block( maclev_adap_c00_bound )
 
-c00_evolution = maclev_adap_c00_bound.solve( [_sage_const_0 ,_sage_const_2 ] )
+c00_evolution = maclev_adap_c00_bound.solve( [_sage_const_2 ] )
 
 c00_bindings = c00_evolution._system._bindings.merge( FunctionBindings( {
     function('c_0'):u_0.function(u_0), function('m'):SR('1').function(u_0), function('b'):SR('1').function(u_0) } ) )

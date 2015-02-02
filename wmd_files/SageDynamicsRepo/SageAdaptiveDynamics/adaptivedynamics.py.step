@@ -206,6 +206,8 @@ class NumericalAdaptiveDynamicsModel( NumericalODESystem, AdaptiveDynamicsModel 
     def equilibrium_function( self, u_bindings ):
         if self._equilibrium_function is not None:
             return self._equilibrium_function( self, self._popdyn_model, u_bindings )
+        return self.default_equilibrium_function( u_bindings )
+    def default_equilibrium_function( self, u_bindings ):
         answer = None
         for eq in self._popdyn_model.equilibria():
             eq = Bindings( { k:u_bindings(v) for k,v in eq.items() } )
@@ -216,26 +218,105 @@ class NumericalAdaptiveDynamicsModel( NumericalODESystem, AdaptiveDynamicsModel 
         if answer is None:
             raise AdaptiveDynamicsException( "Could not find interior equilibrium" )
 	return Bindings( answer )
-    def compute_flow( self, u, t ):
+    def compute_flow( self, u, t, with_exceptions=False ):
         #print 'compute_flow:', u, t
         u_bindings = Bindings( dict( zip( self._vars, u ) ) )
+        # note equilibrium_function can raise DynamicsExceptions if there's
+        # a problem finding pop. dyn. equilibria
         eq = self.equilibrium_function( u_bindings )
         #print 'eq:', eq
         #print 'eq Xhat_0:', eq(hat('X_0'))
         if any( eq( hat(x) ) <= 0 for x in self._popdyn_model.population_vars() ):
-             raise AdaptiveDynamicsException( 'Inviable population dynamics equilibrium ' + str(eq) + ' in compute_flow' )
+            #print 'inviable equilibria', eq
+            # to do: this is the place to detect one or more extinctions
+            raise AdaptiveDynamicsException( 'Inviable population dynamics equilibrium ' + str(eq) + ' in compute_flow' )
         #print 'flow 0:', self._flow[self._vars[0]]
         #print 'eq flow:', eq( self._flow[self._vars[0]] )
         #print 'u eq flow:', u_bindings( eq( self._flow[self._vars[0]] ) )
         #sys.stdout.flush()
-        #print 'compute flow:', [ u_bindings( eq( self._flow[v] ) ) for v in self._vars ]
-        #sys.stdout.flush()
-        #print 'compute flow =', [ maxima( u_bindings( eq( self._flow[v] ) ) ) for v in self._vars ]
-        #sys.stdout.flush()
         dudt = numpy.array( [ N( u_bindings( eq( self._flow[v] ) ) ) for v in self._vars ], float )
         #print 'compute flow', u, dudt
-        #sys.stdout.flush()
+        sys.stdout.flush()
+        if with_exceptions and self.detect_equilibrium( u, dudt, t ):
+                # if there's an equilibrium, kick to the caller, who can
+                # test for a branching point
+                self._equilibrium_detected_at = t
+                raise EquilibriumDetectedException()
         return dudt
+    def solve(self, initial_conditions, start_time=0, end_time=20, step=0.1):
+        self._equilibrium_detected_at = -oo
+        try:
+            traj = super(NumericalAdaptiveDynamicsModel,self).solve( initial_conditions, start_time, end_time, step )
+        except TrajectoryInterruptedException, ex:
+            #print ex, ':', ex._reason
+            if isinstance( ex._reason, EquilibriumDetectedException ):
+                # in case we returned early due to equilibrium, see if
+                # we're at an evolutionary branching point
+                traj = ex._trajectory
+                branched_state = self.test_for_branch( traj )
+                if branched_state:
+                    rest = self.solve( [ branched_state[v] for v in self._vars ], self._equilibrium_detected_at, end_time, step )
+                    bt = ODETrajectory( self, traj._timeseries + rest._timeseries )
+                    #print 'composite trajectory after branching:', bt
+                    return bt
+                # if we're at equilibrium and didn't branch, skip ahead
+                # to the end time
+                end_point = dict( traj._timeseries[-1] )
+                end_point[ self._time_variable ] = end_time
+                traj.append( end_point )
+                #print 'extended timeseries to', end_time
+                #print 'end point is', end_point
+            # TODO: if it returned early due to an extinction
+            elif isinstance( ex._reason, UnboundedDynamicsException ):
+                return ex._trajectory
+            else:
+                print 'unhandled TrajectoryInterruptedException:', ex._reason
+                raise
+        #print 'solve returns', traj._timeseries
+        return traj
+    def test_for_branch( self, traj ):
+        # try branching various phenotypes, see if it goes
+        import random
+        indices = self._popdyn_model._population_indices
+        random.shuffle( indices )
+        indexers = self._phenotype_indexers
+        random.shuffle( indexers )
+        for i in indices:
+            for u in indexers: 
+                # construct extended model with perturbed copy of one type
+                branched_popdyn = deepcopy(self._popdyn_model)
+                sport = max( self._popdyn_model._population_indices ) + 1
+                branched_popdyn.set_population_indices( self._popdyn_model._population_indices + [ sport ] )
+                branched_ad = self.__class__( branched_popdyn, self._phenotype_indexers, self._equilibrium_function, self._time_variable, self._early_bindings, self._late_bindings )
+                branched_state = dict( traj._timeseries[-1] )
+                #print 'branched_state before branching:', branched_state
+                for uu in self._phenotype_indexers:
+                    branched_state[uu[sport]] = branched_state[uu[i]]
+                branched_state[u[sport]] += 0.001
+                branched_state[u[i]] -= 0.001
+                #print 'branched_state after branching:', branched_state
+                # test for whether they diverge
+                try:
+                    #print 'test for branch at state', branched_state
+                    flow = branched_ad.compute_flow( numpy.array( [ branched_state[v] for v in branched_ad._vars ], float ), self._equilibrium_detected_at )
+                except AdaptiveDynamicsException: #nope
+                    #print 'exception!'
+                    break
+                flow_dict = dict( zip( branched_ad._vars, flow ) )
+                #print 'flow is', flow_dict
+                divergence = (flow_dict[u[sport]] - flow_dict[u[i]])/(branched_state[u[sport]] - branched_state[u[i]])
+                if divergence > 0:
+                    # yes, we're branching
+                    #print 'yes!'
+                    self._popdyn_model = branched_ad._popdyn_model
+                    self._extended_system = branched_ad._extended_system
+                    self._vars = branched_ad._vars
+                    self._S = branched_ad._S
+                    self._flow = branched_ad._flow
+                    self._add_hats = None
+                    return branched_state
+                #print 'no!'
+        return false
 
 # using this for the above equilibrium_function argument
 # gives you adaptive dynamics using the unique interior equilibrium
@@ -246,23 +327,26 @@ class NumericalAdaptiveDynamicsModel( NumericalODESystem, AdaptiveDynamicsModel 
 def find_interior_equilibrium( ad, pd, u_bindings ):
     if not hasattr( find_interior_equilibrium, 'cache' ):
         find_interior_equilibrium.cache = {}
-    if ad not in find_interior_equilibrium.cache:
+    key = str(ad._flow)
+    if key not in find_interior_equilibrium.cache:
         xs = [ hat(x) for x in pd.population_vars() ]
         #print 'create equilibrium function cache'
         #print 'ad early bindings', ad._early_bindings
         #print 'ad bindings', ad._bindings
         equilibria = [ { k:ad._bindings( v ) for k,v in eq.items() } for eq in pd.equilibria() ]
         #print 'equilibria', equilibria
-        find_interior_equilibrium.cache[ad] = (equilibria, xs)
-    equilibria, xs = find_interior_equilibrium.cache[ad]
+        find_interior_equilibrium.cache[key] = (equilibria, xs)
+    equilibria, xs = find_interior_equilibrium.cache[key]
     answer = None
     for eq in equilibria:
-        if any( u_bindings(eq[x]) == 0 for x in xs ): continue
+        if any( u_bindings(eq[x]) <= 0 for x in xs ): continue
         if answer is not None:
             raise AdaptiveDynamicsException( 'Population dynamics has multiple interior equilibria' )
         answer = u_bindings( eq )
-    if answer is not None:
-        #print 'equilibrium:', answer
-        return Bindings( answer )
-    raise AdaptiveDynamicsException( 'Failed to find interior equilibrium' )
+    if answer is None:
+        raise AdaptiveDynamicsException( 'Failed to find interior equilibrium' )
+    if any( u_bindings(eq[x]) >= 1e15 for x in xs ):
+        raise UnboundedDynamicsException( 'Population Dynamics has become unbounded' )
+    #print 'equilibrium:', answer
+    return Bindings( answer )
 

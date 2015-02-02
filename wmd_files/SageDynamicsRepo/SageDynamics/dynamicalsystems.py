@@ -1,5 +1,4 @@
 """Dynamical systems classes"""
-
 from sage.all import *
 from string import join
 from sage.misc.latex import _latex_file_
@@ -15,6 +14,25 @@ class DynamicsException(Exception):
     def __init__( self, message, latex_str=None ):
         self._latex_str = latex_str
         Exception.__init__( self, message )
+
+class EquilibriumDetectedException(DynamicsException):
+    def __init__(self):
+        Exception.__init__( self, 'Equilibrium detected' )
+
+class UnboundedDynamicsException(DynamicsException):
+    def __init__(self, message=None):
+        if message is None:
+            message = 'Dynamics has become unbounded'
+        Exception.__init__( self, message )
+
+class TrajectoryInterruptedException(DynamicsException):
+    # this one is kind of meta. It says the integration of the dynamics
+    # has been interrupted, and provides the partial trajectory together
+    # with the reason why - and the reason why is another exception...
+    def __init__( self, trajectory, reason ):
+        self._trajectory = trajectory
+        self._reason = reason
+        Exception.__init__( self, 'Integration of dynamics interrupted' )
 
 def hat(v):
     """little utility function to add a hat to a Sage variable, e.g.
@@ -42,9 +60,49 @@ class ODETrajectory(SageObject):
         """system: the ODESystem object that provided the dynamics
         timeseries: a list of dictionaries, each providing a set of
             variable->number mappings, including the time variable.
+            or a list of lists/tuples of values, ordered as the state
+            variables are, with time prepended to each.
         """
         self._system = system
+        try:
+            timeseries[0]( system._time_variable ) # check if it's a bindings
+        except TypeError:
+            # make that timeseries of lists into timeseries of bindings
+            #print 'make timeseries from', timeseries
+            timeseries = [
+                self.point_to_bindings( point ) for point in timeseries
+            ]
+            #print 'get', timeseries
         self._timeseries = timeseries
+    def __repr__(self):
+        return 'ODETrajectory(' + repr(self._timeseries) + ')'
+    def point_to_bindings( self, state ):
+        try:
+            #print 'is', state, 'a bindings?'
+            state( self._system._time_variable )
+            #print 'yes!'
+            # if it's a bindings, use it as is
+        except TypeError:
+            try:
+                #print 'nope, is it a dict?'
+                state[self._system._time_variable]
+                # if it's a dict, make it a Bindings
+                state = Bindings( state )
+                #print 'yes, now it\'s', state
+            except TypeError:
+                #print 'nope, it must be a list'
+                # otherwise, assume it's a list and make binding the default way
+                state = Bindings( dict( (k,v) for k,v in
+                    zip( [self._system._time_variable]+self._system._vars, state ) ) )
+                #print 'now it\'s', state
+        return state
+    def append(self, state):
+        """state: a dictionary to be added to self._timeseries"""
+        #print 'append', state,
+        state = self.point_to_bindings(state)
+        #print 'as', state
+        self._timeseries += [ self.point_to_bindings( state ) ]
+        return self
     def plot(self, xexpr, yexpr, filename='', xlabel=-1, ylabel=-1, **args):
         """Make a 2-d plot of some pair of symbolic expressions that can
         be resolved to values of the state variables, time variable and
@@ -63,9 +121,12 @@ class ODETrajectory(SageObject):
         xexpr = self._system._bindings(xexpr)
         yexpr = self._system._bindings(yexpr)
         #print 'after substitution: %s vs. %s' % (str(xexpr), str(yexpr))
-        LP = list_plot(
-          [ (xexpr.substitute(dic),yexpr.substitute(dic)) for dic in self._timeseries ],
-          plotjoined = True, **args )
+        #print 'timeseries:', self._timeseries
+        P = list_plot(
+          [ (p(xexpr),p(yexpr)) for p in self._timeseries ],
+          plotjoined = True,
+          **args
+        )
         try:
             xlabel.expand() # find out if it's an expression object
             xlabel = '$%s$' % latex(xlabel)
@@ -74,10 +135,10 @@ class ODETrajectory(SageObject):
             ylabel.expand()
             ylabel = '$%s$' % latex(ylabel)
         except AttributeError: pass
-        LP.axes_labels( [xlabel,ylabel] )
+        P.axes_labels( [xlabel,ylabel] )
         if (filename != ''):
-            LP.save(filename)
-        return LP
+            P.save(filename)
+        return P
     def write_csv(self, filename, *columns):
         colnames = []
         for c in columns:
@@ -128,7 +189,12 @@ class Bindings(dict):
             self[kk] = symbolic_expression(v)
         #print ' =>', self
     def __repr__(self):
-        return '%s, %s' % (super(Bindings,self).__repr__(), self._function_bindings.__repr__())
+        frepr = self._function_bindings.inner_repr()
+        if frepr != '':
+            frepr = ', ' + frepr
+        return '{%s%s}' % (self.inner_repr(), frepr)
+    def inner_repr(self):
+        return u', '.join( u'%s %s %s'%(k, '->', v) for k,v in self.items() ) 
     def _latex_(self):
         return '\\begin{align*}\n%s\n\\end{align*}' % self.latex_inner()
     def latex_inner(self):
@@ -225,8 +291,9 @@ class FunctionBindings(Bindings):
                     self.update( { (str(k),v.arguments()):SR(v) for k,v in a.items() } )
                 except ValueError:
                     print 'Unrecognized initializer for bindings:', a
-    def __repr__(self):
-        return super(Bindings,self).__repr__()
+    def inner_repr(self):
+        # would like to use unicode arrow u'\u2192' but causes output codec error
+        return u', '.join( u'%s(%s) %s %s' % (key[0], ','.join( *key[1] ), '->', val) for key,val in self.items() )
     def latex_inner(self):
         return '\\\\\n'.join( '  %s(%s) &\\to %s' % ( latex(key[0]), ','.join( latex(a) for a in key[1] ), latex( val ) ) for key, val in self.items() )
     def substitute(self, expr):
@@ -384,11 +451,10 @@ class ODESystem(SageObject):
         bound = deepcopy( self )
         bound.bind_in_place( *bindings )
         return bound
-    def solve(self, initial_conditions, end_points=20, step=0.1):
+    def solve(self, initial_conditions, start_time=0, end_time=20, step=0.1):
         """Use a numerical solver to find a concrete trajectory of the system.
 
-        initial_conditions: a list of values for the time variable and the
-        state variables (in that order).
+        initial_conditions: list of initial values for the state variables
 
         This function returns the numerical solution, but it also stores it
         in the ODESystem object's state, so that subsequent calls to plot()
@@ -399,13 +465,10 @@ class ODESystem(SageObject):
         #  end_points )
         soln = desolve_system_rk4(
           [self._flow[v] for v in self._vars],
-          self._vars, initial_conditions, ivar=self._time_variable,
-          end_points=end_points, step=step )
-        # make that timeseries of lists into timeseries of dictionaries
-        timeseries = [ dict( (k,v) for k,v in
-          zip([self._time_variable]+self._vars,point) )
-          for point in soln ]
-        return ODETrajectory(self, timeseries)
+          self._vars, [start_time] + initial_conditions,
+          ivar=self._time_variable,
+          end_points=end_time, step=step )
+        return ODETrajectory(self, soln)
     def plot_vector_field(self, xlims, ylims, filename='', vf=None, xlabel=-1, ylabel=-1, **args):
         xlims = tuple( self._bindings.substitute( v ) for v in xlims )
         ylims = tuple( self._bindings.substitute( v ) for v in ylims )
@@ -438,7 +501,7 @@ class ODESystem(SageObject):
         operate on the state variables."""
         try:
             self._add_hats( self._time_variable )
-        except AttributeError:
+        except (AttributeError,TypeError):
             self._add_hats = Bindings( { v:hat(v) for v in self._vars } )
         # self.add_hats( expression ) returns hat-added expression
         if expression is not None:
@@ -480,6 +543,17 @@ class ODESystem(SageObject):
     def stable_interior_equilibria(self):
         remove_hats = self.remove_hats()
         return [ eq for eq in self.interior_equilibria() if self.is_stable( self.jacobian_matrix( { remove_hats(k):v for k,v in eq.items() } ) ) ]
+    def test_equilibrium( self, eq, t=0 ):
+        '''evaluate whether a state vector is an equilibrium (or very near).
+
+        eq: an array, vector, tuple, or Bindings.
+        returns True or False'''
+        try: # is it a Bindings?
+            eq('t')
+        except AttributeError: # if eq() doesn't work - is this right?
+            eq = Bindings( zip(self._vars, eq) )
+        flow = self._flow( eq(v) for v in self._vars )
+        return ( sum( x*x for x in flow ) < 0.001 )
     def plot_bifurcation_diagram( self, ind_range, dep_range, filename=None, xlabel=None, ylabel=None, **args ):
         (p, pmin, pmax) = ind_range
         (y, ymin, ymax) = dep_range
@@ -534,8 +608,11 @@ class ODESystem(SageObject):
 # raises and exception
 # http://www.pythoneye.com/212_16439560/
 import scipy.integrate, numpy
-def fake_odeint(func, y0, t, args=None, Dfun=None):
-    ig = scipy.integrate.ode(func, Dfun)
+def fake_odeint(system, y0, t, args=None, Dfun=None):
+    def cf(t, y, s):
+        scf = list( system.compute_flow(y, t, True) )
+        return scf
+    ig = scipy.integrate.ode(cf, Dfun)
     ig.set_integrator('lsoda', method='adams')
     ig.set_initial_value(y0, t=t[0])
     if not isinstance(args, (tuple,list)): args = (args,)
@@ -546,7 +623,14 @@ def fake_odeint(func, y0, t, args=None, Dfun=None):
         #    break
         try:
             y.append(ig.integrate(tt))
-        except DynamicsException: break
+        except (EquilibriumDetectedException,UnboundedDynamicsException) as ex:
+            raise TrajectoryInterruptedException(
+                ODETrajectory(
+                    system,
+                    [ [tt]+list(point) for tt,point in zip(t,y) ]
+                ),
+                ex
+            )
     return numpy.array(y)
 
 class NumericalODESystem( ODESystem ):
@@ -566,14 +650,9 @@ class NumericalODESystem( ODESystem ):
         self._flow = flow
         if self._flow is not None:
             self._flow = { k:bindings(v) for k,v in self._flow.items() }
-    def solve(self, initial_conditions, end_points=20, step=0.1):
-        initial_t = initial_conditions[0]
-        initial_state = numpy.array( initial_conditions[1:], float )
-        times = numpy.arange( initial_t, end_points, step )
-        def cf(t, y, s):
-            return list( s.compute_flow(y, t) )
-        #soln = fake_odeint( lambda y, t, _self=self: _self.compute_flow( y, t ), initial_state, times )
-        soln = fake_odeint( cf, initial_state, times, self )
+    def solve(self, initial_conditions, start_time=0, end_time=20, step=0.1):
+        times = numpy.arange( start_time, end_time, step )
+        soln = fake_odeint( self, numpy.array( initial_conditions, float ), times, self )
         # make that timeseries of lists into timeseries of dictionaries
         timeseries = [ dict( (k,v) for k,v in
           zip([self._time_variable]+self._vars,[t]+list(point)) )
@@ -583,6 +662,34 @@ class NumericalODESystem( ODESystem ):
         # provide this in a subclass.  It needs to return a numpy array of
         # floats providing the dy/dt vector matching the y argument.
         pass
+    def detect_equilibrium( self, eq, flow=None, t=0 ):
+        '''evaluate whether a state vector is an equilibrium (or very near).
+
+        eq: an array, vector, tuple, or Bindings.
+        returns True or False'''
+        try: # in case it's a Bindings
+            eq = numpy.array( [ eq(v) for v in self._vars ] )
+        except TypeError: # if eq() doesn't work - is this right?
+            pass
+        if flow is None:
+            flow = self.compute_flow( eq, t )
+        flow_norm = sum( x*x for x in flow )
+        #print 'check', flow_norm, 'vs 0.0005'
+        # are we close to equilibrium
+        if flow_norm < 0.0001:
+            # yes
+            #print 'norm is small:',flow_norm
+            # but are we getting closer
+            next_state = numpy.array( [ x + 0.001*dx for x, dx in zip( eq, flow ) ], float )
+            next_flow = self.compute_flow( next_state, t )
+            next_norm = sum( x*x for x in next_flow )
+            #print 'next norm is', next_norm
+            if next_norm < flow_norm:
+                # yes
+                #print 'equilibrium!'
+                return True
+            # no
+        return False
     def equilibria(self, ranges=None):
         def grid_range( var ):
             try:
@@ -602,18 +709,18 @@ class NumericalODESystem( ODESystem ):
                 #print 'nope'
                 return oo
         for grid_point in itertools.product( *grid_ranges ):
-            print 'grid point', grid_point
+            #print 'grid point', grid_point
             sys.stdout.flush()
             try: # check the flow exists at the start point
                 self.compute_flow( grid_point, 0 )
             except (DynamicsException,ValueError):
                 continue
-            print 'minimize'
+            #print 'minimize'
             sys.stdout.flush()
             minimum = minimize( objective_function, grid_point )
             if objective_function( minimum ) < 0.001:
                 minimum = tuple( N(m, 10) for m in minimum )
-                print 'found', minimum
+                #print 'found', minimum
                 sys.stdout.flush()
                 eq_set.add( minimum )
         add_hats = self.add_hats()
@@ -682,6 +789,7 @@ class PopulationDynamicsSystem(ODESystem):
         self._flow = self.flow()
         self._vars = self._nonpop_vars + self.population_vars()
         #self._flow = dict( (k,self._bindings(v)) for k,v in self._flow.items() )
+        self._add_hats = None
     # subclasses have to provide the flow
     def flow(self): pass
     def nontrivial_equilibria(self):

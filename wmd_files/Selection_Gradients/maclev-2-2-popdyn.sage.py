@@ -3,7 +3,7 @@ from sage.all_cmdline import *   # import sage library
 _sage_const_2 = Integer(2); _sage_const_1 = Integer(1); _sage_const_0 = Integer(0); _sage_const_5 = Integer(5); _sage_const_4 = Integer(4); _sage_const_0p02 = RealNumber('0.02'); _sage_const_30 = Integer(30); _sage_const_0p05 = RealNumber('0.05')# requires: maclev_2_2_defs.py
 # requires: $(SageDynamics)/dynamicalsystems.py maclevmodels.py
 # produces: maclev-2-2-popdyn.sage.out.tex maclev-2-2-popdyn.sobj
-# produces: maclev-2-2-popdyn.png maclev-2-2-r-zngis.png maclev-2-2-c-vs-u.png 
+# produces: maclev-2-2-popdyn.png maclev-2-2-r-zngis.png maclev-2-2-c-vs-u.png
 from maclev_2_2_defs import *
 
 print 'start'
@@ -14,8 +14,8 @@ ltx = latex_output( 'maclev-2-2-popdyn.sage.out.tex' )
 ltx.write( 'The Mac-Lev model in generic form: ' )
 ltx.write_block( maclev )
 
-print 'apply bindings:', ad_bindings
-sys.stdout.flush()
+#print 'apply bindings:', ad_bindings
+#sys.stdout.flush()
 
 ltx.write( 'The Mac-Lev model with $b, m$, and $c$ bound to functions of $u$:\n' )
 ltx.write_block( maclev.bind( ad_bindings ) )
@@ -26,7 +26,7 @@ sys.stdout.flush()
 maclev_initial_system = maclev.bind( ad_bindings + numeric_params + initial_conditions )
 p = maclev_initial_system.plot_vector_field( (X_0, _sage_const_0 , _sage_const_2 ), (X_1, _sage_const_0 , _sage_const_2 ), color="gray", figsize=(_sage_const_5 ,_sage_const_5 ) )
 p += maclev_initial_system.plot_ZNGIs( (X_0, _sage_const_0 , _sage_const_2 ), (X_1, _sage_const_0 , _sage_const_2 ), color="gray" )
-s = maclev_initial_system.solve( [_sage_const_0 , _sage_const_0p02 , _sage_const_0p05 ], end_points=integrate_popdyn_to )
+s = maclev_initial_system.solve( [_sage_const_0p02 , _sage_const_0p05 ], end_time=integrate_popdyn_to )
 p += s.plot( X_0, X_1, color='red' )
 p.save( 'maclev-2-2-popdyn.png' )
 

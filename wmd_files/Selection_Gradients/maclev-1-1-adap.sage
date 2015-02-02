@@ -52,7 +52,7 @@ ltx.write( 'and the bound adaptive dynamics is:', latex( maclev_adap_bound ) )
 
 ltx.write( 'its bindings:', latex(maclev_adap_bound._bindings) )
 initial_u = 2/3
-c_evolution = maclev_adap_bound.solve( [0, initial_u], end_points=10 )
+c_evolution = maclev_adap_bound.solve( [initial_u], end_time=10 )
 
 # and plot. 
 t = maclev_adap.time_variable()

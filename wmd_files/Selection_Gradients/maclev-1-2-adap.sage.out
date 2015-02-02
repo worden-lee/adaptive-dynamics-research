@@ -1,0 +1,20 @@
+find adaptive dynamics equilibria
+Optimization terminated successfully.
+         Current function value: 0.213499
+         Iterations: 11
+         Function evaluations: 22
+Optimization terminated successfully.
+         Current function value: 0.000000
+         Iterations: 12
+         Function evaluations: 24
+Optimization terminated successfully.
+         Current function value: 0.000000
+         Iterations: 13
+         Function evaluations: 26
+Optimization terminated successfully.
+         Current function value: 0.213499
+         Iterations: 11
+         Function evaluations: 22
+solve
+plot u vs t
+done

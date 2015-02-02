@@ -1,8 +1,8 @@
 # requires: $(SageDynamics)/dynamicalsystems.py $(SageUtils)/latex_output.py
 # requires: $(SageAdaptiveDynamics)/adaptivedynamics.py maclevmodels.py
 # requires: maclev_2_2_defs.py maclev-2-2-adap.sobj
-# produces: maclev-2-2-p.sage.out.tex maclev-2-2-c-vs-c.png
-# produces: maclev-2-2-total-c-vs-u.png
+# produces: maclev-2-2-p.sage.out.tex maclev-2-2-c-vs-t.png
+# produces: maclev-2-2-c-vs-c.png maclev-2-2-total-c-vs-u.png
 from maclev_2_2_defs import *
 
 load_session( 'maclev-2-2-adap' )
@@ -42,6 +42,18 @@ def make_arrow( base, vec, scale=1, **args ):
     #print [ aa for aa in arr ]
     return arr
 
+print 'plot c vs t'
+sys.stdout.flush()
+
+c_timeseries = Graphics()
+c = rescomp._indexers['c']
+for i in maclev._population_indices:
+    c_timeseries += c_evolution.plot( 't', c[i][0], color=[ 'blue', 'red' ][i] )
+    c_timeseries += c_evolution.plot( 't', c[i][1], color=[ 'blue', 'red' ][i] )
+
+c_timeseries.axes_labels( [ '$t$', '$c$' ] )
+c_timeseries.save( 'maclev-2-2-c-vs-t.png', figsize=(4,4) )
+
 # plot c_1 vs c_0, with arrows
 
 print 'plot c vs c'
@@ -51,8 +63,7 @@ sys.stdout.flush()
 c_phase_plane = Graphics()
 c_phase_plane += parametric_plot( (c_func( 0, 0 ), c_func( 0, 1 )), (u_0, 0, 1), color='gray' )
 for i in maclev._population_indices:
-    ci = [ rescomp._indexers['c'][i][0], rescomp._indexers['c'][i][1] ]
-    c_phase_plane += c_evolution.plot( ci[0], ci[1], color=[ 'blue', 'red' ][i] )
+    c_phase_plane += c_evolution.plot( c[i][0], c[i][1], color=[ 'blue', 'red' ][i] )
 
 # then add the arrows at intervals of 0.1 time step
 last_t = -oo
@@ -83,7 +94,7 @@ for p in c_evolution._timeseries:
                 0.05, color='green' )
 
 c_phase_plane.axes_labels( [ '$c_0$', '$c_1$' ] )
-c_phase_plane.save( 'maclev-2-2-c-vs-c.png', figsize=(6,6) )
+c_phase_plane.save( 'maclev-2-2-c-vs-c.png', figsize=(4,4) )
 
 print 'plot total c vs u' 
 sys.stdout.flush()
