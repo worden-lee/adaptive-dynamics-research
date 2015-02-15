@@ -17,17 +17,15 @@ a_func: (u_0, u_i) |--> -u_0*u_i
 r_func: u_0 |--> 2*u_0 - 1
 make LV adaptive dynamics
 Original pop-dyn system: 
-\[ \begin{align*}
+\[\begin{align*}
 \frac{dX_{0}}{dt} &= {\left(X_{0} a_{00} + k_{0}\right)} X_{0}
-\end{align*} \
- \]
- Extended pop-dyn system: 
-\[ \begin{align*}
+\end{align*}\]
+Extended pop-dyn system: 
+\[\begin{align*}
 \frac{dX_{0}}{dt} &= {\left(X_{0} a_{00} + X_{i} a_{0i} + k_{0}\right)} X_{0}\\
 \frac{dX_{i}}{dt} &= {\left(X_{0} a_{i0} + X_{i} a_{ii} + k_{i}\right)} X_{i}
-\end{align*} \
- \]
- The invasion rate for population $i$ is:
+\end{align*}\]
+The invasion rate for population $i$ is:
 \begin{align*}
   \mathscr I = \frac{1}{X_{i}}\frac{dX_{i}}{dt} &= X_{0} a_{i0} + X_{i} a_{ii} + k_{i} 
 \end{align*}
@@ -51,13 +49,11 @@ Original pop-dyn system:
  Equilibrium of the population dynamics: 
 \[ \begin{align*}
   X_{0} &\to \hat{X}_{0}
-\end{align*} \
- \]
+\end{align*} \]
  The adaptive dynamics comes out to 
 \[ \begin{align*}
 \frac{dk_{0}}{dt} &= \hat{X}_{0} \gamma\\
 \frac{da_{00}}{dt} &= \hat{X}_{0}^{2} \gamma
-\end{align*} \
- \]
+\end{align*} \]
 
 make LV evolution bindings

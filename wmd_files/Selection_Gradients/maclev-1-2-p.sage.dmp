@@ -1,15 +1,13 @@
 Original pop-dyn system: 
-\[ \begin{align*}
+\[\begin{align*}
 \frac{dX_{0}}{dt} &= -{\left({\left(X_{0} c_{00} - 2\right)} c_{00} + {\left(X_{0} c_{01} - 2\right)} c_{01} + m_{0}\right)} X_{0} b_{0}
-\end{align*} \
- \]
- Extended pop-dyn system: 
-\[ \begin{align*}
+\end{align*}\]
+Extended pop-dyn system: 
+\[\begin{align*}
 \frac{dX_{0}}{dt} &= -{\left(\frac{{\left(X_{0} c_{00} + X_{i} c_{i0} - K_{0} r_{0}\right)} c_{00} w_{0}}{r_{0}} + \frac{{\left(X_{0} c_{01} + X_{i} c_{i1} - K_{1} r_{1}\right)} c_{01} w_{1}}{r_{1}} + m_{0}\right)} X_{0} b_{0}\\
 \frac{dX_{i}}{dt} &= -{\left(\frac{{\left(X_{0} c_{00} + X_{i} c_{i0} - K_{0} r_{0}\right)} c_{i0} w_{0}}{r_{0}} + \frac{{\left(X_{0} c_{01} + X_{i} c_{i1} - K_{1} r_{1}\right)} c_{i1} w_{1}}{r_{1}} + m_{i}\right)} X_{i} b_{i}
-\end{align*} \
- \]
- The invasion rate for population $i$ is:
+\end{align*}\]
+The invasion rate for population $i$ is:
 \begin{align*}
   \mathscr I = \frac{1}{X_{i}}\frac{dX_{i}}{dt} &= -{\left(\frac{{\left(X_{0} c_{00} + X_{i} c_{i0} - K_{0} r_{0}\right)} c_{i0} w_{0}}{r_{0}} + \frac{{\left(X_{0} c_{01} + X_{i} c_{i1} - K_{1} r_{1}\right)} c_{i1} w_{1}}{r_{1}} + m_{i}\right)} b_{i} 
 \end{align*}
@@ -41,16 +39,14 @@ Original pop-dyn system:
  Equilibrium of the population dynamics: 
 \[ \begin{align*}
   \hat{X}_{0} &\to \frac{2 \, c_{00} + 2 \, c_{01} - m_{0}}{c_{00}^{2} + c_{01}^{2}}
-\end{align*} \
- \]
+\end{align*} \]
  The adaptive dynamics comes out to 
 \[ \begin{align*}
 \frac{dm_{0}}{dt} &= -\frac{b_{0} {\left(2 \, c_{00} + 2 \, c_{01} - m_{0}\right)} \gamma}{c_{00}^{2} + c_{01}^{2}}\\
 \frac{dc_{01}}{dt} &= -\frac{{\left(\frac{b_{0} {\left(2 \, c_{00} + 2 \, c_{01} - m_{0}\right)} c_{01}}{c_{00}^{2} + c_{01}^{2}} - 2 \, b_{0}\right)} {\left(2 \, c_{00} + 2 \, c_{01} - m_{0}\right)} \gamma}{c_{00}^{2} + c_{01}^{2}}\\
 \frac{dc_{00}}{dt} &= -\frac{{\left(\frac{b_{0} {\left(2 \, c_{00} + 2 \, c_{01} - m_{0}\right)} c_{00}}{c_{00}^{2} + c_{01}^{2}} - 2 \, b_{0}\right)} {\left(2 \, c_{00} + 2 \, c_{01} - m_{0}\right)} \gamma}{c_{00}^{2} + c_{01}^{2}}\\
 \frac{db_{0}}{dt} &= 0
-\end{align*} \
- \]
+\end{align*} \]
 
 adaptive dynamics of b, m, c: m_0 -> -b_0*(2*c_0_0 + 2*c_0_1 - m_0)*gamma/(c_0_0^2 + c_0_1^2)
 c_0_1 -> -(b_0*(2*c_0_0 + 2*c_0_1 - m_0)*c_0_1/(c_0_0^2 + c_0_1^2) - 2*b_0)*(2*c_0_0 + 2*c_0_1 - m_0)*gamma/(c_0_0^2 + c_0_1^2)

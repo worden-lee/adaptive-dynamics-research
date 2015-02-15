@@ -27,19 +27,17 @@ a_func: (c_0_0, c_0_1, c_i_0, c_i_1) |--> -c_0_0*c_i_0 - c_0_1*c_i_1
 r_func: (c_0_0, c_0_1) |--> 1
 make LV adaptive dynamics
 Original pop-dyn system: 
-\[ \begin{align*}
+\[\begin{align*}
 \frac{dX_{0}}{dt} &= {\left(X_{0} a_{00} + X_{1} a_{01} + k_{0}\right)} X_{0}\\
 \frac{dX_{1}}{dt} &= {\left(X_{0} a_{10} + X_{1} a_{11} + k_{1}\right)} X_{1}
-\end{align*} \
- \]
- Extended pop-dyn system: 
-\[ \begin{align*}
+\end{align*}\]
+Extended pop-dyn system: 
+\[\begin{align*}
 \frac{dX_{0}}{dt} &= {\left(X_{0} a_{00} + X_{1} a_{01} + X_{i} a_{0i} + k_{0}\right)} X_{0}\\
 \frac{dX_{1}}{dt} &= {\left(X_{0} a_{10} + X_{1} a_{11} + X_{i} a_{1i} + k_{1}\right)} X_{1}\\
 \frac{dX_{i}}{dt} &= {\left(X_{0} a_{i0} + X_{1} a_{i1} + X_{i} a_{ii} + k_{i}\right)} X_{i}
-\end{align*} \
- \]
- The invasion rate for population $i$ is:
+\end{align*}\]
+The invasion rate for population $i$ is:
 \begin{align*}
   \mathscr I = \frac{1}{X_{i}}\frac{dX_{i}}{dt} &= X_{0} a_{i0} + X_{1} a_{i1} + X_{i} a_{ii} + k_{i} 
 \end{align*}
@@ -80,8 +78,7 @@ Original pop-dyn system:
 \[ \begin{align*}
   X_{0} &\to \hat{X}_{0} \\
   X_{1} &\to \hat{X}_{1}
-\end{align*} \
- \]
+\end{align*} \]
  The adaptive dynamics comes out to 
 \[ \begin{align*}
 \frac{da_{11}}{dt} &= \hat{X}_{1}^{2} \gamma\\
@@ -90,8 +87,7 @@ Original pop-dyn system:
 \frac{dk_{0}}{dt} &= \hat{X}_{0} \gamma\\
 \frac{da_{10}}{dt} &= \hat{X}_{0} \hat{X}_{1} \gamma\\
 \frac{da_{01}}{dt} &= \hat{X}_{0} \hat{X}_{1} \gamma
-\end{align*} \
- \]
+\end{align*} \]
 
 make LV evolution bindings
 dudts: {0: (-Xhat_0^2*c_0_0*gamma - Xhat_0*Xhat_1*c_1_0*gamma, -Xhat_0^2*c_0_1*gamma - Xhat_0*Xhat_1*c_1_1*gamma), 1: (-Xhat_0*Xhat_1*c_0_0*gamma - Xhat_1^2*c_1_0*gamma, -Xhat_0*Xhat_1*c_0_1*gamma - Xhat_1^2*c_1_1*gamma)}
