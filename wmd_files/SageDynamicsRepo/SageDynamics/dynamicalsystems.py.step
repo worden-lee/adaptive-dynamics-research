@@ -805,8 +805,9 @@ class PopulationDynamicsSystem(ODESystem):
         self._vars = self._nonpop_vars + self.population_vars()
         #self._flow = dict( (k,self._bindings(v)) for k,v in self._flow.items() )
         self._add_hats = None
-    # subclasses have to provide the flow
-    def flow(self): pass
+    # subclasses or creators of this object have to provide the flow
+    def flow(self):
+        self._flow_fn()
     def nontrivial_equilibria(self):
         equilibria = self.equilibria()
         return [ eq for eq in equilibria if sum( eq[hat(x)] for x in self.population_vars() ) != 0 ]

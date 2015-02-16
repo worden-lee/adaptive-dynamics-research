@@ -1,0 +1,35 @@
+Original pop-dyn system: 
+\[\begin{align*}
+\frac{dX}{dt} &= -{\left({\left(X d h - q_{0}\right)} h + 1\right)} X
+\end{align*}\]
+Extended pop-dyn system: 
+\[\begin{align*}
+\frac{dX}{dt} &= -{\left({\left({\left(X h + X_{i} h_{i}\right)} d - q_{0}\right)} h + 1\right)} X\\
+\frac{dX_{i}}{dt} &= -{\left({\left({\left(X h + X_{i} h_{i}\right)} d - q_{0}\right)} h_{i} + 1\right)} X_{i}
+\end{align*}\]
+The invasion rate for population $i$ is:
+\begin{align*}
+  \mathscr I = \frac{1}{X_{i}}\frac{dX_{i}}{dt} &= -{\left({\left(X h + X_{i} h_{i}\right)} d - q_{0}\right)} h_{i} - 1 
+\end{align*}
+ And the invasion exponent is
+\begin{align*}
+  \frac{\partial\mathscr I}{\partial h} = \lim_{h_{i}\to h,X_{i}\to0}-X_{i} d h_{i} - {\left(X h + X_{i} h_{i}\right)} d + q_{0} .
+\end{align*}
+ Which comes out to
+\begin{align*}
+  \frac{\partial\mathscr I}{\partial h} = -X d h + q_{0} .
+\end{align*}
+ \[ \mathbf S \left(\begin{array}{c}
+  h
+\end{array}\right) = \left(\begin{array}{c}
+  -\hat{X} d h + q_{0}
+\end{array}\right) \]
+ Equilibrium of the population dynamics: 
+\[ \begin{align*}
+  \hat{X} &\to \frac{h q_{0} - 1}{d h^{2}}
+\end{align*} \]
+ The adaptive dynamics comes out to 
+\[ \begin{align*}
+\frac{dh}{dt} &= \frac{{\left(h q_{0} - 1\right)} \gamma {\left(q_{0} - \frac{h q_{0} - 1}{h}\right)}}{d h^{2}}
+\end{align*} \]
+
