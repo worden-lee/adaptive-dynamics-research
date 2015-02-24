@@ -1,0 +1,101 @@
+Sat Feb 21 19:31:41 2015
+/usr/bin/make -C /usr/local/src/jekyll-research/wmd_files/Box_Models \
+    SIR.sage.out.latexml.html
+Including .mk files: upstream.mk 
+Including .mk files from .step files: boxmodel.py.mk SIR.sage.mk cross.sage.mk
+Including .tex.d files: classes.boxes.tex.d cross.boxes.tex.d SIR.boxes.tex.d
+make: Entering directory `/usr/local/src/jekyll-research/wmd_files/Box_Models'
+/usr/bin/make --no-print-directory -C /usr/local/src/jekyll-research/wmd_files/SageDynamicsRepo/SageDynamics dynamicalsystems.py
+Including .mk files: upstream.mk 
+Including .mk files from .step files: 
+Including .tex.d files: 
+make[1]: `dynamicalsystems.py' is up to date.
+/usr/bin/make --no-print-directory -C /usr/local/src/jekyll-research/wmd_files/SageDynamicsRepo/SageAdaptiveDynamics adaptivedynamics.py
+Including .mk files:  
+Including .tex.d files: 
+make[1]: Nothing to be done for `adaptivedynamics.py'.
+touch SIR.sage.tried
+/usr/bin/make SIR.sage.out
+Including .mk files: upstream.mk 
+Including .mk files from .step files: boxmodel.py.mk SIR.sage.mk cross.sage.mk
+Including .tex.d files: classes.boxes.tex.d cross.boxes.tex.d SIR.boxes.tex.d
+make[1]: Entering directory `/usr/local/src/jekyll-research/wmd_files/Box_Models'
+/usr/bin/make --no-print-directory -C /usr/local/src/jekyll-research/wmd_files/SageDynamicsRepo/SageDynamics dynamicalsystems.py
+Including .mk files: upstream.mk 
+Including .mk files from .step files: 
+Including .tex.d files: 
+make[2]: `dynamicalsystems.py' is up to date.
+/usr/bin/make --no-print-directory -C /usr/local/src/jekyll-research/wmd_files/SageDynamicsRepo/SageAdaptiveDynamics adaptivedynamics.py
+Including .mk files:  
+Including .tex.d files: 
+make[2]: Nothing to be done for `adaptivedynamics.py'.
+rm -f SIR.sage.out SIR.sage.status SIR.sage.out.tex SIR.boxes.tex SIR.trajectory.png
+(sage SIR.sage && touch SIR.sage.status) | tee SIR.sage.dmp
+init
+create SIR model
+write latex
+plot boxes
+solve numerically
+plot timeseries
+[ -e SIR.sage.status ] && (rm -f SIR.sage.status && mv SIR.sage.dmp SIR.sage.out) || exit 1
+make[1]: Leaving directory `/usr/local/src/jekyll-research/wmd_files/Box_Models'
+latexml  --destination=SIR.sage.out.latexml.xml SIR.sage.out.tex
+latexml (LaTeXML version v0.8.0; revision 70f0ce4)
+processing started Sat Feb 21 19:32:13 2015
+
+(Digesting TeX SIR.sage.out...
+(Loading /usr/local/share/perl/5.18.2/LaTeXML/Package/TeX.pool.ltxml...
+(Loading /usr/local/share/perl/5.18.2/LaTeXML/Package/eTeX.pool.ltxml... 0.05 sec)
+(Loading /usr/local/share/perl/5.18.2/LaTeXML/Package/pdfTeX.pool.ltxml... 0.01 sec) 0.25 sec)
+(Processing content /usr/local/src/jekyll-research/wmd_files/Box_Models/SIR.sage.out.tex...
+(Loading /usr/local/share/perl/5.18.2/LaTeXML/Package/LaTeX.pool.ltxml... 0.20 sec)
+(Loading /usr/local/share/perl/5.18.2/LaTeXML/Package/article.cls.ltxml... 0.09 sec)
+(Loading /usr/local/share/perl/5.18.2/LaTeXML/Package/amsmath.sty.ltxml...
+(Loading /usr/local/share/perl/5.18.2/LaTeXML/Package/amsbsy.sty.ltxml... 0.00 sec)
+(Loading /usr/local/share/perl/5.18.2/LaTeXML/Package/amstext.sty.ltxml... 0.01 sec)
+(Loading /usr/local/share/perl/5.18.2/LaTeXML/Package/amsopn.sty.ltxml... 0.02 sec) 0.08 sec)
+(Loading /usr/local/share/perl/5.18.2/LaTeXML/Package/amssymb.sty.ltxml...
+(Loading /usr/local/share/perl/5.18.2/LaTeXML/Package/amsfonts.sty.ltxml... 0.00 sec) 0.04 sec)
+(Loading /usr/local/share/perl/5.18.2/LaTeXML/Package/graphicx.sty.ltxml...
+(Loading /usr/local/share/perl/5.18.2/LaTeXML/Package/graphics.sty.ltxml... 0.00 sec) 0.07 sec)
+(Loading /usr/local/share/perl/5.18.2/LaTeXML/Package/inputenc.sty.ltxml...
+(Loading /usr/local/share/perl/5.18.2/LaTeXML/Package/utf8.def.ltxml... 0.00 sec) 0.01 sec)
+(Loading /usr/local/share/perl/5.18.2/LaTeXML/Package/fontenc.sty.ltxml...
+(Loading /usr/local/share/perl/5.18.2/LaTeXML/Package/t1enc.def.ltxml...
+(Processing definitions /usr/share/texlive/texmf-dist/tex/latex/base/t1enc.def...
+(Loading /usr/local/share/perl/5.18.2/LaTeXML/Package/t1.fontmap.ltxml... 0.00 sec) 0.09 sec) 0.18 sec) 0.19 sec) 0.81 sec) 1.07 sec)
+(Building...
+(Loading compiled schema /usr/local/share/perl/5.18.2/LaTeXML/resources/RelaxNG/LaTeXML.model... 0.04 sec)... 0.16 sec)
+(Rewriting... 0.00 sec)
+(Math Parsing...9 formulae ...[1][2][3][4][5][6][7][8][9]
+Math parsing succeeded:
+   ltx:XMath: 9/9
+   ltx:XMArg: 12/12
+Symbols assumed as simple identifiers (with # of occurences):
+   'I{italic}' (10), 'R{italic}' (2), 'S{italic}' (6), 'alpha' (4), 'd{italic}' (12), 'mu' (4), 't{italic}' (6)
+ 0.14 sec)
+(Finalizing... 0.02 sec)
+Conversion complete: No obvious problems.
+processing finished Sat Feb 21 19:32:14 2015
+Updating .workingwiki/SIR.sage.out.latexml.xml
+rm -f SIR.sage.out.latexml.html5
+bibxmls=`perl -ne '($_)=/^[^%]*\\\bibliography\{([^\\\\#]*?)\}/;@_=split /,/;foreach $b (@_) { $b =~ s/\.bib$//; print "$b.bib.xml "}' SIR.sage.out.latexml.xml`; bibxargs=`perl -ne '($_)=/^[^%]*\\\bibliography\{([^\\\\#]*?)\}/;@_=split /,/;foreach $b (@_) { $b =~ s/\.bib$//; print "--bibliography=$b.bib.xml "}' SIR.sage.out.latexml.xml` && \
+	(test -z "$bibxmls" || /usr/bin/make -f /usr/local/src/workingwiki-trunk/ProjectEngine/resources/makefile $bibxmls) && \
+	lxpost="latexmlpost --noplane1 --novalidate --destination=SIR.sage.out.intermediate.latexml.html5 --format=html5 $bibxargs SIR.sage.out.latexml.xml" && echo $lxpost && $lxpost
+latexmlpost --noplane1 --novalidate --destination=SIR.sage.out.intermediate.latexml.html5 --format=html5 SIR.sage.out.latexml.xml
+latexmlpost (LaTeXML version v0.8.0; revision 70f0ce4)
+processing started Sat Feb 21 19:32:15 2015
+(SIR.sage.out.intermediate.latexml.html5 post-processing...
+(Scan SIR.sage.out.intermediate.latexml.html5 processing...
+(CrossRef SIR.sage.out.intermediate.latexml.html5 processing...
+(MathML::Presentation SIR.sage.out.intermediate.latexml.html5 9 to process...
+(XSLT SIR.sage.out.intermediate.latexml.html5 processing...
+(Writer SIR.sage.out.intermediate.latexml.html5 processing... 0.07 sec)
+Postprocessing complete: No obvious problems
+processing finished Sat Feb 21 19:32:16 2015
+/usr/local/src/workingwiki-trunk/ProjectEngine/resources/wiki-inclusion.latexml.pl SIR.sage.out.intermediate.latexml.html5 >SIR.sage.out.latexml.html5
+ln -f SIR.sage.out.latexml.html5 SIR.sage.out.latexml.html
+rm SIR.sage.out.latexml.html5 SIR.sage.out.latexml.xml
+make: Leaving directory `/usr/local/src/jekyll-research/wmd_files/Box_Models'
+Make succeeded.
+Sat Feb 21 19:32:16 2015

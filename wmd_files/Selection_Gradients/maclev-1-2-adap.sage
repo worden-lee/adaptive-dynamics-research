@@ -23,9 +23,9 @@ ltx.write_block( maclev.bind( ad_bindings + numeric_params ) )
 bmc_to_fn_bindings = Bindings( dict(
     [ ( maclev._rescomp_model._indexers['c'][i][j],
         function( 'c_%s'%j )( u_indexer[i] ) )
-      for i in (0,1,'i') for j in (0,1) ] +
-    [ ( maclev._rescomp_model._indexers['b'][i], function('b')( u_indexer[i] ) ) for i in (0,1,'i') ] +
-    [ ( maclev._rescomp_model._indexers['m'][i], function('m')( u_indexer[i] ) ) for i in (0,1,'i') ]
+      for i in (0,1,2) for j in (0,1) ] +
+    [ ( maclev._rescomp_model._indexers['b'][i], function('b')( u_indexer[i] ) ) for i in (0,1,2) ] +
+    [ ( maclev._rescomp_model._indexers['m'][i], function('m')( u_indexer[i] ) ) for i in (0,1,2) ]
     ) )
 bmc_from_fn_bindings = Bindings( FunctionBindings( dict(
     [ ( function( 'c_%s'%j ), c_func(0,j).function( u_indexer[0] ) )
@@ -62,7 +62,7 @@ try:
 
         # and plot u vs t
         t = maclev_adap_c.time_variable()
-        u_timeseries = c_evolution.plot( t, u_0 )
+        u_timeseries = c_evolution.plot( t, u_0 ) + c_evolution.plot( t, u_1, color='red' )
         u_timeseries.axes_labels( [ '$t$', '$u$' ] )
         u_timeseries.save( 'maclev-1-2-u-vs-t.png', figsize=(4,4) )
     except AdaptiveDynamicsException, e:

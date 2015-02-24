@@ -1,8 +1,8 @@
-Sun Feb 15 16:19:53 2015
+Mon Feb 23 22:24:58 2015
 /usr/bin/make -C /usr/local/src/jekyll-research/wmd_files/Selection_Gradients \
     toc.sage.out.html
 Including .mk files: sage.mk sage-inline.mk 
-Including .mk files from .step files: maclev-1-1.sage.mk maclev-1-1-adap.sage.mk maclev-1-1-mc-adap-geom.sage.mk maclev-1-1-ak-adap-geom.sage.mk S-A-vector-field.sage.mk maclev-1-1-d1A-vector-field.sage.mk maclev-1-1-S-and-d1A-on-curve.sage.mk maclev-1-1-S-and-D-on-curve.sage.mk maclev_1_2_defs.py.mk maclev-1-2-popdyn.sage.mk maclev-1-2-adap.sage.mk maclev-1-2-p.sage.mk maclev-1-2-zngi.sage.mk maclev-1-2-geom.sage.mk maclev_unconstrained_c.py.mk maclev-2-2-c-popdyn.sage.mk maclev-2-2-c-adap.sage.mk maclev-2-2-c-p.sage.mk maclev-2-2-c-zngi.sage.mk maclev-2-2-c-geom.sage.mk maclev_2_2_defs.py.mk maclev-2-2-popdyn.sage.mk maclev-2-2-adap.sage.mk maclev-2-2-p.sage.mk maclev-2-2-zngi.sage.mk maclev-2-2-geom.sage.mk maclev_a_only_defs.py.mk maclev-a-only-popdyn.sage.mk maclev-a-only-adap.sage.mk maclev-a-only-p.sage.mk maclev-a-only-zngi.sage.mk maclev-a-only-geom.sage.mk maclev_a_c.py.mk maclev-2-2-a-c-popdyn.sage.mk maclev-2-2-a-c-adap.sage.mk maclev-2-2-a-c-p.sage.mk maclev-2-2-a-c-zngi.sage.mk maclev-2-2-a-c-geom.sage.mk maclevmodels.py.mk lotkavolterra.py.mk toc.sage.mk maclev-2-2-zngi-invasion.sage.mk
+Including .mk files from .step files: foodweb.sage.mk maclev-1-1.sage.mk maclev-1-1-adap.sage.mk maclev-1-1-mc-adap-geom.sage.mk maclev-1-1-ak-adap-geom.sage.mk S-A-vector-field.sage.mk maclev-1-1-d1A-vector-field.sage.mk maclev-1-1-S-and-d1A-on-curve.sage.mk maclev-1-1-S-and-D-on-curve.sage.mk maclev_1_2_defs.py.mk maclev-1-2-popdyn.sage.mk maclev-1-2-adap.sage.mk maclev-1-2-p.sage.mk maclev-1-2-zngi.sage.mk maclev-1-2-geom.sage.mk maclev_unconstrained_c.py.mk maclev-2-2-c-popdyn.sage.mk maclev-2-2-c-adap.sage.mk maclev-2-2-c-p.sage.mk maclev-2-2-c-zngi.sage.mk maclev-2-2-c-geom.sage.mk maclev_2_2_defs.py.mk maclev-2-2-popdyn.sage.mk maclev-2-2-adap.sage.mk maclev-2-2-p.sage.mk maclev-2-2-zngi.sage.mk maclev-2-2-geom.sage.mk maclev_a_only_defs.py.mk maclev-a-only-popdyn.sage.mk maclev-a-only-adap.sage.mk maclev-a-only-p.sage.mk maclev-a-only-zngi.sage.mk maclev-a-only-geom.sage.mk maclev_a_c.py.mk maclev-2-2-a-c-popdyn.sage.mk maclev-2-2-a-c-adap.sage.mk maclev-2-2-a-c-p.sage.mk maclev-2-2-a-c-zngi.sage.mk maclev-2-2-a-c-geom.sage.mk maclevmodels.py.mk lotkavolterra.py.mk toc.sage.mk maclev-2-2-zngi-invasion.sage.mk
 Including .mk files from .sage-inline files: avec.sage.mk a-careful.sage.mk
 Including .tex.d files: 
 make: Entering directory `/usr/local/src/jekyll-research/wmd_files/Selection_Gradients'
@@ -14,118 +14,6 @@ make[1]: Nothing to be done for `dynamicalsystems.py'.
 Including .mk files:  
 Including .tex.d files: 
 make[1]: Nothing to be done for `adaptivedynamics.py'.
-touch toc.sage.tried
-/usr/bin/make toc.sage.out
-Including .mk files: sage.mk sage-inline.mk 
-Including .mk files from .step files: maclev-1-1.sage.mk maclev-1-1-adap.sage.mk maclev-1-1-mc-adap-geom.sage.mk maclev-1-1-ak-adap-geom.sage.mk S-A-vector-field.sage.mk maclev-1-1-d1A-vector-field.sage.mk maclev-1-1-S-and-d1A-on-curve.sage.mk maclev-1-1-S-and-D-on-curve.sage.mk maclev_1_2_defs.py.mk maclev-1-2-popdyn.sage.mk maclev-1-2-adap.sage.mk maclev-1-2-p.sage.mk maclev-1-2-zngi.sage.mk maclev-1-2-geom.sage.mk maclev_unconstrained_c.py.mk maclev-2-2-c-popdyn.sage.mk maclev-2-2-c-adap.sage.mk maclev-2-2-c-p.sage.mk maclev-2-2-c-zngi.sage.mk maclev-2-2-c-geom.sage.mk maclev_2_2_defs.py.mk maclev-2-2-popdyn.sage.mk maclev-2-2-adap.sage.mk maclev-2-2-p.sage.mk maclev-2-2-zngi.sage.mk maclev-2-2-geom.sage.mk maclev_a_only_defs.py.mk maclev-a-only-popdyn.sage.mk maclev-a-only-adap.sage.mk maclev-a-only-p.sage.mk maclev-a-only-zngi.sage.mk maclev-a-only-geom.sage.mk maclev_a_c.py.mk maclev-2-2-a-c-popdyn.sage.mk maclev-2-2-a-c-adap.sage.mk maclev-2-2-a-c-p.sage.mk maclev-2-2-a-c-zngi.sage.mk maclev-2-2-a-c-geom.sage.mk maclevmodels.py.mk lotkavolterra.py.mk toc.sage.mk maclev-2-2-zngi-invasion.sage.mk
-Including .mk files from .sage-inline files: avec.sage.mk a-careful.sage.mk
-Including .tex.d files: 
-make[1]: Entering directory `/usr/local/src/jekyll-research/wmd_files/Selection_Gradients'
-/usr/bin/make --no-print-directory -C /usr/local/src/jekyll-research/wmd_files/SageDynamicsRepo/SageDynamics dynamicalsystems.py
-Including .mk files:  
-Including .tex.d files: 
-make[2]: Nothing to be done for `dynamicalsystems.py'.
-/usr/bin/make --no-print-directory -C /usr/local/src/jekyll-research/wmd_files/SageDynamicsRepo/SageAdaptiveDynamics adaptivedynamics.py
-Including .mk files:  
-Including .tex.d files: 
-make[2]: Nothing to be done for `adaptivedynamics.py'.
-rm -f toc.sage.out toc.sage.status toc.sobj toc.sage.out.tex
-(sage toc.sage && touch toc.sage.status) | tee toc.sage.dmp
-Original pop-dyn system: 
-\[\begin{align*}
-\frac{dX}{dt} &= -{\left({\left(X d h - q_{0}\right)} h + 1\right)} X
-\end{align*}\]
-Extended pop-dyn system: 
-\[\begin{align*}
-\frac{dX}{dt} &= -{\left({\left({\left(X h + X_{i} h_{i}\right)} d - q_{0}\right)} h + 1\right)} X\\
-\frac{dX_{i}}{dt} &= -{\left({\left({\left(X h + X_{i} h_{i}\right)} d - q_{0}\right)} h_{i} + 1\right)} X_{i}
-\end{align*}\]
-The invasion rate for population $i$ is:
-\begin{align*}
-  \mathscr I = \frac{1}{X_{i}}\frac{dX_{i}}{dt} &= -{\left({\left(X h + X_{i} h_{i}\right)} d - q_{0}\right)} h_{i} - 1 
-\end{align*}
- And the invasion exponent is
-\begin{align*}
-  \frac{\partial\mathscr I}{\partial h} = \lim_{h_{i}\to h,X_{i}\to0}-X_{i} d h_{i} - {\left(X h + X_{i} h_{i}\right)} d + q_{0} .
-\end{align*}
- Which comes out to
-\begin{align*}
-  \frac{\partial\mathscr I}{\partial h} = -X d h + q_{0} .
-\end{align*}
- \[ \mathbf S \left(\begin{array}{c}
-  h
-\end{array}\right) = \left(\begin{array}{c}
-  -\hat{X} d h + q_{0}
-\end{array}\right) \]
- Equilibrium of the population dynamics: 
-\[ \begin{align*}
-  \hat{X} &\to \frac{h q_{0} - 1}{d h^{2}}
-\end{align*} \]
- The adaptive dynamics comes out to 
-\[ \begin{align*}
-\frac{dh}{dt} &= \frac{{\left(h q_{0} - 1\right)} \gamma {\left(q_{0} - \frac{h q_{0} - 1}{h}\right)}}{d h^{2}}
-\end{align*} \]
-
-[ -e toc.sage.status ] && (rm -f toc.sage.status && mv toc.sage.dmp toc.sage.out) || exit 1
-make[1]: Leaving directory `/usr/local/src/jekyll-research/wmd_files/Selection_Gradients'
-latexml  --destination=toc.sage.out.latexml.xml toc.sage.out.tex
-latexml (LaTeXML version v0.8.0; revision 70f0ce4)
-processing started Sun Feb 15 16:19:56 2015
-
-(Digesting TeX toc.sage.out...
-(Loading /usr/local/share/perl/5.18.2/LaTeXML/Package/TeX.pool.ltxml...
-(Loading /usr/local/share/perl/5.18.2/LaTeXML/Package/eTeX.pool.ltxml... 0.00 sec)
-(Loading /usr/local/share/perl/5.18.2/LaTeXML/Package/pdfTeX.pool.ltxml... 0.01 sec) 0.20 sec)
-(Processing content /usr/local/src/jekyll-research/wmd_files/Selection_Gradients/toc.sage.out.tex...
-(Loading /usr/local/share/perl/5.18.2/LaTeXML/Package/LaTeX.pool.ltxml... 0.22 sec)
-(Loading /usr/local/share/perl/5.18.2/LaTeXML/Package/article.cls.ltxml... 0.02 sec)
-(Loading /usr/local/share/perl/5.18.2/LaTeXML/Package/amsmath.sty.ltxml...
-(Loading /usr/local/share/perl/5.18.2/LaTeXML/Package/amsbsy.sty.ltxml... 0.00 sec)
-(Loading /usr/local/share/perl/5.18.2/LaTeXML/Package/amstext.sty.ltxml... 0.00 sec)
-(Loading /usr/local/share/perl/5.18.2/LaTeXML/Package/amsopn.sty.ltxml... 0.00 sec) 0.05 sec)
-(Loading /usr/local/share/perl/5.18.2/LaTeXML/Package/amssymb.sty.ltxml...
-(Loading /usr/local/share/perl/5.18.2/LaTeXML/Package/amsfonts.sty.ltxml... 0.00 sec) 0.03 sec)
-(Loading /usr/local/share/perl/5.18.2/LaTeXML/Package/graphicx.sty.ltxml...
-(Loading /usr/local/share/perl/5.18.2/LaTeXML/Package/graphics.sty.ltxml... 0.00 sec) 0.03 sec)
-(Loading /usr/local/share/perl/5.18.2/LaTeXML/Package/inputenc.sty.ltxml...
-(Loading /usr/local/share/perl/5.18.2/LaTeXML/Package/utf8.def.ltxml... 0.00 sec) 0.01 sec)
-(Loading /usr/local/share/perl/5.18.2/LaTeXML/Package/fontenc.sty.ltxml...
-(Loading /usr/local/share/perl/5.18.2/LaTeXML/Package/t1enc.def.ltxml...
-(Processing definitions /usr/share/texlive/texmf-dist/tex/latex/base/t1enc.def...
-(Loading /usr/local/share/perl/5.18.2/LaTeXML/Package/t1.fontmap.ltxml... 0.00 sec) 0.09 sec) 0.12 sec) 0.13 sec) 0.62 sec) 0.83 sec)
-(Building...
-(Loading compiled schema /usr/local/share/perl/5.18.2/LaTeXML/resources/RelaxNG/LaTeXML.model... 0.02 sec)... 0.11 sec)
-(Rewriting... 0.00 sec)
-(Math Parsing...7 formulae ...[1][2][3][4][5][6][7]
-Math parsing succeeded:
-   ltx:XMath: 7/7
-   ltx:XMArg: 14/14
-Symbols assumed as simple identifiers (with # of occurences):
-   'X{italic}' (6), 'd{italic}' (12), 'h{italic}' (8), 'q{italic}' (4), 't{italic}' (4)
- 0.20 sec)
-(Finalizing... 0.02 sec)
-Conversion complete: No obvious problems.
-processing finished Sun Feb 15 16:19:58 2015
-Updating .workingwiki/toc.sage.out.latexml.xml
-rm -f toc.sage.out.latexml.html5
-bibxmls=`perl -ne '($_)=/^[^%]*\\\bibliography\{([^\\\\#]*?)\}/;@_=split /,/;foreach $b (@_) { $b =~ s/\.bib$//; print "$b.bib.xml "}' toc.sage.out.latexml.xml`; bibxargs=`perl -ne '($_)=/^[^%]*\\\bibliography\{([^\\\\#]*?)\}/;@_=split /,/;foreach $b (@_) { $b =~ s/\.bib$//; print "--bibliography=$b.bib.xml "}' toc.sage.out.latexml.xml` && \
-	(test -z "$bibxmls" || /usr/bin/make -f /usr/local/src/workingwiki-trunk/ProjectEngine/resources/makefile $bibxmls) && \
-	lxpost="latexmlpost --noplane1 --novalidate --destination=toc.sage.out.intermediate.latexml.html5 --format=html5 $bibxargs toc.sage.out.latexml.xml" && echo $lxpost && $lxpost
-latexmlpost --noplane1 --novalidate --destination=toc.sage.out.intermediate.latexml.html5 --format=html5 toc.sage.out.latexml.xml
-latexmlpost (LaTeXML version v0.8.0; revision 70f0ce4)
-processing started Sun Feb 15 16:19:58 2015
-(toc.sage.out.intermediate.latexml.html5 post-processing...
-(Scan toc.sage.out.intermediate.latexml.html5 processing...
-(CrossRef toc.sage.out.intermediate.latexml.html5 processing...
-(MathML::Presentation toc.sage.out.intermediate.latexml.html5 7 to process...
-(XSLT toc.sage.out.intermediate.latexml.html5 processing...
-(Writer toc.sage.out.intermediate.latexml.html5 processing... 0.05 sec)
-Postprocessing complete: No obvious problems
-processing finished Sun Feb 15 16:19:58 2015
-/usr/local/src/workingwiki-trunk/ProjectEngine/resources/wiki-inclusion.latexml.pl toc.sage.out.intermediate.latexml.html5 >toc.sage.out.latexml.html5
-ln -f toc.sage.out.latexml.html5 toc.sage.out.latexml.html
-ln -f toc.sage.out.latexml.html toc.sage.out.html
-rm toc.sage.out.latexml.html5 toc.sage.out.latexml.xml toc.sage.out.latexml.html
 make: Leaving directory `/usr/local/src/jekyll-research/wmd_files/Selection_Gradients'
 Make succeeded.
-Sun Feb 15 16:19:58 2015
+Mon Feb 23 22:24:58 2015

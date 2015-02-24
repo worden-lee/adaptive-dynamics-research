@@ -1,0 +1,18 @@
+Sat Feb 21 19:32:40 2015
+/usr/bin/make -C /usr/local/src/jekyll-research/wmd_files/Box_Models cross.trajectory.png
+Including .mk files: upstream.mk 
+Including .mk files from .step files: boxmodel.py.mk SIR.sage.mk cross.sage.mk
+Including .tex.d files: classes.boxes.tex.d cross.boxes.tex.d SIR.boxes.tex.d
+make: Entering directory `/usr/local/src/jekyll-research/wmd_files/Box_Models'
+/usr/bin/make --no-print-directory -C /usr/local/src/jekyll-research/wmd_files/SageDynamicsRepo/SageDynamics dynamicalsystems.py
+Including .mk files: upstream.mk 
+Including .mk files from .step files: 
+Including .tex.d files: 
+make[1]: `dynamicalsystems.py' is up to date.
+/usr/bin/make --no-print-directory -C /usr/local/src/jekyll-research/wmd_files/SageDynamicsRepo/SageAdaptiveDynamics adaptivedynamics.py
+Including .mk files:  
+Including .tex.d files: 
+make[1]: Nothing to be done for `adaptivedynamics.py'.
+make: Leaving directory `/usr/local/src/jekyll-research/wmd_files/Box_Models'
+Make succeeded.
+Sat Feb 21 19:32:40 2015

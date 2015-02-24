@@ -19,9 +19,9 @@ ltx = latex_output( 'maclev-1-2-geom.sage.out.tex' )
 bmc_to_fn_bindings = Bindings( dict(
     [ ( maclev._rescomp_model._indexers['c'][i][j],
         function( 'c_%s'%j )( u_indexer[i] ) )
-      for i in (0,1,'i') for j in (0,1) ] +
-    [ ( maclev._rescomp_model._indexers['b'][i], function('b')( u_indexer[i] ) ) for i in (0,1,'i') ] +
-    [ ( maclev._rescomp_model._indexers['m'][i], function('m')( u_indexer[i] ) ) for i in (0,1,'i') ]
+      for i in (0,1,2) for j in (0,1) ] +
+    [ ( maclev._rescomp_model._indexers['b'][i], function('b')( u_indexer[i] ) ) for i in (0,1,2) ] +
+    [ ( maclev._rescomp_model._indexers['m'][i], function('m')( u_indexer[i] ) ) for i in (0,1,2) ]
     ) )
 bmc_from_fn_bindings = Bindings( FunctionBindings( dict(
     [ ( function( 'c_%s'%j ), c_func(0,j).function( u_indexer[0] ) )
@@ -43,6 +43,9 @@ class SeriesOfBindings( Bindings ):
     def _latex_(self):
         from operator import add
         return reduce( add, map( latex, self._series ) )
+    def __repr__(self):
+        from operator import add
+        return reduce( add, map( repr, self._series ) )
 
 A_to_u_bindings = SeriesOfBindings(
     bmc_bindings + numeric_params + ad_bindings
@@ -79,9 +82,10 @@ sys.stdout.flush()
 
 # plot k values vs. time
 k_timeseries = Graphics();
+#print c_evolution._timeseries[0]
 for i in lv_adap_c._lv_model._population_indices:
     #print ( str( lv_adap_c._lv_model._indexers['r'][i] ) + ': ' +
-        #str( A_to_u_bindings( lv_adap_c._lv_model._A_bindings( lv_adap_c._lv_model._indexers['r'][i] ) ) ) )
+    #    str( A_to_u_bindings( lv_adap_c._lv_model._A_bindings( lv_adap_c._lv_model._indexers['r'][i] ) ) ) )
     k_timeseries += c_evolution.plot( t,
         A_to_u_bindings( lv_adap_c._lv_model._A_bindings( lv_adap_c._lv_model._indexers['r'][i] ) ),
         color=[ 'blue', 'red' ][i], figsize=(4,4) )
@@ -96,7 +100,7 @@ a_timeseries = Graphics()
 for i in lv_adap_c._lv_model._population_indices:
     for j in lv_adap_c._lv_model._population_indices:
         a_timeseries += c_evolution.plot( t,
-            A_to_u_bindings( lv_adap_c._lv_model._A_bindings( lv_adap_c._lv_model._indexers['a'][i][j] ) ), 
+            A_to_u_bindings( lv_adap_c._lv_model._A_bindings( lv_adap_c._lv_model._indexers['a'][i][j] ) ),
             color=(i == j and 'red' or 'lime'), figsize=(4,4) )
 a_timeseries.axes_labels( [ '$t$', '$a(\cdot,\cdot)$' ] )
 a_timeseries.save( 'maclev-1-2-a-vs-t.png' )
@@ -106,9 +110,10 @@ sys.stdout.flush()
 
 # population size vs time
 X_timeseries = Graphics()
+print c_evolution._timeseries
 for i in lv_adap_c._lv_model._population_indices:
-    #print ( str( hat( lv_adap_c._lv_model._population_indexer[i] ) ) + ': ' +
-        #str( A_to_u_bindings( lv_adap_c._lv_model.interior_equilibrium_bindings()( hat( lv_adap_c._lv_model._population_indexer[i] ) ) ) ) )
+    print ( str( hat( lv_adap_c._lv_model._population_indexer[i] ) ) + ': ' +
+        str( A_to_u_bindings( lv_adap_c._lv_model.interior_equilibrium_bindings()( hat( lv_adap_c._lv_model._population_indexer[i] ) ) ) ) )
     X_timeseries += c_evolution.plot( t,
         A_to_u_bindings( lv_adap_c._lv_model.interior_equilibrium_bindings()( hat( lv_adap_c._lv_model._population_indexer[i] ) ) ),
         color=[ 'blue', 'red' ][i], figsize=(4,4) )
@@ -139,10 +144,10 @@ a_phase_plane = Graphics()
 #a_3d = Graphics3d()
 for i in (0, 1):
     a_phase_plane += c_evolution.plot(
-        A_to_u_bindings( lv_adap_c._lv_model._indexers['a'][i][i] ),
-        A_to_u_bindings( lv_adap_c._lv_model._indexers['a'][i][i] ),
+        A_to_u_bindings( lv_adap_c._lv_model._indexers['a'][0][i] ),
+        A_to_u_bindings( lv_adap_c._lv_model._indexers['a'][1][i] ),
         color=[ 'blue', 'red' ][i] )
-a_phase_plane.axes_labels( [ '$a(u,u)$', '$a(u,u)$' ] )
+a_phase_plane.axes_labels( [ '$a(u_0,u)$', '$a(u_1,u)$' ] )
 a_phase_plane.save( 'maclev-1-2-a-vs-a.png', figsize=(4,4), xmax=0, ymax=0 )
 
 #stop there for now

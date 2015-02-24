@@ -47,7 +47,7 @@ sys.stdout.flush()
 
 c_timeseries = Graphics()
 c = rescomp._indexers['c']
-for i in maclev._population_indices:
+for i in maclev_adap_c._popdyn_model._population_indices:
     c_timeseries += c_evolution.plot( 't', c[i][0], color=[ 'blue', 'red' ][i] )
     c_timeseries += c_evolution.plot( 't', c[i][1], color=[ 'blue', 'red' ][i] )
 
@@ -62,8 +62,11 @@ sys.stdout.flush()
 # first put in the curves in the c_0-c_1 plane
 c_phase_plane = Graphics()
 c_phase_plane += parametric_plot( (c_func( 0, 0 ), c_func( 0, 1 )), (u_0, 0, 1), color='gray' )
-for i in maclev._population_indices:
+for i in maclev_adap_c._popdyn_model._population_indices:
     c_phase_plane += c_evolution.plot( c[i][0], c[i][1], color=[ 'blue', 'red' ][i] )
+
+print 'with arrows'
+sys.stdout.flush()
 
 # then add the arrows at intervals of 0.1 time step
 last_t = -oo
@@ -73,25 +76,27 @@ for p in c_evolution._timeseries:
     t = N( pp( c_evolution._system._time_variable ) )
     if t >= last_t + 0.1:
         last_t = t
-        dudt = maclev_adap_c._bindings( column_vector( maclev_adap_c.compute_flow(
-            [ pp( ui ) for ui in maclev_adap_c._vars ],
-            t ) ) )
-        eq = maclev_adap_c.equilibrium_function( pp )
-        for i in maclev._population_indices:
-            ci = [ rescomp._indexers['c'][i][0], rescomp._indexers['c'][i][1] ]
-            # the vector S(c)
-            c_phase_plane += make_arrow(
-                [ pp( maclev_bindings( eq( cij ) ) ) for cij in ci ],
-                [ pp( maclev_bindings( eq( maclev_adap_p._S[ cij ] ) ) ) for cij in ci ],
-                0.05, color=[ 'blue', 'red' ][i] )
-            # the vector dc/dt
-            dci = [ diff( ad_bindings( cij ), u_indexer[i] ) for cij in ci ]
-            #print dudt, dci
-            #print [ pp( dcij * dudt[i] ) for dcij in dci ]
-            c_phase_plane += make_arrow(
-                [ pp( ad_bindings( cij ) ) for cij in ci ],
-                [ pp( dcij * dudt[i] ) for dcij in dci ],
-                0.05, color='green' )
+	try:
+            dudt = maclev_adap_c._bindings( column_vector( maclev_adap_c.compute_flow(
+                [ N( pp( ui ) ) for ui in maclev_adap_c._vars ],
+                t ) ) )
+            eq = maclev_adap_c.equilibrium_function( pp )
+            for i in maclev._population_indices:
+                ci = [ rescomp._indexers['c'][i][0], rescomp._indexers['c'][i][1] ]
+                # the vector S(c)
+                c_phase_plane += make_arrow(
+                    [ pp( maclev_bindings( eq( cij ) ) ) for cij in ci ],
+                    [ pp( maclev_bindings( eq( maclev_adap_p._S[ cij ] ) ) ) for cij in ci ],
+                    0.05, color=[ 'blue', 'red' ][i] )
+                # the vector dc/dt
+                dci = [ diff( ad_bindings( cij ), u_indexer[i] ) for cij in ci ]
+                #print dudt, dci
+                #print [ pp( dcij * dudt[i] ) for dcij in dci ]
+                c_phase_plane += make_arrow(
+                    [ pp( ad_bindings( cij ) ) for cij in ci ],
+                    [ pp( dcij * dudt[i] ) for dcij in dci ],
+                    0.05, color='green' )
+        except TypeError: pass
 
 c_phase_plane.axes_labels( [ '$c_0$', '$c_1$' ] )
 c_phase_plane.save( 'maclev-1-2-c-vs-c.png', figsize=(4,4) )

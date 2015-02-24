@@ -6,8 +6,8 @@ c = rescomp._indexers['c']
 # special choice of m to make k unevolvable
 m_const = -1
 bm_bindings = Bindings( dict(
-    [ (rescomp._indexers['b'][i], 1) for i in (0,1,'i') ] +
-    [ (rescomp._indexers['m'][i], K_0*c[i][0] + K_1*c[i][1] + m_const) for i in (0,1,'i') ]
+    [ (rescomp._indexers['b'][i], 1) for i in (0,1,2,3) ] +
+    [ (rescomp._indexers['m'][i], K_0*c[i][0] + K_1*c[i][1] + m_const) for i in (0,1,2,3) ]
 ) )
 
 ad_bindings = bm_bindings + gamma_bindings

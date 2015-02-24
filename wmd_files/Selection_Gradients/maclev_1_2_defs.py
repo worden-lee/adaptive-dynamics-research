@@ -10,7 +10,7 @@ which_model = 'exponential'
 
 if which_model == 'linear':
     c_func = linear_c_func
-    c_bindings = make_bindings( c_func, (0,1,'i') )
+    c_bindings = make_bindings( c_func, (0,1,2) )
     bmc_bindings = bm_bindings + c_bindings
     initial_conditions = Bindings( {
         # in a .sage file, could just write u_0: 1/3
@@ -21,7 +21,7 @@ if which_model == 'linear':
     integrate_popdyn_to = 500
 elif which_model == 'quadratic':
     c_func = quadratic_c_func 
-    c_bindings = make_bindings( c_func, (0,1,'i') )
+    c_bindings = make_bindings( c_func, (0,1,2) )
     bmc_bindings = bm_bindings + c_bindings
     initial_conditions = Bindings( {
         u_0 : Rational('1/3'),
@@ -29,7 +29,7 @@ elif which_model == 'quadratic':
     } )
 elif which_model == 'exponential':
     c_func = exponential_c_func
-    c_bindings = make_bindings( c_func, (0,1,'i') )
+    c_bindings = make_bindings( c_func, (0,1,2) )
     bmc_bindings = bm_bindings + c_bindings
     initial_conditions = Bindings( {
         u_0 : Rational('1/4'),

@@ -1,0 +1,6 @@
+init
+create SIR model
+write latex
+plot boxes
+solve numerically
+plot timeseries

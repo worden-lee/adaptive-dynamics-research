@@ -1,19 +1,33 @@
+The invasion rate for mutant population is:
+\begin{align*}
+  \mathscr I = \frac{1}{X_{1}}\frac{dX_{1}}{dt} &= \frac{{\left(K_{0} r_{0} - X_{0} u_{0} - X_{1} u_{1}\right)} u_{1} w_{0}}{r_{0}} - 1 
+\end{align*}
+
+limit as {u_1: u_0}
+after those limits:
+   (K_0*r_0*w_0 - X_0*u_0*w_0 - 2*X_1*u_0*w_0)/r_0
+(- 2 _SAGE_VAR_u_0 _SAGE_VAR_w_0 _SAGE_VAR_X_1
+ - _SAGE_VAR_u_0 _SAGE_VAR_w_0 _SAGE_VAR_X_0
+ + _SAGE_VAR_r_0 _SAGE_VAR_w_0 _SAGE_VAR_K_0)/_SAGE_VAR_r_0
+limit as                                  _SAGE_VAR_X_1 -> 0
+ --> (_SAGE_VAR_r_0 _SAGE_VAR_w_0 _SAGE_VAR_K_0
+                     - _SAGE_VAR_u_0 _SAGE_VAR_w_0 _SAGE_VAR_X_0)/_SAGE_VAR_r_0
 Original pop-dyn system: 
 \[\begin{align*}
 \frac{dX_{0}}{dt} &= -{\left(\frac{{\left(X_{0} c_{00} - K_{0} r_{0}\right)} c_{00} w_{0}}{r_{0}} + m_{0}\right)} X_{0} b_{0}
 \end{align*}\]
 Extended pop-dyn system: 
 \[\begin{align*}
-\frac{dX_{0}}{dt} &= {\left(\frac{{\left(K_{0} r_{0} - X_{0} u_{0} - X_{i} u_{i}\right)} u_{0} w_{0}}{r_{0}} - 1\right)} X_{0}\\
-\frac{dX_{i}}{dt} &= {\left(\frac{{\left(K_{0} r_{0} - X_{0} u_{0} - X_{i} u_{i}\right)} u_{i} w_{0}}{r_{0}} - 1\right)} X_{i}
+\frac{dX_{0}}{dt} &= {\left(\frac{{\left(K_{0} r_{0} - X_{0} u_{0} - X_{1} u_{1}\right)} u_{0} w_{0}}{r_{0}} - 1\right)} X_{0}\\
+\frac{dX_{1}}{dt} &= {\left(\frac{{\left(K_{0} r_{0} - X_{0} u_{0} - X_{1} u_{1}\right)} u_{1} w_{0}}{r_{0}} - 1\right)} X_{1}
 \end{align*}\]
-The invasion rate for population $i$ is:
+ The invasion rate for mutant population is:
 \begin{align*}
-  \mathscr I = \frac{1}{X_{i}}\frac{dX_{i}}{dt} &= \frac{{\left(K_{0} r_{0} - X_{0} u_{0} - X_{i} u_{i}\right)} u_{i} w_{0}}{r_{0}} - 1 
+  \mathscr I = \frac{1}{X_{1}}\frac{dX_{1}}{dt} &= \frac{{\left(K_{0} r_{0} - X_{0} u_{0} - X_{1} u_{1}\right)} u_{1} w_{0}}{r_{0}} - 1 
 \end{align*}
  And the invasion exponent is
 \begin{align*}
-  \frac{\partial\mathscr I}{\partial u_{0}} = \lim_{u_{i}\to u_{0},X_{i}\to0}-\frac{X_{i} u_{i} w_{0}}{r_{0}} + \frac{{\left(K_{0} r_{0} - X_{0} u_{0} - X_{i} u_{i}\right)} w_{0}}{r_{0}} .
+  \frac{\partial\mathscr I}{\partial u_{0}} = \lim_{u_{1}\to u_{0},X_{1}\to0}-\frac{X_{1} u_{1} w_{0}}{r_{0}} + \frac{{\left(K_{0} r_{0} - X_{0} u_{0} - X_{1} u_{1}\right)} w_{0}}{r_{0}} .
 \end{align*}
  Which comes out to
 \begin{align*}

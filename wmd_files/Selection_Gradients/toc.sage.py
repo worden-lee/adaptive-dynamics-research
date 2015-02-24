@@ -43,8 +43,8 @@ class TragedyOfCommonsModel(dynamicalsystems.PopulationDynamicsSystem):
 # create a 1-resource, 1-population instantiation to work with
 toc = TragedyOfCommonsModel(
     x_indices=[_sage_const_0 ],
-    X = dynamicalsystems.indexer( lambda i: i and 'X_i' or 'X' ),
-    h = dynamicalsystems.indexer( lambda i: i and 'h_i' or 'h' ),
+    X = dynamicalsystems.indexer( lambda i: i and 'X_%s'%i or 'X' ),
+    h = dynamicalsystems.indexer( lambda i: i and 'h_%s'%i or 'h' ),
     m = dynamicalsystems.indexer( lambda i: _sage_const_1  )
 );
 

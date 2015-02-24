@@ -21,9 +21,9 @@ ltx = latex_output( 'maclev-2-2-c-geom.sage.out.tex' )
 bmc_to_fn_bindings = Bindings( dict(
     [ ( maclev._rescomp_model._indexers['c'][i][j],
         function( 'c_%s'%j )( u_indexer[i] ) )
-      for i in (_sage_const_0 ,_sage_const_1 ,'i') for j in (_sage_const_0 ,_sage_const_1 ) ] +
-    [ ( maclev._rescomp_model._indexers['b'][i], function('b')( u_indexer[i] ) ) for i in (_sage_const_0 ,_sage_const_1 ,'i') ] +
-    [ ( maclev._rescomp_model._indexers['m'][i], function('m')( u_indexer[i] ) ) for i in (_sage_const_0 ,_sage_const_1 ,'i') ]
+      for i in (_sage_const_0 ,_sage_const_1 ,_sage_const_2 ) for j in (_sage_const_0 ,_sage_const_1 ) ] +
+    [ ( maclev._rescomp_model._indexers['b'][i], function('b')( u_indexer[i] ) ) for i in (_sage_const_0 ,_sage_const_1 ,_sage_const_2 ) ] +
+    [ ( maclev._rescomp_model._indexers['m'][i], function('m')( u_indexer[i] ) ) for i in (_sage_const_0 ,_sage_const_1 ,_sage_const_2 ) ]
     ) )
 bmc_from_fn_bindings = Bindings( FunctionBindings( dict(
     [ ( function( 'c_%s'%j ), c_func(_sage_const_0 ,j).function( u_indexer[_sage_const_0 ] ) )

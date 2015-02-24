@@ -1,0 +1,9 @@
+init
+make SIR model
+make classes model
+write latex
+write tikz boxes
+solve numerically
+plot timeseries
+trajectory has got {t -> 0, I_b -> 0.00500000000000000, I_a -> 0.00500000000000000, S_b -> 0.328333333333333, S_a -> 0.661666666666667, R_b -> 0, R_a -> 0}
+and {b -> I_b + R_b + S_b, I -> I_a + I_b, sigma_S -> 1, alpha_a -> 1, rho_I -> 1, rho_R -> 1, mu_b -> 0.100000000000000, R -> R_a + R_b, sigma_R -> 1, a -> I_a + R_a + S_a, rho_S -> 1, mu_a -> 0.100000000000000, sigma_I -> 1, S -> S_a + S_b, alpha_b -> 1}
