@@ -1,0 +1,13 @@
+Thu Mar  5 15:24:41 2015
+/usr/bin/make -C /usr/local/src/jekyll-research/wmd_files/Systems SI.png
+Including .mk files: sage.mk 
+Including .mk files from .step files: phase_portraits.sage.mk
+Including .tex.d files: 
+make: Entering directory `/usr/local/src/jekyll-research/wmd_files/Systems'
+/usr/bin/make --no-print-directory -C /usr/local/src/jekyll-research/wmd_files/SageDynamicsRepo/SageDynamics dynamicalsystems.py
+Including .mk files:  
+Including .tex.d files: 
+make[1]: Nothing to be done for `dynamicalsystems.py'.
+make: Leaving directory `/usr/local/src/jekyll-research/wmd_files/Systems'
+Make succeeded.
+Thu Mar  5 15:24:41 2015

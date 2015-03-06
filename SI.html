@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html>
+
+      <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Figures for my Systems class</title>
+        <meta name="viewport" content="width=device-width">
+        <meta name="description" content="Lee Worden prototype research website" />
+        <link rel="canonical" href="/SI.html/" />
+
+        <!-- Custom CSS -->
+	<link rel="stylesheet" href="/adaptive-dynamics-research/css/main.css">
+	<link rel="stylesheet" href="/adaptive-dynamics-research/css/auto-generated-from-ww.css">
+	<link rel="stylesheet" href="/adaptive-dynamics-research/css/wmd.css">
+        <script type="text/x-mathjax-config">MathJax.Hub.Config({ jax: ["input/MathML", "output/HTML-CSS"] });</script>
+        <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=MML_HTMLorMML"></script>
+
+    </head>
+
+
+    <body>
+
+    <header class="site-header">
+
+  <div class="wrap">
+
+    <a class="site-title" href="/adaptive-dynamics-research/">Lee Worden research prototype website</a>
+
+    <nav class="site-nav">
+      <a href="#" class="menu-icon">
+        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+           viewBox="0 0 18 15" enable-background="new 0 0 18 15" xml:space="preserve">
+          <path fill="#505050" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0
+            h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+          <path fill="#505050" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484
+            h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+          <path fill="#505050" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0
+            c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+        </svg>
+      </a>
+      <div class="trigger">
+        <a class="page-link" href="/adaptive-dynamics-research/about">About</a>
+	<a class="page-link" href="/adaptive-dynamics-research/projects">Projects</a>
+      </div>
+    </nav>
+
+  </div>
+
+</header>
+
+
+    <div class="page-content">
+      <div class="wrap">
+      <div class="post">
+
+  <header class="post-header">
+    <h1>Figures for my Systems class</h1>
+  </header>
+
+  <article class="post-content">
+  <p><!-- phase_portraits.sage.step --><fieldset class="ww-project-file-source ww-collapsible"><legend><span>phase_portraits.sage.step</span></legend><div class="ww-collapsible-content"><pre># requires: $(SageDynamics)/dynamicalsystems.py
+# requires: $(SageUtils)/latex_output.py
+# produces: phase_portraits.sobj SI.sage.out.tex SI.png
+# produces: competition.sage.out.tex competition.png
+from sage.all import * 
+from sage.misc.latex import _latex_file_
+ 
+sys.path.append( os.environ['SageUtils'] )
+sys.path.append( os.environ['SageDynamics'] )
+
+import latex_output
+import dynamicalsystems
+
+ltx = latex_output.latex_output( 'SI.sage.out.tex' )
+
+# now that I've defined the general resource-competition model, let's
+# create a 1-resource, 1-population instantiation to work with
+var('S I r')
+SI = dynamicalsystems.ODESystem(
+	{ S: - r*S*I, I: r*S*I },
+	[S, I],
+	bindings = dynamicalsystems.Bindings( { 'r':1 } )
+)
+
+ltx.write( 'The SI model:' )
+ltx.write_block( SI )
+
+SI_phase_plane = SI.plot_vector_field( (I,0,1), (S,0,1), color='gray' )
+
+equil = SI.equilibria()
+ltx.write( 'equilibria: ', latex(equil) )
+
+SI_phase_plane.save( 'SI.png', figsize=(5,5) )
+
+ltx = latex_output.latex_output( 'competition.sage.out.tex' )
+
+var('X_2 X_1 c_0 c_1')
+competition = dynamicalsystems.ODESystem(
+	{ X_2: X_2 - X_2^2 - c_0*X_2*X_1, X_1: X_1 - X_1^2 - c_1*X_2*X_1 },
+	[X_2, X_1],
+	bindings = dynamicalsystems.Bindings( { 'c_0':0.4, 'c_1':0.5 } )
+)
+
+ltx.write( 'The competition model:' )
+ltx.write_block( competition )
+
+competition_phase_plane = competition.plot_vector_field( (X_1,0,1.1), (X_2,0,1.1), color='gray' )
+
+equil = competition.equilibria()
+ltx.write( 'equilibria: ', latex(equil) )
+competition_phase_plane += point( [ ( dynamicalsystems.Bindings(eq)( 'Xhat_1' ), dynamicalsystems.Bindings(eq)( 'Xhat_2' ) ) for eq in equil ], size=40 )
+
+competition_phase_plane.axes_labels( [ '$X_1$', '$X_2$' ] )
+competition_phase_plane.save( 'competition.png', figsize=(5,5) )
+
+ltx.close()
+
+save_session('phase_portraits')
+
+#ltx.close()
+#save_session('foodweb')
+#sys.exit( 0r )
+</pre></div></fieldset></p>
+
+<p><!-- SI.sage.out.html --><div class="latexml">
+
+<div class="ltx_page_main">
+<div class="ltx_page_content">
+<article class="ltx_document">
+<div id="p1" class="ltx_para">
+<p class="ltx_p">The SI model:</p>
+<table id="S0.Ex1" class="ltx_equationgroup">
+
+<tr id="S0.Ex1X" class="ltx_equation ltx_align_baseline">
+<td class="ltx_eqn_center_padleft"></td>
+<td class="ltx_td ltx_align_right">
+              <math xmlns="http://www.w3.org/1998/Math/MathML" id="S0.Ex1X.m2" class="ltx_Math" alttext="\displaystyle\frac{dS}{dt}" display="inline"><mstyle displaystyle="true"><mfrac><mrow><mi>d</mi><mo>⁢</mo><mi>S</mi></mrow><mrow><mi>d</mi><mo>⁢</mo><mi>t</mi></mrow></mfrac></mstyle></math>
+            </td>
+<td class="ltx_td ltx_align_left">
+              <math xmlns="http://www.w3.org/1998/Math/MathML" id="S0.Ex1X.m3" class="ltx_Math" alttext="\displaystyle=-IS" display="inline"><mrow><mi></mi><mo>=</mo><mrow><mo>-</mo><mrow><mi>I</mi><mo>⁢</mo><mi>S</mi></mrow></mrow></mrow></math>
+            </td>
+<td class="ltx_eqn_center_padright"></td>
+</tr>
+<tr id="S0.Ex1Xa" class="ltx_equation ltx_align_baseline">
+<td class="ltx_eqn_center_padleft"></td>
+<td class="ltx_td ltx_align_right">
+              <math xmlns="http://www.w3.org/1998/Math/MathML" id="S0.Ex1Xa.m2" class="ltx_Math" alttext="\displaystyle\frac{dI}{dt}" display="inline"><mstyle displaystyle="true"><mfrac><mrow><mi>d</mi><mo>⁢</mo><mi>I</mi></mrow><mrow><mi>d</mi><mo>⁢</mo><mi>t</mi></mrow></mfrac></mstyle></math>
+            </td>
+<td class="ltx_td ltx_align_left">
+              <math xmlns="http://www.w3.org/1998/Math/MathML" id="S0.Ex1Xa.m3" class="ltx_Math" alttext="\displaystyle=IS" display="inline"><mrow><mi></mi><mo>=</mo><mrow><mi>I</mi><mo>⁢</mo><mi>S</mi></mrow></mrow></math>
+            </td>
+<td class="ltx_eqn_center_padright"></td>
+</tr>
+</table>
+<p class="ltx_p">equilibria: [{^I : 0, ^S : r_1}, {^I : r_2, ^S : 0}]</p>
+</div>
+</article>
+</div>
+<footer class="ltx_page_footer">
+<div class="ltx_page_logo">Generated  on Thu Mar  5 15:24:41 2015 by <a href="http://dlmf.nist.gov/LaTeXML/">LaTeXML <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAsAAAAOCAYAAAD5YeaVAAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAALEwAACxMBAJqcGAAAAAd0SU1FB9wKExQZLWTEaOUAAAAddEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIFRoZSBHSU1Q72QlbgAAAdpJREFUKM9tkL+L2nAARz9fPZNCKFapUn8kyI0e4iRHSR1Kb8ng0lJw6FYHFwv2LwhOpcWxTjeUunYqOmqd6hEoRDhtDWdA8ApRYsSUCDHNt5ul13vz4w0vWCgUnnEc975arX6ORqN3VqtVZbfbTQC4uEHANM3jSqXymFI6yWazP2KxWAXAL9zCUa1Wy2tXVxheKA9YNoR8Pt+aTqe4FVVVvz05O6MBhqUIBGk8Hn8HAOVy+T+XLJfLS4ZhTiRJgqIoVBRFIoric47jPnmeB1mW/9rr9ZpSSn3Lsmir1fJZlqWlUonKsvwWwD8ymc/nXwVBeLjf7xEKhdBut9Hr9WgmkyGEkJwsy5eHG5vN5g0AKIoCAEgkEkin0wQAfN9/cXPdheu6P33fBwB4ngcAcByHJpPJl+fn54mD3Gg0NrquXxeLRQAAwzAYj8cwTZPwPH9/sVg8PXweDAauqqr2cDjEer1GJBLBZDJBs9mE4zjwfZ85lAGg2+06hmGgXq+j3+/DsixYlgVN03a9Xu8jgCNCyIegIAgx13Vfd7vdu+FweG8YRkjXdWy329+dTgeSJD3ieZ7RNO0VAXAPwDEAO5VKndi2fWrb9jWl9Esul6PZbDY9Go1OZ7PZ9z/lyuD3OozU2wAAAABJRU5ErkJggg==" alt="[LOGO]"></a>
+</div></footer>
+</div>
+
+</div>
+</p>
+
+<p><!-- SI.png --><img src="/adaptive-dynamics-research/wmd_files/Systems/SI.png" alt="(SI.png)"/></p>
+
+<p><!-- competition.sage.out.html --><div class="latexml">
+
+<div class="ltx_page_main">
+<div class="ltx_page_content">
+<article class="ltx_document">
+<div id="p1" class="ltx_para">
+<p class="ltx_p">The competition model:</p>
+<table id="S0.Ex1" class="ltx_equationgroup">
+
+<tr id="S0.Ex1X" class="ltx_equation ltx_align_baseline">
+<td class="ltx_eqn_center_padleft"></td>
+<td class="ltx_td ltx_align_right">
+              <math xmlns="http://www.w3.org/1998/Math/MathML" id="S0.Ex1X.m2" class="ltx_Math" alttext="\displaystyle\frac{dX_{2}}{dt}" display="inline"><mstyle displaystyle="true"><mfrac><mrow><mi>d</mi><mo>⁢</mo><msub><mi>X</mi><mn>2</mn></msub></mrow><mrow><mi>d</mi><mo>⁢</mo><mi>t</mi></mrow></mfrac></mstyle></math>
+            </td>
+<td class="ltx_td ltx_align_left">
+              <math xmlns="http://www.w3.org/1998/Math/MathML" id="S0.Ex1X.m3" class="ltx_Math" alttext="\displaystyle=-0.400000000000000\,X_{1}X_{2}-X_{2}^{2}+X_{2}" display="inline"><mrow><mi></mi><mo>=</mo><mrow><mo>-</mo><mrow><mpadded width="+1.7pt"><mn>0.400000000000000</mn></mpadded><mo>⁢</mo><msub><mi>X</mi><mn>1</mn></msub><mo>⁢</mo><msub><mi>X</mi><mn>2</mn></msub></mrow><mo>-</mo><msubsup><mi>X</mi><mn>2</mn><mn>2</mn></msubsup><mo>+</mo><msub><mi>X</mi><mn>2</mn></msub></mrow></mrow></math>
+            </td>
+<td class="ltx_eqn_center_padright"></td>
+</tr>
+<tr id="S0.Ex1Xa" class="ltx_equation ltx_align_baseline">
+<td class="ltx_eqn_center_padleft"></td>
+<td class="ltx_td ltx_align_right">
+              <math xmlns="http://www.w3.org/1998/Math/MathML" id="S0.Ex1Xa.m2" class="ltx_Math" alttext="\displaystyle\frac{dX_{1}}{dt}" display="inline"><mstyle displaystyle="true"><mfrac><mrow><mi>d</mi><mo>⁢</mo><msub><mi>X</mi><mn>1</mn></msub></mrow><mrow><mi>d</mi><mo>⁢</mo><mi>t</mi></mrow></mfrac></mstyle></math>
+            </td>
+<td class="ltx_td ltx_align_left">
+              <math xmlns="http://www.w3.org/1998/Math/MathML" id="S0.Ex1Xa.m3" class="ltx_Math" alttext="\displaystyle=-X_{1}^{2}-0.500000000000000\,X_{1}X_{2}+X_{1}" display="inline"><mrow><mi></mi><mo>=</mo><mrow><mo>-</mo><msubsup><mi>X</mi><mn>1</mn><mn>2</mn></msubsup><mo>-</mo><mrow><mpadded width="+1.7pt"><mn>0.500000000000000</mn></mpadded><mo>⁢</mo><msub><mi>X</mi><mn>1</mn></msub><mo>⁢</mo><msub><mi>X</mi><mn>2</mn></msub></mrow><mo>+</mo><msub><mi>X</mi><mn>1</mn></msub></mrow></mrow></math>
+            </td>
+<td class="ltx_eqn_center_padright"></td>
+</tr>
+</table>
+<p class="ltx_p">equilibria: [{^X_1 : 0, ^X_2 : 0}, {^X_1 : 1, ^X_2 : 0}, {^X_1 : 0, ^X_2 : 1}, {^X_1 : 58, ^X_2 : 34}]</p>
+</div>
+</article>
+</div>
+<footer class="ltx_page_footer">
+<div class="ltx_page_logo">Generated  on Thu Mar  5 15:45:15 2015 by <a href="http://dlmf.nist.gov/LaTeXML/">LaTeXML <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAsAAAAOCAYAAAD5YeaVAAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAALEwAACxMBAJqcGAAAAAd0SU1FB9wKExQZLWTEaOUAAAAddEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIFRoZSBHSU1Q72QlbgAAAdpJREFUKM9tkL+L2nAARz9fPZNCKFapUn8kyI0e4iRHSR1Kb8ng0lJw6FYHFwv2LwhOpcWxTjeUunYqOmqd6hEoRDhtDWdA8ApRYsSUCDHNt5ul13vz4w0vWCgUnnEc975arX6ORqN3VqtVZbfbTQC4uEHANM3jSqXymFI6yWazP2KxWAXAL9zCUa1Wy2tXVxheKA9YNoR8Pt+aTqe4FVVVvz05O6MBhqUIBGk8Hn8HAOVy+T+XLJfLS4ZhTiRJgqIoVBRFIoric47jPnmeB1mW/9rr9ZpSSn3Lsmir1fJZlqWlUonKsvwWwD8ymc/nXwVBeLjf7xEKhdBut9Hr9WgmkyGEkJwsy5eHG5vN5g0AKIoCAEgkEkin0wQAfN9/cXPdheu6P33fBwB4ngcAcByHJpPJl+fn54mD3Gg0NrquXxeLRQAAwzAYj8cwTZPwPH9/sVg8PXweDAauqqr2cDjEer1GJBLBZDJBs9mE4zjwfZ85lAGg2+06hmGgXq+j3+/DsixYlgVN03a9Xu8jgCNCyIegIAgx13Vfd7vdu+FweG8YRkjXdWy329+dTgeSJD3ieZ7RNO0VAXAPwDEAO5VKndi2fWrb9jWl9Esul6PZbDY9Go1OZ7PZ9z/lyuD3OozU2wAAAABJRU5ErkJggg==" alt="[LOGO]"></a>
+</div></footer>
+</div>
+
+</div>
+</p>
+
+<p><!-- competition.png --><img src="/adaptive-dynamics-research/wmd_files/Systems/competition.png" alt="(competition.png)"/></p>
+
+<h2 id="sagemk">sage.mk</h2>
+
+<p><!-- sage.mk --><fieldset class="ww-project-file-source ww-collapsible"><legend><span>sage.mk</span></legend><div class="ww-collapsible-content"><pre># Makefile to connect the Sage code here with the code in SageDynamics
+
+# the three upstream projects are all bundled into one git repo
+export SageUtils            = $(realpath $(SageDynamicsRepo)/SageUtils)
+export SageDynamics         = $(realpath $(SageDynamicsRepo)/SageDynamics)
+export SageAdaptiveDynamics = $(realpath $(SageDynamicsRepo)/SageAdaptiveDynamics)
+ 
+# When we need something from the upstream projects, make it there
+$(SageDynamics)/% : <a href='/adaptive-dynamics-research/wmd_files/Systems//proc/uptime'>/proc/uptime</a>
+	$(MAKE) --no-print-directory -C $(SageDynamics) $*
+ 
+$(SageAdaptiveDynamics)/% : <a href='/adaptive-dynamics-research/wmd_files/Systems//proc/uptime'>/proc/uptime</a>
+	$(MAKE) --no-print-directory -C $(SageAdaptiveDynamics) $*
+ 
+# The good makefile stuff is upstream, just reuse it
+<a href='/adaptive-dynamics-research/wmd_files/Systems/-include'>-include</a> $(SageUtils)/sage.mk
+<a href='/adaptive-dynamics-research/wmd_files/Systems/-include'>-include</a> $(SageUtils)/step.mk
+</pre></div></fieldset></p>
+
+  </article>
+
+</div>
+
+      </div>
+    </div>
+
+    <footer class="site-footer">
+
+  <div class="wrap">
+
+    <h2 class="footer-heading">Lee Worden</h2>
+
+    <div class="footer-col-1 column">
+      <ul>
+        <li><a href="mailto:worden.lee@gmail.com">worden.lee@gmail.com</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col-2 column">
+      <ul>
+        <li>
+          <a href="https://github.com/worden-lee">
+            <span class="icon github">
+              <svg version="1.1" class="github-icon-svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                 viewBox="0 0 16 16" enable-background="new 0 0 16 16" xml:space="preserve">
+                <path fill-rule="evenodd" clip-rule="evenodd" fill="#C2C2C2" d="M7.999,0.431c-4.285,0-7.76,3.474-7.76,7.761
+                c0,3.428,2.223,6.337,5.307,7.363c0.388,0.071,0.53-0.168,0.53-0.374c0-0.184-0.007-0.672-0.01-1.32
+                c-2.159,0.469-2.614-1.04-2.614-1.04c-0.353-0.896-0.862-1.135-0.862-1.135c-0.705-0.481,0.053-0.472,0.053-0.472
+                c0.779,0.055,1.189,0.8,1.189,0.8c0.692,1.186,1.816,0.843,2.258,0.645c0.071-0.502,0.271-0.843,0.493-1.037
+                C4.86,11.425,3.049,10.76,3.049,7.786c0-0.847,0.302-1.54,0.799-2.082C3.768,5.507,3.501,4.718,3.924,3.65
+                c0,0,0.652-0.209,2.134,0.796C6.677,4.273,7.34,4.187,8,4.184c0.659,0.003,1.323,0.089,1.943,0.261
+                c1.482-1.004,2.132-0.796,2.132-0.796c0.423,1.068,0.157,1.857,0.077,2.054c0.497,0.542,0.798,1.235,0.798,2.082
+                c0,2.981-1.814,3.637-3.543,3.829c0.279,0.24,0.527,0.713,0.527,1.437c0,1.037-0.01,1.874-0.01,2.129
+                c0,0.208,0.14,0.449,0.534,0.373c3.081-1.028,5.302-3.935,5.302-7.362C15.76,3.906,12.285,0.431,7.999,0.431z"/>
+              </svg>
+            </span>
+            <span class="username">worden-lee</span>
+          </a>
+        </li>
+        <li>
+          <a href="https://twitter.com/leeworden">
+            <span class="icon twitter">
+              <svg version="1.1" class="twitter-icon-svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                 viewBox="0 0 16 16" enable-background="new 0 0 16 16" xml:space="preserve">
+                <path fill="#C2C2C2" d="M15.969,3.058c-0.586,0.26-1.217,0.436-1.878,0.515c0.675-0.405,1.194-1.045,1.438-1.809
+                c-0.632,0.375-1.332,0.647-2.076,0.793c-0.596-0.636-1.446-1.033-2.387-1.033c-1.806,0-3.27,1.464-3.27,3.27
+                c0,0.256,0.029,0.506,0.085,0.745C5.163,5.404,2.753,4.102,1.14,2.124C0.859,2.607,0.698,3.168,0.698,3.767
+                c0,1.134,0.577,2.135,1.455,2.722C1.616,6.472,1.112,6.325,0.671,6.08c0,0.014,0,0.027,0,0.041c0,1.584,1.127,2.906,2.623,3.206
+                C3.02,9.402,2.731,9.442,2.433,9.442c-0.211,0-0.416-0.021-0.615-0.059c0.416,1.299,1.624,2.245,3.055,2.271
+                c-1.119,0.877-2.529,1.4-4.061,1.4c-0.264,0-0.524-0.015-0.78-0.046c1.447,0.928,3.166,1.469,5.013,1.469
+                c6.015,0,9.304-4.983,9.304-9.304c0-0.142-0.003-0.283-0.009-0.423C14.976,4.29,15.531,3.714,15.969,3.058z"/>
+              </svg>
+            </span>
+            <span class="username">leeworden</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="footer-col-3 column">
+	    <p class="text"><!-- Any additional text --></p>
+    </div>
+
+  </div>
+
+</footer>
+
+
+    </body>
+</html>
