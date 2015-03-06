@@ -1,0 +1,94 @@
+basal: [a]
+[{Xhat_a_0: 3/(cos(-u_a_0 + u_b_0) + 1), Xhat_b_0: (cos(-u_a_0 + u_b_0) - 2)/(cos(-u_a_0 + u_b_0)^2 + 2*cos(-u_a_0 + u_b_0) + 1)}]
+basal: [a]
+The invasion rate for mutant population is:
+\begin{align*}
+  \mathscr I = \frac{1}{X_{ b 1 }}\frac{dX_{ b 1 }}{dt} &= \frac{X_{ a 0 } X_{ b 1 } {\left(\cos\left(-u_{ a 0 } + u_{ b 1 }\right) + 1\right)} - 3 \, X_{ b 1 }}{3 \, X_{ b 1 }} 
+\end{align*}
+
+limit as {u_b_1: u_b_0}
+after those limits:
+   -1/3*X_a_0*sin(-u_a_0 + u_b_0)
+             _SAGE_VAR_X_a_0 sin(_SAGE_VAR_u_b_0 - _SAGE_VAR_u_a_0)
+           - ------------------------------------------------------
+                                       3
+limit as                                 _SAGE_VAR_X_b_1 -> 0
+ -->              _SAGE_VAR_X_a_0 sin(_SAGE_VAR_u_b_0 - _SAGE_VAR_u_a_0)
+           - ------------------------------------------------------
+                                       3
+basal: [a]
+The invasion rate for mutant population is:
+\begin{align*}
+  \mathscr I = \frac{1}{X_{ a 1 }}\frac{dX_{ a 1 }}{dt} &= -\frac{X_{ a 1 } X_{ b 0 } {\left(\cos\left(-u_{ a 1 } + u_{ b 0 }\right) + 1\right)} + X_{ a 0 } X_{ a 1 } + X_{ a 1 }^{2} - X_{ a 1 }}{X_{ a 1 }} 
+\end{align*}
+
+limit as {u_a_1: u_a_0}
+after those limits:
+   -X_b_0*sin(-u_a_0 + u_b_0)
+           - _SAGE_VAR_X_b_0 sin(_SAGE_VAR_u_b_0 - _SAGE_VAR_u_a_0)
+limit as                                 _SAGE_VAR_X_a_1 -> 0
+ -->            - _SAGE_VAR_X_b_0 sin(_SAGE_VAR_u_b_0 - _SAGE_VAR_u_a_0)
+Original pop-dyn system: 
+\[\begin{align*}
+\frac{dX_{ b 0 }}{dt} &= \frac{1}{3} \, X_{ a 0 } X_{ b 0 } {\left(\cos\left(-u_{ a 0 } + u_{ b 0 }\right) + 1\right)} - X_{ b 0 }\\
+\frac{dX_{ a 0 }}{dt} &= -X_{ a 0 } X_{ b 0 } {\left(\cos\left(-u_{ a 0 } + u_{ b 0 }\right) + 1\right)} - X_{ a 0 }^{2} + X_{ a 0 }
+\end{align*}\]
+Extended pop-dyn system: 
+\[\begin{align*}
+\frac{dX_{ b 0 }}{dt} &= \frac{1}{3} \, X_{ a 0 } X_{ b 0 } {\left(\cos\left(-u_{ a 0 } + u_{ b 0 }\right) + 1\right)} - X_{ b 0 }\\
+\frac{dX_{ a 0 }}{dt} &= -X_{ a 0 } X_{ b 0 } {\left(\cos\left(-u_{ a 0 } + u_{ b 0 }\right) + 1\right)} - X_{ a 0 } X_{ b 1 } {\left(\cos\left(-u_{ a 0 } + u_{ b 1 }\right) + 1\right)} - X_{ a 0 }^{2} + X_{ a 0 }\\
+\frac{dX_{ b 1 }}{dt} &= \frac{1}{3} \, X_{ a 0 } X_{ b 1 } {\left(\cos\left(-u_{ a 0 } + u_{ b 1 }\right) + 1\right)} - X_{ b 1 }
+\end{align*}\]
+ The invasion rate for mutant population is:
+\begin{align*}
+  \mathscr I = \frac{1}{X_{ b 1 }}\frac{dX_{ b 1 }}{dt} &= \frac{X_{ a 0 } X_{ b 1 } {\left(\cos\left(-u_{ a 0 } + u_{ b 1 }\right) + 1\right)} - 3 \, X_{ b 1 }}{3 \, X_{ b 1 }} 
+\end{align*}
+ And the invasion exponent is
+\begin{align*}
+  \frac{\partial\mathscr I}{\partial u_{ b 0 }} = \lim_{u_{ b 1 }\to u_{ b 0 },X_{ b 1 }\to0}-\frac{1}{3} \, X_{ a 0 } \sin\left(-u_{ a 0 } + u_{ b 1 }\right) .
+\end{align*}
+ Which comes out to
+\begin{align*}
+  \frac{\partial\mathscr I}{\partial u_{ b 0 }} = -\frac{1}{3} \, X_{ a 0 } \sin\left(-u_{ a 0 } + u_{ b 0 }\right) .
+\end{align*}
+ Original pop-dyn system: 
+\[ \begin{align*}
+\frac{dX_{ b 0 }}{dt} &= \frac{1}{3} \, X_{ a 0 } X_{ b 0 } {\left(\cos\left(-u_{ a 0 } + u_{ b 0 }\right) + 1\right)} - X_{ b 0 }\\
+\frac{dX_{ a 0 }}{dt} &= -X_{ a 0 } X_{ b 0 } {\left(\cos\left(-u_{ a 0 } + u_{ b 0 }\right) + 1\right)} - X_{ a 0 }^{2} + X_{ a 0 }
+\end{align*} \]
+ Extended pop-dyn system: 
+\[ \begin{align*}
+\frac{dX_{ b 0 }}{dt} &= \frac{1}{3} \, X_{ a 0 } X_{ b 0 } {\left(\cos\left(-u_{ a 0 } + u_{ b 0 }\right) + 1\right)} + \frac{1}{3} \, X_{ a 1 } X_{ b 0 } {\left(\cos\left(-u_{ a 1 } + u_{ b 0 }\right) + 1\right)} - X_{ b 0 }\\
+\frac{dX_{ a 0 }}{dt} &= -X_{ a 0 } X_{ b 0 } {\left(\cos\left(-u_{ a 0 } + u_{ b 0 }\right) + 1\right)} - X_{ a 0 }^{2} - X_{ a 0 } X_{ a 1 } + X_{ a 0 }\\
+\frac{dX_{ a 1 }}{dt} &= -X_{ a 1 } X_{ b 0 } {\left(\cos\left(-u_{ a 1 } + u_{ b 0 }\right) + 1\right)} - X_{ a 0 } X_{ a 1 } - X_{ a 1 }^{2} + X_{ a 1 }
+\end{align*} \]
+ The invasion rate for mutant population is:
+\begin{align*}
+  \mathscr I = \frac{1}{X_{ a 1 }}\frac{dX_{ a 1 }}{dt} &= -\frac{X_{ a 1 } X_{ b 0 } {\left(\cos\left(-u_{ a 1 } + u_{ b 0 }\right) + 1\right)} + X_{ a 0 } X_{ a 1 } + X_{ a 1 }^{2} - X_{ a 1 }}{X_{ a 1 }} 
+\end{align*}
+ And the invasion exponent is
+\begin{align*}
+  \frac{\partial\mathscr I}{\partial u_{ a 0 }} = \lim_{u_{ a 1 }\to u_{ a 0 },X_{ a 1 }\to0}-X_{ b 0 } \sin\left(-u_{ a 1 } + u_{ b 0 }\right) .
+\end{align*}
+ Which comes out to
+\begin{align*}
+  \frac{\partial\mathscr I}{\partial u_{ a 0 }} = -X_{ b 0 } \sin\left(-u_{ a 0 } + u_{ b 0 }\right) .
+\end{align*}
+ \[ \mathbf S \left(\begin{array}{c}
+  u_{ a 0 }\\
+  u_{ b 0 }
+\end{array}\right) = \left(\begin{array}{c}
+  -\hat{X}_{ b 0 } \sin\left(-u_{ a 0 } + u_{ b 0 }\right)\\
+  -\frac{1}{3} \, \hat{X}_{ a 0 } \sin\left(-u_{ a 0 } + u_{ b 0 }\right)
+\end{array}\right) \]
+ Equilibrium of the population dynamics: 
+\[ \begin{align*}
+  \hat{X}_{ a 0 } &\to \frac{3}{\cos\left(-u_{ a 0 } + u_{ b 0 }\right) + 1} \\
+  \hat{X}_{ b 0 } &\to \frac{\cos\left(-u_{ a 0 } + u_{ b 0 }\right) - 2}{\cos\left(-u_{ a 0 } + u_{ b 0 }\right)^{2} + 2 \, \cos\left(-u_{ a 0 } + u_{ b 0 }\right) + 1}
+\end{align*} \]
+ The adaptive dynamics comes out to 
+\[ \begin{align*}
+\frac{du_{ a 0 }}{dt} &= -\frac{3 \, \gamma {\left(\cos\left(-u_{ a 0 } + u_{ b 0 }\right) - 2\right)} \sin\left(-u_{ a 0 } + u_{ b 0 }\right)}{{\left(\cos\left(-u_{ a 0 } + u_{ b 0 }\right)^{2} + 2 \, \cos\left(-u_{ a 0 } + u_{ b 0 }\right) + 1\right)} {\left(\cos\left(-u_{ a 0 } + u_{ b 0 }\right) + 1\right)}}\\
+\frac{du_{ b 0 }}{dt} &= -\frac{\gamma {\left(\cos\left(-u_{ a 0 } + u_{ b 0 }\right) - 2\right)} \sin\left(-u_{ a 0 } + u_{ b 0 }\right)}{{\left(\cos\left(-u_{ a 0 } + u_{ b 0 }\right)^{2} + 2 \, \cos\left(-u_{ a 0 } + u_{ b 0 }\right) + 1\right)} {\left(\cos\left(-u_{ a 0 } + u_{ b 0 }\right) + 1\right)}}
+\end{align*} \]
+

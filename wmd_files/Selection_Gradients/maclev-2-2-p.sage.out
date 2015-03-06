@@ -3,40 +3,6 @@ The invasion rate for mutant population is:
   \mathscr I = \frac{1}{X_{2}}\frac{dX_{2}}{dt} &= -{\left(\frac{{\left(X_{0} c_{00} + X_{1} c_{10} + X_{2} c_{20} - K_{0} r_{0}\right)} c_{20} w_{0}}{r_{0}} + \frac{{\left(X_{0} c_{01} + X_{1} c_{11} + X_{2} c_{21} - K_{1} r_{1}\right)} c_{21} w_{1}}{r_{1}} + m_{2}\right)} b_{2} 
 \end{align*}
 
-limit as {c_2_1: c_1_1, b_2: b_1, m_2: m_1, c_2_0: c_1_0}
-after those limits:
-   (K_0*c_1_0*r_0*r_1*w_0 + K_1*c_1_1*r_0*r_1*w_1 - m_1*r_0*r_1 - (c_0_0*c_1_0*r_1*w_0 + c_0_1*c_1_1*r_0*w_1)*X_0 - (c_1_0^2*r_1*w_0 + c_1_1^2*r_0*w_1)*X_1 - (c_1_0^2*r_1*w_0 + c_1_1^2*r_0*w_1)*X_2)/(r_0*r_1)
-  -b_1
-  -(X_0*b_1*c_0_0*w_0 + X_1*b_1*c_1_0*w_0 + 2*X_2*b_1*c_1_0*w_0 - K_0*b_1*r_0*w_0)/r_0
-  K_1*b_1*w_1 - X_0*b_1*c_0_1*w_1/r_1 - X_1*b_1*c_1_1*w_1/r_1 - 2*X_2*b_1*c_1_1*w_1/r_1
-                   2
-(- (_SAGE_VAR_c_1_1  _SAGE_VAR_r_0 _SAGE_VAR_w_1
-                  2
- + _SAGE_VAR_c_1_0  _SAGE_VAR_r_1 _SAGE_VAR_w_0) _SAGE_VAR_X_2
-                   2
- - (_SAGE_VAR_c_1_1  _SAGE_VAR_r_0 _SAGE_VAR_w_1
-                  2
- + _SAGE_VAR_c_1_0  _SAGE_VAR_r_1 _SAGE_VAR_w_0) _SAGE_VAR_X_1
- - (_SAGE_VAR_c_0_1 _SAGE_VAR_c_1_1 _SAGE_VAR_r_0 _SAGE_VAR_w_1
- + _SAGE_VAR_c_0_0 _SAGE_VAR_c_1_0 _SAGE_VAR_r_1 _SAGE_VAR_w_0) _SAGE_VAR_X_0
- + _SAGE_VAR_c_1_1 _SAGE_VAR_r_0 _SAGE_VAR_r_1 _SAGE_VAR_w_1 _SAGE_VAR_K_1
- + _SAGE_VAR_c_1_0 _SAGE_VAR_r_0 _SAGE_VAR_r_1 _SAGE_VAR_w_0 _SAGE_VAR_K_0
- - _SAGE_VAR_m_1 _SAGE_VAR_r_0 _SAGE_VAR_r_1)/(_SAGE_VAR_r_0 _SAGE_VAR_r_1)
-limit as                                  _SAGE_VAR_X_2 -> 0
- -->                    2
-(- (_SAGE_VAR_c_1_1  _SAGE_VAR_r_0 _SAGE_VAR_w_1
-                  2
- + _SAGE_VAR_c_1_0  _SAGE_VAR_r_1 _SAGE_VAR_w_0) _SAGE_VAR_X_1
- - (_SAGE_VAR_c_0_1 _SAGE_VAR_c_1_1 _SAGE_VAR_r_0 _SAGE_VAR_w_1
- + _SAGE_VAR_c_0_0 _SAGE_VAR_c_1_0 _SAGE_VAR_r_1 _SAGE_VAR_w_0) _SAGE_VAR_X_0
- + _SAGE_VAR_c_1_1 _SAGE_VAR_r_0 _SAGE_VAR_r_1 _SAGE_VAR_w_1 _SAGE_VAR_K_1
- + _SAGE_VAR_c_1_0 _SAGE_VAR_r_0 _SAGE_VAR_r_1 _SAGE_VAR_w_0 _SAGE_VAR_K_0
- - _SAGE_VAR_m_1 _SAGE_VAR_r_0 _SAGE_VAR_r_1)/(_SAGE_VAR_r_0 _SAGE_VAR_r_1)
-The invasion rate for mutant population is:
-\begin{align*}
-  \mathscr I = \frac{1}{X_{2}}\frac{dX_{2}}{dt} &= -{\left(\frac{{\left(X_{0} c_{00} + X_{1} c_{10} + X_{2} c_{20} - K_{0} r_{0}\right)} c_{20} w_{0}}{r_{0}} + \frac{{\left(X_{0} c_{01} + X_{1} c_{11} + X_{2} c_{21} - K_{1} r_{1}\right)} c_{21} w_{1}}{r_{1}} + m_{2}\right)} b_{2} 
-\end{align*}
-
 limit as {c_2_1: c_0_1, b_2: b_0, m_2: m_0, c_2_0: c_0_0}
 after those limits:
    (K_0*c_0_0*r_0*r_1*w_0 + K_1*c_0_1*r_0*r_1*w_1 - m_0*r_0*r_1 - (c_0_0^2*r_1*w_0 + c_0_1^2*r_0*w_1)*X_0 - (c_0_0*c_1_0*r_1*w_0 + c_0_1*c_1_1*r_0*w_1)*X_1 - (c_0_0^2*r_1*w_0 + c_0_1^2*r_0*w_1)*X_2)/(r_0*r_1)
@@ -66,6 +32,40 @@ limit as                                  _SAGE_VAR_X_2 -> 0
  + _SAGE_VAR_c_0_1 _SAGE_VAR_r_0 _SAGE_VAR_r_1 _SAGE_VAR_w_1 _SAGE_VAR_K_1
  + _SAGE_VAR_c_0_0 _SAGE_VAR_r_0 _SAGE_VAR_r_1 _SAGE_VAR_w_0 _SAGE_VAR_K_0
  - _SAGE_VAR_m_0 _SAGE_VAR_r_0 _SAGE_VAR_r_1)/(_SAGE_VAR_r_0 _SAGE_VAR_r_1)
+The invasion rate for mutant population is:
+\begin{align*}
+  \mathscr I = \frac{1}{X_{2}}\frac{dX_{2}}{dt} &= -{\left(\frac{{\left(X_{0} c_{00} + X_{1} c_{10} + X_{2} c_{20} - K_{0} r_{0}\right)} c_{20} w_{0}}{r_{0}} + \frac{{\left(X_{0} c_{01} + X_{1} c_{11} + X_{2} c_{21} - K_{1} r_{1}\right)} c_{21} w_{1}}{r_{1}} + m_{2}\right)} b_{2} 
+\end{align*}
+
+limit as {c_2_1: c_1_1, b_2: b_1, m_2: m_1, c_2_0: c_1_0}
+after those limits:
+   (K_0*c_1_0*r_0*r_1*w_0 + K_1*c_1_1*r_0*r_1*w_1 - m_1*r_0*r_1 - (c_0_0*c_1_0*r_1*w_0 + c_0_1*c_1_1*r_0*w_1)*X_0 - (c_1_0^2*r_1*w_0 + c_1_1^2*r_0*w_1)*X_1 - (c_1_0^2*r_1*w_0 + c_1_1^2*r_0*w_1)*X_2)/(r_0*r_1)
+  -b_1
+  -(X_0*b_1*c_0_0*w_0 + X_1*b_1*c_1_0*w_0 + 2*X_2*b_1*c_1_0*w_0 - K_0*b_1*r_0*w_0)/r_0
+  K_1*b_1*w_1 - X_0*b_1*c_0_1*w_1/r_1 - X_1*b_1*c_1_1*w_1/r_1 - 2*X_2*b_1*c_1_1*w_1/r_1
+                   2
+(- (_SAGE_VAR_c_1_1  _SAGE_VAR_r_0 _SAGE_VAR_w_1
+                  2
+ + _SAGE_VAR_c_1_0  _SAGE_VAR_r_1 _SAGE_VAR_w_0) _SAGE_VAR_X_2
+                   2
+ - (_SAGE_VAR_c_1_1  _SAGE_VAR_r_0 _SAGE_VAR_w_1
+                  2
+ + _SAGE_VAR_c_1_0  _SAGE_VAR_r_1 _SAGE_VAR_w_0) _SAGE_VAR_X_1
+ - (_SAGE_VAR_c_0_1 _SAGE_VAR_c_1_1 _SAGE_VAR_r_0 _SAGE_VAR_w_1
+ + _SAGE_VAR_c_0_0 _SAGE_VAR_c_1_0 _SAGE_VAR_r_1 _SAGE_VAR_w_0) _SAGE_VAR_X_0
+ + _SAGE_VAR_c_1_1 _SAGE_VAR_r_0 _SAGE_VAR_r_1 _SAGE_VAR_w_1 _SAGE_VAR_K_1
+ + _SAGE_VAR_c_1_0 _SAGE_VAR_r_0 _SAGE_VAR_r_1 _SAGE_VAR_w_0 _SAGE_VAR_K_0
+ - _SAGE_VAR_m_1 _SAGE_VAR_r_0 _SAGE_VAR_r_1)/(_SAGE_VAR_r_0 _SAGE_VAR_r_1)
+limit as                                  _SAGE_VAR_X_2 -> 0
+ -->                    2
+(- (_SAGE_VAR_c_1_1  _SAGE_VAR_r_0 _SAGE_VAR_w_1
+                  2
+ + _SAGE_VAR_c_1_0  _SAGE_VAR_r_1 _SAGE_VAR_w_0) _SAGE_VAR_X_1
+ - (_SAGE_VAR_c_0_1 _SAGE_VAR_c_1_1 _SAGE_VAR_r_0 _SAGE_VAR_w_1
+ + _SAGE_VAR_c_0_0 _SAGE_VAR_c_1_0 _SAGE_VAR_r_1 _SAGE_VAR_w_0) _SAGE_VAR_X_0
+ + _SAGE_VAR_c_1_1 _SAGE_VAR_r_0 _SAGE_VAR_r_1 _SAGE_VAR_w_1 _SAGE_VAR_K_1
+ + _SAGE_VAR_c_1_0 _SAGE_VAR_r_0 _SAGE_VAR_r_1 _SAGE_VAR_w_0 _SAGE_VAR_K_0
+ - _SAGE_VAR_m_1 _SAGE_VAR_r_0 _SAGE_VAR_r_1)/(_SAGE_VAR_r_0 _SAGE_VAR_r_1)
 Original pop-dyn system: 
 \[\begin{align*}
 \frac{dX_{0}}{dt} &= -{\left({\left(X_{0} c_{00} + X_{1} c_{10} - 2\right)} c_{00} + {\left(X_{0} c_{01} + X_{1} c_{11} - 2\right)} c_{01} + m_{0}\right)} X_{0} b_{0}\\
@@ -73,39 +73,10 @@ Original pop-dyn system:
 \end{align*}\]
 Extended pop-dyn system: 
 \[\begin{align*}
-\frac{dX_{1}}{dt} &= -{\left(\frac{{\left(X_{0} c_{00} + X_{1} c_{10} + X_{2} c_{20} - K_{0} r_{0}\right)} c_{10} w_{0}}{r_{0}} + \frac{{\left(X_{0} c_{01} + X_{1} c_{11} + X_{2} c_{21} - K_{1} r_{1}\right)} c_{11} w_{1}}{r_{1}} + m_{1}\right)} X_{1} b_{1}\\
 \frac{dX_{0}}{dt} &= -{\left(\frac{{\left(X_{0} c_{00} + X_{1} c_{10} + X_{2} c_{20} - K_{0} r_{0}\right)} c_{00} w_{0}}{r_{0}} + \frac{{\left(X_{0} c_{01} + X_{1} c_{11} + X_{2} c_{21} - K_{1} r_{1}\right)} c_{01} w_{1}}{r_{1}} + m_{0}\right)} X_{0} b_{0}\\
+\frac{dX_{1}}{dt} &= -{\left(\frac{{\left(X_{0} c_{00} + X_{1} c_{10} + X_{2} c_{20} - K_{0} r_{0}\right)} c_{10} w_{0}}{r_{0}} + \frac{{\left(X_{0} c_{01} + X_{1} c_{11} + X_{2} c_{21} - K_{1} r_{1}\right)} c_{11} w_{1}}{r_{1}} + m_{1}\right)} X_{1} b_{1}\\
 \frac{dX_{2}}{dt} &= -{\left(\frac{{\left(X_{0} c_{00} + X_{1} c_{10} + X_{2} c_{20} - K_{0} r_{0}\right)} c_{20} w_{0}}{r_{0}} + \frac{{\left(X_{0} c_{01} + X_{1} c_{11} + X_{2} c_{21} - K_{1} r_{1}\right)} c_{21} w_{1}}{r_{1}} + m_{2}\right)} X_{2} b_{2}
 \end{align*}\]
- The invasion rate for mutant population is:
-\begin{align*}
-  \mathscr I = \frac{1}{X_{2}}\frac{dX_{2}}{dt} &= -{\left(\frac{{\left(X_{0} c_{00} + X_{1} c_{10} + X_{2} c_{20} - K_{0} r_{0}\right)} c_{20} w_{0}}{r_{0}} + \frac{{\left(X_{0} c_{01} + X_{1} c_{11} + X_{2} c_{21} - K_{1} r_{1}\right)} c_{21} w_{1}}{r_{1}} + m_{2}\right)} b_{2} 
-\end{align*}
- And the invasion exponent is
-\begin{align*}
-  \frac{\partial\mathscr I}{\partial b_{1}} = \lim_{b_{2}\to b_{1},m_{2}\to m_{1},c_{20}\to c_{10},c_{21}\to c_{11},X_{2}\to0}-\frac{{\left(X_{0} c_{00} + X_{1} c_{10} + X_{2} c_{20} - K_{0} r_{0}\right)} c_{20} w_{0}}{r_{0}} - \frac{{\left(X_{0} c_{01} + X_{1} c_{11} + X_{2} c_{21} - K_{1} r_{1}\right)} c_{21} w_{1}}{r_{1}} - m_{2}\\
-  \frac{\partial\mathscr I}{\partial m_{1}} = \lim_{b_{2}\to b_{1},m_{2}\to m_{1},c_{20}\to c_{10},c_{21}\to c_{11},X_{2}\to0}-b_{2}\\
-  \frac{\partial\mathscr I}{\partial c_{10}} = \lim_{b_{2}\to b_{1},m_{2}\to m_{1},c_{20}\to c_{10},c_{21}\to c_{11},X_{2}\to0}-{\left(\frac{X_{2} c_{20} w_{0}}{r_{0}} + \frac{{\left(X_{0} c_{00} + X_{1} c_{10} + X_{2} c_{20} - K_{0} r_{0}\right)} w_{0}}{r_{0}}\right)} b_{2}\\
-  \frac{\partial\mathscr I}{\partial c_{11}} = \lim_{b_{2}\to b_{1},m_{2}\to m_{1},c_{20}\to c_{10},c_{21}\to c_{11},X_{2}\to0}-{\left(\frac{X_{2} c_{21} w_{1}}{r_{1}} + \frac{{\left(X_{0} c_{01} + X_{1} c_{11} + X_{2} c_{21} - K_{1} r_{1}\right)} w_{1}}{r_{1}}\right)} b_{2} .
-\end{align*}
- Which comes out to
-\begin{align*}
-  \frac{\partial\mathscr I}{\partial b_{1}} = \frac{K_{0} c_{10} r_{0} r_{1} w_{0} + K_{1} c_{11} r_{0} r_{1} w_{1} - m_{1} r_{0} r_{1} - {\left(c_{00} c_{10} r_{1} w_{0} + c_{01} c_{11} r_{0} w_{1}\right)} X_{0} - {\left(c_{10}^{2} r_{1} w_{0} + c_{11}^{2} r_{0} w_{1}\right)} X_{1}}{r_{0} r_{1}}\\
-  \frac{\partial\mathscr I}{\partial m_{1}} = -b_{1}\\
-  \frac{\partial\mathscr I}{\partial c_{10}} = -\frac{X_{0} b_{1} c_{00} w_{0} + X_{1} b_{1} c_{10} w_{0} - K_{0} b_{1} r_{0} w_{0}}{r_{0}}\\
-  \frac{\partial\mathscr I}{\partial c_{11}} = -\frac{X_{0} b_{1} c_{01} w_{1} + X_{1} b_{1} c_{11} w_{1} - K_{1} b_{1} r_{1} w_{1}}{r_{1}} .
-\end{align*}
- Original pop-dyn system: 
-\[ \begin{align*}
-\frac{dX_{0}}{dt} &= -{\left({\left(X_{0} c_{00} + X_{1} c_{10} - 2\right)} c_{00} + {\left(X_{0} c_{01} + X_{1} c_{11} - 2\right)} c_{01} + m_{0}\right)} X_{0} b_{0}\\
-\frac{dX_{1}}{dt} &= -{\left({\left(X_{0} c_{00} + X_{1} c_{10} - 2\right)} c_{10} + {\left(X_{0} c_{01} + X_{1} c_{11} - 2\right)} c_{11} + m_{1}\right)} X_{1} b_{1}
-\end{align*} \]
- Extended pop-dyn system: 
-\[ \begin{align*}
-\frac{dX_{1}}{dt} &= -{\left(\frac{{\left(X_{0} c_{00} + X_{1} c_{10} + X_{2} c_{20} - K_{0} r_{0}\right)} c_{10} w_{0}}{r_{0}} + \frac{{\left(X_{0} c_{01} + X_{1} c_{11} + X_{2} c_{21} - K_{1} r_{1}\right)} c_{11} w_{1}}{r_{1}} + m_{1}\right)} X_{1} b_{1}\\
-\frac{dX_{0}}{dt} &= -{\left(\frac{{\left(X_{0} c_{00} + X_{1} c_{10} + X_{2} c_{20} - K_{0} r_{0}\right)} c_{00} w_{0}}{r_{0}} + \frac{{\left(X_{0} c_{01} + X_{1} c_{11} + X_{2} c_{21} - K_{1} r_{1}\right)} c_{01} w_{1}}{r_{1}} + m_{0}\right)} X_{0} b_{0}\\
-\frac{dX_{2}}{dt} &= -{\left(\frac{{\left(X_{0} c_{00} + X_{1} c_{10} + X_{2} c_{20} - K_{0} r_{0}\right)} c_{20} w_{0}}{r_{0}} + \frac{{\left(X_{0} c_{01} + X_{1} c_{11} + X_{2} c_{21} - K_{1} r_{1}\right)} c_{21} w_{1}}{r_{1}} + m_{2}\right)} X_{2} b_{2}
-\end{align*} \]
  The invasion rate for mutant population is:
 \begin{align*}
   \mathscr I = \frac{1}{X_{2}}\frac{dX_{2}}{dt} &= -{\left(\frac{{\left(X_{0} c_{00} + X_{1} c_{10} + X_{2} c_{20} - K_{0} r_{0}\right)} c_{20} w_{0}}{r_{0}} + \frac{{\left(X_{0} c_{01} + X_{1} c_{11} + X_{2} c_{21} - K_{1} r_{1}\right)} c_{21} w_{1}}{r_{1}} + m_{2}\right)} b_{2} 
@@ -123,6 +94,35 @@ Extended pop-dyn system:
   \frac{\partial\mathscr I}{\partial m_{0}} = -b_{0}\\
   \frac{\partial\mathscr I}{\partial c_{00}} = -\frac{X_{0} b_{0} c_{00} w_{0} + X_{1} b_{0} c_{10} w_{0} - K_{0} b_{0} r_{0} w_{0}}{r_{0}}\\
   \frac{\partial\mathscr I}{\partial c_{01}} = -\frac{X_{0} b_{0} c_{01} w_{1} + X_{1} b_{0} c_{11} w_{1} - K_{1} b_{0} r_{1} w_{1}}{r_{1}} .
+\end{align*}
+ Original pop-dyn system: 
+\[ \begin{align*}
+\frac{dX_{0}}{dt} &= -{\left({\left(X_{0} c_{00} + X_{1} c_{10} - 2\right)} c_{00} + {\left(X_{0} c_{01} + X_{1} c_{11} - 2\right)} c_{01} + m_{0}\right)} X_{0} b_{0}\\
+\frac{dX_{1}}{dt} &= -{\left({\left(X_{0} c_{00} + X_{1} c_{10} - 2\right)} c_{10} + {\left(X_{0} c_{01} + X_{1} c_{11} - 2\right)} c_{11} + m_{1}\right)} X_{1} b_{1}
+\end{align*} \]
+ Extended pop-dyn system: 
+\[ \begin{align*}
+\frac{dX_{0}}{dt} &= -{\left(\frac{{\left(X_{0} c_{00} + X_{1} c_{10} + X_{2} c_{20} - K_{0} r_{0}\right)} c_{00} w_{0}}{r_{0}} + \frac{{\left(X_{0} c_{01} + X_{1} c_{11} + X_{2} c_{21} - K_{1} r_{1}\right)} c_{01} w_{1}}{r_{1}} + m_{0}\right)} X_{0} b_{0}\\
+\frac{dX_{1}}{dt} &= -{\left(\frac{{\left(X_{0} c_{00} + X_{1} c_{10} + X_{2} c_{20} - K_{0} r_{0}\right)} c_{10} w_{0}}{r_{0}} + \frac{{\left(X_{0} c_{01} + X_{1} c_{11} + X_{2} c_{21} - K_{1} r_{1}\right)} c_{11} w_{1}}{r_{1}} + m_{1}\right)} X_{1} b_{1}\\
+\frac{dX_{2}}{dt} &= -{\left(\frac{{\left(X_{0} c_{00} + X_{1} c_{10} + X_{2} c_{20} - K_{0} r_{0}\right)} c_{20} w_{0}}{r_{0}} + \frac{{\left(X_{0} c_{01} + X_{1} c_{11} + X_{2} c_{21} - K_{1} r_{1}\right)} c_{21} w_{1}}{r_{1}} + m_{2}\right)} X_{2} b_{2}
+\end{align*} \]
+ The invasion rate for mutant population is:
+\begin{align*}
+  \mathscr I = \frac{1}{X_{2}}\frac{dX_{2}}{dt} &= -{\left(\frac{{\left(X_{0} c_{00} + X_{1} c_{10} + X_{2} c_{20} - K_{0} r_{0}\right)} c_{20} w_{0}}{r_{0}} + \frac{{\left(X_{0} c_{01} + X_{1} c_{11} + X_{2} c_{21} - K_{1} r_{1}\right)} c_{21} w_{1}}{r_{1}} + m_{2}\right)} b_{2} 
+\end{align*}
+ And the invasion exponent is
+\begin{align*}
+  \frac{\partial\mathscr I}{\partial b_{1}} = \lim_{b_{2}\to b_{1},m_{2}\to m_{1},c_{20}\to c_{10},c_{21}\to c_{11},X_{2}\to0}-\frac{{\left(X_{0} c_{00} + X_{1} c_{10} + X_{2} c_{20} - K_{0} r_{0}\right)} c_{20} w_{0}}{r_{0}} - \frac{{\left(X_{0} c_{01} + X_{1} c_{11} + X_{2} c_{21} - K_{1} r_{1}\right)} c_{21} w_{1}}{r_{1}} - m_{2}\\
+  \frac{\partial\mathscr I}{\partial m_{1}} = \lim_{b_{2}\to b_{1},m_{2}\to m_{1},c_{20}\to c_{10},c_{21}\to c_{11},X_{2}\to0}-b_{2}\\
+  \frac{\partial\mathscr I}{\partial c_{10}} = \lim_{b_{2}\to b_{1},m_{2}\to m_{1},c_{20}\to c_{10},c_{21}\to c_{11},X_{2}\to0}-{\left(\frac{X_{2} c_{20} w_{0}}{r_{0}} + \frac{{\left(X_{0} c_{00} + X_{1} c_{10} + X_{2} c_{20} - K_{0} r_{0}\right)} w_{0}}{r_{0}}\right)} b_{2}\\
+  \frac{\partial\mathscr I}{\partial c_{11}} = \lim_{b_{2}\to b_{1},m_{2}\to m_{1},c_{20}\to c_{10},c_{21}\to c_{11},X_{2}\to0}-{\left(\frac{X_{2} c_{21} w_{1}}{r_{1}} + \frac{{\left(X_{0} c_{01} + X_{1} c_{11} + X_{2} c_{21} - K_{1} r_{1}\right)} w_{1}}{r_{1}}\right)} b_{2} .
+\end{align*}
+ Which comes out to
+\begin{align*}
+  \frac{\partial\mathscr I}{\partial b_{1}} = \frac{K_{0} c_{10} r_{0} r_{1} w_{0} + K_{1} c_{11} r_{0} r_{1} w_{1} - m_{1} r_{0} r_{1} - {\left(c_{00} c_{10} r_{1} w_{0} + c_{01} c_{11} r_{0} w_{1}\right)} X_{0} - {\left(c_{10}^{2} r_{1} w_{0} + c_{11}^{2} r_{0} w_{1}\right)} X_{1}}{r_{0} r_{1}}\\
+  \frac{\partial\mathscr I}{\partial m_{1}} = -b_{1}\\
+  \frac{\partial\mathscr I}{\partial c_{10}} = -\frac{X_{0} b_{1} c_{00} w_{0} + X_{1} b_{1} c_{10} w_{0} - K_{0} b_{1} r_{0} w_{0}}{r_{0}}\\
+  \frac{\partial\mathscr I}{\partial c_{11}} = -\frac{X_{0} b_{1} c_{01} w_{1} + X_{1} b_{1} c_{11} w_{1} - K_{1} b_{1} r_{1} w_{1}}{r_{1}} .
 \end{align*}
  \[ \mathbf S \left(\begin{array}{c}
   c_{01}\\

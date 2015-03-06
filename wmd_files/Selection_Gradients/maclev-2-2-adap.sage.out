@@ -137,80 +137,6 @@ The invasion rate for mutant population is:
   \mathscr I = \frac{1}{X_{3}}\frac{dX_{3}}{dt} &= {\left(\frac{{\left(K_{0} r_{0} - X_{0} c_{0}\left(u_{0}\right) - X_{1} c_{0}\left(u_{1}\right) - X_{2} c_{0}\left(u_{2}\right) - X_{3} c_{0}\left(u_{3}\right)\right)} w_{0} c_{0}\left(u_{3}\right)}{r_{0}} + \frac{{\left(K_{1} r_{1} - X_{0} c_{1}\left(u_{0}\right) - X_{1} c_{1}\left(u_{1}\right) - X_{2} c_{1}\left(u_{2}\right) - X_{3} c_{1}\left(u_{3}\right)\right)} w_{1} c_{1}\left(u_{3}\right)}{r_{1}} - m\left(u_{3}\right)\right)} b\left(u_{3}\right) 
 \end{align*}
 
-limit as {u_3: u_1}
-after those limits:
-   limit(-(X_3*w_0*c_0(u_3)*D[0](c_0)(u_3)/r_0 + X_3*w_1*c_1(u_3)*D[0](c_1)(u_3)/r_1 - (K_0*r_0 - X_0*c_0(u_0) - X_1*c_0(u_1) - X_2*c_0(u_2) - X_3*c_0(u_3))*w_0*D[0](c_0)(u_3)/r_0 - (K_1*r_1 - X_0*c_1(u_0) - X_1*c_1(u_1) - X_2*c_1(u_2) - X_3*c_1(u_3))*w_1*D[0](c_1)(u_3)/r_1 + D[0](m)(u_3))*b(u_3) + ((K_0*r_0 - X_0*c_0(u_0) - X_1*c_0(u_1) - X_2*c_0(u_2) - X_3*c_0(u_3))*w_0*c_0(u_3)/r_0 + (K_1*r_1 - X_0*c_1(u_0) - X_1*c_1(u_1) - X_2*c_1(u_2) - X_3*c_1(u_3))*w_1*c_1(u_3)/r_1 - m(u_3))*D[0](b)(u_3), u_3, u_1)
-                                       d
-limit                          ((-------------- (b(_SAGE_VAR_u_3)))
-_SAGE_VAR_u_3 -> _SAGE_VAR_u_1   d_SAGE_VAR_u_3
- ((c_1(_SAGE_VAR_u_3) _SAGE_VAR_w_1 (- c_1(_SAGE_VAR_u_3) _SAGE_VAR_X_3
- - c_1(_SAGE_VAR_u_2) _SAGE_VAR_X_2 - c_1(_SAGE_VAR_u_1) _SAGE_VAR_X_1
- - c_1(_SAGE_VAR_u_0) _SAGE_VAR_X_0 + _SAGE_VAR_r_1 _SAGE_VAR_K_1))
-/_SAGE_VAR_r_1 + (c_0(_SAGE_VAR_u_3) _SAGE_VAR_w_0
- (- c_0(_SAGE_VAR_u_3) _SAGE_VAR_X_3 - c_0(_SAGE_VAR_u_2) _SAGE_VAR_X_2
- - c_0(_SAGE_VAR_u_1) _SAGE_VAR_X_1 - c_0(_SAGE_VAR_u_0) _SAGE_VAR_X_0
- + _SAGE_VAR_r_0 _SAGE_VAR_K_0))/_SAGE_VAR_r_0 - m(_SAGE_VAR_u_3))
-                               d
- - b(_SAGE_VAR_u_3) (- ((-------------- (c_1(_SAGE_VAR_u_3))) _SAGE_VAR_w_1
-                         d_SAGE_VAR_u_3
- (- c_1(_SAGE_VAR_u_3) _SAGE_VAR_X_3 - c_1(_SAGE_VAR_u_2) _SAGE_VAR_X_2
- - c_1(_SAGE_VAR_u_1) _SAGE_VAR_X_1 - c_1(_SAGE_VAR_u_0) _SAGE_VAR_X_0
- + _SAGE_VAR_r_1 _SAGE_VAR_K_1))/_SAGE_VAR_r_1
-           d
- - ((-------------- (c_0(_SAGE_VAR_u_3))) _SAGE_VAR_w_0
-     d_SAGE_VAR_u_3
- (- c_0(_SAGE_VAR_u_3) _SAGE_VAR_X_3 - c_0(_SAGE_VAR_u_2) _SAGE_VAR_X_2
- - c_0(_SAGE_VAR_u_1) _SAGE_VAR_X_1 - c_0(_SAGE_VAR_u_0) _SAGE_VAR_X_0
- + _SAGE_VAR_r_0 _SAGE_VAR_K_0))/_SAGE_VAR_r_0
-                              d
- + (c_1(_SAGE_VAR_u_3) (-------------- (c_1(_SAGE_VAR_u_3))) _SAGE_VAR_w_1
-                        d_SAGE_VAR_u_3
- _SAGE_VAR_X_3)/_SAGE_VAR_r_1 + (c_0(_SAGE_VAR_u_3)
-        d
- (-------------- (c_0(_SAGE_VAR_u_3))) _SAGE_VAR_w_0 _SAGE_VAR_X_3)
-  d_SAGE_VAR_u_3
-                       d
-/_SAGE_VAR_r_0 + -------------- (m(_SAGE_VAR_u_3))))
-                 d_SAGE_VAR_u_3
-limit as                                  _SAGE_VAR_X_3 -> 0
- -->                                             d
-- (limit                          (- (-------------- (b(_SAGE_VAR_u_3)))
-   _SAGE_VAR_u_3 -> _SAGE_VAR_u_1     d_SAGE_VAR_u_3
- (- (_SAGE_VAR_r_0 c_1(_SAGE_VAR_u_2) c_1(_SAGE_VAR_u_3) _SAGE_VAR_w_1
- + _SAGE_VAR_r_1 c_0(_SAGE_VAR_u_2) c_0(_SAGE_VAR_u_3) _SAGE_VAR_w_0)
- _SAGE_VAR_X_2 - (_SAGE_VAR_r_0 c_1(_SAGE_VAR_u_1) c_1(_SAGE_VAR_u_3)
- _SAGE_VAR_w_1 + _SAGE_VAR_r_1 c_0(_SAGE_VAR_u_1) c_0(_SAGE_VAR_u_3)
- _SAGE_VAR_w_0) _SAGE_VAR_X_1 - (_SAGE_VAR_r_0 c_1(_SAGE_VAR_u_0)
- c_1(_SAGE_VAR_u_3) _SAGE_VAR_w_1 + _SAGE_VAR_r_1 c_0(_SAGE_VAR_u_0)
- c_0(_SAGE_VAR_u_3) _SAGE_VAR_w_0) _SAGE_VAR_X_0
- + _SAGE_VAR_r_0 _SAGE_VAR_r_1 c_1(_SAGE_VAR_u_3) _SAGE_VAR_w_1 _SAGE_VAR_K_1
- + _SAGE_VAR_r_0 _SAGE_VAR_r_1 c_0(_SAGE_VAR_u_3) _SAGE_VAR_w_0 _SAGE_VAR_K_0
- - _SAGE_VAR_r_0 _SAGE_VAR_r_1 m(_SAGE_VAR_u_3))
-          d
- - (-------------- (c_1(_SAGE_VAR_u_3)))
-    d_SAGE_VAR_u_3
- (- _SAGE_VAR_r_0 c_1(_SAGE_VAR_u_2) b(_SAGE_VAR_u_3) _SAGE_VAR_w_1
- _SAGE_VAR_X_2 - _SAGE_VAR_r_0 c_1(_SAGE_VAR_u_1) b(_SAGE_VAR_u_3)
- _SAGE_VAR_w_1 _SAGE_VAR_X_1 - _SAGE_VAR_r_0 c_1(_SAGE_VAR_u_0)
- b(_SAGE_VAR_u_3) _SAGE_VAR_w_1 _SAGE_VAR_X_0
- + _SAGE_VAR_r_0 _SAGE_VAR_r_1 b(_SAGE_VAR_u_3) _SAGE_VAR_w_1 _SAGE_VAR_K_1)
-          d
- - (-------------- (c_0(_SAGE_VAR_u_3)))
-    d_SAGE_VAR_u_3
- (- _SAGE_VAR_r_1 c_0(_SAGE_VAR_u_2) b(_SAGE_VAR_u_3) _SAGE_VAR_w_0
- _SAGE_VAR_X_2 - _SAGE_VAR_r_1 c_0(_SAGE_VAR_u_1) b(_SAGE_VAR_u_3)
- _SAGE_VAR_w_0 _SAGE_VAR_X_1 - _SAGE_VAR_r_1 c_0(_SAGE_VAR_u_0)
- b(_SAGE_VAR_u_3) _SAGE_VAR_w_0 _SAGE_VAR_X_0
- + _SAGE_VAR_r_0 _SAGE_VAR_r_1 b(_SAGE_VAR_u_3) _SAGE_VAR_w_0 _SAGE_VAR_K_0)
- + _SAGE_VAR_r_0 _SAGE_VAR_r_1 b(_SAGE_VAR_u_3)
-        d
- (-------------- (m(_SAGE_VAR_u_3)))))/(_SAGE_VAR_r_0 _SAGE_VAR_r_1)
-  d_SAGE_VAR_u_3
-The invasion rate for mutant population is:
-\begin{align*}
-  \mathscr I = \frac{1}{X_{3}}\frac{dX_{3}}{dt} &= {\left(\frac{{\left(K_{0} r_{0} - X_{0} c_{0}\left(u_{0}\right) - X_{1} c_{0}\left(u_{1}\right) - X_{2} c_{0}\left(u_{2}\right) - X_{3} c_{0}\left(u_{3}\right)\right)} w_{0} c_{0}\left(u_{3}\right)}{r_{0}} + \frac{{\left(K_{1} r_{1} - X_{0} c_{1}\left(u_{0}\right) - X_{1} c_{1}\left(u_{1}\right) - X_{2} c_{1}\left(u_{2}\right) - X_{3} c_{1}\left(u_{3}\right)\right)} w_{1} c_{1}\left(u_{3}\right)}{r_{1}} - m\left(u_{3}\right)\right)} b\left(u_{3}\right) 
-\end{align*}
-
 limit as {u_3: u_0}
 after those limits:
    limit(-(X_3*w_0*c_0(u_3)*D[0](c_0)(u_3)/r_0 + X_3*w_1*c_1(u_3)*D[0](c_1)(u_3)/r_1 - (K_0*r_0 - X_0*c_0(u_0) - X_1*c_0(u_1) - X_2*c_0(u_2) - X_3*c_0(u_3))*w_0*D[0](c_0)(u_3)/r_0 - (K_1*r_1 - X_0*c_1(u_0) - X_1*c_1(u_1) - X_2*c_1(u_2) - X_3*c_1(u_3))*w_1*D[0](c_1)(u_3)/r_1 + D[0](m)(u_3))*b(u_3) + ((K_0*r_0 - X_0*c_0(u_0) - X_1*c_0(u_1) - X_2*c_0(u_2) - X_3*c_0(u_3))*w_0*c_0(u_3)/r_0 + (K_1*r_1 - X_0*c_1(u_0) - X_1*c_1(u_1) - X_2*c_1(u_2) - X_3*c_1(u_3))*w_1*c_1(u_3)/r_1 - m(u_3))*D[0](b)(u_3), u_3, u_0)
@@ -250,6 +176,80 @@ limit as                                  _SAGE_VAR_X_3 -> 0
  -->                                             d
 - (limit                          (- (-------------- (b(_SAGE_VAR_u_3)))
    _SAGE_VAR_u_3 -> _SAGE_VAR_u_0     d_SAGE_VAR_u_3
+ (- (_SAGE_VAR_r_0 c_1(_SAGE_VAR_u_2) c_1(_SAGE_VAR_u_3) _SAGE_VAR_w_1
+ + _SAGE_VAR_r_1 c_0(_SAGE_VAR_u_2) c_0(_SAGE_VAR_u_3) _SAGE_VAR_w_0)
+ _SAGE_VAR_X_2 - (_SAGE_VAR_r_0 c_1(_SAGE_VAR_u_1) c_1(_SAGE_VAR_u_3)
+ _SAGE_VAR_w_1 + _SAGE_VAR_r_1 c_0(_SAGE_VAR_u_1) c_0(_SAGE_VAR_u_3)
+ _SAGE_VAR_w_0) _SAGE_VAR_X_1 - (_SAGE_VAR_r_0 c_1(_SAGE_VAR_u_0)
+ c_1(_SAGE_VAR_u_3) _SAGE_VAR_w_1 + _SAGE_VAR_r_1 c_0(_SAGE_VAR_u_0)
+ c_0(_SAGE_VAR_u_3) _SAGE_VAR_w_0) _SAGE_VAR_X_0
+ + _SAGE_VAR_r_0 _SAGE_VAR_r_1 c_1(_SAGE_VAR_u_3) _SAGE_VAR_w_1 _SAGE_VAR_K_1
+ + _SAGE_VAR_r_0 _SAGE_VAR_r_1 c_0(_SAGE_VAR_u_3) _SAGE_VAR_w_0 _SAGE_VAR_K_0
+ - _SAGE_VAR_r_0 _SAGE_VAR_r_1 m(_SAGE_VAR_u_3))
+          d
+ - (-------------- (c_1(_SAGE_VAR_u_3)))
+    d_SAGE_VAR_u_3
+ (- _SAGE_VAR_r_0 c_1(_SAGE_VAR_u_2) b(_SAGE_VAR_u_3) _SAGE_VAR_w_1
+ _SAGE_VAR_X_2 - _SAGE_VAR_r_0 c_1(_SAGE_VAR_u_1) b(_SAGE_VAR_u_3)
+ _SAGE_VAR_w_1 _SAGE_VAR_X_1 - _SAGE_VAR_r_0 c_1(_SAGE_VAR_u_0)
+ b(_SAGE_VAR_u_3) _SAGE_VAR_w_1 _SAGE_VAR_X_0
+ + _SAGE_VAR_r_0 _SAGE_VAR_r_1 b(_SAGE_VAR_u_3) _SAGE_VAR_w_1 _SAGE_VAR_K_1)
+          d
+ - (-------------- (c_0(_SAGE_VAR_u_3)))
+    d_SAGE_VAR_u_3
+ (- _SAGE_VAR_r_1 c_0(_SAGE_VAR_u_2) b(_SAGE_VAR_u_3) _SAGE_VAR_w_0
+ _SAGE_VAR_X_2 - _SAGE_VAR_r_1 c_0(_SAGE_VAR_u_1) b(_SAGE_VAR_u_3)
+ _SAGE_VAR_w_0 _SAGE_VAR_X_1 - _SAGE_VAR_r_1 c_0(_SAGE_VAR_u_0)
+ b(_SAGE_VAR_u_3) _SAGE_VAR_w_0 _SAGE_VAR_X_0
+ + _SAGE_VAR_r_0 _SAGE_VAR_r_1 b(_SAGE_VAR_u_3) _SAGE_VAR_w_0 _SAGE_VAR_K_0)
+ + _SAGE_VAR_r_0 _SAGE_VAR_r_1 b(_SAGE_VAR_u_3)
+        d
+ (-------------- (m(_SAGE_VAR_u_3)))))/(_SAGE_VAR_r_0 _SAGE_VAR_r_1)
+  d_SAGE_VAR_u_3
+The invasion rate for mutant population is:
+\begin{align*}
+  \mathscr I = \frac{1}{X_{3}}\frac{dX_{3}}{dt} &= {\left(\frac{{\left(K_{0} r_{0} - X_{0} c_{0}\left(u_{0}\right) - X_{1} c_{0}\left(u_{1}\right) - X_{2} c_{0}\left(u_{2}\right) - X_{3} c_{0}\left(u_{3}\right)\right)} w_{0} c_{0}\left(u_{3}\right)}{r_{0}} + \frac{{\left(K_{1} r_{1} - X_{0} c_{1}\left(u_{0}\right) - X_{1} c_{1}\left(u_{1}\right) - X_{2} c_{1}\left(u_{2}\right) - X_{3} c_{1}\left(u_{3}\right)\right)} w_{1} c_{1}\left(u_{3}\right)}{r_{1}} - m\left(u_{3}\right)\right)} b\left(u_{3}\right) 
+\end{align*}
+
+limit as {u_3: u_1}
+after those limits:
+   limit(-(X_3*w_0*c_0(u_3)*D[0](c_0)(u_3)/r_0 + X_3*w_1*c_1(u_3)*D[0](c_1)(u_3)/r_1 - (K_0*r_0 - X_0*c_0(u_0) - X_1*c_0(u_1) - X_2*c_0(u_2) - X_3*c_0(u_3))*w_0*D[0](c_0)(u_3)/r_0 - (K_1*r_1 - X_0*c_1(u_0) - X_1*c_1(u_1) - X_2*c_1(u_2) - X_3*c_1(u_3))*w_1*D[0](c_1)(u_3)/r_1 + D[0](m)(u_3))*b(u_3) + ((K_0*r_0 - X_0*c_0(u_0) - X_1*c_0(u_1) - X_2*c_0(u_2) - X_3*c_0(u_3))*w_0*c_0(u_3)/r_0 + (K_1*r_1 - X_0*c_1(u_0) - X_1*c_1(u_1) - X_2*c_1(u_2) - X_3*c_1(u_3))*w_1*c_1(u_3)/r_1 - m(u_3))*D[0](b)(u_3), u_3, u_1)
+                                       d
+limit                          ((-------------- (b(_SAGE_VAR_u_3)))
+_SAGE_VAR_u_3 -> _SAGE_VAR_u_1   d_SAGE_VAR_u_3
+ ((c_1(_SAGE_VAR_u_3) _SAGE_VAR_w_1 (- c_1(_SAGE_VAR_u_3) _SAGE_VAR_X_3
+ - c_1(_SAGE_VAR_u_2) _SAGE_VAR_X_2 - c_1(_SAGE_VAR_u_1) _SAGE_VAR_X_1
+ - c_1(_SAGE_VAR_u_0) _SAGE_VAR_X_0 + _SAGE_VAR_r_1 _SAGE_VAR_K_1))
+/_SAGE_VAR_r_1 + (c_0(_SAGE_VAR_u_3) _SAGE_VAR_w_0
+ (- c_0(_SAGE_VAR_u_3) _SAGE_VAR_X_3 - c_0(_SAGE_VAR_u_2) _SAGE_VAR_X_2
+ - c_0(_SAGE_VAR_u_1) _SAGE_VAR_X_1 - c_0(_SAGE_VAR_u_0) _SAGE_VAR_X_0
+ + _SAGE_VAR_r_0 _SAGE_VAR_K_0))/_SAGE_VAR_r_0 - m(_SAGE_VAR_u_3))
+                               d
+ - b(_SAGE_VAR_u_3) (- ((-------------- (c_1(_SAGE_VAR_u_3))) _SAGE_VAR_w_1
+                         d_SAGE_VAR_u_3
+ (- c_1(_SAGE_VAR_u_3) _SAGE_VAR_X_3 - c_1(_SAGE_VAR_u_2) _SAGE_VAR_X_2
+ - c_1(_SAGE_VAR_u_1) _SAGE_VAR_X_1 - c_1(_SAGE_VAR_u_0) _SAGE_VAR_X_0
+ + _SAGE_VAR_r_1 _SAGE_VAR_K_1))/_SAGE_VAR_r_1
+           d
+ - ((-------------- (c_0(_SAGE_VAR_u_3))) _SAGE_VAR_w_0
+     d_SAGE_VAR_u_3
+ (- c_0(_SAGE_VAR_u_3) _SAGE_VAR_X_3 - c_0(_SAGE_VAR_u_2) _SAGE_VAR_X_2
+ - c_0(_SAGE_VAR_u_1) _SAGE_VAR_X_1 - c_0(_SAGE_VAR_u_0) _SAGE_VAR_X_0
+ + _SAGE_VAR_r_0 _SAGE_VAR_K_0))/_SAGE_VAR_r_0
+                              d
+ + (c_1(_SAGE_VAR_u_3) (-------------- (c_1(_SAGE_VAR_u_3))) _SAGE_VAR_w_1
+                        d_SAGE_VAR_u_3
+ _SAGE_VAR_X_3)/_SAGE_VAR_r_1 + (c_0(_SAGE_VAR_u_3)
+        d
+ (-------------- (c_0(_SAGE_VAR_u_3))) _SAGE_VAR_w_0 _SAGE_VAR_X_3)
+  d_SAGE_VAR_u_3
+                       d
+/_SAGE_VAR_r_0 + -------------- (m(_SAGE_VAR_u_3))))
+                 d_SAGE_VAR_u_3
+limit as                                  _SAGE_VAR_X_3 -> 0
+ -->                                             d
+- (limit                          (- (-------------- (b(_SAGE_VAR_u_3)))
+   _SAGE_VAR_u_3 -> _SAGE_VAR_u_1     d_SAGE_VAR_u_3
  (- (_SAGE_VAR_r_0 c_1(_SAGE_VAR_u_2) c_1(_SAGE_VAR_u_3) _SAGE_VAR_w_1
  + _SAGE_VAR_r_1 c_0(_SAGE_VAR_u_2) c_0(_SAGE_VAR_u_3) _SAGE_VAR_w_0)
  _SAGE_VAR_X_2 - (_SAGE_VAR_r_0 c_1(_SAGE_VAR_u_1) c_1(_SAGE_VAR_u_3)
@@ -362,80 +362,6 @@ The invasion rate for mutant population is:
   \mathscr I = \frac{1}{X_{3}}\frac{dX_{3}}{dt} &= {\left(\frac{{\left(K_{0} r_{0} - X_{0} c_{0}\left(u_{0}\right) - X_{1} c_{0}\left(u_{1}\right) - X_{2} c_{0}\left(u_{2}\right) - X_{3} c_{0}\left(u_{3}\right)\right)} w_{0} c_{0}\left(u_{3}\right)}{r_{0}} + \frac{{\left(K_{1} r_{1} - X_{0} c_{1}\left(u_{0}\right) - X_{1} c_{1}\left(u_{1}\right) - X_{2} c_{1}\left(u_{2}\right) - X_{3} c_{1}\left(u_{3}\right)\right)} w_{1} c_{1}\left(u_{3}\right)}{r_{1}} - m\left(u_{3}\right)\right)} b\left(u_{3}\right) 
 \end{align*}
 
-limit as {u_3: u_1}
-after those limits:
-   limit(-(X_3*w_0*c_0(u_3)*D[0](c_0)(u_3)/r_0 + X_3*w_1*c_1(u_3)*D[0](c_1)(u_3)/r_1 - (K_0*r_0 - X_0*c_0(u_0) - X_1*c_0(u_1) - X_2*c_0(u_2) - X_3*c_0(u_3))*w_0*D[0](c_0)(u_3)/r_0 - (K_1*r_1 - X_0*c_1(u_0) - X_1*c_1(u_1) - X_2*c_1(u_2) - X_3*c_1(u_3))*w_1*D[0](c_1)(u_3)/r_1 + D[0](m)(u_3))*b(u_3) + ((K_0*r_0 - X_0*c_0(u_0) - X_1*c_0(u_1) - X_2*c_0(u_2) - X_3*c_0(u_3))*w_0*c_0(u_3)/r_0 + (K_1*r_1 - X_0*c_1(u_0) - X_1*c_1(u_1) - X_2*c_1(u_2) - X_3*c_1(u_3))*w_1*c_1(u_3)/r_1 - m(u_3))*D[0](b)(u_3), u_3, u_1)
-                                       d
-limit                          ((-------------- (b(_SAGE_VAR_u_3)))
-_SAGE_VAR_u_3 -> _SAGE_VAR_u_1   d_SAGE_VAR_u_3
- ((c_1(_SAGE_VAR_u_3) _SAGE_VAR_w_1 (- c_1(_SAGE_VAR_u_3) _SAGE_VAR_X_3
- - c_1(_SAGE_VAR_u_2) _SAGE_VAR_X_2 - c_1(_SAGE_VAR_u_1) _SAGE_VAR_X_1
- - c_1(_SAGE_VAR_u_0) _SAGE_VAR_X_0 + _SAGE_VAR_r_1 _SAGE_VAR_K_1))
-/_SAGE_VAR_r_1 + (c_0(_SAGE_VAR_u_3) _SAGE_VAR_w_0
- (- c_0(_SAGE_VAR_u_3) _SAGE_VAR_X_3 - c_0(_SAGE_VAR_u_2) _SAGE_VAR_X_2
- - c_0(_SAGE_VAR_u_1) _SAGE_VAR_X_1 - c_0(_SAGE_VAR_u_0) _SAGE_VAR_X_0
- + _SAGE_VAR_r_0 _SAGE_VAR_K_0))/_SAGE_VAR_r_0 - m(_SAGE_VAR_u_3))
-                               d
- - b(_SAGE_VAR_u_3) (- ((-------------- (c_1(_SAGE_VAR_u_3))) _SAGE_VAR_w_1
-                         d_SAGE_VAR_u_3
- (- c_1(_SAGE_VAR_u_3) _SAGE_VAR_X_3 - c_1(_SAGE_VAR_u_2) _SAGE_VAR_X_2
- - c_1(_SAGE_VAR_u_1) _SAGE_VAR_X_1 - c_1(_SAGE_VAR_u_0) _SAGE_VAR_X_0
- + _SAGE_VAR_r_1 _SAGE_VAR_K_1))/_SAGE_VAR_r_1
-           d
- - ((-------------- (c_0(_SAGE_VAR_u_3))) _SAGE_VAR_w_0
-     d_SAGE_VAR_u_3
- (- c_0(_SAGE_VAR_u_3) _SAGE_VAR_X_3 - c_0(_SAGE_VAR_u_2) _SAGE_VAR_X_2
- - c_0(_SAGE_VAR_u_1) _SAGE_VAR_X_1 - c_0(_SAGE_VAR_u_0) _SAGE_VAR_X_0
- + _SAGE_VAR_r_0 _SAGE_VAR_K_0))/_SAGE_VAR_r_0
-                              d
- + (c_1(_SAGE_VAR_u_3) (-------------- (c_1(_SAGE_VAR_u_3))) _SAGE_VAR_w_1
-                        d_SAGE_VAR_u_3
- _SAGE_VAR_X_3)/_SAGE_VAR_r_1 + (c_0(_SAGE_VAR_u_3)
-        d
- (-------------- (c_0(_SAGE_VAR_u_3))) _SAGE_VAR_w_0 _SAGE_VAR_X_3)
-  d_SAGE_VAR_u_3
-                       d
-/_SAGE_VAR_r_0 + -------------- (m(_SAGE_VAR_u_3))))
-                 d_SAGE_VAR_u_3
-limit as                                  _SAGE_VAR_X_3 -> 0
- -->                                             d
-- (limit                          (- (-------------- (b(_SAGE_VAR_u_3)))
-   _SAGE_VAR_u_3 -> _SAGE_VAR_u_1     d_SAGE_VAR_u_3
- (- (_SAGE_VAR_r_0 c_1(_SAGE_VAR_u_2) c_1(_SAGE_VAR_u_3) _SAGE_VAR_w_1
- + _SAGE_VAR_r_1 c_0(_SAGE_VAR_u_2) c_0(_SAGE_VAR_u_3) _SAGE_VAR_w_0)
- _SAGE_VAR_X_2 - (_SAGE_VAR_r_0 c_1(_SAGE_VAR_u_1) c_1(_SAGE_VAR_u_3)
- _SAGE_VAR_w_1 + _SAGE_VAR_r_1 c_0(_SAGE_VAR_u_1) c_0(_SAGE_VAR_u_3)
- _SAGE_VAR_w_0) _SAGE_VAR_X_1 - (_SAGE_VAR_r_0 c_1(_SAGE_VAR_u_0)
- c_1(_SAGE_VAR_u_3) _SAGE_VAR_w_1 + _SAGE_VAR_r_1 c_0(_SAGE_VAR_u_0)
- c_0(_SAGE_VAR_u_3) _SAGE_VAR_w_0) _SAGE_VAR_X_0
- + _SAGE_VAR_r_0 _SAGE_VAR_r_1 c_1(_SAGE_VAR_u_3) _SAGE_VAR_w_1 _SAGE_VAR_K_1
- + _SAGE_VAR_r_0 _SAGE_VAR_r_1 c_0(_SAGE_VAR_u_3) _SAGE_VAR_w_0 _SAGE_VAR_K_0
- - _SAGE_VAR_r_0 _SAGE_VAR_r_1 m(_SAGE_VAR_u_3))
-          d
- - (-------------- (c_1(_SAGE_VAR_u_3)))
-    d_SAGE_VAR_u_3
- (- _SAGE_VAR_r_0 c_1(_SAGE_VAR_u_2) b(_SAGE_VAR_u_3) _SAGE_VAR_w_1
- _SAGE_VAR_X_2 - _SAGE_VAR_r_0 c_1(_SAGE_VAR_u_1) b(_SAGE_VAR_u_3)
- _SAGE_VAR_w_1 _SAGE_VAR_X_1 - _SAGE_VAR_r_0 c_1(_SAGE_VAR_u_0)
- b(_SAGE_VAR_u_3) _SAGE_VAR_w_1 _SAGE_VAR_X_0
- + _SAGE_VAR_r_0 _SAGE_VAR_r_1 b(_SAGE_VAR_u_3) _SAGE_VAR_w_1 _SAGE_VAR_K_1)
-          d
- - (-------------- (c_0(_SAGE_VAR_u_3)))
-    d_SAGE_VAR_u_3
- (- _SAGE_VAR_r_1 c_0(_SAGE_VAR_u_2) b(_SAGE_VAR_u_3) _SAGE_VAR_w_0
- _SAGE_VAR_X_2 - _SAGE_VAR_r_1 c_0(_SAGE_VAR_u_1) b(_SAGE_VAR_u_3)
- _SAGE_VAR_w_0 _SAGE_VAR_X_1 - _SAGE_VAR_r_1 c_0(_SAGE_VAR_u_0)
- b(_SAGE_VAR_u_3) _SAGE_VAR_w_0 _SAGE_VAR_X_0
- + _SAGE_VAR_r_0 _SAGE_VAR_r_1 b(_SAGE_VAR_u_3) _SAGE_VAR_w_0 _SAGE_VAR_K_0)
- + _SAGE_VAR_r_0 _SAGE_VAR_r_1 b(_SAGE_VAR_u_3)
-        d
- (-------------- (m(_SAGE_VAR_u_3)))))/(_SAGE_VAR_r_0 _SAGE_VAR_r_1)
-  d_SAGE_VAR_u_3
-The invasion rate for mutant population is:
-\begin{align*}
-  \mathscr I = \frac{1}{X_{3}}\frac{dX_{3}}{dt} &= {\left(\frac{{\left(K_{0} r_{0} - X_{0} c_{0}\left(u_{0}\right) - X_{1} c_{0}\left(u_{1}\right) - X_{2} c_{0}\left(u_{2}\right) - X_{3} c_{0}\left(u_{3}\right)\right)} w_{0} c_{0}\left(u_{3}\right)}{r_{0}} + \frac{{\left(K_{1} r_{1} - X_{0} c_{1}\left(u_{0}\right) - X_{1} c_{1}\left(u_{1}\right) - X_{2} c_{1}\left(u_{2}\right) - X_{3} c_{1}\left(u_{3}\right)\right)} w_{1} c_{1}\left(u_{3}\right)}{r_{1}} - m\left(u_{3}\right)\right)} b\left(u_{3}\right) 
-\end{align*}
-
 limit as {u_3: u_0}
 after those limits:
    limit(-(X_3*w_0*c_0(u_3)*D[0](c_0)(u_3)/r_0 + X_3*w_1*c_1(u_3)*D[0](c_1)(u_3)/r_1 - (K_0*r_0 - X_0*c_0(u_0) - X_1*c_0(u_1) - X_2*c_0(u_2) - X_3*c_0(u_3))*w_0*D[0](c_0)(u_3)/r_0 - (K_1*r_1 - X_0*c_1(u_0) - X_1*c_1(u_1) - X_2*c_1(u_2) - X_3*c_1(u_3))*w_1*D[0](c_1)(u_3)/r_1 + D[0](m)(u_3))*b(u_3) + ((K_0*r_0 - X_0*c_0(u_0) - X_1*c_0(u_1) - X_2*c_0(u_2) - X_3*c_0(u_3))*w_0*c_0(u_3)/r_0 + (K_1*r_1 - X_0*c_1(u_0) - X_1*c_1(u_1) - X_2*c_1(u_2) - X_3*c_1(u_3))*w_1*c_1(u_3)/r_1 - m(u_3))*D[0](b)(u_3), u_3, u_0)
@@ -475,6 +401,80 @@ limit as                                  _SAGE_VAR_X_3 -> 0
  -->                                             d
 - (limit                          (- (-------------- (b(_SAGE_VAR_u_3)))
    _SAGE_VAR_u_3 -> _SAGE_VAR_u_0     d_SAGE_VAR_u_3
+ (- (_SAGE_VAR_r_0 c_1(_SAGE_VAR_u_2) c_1(_SAGE_VAR_u_3) _SAGE_VAR_w_1
+ + _SAGE_VAR_r_1 c_0(_SAGE_VAR_u_2) c_0(_SAGE_VAR_u_3) _SAGE_VAR_w_0)
+ _SAGE_VAR_X_2 - (_SAGE_VAR_r_0 c_1(_SAGE_VAR_u_1) c_1(_SAGE_VAR_u_3)
+ _SAGE_VAR_w_1 + _SAGE_VAR_r_1 c_0(_SAGE_VAR_u_1) c_0(_SAGE_VAR_u_3)
+ _SAGE_VAR_w_0) _SAGE_VAR_X_1 - (_SAGE_VAR_r_0 c_1(_SAGE_VAR_u_0)
+ c_1(_SAGE_VAR_u_3) _SAGE_VAR_w_1 + _SAGE_VAR_r_1 c_0(_SAGE_VAR_u_0)
+ c_0(_SAGE_VAR_u_3) _SAGE_VAR_w_0) _SAGE_VAR_X_0
+ + _SAGE_VAR_r_0 _SAGE_VAR_r_1 c_1(_SAGE_VAR_u_3) _SAGE_VAR_w_1 _SAGE_VAR_K_1
+ + _SAGE_VAR_r_0 _SAGE_VAR_r_1 c_0(_SAGE_VAR_u_3) _SAGE_VAR_w_0 _SAGE_VAR_K_0
+ - _SAGE_VAR_r_0 _SAGE_VAR_r_1 m(_SAGE_VAR_u_3))
+          d
+ - (-------------- (c_1(_SAGE_VAR_u_3)))
+    d_SAGE_VAR_u_3
+ (- _SAGE_VAR_r_0 c_1(_SAGE_VAR_u_2) b(_SAGE_VAR_u_3) _SAGE_VAR_w_1
+ _SAGE_VAR_X_2 - _SAGE_VAR_r_0 c_1(_SAGE_VAR_u_1) b(_SAGE_VAR_u_3)
+ _SAGE_VAR_w_1 _SAGE_VAR_X_1 - _SAGE_VAR_r_0 c_1(_SAGE_VAR_u_0)
+ b(_SAGE_VAR_u_3) _SAGE_VAR_w_1 _SAGE_VAR_X_0
+ + _SAGE_VAR_r_0 _SAGE_VAR_r_1 b(_SAGE_VAR_u_3) _SAGE_VAR_w_1 _SAGE_VAR_K_1)
+          d
+ - (-------------- (c_0(_SAGE_VAR_u_3)))
+    d_SAGE_VAR_u_3
+ (- _SAGE_VAR_r_1 c_0(_SAGE_VAR_u_2) b(_SAGE_VAR_u_3) _SAGE_VAR_w_0
+ _SAGE_VAR_X_2 - _SAGE_VAR_r_1 c_0(_SAGE_VAR_u_1) b(_SAGE_VAR_u_3)
+ _SAGE_VAR_w_0 _SAGE_VAR_X_1 - _SAGE_VAR_r_1 c_0(_SAGE_VAR_u_0)
+ b(_SAGE_VAR_u_3) _SAGE_VAR_w_0 _SAGE_VAR_X_0
+ + _SAGE_VAR_r_0 _SAGE_VAR_r_1 b(_SAGE_VAR_u_3) _SAGE_VAR_w_0 _SAGE_VAR_K_0)
+ + _SAGE_VAR_r_0 _SAGE_VAR_r_1 b(_SAGE_VAR_u_3)
+        d
+ (-------------- (m(_SAGE_VAR_u_3)))))/(_SAGE_VAR_r_0 _SAGE_VAR_r_1)
+  d_SAGE_VAR_u_3
+The invasion rate for mutant population is:
+\begin{align*}
+  \mathscr I = \frac{1}{X_{3}}\frac{dX_{3}}{dt} &= {\left(\frac{{\left(K_{0} r_{0} - X_{0} c_{0}\left(u_{0}\right) - X_{1} c_{0}\left(u_{1}\right) - X_{2} c_{0}\left(u_{2}\right) - X_{3} c_{0}\left(u_{3}\right)\right)} w_{0} c_{0}\left(u_{3}\right)}{r_{0}} + \frac{{\left(K_{1} r_{1} - X_{0} c_{1}\left(u_{0}\right) - X_{1} c_{1}\left(u_{1}\right) - X_{2} c_{1}\left(u_{2}\right) - X_{3} c_{1}\left(u_{3}\right)\right)} w_{1} c_{1}\left(u_{3}\right)}{r_{1}} - m\left(u_{3}\right)\right)} b\left(u_{3}\right) 
+\end{align*}
+
+limit as {u_3: u_1}
+after those limits:
+   limit(-(X_3*w_0*c_0(u_3)*D[0](c_0)(u_3)/r_0 + X_3*w_1*c_1(u_3)*D[0](c_1)(u_3)/r_1 - (K_0*r_0 - X_0*c_0(u_0) - X_1*c_0(u_1) - X_2*c_0(u_2) - X_3*c_0(u_3))*w_0*D[0](c_0)(u_3)/r_0 - (K_1*r_1 - X_0*c_1(u_0) - X_1*c_1(u_1) - X_2*c_1(u_2) - X_3*c_1(u_3))*w_1*D[0](c_1)(u_3)/r_1 + D[0](m)(u_3))*b(u_3) + ((K_0*r_0 - X_0*c_0(u_0) - X_1*c_0(u_1) - X_2*c_0(u_2) - X_3*c_0(u_3))*w_0*c_0(u_3)/r_0 + (K_1*r_1 - X_0*c_1(u_0) - X_1*c_1(u_1) - X_2*c_1(u_2) - X_3*c_1(u_3))*w_1*c_1(u_3)/r_1 - m(u_3))*D[0](b)(u_3), u_3, u_1)
+                                       d
+limit                          ((-------------- (b(_SAGE_VAR_u_3)))
+_SAGE_VAR_u_3 -> _SAGE_VAR_u_1   d_SAGE_VAR_u_3
+ ((c_1(_SAGE_VAR_u_3) _SAGE_VAR_w_1 (- c_1(_SAGE_VAR_u_3) _SAGE_VAR_X_3
+ - c_1(_SAGE_VAR_u_2) _SAGE_VAR_X_2 - c_1(_SAGE_VAR_u_1) _SAGE_VAR_X_1
+ - c_1(_SAGE_VAR_u_0) _SAGE_VAR_X_0 + _SAGE_VAR_r_1 _SAGE_VAR_K_1))
+/_SAGE_VAR_r_1 + (c_0(_SAGE_VAR_u_3) _SAGE_VAR_w_0
+ (- c_0(_SAGE_VAR_u_3) _SAGE_VAR_X_3 - c_0(_SAGE_VAR_u_2) _SAGE_VAR_X_2
+ - c_0(_SAGE_VAR_u_1) _SAGE_VAR_X_1 - c_0(_SAGE_VAR_u_0) _SAGE_VAR_X_0
+ + _SAGE_VAR_r_0 _SAGE_VAR_K_0))/_SAGE_VAR_r_0 - m(_SAGE_VAR_u_3))
+                               d
+ - b(_SAGE_VAR_u_3) (- ((-------------- (c_1(_SAGE_VAR_u_3))) _SAGE_VAR_w_1
+                         d_SAGE_VAR_u_3
+ (- c_1(_SAGE_VAR_u_3) _SAGE_VAR_X_3 - c_1(_SAGE_VAR_u_2) _SAGE_VAR_X_2
+ - c_1(_SAGE_VAR_u_1) _SAGE_VAR_X_1 - c_1(_SAGE_VAR_u_0) _SAGE_VAR_X_0
+ + _SAGE_VAR_r_1 _SAGE_VAR_K_1))/_SAGE_VAR_r_1
+           d
+ - ((-------------- (c_0(_SAGE_VAR_u_3))) _SAGE_VAR_w_0
+     d_SAGE_VAR_u_3
+ (- c_0(_SAGE_VAR_u_3) _SAGE_VAR_X_3 - c_0(_SAGE_VAR_u_2) _SAGE_VAR_X_2
+ - c_0(_SAGE_VAR_u_1) _SAGE_VAR_X_1 - c_0(_SAGE_VAR_u_0) _SAGE_VAR_X_0
+ + _SAGE_VAR_r_0 _SAGE_VAR_K_0))/_SAGE_VAR_r_0
+                              d
+ + (c_1(_SAGE_VAR_u_3) (-------------- (c_1(_SAGE_VAR_u_3))) _SAGE_VAR_w_1
+                        d_SAGE_VAR_u_3
+ _SAGE_VAR_X_3)/_SAGE_VAR_r_1 + (c_0(_SAGE_VAR_u_3)
+        d
+ (-------------- (c_0(_SAGE_VAR_u_3))) _SAGE_VAR_w_0 _SAGE_VAR_X_3)
+  d_SAGE_VAR_u_3
+                       d
+/_SAGE_VAR_r_0 + -------------- (m(_SAGE_VAR_u_3))))
+                 d_SAGE_VAR_u_3
+limit as                                  _SAGE_VAR_X_3 -> 0
+ -->                                             d
+- (limit                          (- (-------------- (b(_SAGE_VAR_u_3)))
+   _SAGE_VAR_u_3 -> _SAGE_VAR_u_1     d_SAGE_VAR_u_3
  (- (_SAGE_VAR_r_0 c_1(_SAGE_VAR_u_2) c_1(_SAGE_VAR_u_3) _SAGE_VAR_w_1
  + _SAGE_VAR_r_1 c_0(_SAGE_VAR_u_2) c_0(_SAGE_VAR_u_3) _SAGE_VAR_w_0)
  _SAGE_VAR_X_2 - (_SAGE_VAR_r_0 c_1(_SAGE_VAR_u_1) c_1(_SAGE_VAR_u_3)

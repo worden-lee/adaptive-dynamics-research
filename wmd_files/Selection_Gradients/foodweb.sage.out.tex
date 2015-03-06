@@ -35,8 +35,18 @@
 \begin{document}
 The foodweb model:
 \[\begin{align*}
-\frac{dX_{ b 0 }}{dt} &= X_{ a 0 } X_{ b 0 } k a\left(u_{ b 0 }, u_{ a 0 }\right)\\
-\frac{dX_{ a 0 }}{dt} &= -X_{ a 0 } X_{ b 0 } a\left(u_{ b 0 }, u_{ a 0 }\right) + X_{ a 0 } r
+\frac{dX_{ b 0 }}{dt} &= \frac{1}{3} \, X_{ a 0 } X_{ b 0 } {\left(\cos\left(-u_{ a 0 } + u_{ b 0 }\right) + 1\right)} - X_{ b 0 }\\
+\frac{dX_{ a 0 }}{dt} &= -X_{ a 0 } X_{ b 0 } {\left(\cos\left(-u_{ a 0 } + u_{ b 0 }\right) + 1\right)} - X_{ a 0 }^{2} + X_{ a 0 }
 \end{align*}\]
-
+Adaptive dynamics of model:
+\begin{align*}
+\frac{du_{ a 0 }}{dt} &= -\frac{3 \, {\left(\cos\left(-u_{ a 0 } + u_{ b 0 }\right) - 2\right)} \sin\left(-u_{ a 0 } + u_{ b 0 }\right)}{{\left(\cos\left(-u_{ a 0 } + u_{ b 0 }\right)^{2} + 2 \, \cos\left(-u_{ a 0 } + u_{ b 0 }\right) + 1\right)} {\left(\cos\left(-u_{ a 0 } + u_{ b 0 }\right) + 1\right)}}\\
+\frac{du_{ b 0 }}{dt} &= -\frac{{\left(\cos\left(-u_{ a 0 } + u_{ b 0 }\right) - 2\right)} \sin\left(-u_{ a 0 } + u_{ b 0 }\right)}{{\left(\cos\left(-u_{ a 0 } + u_{ b 0 }\right)^{2} + 2 \, \cos\left(-u_{ a 0 } + u_{ b 0 }\right) + 1\right)} {\left(\cos\left(-u_{ a 0 } + u_{ b 0 }\right) + 1\right)}}
+\end{align*}flow at $\left(\begin{array}{c}
+  0.100000000000000\\
+  0
+\end{array}\right)$: $\left(\begin{array}{c}
+  -0.0379079265656531\\
+  -0.0126359755218844
+\end{array}\right)$
 \end{document}

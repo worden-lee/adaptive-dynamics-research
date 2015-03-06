@@ -91,18 +91,18 @@ export SageDynamics         = $(realpath $(SageDynamicsRepo)/SageDynamics)
 export SageAdaptiveDynamics = $(realpath $(SageDynamicsRepo)/SageAdaptiveDynamics)
  
 # When we need something from the upstream projects, make it there
-$(SageDynamics)/% : /proc/uptime
+$(SageDynamics)/% : <a href='/adaptive-dynamics-research/wmd_files/Selection_Gradients//proc/uptime'>/proc/uptime</a>
 	$(MAKE) --no-print-directory -C $(SageDynamics) $*
  
-$(SageAdaptiveDynamics)/% : /proc/uptime
+$(SageAdaptiveDynamics)/% : <a href='/adaptive-dynamics-research/wmd_files/Selection_Gradients//proc/uptime'>/proc/uptime</a>
 	$(MAKE) --no-print-directory -C $(SageAdaptiveDynamics) $*
  
 # The good makefile stuff is upstream, just reuse it
--include $(SageUtils)/sage.mk
--include $(SageUtils)/step.mk
+<a href='/adaptive-dynamics-research/wmd_files/Selection_Gradients/-include'>-include</a> $(SageUtils)/sage.mk
+<a href='/adaptive-dynamics-research/wmd_files/Selection_Gradients/-include'>-include</a> $(SageUtils)/step.mk
 </pre></div></fieldset></p>
 
-<p><!-- sage-inline.mk --><fieldset class="ww-project-file-source ww-collapsible"><legend><span>sage-inline.mk</span></legend><div class="ww-collapsible-content"><pre>%.sage.step : %.sage-inline sage-inline.mk
+<p><!-- sage-inline.mk --><fieldset class="ww-project-file-source ww-collapsible"><legend><span>sage-inline.mk</span></legend><div class="ww-collapsible-content"><pre>%.sage.step : %.sage-inline <a href='/adaptive-dynamics-research/wmd_files/Selection_Gradients/sage-inline.mk'>sage-inline.mk</a>
 	echo '# produces: $*.sage.out.tex' > $@
 	echo 'import os' >> $@
 	echo 'import sys' >> $@
@@ -114,8 +114,8 @@ $(SageAdaptiveDynamics)/% : /proc/uptime
 
 WW_SI_SOURCE_FILES = $(filter %.sage-inline,$(WW_THIS_PROJECT_SOURCE_FILES))
 WW_SI_MK_FILES = $(patsubst %.sage-inline,%.sage.mk,$(WW_SI_SOURCE_FILES))
-$(info Including .mk files from .sage-inline files: $(WW_SI_MK_FILES))
-include $(WW_SI_MK_FILES)
+$(info <a href='/adaptive-dynamics-research/wmd_files/Selection_Gradients/Including'>Including</a> <a href='/adaptive-dynamics-research/wmd_files/Selection_Gradients/.mk'>.mk</a> <a href='/adaptive-dynamics-research/wmd_files/Selection_Gradients/files'>files</a> <a href='/adaptive-dynamics-research/wmd_files/Selection_Gradients/from'>from</a> <a href='/adaptive-dynamics-research/wmd_files/Selection_Gradients/.sage-inline'>.sage-inline</a> <a href='/adaptive-dynamics-research/wmd_files/Selection_Gradients/files'>files</a>: $(WW_SI_MK_FILES))
+<a href='/adaptive-dynamics-research/wmd_files/Selection_Gradients/include'>include</a> $(WW_SI_MK_FILES)
 </pre></div></fieldset></p>
 
 
