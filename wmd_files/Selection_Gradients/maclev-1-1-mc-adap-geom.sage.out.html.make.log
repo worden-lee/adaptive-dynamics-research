@@ -1,4 +1,4 @@
-Thu Mar  5 15:24:24 2015
+Mon Mar 30 10:44:46 2015
 /usr/bin/make -C /usr/local/src/jekyll-research/wmd_files/Selection_Gradients \
     maclev-1-1-mc-adap-geom.sage.out.html
 Including .mk files: sage.mk sage-inline.mk 
@@ -14,6 +14,189 @@ make[1]: Nothing to be done for `adaptivedynamics.py'.
 Including .mk files:  
 Including .tex.d files: 
 make[1]: Nothing to be done for `dynamicalsystems.py'.
+rm -f maclev-1-1-mc-adap-geom.sage.out maclev-1-1-mc-adap-geom.sage.status maclev-1-1-mc-adap-geom.sobj maclev-1-1-mc.png maclev-1-1-mc-adap-geom.sage.out.tex
+(sage maclev-1-1-mc-adap-geom.sage && touch maclev-1-1-mc-adap-geom.sage.status) | tee maclev-1-1-mc-adap-geom.sage.dmp
+The invasion rate for mutant population is:
+\begin{align*}
+  \mathscr I = \frac{1}{X_{1}}\frac{dX_{1}}{dt} &= -{\left(\frac{{\left(X_{0} c_{00} + X_{1} c_{10} - K_{0} r_{0}\right)} c_{10} w_{0}}{r_{0}} + m_{1}\right)} b_{1} 
+\end{align*}
+
+limit as {m_1: m_0, c_1_0: c_0_0, b_1: b_0}
+after those limits:
+   K_0*c_0_0*w_0 - X_0*c_0_0^2*w_0/r_0 - X_1*c_0_0^2*w_0/r_0 - m_0
+  -b_0
+  -(X_0*b_0*c_0_0*w_0 + 2*X_1*b_0*c_0_0*w_0 - K_0*b_0*r_0*w_0)/r_0
+                 2
+  _SAGE_VAR_c_0_0  _SAGE_VAR_w_0 _SAGE_VAR_X_1
+- --------------------------------------------
+                 _SAGE_VAR_r_0
+                  2
+   _SAGE_VAR_c_0_0  _SAGE_VAR_w_0 _SAGE_VAR_X_0
+ - --------------------------------------------
+                  _SAGE_VAR_r_0
+ + _SAGE_VAR_c_0_0 _SAGE_VAR_w_0 _SAGE_VAR_K_0 - _SAGE_VAR_m_0
+limit as                                  _SAGE_VAR_X_1 -> 0
+ -->                   2
+- (_SAGE_VAR_c_0_0  _SAGE_VAR_w_0 _SAGE_VAR_X_0
+ - _SAGE_VAR_c_0_0 _SAGE_VAR_r_0 _SAGE_VAR_w_0 _SAGE_VAR_K_0
+ + _SAGE_VAR_m_0 _SAGE_VAR_r_0)/_SAGE_VAR_r_0
+Original pop-dyn system: 
+\[\begin{align*}
+\frac{dX_{0}}{dt} &= -{\left(\frac{{\left(X_{0} c_{00} - K_{0} r_{0}\right)} c_{00} w_{0}}{r_{0}} + m_{0}\right)} X_{0} b_{0}
+\end{align*}\]
+Extended pop-dyn system: 
+\[\begin{align*}
+\frac{dX_{0}}{dt} &= -{\left(\frac{{\left(X_{0} c_{00} + X_{1} c_{10} - K_{0} r_{0}\right)} c_{00} w_{0}}{r_{0}} + m_{0}\right)} X_{0} b_{0}\\
+\frac{dX_{1}}{dt} &= -{\left(\frac{{\left(X_{0} c_{00} + X_{1} c_{10} - K_{0} r_{0}\right)} c_{10} w_{0}}{r_{0}} + m_{1}\right)} X_{1} b_{1}
+\end{align*}\]
+ The invasion rate for mutant population is:
+\begin{align*}
+  \mathscr I = \frac{1}{X_{1}}\frac{dX_{1}}{dt} &= -{\left(\frac{{\left(X_{0} c_{00} + X_{1} c_{10} - K_{0} r_{0}\right)} c_{10} w_{0}}{r_{0}} + m_{1}\right)} b_{1} 
+\end{align*}
+ And the invasion exponent is
+\begin{align*}
+  \frac{\partial\mathscr I}{\partial b_{0}} = \lim_{b_{1}\to b_{0},m_{1}\to m_{0},c_{10}\to c_{00},X_{1}\to0}-\frac{{\left(X_{0} c_{00} + X_{1} c_{10} - K_{0} r_{0}\right)} c_{10} w_{0}}{r_{0}} - m_{1}\\
+  \frac{\partial\mathscr I}{\partial m_{0}} = \lim_{b_{1}\to b_{0},m_{1}\to m_{0},c_{10}\to c_{00},X_{1}\to0}-b_{1}\\
+  \frac{\partial\mathscr I}{\partial c_{00}} = \lim_{b_{1}\to b_{0},m_{1}\to m_{0},c_{10}\to c_{00},X_{1}\to0}-{\left(\frac{X_{1} c_{10} w_{0}}{r_{0}} + \frac{{\left(X_{0} c_{00} + X_{1} c_{10} - K_{0} r_{0}\right)} w_{0}}{r_{0}}\right)} b_{1} .
+\end{align*}
+ Which comes out to
+\begin{align*}
+  \frac{\partial\mathscr I}{\partial b_{0}} = -\frac{X_{0} c_{00}^{2} w_{0} - K_{0} c_{00} r_{0} w_{0} + m_{0} r_{0}}{r_{0}}\\
+  \frac{\partial\mathscr I}{\partial m_{0}} = -b_{0}\\
+  \frac{\partial\mathscr I}{\partial c_{00}} = -\frac{X_{0} b_{0} c_{00} w_{0} - K_{0} b_{0} r_{0} w_{0}}{r_{0}} .
+\end{align*}
+ \[ \mathbf S \left(\begin{array}{c}
+  m_{0}\\
+  b_{0}\\
+  c_{00}
+\end{array}\right) = \left(\begin{array}{c}
+  -b_{0}\\
+  -\frac{\hat{X}_{0} c_{00}^{2} w_{0} - K_{0} c_{00} r_{0} w_{0} + m_{0} r_{0}}{r_{0}}\\
+  -\frac{\hat{X}_{0} b_{0} c_{00} w_{0} - K_{0} b_{0} r_{0} w_{0}}{r_{0}}
+\end{array}\right) \]
+ Equilibrium of the population dynamics: 
+\[ \begin{align*}
+  \hat{X}_{0} &\to \frac{K_{0} c_{00} r_{0} w_{0} - m_{0} r_{0}}{c_{00}^{2} w_{0}}
+\end{align*} \]
+ The adaptive dynamics comes out to 
+\[ \begin{align*}
+\frac{dm_{0}}{dt} &= -\frac{{\left(K_{0} c_{00} r_{0} w_{0} - m_{0} r_{0}\right)} b_{0} \gamma}{c_{00}^{2} w_{0}}\\
+\frac{db_{0}}{dt} &= 0\\
+\frac{dc_{00}}{dt} &= \frac{{\left(K_{0} b_{0} r_{0} w_{0} - \frac{{\left(K_{0} c_{00} r_{0} w_{0} - m_{0} r_{0}\right)} b_{0}}{c_{00}}\right)} {\left(K_{0} c_{00} r_{0} w_{0} - m_{0} r_{0}\right)} \gamma}{c_{00}^{2} r_{0} w_{0}}
+\end{align*} \]
+
+The invasion rate for mutant population is:
+\begin{align*}
+  \mathscr I = \frac{1}{X_{1}}\frac{dX_{1}}{dt} &= \frac{{\left(K_{0} r_{0} - X_{0} u_{0} - X_{1} u_{1}\right)} u_{1} w_{0}}{r_{0}} - 1 
+\end{align*}
+
+limit as {u_1: u_0}
+after those limits:
+   (K_0*r_0*w_0 - X_0*u_0*w_0 - 2*X_1*u_0*w_0)/r_0
+(- 2 _SAGE_VAR_u_0 _SAGE_VAR_w_0 _SAGE_VAR_X_1
+ - _SAGE_VAR_u_0 _SAGE_VAR_w_0 _SAGE_VAR_X_0
+ + _SAGE_VAR_r_0 _SAGE_VAR_w_0 _SAGE_VAR_K_0)/_SAGE_VAR_r_0
+limit as                                  _SAGE_VAR_X_1 -> 0
+ --> (_SAGE_VAR_r_0 _SAGE_VAR_w_0 _SAGE_VAR_K_0
+                     - _SAGE_VAR_u_0 _SAGE_VAR_w_0 _SAGE_VAR_X_0)/_SAGE_VAR_r_0
+Original pop-dyn system: 
+\[\begin{align*}
+\frac{dX_{0}}{dt} &= {\left(\frac{{\left(K_{0} r_{0} - X_{0} u_{0}\right)} u_{0} w_{0}}{r_{0}} - 1\right)} X_{0}
+\end{align*}\]
+Extended pop-dyn system: 
+\[\begin{align*}
+\frac{dX_{0}}{dt} &= {\left(\frac{{\left(K_{0} r_{0} - X_{0} u_{0} - X_{1} u_{1}\right)} u_{0} w_{0}}{r_{0}} - 1\right)} X_{0}\\
+\frac{dX_{1}}{dt} &= {\left(\frac{{\left(K_{0} r_{0} - X_{0} u_{0} - X_{1} u_{1}\right)} u_{1} w_{0}}{r_{0}} - 1\right)} X_{1}
+\end{align*}\]
+ The invasion rate for mutant population is:
+\begin{align*}
+  \mathscr I = \frac{1}{X_{1}}\frac{dX_{1}}{dt} &= \frac{{\left(K_{0} r_{0} - X_{0} u_{0} - X_{1} u_{1}\right)} u_{1} w_{0}}{r_{0}} - 1 
+\end{align*}
+ And the invasion exponent is
+\begin{align*}
+  \frac{\partial\mathscr I}{\partial u_{0}} = \lim_{u_{1}\to u_{0},X_{1}\to0}-\frac{X_{1} u_{1} w_{0}}{r_{0}} + \frac{{\left(K_{0} r_{0} - X_{0} u_{0} - X_{1} u_{1}\right)} w_{0}}{r_{0}} .
+\end{align*}
+ Which comes out to
+\begin{align*}
+  \frac{\partial\mathscr I}{\partial u_{0}} = \frac{K_{0} r_{0} w_{0} - X_{0} u_{0} w_{0}}{r_{0}} .
+\end{align*}
+ \[ \mathbf S \left(\begin{array}{c}
+  u_{0}
+\end{array}\right) = \left(\begin{array}{c}
+  \frac{K_{0} r_{0} w_{0} - \hat{X}_{0} u_{0} w_{0}}{r_{0}}
+\end{array}\right) \]
+ Equilibrium of the population dynamics: 
+\[ \begin{align*}
+  \hat{X}_{0} &\to \frac{K_{0} r_{0} u_{0} w_{0} - r_{0}}{u_{0}^{2} w_{0}}
+\end{align*} \]
+ The adaptive dynamics comes out to 
+\[ \begin{align*}
+\frac{du_{0}}{dt} &= \frac{{\left(K_{0} r_{0} u_{0} w_{0} - r_{0}\right)} {\left(K_{0} r_{0} w_{0} - \frac{K_{0} r_{0} u_{0} w_{0} - r_{0}}{u_{0}}\right)} \gamma}{r_{0} u_{0}^{2} w_{0}}
+\end{align*} \]
+
+timeseries[0]: {t -> 0, u_0 -> 2}
+first pt of timeseries: [3/4]
+[ -e maclev-1-1-mc-adap-geom.sage.status ] && (rm -f maclev-1-1-mc-adap-geom.sage.status && mv maclev-1-1-mc-adap-geom.sage.dmp maclev-1-1-mc-adap-geom.sage.out) || exit 1
+latexml  --destination=maclev-1-1-mc-adap-geom.sage.out.latexml.xml maclev-1-1-mc-adap-geom.sage.out.tex
+latexml (LaTeXML version v0.8.0; revision 70f0ce4)
+processing started Mon Mar 30 10:44:54 2015
+
+(Digesting TeX maclev-1-1-mc-adap-geom.sage.out...
+(Loading /usr/local/share/perl/5.18.2/LaTeXML/Package/TeX.pool.ltxml...
+(Loading /usr/local/share/perl/5.18.2/LaTeXML/Package/eTeX.pool.ltxml... 0.00 sec)
+(Loading /usr/local/share/perl/5.18.2/LaTeXML/Package/pdfTeX.pool.ltxml... 0.01 sec) 0.20 sec)
+(Processing content /usr/local/src/jekyll-research/wmd_files/Selection_Gradients/maclev-1-1-mc-adap-geom.sage.out.tex...
+(Loading /usr/local/share/perl/5.18.2/LaTeXML/Package/LaTeX.pool.ltxml... 0.19 sec)
+(Loading /usr/local/share/perl/5.18.2/LaTeXML/Package/article.cls.ltxml... 0.02 sec)
+(Loading /usr/local/share/perl/5.18.2/LaTeXML/Package/amsmath.sty.ltxml...
+(Loading /usr/local/share/perl/5.18.2/LaTeXML/Package/amsbsy.sty.ltxml... 0.00 sec)
+(Loading /usr/local/share/perl/5.18.2/LaTeXML/Package/amstext.sty.ltxml... 0.00 sec)
+(Loading /usr/local/share/perl/5.18.2/LaTeXML/Package/amsopn.sty.ltxml... 0.00 sec) 0.05 sec)
+(Loading /usr/local/share/perl/5.18.2/LaTeXML/Package/amssymb.sty.ltxml...
+(Loading /usr/local/share/perl/5.18.2/LaTeXML/Package/amsfonts.sty.ltxml... 0.00 sec) 0.04 sec)
+(Loading /usr/local/share/perl/5.18.2/LaTeXML/Package/graphicx.sty.ltxml...
+(Loading /usr/local/share/perl/5.18.2/LaTeXML/Package/graphics.sty.ltxml... 0.00 sec) 0.03 sec)
+(Loading /usr/local/share/perl/5.18.2/LaTeXML/Package/inputenc.sty.ltxml...
+(Loading /usr/local/share/perl/5.18.2/LaTeXML/Package/utf8.def.ltxml... 0.00 sec) 0.01 sec)
+(Loading /usr/local/share/perl/5.18.2/LaTeXML/Package/fontenc.sty.ltxml...
+(Loading /usr/local/share/perl/5.18.2/LaTeXML/Package/t1enc.def.ltxml...
+(Processing definitions /usr/share/texlive/texmf-dist/tex/latex/base/t1enc.def...
+(Loading /usr/local/share/perl/5.18.2/LaTeXML/Package/t1.fontmap.ltxml... 0.00 sec) 0.09 sec) 0.14 sec) 0.14 sec) 0.75 sec) 0.96 sec)
+(Building...
+(Loading compiled schema /usr/local/share/perl/5.18.2/LaTeXML/resources/RelaxNG/LaTeXML.model... 0.02 sec)............................ 0.42 sec)
+(Rewriting... 0.02 sec)
+(Math Parsing...19 formulae ...[1][2][3][4][5][6][7][8][9][10][11][12][13][14][15][16][17][18][19]
+Math parsing succeeded:
+   ltx:XMArg: 136/136
+   ltx:XMath: 19/19
+Symbols assumed as simple identifiers (with # of occurences):
+   'K{italic}' (2), 'S{bold}' (6), 'X{italic}' (2), 'b{italic}' (5), 'c{italic}' (6), 'd{italic}' (14), 'gamma' (2), 'm{italic}' (3), 'p{bold}' (14), 'r{italic}' (5), 't{italic}' (3), 'u{italic}' (30), 'w{italic}' (4)
+Possibly used as functions?
+  'S{bold}' (6/6 usages), 'b{italic}' (1/5 usages), 'c{italic}' (1/6 usages), 'm{italic}' (1/3 usages), 'p{bold}' (6/14 usages)
+ 1.03 sec)
+(Finalizing... 0.11 sec)
+Conversion complete: No obvious problems.
+processing finished Mon Mar 30 10:44:57 2015
+Updating .workingwiki/maclev-1-1-mc-adap-geom.sage.out.latexml.xml
+rm -f maclev-1-1-mc-adap-geom.sage.out.latexml.html5
+bibxmls=`perl -ne '($_)=/^[^%]*\\\bibliography\{([^\\\\#]*?)\}/;@_=split /,/;foreach $b (@_) { $b =~ s/\.bib$//; print "$b.bib.xml "}' maclev-1-1-mc-adap-geom.sage.out.latexml.xml`; bibxargs=`perl -ne '($_)=/^[^%]*\\\bibliography\{([^\\\\#]*?)\}/;@_=split /,/;foreach $b (@_) { $b =~ s/\.bib$//; print "--bibliography=$b.bib.xml "}' maclev-1-1-mc-adap-geom.sage.out.latexml.xml` && \
+	(test -z "$bibxmls" || /usr/bin/make -f /usr/local/src/workingwiki-trunk/ProjectEngine/resources/makefile $bibxmls) && \
+	lxpost="latexmlpost --noplane1 --novalidate --destination=maclev-1-1-mc-adap-geom.sage.out.intermediate.latexml.html5 --format=html5 $bibxargs maclev-1-1-mc-adap-geom.sage.out.latexml.xml" && echo $lxpost && $lxpost
+latexmlpost --noplane1 --novalidate --destination=maclev-1-1-mc-adap-geom.sage.out.intermediate.latexml.html5 --format=html5 maclev-1-1-mc-adap-geom.sage.out.latexml.xml
+latexmlpost (LaTeXML version v0.8.0; revision 70f0ce4)
+processing started Mon Mar 30 10:44:57 2015
+(maclev-1-1-mc-adap-geom.sage.out.intermediate.latexml.html5 post-processing...
+(Scan maclev-1-1-mc-adap-geom.sage.out.intermediate.latexml.html5 processing...
+(CrossRef maclev-1-1-mc-adap-geom.sage.out.intermediate.latexml.html5 processing...
+(MathML::Presentation maclev-1-1-mc-adap-geom.sage.out.intermediate.latexml.html5 19 to process...
+(XSLT maclev-1-1-mc-adap-geom.sage.out.intermediate.latexml.html5 processing...
+(Writer maclev-1-1-mc-adap-geom.sage.out.intermediate.latexml.html5 processing... 0.18 sec)
+Postprocessing complete: No obvious problems
+processing finished Mon Mar 30 10:44:57 2015
+/usr/local/src/workingwiki-trunk/ProjectEngine/resources/wiki-inclusion.latexml.pl maclev-1-1-mc-adap-geom.sage.out.intermediate.latexml.html5 >maclev-1-1-mc-adap-geom.sage.out.latexml.html5
+ln -f maclev-1-1-mc-adap-geom.sage.out.latexml.html5 maclev-1-1-mc-adap-geom.sage.out.latexml.html
+ln -f maclev-1-1-mc-adap-geom.sage.out.latexml.html maclev-1-1-mc-adap-geom.sage.out.html
+rm maclev-1-1-mc-adap-geom.sage.out.latexml.html maclev-1-1-mc-adap-geom.sage.out.latexml.html5 maclev-1-1-mc-adap-geom.sage.out.latexml.xml
 make: Leaving directory `/usr/local/src/jekyll-research/wmd_files/Selection_Gradients'
 Make succeeded.
-Thu Mar  5 15:24:24 2015
+Mon Mar 30 10:44:57 2015

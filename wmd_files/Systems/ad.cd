@@ -1,0 +1,23 @@
+\noindent
+Given ecological dynamics
+\\*[12pt]
+\indent
+\(
+ \frac{dX_i}{dt} = \cdots
+\)
+\\*[12pt]
+\noindent
+And distribution of variation
+\\*[12pt]
+\indent
+\(
+ p_i
+\)
+\\*[12pt]
+\noindent
+We can infer the adaptive dynamics:
+\\[12pt]
+\indent
+\(
+ \frac{dp_i}{dt} = \gamma \hat{X}_i \frac{\partial}{p_i} S(p_i)
+\)

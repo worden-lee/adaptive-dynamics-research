@@ -1,4 +1,4 @@
-Thu Mar  5 15:24:30 2015
+Mon Mar 30 10:52:22 2015
 /usr/bin/make -C /usr/local/src/jekyll-research/wmd_files/Selection_Gradients \
     maclev-2-2-c-a-vs-t.png
 Including .mk files: sage.mk sage-inline.mk 
@@ -16,4 +16,4 @@ Including .tex.d files:
 make[1]: Nothing to be done for `adaptivedynamics.py'.
 make: Leaving directory `/usr/local/src/jekyll-research/wmd_files/Selection_Gradients'
 Make succeeded.
-Thu Mar  5 15:24:30 2015
+Mon Mar 30 10:52:22 2015

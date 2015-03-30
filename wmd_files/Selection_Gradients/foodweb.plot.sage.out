@@ -1,0 +1,399 @@
+timeseries[0]: {t -> 0, u_0_b -> 0, u_0_a -> 0.100000000000000}
+first pt of timeseries: [0.222081359612299, 0.556946762542857]
+ad bindings: {Xhat_0_a -> 10/9/(cos(-u_0_a + u_0_b) + 1), Xhat_0_b -> 1/9*(9*cos(-u_0_a + u_0_b) - 1)/(cos(-u_0_a + u_0_b)^2 + 2*cos(-u_0_a + u_0_b) + 1), gamma -> 1, r -> 1, k -> 9/10, m -> 1, a(u,v) -> cos(u - v) + 1}
+model bindings: {k -> 9/10, r -> 1, m -> 1, a(u,v) -> cos(u - v) + 1}
+_early_bindings: {}
+_late_bindings: {}
+make LV model
+Inferring LV coefficients from X_0_b equation: 9/10*X_0_a*X_0_b*cos(-u_0_a + u_0_b) + 9/10*X_0_a*X_0_b - X_0_b
+a_0_b_0_a : 9/10*cos(-u_0_a + u_0_b) + 9/10
+r_0_b : -1
+Inferring LV coefficients from X_0_a equation: -X_0_a*X_0_b*cos(-u_0_a + u_0_b) - X_0_a^2 - X_0_a*X_0_b + X_0_a
+a_0_a_0_b : -cos(-u_0_a + u_0_b) - 1
+r_0_a : 1
+aij_dict: {a_0_a_0_b: -cos(-u_0_a + u_0_b) - 1, a_0_b_0_a: 9/10*cos(-u_0_a + u_0_b) + 9/10, r_0_b: -1, r_0_a: 1, a_0_b_0_b: 0, a_0_a_0_a: -1}
+Inferring LV coefficients from X_0_b equation: 9/10*X_0_a*X_0_b*cos(-u_0_a + u_0_b) + 9/10*X_0_a*X_0_b - X_0_b
+a_0_b_0_a : 9/10*cos(-u_0_a + u_0_b) + 9/10
+r_0_b : -1
+Inferring LV coefficients from X_0_a equation: -X_0_a*X_0_b*cos(-u_0_a + u_0_b) - X_0_a^2 - X_0_a*X_0_b + X_0_a
+a_0_a_0_b : -cos(-u_0_a + u_0_b) - 1
+r_0_a : 1
+aij_dict: {a_0_a_0_b: -cos(-u_0_a + u_0_b) - 1, a_0_b_0_a: 9/10*cos(-u_0_a + u_0_b) + 9/10, r_0_b: -1, r_0_a: 1, a_0_b_0_b: 0, a_0_a_0_a: -1}
+_A_bindings: {r_0_b -> -1, r_0_a -> 1, a_0_b_0_b -> 0, a_0_a_0_a -> -1, a_0_a_0_b -> -cos(-u_0_a + u_0_b) - 1, a_0_b_0_a -> 9/10*cos(-u_0_a + u_0_b) + 9/10}
+make LV adaptive dynamics
+population vars [X_0_b, X_0_a]
+population vars [X_0_b, X_0_a]
+basal: [a]
+Inferring LV coefficients from X_0_b equation: 9/10*X_0_a*X_0_b*cos(-u_0_a + u_0_b) + 9/10*X_0_a*X_0_b - X_0_b
+a_0_b_0_a : 9/10*cos(-u_0_a + u_0_b) + 9/10
+a_0_b_1_b : 0
+r_0_b : -1
+Inferring LV coefficients from X_0_a equation: -X_0_a*X_0_b*cos(-u_0_a + u_0_b) - X_0_a*X_1_b*cos(-u_0_a + u_1_b) - X_0_a^2 - X_0_a*X_0_b - X_0_a*X_1_b + X_0_a
+a_0_a_0_b : -cos(-u_0_a + u_0_b) - 1
+a_0_a_1_b : -cos(-u_0_a + u_1_b) - 1
+r_0_a : 1
+Inferring LV coefficients from X_1_b equation: 9/10*X_0_a*X_1_b*cos(-u_0_a + u_1_b) + 9/10*X_0_a*X_1_b - X_1_b
+a_1_b_0_b : 0
+a_1_b_0_a : 9/10*cos(-u_0_a + u_1_b) + 9/10
+r_1_b : -1
+aij_dict: {r_1_b: -1, a_1_b_1_b: 0, a_0_a_0_b: -cos(-u_0_a + u_0_b) - 1, a_0_b_0_a: 9/10*cos(-u_0_a + u_0_b) + 9/10, r_0_b: -1, a_0_a_1_b: -cos(-u_0_a + u_1_b) - 1, a_0_b_1_b: 0, r_0_a: 1, a_0_b_0_b: 0, a_1_b_0_b: 0, a_1_b_0_a: 9/10*cos(-u_0_a + u_1_b) + 9/10, a_0_a_0_a: -1}
+The invasion rate for mutant population is:
+\begin{align*}
+  \mathscr I = \frac{1}{X_{1b}}\frac{dX_{1b}}{dt} &= X_{0a} a_{1b0a} + X_{0b} a_{1b0b} + X_{1b} a_{1b1b} + r_{1b} 
+\end{align*}
+
+limit as {a_1_b_0_a: a_0_b_0_a, a_1_b_0_b: a_0_b_0_b, r_1_b: r_0_b}
+after those limits:
+   1
+  X_0_b
+  X_0_a
+                                       1
+limit as                                 _SAGE_VAR_X_1_b -> 0
+ -->                                        1
+basal: [a]
+Inferring LV coefficients from X_0_b equation: 9/10*X_0_a*X_0_b*cos(-u_0_a + u_0_b) + 9/10*X_0_b*X_1_a*cos(u_0_b - u_1_a) + 9/10*X_0_a*X_0_b + 9/10*X_0_b*X_1_a - X_0_b
+a_0_b_0_a : 9/10*cos(-u_0_a + u_0_b) + 9/10
+a_0_b_1_a : 9/10*cos(-u_0_b + u_1_a) + 9/10
+r_0_b : -1
+Inferring LV coefficients from X_0_a equation: -X_0_a*X_0_b*cos(-u_0_a + u_0_b) - X_0_a^2 - X_0_a*X_0_b - X_0_a*X_1_a + X_0_a
+a_0_a_0_b : -cos(-u_0_a + u_0_b) - 1
+a_0_a_1_a : -1
+r_0_a : 1
+Inferring LV coefficients from X_1_a equation: -X_0_b*X_1_a*cos(u_0_b - u_1_a) - X_0_a*X_1_a - X_0_b*X_1_a - X_1_a^2 + X_1_a
+a_1_a_0_b : -cos(-u_0_b + u_1_a) - 1
+a_1_a_0_a : -1
+r_1_a : 1
+aij_dict: {a_1_a_0_a: -1, r_1_a: 1, a_1_a_1_a: -1, a_0_a_0_b: -cos(-u_0_a + u_0_b) - 1, a_0_b_0_a: 9/10*cos(-u_0_a + u_0_b) + 9/10, r_0_b: -1, a_0_b_1_a: 9/10*cos(-u_0_b + u_1_a) + 9/10, r_0_a: 1, a_0_b_0_b: 0, a_0_a_1_a: -1, a_1_a_0_b: -cos(-u_0_b + u_1_a) - 1, a_0_a_0_a: -1}
+The invasion rate for mutant population is:
+\begin{align*}
+  \mathscr I = \frac{1}{X_{1a}}\frac{dX_{1a}}{dt} &= X_{0a} a_{1a0a} + X_{0b} a_{1a0b} + X_{1a} a_{1a1a} + r_{1a} 
+\end{align*}
+
+limit as {r_1_a: r_0_a, a_1_a_0_a: a_0_a_0_a, a_1_a_0_b: a_0_a_0_b}
+after those limits:
+   1
+  X_0_b
+  X_0_a
+                                       1
+limit as                                 _SAGE_VAR_X_1_a -> 0
+ -->                                        1
+Original pop-dyn system: 
+\[\begin{align*}
+\frac{dX_{0b}}{dt} &= {\left(X_{0a} a_{0b0a} + X_{0b} a_{0b0b} + r_{0b}\right)} X_{0b}\\
+\frac{dX_{0a}}{dt} &= {\left(X_{0a} a_{0a0a} + X_{0b} a_{0a0b} + r_{0a}\right)} X_{0a}
+\end{align*}\]
+Extended pop-dyn system: 
+\[\begin{align*}
+\frac{dX_{0b}}{dt} &= {\left(X_{0a} a_{0b0a} + X_{0b} a_{0b0b} + X_{1b} a_{0b1b} + r_{0b}\right)} X_{0b}\\
+\frac{dX_{0a}}{dt} &= {\left(X_{0a} a_{0a0a} + X_{0b} a_{0a0b} + X_{1b} a_{0a1b} + r_{0a}\right)} X_{0a}\\
+\frac{dX_{1b}}{dt} &= {\left(X_{0a} a_{1b0a} + X_{0b} a_{1b0b} + X_{1b} a_{1b1b} + r_{1b}\right)} X_{1b}
+\end{align*}\]
+ The invasion rate for mutant population is:
+\begin{align*}
+  \mathscr I = \frac{1}{X_{1b}}\frac{dX_{1b}}{dt} &= X_{0a} a_{1b0a} + X_{0b} a_{1b0b} + X_{1b} a_{1b1b} + r_{1b} 
+\end{align*}
+ And the invasion exponent is
+\begin{align*}
+  \frac{\partial\mathscr I}{\partial r_{0b}} = \lim_{r_{1b}\to r_{0b},a_{1b0b}\to a_{0b0b},a_{1b0a}\to a_{0b0a},X_{1b}\to0}1\\
+  \frac{\partial\mathscr I}{\partial a_{0b0b}} = \lim_{r_{1b}\to r_{0b},a_{1b0b}\to a_{0b0b},a_{1b0a}\to a_{0b0a},X_{1b}\to0}X_{0b}\\
+  \frac{\partial\mathscr I}{\partial a_{0b0a}} = \lim_{r_{1b}\to r_{0b},a_{1b0b}\to a_{0b0b},a_{1b0a}\to a_{0b0a},X_{1b}\to0}X_{0a} .
+\end{align*}
+ Which comes out to
+\begin{align*}
+  \frac{\partial\mathscr I}{\partial r_{0b}} = 1\\
+  \frac{\partial\mathscr I}{\partial a_{0b0b}} = X_{0b}\\
+  \frac{\partial\mathscr I}{\partial a_{0b0a}} = X_{0a} .
+\end{align*}
+ Original pop-dyn system: 
+\[ \begin{align*}
+\frac{dX_{0b}}{dt} &= {\left(X_{0a} a_{0b0a} + X_{0b} a_{0b0b} + r_{0b}\right)} X_{0b}\\
+\frac{dX_{0a}}{dt} &= {\left(X_{0a} a_{0a0a} + X_{0b} a_{0a0b} + r_{0a}\right)} X_{0a}
+\end{align*} \]
+ Extended pop-dyn system: 
+\[ \begin{align*}
+\frac{dX_{0b}}{dt} &= {\left(X_{0a} a_{0b0a} + X_{0b} a_{0b0b} + X_{1a} a_{0b1a} + r_{0b}\right)} X_{0b}\\
+\frac{dX_{0a}}{dt} &= {\left(X_{0a} a_{0a0a} + X_{0b} a_{0a0b} + X_{1a} a_{0a1a} + r_{0a}\right)} X_{0a}\\
+\frac{dX_{1a}}{dt} &= {\left(X_{0a} a_{1a0a} + X_{0b} a_{1a0b} + X_{1a} a_{1a1a} + r_{1a}\right)} X_{1a}
+\end{align*} \]
+ The invasion rate for mutant population is:
+\begin{align*}
+  \mathscr I = \frac{1}{X_{1a}}\frac{dX_{1a}}{dt} &= X_{0a} a_{1a0a} + X_{0b} a_{1a0b} + X_{1a} a_{1a1a} + r_{1a} 
+\end{align*}
+ And the invasion exponent is
+\begin{align*}
+  \frac{\partial\mathscr I}{\partial r_{0a}} = \lim_{r_{1a}\to r_{0a},a_{1a0b}\to a_{0a0b},a_{1a0a}\to a_{0a0a},X_{1a}\to0}1\\
+  \frac{\partial\mathscr I}{\partial a_{0a0b}} = \lim_{r_{1a}\to r_{0a},a_{1a0b}\to a_{0a0b},a_{1a0a}\to a_{0a0a},X_{1a}\to0}X_{0b}\\
+  \frac{\partial\mathscr I}{\partial a_{0a0a}} = \lim_{r_{1a}\to r_{0a},a_{1a0b}\to a_{0a0b},a_{1a0a}\to a_{0a0a},X_{1a}\to0}X_{0a} .
+\end{align*}
+ Which comes out to
+\begin{align*}
+  \frac{\partial\mathscr I}{\partial r_{0a}} = 1\\
+  \frac{\partial\mathscr I}{\partial a_{0a0b}} = X_{0b}\\
+  \frac{\partial\mathscr I}{\partial a_{0a0a}} = X_{0a} .
+\end{align*}
+ \[ \mathbf S \left(\begin{array}{c}
+  r_{0b}\\
+  r_{0a}\\
+  a_{0b0b}\\
+  a_{0a0a}\\
+  a_{0a0b}\\
+  a_{0b0a}
+\end{array}\right) = \left(\begin{array}{c}
+  1\\
+  1\\
+  \hat{X}_{0b}\\
+  \hat{X}_{0a}\\
+  \hat{X}_{0b}\\
+  \hat{X}_{0a}
+\end{array}\right) \]
+ Equilibrium of the population dynamics: 
+\[ \begin{align*}
+  X_{0b} &\to \hat{X}_{0b} \\
+  X_{0a} &\to \hat{X}_{0a}
+\end{align*} \]
+ The adaptive dynamics comes out to 
+\[ \begin{align*}
+\frac{da_{0a0b}}{dt} &= \hat{X}_{0a} \hat{X}_{0b} \gamma\\
+\frac{da_{0b0a}}{dt} &= \hat{X}_{0a} \hat{X}_{0b} \gamma\\
+\frac{dr_{0b}}{dt} &= \hat{X}_{0b} \gamma\\
+\frac{dr_{0a}}{dt} &= \hat{X}_{0a} \gamma\\
+\frac{da_{0b0b}}{dt} &= \hat{X}_{0b}^{2} \gamma\\
+\frac{da_{0a0a}}{dt} &= \hat{X}_{0a}^{2} \gamma
+\end{align*} \]
+
+make LV evolution bindings
+hack A_ij: from (r_0_b(u_0_b), a_0_b_0_b(u_0_b, u_0_b), a_0_b_0_a(u_0_b, u_0_a))
+to (r_0_b(u_0_b), a_0_b_0_b(u_0_b, u_0_Fake), a_0_b_0_a(u_0_b, u_0_a))
+d1A: derivative of $\left(r_{0_{b}}\left(u_{0b}\right),\,a_{0_{b_{0_{b}}}}\left(u_{0b}, u_{0\text{\texttt{Fake}}}\right),\,a_{0_{b_{0_{a}}}}\left(u_{0b}, u_{0a}\right)\right)$ wrt $\left(\begin{array}{c}
+  u_{0b}
+\end{array}\right)$
+is $\left(\begin{array}{r}
+D[0]\left(r_{0_{b}}\right)\left(u_{0b}\right) \\
+D[0]\left(a_{0_{b_{0_{b}}}}\right)\left(u_{0b}, u_{0\text{\texttt{Fake}}}\right) \\
+D[0]\left(a_{0_{b_{0_{a}}}}\right)\left(u_{0b}, u_{0a}\right)
+\end{array}\right)$
+; $\left(\begin{array}{r}
+D[0]\left(r_{0_{b}}\right)\left(u_{0b}\right) \\
+D[0]\left(a_{0_{b_{0_{b}}}}\right)\left(u_{0b}, u_{0b}\right) \\
+D[0]\left(a_{0_{b_{0_{a}}}}\right)\left(u_{0b}, u_{0a}\right)
+\end{array}\right)$
+: $\left(\begin{array}{r}
+0 \\
+0 \\
+-\frac{9}{10} \, \sin\left(-u_{0a} + u_{0b}\right)
+\end{array}\right)$
+S: (1, Xhat_0_b, Xhat_0_a)
+hack A_ij: from (r_0_a(u_0_a), a_0_a_0_b(u_0_a, u_0_b), a_0_a_0_a(u_0_a, u_0_a))
+to (r_0_a(u_0_a), a_0_a_0_b(u_0_a, u_0_b), a_0_a_0_a(u_0_a, u_0_Fake))
+d1A: derivative of $\left(r_{0_{a}}\left(u_{0a}\right),\,a_{0_{a_{0_{b}}}}\left(u_{0a}, u_{0b}\right),\,a_{0_{a_{0_{a}}}}\left(u_{0a}, u_{0\text{\texttt{Fake}}}\right)\right)$ wrt $\left(\begin{array}{c}
+  u_{0a}
+\end{array}\right)$
+is $\left(\begin{array}{r}
+D[0]\left(r_{0_{a}}\right)\left(u_{0a}\right) \\
+D[0]\left(a_{0_{a_{0_{b}}}}\right)\left(u_{0a}, u_{0b}\right) \\
+D[0]\left(a_{0_{a_{0_{a}}}}\right)\left(u_{0a}, u_{0\text{\texttt{Fake}}}\right)
+\end{array}\right)$
+; $\left(\begin{array}{r}
+D[0]\left(r_{0_{a}}\right)\left(u_{0a}\right) \\
+D[0]\left(a_{0_{a_{0_{b}}}}\right)\left(u_{0a}, u_{0b}\right) \\
+D[0]\left(a_{0_{a_{0_{a}}}}\right)\left(u_{0a}, u_{0a}\right)
+\end{array}\right)$
+: $\left(\begin{array}{r}
+0 \\
+-\sin\left(-u_{0a} + u_{0b}\right) \\
+0
+\end{array}\right)$
+S: (1, Xhat_0_b, Xhat_0_a)
+dudts: {(a, 0): (-Xhat_0_a*Xhat_0_b*gamma*sin(-u_0_a + u_0_b)), (b, 0): (-9/10*Xhat_0_a*Xhat_0_b*gamma*sin(-u_0_a + u_0_b))}
+A: (0, 0)
+S: (1, Xhat_0_b, Xhat_0_a)
+S: (1, Xhat_0_b, Xhat_0_a)
+S: (0.222081359612299, 0.222081359612299)
+hack A_ij: from (r_0_b(u_0_b), a_0_b_0_b(u_0_b, u_0_b), a_0_b_0_a(u_0_b, u_0_a))
+to (r_0_b(u_0_b), a_0_b_0_b(u_0_b, u_0_Fake), a_0_b_0_a(u_0_b, u_0_a))
+d1A: derivative of $\left(r_{0_{b}}\left(u_{0b}\right),\,a_{0_{b_{0_{b}}}}\left(u_{0b}, u_{0\text{\texttt{Fake}}}\right),\,a_{0_{b_{0_{a}}}}\left(u_{0b}, u_{0a}\right)\right)$ wrt $\left(\begin{array}{c}
+  u_{0b}
+\end{array}\right)$
+is $\left(\begin{array}{r}
+D[0]\left(r_{0_{b}}\right)\left(u_{0b}\right) \\
+D[0]\left(a_{0_{b_{0_{b}}}}\right)\left(u_{0b}, u_{0\text{\texttt{Fake}}}\right) \\
+D[0]\left(a_{0_{b_{0_{a}}}}\right)\left(u_{0b}, u_{0a}\right)
+\end{array}\right)$
+; $\left(\begin{array}{r}
+D[0]\left(r_{0_{b}}\right)\left(u_{0b}\right) \\
+D[0]\left(a_{0_{b_{0_{b}}}}\right)\left(u_{0b}, u_{0b}\right) \\
+D[0]\left(a_{0_{b_{0_{a}}}}\right)\left(u_{0b}, u_{0a}\right)
+\end{array}\right)$
+: $\left(\begin{array}{r}
+0 \\
+0 \\
+-\frac{9}{10} \, \sin\left(-u_{0a} + u_{0b}\right)
+\end{array}\right)$
+hack A_ij: from (r_0_b(u_0_b), a_0_b_0_b(u_0_b, u_0_b), a_0_b_0_a(u_0_b, u_0_a))
+to (r_0_b(u_0_b), a_0_b_0_b(u_0_b, u_0_Fake), a_0_b_0_a(u_0_b, u_0_a))
+d1A: derivative of $\left(r_{0_{b}}\left(u_{0b}\right),\,a_{0_{b_{0_{b}}}}\left(u_{0b}, u_{0\text{\texttt{Fake}}}\right),\,a_{0_{b_{0_{a}}}}\left(u_{0b}, u_{0a}\right)\right)$ wrt $\left(\begin{array}{c}
+  u_{0b}
+\end{array}\right)$
+is $\left(\begin{array}{r}
+D[0]\left(r_{0_{b}}\right)\left(u_{0b}\right) \\
+D[0]\left(a_{0_{b_{0_{b}}}}\right)\left(u_{0b}, u_{0\text{\texttt{Fake}}}\right) \\
+D[0]\left(a_{0_{b_{0_{a}}}}\right)\left(u_{0b}, u_{0a}\right)
+\end{array}\right)$
+; $\left(\begin{array}{r}
+D[0]\left(r_{0_{b}}\right)\left(u_{0b}\right) \\
+D[0]\left(a_{0_{b_{0_{b}}}}\right)\left(u_{0b}, u_{0b}\right) \\
+D[0]\left(a_{0_{b_{0_{a}}}}\right)\left(u_{0b}, u_{0a}\right)
+\end{array}\right)$
+: $\left(\begin{array}{r}
+0 \\
+0 \\
+-\frac{9}{10} \, \sin\left(-u_{0a} + u_{0b}\right)
+\end{array}\right)$
+pp0: {t -> 0, u_0_b -> 0, u_0_a -> 0.100000000000000}
+D: (0, 0)
+I: (0, 0)
+dAdt: (0, 0)
+A: (1.79550374875022, -1.99500416527803)
+S: (1, Xhat_0_b, Xhat_0_a)
+S: (1, Xhat_0_b, Xhat_0_a)
+S: (0.556946762542857, 0.222081359612299)
+hack A_ij: from (r_0_b(u_0_b), a_0_b_0_b(u_0_b, u_0_b), a_0_b_0_a(u_0_b, u_0_a))
+to (r_0_b(u_0_b), a_0_b_0_b(u_0_b, u_0_Fake), a_0_b_0_a(u_0_b, u_0_a))
+d1A: derivative of $\left(r_{0_{b}}\left(u_{0b}\right),\,a_{0_{b_{0_{b}}}}\left(u_{0b}, u_{0\text{\texttt{Fake}}}\right),\,a_{0_{b_{0_{a}}}}\left(u_{0b}, u_{0a}\right)\right)$ wrt $\left(\begin{array}{c}
+  u_{0b}
+\end{array}\right)$
+is $\left(\begin{array}{r}
+D[0]\left(r_{0_{b}}\right)\left(u_{0b}\right) \\
+D[0]\left(a_{0_{b_{0_{b}}}}\right)\left(u_{0b}, u_{0\text{\texttt{Fake}}}\right) \\
+D[0]\left(a_{0_{b_{0_{a}}}}\right)\left(u_{0b}, u_{0a}\right)
+\end{array}\right)$
+; $\left(\begin{array}{r}
+D[0]\left(r_{0_{b}}\right)\left(u_{0b}\right) \\
+D[0]\left(a_{0_{b_{0_{b}}}}\right)\left(u_{0b}, u_{0b}\right) \\
+D[0]\left(a_{0_{b_{0_{a}}}}\right)\left(u_{0b}, u_{0a}\right)
+\end{array}\right)$
+: $\left(\begin{array}{r}
+0 \\
+0 \\
+-\frac{9}{10} \, \sin\left(-u_{0a} + u_{0b}\right)
+\end{array}\right)$
+hack A_ij: from (r_0_a(u_0_a), a_0_a_0_b(u_0_a, u_0_b), a_0_a_0_a(u_0_a, u_0_a))
+to (r_0_a(u_0_a), a_0_a_0_b(u_0_a, u_0_b), a_0_a_0_a(u_0_a, u_0_Fake))
+d1A: derivative of $\left(r_{0_{a}}\left(u_{0a}\right),\,a_{0_{a_{0_{b}}}}\left(u_{0a}, u_{0b}\right),\,a_{0_{a_{0_{a}}}}\left(u_{0a}, u_{0\text{\texttt{Fake}}}\right)\right)$ wrt $\left(\begin{array}{c}
+  u_{0a}
+\end{array}\right)$
+is $\left(\begin{array}{r}
+D[0]\left(r_{0_{a}}\right)\left(u_{0a}\right) \\
+D[0]\left(a_{0_{a_{0_{b}}}}\right)\left(u_{0a}, u_{0b}\right) \\
+D[0]\left(a_{0_{a_{0_{a}}}}\right)\left(u_{0a}, u_{0\text{\texttt{Fake}}}\right)
+\end{array}\right)$
+; $\left(\begin{array}{r}
+D[0]\left(r_{0_{a}}\right)\left(u_{0a}\right) \\
+D[0]\left(a_{0_{a_{0_{b}}}}\right)\left(u_{0a}, u_{0b}\right) \\
+D[0]\left(a_{0_{a_{0_{a}}}}\right)\left(u_{0a}, u_{0a}\right)
+\end{array}\right)$
+: $\left(\begin{array}{r}
+0 \\
+-\sin\left(-u_{0a} + u_{0b}\right) \\
+0
+\end{array}\right)$
+pp0: {t -> 0, u_0_b -> 0, u_0_a -> 0.100000000000000}
+D: (0.000998533590708932, 0.00123275751939374)
+I: (-0.00110948176745437, -0.00110948176745437)
+dAdt: (-0.000110948176745437, 0.000123275751939374)
+A: (-1.99500416527803, 1.79550374875022)
+S: (1, Xhat_0_b, Xhat_0_a)
+S: (1, Xhat_0_b, Xhat_0_a)
+S: (0.222081359612299, 0.556946762542857)
+hack A_ij: from (r_0_a(u_0_a), a_0_a_0_b(u_0_a, u_0_b), a_0_a_0_a(u_0_a, u_0_a))
+to (r_0_a(u_0_a), a_0_a_0_b(u_0_a, u_0_b), a_0_a_0_a(u_0_a, u_0_Fake))
+d1A: derivative of $\left(r_{0_{a}}\left(u_{0a}\right),\,a_{0_{a_{0_{b}}}}\left(u_{0a}, u_{0b}\right),\,a_{0_{a_{0_{a}}}}\left(u_{0a}, u_{0\text{\texttt{Fake}}}\right)\right)$ wrt $\left(\begin{array}{c}
+  u_{0a}
+\end{array}\right)$
+is $\left(\begin{array}{r}
+D[0]\left(r_{0_{a}}\right)\left(u_{0a}\right) \\
+D[0]\left(a_{0_{a_{0_{b}}}}\right)\left(u_{0a}, u_{0b}\right) \\
+D[0]\left(a_{0_{a_{0_{a}}}}\right)\left(u_{0a}, u_{0\text{\texttt{Fake}}}\right)
+\end{array}\right)$
+; $\left(\begin{array}{r}
+D[0]\left(r_{0_{a}}\right)\left(u_{0a}\right) \\
+D[0]\left(a_{0_{a_{0_{b}}}}\right)\left(u_{0a}, u_{0b}\right) \\
+D[0]\left(a_{0_{a_{0_{a}}}}\right)\left(u_{0a}, u_{0a}\right)
+\end{array}\right)$
+: $\left(\begin{array}{r}
+0 \\
+-\sin\left(-u_{0a} + u_{0b}\right) \\
+0
+\end{array}\right)$
+hack A_ij: from (r_0_b(u_0_b), a_0_b_0_b(u_0_b, u_0_b), a_0_b_0_a(u_0_b, u_0_a))
+to (r_0_b(u_0_b), a_0_b_0_b(u_0_b, u_0_Fake), a_0_b_0_a(u_0_b, u_0_a))
+d1A: derivative of $\left(r_{0_{b}}\left(u_{0b}\right),\,a_{0_{b_{0_{b}}}}\left(u_{0b}, u_{0\text{\texttt{Fake}}}\right),\,a_{0_{b_{0_{a}}}}\left(u_{0b}, u_{0a}\right)\right)$ wrt $\left(\begin{array}{c}
+  u_{0b}
+\end{array}\right)$
+is $\left(\begin{array}{r}
+D[0]\left(r_{0_{b}}\right)\left(u_{0b}\right) \\
+D[0]\left(a_{0_{b_{0_{b}}}}\right)\left(u_{0b}, u_{0\text{\texttt{Fake}}}\right) \\
+D[0]\left(a_{0_{b_{0_{a}}}}\right)\left(u_{0b}, u_{0a}\right)
+\end{array}\right)$
+; $\left(\begin{array}{r}
+D[0]\left(r_{0_{b}}\right)\left(u_{0b}\right) \\
+D[0]\left(a_{0_{b_{0_{b}}}}\right)\left(u_{0b}, u_{0b}\right) \\
+D[0]\left(a_{0_{b_{0_{a}}}}\right)\left(u_{0b}, u_{0a}\right)
+\end{array}\right)$
+: $\left(\begin{array}{r}
+0 \\
+0 \\
+-\frac{9}{10} \, \sin\left(-u_{0a} + u_{0b}\right)
+\end{array}\right)$
+pp0: {t -> 0, u_0_b -> 0, u_0_a -> 0.100000000000000}
+D: (0.00123275751939374, 0.000998533590708932)
+I: (-0.00110948176745437, -0.00110948176745437)
+dAdt: (0.000123275751939374, -0.000110948176745437)
+A: (-1, -1)
+S: (1, Xhat_0_b, Xhat_0_a)
+S: (1, Xhat_0_b, Xhat_0_a)
+S: (0.556946762542857, 0.556946762542857)
+hack A_ij: from (r_0_a(u_0_a), a_0_a_0_b(u_0_a, u_0_b), a_0_a_0_a(u_0_a, u_0_a))
+to (r_0_a(u_0_a), a_0_a_0_b(u_0_a, u_0_b), a_0_a_0_a(u_0_a, u_0_Fake))
+d1A: derivative of $\left(r_{0_{a}}\left(u_{0a}\right),\,a_{0_{a_{0_{b}}}}\left(u_{0a}, u_{0b}\right),\,a_{0_{a_{0_{a}}}}\left(u_{0a}, u_{0\text{\texttt{Fake}}}\right)\right)$ wrt $\left(\begin{array}{c}
+  u_{0a}
+\end{array}\right)$
+is $\left(\begin{array}{r}
+D[0]\left(r_{0_{a}}\right)\left(u_{0a}\right) \\
+D[0]\left(a_{0_{a_{0_{b}}}}\right)\left(u_{0a}, u_{0b}\right) \\
+D[0]\left(a_{0_{a_{0_{a}}}}\right)\left(u_{0a}, u_{0\text{\texttt{Fake}}}\right)
+\end{array}\right)$
+; $\left(\begin{array}{r}
+D[0]\left(r_{0_{a}}\right)\left(u_{0a}\right) \\
+D[0]\left(a_{0_{a_{0_{b}}}}\right)\left(u_{0a}, u_{0b}\right) \\
+D[0]\left(a_{0_{a_{0_{a}}}}\right)\left(u_{0a}, u_{0a}\right)
+\end{array}\right)$
+: $\left(\begin{array}{r}
+0 \\
+-\sin\left(-u_{0a} + u_{0b}\right) \\
+0
+\end{array}\right)$
+hack A_ij: from (r_0_a(u_0_a), a_0_a_0_b(u_0_a, u_0_b), a_0_a_0_a(u_0_a, u_0_a))
+to (r_0_a(u_0_a), a_0_a_0_b(u_0_a, u_0_b), a_0_a_0_a(u_0_a, u_0_Fake))
+d1A: derivative of $\left(r_{0_{a}}\left(u_{0a}\right),\,a_{0_{a_{0_{b}}}}\left(u_{0a}, u_{0b}\right),\,a_{0_{a_{0_{a}}}}\left(u_{0a}, u_{0\text{\texttt{Fake}}}\right)\right)$ wrt $\left(\begin{array}{c}
+  u_{0a}
+\end{array}\right)$
+is $\left(\begin{array}{r}
+D[0]\left(r_{0_{a}}\right)\left(u_{0a}\right) \\
+D[0]\left(a_{0_{a_{0_{b}}}}\right)\left(u_{0a}, u_{0b}\right) \\
+D[0]\left(a_{0_{a_{0_{a}}}}\right)\left(u_{0a}, u_{0\text{\texttt{Fake}}}\right)
+\end{array}\right)$
+; $\left(\begin{array}{r}
+D[0]\left(r_{0_{a}}\right)\left(u_{0a}\right) \\
+D[0]\left(a_{0_{a_{0_{b}}}}\right)\left(u_{0a}, u_{0b}\right) \\
+D[0]\left(a_{0_{a_{0_{a}}}}\right)\left(u_{0a}, u_{0a}\right)
+\end{array}\right)$
+: $\left(\begin{array}{r}
+0 \\
+-\sin\left(-u_{0a} + u_{0b}\right) \\
+0
+\end{array}\right)$
+pp0: {t -> 0, u_0_b -> 0, u_0_a -> 0.100000000000000}
+D: (0, 0)
+I: (0, 0)
+dAdt: (0, 0)

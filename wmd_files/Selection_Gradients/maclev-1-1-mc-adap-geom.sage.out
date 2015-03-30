@@ -116,3 +116,5 @@ Extended pop-dyn system:
 \frac{du_{0}}{dt} &= \frac{{\left(K_{0} r_{0} u_{0} w_{0} - r_{0}\right)} {\left(K_{0} r_{0} w_{0} - \frac{K_{0} r_{0} u_{0} w_{0} - r_{0}}{u_{0}}\right)} \gamma}{r_{0} u_{0}^{2} w_{0}}
 \end{align*} \]
 
+timeseries[0]: {t -> 0, u_0 -> 2}
+first pt of timeseries: [3/4]

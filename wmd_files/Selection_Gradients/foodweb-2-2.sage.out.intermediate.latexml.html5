@@ -1,7 +1,7 @@
 <!DOCTYPE html><html>
 <head>
 <title>Untitled Document</title>
-<!--Generated on Tue Mar  3 19:53:52 2015 by LaTeXML (version v0.8.0) http://dlmf.nist.gov/LaTeXML/.-->
+<!--Generated on Sat Mar 28 20:11:21 2015 by LaTeXML (version v0.8.0) http://dlmf.nist.gov/LaTeXML/.-->
 
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" href="LaTeXML.css" type="text/css">
@@ -285,15 +285,15 @@ _{R_{1}0}\right)-\cos\left(-u_{P_{0}0}+u_{R_{0}0}\right)+\cos\left(-u_{P_{1}0}%
 <p class="ltx_p">flow at <math id="p1.m1" class="ltx_Math" alttext="\left(\begin{array}[]{c}-0.200000000000000\\
 -0.100000000000000\\
 0\\
-0.100000000000000\end{array}\right)" display="inline"><mrow><mo>(</mo><mtable id="XM585h"><mtr id="XM585i"><mtd columnalign="center" id="XM585j"><mrow id="XM585b"><mo id="XM585">-</mo><mn id="XM585a">0.200000000000000</mn></mrow></mtd></mtr><mtr id="XM585k"><mtd columnalign="center" id="XM585l"><mrow id="XM585e"><mo id="XM585c">-</mo><mn id="XM585d">0.100000000000000</mn></mrow></mtd></mtr><mtr id="XM585m"><mtd columnalign="center" id="XM585n"><mn id="XM585f">0</mn></mtd></mtr><mtr id="XM585o"><mtd columnalign="center" id="XM585p"><mn id="XM585g">0.100000000000000</mn></mtd></mtr></mtable><mo>)</mo></mrow></math>: <math id="p1.m2" class="ltx_Math" alttext="\left(\begin{array}[]{c}0.00928866937694825\\
-0.0153779597082196\\
-0.0461338791261801\\
-0.0278660081293234\end{array}\right)" display="inline"><mrow><mo>(</mo><mtable id="XM586d"><mtr id="XM586e"><mtd columnalign="center" id="XM586f"><mn id="XM586">0.00928866937694825</mn></mtd></mtr><mtr id="XM586g"><mtd columnalign="center" id="XM586h"><mn id="XM586a">0.0153779597082196</mn></mtd></mtr><mtr id="XM586i"><mtd columnalign="center" id="XM586j"><mn id="XM586b">0.0461338791261801</mn></mtd></mtr><mtr id="XM586k"><mtd columnalign="center" id="XM586l"><mn id="XM586c">0.0278660081293234</mn></mtd></mtr></mtable><mo>)</mo></mrow></math></p>
+0.100000000000000\end{array}\right)" display="inline"><mrow><mo>(</mo><mtable id="XM585h"><mtr id="XM585i"><mtd columnalign="center" id="XM585j"><mrow id="XM585b"><mo id="XM585">-</mo><mn id="XM585a">0.200000000000000</mn></mrow></mtd></mtr><mtr id="XM585k"><mtd columnalign="center" id="XM585l"><mrow id="XM585e"><mo id="XM585c">-</mo><mn id="XM585d">0.100000000000000</mn></mrow></mtd></mtr><mtr id="XM585m"><mtd columnalign="center" id="XM585n"><mn id="XM585f">0</mn></mtd></mtr><mtr id="XM585o"><mtd columnalign="center" id="XM585p"><mn id="XM585g">0.100000000000000</mn></mtd></mtr></mtable><mo>)</mo></mrow></math>: <math id="p1.m2" class="ltx_Math" alttext="\left(\begin{array}[]{c}0.00928866937694826\\
+0.0153779597082339\\
+0.0461338791259670\\
+0.0278660081295796\end{array}\right)" display="inline"><mrow><mo>(</mo><mtable id="XM586d"><mtr id="XM586e"><mtd columnalign="center" id="XM586f"><mn id="XM586">0.00928866937694826</mn></mtd></mtr><mtr id="XM586g"><mtd columnalign="center" id="XM586h"><mn id="XM586a">0.0153779597082339</mn></mtd></mtr><mtr id="XM586i"><mtd columnalign="center" id="XM586j"><mn id="XM586b">0.0461338791259670</mn></mtd></mtr><mtr id="XM586k"><mtd columnalign="center" id="XM586l"><mn id="XM586c">0.0278660081295796</mn></mtd></mtr></mtable><mo>)</mo></mrow></math></p>
 </div>
 </article>
 </div>
 <footer class="ltx_page_footer">
-<div class="ltx_page_logo">Generated  on Tue Mar  3 19:53:52 2015 by <a href="http://dlmf.nist.gov/LaTeXML/">LaTeXML <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAsAAAAOCAYAAAD5YeaVAAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAALEwAACxMBAJqcGAAAAAd0SU1FB9wKExQZLWTEaOUAAAAddEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIFRoZSBHSU1Q72QlbgAAAdpJREFUKM9tkL+L2nAARz9fPZNCKFapUn8kyI0e4iRHSR1Kb8ng0lJw6FYHFwv2LwhOpcWxTjeUunYqOmqd6hEoRDhtDWdA8ApRYsSUCDHNt5ul13vz4w0vWCgUnnEc975arX6ORqN3VqtVZbfbTQC4uEHANM3jSqXymFI6yWazP2KxWAXAL9zCUa1Wy2tXVxheKA9YNoR8Pt+aTqe4FVVVvz05O6MBhqUIBGk8Hn8HAOVy+T+XLJfLS4ZhTiRJgqIoVBRFIoric47jPnmeB1mW/9rr9ZpSSn3Lsmir1fJZlqWlUonKsvwWwD8ymc/nXwVBeLjf7xEKhdBut9Hr9WgmkyGEkJwsy5eHG5vN5g0AKIoCAEgkEkin0wQAfN9/cXPdheu6P33fBwB4ngcAcByHJpPJl+fn54mD3Gg0NrquXxeLRQAAwzAYj8cwTZPwPH9/sVg8PXweDAauqqr2cDjEer1GJBLBZDJBs9mE4zjwfZ85lAGg2+06hmGgXq+j3+/DsixYlgVN03a9Xu8jgCNCyIegIAgx13Vfd7vdu+FweG8YRkjXdWy329+dTgeSJD3ieZ7RNO0VAXAPwDEAO5VKndi2fWrb9jWl9Esul6PZbDY9Go1OZ7PZ9z/lyuD3OozU2wAAAABJRU5ErkJggg==" alt="[LOGO]"></a>
+<div class="ltx_page_logo">Generated  on Sat Mar 28 20:11:21 2015 by <a href="http://dlmf.nist.gov/LaTeXML/">LaTeXML <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAsAAAAOCAYAAAD5YeaVAAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAALEwAACxMBAJqcGAAAAAd0SU1FB9wKExQZLWTEaOUAAAAddEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIFRoZSBHSU1Q72QlbgAAAdpJREFUKM9tkL+L2nAARz9fPZNCKFapUn8kyI0e4iRHSR1Kb8ng0lJw6FYHFwv2LwhOpcWxTjeUunYqOmqd6hEoRDhtDWdA8ApRYsSUCDHNt5ul13vz4w0vWCgUnnEc975arX6ORqN3VqtVZbfbTQC4uEHANM3jSqXymFI6yWazP2KxWAXAL9zCUa1Wy2tXVxheKA9YNoR8Pt+aTqe4FVVVvz05O6MBhqUIBGk8Hn8HAOVy+T+XLJfLS4ZhTiRJgqIoVBRFIoric47jPnmeB1mW/9rr9ZpSSn3Lsmir1fJZlqWlUonKsvwWwD8ymc/nXwVBeLjf7xEKhdBut9Hr9WgmkyGEkJwsy5eHG5vN5g0AKIoCAEgkEkin0wQAfN9/cXPdheu6P33fBwB4ngcAcByHJpPJl+fn54mD3Gg0NrquXxeLRQAAwzAYj8cwTZPwPH9/sVg8PXweDAauqqr2cDjEer1GJBLBZDJBs9mE4zjwfZ85lAGg2+06hmGgXq+j3+/DsixYlgVN03a9Xu8jgCNCyIegIAgx13Vfd7vdu+FweG8YRkjXdWy329+dTgeSJD3ieZ7RNO0VAXAPwDEAO5VKndi2fWrb9jWl9Esul6PZbDY9Go1OZ7PZ9z/lyuD3OozU2wAAAABJRU5ErkJggg==" alt="[LOGO]"></a>
 </div></footer>
 </div>
 </body>

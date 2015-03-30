@@ -15,9 +15,27 @@ class vertex_indexer(dynamicalsystems.indexer):
 	# tup is a tuple (vertex, number)
 	v, i = tup
 	return SR.symbol(
-	    self._f + '_' + str(v) + '_' + str(i),
-	    latex_name = self._f + '_{' + latex(v) + latex(i) + '}'
+	    '%s_%s_%s' % (self._f, str(i), str(v)),
+	    latex_name = '%s_{%s%s}' % (self._f, latex(i), latex(v))
 	)
+
+class vertex_indexer_2d(dynamicalsystems.indexer):
+    def __init__(self, x):
+	self._f = x
+    def __getitem__(self, tupi):
+        class vertex_indexer_2d_inner( dynamicalsystems.indexer ):
+	    def __init__(self, x, tupi):
+		self._f = x
+		self._tupi = tupi
+	    def __getitem__(self, tupj):
+		# tup* is a tuple (vertex, number)
+		v, i = self._tupi
+		w, j = tupj
+		return SR.symbol(
+		    '_'.join( [self._f, str(i), str(v), str(j), str(w)] ),
+		    latex_name = '%s_{%s%s%s%s}' % (self._f, latex(i), latex(v), latex(j), latex(w))
+		)
+	return vertex_indexer_2d_inner(self._f, tupi)
 
 class FoodWebModel(dynamicalsystems.PopulationDynamicsSystem):
     def __init__(
@@ -63,8 +81,12 @@ class FoodWebModel(dynamicalsystems.PopulationDynamicsSystem):
 	sport = (index[0], i)
 	self.set_population_indices( self._population_indices + [ sport ] )
 	return sport
+    def fake_population_index(self):
+	return ('Fake', 0)
     def plot_tikz(self, filename):
 	from sage.misc.latex import _latex_file_
 	LF = open( filename, 'w' )
+	# put all arrows pointing upward
+	self._graph.set_pos( self._graph.layout_acyclic() )
 	LF.write( _latex_file_( self._graph, title='' ) )
 	LF.close()

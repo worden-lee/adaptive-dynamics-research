@@ -1,0 +1,15 @@
+\noindent
+Population $i$'s adaptation depends\\
+on the $r_i$ and $a_{ij}$ terms that\\affect it.
+\\*[12pt]
+\indent
+\( \mathbf{S}(a_{ij}) = \frac{\partial}{\partial a_{ij}}(r_i + \sum_ja_{ij}X_j^*)
+\)
+\\*[12pt]
+\indent
+\( \quad\quad\quad = X_j^* \)
+\\*[12pt]
+\noindent
+The ``ideal direction'' of change in\\
+these interactions is always\\
+positive.

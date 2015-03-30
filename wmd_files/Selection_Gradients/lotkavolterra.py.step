@@ -49,12 +49,23 @@ class DerivedLotkaVolterraModel( GeneralizedLotkaVolterraModel ):
     some other population dynamics model into linear and quadratic terms.
     It has the attributes of a GeneralizedLotkaVolterraModel, plus some
     additional information about the original model."""
-    def __init__(self, model, a_name='a', r_name='r'):
+    def __init__(self, model, r_name='r', a_name='a', r_indexer=None, a_indexer=None ):
 	self._original_model = model
 	self._a_name = a_name
 	self._r_name = r_name
-	r_indexer = indexer(r_name)
-	a_indexer = indexer_2d(a_name)
+	if a_indexer is None: a_indexer = indexer_2d(a_name)
+	if r_indexer is None: r_indexer = indexer_2d(r_name)
+	self._a_indexer = a_indexer
+	self._r_indexer = r_indexer
+	self.calculate_lv()
+        super(DerivedLotkaVolterraModel,self).__init__(
+            model._population_indices,
+	    X = model._population_indexer,
+            r = r_indexer,
+            a = a_indexer
+	)
+    def calculate_lv(self):
+	model = self._original_model
         x_indexer = model._population_indexer
         aij_dict = {}
         vars = {v:1 for v in model._vars}
@@ -62,34 +73,57 @@ class DerivedLotkaVolterraModel( GeneralizedLotkaVolterraModel ):
             xi = x_indexer[i]
 	    lvi = model._flow[xi].expand()
             print 'Inferring LV coefficients from', xi, 'equation:', lvi
-	    ri = xic = get_coeff( lvi, xi, 1 )
-	    aij = aij_dict[a_indexer[i][i]] = get_coeff( lvi, xi, 2 )
+	    xic = get_coeff( lvi, xi, 1 )
+	    if xic is None: xic = 0
+	    ri = xic
+	    aij = get_coeff( lvi, xi, 2 )
+	    if aij is None: aij = 0
+	    aij_dict[self._a_indexer[i][i]] = aij
             lvi -= aij * xi**2
 	    for j in model._population_indices:
 	        if j != i:
                     xj = x_indexer[j]
 		    ri = get_coeff( ri, xj, 0 )
-		    aij = aij_dict[a_indexer[i][j]] = get_coeff( xic, xj, 1 )
-                    print a_indexer[i][j], ':', aij
+		    if ri is None: ri = 0
+		    aij = get_coeff( xic, xj, 1 )
+		    if aij is None: aij = 0
+		    aij_dict[self._a_indexer[i][j]] = aij
+                    print self._a_indexer[i][j], ':', aij
                     lvi -= aij * xi * xj
-            print r_indexer[i], ':', ri
-	    aij_dict[r_indexer[i]] = ri
+            print self._r_indexer[i], ':', ri
+	    aij_dict[self._r_indexer[i]] = ri
             lvi -= ri * xi
             if lvi != 0:
                 raise LotkaVolterraException( "Population dynamics has excess terms in " + str(i) + "'th component: " + str(lvi) )
             del vars[xi]
         if len(vars) > 0:
             raise LotkaVolterraException( "Population dynamics has extra variables: " + ', '.join(vars.keys()) )
+	print 'aij_dict:',aij_dict; sys.stdout.flush()
 	self._A_bindings = Bindings( aij_dict ) 
-        super(DerivedLotkaVolterraModel,self).__init__(
-            model._population_indices,
-            r = r_indexer,
-            a = a_indexer
-	)
+    def set_population_indices(self, npi):
+	super(DerivedLotkaVolterraModel, self).set_population_indices(npi)
+	self.calculate_lv()
+    def mutate(self, resident_index):
+	mutant = self._original_model.mutate(resident_index)
+	self.set_population_indices( self._original_model._population_indices )
+	return mutant
+
+class backward_curry_indexer_2d( indexer ):
+    def __init__(self, ixr):
+	self._f = ixr
+    def __getitem__(self, j):
+	# return a thing that maps i --> ixr[i][j]
+        class inner_curry(indexer):
+	    def __init__(self, ixr, j):
+		self._f = ixr
+		self. _j = j
+	    def __getitem__(self, i):
+		return self._f[i][j]
+	return inner_curry(self._f, j)
 
 class LotkaVolterraAdaptiveDynamics( object ):
     '''Not an AdaptiveDynamicsModel class, but a helper that works with one.'''
-    def __init__( self, ad, lv_model=None, r_name='r', a_name='a' ):
+    def __init__( self, ad, lv_model=None, r_name='r', a_name='a', r_name_indexer=None, a_name_indexer=None ):
         self._adaptivedynamics = ad
 
 	print 'ad bindings:', self._adaptivedynamics._bindings
@@ -97,56 +131,64 @@ class LotkaVolterraAdaptiveDynamics( object ):
 	print '_early_bindings:', self._adaptivedynamics._early_bindings
 	print '_late_bindings:', self._adaptivedynamics._late_bindings
 
+	if a_name_indexer is None: a_name_indexer = indexer_2d(a_name)
+	if r_name_indexer is None: r_name_indexer = indexer(r_name)
+	self._a_name_indexer = a_name_indexer
+	self._r_name_indexer = r_name_indexer
+
 	# make LV model here
 	print 'make LV model'
-	self._lv_model = DerivedLotkaVolterraModel( ad._popdyn_model, r_name=r_name, a_name=a_name )
+	self._lv_model = DerivedLotkaVolterraModel( ad._popdyn_model, r_indexer=r_name_indexer, a_indexer=a_name_indexer )
 
 	print '_A_bindings:', self._lv_model._A_bindings
 
 	# for now, this only supports AD with a single phenotype variable
 	u_indexers = self._adaptivedynamics._phenotype_indexers
 
-	# sanity check the a values' functional form
-	# using extended system, in case it's only 1-d otherwise
-	extended_system = deepcopy( ad._popdyn_model )
-	# TODO: mutate all populations, not just the first one
-	mutant_index = extended_system.mutate( extended_system._population_indices[0] )
-	extended_lv_model = DerivedLotkaVolterraModel( extended_system, r_name=r_name, a_name=a_name )
-	a_to_u_bindings = self._adaptivedynamics._bindings + self._adaptivedynamics._late_bindings + extended_lv_model._A_bindings
-	print 'a_to_u_bindings:', a_to_u_bindings
-        u0s = column_vector( [ u_indexer[0] for u_indexer in u_indexers ] )
-        uqis = column_vector( [ u_indexer[mutant_index] for u_indexer in u_indexers ] )
-        a_func = a_to_u_bindings( extended_lv_model._indexers['a'][0][mutant_index] ).function( *(list(u0s) + list(uqis)) )
-	print 'a_func:', a_func
-	r_func = a_to_u_bindings( extended_lv_model._indexers['r'][0] ).function( *u0s )
-	print 'r_func:', r_func
-	for i in ad._popdyn_model._population_indices:
-            uis = column_vector( u[i] for u in u_indexers )
-	    for j in ad._popdyn_model._population_indices:
-                ujs = column_vector( u[j] for u in u_indexers )
-	        if a_to_u_bindings( extended_lv_model._indexers['a'][i][j] ) != a_func( *(list(uis)+list(ujs)) ):
-		    raise LotkaVolterraException(
-			'Model does not have consistent form a(u_i,u_j): ' +
-			str( a_to_u_bindings( extended_lv_model._indexers['a'][i][j] ) ) +
-			' does not have the form of ' +
-                        'a(%s, %s) = ' % (''.join(str(u[i]) for u in u_indexers), ''.join(str(u[j]) for u in u_indexers)) +
-			str( a_func( *(list(uis) + list(ujs)) ) ) )
-		if a_to_u_bindings( extended_lv_model._indexers['r'][i] ) != r_func( *uis ):
-		    raise LotkaVolterraException(
-			'Model does not have consistent form r(u_i): ' +
-			str( a_to_u_bindings( extended_lv_model._indexers['r'][i] ) ) +
-			' does not have the form of ' +
-			str( r_func( *uis ) ) )
-	        for k in ad._popdyn_model._population_indices:
-		    if len( extended_lv_model._A_bindings( extended_lv_model._indexers['a'][i][j] ).coefficients( extended_lv_model._population_indexer[k] ) ) > 1:
-		        raise LotkaVolterraException( 'Model has super-quadratic terms in population variables' )
-	self._A_function_expansion_bindings = Bindings( FunctionBindings( { a_name: a_func, r_name: r_func } ) )
+	if False:
+	    # sanity check the a values' functional form
+	    # using extended system, in case it's only 1-d otherwise
+	    extended_system = deepcopy( ad._popdyn_model )
+	    # TODO: mutate all populations, not just the first one
+	    mutant_index = extended_system.mutate( extended_system._population_indices[0] )
+	    extended_lv_model = DerivedLotkaVolterraModel( extended_system, r_name=r_name, a_name=a_name )
+	    a_to_u_bindings = self._adaptivedynamics._bindings + self._adaptivedynamics._late_bindings + extended_lv_model._A_bindings
+	    print 'a_to_u_bindings:', a_to_u_bindings
+            u0s = column_vector( [ u_indexer[0] for u_indexer in u_indexers ] )
+            uqis = column_vector( [ u_indexer[mutant_index] for u_indexer in u_indexers ] )
+            a_func = a_to_u_bindings( extended_lv_model._indexers['a'][0][mutant_index] ).function( *(list(u0s) + list(uqis)) )
+	    print 'a_func:', a_func
+	    r_func = a_to_u_bindings( extended_lv_model._indexers['r'][0] ).function( *u0s )
+	    print 'r_func:', r_func
+	    for i in ad._popdyn_model._population_indices:
+                uis = column_vector( u[i] for u in u_indexers )
+	        for j in ad._popdyn_model._population_indices:
+                    ujs = column_vector( u[j] for u in u_indexers )
+	            if a_to_u_bindings( extended_lv_model._indexers['a'][i][j] ) != a_func( *(list(uis)+list(ujs)) ):
+		        raise LotkaVolterraException(
+			    'Model does not have consistent form a(u_i,u_j): ' +
+			    str( a_to_u_bindings( extended_lv_model._indexers['a'][i][j] ) ) +
+			    ' does not have the form of ' +
+                            'a(%s, %s) = ' % (''.join(str(u[i]) for u in u_indexers), ''.join(str(u[j]) for u in u_indexers)) +
+			    str( a_func( *(list(uis) + list(ujs)) ) ) )
+		    if a_to_u_bindings( extended_lv_model._indexers['r'][i] ) != r_func( *uis ):
+		        raise LotkaVolterraException(
+			    'Model does not have consistent form r(u_i): ' +
+			    str( a_to_u_bindings( extended_lv_model._indexers['r'][i] ) ) +
+			    ' does not have the form of ' +
+			    str( r_func( *uis ) ) )
+	            for k in ad._popdyn_model._population_indices:
+		        if len( extended_lv_model._A_bindings( extended_lv_model._indexers['a'][i][j] ).coefficients( extended_lv_model._population_indexer[k] ) ) > 1:
+		            raise LotkaVolterraException( 'Model has super-quadratic terms in population variables' )
+
 
 	print 'make LV adaptive dynamics'
+	print 'population vars', self._lv_model.population_vars()
+	print 'population vars', self._lv_model._original_model.population_vars()
         formal_equilibrium = Bindings( { v : hat(v) for v in self._lv_model.population_vars() } )
 	self._lv_adap = AdaptiveDynamicsModel(
 	    self._lv_model,
-	    [ self._lv_model._indexers['r'] ] + [ indexer_2d_reverse('a')[j] for j in self._lv_model._population_indices ],
+	    [ self._lv_model._indexers['r'] ] + [ backward_curry_indexer_2d(self._lv_model._indexers['a'])[j] for j in self._lv_model._population_indices ],
             equilibrium = formal_equilibrium )
 	# todo: what to do with multiple phenotype indexers?
 	print 'make LV evolution bindings'
@@ -155,15 +197,34 @@ class LotkaVolterraAdaptiveDynamics( object ):
 	# _A_to_function_bindings expands the LV equations
 	# into functions of u_i, e.g. from a_i_j to a(u_i,u_j)
 	# very necessary so that partial derivatives can be taken
-	self._A_to_function_bindings = Bindings( dict( [
-	  ( self._lv_model._indexers['a'][i][j], 
-	    self._lv_model._A_bindings( function( a_name )( *([u[i] for u in us] + [u[j] for u in us] ) ) ) )
+	from sage.symbolic.function_factory import function
+	_A_to_function_dict = [
+	  ( a_name_indexer[i][j], 
+	    self._lv_model._A_bindings( function( str( a_name_indexer[i][j] ) )( *([u[i] for u in us] + [u[j] for u in us] ) ) ) )
 	  for i in self._lv_model._population_indices
 	  for j in self._lv_model._population_indices ] + [
-	  ( self._lv_model._indexers['r'][i],
-	    self._lv_model._A_bindings( function( r_name )( *(u[i] for u in us) ) ) )
-	  for i in self._lv_model._population_indices ] ) )
-	#print '_A_to_function_bindings:', self._A_to_function_bindings
+	  ( r_name_indexer[i],
+	    self._lv_model._A_bindings( function( str( r_name_indexer[i] ) )( *(u[i] for u in us) ) ) )
+	  for i in self._lv_model._population_indices ]
+	#print '_A_to_function_dict:', self._A_to_function_dict
+	self._A_to_function_bindings = Bindings( dict( _A_to_function_dict ) )
+
+	A_late_bindings = self._lv_model._A_bindings + self._adaptivedynamics._bindings + self._adaptivedynamics._late_bindings
+	self._A_function_expansion_dict = dict( [
+	    ( a_name_indexer[i][j],
+		A_late_bindings( a_name_indexer[i][j] )
+		    .function( *([ u_indexer[i] for u_indexer in u_indexers ] + [ u_indexer[j] for u_indexer in u_indexers ]) ) )
+		for i in self._lv_model._population_indices
+		for j in self._lv_model._population_indices
+	] + [
+	    ( r_name_indexer[i],
+		A_late_bindings( r_name_indexer[i] )
+		    .function( *([ u_indexer[i] for u_indexer in u_indexers ]) ) )
+		for i in self._lv_model._population_indices
+	] )
+	#print '_A_function_expansion_dict:', self._A_function_expansion_dict
+	self._A_function_expansion_bindings = Bindings( FunctionBindings(
+	    self._A_function_expansion_dict ) )
 	#print '_A_function_expansion_bindings:', self._A_function_expansion_bindings
 	# _phenotypes_to_fn_bindings: changes u_i to u_i(t)
 	# is used in all the below methods, so that du_i(t)/dt works
@@ -187,7 +248,9 @@ class LotkaVolterraAdaptiveDynamics( object ):
         '''The selection gradient corresponding to the 'interaction phenotype'
         A.'''
         # This is a vector, intended to be treated as a column vector.
-        return vector( [ self._lv_adap._S[a] for a in A ] )
+        S = vector( [ self._lv_adap._S[a] for a in A ] )
+	print 'S:', S
+	return S
     def d1A( self, i ):
 	'''"Direct effect": derivative of A(u_i) wrt u_i with u_i in the "patient"
         position, as the first argument of a(.,.).'''
@@ -195,22 +258,20 @@ class LotkaVolterraAdaptiveDynamics( object ):
         # indices indexing the entries of the u phenotype vector.
         A_ij = self._A_to_function_bindings( self.A(i) )
 	uis = column_vector( [ u[i] for u in self._adaptivedynamics._phenotype_indexers ] )
-	uxs = column_vector( [ u['x'] for u in self._adaptivedynamics._phenotype_indexers ] )
-	#print 'hack A_ij: from', A_ij
-        A_ij_hacked = A_ij.apply_map( lambda x: x.subs_expr( function( self._lv_model._a_name )(*(list(uis)+list(uis))) == function( self._lv_model._a_name )(*(list(uis)+list(uxs))) ) )
-	#print 'to', A_ij_hacked
-	#print 'd1A: derivative of $%s$ wrt $%s$' % (latex(A_ij_hacked), latex(uis))
+	xx = self._adaptivedynamics.fake_population_index()
+	uxs = column_vector( [ u[xx] for u in self._adaptivedynamics._phenotype_indexers ] )
+	print 'hack A_ij: from', A_ij
+        A_ij_hacked = A_ij.apply_map( lambda x: x.subs_expr( function( str( self._a_name_indexer[i][i] ) )(*(list(uis)+list(uis))) == function( str( self._a_name_indexer[i][i] ) )(*(list(uis)+list(uxs))) ) )
+	print 'to', A_ij_hacked
+	print 'd1A: derivative of $%s$ wrt $%s$' % (latex(A_ij_hacked), latex(uis))
         d1a = matrix( [ [ aij.derivative( u ) for u in uis ] for aij in A_ij_hacked ] )
-        #if d1a.nrows() == 1:
-        #   d1a = d1a.row(0)
-        #elif d1a.ncols() == 1:
-        #   d1a = column_vector( d1a.column(0) )
-	#print 'is $%s$' % latex( d1a )
+	print 'is $%s$' % latex( d1a )
         d = d1a
         for ux, ui in zip( uxs, uis ):
 	    d = d.subs( ux == ui )
+	print '; $%s$' % latex( d )
 	d = self._A_function_expansion_bindings( d )
-	#print ': $%s$' % latex( d )
+	print ': $%s$' % latex( d )
 	return d
     def direct_effect( self, i ):
         # the component of change in A due to direct selection on population i
@@ -229,8 +290,9 @@ class LotkaVolterraAdaptiveDynamics( object ):
 	u = self._adaptivedynamics._phenotype_indexers[0]
         if j == i:
 	    uis = [ u[i] for u in self._adaptivedynamics._phenotype_indexers ]
-	    uxs = [ u['x'] for u in self._adaptivedynamics._phenotype_indexers ]
-            A_ij_hacked = A_ij.apply_map( lambda x: x.subs_expr( function( self._lv_model._a_name )( *(uis+uis) ) == function( self._lv_model._a_name )( *(uis+uxs) ) ) )
+	    xx = self._adaptivedynamics.fake_population_index()
+	    uxs = [ u[xx] for u in self._adaptivedynamics._phenotype_indexers ]
+            A_ij_hacked = A_ij.apply_map( lambda x: x.subs_expr( function( str( self._a_name_indexer[i][i] ) )( *(uis+uis) ) == function( str( self._a_name_indexer[i][i] ) )( *(uis+uxs) ) ) )
             #print A_ij,', with', function( self._lv_model._a_name )( *(uis+uis) ), ' => ', function( self._lv_model._a_name )( *(uis+uxs) ), ' == ', A_ij_hacked
 	    #print 'd2A: derivative of $%s$ wrt $%s$' %(latex(A_ij_hacked), latex(uxs))
             d2A_hacked = matrix( [ [ aij.derivative( uxi ) for uxi in uxs ] for aij in A_ij_hacked ] )
@@ -286,3 +348,64 @@ class LotkaVolterraAdaptiveDynamics( object ):
 	#print 'dAdt: diff of Au is $%s$' % latex( d )
         sys.stdout.flush()
 	return d
+    def A_index( self, j ):
+	# help for using the above vectors: e.g. self.A(i)[self.A_index(j)]
+	# is the a_ij term.
+	try: self._A_index_dict.keys()
+	except AttributeError:
+	    self._A_index_dict = dict( (v,i) for i,v in enumerate( [0] + self._lv_model._population_indices ) )
+	return self._A_index_dict[j]
+
+def plot_aij_with_arrows( evol_trajectory, lvad, filename ):
+    resolve_A_bindings = (
+	lvad._A_to_function_bindings +
+	lvad._A_function_expansion_bindings +
+	lvad._adaptivedynamics._bindings +
+	lvad.dudt_bindings() +
+	lvad._phenotypes_from_fn_bindings
+    )
+    aap = Graphics()
+    for i in lvad._lv_model._population_indices:
+        for j in lvad._lv_model._population_indices:
+	    aap += evol_trajectory.plot(
+	        lvad._lv_model._A_bindings( lvad._lv_model._a_indexer[i][j] ),
+	        lvad._lv_model._A_bindings( lvad._lv_model._a_indexer[j][i] ),
+	        color='red'
+	    )
+	    # plot 4 arrows per (i,j) point
+	    pp0 = evol_trajectory._timeseries[0]
+	    Aij = (
+	        pp0( resolve_A_bindings( lvad.A(i)[lvad.A_index(j)] ) ),
+	        pp0( resolve_A_bindings( lvad.A(j)[lvad.A_index(i)] ) )
+	    )
+	    print 'A:', Aij
+	    S = (
+	        pp0( resolve_A_bindings( lvad.S( lvad.A(i) )[lvad.A_index(j)] ) ),
+	        pp0( resolve_A_bindings( lvad.S( lvad.A(j) )[lvad.A_index(i)] ) )
+	    )
+	    print 'S:', S
+	    if S[0] != 0 or S[1] != 0:
+	        aap += arrow( Aij, ( a+s for a,s in zip(Aij, S) ), color='red' )
+	    D = (
+	        pp0( resolve_A_bindings( lvad.direct_effect( i )[lvad.A_index(j)] ) ),
+	        pp0( resolve_A_bindings( lvad.direct_effect( j )[lvad.A_index(i)] ) )
+	    )
+	    print 'pp0:', pp0
+	    print 'D:', D
+	    if D[0] != 0 or D[1] != 0:
+	        aap += arrow( Aij, ( a+d for a,d in zip(Aij, D) ), color='green' )
+	    I = (
+	        pp0( resolve_A_bindings( lvad.indirect_effect( i )[lvad.A_index(j)] ) ),
+	        pp0( resolve_A_bindings( lvad.indirect_effect( j )[lvad.A_index(i)] ) )
+	    )
+	    print 'I:', I
+	    if I[0] != 0 or I[1] != 0:
+	        aap += arrow( Aij, ( a+i for a,i in zip(Aij, I) ), color='purple' )
+	    d = (
+	        pp0( resolve_A_bindings( lvad.dAdt( i )[lvad.A_index(j)] ) ),
+	        pp0( resolve_A_bindings( lvad.dAdt( j )[lvad.A_index(i)] ) )
+	    )
+	    print 'dAdt:', d
+	    if d[0] != 0 or d[1] != 0:
+	        aap += arrow( Aij, ( a+d for a,d in zip(Aij, d) ), color='blue' )
+    aap.save( filename, figsize=(5,5) )

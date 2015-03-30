@@ -1,0 +1,1523 @@
+ad bindings: {Xhat_R_1_0 -> -3*(cos(-u_P_0_0 + u_R_0_0) - cos(-u_P_1_0 + u_R_0_0))/((cos(-u_P_1_0 + u_R_0_0) + 1)*cos(-u_P_0_0 + u_R_1_0) - (cos(-u_P_0_0 + u_R_0_0) + 1)*cos(-u_P_1_0 + u_R_1_0) - cos(-u_P_0_0 + u_R_0_0) + cos(-u_P_1_0 + u_R_0_0)), gamma -> 1, Xhat_R_0_0 -> 3*(cos(-u_P_0_0 + u_R_1_0) - cos(-u_P_1_0 + u_R_1_0))/((cos(-u_P_1_0 + u_R_0_0) + 1)*cos(-u_P_0_0 + u_R_1_0) - (cos(-u_P_0_0 + u_R_0_0) + 1)*cos(-u_P_1_0 + u_R_1_0) - cos(-u_P_0_0 + u_R_0_0) + cos(-u_P_1_0 + u_R_0_0)), r -> 1, Xhat_P_0_0 -> ((cos(-u_P_0_0 + u_R_0_0) - 2)*cos(-u_P_1_0 + u_R_1_0)^2 + (cos(-u_P_1_0 + u_R_0_0)^2 - 2*cos(-u_P_1_0 + u_R_0_0))*cos(-u_P_0_0 + u_R_1_0) + 2*cos(-u_P_0_0 + u_R_0_0)*cos(-u_P_1_0 + u_R_0_0) - 2*cos(-u_P_1_0 + u_R_0_0)^2 - ((cos(-u_P_1_0 + u_R_0_0) - 2)*cos(-u_P_0_0 + u_R_1_0) + (cos(-u_P_0_0 + u_R_0_0) - 4)*cos(-u_P_1_0 + u_R_0_0) + 2*cos(-u_P_0_0 + u_R_0_0))*cos(-u_P_1_0 + u_R_1_0))/((cos(-u_P_1_0 + u_R_0_0)^2 + 2*cos(-u_P_1_0 + u_R_0_0) + 1)*cos(-u_P_0_0 + u_R_1_0)^2 + (cos(-u_P_0_0 + u_R_0_0)^2 + 2*cos(-u_P_0_0 + u_R_0_0) + 1)*cos(-u_P_1_0 + u_R_1_0)^2 + cos(-u_P_0_0 + u_R_0_0)^2 - 2*((cos(-u_P_0_0 + u_R_0_0) - 1)*cos(-u_P_1_0 + u_R_0_0) - cos(-u_P_1_0 + u_R_0_0)^2 + cos(-u_P_0_0 + u_R_0_0))*cos(-u_P_0_0 + u_R_1_0) - 2*cos(-u_P_0_0 + u_R_0_0)*cos(-u_P_1_0 + u_R_0_0) + cos(-u_P_1_0 + u_R_0_0)^2 + 2*(cos(-u_P_0_0 + u_R_0_0)^2 - ((cos(-u_P_0_0 + u_R_0_0) + 1)*cos(-u_P_1_0 + u_R_0_0) + cos(-u_P_0_0 + u_R_0_0) + 1)*cos(-u_P_0_0 + u_R_1_0) - (cos(-u_P_0_0 + u_R_0_0) + 1)*cos(-u_P_1_0 + u_R_0_0) + cos(-u_P_0_0 + u_R_0_0))*cos(-u_P_1_0 + u_R_1_0)), k -> 1/3, Xhat_P_1_0 -> ((cos(-u_P_1_0 + u_R_0_0) - 2)*cos(-u_P_0_0 + u_R_1_0)^2 - 2*cos(-u_P_0_0 + u_R_0_0)^2 - ((cos(-u_P_0_0 + u_R_0_0) + 2)*cos(-u_P_1_0 + u_R_0_0) - 4*cos(-u_P_0_0 + u_R_0_0))*cos(-u_P_0_0 + u_R_1_0) + 2*cos(-u_P_0_0 + u_R_0_0)*cos(-u_P_1_0 + u_R_0_0) + (cos(-u_P_0_0 + u_R_0_0)^2 - (cos(-u_P_0_0 + u_R_0_0) - 2)*cos(-u_P_0_0 + u_R_1_0) - 2*cos(-u_P_0_0 + u_R_0_0))*cos(-u_P_1_0 + u_R_1_0))/((cos(-u_P_1_0 + u_R_0_0)^2 + 2*cos(-u_P_1_0 + u_R_0_0) + 1)*cos(-u_P_0_0 + u_R_1_0)^2 + (cos(-u_P_0_0 + u_R_0_0)^2 + 2*cos(-u_P_0_0 + u_R_0_0) + 1)*cos(-u_P_1_0 + u_R_1_0)^2 + cos(-u_P_0_0 + u_R_0_0)^2 - 2*((cos(-u_P_0_0 + u_R_0_0) - 1)*cos(-u_P_1_0 + u_R_0_0) - cos(-u_P_1_0 + u_R_0_0)^2 + cos(-u_P_0_0 + u_R_0_0))*cos(-u_P_0_0 + u_R_1_0) - 2*cos(-u_P_0_0 + u_R_0_0)*cos(-u_P_1_0 + u_R_0_0) + cos(-u_P_1_0 + u_R_0_0)^2 + 2*(cos(-u_P_0_0 + u_R_0_0)^2 - ((cos(-u_P_0_0 + u_R_0_0) + 1)*cos(-u_P_1_0 + u_R_0_0) + cos(-u_P_0_0 + u_R_0_0) + 1)*cos(-u_P_0_0 + u_R_1_0) - (cos(-u_P_0_0 + u_R_0_0) + 1)*cos(-u_P_1_0 + u_R_0_0) + cos(-u_P_0_0 + u_R_0_0))*cos(-u_P_1_0 + u_R_1_0)), m -> 1, a(u,v) -> cos(u - v) + 1}
+model bindings: {k -> 1/3, r -> 1, m -> 1, a(u,v) -> cos(u - v) + 1}
+_early_bindings: {}
+_late_bindings: {}
+make LV model
+Inferring LV coefficients from X_R_0_0 equation: -X_P_0_0*X_R_0_0*cos(u_P_0_0 - u_R_0_0) - X_P_1_0*X_R_0_0*cos(u_P_1_0 - u_R_0_0) - X_P_0_0*X_R_0_0 - X_P_1_0*X_R_0_0 - X_R_0_0^2 - X_R_0_0*X_R_1_0 + X_R_0_0
+a_R_0_0_P_1_0 : -cos(-u_P_1_0 + u_R_0_0) - 1
+a_R_0_0_P_0_0 : -cos(-u_P_0_0 + u_R_0_0) - 1
+a_R_0_0_R_1_0 : -1
+r_R_0_0 : 1
+Inferring LV coefficients from X_P_1_0 equation: 1/3*X_P_1_0*X_R_0_0*cos(u_P_1_0 - u_R_0_0) + 1/3*X_P_1_0*X_R_1_0*cos(u_P_1_0 - u_R_1_0) + 1/3*X_P_1_0*X_R_0_0 + 1/3*X_P_1_0*X_R_1_0 - X_P_1_0
+a_P_1_0_R_0_0 : 1/3*cos(-u_P_1_0 + u_R_0_0) + 1/3
+a_P_1_0_P_0_0 : 0
+a_P_1_0_R_1_0 : 1/3*cos(-u_P_1_0 + u_R_1_0) + 1/3
+r_P_1_0 : -1
+Inferring LV coefficients from X_P_0_0 equation: 1/3*X_P_0_0*X_R_0_0*cos(u_P_0_0 - u_R_0_0) + 1/3*X_P_0_0*X_R_1_0*cos(u_P_0_0 - u_R_1_0) + 1/3*X_P_0_0*X_R_0_0 + 1/3*X_P_0_0*X_R_1_0 - X_P_0_0
+a_P_0_0_R_0_0 : 1/3*cos(-u_P_0_0 + u_R_0_0) + 1/3
+a_P_0_0_P_1_0 : 0
+a_P_0_0_R_1_0 : 1/3*cos(-u_P_0_0 + u_R_1_0) + 1/3
+r_P_0_0 : -1
+Inferring LV coefficients from X_R_1_0 equation: -X_P_0_0*X_R_1_0*cos(u_P_0_0 - u_R_1_0) - X_P_1_0*X_R_1_0*cos(u_P_1_0 - u_R_1_0) - X_P_0_0*X_R_1_0 - X_P_1_0*X_R_1_0 - X_R_0_0*X_R_1_0 - X_R_1_0^2 + X_R_1_0
+a_R_1_0_R_0_0 : -1
+a_R_1_0_P_1_0 : -cos(-u_P_1_0 + u_R_1_0) - 1
+a_R_1_0_P_0_0 : -cos(-u_P_0_0 + u_R_1_0) - 1
+r_R_1_0 : 1
+aij_dict: {r_P_0_0: -1, a_P_1_0_P_1_0: 0, a_R_0_0_P_1_0: -cos(-u_P_1_0 + u_R_0_0) - 1, a_P_1_0_R_1_0: 1/3*cos(-u_P_1_0 + u_R_1_0) + 1/3, a_P_0_0_R_0_0: 1/3*cos(-u_P_0_0 + u_R_0_0) + 1/3, a_R_0_0_P_0_0: -cos(-u_P_0_0 + u_R_0_0) - 1, a_R_1_0_P_1_0: -cos(-u_P_1_0 + u_R_1_0) - 1, r_P_1_0: -1, a_R_0_0_R_0_0: -1, a_R_1_0_R_1_0: -1, a_P_0_0_P_1_0: 0, a_R_0_0_R_1_0: -1, a_R_1_0_P_0_0: -cos(-u_P_0_0 + u_R_1_0) - 1, a_P_0_0_P_0_0: 0, a_P_1_0_R_0_0: 1/3*cos(-u_P_1_0 + u_R_0_0) + 1/3, r_R_0_0: 1, r_R_1_0: 1, a_R_1_0_R_0_0: -1, a_P_1_0_P_0_0: 0, a_P_0_0_R_1_0: 1/3*cos(-u_P_0_0 + u_R_1_0) + 1/3}
+Inferring LV coefficients from X_R_0_0 equation: -X_P_0_0*X_R_0_0*cos(u_P_0_0 - u_R_0_0) - X_P_1_0*X_R_0_0*cos(u_P_1_0 - u_R_0_0) - X_P_0_0*X_R_0_0 - X_P_1_0*X_R_0_0 - X_R_0_0^2 - X_R_0_0*X_R_1_0 + X_R_0_0
+a_R_0_0_P_1_0 : -cos(-u_P_1_0 + u_R_0_0) - 1
+a_R_0_0_P_0_0 : -cos(-u_P_0_0 + u_R_0_0) - 1
+a_R_0_0_R_1_0 : -1
+r_R_0_0 : 1
+Inferring LV coefficients from X_P_1_0 equation: 1/3*X_P_1_0*X_R_0_0*cos(u_P_1_0 - u_R_0_0) + 1/3*X_P_1_0*X_R_1_0*cos(u_P_1_0 - u_R_1_0) + 1/3*X_P_1_0*X_R_0_0 + 1/3*X_P_1_0*X_R_1_0 - X_P_1_0
+a_P_1_0_R_0_0 : 1/3*cos(-u_P_1_0 + u_R_0_0) + 1/3
+a_P_1_0_P_0_0 : 0
+a_P_1_0_R_1_0 : 1/3*cos(-u_P_1_0 + u_R_1_0) + 1/3
+r_P_1_0 : -1
+Inferring LV coefficients from X_P_0_0 equation: 1/3*X_P_0_0*X_R_0_0*cos(u_P_0_0 - u_R_0_0) + 1/3*X_P_0_0*X_R_1_0*cos(u_P_0_0 - u_R_1_0) + 1/3*X_P_0_0*X_R_0_0 + 1/3*X_P_0_0*X_R_1_0 - X_P_0_0
+a_P_0_0_R_0_0 : 1/3*cos(-u_P_0_0 + u_R_0_0) + 1/3
+a_P_0_0_P_1_0 : 0
+a_P_0_0_R_1_0 : 1/3*cos(-u_P_0_0 + u_R_1_0) + 1/3
+r_P_0_0 : -1
+Inferring LV coefficients from X_R_1_0 equation: -X_P_0_0*X_R_1_0*cos(u_P_0_0 - u_R_1_0) - X_P_1_0*X_R_1_0*cos(u_P_1_0 - u_R_1_0) - X_P_0_0*X_R_1_0 - X_P_1_0*X_R_1_0 - X_R_0_0*X_R_1_0 - X_R_1_0^2 + X_R_1_0
+a_R_1_0_R_0_0 : -1
+a_R_1_0_P_1_0 : -cos(-u_P_1_0 + u_R_1_0) - 1
+a_R_1_0_P_0_0 : -cos(-u_P_0_0 + u_R_1_0) - 1
+r_R_1_0 : 1
+aij_dict: {r_P_0_0: -1, a_P_1_0_P_1_0: 0, a_R_0_0_P_1_0: -cos(-u_P_1_0 + u_R_0_0) - 1, a_P_1_0_R_1_0: 1/3*cos(-u_P_1_0 + u_R_1_0) + 1/3, a_P_0_0_R_0_0: 1/3*cos(-u_P_0_0 + u_R_0_0) + 1/3, a_R_0_0_P_0_0: -cos(-u_P_0_0 + u_R_0_0) - 1, a_R_1_0_P_1_0: -cos(-u_P_1_0 + u_R_1_0) - 1, r_P_1_0: -1, a_R_0_0_R_0_0: -1, a_R_1_0_R_1_0: -1, a_P_0_0_P_1_0: 0, a_R_0_0_R_1_0: -1, a_R_1_0_P_0_0: -cos(-u_P_0_0 + u_R_1_0) - 1, a_P_0_0_P_0_0: 0, a_P_1_0_R_0_0: 1/3*cos(-u_P_1_0 + u_R_0_0) + 1/3, r_R_0_0: 1, r_R_1_0: 1, a_R_1_0_R_0_0: -1, a_P_1_0_P_0_0: 0, a_P_0_0_R_1_0: 1/3*cos(-u_P_0_0 + u_R_1_0) + 1/3}
+_A_bindings: {a_P_0_0_R_0_0 -> 1/3*cos(-u_P_0_0 + u_R_0_0) + 1/3, a_R_1_0_P_1_0 -> -cos(-u_P_1_0 + u_R_1_0) - 1, r_P_1_0 -> -1, a_R_0_0_R_0_0 -> -1, a_P_0_0_P_1_0 -> 0, a_R_0_0_R_1_0 -> -1, r_R_1_0 -> 1, a_R_1_0_R_0_0 -> -1, a_P_0_0_R_1_0 -> 1/3*cos(-u_P_0_0 + u_R_1_0) + 1/3, r_P_0_0 -> -1, a_P_1_0_P_1_0 -> 0, a_R_0_0_P_1_0 -> -cos(-u_P_1_0 + u_R_0_0) - 1, a_P_1_0_R_1_0 -> 1/3*cos(-u_P_1_0 + u_R_1_0) + 1/3, a_R_0_0_P_0_0 -> -cos(-u_P_0_0 + u_R_0_0) - 1, a_R_1_0_R_1_0 -> -1, a_R_1_0_P_0_0 -> -cos(-u_P_0_0 + u_R_1_0) - 1, a_P_0_0_P_0_0 -> 0, a_P_1_0_R_0_0 -> 1/3*cos(-u_P_1_0 + u_R_0_0) + 1/3, r_R_0_0 -> 1, a_P_1_0_P_0_0 -> 0}
+make LV adaptive dynamics
+population vars [X_R_0_0, X_P_1_0, X_P_0_0, X_R_1_0]
+population vars [X_R_0_0, X_P_1_0, X_P_0_0, X_R_1_0]
+basal: [R_0, R_1]
+Inferring LV coefficients from X_R_0_0 equation: -X_P_0_0*X_R_0_0*cos(u_P_0_0 - u_R_0_0) - X_P_1_0*X_R_0_0*cos(u_P_1_0 - u_R_0_0) - X_P_0_0*X_R_0_0 - X_P_1_0*X_R_0_0 - X_R_0_0^2 - X_R_0_0*X_R_0_1 - X_R_0_0*X_R_1_0 + X_R_0_0
+a_R_0_0_P_1_0 : -cos(-u_P_1_0 + u_R_0_0) - 1
+a_R_0_0_P_0_0 : -cos(-u_P_0_0 + u_R_0_0) - 1
+a_R_0_0_R_1_0 : -1
+a_R_0_0_R_0_1 : -1
+r_R_0_0 : 1
+Inferring LV coefficients from X_P_1_0 equation: 1/3*X_P_1_0*X_R_0_0*cos(u_P_1_0 - u_R_0_0) + 1/3*X_P_1_0*X_R_0_1*cos(u_P_1_0 - u_R_0_1) + 1/3*X_P_1_0*X_R_1_0*cos(u_P_1_0 - u_R_1_0) + 1/3*X_P_1_0*X_R_0_0 + 1/3*X_P_1_0*X_R_0_1 + 1/3*X_P_1_0*X_R_1_0 - X_P_1_0
+a_P_1_0_R_0_0 : 1/3*cos(-u_P_1_0 + u_R_0_0) + 1/3
+a_P_1_0_P_0_0 : 0
+a_P_1_0_R_1_0 : 1/3*cos(-u_P_1_0 + u_R_1_0) + 1/3
+a_P_1_0_R_0_1 : 1/3*cos(-u_P_1_0 + u_R_0_1) + 1/3
+r_P_1_0 : -1
+Inferring LV coefficients from X_P_0_0 equation: 1/3*X_P_0_0*X_R_0_0*cos(u_P_0_0 - u_R_0_0) + 1/3*X_P_0_0*X_R_0_1*cos(u_P_0_0 - u_R_0_1) + 1/3*X_P_0_0*X_R_1_0*cos(u_P_0_0 - u_R_1_0) + 1/3*X_P_0_0*X_R_0_0 + 1/3*X_P_0_0*X_R_0_1 + 1/3*X_P_0_0*X_R_1_0 - X_P_0_0
+a_P_0_0_R_0_0 : 1/3*cos(-u_P_0_0 + u_R_0_0) + 1/3
+a_P_0_0_P_1_0 : 0
+a_P_0_0_R_1_0 : 1/3*cos(-u_P_0_0 + u_R_1_0) + 1/3
+a_P_0_0_R_0_1 : 1/3*cos(-u_P_0_0 + u_R_0_1) + 1/3
+r_P_0_0 : -1
+Inferring LV coefficients from X_R_1_0 equation: -X_P_0_0*X_R_1_0*cos(u_P_0_0 - u_R_1_0) - X_P_1_0*X_R_1_0*cos(u_P_1_0 - u_R_1_0) - X_P_0_0*X_R_1_0 - X_P_1_0*X_R_1_0 - X_R_0_0*X_R_1_0 - X_R_0_1*X_R_1_0 - X_R_1_0^2 + X_R_1_0
+a_R_1_0_R_0_0 : -1
+a_R_1_0_P_1_0 : -cos(-u_P_1_0 + u_R_1_0) - 1
+a_R_1_0_P_0_0 : -cos(-u_P_0_0 + u_R_1_0) - 1
+a_R_1_0_R_0_1 : -1
+r_R_1_0 : 1
+Inferring LV coefficients from X_R_0_1 equation: -X_P_0_0*X_R_0_1*cos(u_P_0_0 - u_R_0_1) - X_P_1_0*X_R_0_1*cos(u_P_1_0 - u_R_0_1) - X_P_0_0*X_R_0_1 - X_P_1_0*X_R_0_1 - X_R_0_0*X_R_0_1 - X_R_0_1^2 - X_R_0_1*X_R_1_0 + X_R_0_1
+a_R_0_1_R_0_0 : -1
+a_R_0_1_P_1_0 : -cos(-u_P_1_0 + u_R_0_1) - 1
+a_R_0_1_P_0_0 : -cos(-u_P_0_0 + u_R_0_1) - 1
+a_R_0_1_R_1_0 : -1
+r_R_0_1 : 1
+aij_dict: {a_P_0_0_R_0_1: 1/3*cos(-u_P_0_0 + u_R_0_1) + 1/3, a_P_0_0_R_0_0: 1/3*cos(-u_P_0_0 + u_R_0_0) + 1/3, r_P_1_0: -1, a_R_0_0_R_1_0: -1, r_R_1_0: 1, a_R_1_0_R_0_0: -1, a_P_0_0_R_1_0: 1/3*cos(-u_P_0_0 + u_R_1_0) + 1/3, r_P_0_0: -1, a_R_1_0_R_0_1: -1, a_P_1_0_R_1_0: 1/3*cos(-u_P_1_0 + u_R_1_0) + 1/3, a_R_0_0_P_0_0: -cos(-u_P_0_0 + u_R_0_0) - 1, r_R_0_1: 1, a_R_1_0_P_0_0: -cos(-u_P_0_0 + u_R_1_0) - 1, a_R_0_0_R_0_1: -1, a_R_0_1_R_1_0: -1, a_P_1_0_P_0_0: 0, a_R_0_1_R_0_1: -1, a_R_0_1_R_0_0: -1, a_R_1_0_P_1_0: -cos(-u_P_1_0 + u_R_1_0) - 1, a_P_1_0_R_0_1: 1/3*cos(-u_P_1_0 + u_R_0_1) + 1/3, a_R_0_0_R_0_0: -1, a_P_0_0_P_1_0: 0, a_R_0_1_P_0_0: -cos(-u_P_0_0 + u_R_0_1) - 1, a_P_1_0_P_1_0: 0, a_R_0_0_P_1_0: -cos(-u_P_1_0 + u_R_0_0) - 1, a_R_0_1_P_1_0: -cos(-u_P_1_0 + u_R_0_1) - 1, a_R_1_0_R_1_0: -1, a_P_0_0_P_0_0: 0, a_P_1_0_R_0_0: 1/3*cos(-u_P_1_0 + u_R_0_0) + 1/3, r_R_0_0: 1}
+The invasion rate for mutant population is:
+\begin{align*}
+  \mathscr I = \frac{1}{X_{R_{0}1}}\frac{dX_{R_{0}1}}{dt} &= X_{P_{0}0} a_{R_{0}1P_{0}0} + X_{P_{1}0} a_{R_{0}1P_{1}0} + X_{R_{0}0} a_{R_{0}1R_{0}0} + X_{R_{0}1} a_{R_{0}1R_{0}1} + X_{R_{1}0} a_{R_{0}1R_{1}0} + r_{R_{0}1} 
+\end{align*}
+
+limit as {r_R_0_1: r_R_0_0, a_R_0_1_P_1_0: a_R_0_0_P_1_0, a_R_0_1_P_0_0: a_R_0_0_P_0_0, a_R_0_1_R_1_0: a_R_0_0_R_1_0, a_R_0_1_R_0_0: a_R_0_0_R_0_0}
+after those limits:
+   1
+  X_R_0_0
+  X_P_1_0
+  X_P_0_0
+  X_R_1_0
+                                       1
+limit as                                _SAGE_VAR_X_R_0_1 -> 0
+ -->                                        1
+basal: [R_0, R_1]
+Inferring LV coefficients from X_R_0_0 equation: -X_P_0_0*X_R_0_0*cos(u_P_0_0 - u_R_0_0) - X_P_1_0*X_R_0_0*cos(u_P_1_0 - u_R_0_0) - X_P_1_1*X_R_0_0*cos(u_P_1_1 - u_R_0_0) - X_P_0_0*X_R_0_0 - X_P_1_0*X_R_0_0 - X_P_1_1*X_R_0_0 - X_R_0_0^2 - X_R_0_0*X_R_1_0 + X_R_0_0
+a_R_0_0_P_1_0 : -cos(-u_P_1_0 + u_R_0_0) - 1
+a_R_0_0_P_0_0 : -cos(-u_P_0_0 + u_R_0_0) - 1
+a_R_0_0_R_1_0 : -1
+a_R_0_0_P_1_1 : -cos(-u_P_1_1 + u_R_0_0) - 1
+r_R_0_0 : 1
+Inferring LV coefficients from X_P_1_0 equation: 1/3*X_P_1_0*X_R_0_0*cos(u_P_1_0 - u_R_0_0) + 1/3*X_P_1_0*X_R_1_0*cos(u_P_1_0 - u_R_1_0) + 1/3*X_P_1_0*X_R_0_0 + 1/3*X_P_1_0*X_R_1_0 - X_P_1_0
+a_P_1_0_R_0_0 : 1/3*cos(-u_P_1_0 + u_R_0_0) + 1/3
+a_P_1_0_P_0_0 : 0
+a_P_1_0_R_1_0 : 1/3*cos(-u_P_1_0 + u_R_1_0) + 1/3
+a_P_1_0_P_1_1 : 0
+r_P_1_0 : -1
+Inferring LV coefficients from X_P_0_0 equation: 1/3*X_P_0_0*X_R_0_0*cos(u_P_0_0 - u_R_0_0) + 1/3*X_P_0_0*X_R_1_0*cos(u_P_0_0 - u_R_1_0) + 1/3*X_P_0_0*X_R_0_0 + 1/3*X_P_0_0*X_R_1_0 - X_P_0_0
+a_P_0_0_R_0_0 : 1/3*cos(-u_P_0_0 + u_R_0_0) + 1/3
+a_P_0_0_P_1_0 : 0
+a_P_0_0_R_1_0 : 1/3*cos(-u_P_0_0 + u_R_1_0) + 1/3
+a_P_0_0_P_1_1 : 0
+r_P_0_0 : -1
+Inferring LV coefficients from X_R_1_0 equation: -X_P_0_0*X_R_1_0*cos(u_P_0_0 - u_R_1_0) - X_P_1_0*X_R_1_0*cos(u_P_1_0 - u_R_1_0) - X_P_1_1*X_R_1_0*cos(u_P_1_1 - u_R_1_0) - X_P_0_0*X_R_1_0 - X_P_1_0*X_R_1_0 - X_P_1_1*X_R_1_0 - X_R_0_0*X_R_1_0 - X_R_1_0^2 + X_R_1_0
+a_R_1_0_R_0_0 : -1
+a_R_1_0_P_1_0 : -cos(-u_P_1_0 + u_R_1_0) - 1
+a_R_1_0_P_0_0 : -cos(-u_P_0_0 + u_R_1_0) - 1
+a_R_1_0_P_1_1 : -cos(-u_P_1_1 + u_R_1_0) - 1
+r_R_1_0 : 1
+Inferring LV coefficients from X_P_1_1 equation: 1/3*X_P_1_1*X_R_0_0*cos(u_P_1_1 - u_R_0_0) + 1/3*X_P_1_1*X_R_1_0*cos(u_P_1_1 - u_R_1_0) + 1/3*X_P_1_1*X_R_0_0 + 1/3*X_P_1_1*X_R_1_0 - X_P_1_1
+a_P_1_1_R_0_0 : 1/3*cos(-u_P_1_1 + u_R_0_0) + 1/3
+a_P_1_1_P_1_0 : 0
+a_P_1_1_P_0_0 : 0
+a_P_1_1_R_1_0 : 1/3*cos(-u_P_1_1 + u_R_1_0) + 1/3
+r_P_1_1 : -1
+aij_dict: {a_P_0_0_R_0_0: 1/3*cos(-u_P_0_0 + u_R_0_0) + 1/3, a_P_1_1_P_1_1: 0, r_P_1_0: -1, a_R_0_0_R_1_0: -1, r_P_1_1: -1, r_R_1_0: 1, a_R_1_0_R_0_0: -1, a_P_0_0_R_1_0: 1/3*cos(-u_P_0_0 + u_R_1_0) + 1/3, r_P_0_0: -1, a_P_1_1_R_1_0: 1/3*cos(-u_P_1_1 + u_R_1_0) + 1/3, a_P_1_0_R_1_0: 1/3*cos(-u_P_1_0 + u_R_1_0) + 1/3, a_R_0_0_P_0_0: -cos(-u_P_0_0 + u_R_0_0) - 1, a_P_1_1_R_0_0: 1/3*cos(-u_P_1_1 + u_R_0_0) + 1/3, a_P_1_1_P_1_0: 0, a_R_1_0_P_0_0: -cos(-u_P_0_0 + u_R_1_0) - 1, a_P_1_0_P_1_1: 0, a_P_1_1_P_0_0: 0, a_P_1_0_P_0_0: 0, a_R_1_0_P_1_0: -cos(-u_P_1_0 + u_R_1_0) - 1, a_R_0_0_R_0_0: -1, a_P_0_0_P_1_0: 0, a_P_1_0_P_1_0: 0, a_R_0_0_P_1_0: -cos(-u_P_1_0 + u_R_0_0) - 1, a_R_1_0_P_1_1: -cos(-u_P_1_1 + u_R_1_0) - 1, a_P_0_0_P_1_1: 0, a_R_1_0_R_1_0: -1, a_P_0_0_P_0_0: 0, a_P_1_0_R_0_0: 1/3*cos(-u_P_1_0 + u_R_0_0) + 1/3, r_R_0_0: 1, a_R_0_0_P_1_1: -cos(-u_P_1_1 + u_R_0_0) - 1}
+The invasion rate for mutant population is:
+\begin{align*}
+  \mathscr I = \frac{1}{X_{P_{1}1}}\frac{dX_{P_{1}1}}{dt} &= X_{P_{0}0} a_{P_{1}1P_{0}0} + X_{P_{1}0} a_{P_{1}1P_{1}0} + X_{P_{1}1} a_{P_{1}1P_{1}1} + X_{R_{0}0} a_{P_{1}1R_{0}0} + X_{R_{1}0} a_{P_{1}1R_{1}0} + r_{P_{1}1} 
+\end{align*}
+
+limit as {r_P_1_1: r_P_1_0, a_P_1_1_P_1_0: a_P_1_0_P_1_0, a_P_1_1_R_1_0: a_P_1_0_R_1_0, a_P_1_1_P_0_0: a_P_1_0_P_0_0, a_P_1_1_R_0_0: a_P_1_0_R_0_0}
+after those limits:
+   1
+  X_R_0_0
+  X_P_1_0
+  X_P_0_0
+  X_R_1_0
+                                       1
+limit as                                _SAGE_VAR_X_P_1_1 -> 0
+ -->                                        1
+basal: [R_0, R_1]
+Inferring LV coefficients from X_R_0_0 equation: -X_P_0_0*X_R_0_0*cos(u_P_0_0 - u_R_0_0) - X_P_0_1*X_R_0_0*cos(u_P_0_1 - u_R_0_0) - X_P_1_0*X_R_0_0*cos(u_P_1_0 - u_R_0_0) - X_P_0_0*X_R_0_0 - X_P_0_1*X_R_0_0 - X_P_1_0*X_R_0_0 - X_R_0_0^2 - X_R_0_0*X_R_1_0 + X_R_0_0
+a_R_0_0_P_1_0 : -cos(-u_P_1_0 + u_R_0_0) - 1
+a_R_0_0_P_0_0 : -cos(-u_P_0_0 + u_R_0_0) - 1
+a_R_0_0_R_1_0 : -1
+a_R_0_0_P_0_1 : -cos(-u_P_0_1 + u_R_0_0) - 1
+r_R_0_0 : 1
+Inferring LV coefficients from X_P_1_0 equation: 1/3*X_P_1_0*X_R_0_0*cos(u_P_1_0 - u_R_0_0) + 1/3*X_P_1_0*X_R_1_0*cos(u_P_1_0 - u_R_1_0) + 1/3*X_P_1_0*X_R_0_0 + 1/3*X_P_1_0*X_R_1_0 - X_P_1_0
+a_P_1_0_R_0_0 : 1/3*cos(-u_P_1_0 + u_R_0_0) + 1/3
+a_P_1_0_P_0_0 : 0
+a_P_1_0_R_1_0 : 1/3*cos(-u_P_1_0 + u_R_1_0) + 1/3
+a_P_1_0_P_0_1 : 0
+r_P_1_0 : -1
+Inferring LV coefficients from X_P_0_0 equation: 1/3*X_P_0_0*X_R_0_0*cos(u_P_0_0 - u_R_0_0) + 1/3*X_P_0_0*X_R_1_0*cos(u_P_0_0 - u_R_1_0) + 1/3*X_P_0_0*X_R_0_0 + 1/3*X_P_0_0*X_R_1_0 - X_P_0_0
+a_P_0_0_R_0_0 : 1/3*cos(-u_P_0_0 + u_R_0_0) + 1/3
+a_P_0_0_P_1_0 : 0
+a_P_0_0_R_1_0 : 1/3*cos(-u_P_0_0 + u_R_1_0) + 1/3
+a_P_0_0_P_0_1 : 0
+r_P_0_0 : -1
+Inferring LV coefficients from X_R_1_0 equation: -X_P_0_0*X_R_1_0*cos(u_P_0_0 - u_R_1_0) - X_P_0_1*X_R_1_0*cos(u_P_0_1 - u_R_1_0) - X_P_1_0*X_R_1_0*cos(u_P_1_0 - u_R_1_0) - X_P_0_0*X_R_1_0 - X_P_0_1*X_R_1_0 - X_P_1_0*X_R_1_0 - X_R_0_0*X_R_1_0 - X_R_1_0^2 + X_R_1_0
+a_R_1_0_R_0_0 : -1
+a_R_1_0_P_1_0 : -cos(-u_P_1_0 + u_R_1_0) - 1
+a_R_1_0_P_0_0 : -cos(-u_P_0_0 + u_R_1_0) - 1
+a_R_1_0_P_0_1 : -cos(-u_P_0_1 + u_R_1_0) - 1
+r_R_1_0 : 1
+Inferring LV coefficients from X_P_0_1 equation: 1/3*X_P_0_1*X_R_0_0*cos(u_P_0_1 - u_R_0_0) + 1/3*X_P_0_1*X_R_1_0*cos(u_P_0_1 - u_R_1_0) + 1/3*X_P_0_1*X_R_0_0 + 1/3*X_P_0_1*X_R_1_0 - X_P_0_1
+a_P_0_1_R_0_0 : 1/3*cos(-u_P_0_1 + u_R_0_0) + 1/3
+a_P_0_1_P_1_0 : 0
+a_P_0_1_P_0_0 : 0
+a_P_0_1_R_1_0 : 1/3*cos(-u_P_0_1 + u_R_1_0) + 1/3
+r_P_0_1 : -1
+aij_dict: {a_P_0_1_P_0_1: 0, a_P_0_0_R_0_0: 1/3*cos(-u_P_0_0 + u_R_0_0) + 1/3, r_P_1_0: -1, a_P_0_1_P_1_0: 0, a_R_0_0_R_1_0: -1, a_P_1_0_P_0_1: 0, a_P_0_1_R_1_0: 1/3*cos(-u_P_0_1 + u_R_1_0) + 1/3, r_R_1_0: 1, a_R_1_0_R_0_0: -1, a_P_0_0_R_1_0: 1/3*cos(-u_P_0_0 + u_R_1_0) + 1/3, r_P_0_0: -1, a_P_1_0_R_1_0: 1/3*cos(-u_P_1_0 + u_R_1_0) + 1/3, a_P_0_1_R_0_0: 1/3*cos(-u_P_0_1 + u_R_0_0) + 1/3, a_R_0_0_P_0_0: -cos(-u_P_0_0 + u_R_0_0) - 1, a_R_1_0_P_0_0: -cos(-u_P_0_0 + u_R_1_0) - 1, a_P_0_0_P_0_0: 0, a_P_1_0_P_0_0: 0, r_P_0_1: -1, a_R_1_0_P_0_1: -cos(-u_P_0_1 + u_R_1_0) - 1, a_R_1_0_P_1_0: -cos(-u_P_1_0 + u_R_1_0) - 1, a_R_0_0_R_0_0: -1, a_P_0_0_P_1_0: 0, a_P_1_0_P_1_0: 0, a_R_0_0_P_1_0: -cos(-u_P_1_0 + u_R_0_0) - 1, a_R_1_0_R_1_0: -1, a_R_0_0_P_0_1: -cos(-u_P_0_1 + u_R_0_0) - 1, a_P_1_0_R_0_0: 1/3*cos(-u_P_1_0 + u_R_0_0) + 1/3, a_P_0_1_P_0_0: 0, r_R_0_0: 1, a_P_0_0_P_0_1: 0}
+The invasion rate for mutant population is:
+\begin{align*}
+  \mathscr I = \frac{1}{X_{P_{0}1}}\frac{dX_{P_{0}1}}{dt} &= X_{P_{0}0} a_{P_{0}1P_{0}0} + X_{P_{0}1} a_{P_{0}1P_{0}1} + X_{P_{1}0} a_{P_{0}1P_{1}0} + X_{R_{0}0} a_{P_{0}1R_{0}0} + X_{R_{1}0} a_{P_{0}1R_{1}0} + r_{P_{0}1} 
+\end{align*}
+
+limit as {a_P_0_1_R_1_0: a_P_0_0_R_1_0, a_P_0_1_P_1_0: a_P_0_0_P_1_0, a_P_0_1_R_0_0: a_P_0_0_R_0_0, r_P_0_1: r_P_0_0, a_P_0_1_P_0_0: a_P_0_0_P_0_0}
+after those limits:
+   1
+  X_R_0_0
+  X_P_1_0
+  X_P_0_0
+  X_R_1_0
+                                       1
+limit as                                _SAGE_VAR_X_P_0_1 -> 0
+ -->                                        1
+basal: [R_0, R_1]
+Inferring LV coefficients from X_R_0_0 equation: -X_P_0_0*X_R_0_0*cos(u_P_0_0 - u_R_0_0) - X_P_1_0*X_R_0_0*cos(u_P_1_0 - u_R_0_0) - X_P_0_0*X_R_0_0 - X_P_1_0*X_R_0_0 - X_R_0_0^2 - X_R_0_0*X_R_1_0 - X_R_0_0*X_R_1_1 + X_R_0_0
+a_R_0_0_P_1_0 : -cos(-u_P_1_0 + u_R_0_0) - 1
+a_R_0_0_P_0_0 : -cos(-u_P_0_0 + u_R_0_0) - 1
+a_R_0_0_R_1_0 : -1
+a_R_0_0_R_1_1 : -1
+r_R_0_0 : 1
+Inferring LV coefficients from X_P_1_0 equation: 1/3*X_P_1_0*X_R_0_0*cos(u_P_1_0 - u_R_0_0) + 1/3*X_P_1_0*X_R_1_0*cos(u_P_1_0 - u_R_1_0) + 1/3*X_P_1_0*X_R_1_1*cos(u_P_1_0 - u_R_1_1) + 1/3*X_P_1_0*X_R_0_0 + 1/3*X_P_1_0*X_R_1_0 + 1/3*X_P_1_0*X_R_1_1 - X_P_1_0
+a_P_1_0_R_0_0 : 1/3*cos(-u_P_1_0 + u_R_0_0) + 1/3
+a_P_1_0_P_0_0 : 0
+a_P_1_0_R_1_0 : 1/3*cos(-u_P_1_0 + u_R_1_0) + 1/3
+a_P_1_0_R_1_1 : 1/3*cos(-u_P_1_0 + u_R_1_1) + 1/3
+r_P_1_0 : -1
+Inferring LV coefficients from X_P_0_0 equation: 1/3*X_P_0_0*X_R_0_0*cos(u_P_0_0 - u_R_0_0) + 1/3*X_P_0_0*X_R_1_0*cos(u_P_0_0 - u_R_1_0) + 1/3*X_P_0_0*X_R_1_1*cos(u_P_0_0 - u_R_1_1) + 1/3*X_P_0_0*X_R_0_0 + 1/3*X_P_0_0*X_R_1_0 + 1/3*X_P_0_0*X_R_1_1 - X_P_0_0
+a_P_0_0_R_0_0 : 1/3*cos(-u_P_0_0 + u_R_0_0) + 1/3
+a_P_0_0_P_1_0 : 0
+a_P_0_0_R_1_0 : 1/3*cos(-u_P_0_0 + u_R_1_0) + 1/3
+a_P_0_0_R_1_1 : 1/3*cos(-u_P_0_0 + u_R_1_1) + 1/3
+r_P_0_0 : -1
+Inferring LV coefficients from X_R_1_0 equation: -X_P_0_0*X_R_1_0*cos(u_P_0_0 - u_R_1_0) - X_P_1_0*X_R_1_0*cos(u_P_1_0 - u_R_1_0) - X_P_0_0*X_R_1_0 - X_P_1_0*X_R_1_0 - X_R_0_0*X_R_1_0 - X_R_1_0^2 - X_R_1_0*X_R_1_1 + X_R_1_0
+a_R_1_0_R_0_0 : -1
+a_R_1_0_P_1_0 : -cos(-u_P_1_0 + u_R_1_0) - 1
+a_R_1_0_P_0_0 : -cos(-u_P_0_0 + u_R_1_0) - 1
+a_R_1_0_R_1_1 : -1
+r_R_1_0 : 1
+Inferring LV coefficients from X_R_1_1 equation: -X_P_0_0*X_R_1_1*cos(u_P_0_0 - u_R_1_1) - X_P_1_0*X_R_1_1*cos(u_P_1_0 - u_R_1_1) - X_P_0_0*X_R_1_1 - X_P_1_0*X_R_1_1 - X_R_0_0*X_R_1_1 - X_R_1_0*X_R_1_1 - X_R_1_1^2 + X_R_1_1
+a_R_1_1_R_0_0 : -1
+a_R_1_1_P_1_0 : -cos(-u_P_1_0 + u_R_1_1) - 1
+a_R_1_1_P_0_0 : -cos(-u_P_0_0 + u_R_1_1) - 1
+a_R_1_1_R_1_0 : -1
+r_R_1_1 : 1
+aij_dict: {a_R_1_1_R_0_0: -1, a_R_1_1_P_1_0: -cos(-u_P_1_0 + u_R_1_1) - 1, a_P_1_0_R_1_1: 1/3*cos(-u_P_1_0 + u_R_1_1) + 1/3, r_P_1_0: -1, a_R_0_0_R_1_0: -1, r_R_1_0: 1, a_R_1_0_R_0_0: -1, a_P_0_0_R_1_0: 1/3*cos(-u_P_0_0 + u_R_1_0) + 1/3, a_P_0_0_R_1_1: 1/3*cos(-u_P_0_0 + u_R_1_1) + 1/3, a_P_1_0_R_1_0: 1/3*cos(-u_P_1_0 + u_R_1_0) + 1/3, a_R_0_0_P_0_0: -cos(-u_P_0_0 + u_R_0_0) - 1, a_R_1_0_P_0_0: -cos(-u_P_0_0 + u_R_1_0) - 1, a_P_0_0_R_0_0: 1/3*cos(-u_P_0_0 + u_R_0_0) + 1/3, a_P_1_0_P_0_0: 0, a_R_1_0_R_1_1: -1, r_P_0_0: -1, a_R_1_1_R_1_0: -1, a_R_1_0_P_1_0: -cos(-u_P_1_0 + u_R_1_0) - 1, a_R_0_0_R_0_0: -1, a_P_0_0_P_1_0: 0, a_R_0_0_R_1_1: -1, a_R_1_1_R_1_1: -1, a_P_1_0_P_1_0: 0, a_R_0_0_P_1_0: -cos(-u_P_1_0 + u_R_0_0) - 1, r_R_1_1: 1, a_R_1_1_P_0_0: -cos(-u_P_0_0 + u_R_1_1) - 1, a_R_1_0_R_1_0: -1, a_P_0_0_P_0_0: 0, a_P_1_0_R_0_0: 1/3*cos(-u_P_1_0 + u_R_0_0) + 1/3, r_R_0_0: 1}
+The invasion rate for mutant population is:
+\begin{align*}
+  \mathscr I = \frac{1}{X_{R_{1}1}}\frac{dX_{R_{1}1}}{dt} &= X_{P_{0}0} a_{R_{1}1P_{0}0} + X_{P_{1}0} a_{R_{1}1P_{1}0} + X_{R_{0}0} a_{R_{1}1R_{0}0} + X_{R_{1}0} a_{R_{1}1R_{1}0} + X_{R_{1}1} a_{R_{1}1R_{1}1} + r_{R_{1}1} 
+\end{align*}
+
+limit as {a_R_1_1_P_1_0: a_R_1_0_P_1_0, a_R_1_1_R_0_0: a_R_1_0_R_0_0, r_R_1_1: r_R_1_0, a_R_1_1_P_0_0: a_R_1_0_P_0_0, a_R_1_1_R_1_0: a_R_1_0_R_1_0}
+after those limits:
+   1
+  X_R_0_0
+  X_P_1_0
+  X_P_0_0
+  X_R_1_0
+                                       1
+limit as                                _SAGE_VAR_X_R_1_1 -> 0
+ -->                                        1
+Original pop-dyn system: 
+\[\begin{align*}
+\frac{dX_{R_{0}0}}{dt} &= {\left(X_{P_{0}0} a_{R_{0}0P_{0}0} + X_{P_{1}0} a_{R_{0}0P_{1}0} + X_{R_{0}0} a_{R_{0}0R_{0}0} + X_{R_{1}0} a_{R_{0}0R_{1}0} + r_{R_{0}0}\right)} X_{R_{0}0}\\
+\frac{dX_{P_{1}0}}{dt} &= {\left(X_{P_{0}0} a_{P_{1}0P_{0}0} + X_{P_{1}0} a_{P_{1}0P_{1}0} + X_{R_{0}0} a_{P_{1}0R_{0}0} + X_{R_{1}0} a_{P_{1}0R_{1}0} + r_{P_{1}0}\right)} X_{P_{1}0}\\
+\frac{dX_{P_{0}0}}{dt} &= {\left(X_{P_{0}0} a_{P_{0}0P_{0}0} + X_{P_{1}0} a_{P_{0}0P_{1}0} + X_{R_{0}0} a_{P_{0}0R_{0}0} + X_{R_{1}0} a_{P_{0}0R_{1}0} + r_{P_{0}0}\right)} X_{P_{0}0}\\
+\frac{dX_{R_{1}0}}{dt} &= {\left(X_{P_{0}0} a_{R_{1}0P_{0}0} + X_{P_{1}0} a_{R_{1}0P_{1}0} + X_{R_{0}0} a_{R_{1}0R_{0}0} + X_{R_{1}0} a_{R_{1}0R_{1}0} + r_{R_{1}0}\right)} X_{R_{1}0}
+\end{align*}\]
+Extended pop-dyn system: 
+\[\begin{align*}
+\frac{dX_{R_{0}0}}{dt} &= {\left(X_{P_{0}0} a_{R_{0}0P_{0}0} + X_{P_{1}0} a_{R_{0}0P_{1}0} + X_{R_{0}0} a_{R_{0}0R_{0}0} + X_{R_{0}1} a_{R_{0}0R_{0}1} + X_{R_{1}0} a_{R_{0}0R_{1}0} + r_{R_{0}0}\right)} X_{R_{0}0}\\
+\frac{dX_{P_{1}0}}{dt} &= {\left(X_{P_{0}0} a_{P_{1}0P_{0}0} + X_{P_{1}0} a_{P_{1}0P_{1}0} + X_{R_{0}0} a_{P_{1}0R_{0}0} + X_{R_{0}1} a_{P_{1}0R_{0}1} + X_{R_{1}0} a_{P_{1}0R_{1}0} + r_{P_{1}0}\right)} X_{P_{1}0}\\
+\frac{dX_{P_{0}0}}{dt} &= {\left(X_{P_{0}0} a_{P_{0}0P_{0}0} + X_{P_{1}0} a_{P_{0}0P_{1}0} + X_{R_{0}0} a_{P_{0}0R_{0}0} + X_{R_{0}1} a_{P_{0}0R_{0}1} + X_{R_{1}0} a_{P_{0}0R_{1}0} + r_{P_{0}0}\right)} X_{P_{0}0}\\
+\frac{dX_{R_{1}0}}{dt} &= {\left(X_{P_{0}0} a_{R_{1}0P_{0}0} + X_{P_{1}0} a_{R_{1}0P_{1}0} + X_{R_{0}0} a_{R_{1}0R_{0}0} + X_{R_{0}1} a_{R_{1}0R_{0}1} + X_{R_{1}0} a_{R_{1}0R_{1}0} + r_{R_{1}0}\right)} X_{R_{1}0}\\
+\frac{dX_{R_{0}1}}{dt} &= {\left(X_{P_{0}0} a_{R_{0}1P_{0}0} + X_{P_{1}0} a_{R_{0}1P_{1}0} + X_{R_{0}0} a_{R_{0}1R_{0}0} + X_{R_{0}1} a_{R_{0}1R_{0}1} + X_{R_{1}0} a_{R_{0}1R_{1}0} + r_{R_{0}1}\right)} X_{R_{0}1}
+\end{align*}\]
+ The invasion rate for mutant population is:
+\begin{align*}
+  \mathscr I = \frac{1}{X_{R_{0}1}}\frac{dX_{R_{0}1}}{dt} &= X_{P_{0}0} a_{R_{0}1P_{0}0} + X_{P_{1}0} a_{R_{0}1P_{1}0} + X_{R_{0}0} a_{R_{0}1R_{0}0} + X_{R_{0}1} a_{R_{0}1R_{0}1} + X_{R_{1}0} a_{R_{0}1R_{1}0} + r_{R_{0}1} 
+\end{align*}
+ And the invasion exponent is
+\begin{align*}
+  \frac{\partial\mathscr I}{\partial r_{R_{0}0}} = \lim_{r_{R_{0}1}\to r_{R_{0}0},a_{R_{0}1R_{0}0}\to a_{R_{0}0R_{0}0},a_{R_{0}1P_{1}0}\to a_{R_{0}0P_{1}0},a_{R_{0}1P_{0}0}\to a_{R_{0}0P_{0}0},a_{R_{0}1R_{1}0}\to a_{R_{0}0R_{1}0},X_{R_{0}1}\to0}1\\
+  \frac{\partial\mathscr I}{\partial a_{R_{0}0R_{0}0}} = \lim_{r_{R_{0}1}\to r_{R_{0}0},a_{R_{0}1R_{0}0}\to a_{R_{0}0R_{0}0},a_{R_{0}1P_{1}0}\to a_{R_{0}0P_{1}0},a_{R_{0}1P_{0}0}\to a_{R_{0}0P_{0}0},a_{R_{0}1R_{1}0}\to a_{R_{0}0R_{1}0},X_{R_{0}1}\to0}X_{R_{0}0}\\
+  \frac{\partial\mathscr I}{\partial a_{R_{0}0P_{1}0}} = \lim_{r_{R_{0}1}\to r_{R_{0}0},a_{R_{0}1R_{0}0}\to a_{R_{0}0R_{0}0},a_{R_{0}1P_{1}0}\to a_{R_{0}0P_{1}0},a_{R_{0}1P_{0}0}\to a_{R_{0}0P_{0}0},a_{R_{0}1R_{1}0}\to a_{R_{0}0R_{1}0},X_{R_{0}1}\to0}X_{P_{1}0}\\
+  \frac{\partial\mathscr I}{\partial a_{R_{0}0P_{0}0}} = \lim_{r_{R_{0}1}\to r_{R_{0}0},a_{R_{0}1R_{0}0}\to a_{R_{0}0R_{0}0},a_{R_{0}1P_{1}0}\to a_{R_{0}0P_{1}0},a_{R_{0}1P_{0}0}\to a_{R_{0}0P_{0}0},a_{R_{0}1R_{1}0}\to a_{R_{0}0R_{1}0},X_{R_{0}1}\to0}X_{P_{0}0}\\
+  \frac{\partial\mathscr I}{\partial a_{R_{0}0R_{1}0}} = \lim_{r_{R_{0}1}\to r_{R_{0}0},a_{R_{0}1R_{0}0}\to a_{R_{0}0R_{0}0},a_{R_{0}1P_{1}0}\to a_{R_{0}0P_{1}0},a_{R_{0}1P_{0}0}\to a_{R_{0}0P_{0}0},a_{R_{0}1R_{1}0}\to a_{R_{0}0R_{1}0},X_{R_{0}1}\to0}X_{R_{1}0} .
+\end{align*}
+ Which comes out to
+\begin{align*}
+  \frac{\partial\mathscr I}{\partial r_{R_{0}0}} = 1\\
+  \frac{\partial\mathscr I}{\partial a_{R_{0}0R_{0}0}} = X_{R_{0}0}\\
+  \frac{\partial\mathscr I}{\partial a_{R_{0}0P_{1}0}} = X_{P_{1}0}\\
+  \frac{\partial\mathscr I}{\partial a_{R_{0}0P_{0}0}} = X_{P_{0}0}\\
+  \frac{\partial\mathscr I}{\partial a_{R_{0}0R_{1}0}} = X_{R_{1}0} .
+\end{align*}
+ Original pop-dyn system: 
+\[ \begin{align*}
+\frac{dX_{R_{0}0}}{dt} &= {\left(X_{P_{0}0} a_{R_{0}0P_{0}0} + X_{P_{1}0} a_{R_{0}0P_{1}0} + X_{R_{0}0} a_{R_{0}0R_{0}0} + X_{R_{1}0} a_{R_{0}0R_{1}0} + r_{R_{0}0}\right)} X_{R_{0}0}\\
+\frac{dX_{P_{1}0}}{dt} &= {\left(X_{P_{0}0} a_{P_{1}0P_{0}0} + X_{P_{1}0} a_{P_{1}0P_{1}0} + X_{R_{0}0} a_{P_{1}0R_{0}0} + X_{R_{1}0} a_{P_{1}0R_{1}0} + r_{P_{1}0}\right)} X_{P_{1}0}\\
+\frac{dX_{P_{0}0}}{dt} &= {\left(X_{P_{0}0} a_{P_{0}0P_{0}0} + X_{P_{1}0} a_{P_{0}0P_{1}0} + X_{R_{0}0} a_{P_{0}0R_{0}0} + X_{R_{1}0} a_{P_{0}0R_{1}0} + r_{P_{0}0}\right)} X_{P_{0}0}\\
+\frac{dX_{R_{1}0}}{dt} &= {\left(X_{P_{0}0} a_{R_{1}0P_{0}0} + X_{P_{1}0} a_{R_{1}0P_{1}0} + X_{R_{0}0} a_{R_{1}0R_{0}0} + X_{R_{1}0} a_{R_{1}0R_{1}0} + r_{R_{1}0}\right)} X_{R_{1}0}
+\end{align*} \]
+ Extended pop-dyn system: 
+\[ \begin{align*}
+\frac{dX_{R_{0}0}}{dt} &= {\left(X_{P_{0}0} a_{R_{0}0P_{0}0} + X_{P_{1}0} a_{R_{0}0P_{1}0} + X_{P_{1}1} a_{R_{0}0P_{1}1} + X_{R_{0}0} a_{R_{0}0R_{0}0} + X_{R_{1}0} a_{R_{0}0R_{1}0} + r_{R_{0}0}\right)} X_{R_{0}0}\\
+\frac{dX_{P_{1}0}}{dt} &= {\left(X_{P_{0}0} a_{P_{1}0P_{0}0} + X_{P_{1}0} a_{P_{1}0P_{1}0} + X_{P_{1}1} a_{P_{1}0P_{1}1} + X_{R_{0}0} a_{P_{1}0R_{0}0} + X_{R_{1}0} a_{P_{1}0R_{1}0} + r_{P_{1}0}\right)} X_{P_{1}0}\\
+\frac{dX_{P_{0}0}}{dt} &= {\left(X_{P_{0}0} a_{P_{0}0P_{0}0} + X_{P_{1}0} a_{P_{0}0P_{1}0} + X_{P_{1}1} a_{P_{0}0P_{1}1} + X_{R_{0}0} a_{P_{0}0R_{0}0} + X_{R_{1}0} a_{P_{0}0R_{1}0} + r_{P_{0}0}\right)} X_{P_{0}0}\\
+\frac{dX_{R_{1}0}}{dt} &= {\left(X_{P_{0}0} a_{R_{1}0P_{0}0} + X_{P_{1}0} a_{R_{1}0P_{1}0} + X_{P_{1}1} a_{R_{1}0P_{1}1} + X_{R_{0}0} a_{R_{1}0R_{0}0} + X_{R_{1}0} a_{R_{1}0R_{1}0} + r_{R_{1}0}\right)} X_{R_{1}0}\\
+\frac{dX_{P_{1}1}}{dt} &= {\left(X_{P_{0}0} a_{P_{1}1P_{0}0} + X_{P_{1}0} a_{P_{1}1P_{1}0} + X_{P_{1}1} a_{P_{1}1P_{1}1} + X_{R_{0}0} a_{P_{1}1R_{0}0} + X_{R_{1}0} a_{P_{1}1R_{1}0} + r_{P_{1}1}\right)} X_{P_{1}1}
+\end{align*} \]
+ The invasion rate for mutant population is:
+\begin{align*}
+  \mathscr I = \frac{1}{X_{P_{1}1}}\frac{dX_{P_{1}1}}{dt} &= X_{P_{0}0} a_{P_{1}1P_{0}0} + X_{P_{1}0} a_{P_{1}1P_{1}0} + X_{P_{1}1} a_{P_{1}1P_{1}1} + X_{R_{0}0} a_{P_{1}1R_{0}0} + X_{R_{1}0} a_{P_{1}1R_{1}0} + r_{P_{1}1} 
+\end{align*}
+ And the invasion exponent is
+\begin{align*}
+  \frac{\partial\mathscr I}{\partial r_{P_{1}0}} = \lim_{r_{P_{1}1}\to r_{P_{1}0},a_{P_{1}1R_{0}0}\to a_{P_{1}0R_{0}0},a_{P_{1}1P_{1}0}\to a_{P_{1}0P_{1}0},a_{P_{1}1P_{0}0}\to a_{P_{1}0P_{0}0},a_{P_{1}1R_{1}0}\to a_{P_{1}0R_{1}0},X_{P_{1}1}\to0}1\\
+  \frac{\partial\mathscr I}{\partial a_{P_{1}0R_{0}0}} = \lim_{r_{P_{1}1}\to r_{P_{1}0},a_{P_{1}1R_{0}0}\to a_{P_{1}0R_{0}0},a_{P_{1}1P_{1}0}\to a_{P_{1}0P_{1}0},a_{P_{1}1P_{0}0}\to a_{P_{1}0P_{0}0},a_{P_{1}1R_{1}0}\to a_{P_{1}0R_{1}0},X_{P_{1}1}\to0}X_{R_{0}0}\\
+  \frac{\partial\mathscr I}{\partial a_{P_{1}0P_{1}0}} = \lim_{r_{P_{1}1}\to r_{P_{1}0},a_{P_{1}1R_{0}0}\to a_{P_{1}0R_{0}0},a_{P_{1}1P_{1}0}\to a_{P_{1}0P_{1}0},a_{P_{1}1P_{0}0}\to a_{P_{1}0P_{0}0},a_{P_{1}1R_{1}0}\to a_{P_{1}0R_{1}0},X_{P_{1}1}\to0}X_{P_{1}0}\\
+  \frac{\partial\mathscr I}{\partial a_{P_{1}0P_{0}0}} = \lim_{r_{P_{1}1}\to r_{P_{1}0},a_{P_{1}1R_{0}0}\to a_{P_{1}0R_{0}0},a_{P_{1}1P_{1}0}\to a_{P_{1}0P_{1}0},a_{P_{1}1P_{0}0}\to a_{P_{1}0P_{0}0},a_{P_{1}1R_{1}0}\to a_{P_{1}0R_{1}0},X_{P_{1}1}\to0}X_{P_{0}0}\\
+  \frac{\partial\mathscr I}{\partial a_{P_{1}0R_{1}0}} = \lim_{r_{P_{1}1}\to r_{P_{1}0},a_{P_{1}1R_{0}0}\to a_{P_{1}0R_{0}0},a_{P_{1}1P_{1}0}\to a_{P_{1}0P_{1}0},a_{P_{1}1P_{0}0}\to a_{P_{1}0P_{0}0},a_{P_{1}1R_{1}0}\to a_{P_{1}0R_{1}0},X_{P_{1}1}\to0}X_{R_{1}0} .
+\end{align*}
+ Which comes out to
+\begin{align*}
+  \frac{\partial\mathscr I}{\partial r_{P_{1}0}} = 1\\
+  \frac{\partial\mathscr I}{\partial a_{P_{1}0R_{0}0}} = X_{R_{0}0}\\
+  \frac{\partial\mathscr I}{\partial a_{P_{1}0P_{1}0}} = X_{P_{1}0}\\
+  \frac{\partial\mathscr I}{\partial a_{P_{1}0P_{0}0}} = X_{P_{0}0}\\
+  \frac{\partial\mathscr I}{\partial a_{P_{1}0R_{1}0}} = X_{R_{1}0} .
+\end{align*}
+ Original pop-dyn system: 
+\[ \begin{align*}
+\frac{dX_{R_{0}0}}{dt} &= {\left(X_{P_{0}0} a_{R_{0}0P_{0}0} + X_{P_{1}0} a_{R_{0}0P_{1}0} + X_{R_{0}0} a_{R_{0}0R_{0}0} + X_{R_{1}0} a_{R_{0}0R_{1}0} + r_{R_{0}0}\right)} X_{R_{0}0}\\
+\frac{dX_{P_{1}0}}{dt} &= {\left(X_{P_{0}0} a_{P_{1}0P_{0}0} + X_{P_{1}0} a_{P_{1}0P_{1}0} + X_{R_{0}0} a_{P_{1}0R_{0}0} + X_{R_{1}0} a_{P_{1}0R_{1}0} + r_{P_{1}0}\right)} X_{P_{1}0}\\
+\frac{dX_{P_{0}0}}{dt} &= {\left(X_{P_{0}0} a_{P_{0}0P_{0}0} + X_{P_{1}0} a_{P_{0}0P_{1}0} + X_{R_{0}0} a_{P_{0}0R_{0}0} + X_{R_{1}0} a_{P_{0}0R_{1}0} + r_{P_{0}0}\right)} X_{P_{0}0}\\
+\frac{dX_{R_{1}0}}{dt} &= {\left(X_{P_{0}0} a_{R_{1}0P_{0}0} + X_{P_{1}0} a_{R_{1}0P_{1}0} + X_{R_{0}0} a_{R_{1}0R_{0}0} + X_{R_{1}0} a_{R_{1}0R_{1}0} + r_{R_{1}0}\right)} X_{R_{1}0}
+\end{align*} \]
+ Extended pop-dyn system: 
+\[ \begin{align*}
+\frac{dX_{R_{0}0}}{dt} &= {\left(X_{P_{0}0} a_{R_{0}0P_{0}0} + X_{P_{0}1} a_{R_{0}0P_{0}1} + X_{P_{1}0} a_{R_{0}0P_{1}0} + X_{R_{0}0} a_{R_{0}0R_{0}0} + X_{R_{1}0} a_{R_{0}0R_{1}0} + r_{R_{0}0}\right)} X_{R_{0}0}\\
+\frac{dX_{P_{1}0}}{dt} &= {\left(X_{P_{0}0} a_{P_{1}0P_{0}0} + X_{P_{0}1} a_{P_{1}0P_{0}1} + X_{P_{1}0} a_{P_{1}0P_{1}0} + X_{R_{0}0} a_{P_{1}0R_{0}0} + X_{R_{1}0} a_{P_{1}0R_{1}0} + r_{P_{1}0}\right)} X_{P_{1}0}\\
+\frac{dX_{P_{0}0}}{dt} &= {\left(X_{P_{0}0} a_{P_{0}0P_{0}0} + X_{P_{0}1} a_{P_{0}0P_{0}1} + X_{P_{1}0} a_{P_{0}0P_{1}0} + X_{R_{0}0} a_{P_{0}0R_{0}0} + X_{R_{1}0} a_{P_{0}0R_{1}0} + r_{P_{0}0}\right)} X_{P_{0}0}\\
+\frac{dX_{R_{1}0}}{dt} &= {\left(X_{P_{0}0} a_{R_{1}0P_{0}0} + X_{P_{0}1} a_{R_{1}0P_{0}1} + X_{P_{1}0} a_{R_{1}0P_{1}0} + X_{R_{0}0} a_{R_{1}0R_{0}0} + X_{R_{1}0} a_{R_{1}0R_{1}0} + r_{R_{1}0}\right)} X_{R_{1}0}\\
+\frac{dX_{P_{0}1}}{dt} &= {\left(X_{P_{0}0} a_{P_{0}1P_{0}0} + X_{P_{0}1} a_{P_{0}1P_{0}1} + X_{P_{1}0} a_{P_{0}1P_{1}0} + X_{R_{0}0} a_{P_{0}1R_{0}0} + X_{R_{1}0} a_{P_{0}1R_{1}0} + r_{P_{0}1}\right)} X_{P_{0}1}
+\end{align*} \]
+ The invasion rate for mutant population is:
+\begin{align*}
+  \mathscr I = \frac{1}{X_{P_{0}1}}\frac{dX_{P_{0}1}}{dt} &= X_{P_{0}0} a_{P_{0}1P_{0}0} + X_{P_{0}1} a_{P_{0}1P_{0}1} + X_{P_{1}0} a_{P_{0}1P_{1}0} + X_{R_{0}0} a_{P_{0}1R_{0}0} + X_{R_{1}0} a_{P_{0}1R_{1}0} + r_{P_{0}1} 
+\end{align*}
+ And the invasion exponent is
+\begin{align*}
+  \frac{\partial\mathscr I}{\partial r_{P_{0}0}} = \lim_{r_{P_{0}1}\to r_{P_{0}0},a_{P_{0}1R_{0}0}\to a_{P_{0}0R_{0}0},a_{P_{0}1P_{1}0}\to a_{P_{0}0P_{1}0},a_{P_{0}1P_{0}0}\to a_{P_{0}0P_{0}0},a_{P_{0}1R_{1}0}\to a_{P_{0}0R_{1}0},X_{P_{0}1}\to0}1\\
+  \frac{\partial\mathscr I}{\partial a_{P_{0}0R_{0}0}} = \lim_{r_{P_{0}1}\to r_{P_{0}0},a_{P_{0}1R_{0}0}\to a_{P_{0}0R_{0}0},a_{P_{0}1P_{1}0}\to a_{P_{0}0P_{1}0},a_{P_{0}1P_{0}0}\to a_{P_{0}0P_{0}0},a_{P_{0}1R_{1}0}\to a_{P_{0}0R_{1}0},X_{P_{0}1}\to0}X_{R_{0}0}\\
+  \frac{\partial\mathscr I}{\partial a_{P_{0}0P_{1}0}} = \lim_{r_{P_{0}1}\to r_{P_{0}0},a_{P_{0}1R_{0}0}\to a_{P_{0}0R_{0}0},a_{P_{0}1P_{1}0}\to a_{P_{0}0P_{1}0},a_{P_{0}1P_{0}0}\to a_{P_{0}0P_{0}0},a_{P_{0}1R_{1}0}\to a_{P_{0}0R_{1}0},X_{P_{0}1}\to0}X_{P_{1}0}\\
+  \frac{\partial\mathscr I}{\partial a_{P_{0}0P_{0}0}} = \lim_{r_{P_{0}1}\to r_{P_{0}0},a_{P_{0}1R_{0}0}\to a_{P_{0}0R_{0}0},a_{P_{0}1P_{1}0}\to a_{P_{0}0P_{1}0},a_{P_{0}1P_{0}0}\to a_{P_{0}0P_{0}0},a_{P_{0}1R_{1}0}\to a_{P_{0}0R_{1}0},X_{P_{0}1}\to0}X_{P_{0}0}\\
+  \frac{\partial\mathscr I}{\partial a_{P_{0}0R_{1}0}} = \lim_{r_{P_{0}1}\to r_{P_{0}0},a_{P_{0}1R_{0}0}\to a_{P_{0}0R_{0}0},a_{P_{0}1P_{1}0}\to a_{P_{0}0P_{1}0},a_{P_{0}1P_{0}0}\to a_{P_{0}0P_{0}0},a_{P_{0}1R_{1}0}\to a_{P_{0}0R_{1}0},X_{P_{0}1}\to0}X_{R_{1}0} .
+\end{align*}
+ Which comes out to
+\begin{align*}
+  \frac{\partial\mathscr I}{\partial r_{P_{0}0}} = 1\\
+  \frac{\partial\mathscr I}{\partial a_{P_{0}0R_{0}0}} = X_{R_{0}0}\\
+  \frac{\partial\mathscr I}{\partial a_{P_{0}0P_{1}0}} = X_{P_{1}0}\\
+  \frac{\partial\mathscr I}{\partial a_{P_{0}0P_{0}0}} = X_{P_{0}0}\\
+  \frac{\partial\mathscr I}{\partial a_{P_{0}0R_{1}0}} = X_{R_{1}0} .
+\end{align*}
+ Original pop-dyn system: 
+\[ \begin{align*}
+\frac{dX_{R_{0}0}}{dt} &= {\left(X_{P_{0}0} a_{R_{0}0P_{0}0} + X_{P_{1}0} a_{R_{0}0P_{1}0} + X_{R_{0}0} a_{R_{0}0R_{0}0} + X_{R_{1}0} a_{R_{0}0R_{1}0} + r_{R_{0}0}\right)} X_{R_{0}0}\\
+\frac{dX_{P_{1}0}}{dt} &= {\left(X_{P_{0}0} a_{P_{1}0P_{0}0} + X_{P_{1}0} a_{P_{1}0P_{1}0} + X_{R_{0}0} a_{P_{1}0R_{0}0} + X_{R_{1}0} a_{P_{1}0R_{1}0} + r_{P_{1}0}\right)} X_{P_{1}0}\\
+\frac{dX_{P_{0}0}}{dt} &= {\left(X_{P_{0}0} a_{P_{0}0P_{0}0} + X_{P_{1}0} a_{P_{0}0P_{1}0} + X_{R_{0}0} a_{P_{0}0R_{0}0} + X_{R_{1}0} a_{P_{0}0R_{1}0} + r_{P_{0}0}\right)} X_{P_{0}0}\\
+\frac{dX_{R_{1}0}}{dt} &= {\left(X_{P_{0}0} a_{R_{1}0P_{0}0} + X_{P_{1}0} a_{R_{1}0P_{1}0} + X_{R_{0}0} a_{R_{1}0R_{0}0} + X_{R_{1}0} a_{R_{1}0R_{1}0} + r_{R_{1}0}\right)} X_{R_{1}0}
+\end{align*} \]
+ Extended pop-dyn system: 
+\[ \begin{align*}
+\frac{dX_{R_{0}0}}{dt} &= {\left(X_{P_{0}0} a_{R_{0}0P_{0}0} + X_{P_{1}0} a_{R_{0}0P_{1}0} + X_{R_{0}0} a_{R_{0}0R_{0}0} + X_{R_{1}0} a_{R_{0}0R_{1}0} + X_{R_{1}1} a_{R_{0}0R_{1}1} + r_{R_{0}0}\right)} X_{R_{0}0}\\
+\frac{dX_{P_{1}0}}{dt} &= {\left(X_{P_{0}0} a_{P_{1}0P_{0}0} + X_{P_{1}0} a_{P_{1}0P_{1}0} + X_{R_{0}0} a_{P_{1}0R_{0}0} + X_{R_{1}0} a_{P_{1}0R_{1}0} + X_{R_{1}1} a_{P_{1}0R_{1}1} + r_{P_{1}0}\right)} X_{P_{1}0}\\
+\frac{dX_{P_{0}0}}{dt} &= {\left(X_{P_{0}0} a_{P_{0}0P_{0}0} + X_{P_{1}0} a_{P_{0}0P_{1}0} + X_{R_{0}0} a_{P_{0}0R_{0}0} + X_{R_{1}0} a_{P_{0}0R_{1}0} + X_{R_{1}1} a_{P_{0}0R_{1}1} + r_{P_{0}0}\right)} X_{P_{0}0}\\
+\frac{dX_{R_{1}0}}{dt} &= {\left(X_{P_{0}0} a_{R_{1}0P_{0}0} + X_{P_{1}0} a_{R_{1}0P_{1}0} + X_{R_{0}0} a_{R_{1}0R_{0}0} + X_{R_{1}0} a_{R_{1}0R_{1}0} + X_{R_{1}1} a_{R_{1}0R_{1}1} + r_{R_{1}0}\right)} X_{R_{1}0}\\
+\frac{dX_{R_{1}1}}{dt} &= {\left(X_{P_{0}0} a_{R_{1}1P_{0}0} + X_{P_{1}0} a_{R_{1}1P_{1}0} + X_{R_{0}0} a_{R_{1}1R_{0}0} + X_{R_{1}0} a_{R_{1}1R_{1}0} + X_{R_{1}1} a_{R_{1}1R_{1}1} + r_{R_{1}1}\right)} X_{R_{1}1}
+\end{align*} \]
+ The invasion rate for mutant population is:
+\begin{align*}
+  \mathscr I = \frac{1}{X_{R_{1}1}}\frac{dX_{R_{1}1}}{dt} &= X_{P_{0}0} a_{R_{1}1P_{0}0} + X_{P_{1}0} a_{R_{1}1P_{1}0} + X_{R_{0}0} a_{R_{1}1R_{0}0} + X_{R_{1}0} a_{R_{1}1R_{1}0} + X_{R_{1}1} a_{R_{1}1R_{1}1} + r_{R_{1}1} 
+\end{align*}
+ And the invasion exponent is
+\begin{align*}
+  \frac{\partial\mathscr I}{\partial r_{R_{1}0}} = \lim_{r_{R_{1}1}\to r_{R_{1}0},a_{R_{1}1R_{0}0}\to a_{R_{1}0R_{0}0},a_{R_{1}1P_{1}0}\to a_{R_{1}0P_{1}0},a_{R_{1}1P_{0}0}\to a_{R_{1}0P_{0}0},a_{R_{1}1R_{1}0}\to a_{R_{1}0R_{1}0},X_{R_{1}1}\to0}1\\
+  \frac{\partial\mathscr I}{\partial a_{R_{1}0R_{0}0}} = \lim_{r_{R_{1}1}\to r_{R_{1}0},a_{R_{1}1R_{0}0}\to a_{R_{1}0R_{0}0},a_{R_{1}1P_{1}0}\to a_{R_{1}0P_{1}0},a_{R_{1}1P_{0}0}\to a_{R_{1}0P_{0}0},a_{R_{1}1R_{1}0}\to a_{R_{1}0R_{1}0},X_{R_{1}1}\to0}X_{R_{0}0}\\
+  \frac{\partial\mathscr I}{\partial a_{R_{1}0P_{1}0}} = \lim_{r_{R_{1}1}\to r_{R_{1}0},a_{R_{1}1R_{0}0}\to a_{R_{1}0R_{0}0},a_{R_{1}1P_{1}0}\to a_{R_{1}0P_{1}0},a_{R_{1}1P_{0}0}\to a_{R_{1}0P_{0}0},a_{R_{1}1R_{1}0}\to a_{R_{1}0R_{1}0},X_{R_{1}1}\to0}X_{P_{1}0}\\
+  \frac{\partial\mathscr I}{\partial a_{R_{1}0P_{0}0}} = \lim_{r_{R_{1}1}\to r_{R_{1}0},a_{R_{1}1R_{0}0}\to a_{R_{1}0R_{0}0},a_{R_{1}1P_{1}0}\to a_{R_{1}0P_{1}0},a_{R_{1}1P_{0}0}\to a_{R_{1}0P_{0}0},a_{R_{1}1R_{1}0}\to a_{R_{1}0R_{1}0},X_{R_{1}1}\to0}X_{P_{0}0}\\
+  \frac{\partial\mathscr I}{\partial a_{R_{1}0R_{1}0}} = \lim_{r_{R_{1}1}\to r_{R_{1}0},a_{R_{1}1R_{0}0}\to a_{R_{1}0R_{0}0},a_{R_{1}1P_{1}0}\to a_{R_{1}0P_{1}0},a_{R_{1}1P_{0}0}\to a_{R_{1}0P_{0}0},a_{R_{1}1R_{1}0}\to a_{R_{1}0R_{1}0},X_{R_{1}1}\to0}X_{R_{1}0} .
+\end{align*}
+ Which comes out to
+\begin{align*}
+  \frac{\partial\mathscr I}{\partial r_{R_{1}0}} = 1\\
+  \frac{\partial\mathscr I}{\partial a_{R_{1}0R_{0}0}} = X_{R_{0}0}\\
+  \frac{\partial\mathscr I}{\partial a_{R_{1}0P_{1}0}} = X_{P_{1}0}\\
+  \frac{\partial\mathscr I}{\partial a_{R_{1}0P_{0}0}} = X_{P_{0}0}\\
+  \frac{\partial\mathscr I}{\partial a_{R_{1}0R_{1}0}} = X_{R_{1}0} .
+\end{align*}
+ \[ \mathbf S \left(\begin{array}{c}
+  r_{P_{0}0}\\
+  a_{P_{1}0P_{1}0}\\
+  a_{R_{0}0P_{1}0}\\
+  a_{P_{1}0R_{1}0}\\
+  a_{P_{0}0R_{0}0}\\
+  a_{R_{0}0P_{0}0}\\
+  a_{R_{1}0P_{1}0}\\
+  r_{P_{1}0}\\
+  a_{R_{0}0R_{0}0}\\
+  a_{R_{1}0R_{1}0}\\
+  a_{P_{0}0P_{1}0}\\
+  a_{R_{0}0R_{1}0}\\
+  a_{R_{1}0P_{0}0}\\
+  a_{P_{0}0P_{0}0}\\
+  a_{P_{1}0R_{0}0}\\
+  r_{R_{0}0}\\
+  r_{R_{1}0}\\
+  a_{R_{1}0R_{0}0}\\
+  a_{P_{1}0P_{0}0}\\
+  a_{P_{0}0R_{1}0}
+\end{array}\right) = \left(\begin{array}{c}
+  1\\
+  \hat{X}_{P_{1}0}\\
+  \hat{X}_{P_{1}0}\\
+  \hat{X}_{R_{1}0}\\
+  \hat{X}_{R_{0}0}\\
+  \hat{X}_{P_{0}0}\\
+  \hat{X}_{P_{1}0}\\
+  1\\
+  \hat{X}_{R_{0}0}\\
+  \hat{X}_{R_{1}0}\\
+  \hat{X}_{P_{1}0}\\
+  \hat{X}_{R_{1}0}\\
+  \hat{X}_{P_{0}0}\\
+  \hat{X}_{P_{0}0}\\
+  \hat{X}_{R_{0}0}\\
+  1\\
+  1\\
+  \hat{X}_{R_{0}0}\\
+  \hat{X}_{P_{0}0}\\
+  \hat{X}_{R_{1}0}
+\end{array}\right) \]
+ Equilibrium of the population dynamics: 
+\[ \begin{align*}
+  X_{R_{0}0} &\to \hat{X}_{R_{0}0} \\
+  X_{P_{0}0} &\to \hat{X}_{P_{0}0} \\
+  X_{P_{1}0} &\to \hat{X}_{P_{1}0} \\
+  X_{R_{1}0} &\to \hat{X}_{R_{1}0}
+\end{align*} \]
+ The adaptive dynamics comes out to 
+\[ \begin{align*}
+\frac{dr_{P_{0}0}}{dt} &= \hat{X}_{P_{0}0} \gamma\\
+\frac{da_{P_{1}0P_{1}0}}{dt} &= \hat{X}_{P_{1}0}^{2} \gamma\\
+\frac{da_{R_{0}0P_{1}0}}{dt} &= \hat{X}_{P_{1}0} \hat{X}_{R_{0}0} \gamma\\
+\frac{da_{P_{1}0R_{1}0}}{dt} &= \hat{X}_{P_{1}0} \hat{X}_{R_{1}0} \gamma\\
+\frac{da_{P_{0}0R_{0}0}}{dt} &= \hat{X}_{P_{0}0} \hat{X}_{R_{0}0} \gamma\\
+\frac{da_{R_{0}0P_{0}0}}{dt} &= \hat{X}_{P_{0}0} \hat{X}_{R_{0}0} \gamma\\
+\frac{da_{R_{1}0P_{1}0}}{dt} &= \hat{X}_{P_{1}0} \hat{X}_{R_{1}0} \gamma\\
+\frac{dr_{P_{1}0}}{dt} &= \hat{X}_{P_{1}0} \gamma\\
+\frac{da_{R_{0}0R_{0}0}}{dt} &= \hat{X}_{R_{0}0}^{2} \gamma\\
+\frac{da_{R_{1}0R_{1}0}}{dt} &= \hat{X}_{R_{1}0}^{2} \gamma\\
+\frac{da_{P_{0}0P_{1}0}}{dt} &= \hat{X}_{P_{0}0} \hat{X}_{P_{1}0} \gamma\\
+\frac{da_{R_{0}0R_{1}0}}{dt} &= \hat{X}_{R_{0}0} \hat{X}_{R_{1}0} \gamma\\
+\frac{da_{R_{1}0P_{0}0}}{dt} &= \hat{X}_{P_{0}0} \hat{X}_{R_{1}0} \gamma\\
+\frac{da_{P_{0}0P_{0}0}}{dt} &= \hat{X}_{P_{0}0}^{2} \gamma\\
+\frac{da_{P_{1}0R_{0}0}}{dt} &= \hat{X}_{P_{1}0} \hat{X}_{R_{0}0} \gamma\\
+\frac{dr_{R_{0}0}}{dt} &= \hat{X}_{R_{0}0} \gamma\\
+\frac{dr_{R_{1}0}}{dt} &= \hat{X}_{R_{1}0} \gamma\\
+\frac{da_{R_{1}0R_{0}0}}{dt} &= \hat{X}_{R_{0}0} \hat{X}_{R_{1}0} \gamma\\
+\frac{da_{P_{1}0P_{0}0}}{dt} &= \hat{X}_{P_{0}0} \hat{X}_{P_{1}0} \gamma\\
+\frac{da_{P_{0}0R_{1}0}}{dt} &= \hat{X}_{P_{0}0} \hat{X}_{R_{1}0} \gamma
+\end{align*} \]
+
+make LV evolution bindings
+hack A_ij: from (r_R_0_0(u_R_0_0), a_R_0_0_R_0_0(u_R_0_0, u_R_0_0), a_R_0_0_P_1_0(u_R_0_0, u_P_1_0), a_R_0_0_P_0_0(u_R_0_0, u_P_0_0), a_R_0_0_R_1_0(u_R_0_0, u_R_1_0))
+to (r_R_0_0(u_R_0_0), a_R_0_0_R_0_0(u_R_0_0, u_Fake_0), a_R_0_0_P_1_0(u_R_0_0, u_P_1_0), a_R_0_0_P_0_0(u_R_0_0, u_P_0_0), a_R_0_0_R_1_0(u_R_0_0, u_R_1_0))
+d1A: derivative of $\left(r_{R_{0_{0}}}\left(u_{R_{0}0}\right),\,a_{R_{0_{0_{R_{0_{0}}}}}}\left(u_{R_{0}0}, u_{\text{\texttt{Fake}}0}\right),\,a_{R_{0_{0_{P_{1_{0}}}}}}\left(u_{R_{0}0}, u_{P_{1}0}\right),\,a_{R_{0_{0_{P_{0_{0}}}}}}\left(u_{R_{0}0}, u_{P_{0}0}\right),\,a_{R_{0_{0_{R_{1_{0}}}}}}\left(u_{R_{0}0}, u_{R_{1}0}\right)\right)$ wrt $\left(\begin{array}{c}
+  u_{R_{0}0}
+\end{array}\right)$
+is $\left(\begin{array}{r}
+D[0]\left(r_{R_{0_{0}}}\right)\left(u_{R_{0}0}\right) \\
+D[0]\left(a_{R_{0_{0_{R_{0_{0}}}}}}\right)\left(u_{R_{0}0}, u_{\text{\texttt{Fake}}0}\right) \\
+D[0]\left(a_{R_{0_{0_{P_{1_{0}}}}}}\right)\left(u_{R_{0}0}, u_{P_{1}0}\right) \\
+D[0]\left(a_{R_{0_{0_{P_{0_{0}}}}}}\right)\left(u_{R_{0}0}, u_{P_{0}0}\right) \\
+D[0]\left(a_{R_{0_{0_{R_{1_{0}}}}}}\right)\left(u_{R_{0}0}, u_{R_{1}0}\right)
+\end{array}\right)$
+; $\left(\begin{array}{r}
+D[0]\left(r_{R_{0_{0}}}\right)\left(u_{R_{0}0}\right) \\
+D[0]\left(a_{R_{0_{0_{R_{0_{0}}}}}}\right)\left(u_{R_{0}0}, u_{R_{0}0}\right) \\
+D[0]\left(a_{R_{0_{0_{P_{1_{0}}}}}}\right)\left(u_{R_{0}0}, u_{P_{1}0}\right) \\
+D[0]\left(a_{R_{0_{0_{P_{0_{0}}}}}}\right)\left(u_{R_{0}0}, u_{P_{0}0}\right) \\
+D[0]\left(a_{R_{0_{0_{R_{1_{0}}}}}}\right)\left(u_{R_{0}0}, u_{R_{1}0}\right)
+\end{array}\right)$
+: $\left(\begin{array}{r}
+0 \\
+0 \\
+\sin\left(-u_{P_{1}0} + u_{R_{0}0}\right) \\
+\sin\left(-u_{P_{0}0} + u_{R_{0}0}\right) \\
+0
+\end{array}\right)$
+S: (1, Xhat_R_0_0, Xhat_P_1_0, Xhat_P_0_0, Xhat_R_1_0)
+hack A_ij: from (r_P_1_0(u_P_1_0), a_P_1_0_R_0_0(u_P_1_0, u_R_0_0), a_P_1_0_P_1_0(u_P_1_0, u_P_1_0), a_P_1_0_P_0_0(u_P_1_0, u_P_0_0), a_P_1_0_R_1_0(u_P_1_0, u_R_1_0))
+to (r_P_1_0(u_P_1_0), a_P_1_0_R_0_0(u_P_1_0, u_R_0_0), a_P_1_0_P_1_0(u_P_1_0, u_Fake_0), a_P_1_0_P_0_0(u_P_1_0, u_P_0_0), a_P_1_0_R_1_0(u_P_1_0, u_R_1_0))
+d1A: derivative of $\left(r_{P_{1_{0}}}\left(u_{P_{1}0}\right),\,a_{P_{1_{0_{R_{0_{0}}}}}}\left(u_{P_{1}0}, u_{R_{0}0}\right),\,a_{P_{1_{0_{P_{1_{0}}}}}}\left(u_{P_{1}0}, u_{\text{\texttt{Fake}}0}\right),\,a_{P_{1_{0_{P_{0_{0}}}}}}\left(u_{P_{1}0}, u_{P_{0}0}\right),\,a_{P_{1_{0_{R_{1_{0}}}}}}\left(u_{P_{1}0}, u_{R_{1}0}\right)\right)$ wrt $\left(\begin{array}{c}
+  u_{P_{1}0}
+\end{array}\right)$
+is $\left(\begin{array}{r}
+D[0]\left(r_{P_{1_{0}}}\right)\left(u_{P_{1}0}\right) \\
+D[0]\left(a_{P_{1_{0_{R_{0_{0}}}}}}\right)\left(u_{P_{1}0}, u_{R_{0}0}\right) \\
+D[0]\left(a_{P_{1_{0_{P_{1_{0}}}}}}\right)\left(u_{P_{1}0}, u_{\text{\texttt{Fake}}0}\right) \\
+D[0]\left(a_{P_{1_{0_{P_{0_{0}}}}}}\right)\left(u_{P_{1}0}, u_{P_{0}0}\right) \\
+D[0]\left(a_{P_{1_{0_{R_{1_{0}}}}}}\right)\left(u_{P_{1}0}, u_{R_{1}0}\right)
+\end{array}\right)$
+; $\left(\begin{array}{r}
+D[0]\left(r_{P_{1_{0}}}\right)\left(u_{P_{1}0}\right) \\
+D[0]\left(a_{P_{1_{0_{R_{0_{0}}}}}}\right)\left(u_{P_{1}0}, u_{R_{0}0}\right) \\
+D[0]\left(a_{P_{1_{0_{P_{1_{0}}}}}}\right)\left(u_{P_{1}0}, u_{P_{1}0}\right) \\
+D[0]\left(a_{P_{1_{0_{P_{0_{0}}}}}}\right)\left(u_{P_{1}0}, u_{P_{0}0}\right) \\
+D[0]\left(a_{P_{1_{0_{R_{1_{0}}}}}}\right)\left(u_{P_{1}0}, u_{R_{1}0}\right)
+\end{array}\right)$
+: $\left(\begin{array}{r}
+0 \\
+\frac{1}{3} \, \sin\left(-u_{P_{1}0} + u_{R_{0}0}\right) \\
+0 \\
+0 \\
+\frac{1}{3} \, \sin\left(-u_{P_{1}0} + u_{R_{1}0}\right)
+\end{array}\right)$
+S: (1, Xhat_R_0_0, Xhat_P_1_0, Xhat_P_0_0, Xhat_R_1_0)
+hack A_ij: from (r_P_0_0(u_P_0_0), a_P_0_0_R_0_0(u_P_0_0, u_R_0_0), a_P_0_0_P_1_0(u_P_0_0, u_P_1_0), a_P_0_0_P_0_0(u_P_0_0, u_P_0_0), a_P_0_0_R_1_0(u_P_0_0, u_R_1_0))
+to (r_P_0_0(u_P_0_0), a_P_0_0_R_0_0(u_P_0_0, u_R_0_0), a_P_0_0_P_1_0(u_P_0_0, u_P_1_0), a_P_0_0_P_0_0(u_P_0_0, u_Fake_0), a_P_0_0_R_1_0(u_P_0_0, u_R_1_0))
+d1A: derivative of $\left(r_{P_{0_{0}}}\left(u_{P_{0}0}\right),\,a_{P_{0_{0_{R_{0_{0}}}}}}\left(u_{P_{0}0}, u_{R_{0}0}\right),\,a_{P_{0_{0_{P_{1_{0}}}}}}\left(u_{P_{0}0}, u_{P_{1}0}\right),\,a_{P_{0_{0_{P_{0_{0}}}}}}\left(u_{P_{0}0}, u_{\text{\texttt{Fake}}0}\right),\,a_{P_{0_{0_{R_{1_{0}}}}}}\left(u_{P_{0}0}, u_{R_{1}0}\right)\right)$ wrt $\left(\begin{array}{c}
+  u_{P_{0}0}
+\end{array}\right)$
+is $\left(\begin{array}{r}
+D[0]\left(r_{P_{0_{0}}}\right)\left(u_{P_{0}0}\right) \\
+D[0]\left(a_{P_{0_{0_{R_{0_{0}}}}}}\right)\left(u_{P_{0}0}, u_{R_{0}0}\right) \\
+D[0]\left(a_{P_{0_{0_{P_{1_{0}}}}}}\right)\left(u_{P_{0}0}, u_{P_{1}0}\right) \\
+D[0]\left(a_{P_{0_{0_{P_{0_{0}}}}}}\right)\left(u_{P_{0}0}, u_{\text{\texttt{Fake}}0}\right) \\
+D[0]\left(a_{P_{0_{0_{R_{1_{0}}}}}}\right)\left(u_{P_{0}0}, u_{R_{1}0}\right)
+\end{array}\right)$
+; $\left(\begin{array}{r}
+D[0]\left(r_{P_{0_{0}}}\right)\left(u_{P_{0}0}\right) \\
+D[0]\left(a_{P_{0_{0_{R_{0_{0}}}}}}\right)\left(u_{P_{0}0}, u_{R_{0}0}\right) \\
+D[0]\left(a_{P_{0_{0_{P_{1_{0}}}}}}\right)\left(u_{P_{0}0}, u_{P_{1}0}\right) \\
+D[0]\left(a_{P_{0_{0_{P_{0_{0}}}}}}\right)\left(u_{P_{0}0}, u_{P_{0}0}\right) \\
+D[0]\left(a_{P_{0_{0_{R_{1_{0}}}}}}\right)\left(u_{P_{0}0}, u_{R_{1}0}\right)
+\end{array}\right)$
+: $\left(\begin{array}{r}
+0 \\
+\frac{1}{3} \, \sin\left(-u_{P_{0}0} + u_{R_{0}0}\right) \\
+0 \\
+0 \\
+\frac{1}{3} \, \sin\left(-u_{P_{0}0} + u_{R_{1}0}\right)
+\end{array}\right)$
+S: (1, Xhat_R_0_0, Xhat_P_1_0, Xhat_P_0_0, Xhat_R_1_0)
+hack A_ij: from (r_R_1_0(u_R_1_0), a_R_1_0_R_0_0(u_R_1_0, u_R_0_0), a_R_1_0_P_1_0(u_R_1_0, u_P_1_0), a_R_1_0_P_0_0(u_R_1_0, u_P_0_0), a_R_1_0_R_1_0(u_R_1_0, u_R_1_0))
+to (r_R_1_0(u_R_1_0), a_R_1_0_R_0_0(u_R_1_0, u_R_0_0), a_R_1_0_P_1_0(u_R_1_0, u_P_1_0), a_R_1_0_P_0_0(u_R_1_0, u_P_0_0), a_R_1_0_R_1_0(u_R_1_0, u_Fake_0))
+d1A: derivative of $\left(r_{R_{1_{0}}}\left(u_{R_{1}0}\right),\,a_{R_{1_{0_{R_{0_{0}}}}}}\left(u_{R_{1}0}, u_{R_{0}0}\right),\,a_{R_{1_{0_{P_{1_{0}}}}}}\left(u_{R_{1}0}, u_{P_{1}0}\right),\,a_{R_{1_{0_{P_{0_{0}}}}}}\left(u_{R_{1}0}, u_{P_{0}0}\right),\,a_{R_{1_{0_{R_{1_{0}}}}}}\left(u_{R_{1}0}, u_{\text{\texttt{Fake}}0}\right)\right)$ wrt $\left(\begin{array}{c}
+  u_{R_{1}0}
+\end{array}\right)$
+is $\left(\begin{array}{r}
+D[0]\left(r_{R_{1_{0}}}\right)\left(u_{R_{1}0}\right) \\
+D[0]\left(a_{R_{1_{0_{R_{0_{0}}}}}}\right)\left(u_{R_{1}0}, u_{R_{0}0}\right) \\
+D[0]\left(a_{R_{1_{0_{P_{1_{0}}}}}}\right)\left(u_{R_{1}0}, u_{P_{1}0}\right) \\
+D[0]\left(a_{R_{1_{0_{P_{0_{0}}}}}}\right)\left(u_{R_{1}0}, u_{P_{0}0}\right) \\
+D[0]\left(a_{R_{1_{0_{R_{1_{0}}}}}}\right)\left(u_{R_{1}0}, u_{\text{\texttt{Fake}}0}\right)
+\end{array}\right)$
+; $\left(\begin{array}{r}
+D[0]\left(r_{R_{1_{0}}}\right)\left(u_{R_{1}0}\right) \\
+D[0]\left(a_{R_{1_{0_{R_{0_{0}}}}}}\right)\left(u_{R_{1}0}, u_{R_{0}0}\right) \\
+D[0]\left(a_{R_{1_{0_{P_{1_{0}}}}}}\right)\left(u_{R_{1}0}, u_{P_{1}0}\right) \\
+D[0]\left(a_{R_{1_{0_{P_{0_{0}}}}}}\right)\left(u_{R_{1}0}, u_{P_{0}0}\right) \\
+D[0]\left(a_{R_{1_{0_{R_{1_{0}}}}}}\right)\left(u_{R_{1}0}, u_{R_{1}0}\right)
+\end{array}\right)$
+: $\left(\begin{array}{r}
+0 \\
+0 \\
+\sin\left(-u_{P_{1}0} + u_{R_{1}0}\right) \\
+\sin\left(-u_{P_{0}0} + u_{R_{1}0}\right) \\
+0
+\end{array}\right)$
+S: (1, Xhat_R_0_0, Xhat_P_1_0, Xhat_P_0_0, Xhat_R_1_0)
+dudts: {(P_1, 0): (1/3*Xhat_P_1_0*Xhat_R_0_0*gamma*sin(-u_P_1_0 + u_R_0_0) + 1/3*Xhat_P_1_0*Xhat_R_1_0*gamma*sin(-u_P_1_0 + u_R_1_0)), (R_1, 0): (Xhat_P_0_0*Xhat_R_1_0*gamma*sin(-u_P_0_0 + u_R_1_0) + Xhat_P_1_0*Xhat_R_1_0*gamma*sin(-u_P_1_0 + u_R_1_0)), (P_0, 0): (1/3*Xhat_P_0_0*Xhat_R_0_0*gamma*sin(-u_P_0_0 + u_R_0_0) + 1/3*Xhat_P_0_0*Xhat_R_1_0*gamma*sin(-u_P_0_0 + u_R_1_0)), (R_0, 0): (Xhat_P_0_0*Xhat_R_0_0*gamma*sin(-u_P_0_0 + u_R_0_0) + Xhat_P_1_0*Xhat_R_0_0*gamma*sin(-u_P_1_0 + u_R_0_0))}
+A: (-1, -1)
+S: (1, Xhat_R_0_0, Xhat_P_1_0, Xhat_P_0_0, Xhat_R_1_0)
+S: (1, Xhat_R_0_0, Xhat_P_1_0, Xhat_P_0_0, Xhat_R_1_0)
+S: (-2.26794274477677, -2.26794274477677)
+hack A_ij: from (r_R_0_0(u_R_0_0), a_R_0_0_R_0_0(u_R_0_0, u_R_0_0), a_R_0_0_P_1_0(u_R_0_0, u_P_1_0), a_R_0_0_P_0_0(u_R_0_0, u_P_0_0), a_R_0_0_R_1_0(u_R_0_0, u_R_1_0))
+to (r_R_0_0(u_R_0_0), a_R_0_0_R_0_0(u_R_0_0, u_Fake_0), a_R_0_0_P_1_0(u_R_0_0, u_P_1_0), a_R_0_0_P_0_0(u_R_0_0, u_P_0_0), a_R_0_0_R_1_0(u_R_0_0, u_R_1_0))
+d1A: derivative of $\left(r_{R_{0_{0}}}\left(u_{R_{0}0}\right),\,a_{R_{0_{0_{R_{0_{0}}}}}}\left(u_{R_{0}0}, u_{\text{\texttt{Fake}}0}\right),\,a_{R_{0_{0_{P_{1_{0}}}}}}\left(u_{R_{0}0}, u_{P_{1}0}\right),\,a_{R_{0_{0_{P_{0_{0}}}}}}\left(u_{R_{0}0}, u_{P_{0}0}\right),\,a_{R_{0_{0_{R_{1_{0}}}}}}\left(u_{R_{0}0}, u_{R_{1}0}\right)\right)$ wrt $\left(\begin{array}{c}
+  u_{R_{0}0}
+\end{array}\right)$
+is $\left(\begin{array}{r}
+D[0]\left(r_{R_{0_{0}}}\right)\left(u_{R_{0}0}\right) \\
+D[0]\left(a_{R_{0_{0_{R_{0_{0}}}}}}\right)\left(u_{R_{0}0}, u_{\text{\texttt{Fake}}0}\right) \\
+D[0]\left(a_{R_{0_{0_{P_{1_{0}}}}}}\right)\left(u_{R_{0}0}, u_{P_{1}0}\right) \\
+D[0]\left(a_{R_{0_{0_{P_{0_{0}}}}}}\right)\left(u_{R_{0}0}, u_{P_{0}0}\right) \\
+D[0]\left(a_{R_{0_{0_{R_{1_{0}}}}}}\right)\left(u_{R_{0}0}, u_{R_{1}0}\right)
+\end{array}\right)$
+; $\left(\begin{array}{r}
+D[0]\left(r_{R_{0_{0}}}\right)\left(u_{R_{0}0}\right) \\
+D[0]\left(a_{R_{0_{0_{R_{0_{0}}}}}}\right)\left(u_{R_{0}0}, u_{R_{0}0}\right) \\
+D[0]\left(a_{R_{0_{0_{P_{1_{0}}}}}}\right)\left(u_{R_{0}0}, u_{P_{1}0}\right) \\
+D[0]\left(a_{R_{0_{0_{P_{0_{0}}}}}}\right)\left(u_{R_{0}0}, u_{P_{0}0}\right) \\
+D[0]\left(a_{R_{0_{0_{R_{1_{0}}}}}}\right)\left(u_{R_{0}0}, u_{R_{1}0}\right)
+\end{array}\right)$
+: $\left(\begin{array}{r}
+0 \\
+0 \\
+\sin\left(-u_{P_{1}0} + u_{R_{0}0}\right) \\
+\sin\left(-u_{P_{0}0} + u_{R_{0}0}\right) \\
+0
+\end{array}\right)$
+hack A_ij: from (r_R_0_0(u_R_0_0), a_R_0_0_R_0_0(u_R_0_0, u_R_0_0), a_R_0_0_P_1_0(u_R_0_0, u_P_1_0), a_R_0_0_P_0_0(u_R_0_0, u_P_0_0), a_R_0_0_R_1_0(u_R_0_0, u_R_1_0))
+to (r_R_0_0(u_R_0_0), a_R_0_0_R_0_0(u_R_0_0, u_Fake_0), a_R_0_0_P_1_0(u_R_0_0, u_P_1_0), a_R_0_0_P_0_0(u_R_0_0, u_P_0_0), a_R_0_0_R_1_0(u_R_0_0, u_R_1_0))
+d1A: derivative of $\left(r_{R_{0_{0}}}\left(u_{R_{0}0}\right),\,a_{R_{0_{0_{R_{0_{0}}}}}}\left(u_{R_{0}0}, u_{\text{\texttt{Fake}}0}\right),\,a_{R_{0_{0_{P_{1_{0}}}}}}\left(u_{R_{0}0}, u_{P_{1}0}\right),\,a_{R_{0_{0_{P_{0_{0}}}}}}\left(u_{R_{0}0}, u_{P_{0}0}\right),\,a_{R_{0_{0_{R_{1_{0}}}}}}\left(u_{R_{0}0}, u_{R_{1}0}\right)\right)$ wrt $\left(\begin{array}{c}
+  u_{R_{0}0}
+\end{array}\right)$
+is $\left(\begin{array}{r}
+D[0]\left(r_{R_{0_{0}}}\right)\left(u_{R_{0}0}\right) \\
+D[0]\left(a_{R_{0_{0_{R_{0_{0}}}}}}\right)\left(u_{R_{0}0}, u_{\text{\texttt{Fake}}0}\right) \\
+D[0]\left(a_{R_{0_{0_{P_{1_{0}}}}}}\right)\left(u_{R_{0}0}, u_{P_{1}0}\right) \\
+D[0]\left(a_{R_{0_{0_{P_{0_{0}}}}}}\right)\left(u_{R_{0}0}, u_{P_{0}0}\right) \\
+D[0]\left(a_{R_{0_{0_{R_{1_{0}}}}}}\right)\left(u_{R_{0}0}, u_{R_{1}0}\right)
+\end{array}\right)$
+; $\left(\begin{array}{r}
+D[0]\left(r_{R_{0_{0}}}\right)\left(u_{R_{0}0}\right) \\
+D[0]\left(a_{R_{0_{0_{R_{0_{0}}}}}}\right)\left(u_{R_{0}0}, u_{R_{0}0}\right) \\
+D[0]\left(a_{R_{0_{0_{P_{1_{0}}}}}}\right)\left(u_{R_{0}0}, u_{P_{1}0}\right) \\
+D[0]\left(a_{R_{0_{0_{P_{0_{0}}}}}}\right)\left(u_{R_{0}0}, u_{P_{0}0}\right) \\
+D[0]\left(a_{R_{0_{0_{R_{1_{0}}}}}}\right)\left(u_{R_{0}0}, u_{R_{1}0}\right)
+\end{array}\right)$
+: $\left(\begin{array}{r}
+0 \\
+0 \\
+\sin\left(-u_{P_{1}0} + u_{R_{0}0}\right) \\
+\sin\left(-u_{P_{0}0} + u_{R_{0}0}\right) \\
+0
+\end{array}\right)$
+pp0: {t -> 0, u_R_1_0 -> 0, u_R_0_0 -> 0.100000000000000, u_P_1_0 -> -0.200000000000000, u_P_0_0 -> -0.100000000000000}
+D: (0, 0)
+I: (0, 0)
+dAdt: (0, 0)
+A: (-1.95533648912561, 0.651778829708535)
+S: (1, Xhat_R_0_0, Xhat_P_1_0, Xhat_P_0_0, Xhat_R_1_0)
+S: (1, Xhat_R_0_0, Xhat_P_1_0, Xhat_P_0_0, Xhat_R_1_0)
+S: (0.367992643632881, -2.26794274477677)
+hack A_ij: from (r_R_0_0(u_R_0_0), a_R_0_0_R_0_0(u_R_0_0, u_R_0_0), a_R_0_0_P_1_0(u_R_0_0, u_P_1_0), a_R_0_0_P_0_0(u_R_0_0, u_P_0_0), a_R_0_0_R_1_0(u_R_0_0, u_R_1_0))
+to (r_R_0_0(u_R_0_0), a_R_0_0_R_0_0(u_R_0_0, u_Fake_0), a_R_0_0_P_1_0(u_R_0_0, u_P_1_0), a_R_0_0_P_0_0(u_R_0_0, u_P_0_0), a_R_0_0_R_1_0(u_R_0_0, u_R_1_0))
+d1A: derivative of $\left(r_{R_{0_{0}}}\left(u_{R_{0}0}\right),\,a_{R_{0_{0_{R_{0_{0}}}}}}\left(u_{R_{0}0}, u_{\text{\texttt{Fake}}0}\right),\,a_{R_{0_{0_{P_{1_{0}}}}}}\left(u_{R_{0}0}, u_{P_{1}0}\right),\,a_{R_{0_{0_{P_{0_{0}}}}}}\left(u_{R_{0}0}, u_{P_{0}0}\right),\,a_{R_{0_{0_{R_{1_{0}}}}}}\left(u_{R_{0}0}, u_{R_{1}0}\right)\right)$ wrt $\left(\begin{array}{c}
+  u_{R_{0}0}
+\end{array}\right)$
+is $\left(\begin{array}{r}
+D[0]\left(r_{R_{0_{0}}}\right)\left(u_{R_{0}0}\right) \\
+D[0]\left(a_{R_{0_{0_{R_{0_{0}}}}}}\right)\left(u_{R_{0}0}, u_{\text{\texttt{Fake}}0}\right) \\
+D[0]\left(a_{R_{0_{0_{P_{1_{0}}}}}}\right)\left(u_{R_{0}0}, u_{P_{1}0}\right) \\
+D[0]\left(a_{R_{0_{0_{P_{0_{0}}}}}}\right)\left(u_{R_{0}0}, u_{P_{0}0}\right) \\
+D[0]\left(a_{R_{0_{0_{R_{1_{0}}}}}}\right)\left(u_{R_{0}0}, u_{R_{1}0}\right)
+\end{array}\right)$
+; $\left(\begin{array}{r}
+D[0]\left(r_{R_{0_{0}}}\right)\left(u_{R_{0}0}\right) \\
+D[0]\left(a_{R_{0_{0_{R_{0_{0}}}}}}\right)\left(u_{R_{0}0}, u_{R_{0}0}\right) \\
+D[0]\left(a_{R_{0_{0_{P_{1_{0}}}}}}\right)\left(u_{R_{0}0}, u_{P_{1}0}\right) \\
+D[0]\left(a_{R_{0_{0_{P_{0_{0}}}}}}\right)\left(u_{R_{0}0}, u_{P_{0}0}\right) \\
+D[0]\left(a_{R_{0_{0_{R_{1_{0}}}}}}\right)\left(u_{R_{0}0}, u_{R_{1}0}\right)
+\end{array}\right)$
+: $\left(\begin{array}{r}
+0 \\
+0 \\
+\sin\left(-u_{P_{1}0} + u_{R_{0}0}\right) \\
+\sin\left(-u_{P_{0}0} + u_{R_{0}0}\right) \\
+0
+\end{array}\right)$
+hack A_ij: from (r_P_1_0(u_P_1_0), a_P_1_0_R_0_0(u_P_1_0, u_R_0_0), a_P_1_0_P_1_0(u_P_1_0, u_P_1_0), a_P_1_0_P_0_0(u_P_1_0, u_P_0_0), a_P_1_0_R_1_0(u_P_1_0, u_R_1_0))
+to (r_P_1_0(u_P_1_0), a_P_1_0_R_0_0(u_P_1_0, u_R_0_0), a_P_1_0_P_1_0(u_P_1_0, u_Fake_0), a_P_1_0_P_0_0(u_P_1_0, u_P_0_0), a_P_1_0_R_1_0(u_P_1_0, u_R_1_0))
+d1A: derivative of $\left(r_{P_{1_{0}}}\left(u_{P_{1}0}\right),\,a_{P_{1_{0_{R_{0_{0}}}}}}\left(u_{P_{1}0}, u_{R_{0}0}\right),\,a_{P_{1_{0_{P_{1_{0}}}}}}\left(u_{P_{1}0}, u_{\text{\texttt{Fake}}0}\right),\,a_{P_{1_{0_{P_{0_{0}}}}}}\left(u_{P_{1}0}, u_{P_{0}0}\right),\,a_{P_{1_{0_{R_{1_{0}}}}}}\left(u_{P_{1}0}, u_{R_{1}0}\right)\right)$ wrt $\left(\begin{array}{c}
+  u_{P_{1}0}
+\end{array}\right)$
+is $\left(\begin{array}{r}
+D[0]\left(r_{P_{1_{0}}}\right)\left(u_{P_{1}0}\right) \\
+D[0]\left(a_{P_{1_{0_{R_{0_{0}}}}}}\right)\left(u_{P_{1}0}, u_{R_{0}0}\right) \\
+D[0]\left(a_{P_{1_{0_{P_{1_{0}}}}}}\right)\left(u_{P_{1}0}, u_{\text{\texttt{Fake}}0}\right) \\
+D[0]\left(a_{P_{1_{0_{P_{0_{0}}}}}}\right)\left(u_{P_{1}0}, u_{P_{0}0}\right) \\
+D[0]\left(a_{P_{1_{0_{R_{1_{0}}}}}}\right)\left(u_{P_{1}0}, u_{R_{1}0}\right)
+\end{array}\right)$
+; $\left(\begin{array}{r}
+D[0]\left(r_{P_{1_{0}}}\right)\left(u_{P_{1}0}\right) \\
+D[0]\left(a_{P_{1_{0_{R_{0_{0}}}}}}\right)\left(u_{P_{1}0}, u_{R_{0}0}\right) \\
+D[0]\left(a_{P_{1_{0_{P_{1_{0}}}}}}\right)\left(u_{P_{1}0}, u_{P_{1}0}\right) \\
+D[0]\left(a_{P_{1_{0_{P_{0_{0}}}}}}\right)\left(u_{P_{1}0}, u_{P_{0}0}\right) \\
+D[0]\left(a_{P_{1_{0_{R_{1_{0}}}}}}\right)\left(u_{P_{1}0}, u_{R_{1}0}\right)
+\end{array}\right)$
+: $\left(\begin{array}{r}
+0 \\
+\frac{1}{3} \, \sin\left(-u_{P_{1}0} + u_{R_{0}0}\right) \\
+0 \\
+0 \\
+\frac{1}{3} \, \sin\left(-u_{P_{1}0} + u_{R_{1}0}\right)
+\end{array}\right)$
+pp0: {t -> 0, u_R_1_0 -> 0, u_R_0_0 -> 0.100000000000000, u_P_1_0 -> -0.200000000000000, u_P_0_0 -> -0.100000000000000}
+D: (0.00823496848119016, 0.000914996497959975)
+I: (-0.00274498949387992, -0.00274498949373005)
+dAdt: (0.00548997898731024, -0.00182999299577008)
+A: (-1.98006657784124, 0.660022192613747)
+S: (1, Xhat_R_0_0, Xhat_P_1_0, Xhat_P_0_0, Xhat_R_1_0)
+S: (1, Xhat_R_0_0, Xhat_P_1_0, Xhat_P_0_0, Xhat_R_1_0)
+S: (-0.609234306557551, -2.26794274477677)
+hack A_ij: from (r_R_0_0(u_R_0_0), a_R_0_0_R_0_0(u_R_0_0, u_R_0_0), a_R_0_0_P_1_0(u_R_0_0, u_P_1_0), a_R_0_0_P_0_0(u_R_0_0, u_P_0_0), a_R_0_0_R_1_0(u_R_0_0, u_R_1_0))
+to (r_R_0_0(u_R_0_0), a_R_0_0_R_0_0(u_R_0_0, u_Fake_0), a_R_0_0_P_1_0(u_R_0_0, u_P_1_0), a_R_0_0_P_0_0(u_R_0_0, u_P_0_0), a_R_0_0_R_1_0(u_R_0_0, u_R_1_0))
+d1A: derivative of $\left(r_{R_{0_{0}}}\left(u_{R_{0}0}\right),\,a_{R_{0_{0_{R_{0_{0}}}}}}\left(u_{R_{0}0}, u_{\text{\texttt{Fake}}0}\right),\,a_{R_{0_{0_{P_{1_{0}}}}}}\left(u_{R_{0}0}, u_{P_{1}0}\right),\,a_{R_{0_{0_{P_{0_{0}}}}}}\left(u_{R_{0}0}, u_{P_{0}0}\right),\,a_{R_{0_{0_{R_{1_{0}}}}}}\left(u_{R_{0}0}, u_{R_{1}0}\right)\right)$ wrt $\left(\begin{array}{c}
+  u_{R_{0}0}
+\end{array}\right)$
+is $\left(\begin{array}{r}
+D[0]\left(r_{R_{0_{0}}}\right)\left(u_{R_{0}0}\right) \\
+D[0]\left(a_{R_{0_{0_{R_{0_{0}}}}}}\right)\left(u_{R_{0}0}, u_{\text{\texttt{Fake}}0}\right) \\
+D[0]\left(a_{R_{0_{0_{P_{1_{0}}}}}}\right)\left(u_{R_{0}0}, u_{P_{1}0}\right) \\
+D[0]\left(a_{R_{0_{0_{P_{0_{0}}}}}}\right)\left(u_{R_{0}0}, u_{P_{0}0}\right) \\
+D[0]\left(a_{R_{0_{0_{R_{1_{0}}}}}}\right)\left(u_{R_{0}0}, u_{R_{1}0}\right)
+\end{array}\right)$
+; $\left(\begin{array}{r}
+D[0]\left(r_{R_{0_{0}}}\right)\left(u_{R_{0}0}\right) \\
+D[0]\left(a_{R_{0_{0_{R_{0_{0}}}}}}\right)\left(u_{R_{0}0}, u_{R_{0}0}\right) \\
+D[0]\left(a_{R_{0_{0_{P_{1_{0}}}}}}\right)\left(u_{R_{0}0}, u_{P_{1}0}\right) \\
+D[0]\left(a_{R_{0_{0_{P_{0_{0}}}}}}\right)\left(u_{R_{0}0}, u_{P_{0}0}\right) \\
+D[0]\left(a_{R_{0_{0_{R_{1_{0}}}}}}\right)\left(u_{R_{0}0}, u_{R_{1}0}\right)
+\end{array}\right)$
+: $\left(\begin{array}{r}
+0 \\
+0 \\
+\sin\left(-u_{P_{1}0} + u_{R_{0}0}\right) \\
+\sin\left(-u_{P_{0}0} + u_{R_{0}0}\right) \\
+0
+\end{array}\right)$
+hack A_ij: from (r_P_0_0(u_P_0_0), a_P_0_0_R_0_0(u_P_0_0, u_R_0_0), a_P_0_0_P_1_0(u_P_0_0, u_P_1_0), a_P_0_0_P_0_0(u_P_0_0, u_P_0_0), a_P_0_0_R_1_0(u_P_0_0, u_R_1_0))
+to (r_P_0_0(u_P_0_0), a_P_0_0_R_0_0(u_P_0_0, u_R_0_0), a_P_0_0_P_1_0(u_P_0_0, u_P_1_0), a_P_0_0_P_0_0(u_P_0_0, u_Fake_0), a_P_0_0_R_1_0(u_P_0_0, u_R_1_0))
+d1A: derivative of $\left(r_{P_{0_{0}}}\left(u_{P_{0}0}\right),\,a_{P_{0_{0_{R_{0_{0}}}}}}\left(u_{P_{0}0}, u_{R_{0}0}\right),\,a_{P_{0_{0_{P_{1_{0}}}}}}\left(u_{P_{0}0}, u_{P_{1}0}\right),\,a_{P_{0_{0_{P_{0_{0}}}}}}\left(u_{P_{0}0}, u_{\text{\texttt{Fake}}0}\right),\,a_{P_{0_{0_{R_{1_{0}}}}}}\left(u_{P_{0}0}, u_{R_{1}0}\right)\right)$ wrt $\left(\begin{array}{c}
+  u_{P_{0}0}
+\end{array}\right)$
+is $\left(\begin{array}{r}
+D[0]\left(r_{P_{0_{0}}}\right)\left(u_{P_{0}0}\right) \\
+D[0]\left(a_{P_{0_{0_{R_{0_{0}}}}}}\right)\left(u_{P_{0}0}, u_{R_{0}0}\right) \\
+D[0]\left(a_{P_{0_{0_{P_{1_{0}}}}}}\right)\left(u_{P_{0}0}, u_{P_{1}0}\right) \\
+D[0]\left(a_{P_{0_{0_{P_{0_{0}}}}}}\right)\left(u_{P_{0}0}, u_{\text{\texttt{Fake}}0}\right) \\
+D[0]\left(a_{P_{0_{0_{R_{1_{0}}}}}}\right)\left(u_{P_{0}0}, u_{R_{1}0}\right)
+\end{array}\right)$
+; $\left(\begin{array}{r}
+D[0]\left(r_{P_{0_{0}}}\right)\left(u_{P_{0}0}\right) \\
+D[0]\left(a_{P_{0_{0_{R_{0_{0}}}}}}\right)\left(u_{P_{0}0}, u_{R_{0}0}\right) \\
+D[0]\left(a_{P_{0_{0_{P_{1_{0}}}}}}\right)\left(u_{P_{0}0}, u_{P_{1}0}\right) \\
+D[0]\left(a_{P_{0_{0_{P_{0_{0}}}}}}\right)\left(u_{P_{0}0}, u_{P_{0}0}\right) \\
+D[0]\left(a_{P_{0_{0_{R_{1_{0}}}}}}\right)\left(u_{P_{0}0}, u_{R_{1}0}\right)
+\end{array}\right)$
+: $\left(\begin{array}{r}
+0 \\
+\frac{1}{3} \, \sin\left(-u_{P_{0}0} + u_{R_{0}0}\right) \\
+0 \\
+0 \\
+\frac{1}{3} \, \sin\left(-u_{P_{0}0} + u_{R_{1}0}\right)
+\end{array}\right)$
+pp0: {t -> 0, u_R_1_0 -> 0, u_R_0_0 -> 0.100000000000000, u_P_1_0 -> -0.200000000000000, u_P_0_0 -> -0.100000000000000}
+D: (0.00553612118697297, 0.00101837632140673)
+I: (-0.00305512896422018, -0.00184537372899099)
+dAdt: (0.00248099222275278, -0.000826997407584261)
+A: (-1, -1)
+S: (1, Xhat_R_0_0, Xhat_P_1_0, Xhat_P_0_0, Xhat_R_1_0)
+S: (1, Xhat_R_0_0, Xhat_P_1_0, Xhat_P_0_0, Xhat_R_1_0)
+S: (3.75471778944687, -2.26794274477677)
+hack A_ij: from (r_R_0_0(u_R_0_0), a_R_0_0_R_0_0(u_R_0_0, u_R_0_0), a_R_0_0_P_1_0(u_R_0_0, u_P_1_0), a_R_0_0_P_0_0(u_R_0_0, u_P_0_0), a_R_0_0_R_1_0(u_R_0_0, u_R_1_0))
+to (r_R_0_0(u_R_0_0), a_R_0_0_R_0_0(u_R_0_0, u_Fake_0), a_R_0_0_P_1_0(u_R_0_0, u_P_1_0), a_R_0_0_P_0_0(u_R_0_0, u_P_0_0), a_R_0_0_R_1_0(u_R_0_0, u_R_1_0))
+d1A: derivative of $\left(r_{R_{0_{0}}}\left(u_{R_{0}0}\right),\,a_{R_{0_{0_{R_{0_{0}}}}}}\left(u_{R_{0}0}, u_{\text{\texttt{Fake}}0}\right),\,a_{R_{0_{0_{P_{1_{0}}}}}}\left(u_{R_{0}0}, u_{P_{1}0}\right),\,a_{R_{0_{0_{P_{0_{0}}}}}}\left(u_{R_{0}0}, u_{P_{0}0}\right),\,a_{R_{0_{0_{R_{1_{0}}}}}}\left(u_{R_{0}0}, u_{R_{1}0}\right)\right)$ wrt $\left(\begin{array}{c}
+  u_{R_{0}0}
+\end{array}\right)$
+is $\left(\begin{array}{r}
+D[0]\left(r_{R_{0_{0}}}\right)\left(u_{R_{0}0}\right) \\
+D[0]\left(a_{R_{0_{0_{R_{0_{0}}}}}}\right)\left(u_{R_{0}0}, u_{\text{\texttt{Fake}}0}\right) \\
+D[0]\left(a_{R_{0_{0_{P_{1_{0}}}}}}\right)\left(u_{R_{0}0}, u_{P_{1}0}\right) \\
+D[0]\left(a_{R_{0_{0_{P_{0_{0}}}}}}\right)\left(u_{R_{0}0}, u_{P_{0}0}\right) \\
+D[0]\left(a_{R_{0_{0_{R_{1_{0}}}}}}\right)\left(u_{R_{0}0}, u_{R_{1}0}\right)
+\end{array}\right)$
+; $\left(\begin{array}{r}
+D[0]\left(r_{R_{0_{0}}}\right)\left(u_{R_{0}0}\right) \\
+D[0]\left(a_{R_{0_{0_{R_{0_{0}}}}}}\right)\left(u_{R_{0}0}, u_{R_{0}0}\right) \\
+D[0]\left(a_{R_{0_{0_{P_{1_{0}}}}}}\right)\left(u_{R_{0}0}, u_{P_{1}0}\right) \\
+D[0]\left(a_{R_{0_{0_{P_{0_{0}}}}}}\right)\left(u_{R_{0}0}, u_{P_{0}0}\right) \\
+D[0]\left(a_{R_{0_{0_{R_{1_{0}}}}}}\right)\left(u_{R_{0}0}, u_{R_{1}0}\right)
+\end{array}\right)$
+: $\left(\begin{array}{r}
+0 \\
+0 \\
+\sin\left(-u_{P_{1}0} + u_{R_{0}0}\right) \\
+\sin\left(-u_{P_{0}0} + u_{R_{0}0}\right) \\
+0
+\end{array}\right)$
+hack A_ij: from (r_R_1_0(u_R_1_0), a_R_1_0_R_0_0(u_R_1_0, u_R_0_0), a_R_1_0_P_1_0(u_R_1_0, u_P_1_0), a_R_1_0_P_0_0(u_R_1_0, u_P_0_0), a_R_1_0_R_1_0(u_R_1_0, u_R_1_0))
+to (r_R_1_0(u_R_1_0), a_R_1_0_R_0_0(u_R_1_0, u_R_0_0), a_R_1_0_P_1_0(u_R_1_0, u_P_1_0), a_R_1_0_P_0_0(u_R_1_0, u_P_0_0), a_R_1_0_R_1_0(u_R_1_0, u_Fake_0))
+d1A: derivative of $\left(r_{R_{1_{0}}}\left(u_{R_{1}0}\right),\,a_{R_{1_{0_{R_{0_{0}}}}}}\left(u_{R_{1}0}, u_{R_{0}0}\right),\,a_{R_{1_{0_{P_{1_{0}}}}}}\left(u_{R_{1}0}, u_{P_{1}0}\right),\,a_{R_{1_{0_{P_{0_{0}}}}}}\left(u_{R_{1}0}, u_{P_{0}0}\right),\,a_{R_{1_{0_{R_{1_{0}}}}}}\left(u_{R_{1}0}, u_{\text{\texttt{Fake}}0}\right)\right)$ wrt $\left(\begin{array}{c}
+  u_{R_{1}0}
+\end{array}\right)$
+is $\left(\begin{array}{r}
+D[0]\left(r_{R_{1_{0}}}\right)\left(u_{R_{1}0}\right) \\
+D[0]\left(a_{R_{1_{0_{R_{0_{0}}}}}}\right)\left(u_{R_{1}0}, u_{R_{0}0}\right) \\
+D[0]\left(a_{R_{1_{0_{P_{1_{0}}}}}}\right)\left(u_{R_{1}0}, u_{P_{1}0}\right) \\
+D[0]\left(a_{R_{1_{0_{P_{0_{0}}}}}}\right)\left(u_{R_{1}0}, u_{P_{0}0}\right) \\
+D[0]\left(a_{R_{1_{0_{R_{1_{0}}}}}}\right)\left(u_{R_{1}0}, u_{\text{\texttt{Fake}}0}\right)
+\end{array}\right)$
+; $\left(\begin{array}{r}
+D[0]\left(r_{R_{1_{0}}}\right)\left(u_{R_{1}0}\right) \\
+D[0]\left(a_{R_{1_{0_{R_{0_{0}}}}}}\right)\left(u_{R_{1}0}, u_{R_{0}0}\right) \\
+D[0]\left(a_{R_{1_{0_{P_{1_{0}}}}}}\right)\left(u_{R_{1}0}, u_{P_{1}0}\right) \\
+D[0]\left(a_{R_{1_{0_{P_{0_{0}}}}}}\right)\left(u_{R_{1}0}, u_{P_{0}0}\right) \\
+D[0]\left(a_{R_{1_{0_{R_{1_{0}}}}}}\right)\left(u_{R_{1}0}, u_{R_{1}0}\right)
+\end{array}\right)$
+: $\left(\begin{array}{r}
+0 \\
+0 \\
+\sin\left(-u_{P_{1}0} + u_{R_{1}0}\right) \\
+\sin\left(-u_{P_{0}0} + u_{R_{1}0}\right) \\
+0
+\end{array}\right)$
+pp0: {t -> 0, u_R_1_0 -> 0, u_R_0_0 -> 0.100000000000000, u_P_1_0 -> -0.200000000000000, u_P_0_0 -> -0.100000000000000}
+D: (0, 0)
+I: (0, 0)
+dAdt: (0, 0)
+A: (0.651778829708535, -1.95533648912561)
+S: (1, Xhat_R_0_0, Xhat_P_1_0, Xhat_P_0_0, Xhat_R_1_0)
+S: (1, Xhat_R_0_0, Xhat_P_1_0, Xhat_P_0_0, Xhat_R_1_0)
+S: (-2.26794274477677, 0.367992643632881)
+hack A_ij: from (r_P_1_0(u_P_1_0), a_P_1_0_R_0_0(u_P_1_0, u_R_0_0), a_P_1_0_P_1_0(u_P_1_0, u_P_1_0), a_P_1_0_P_0_0(u_P_1_0, u_P_0_0), a_P_1_0_R_1_0(u_P_1_0, u_R_1_0))
+to (r_P_1_0(u_P_1_0), a_P_1_0_R_0_0(u_P_1_0, u_R_0_0), a_P_1_0_P_1_0(u_P_1_0, u_Fake_0), a_P_1_0_P_0_0(u_P_1_0, u_P_0_0), a_P_1_0_R_1_0(u_P_1_0, u_R_1_0))
+d1A: derivative of $\left(r_{P_{1_{0}}}\left(u_{P_{1}0}\right),\,a_{P_{1_{0_{R_{0_{0}}}}}}\left(u_{P_{1}0}, u_{R_{0}0}\right),\,a_{P_{1_{0_{P_{1_{0}}}}}}\left(u_{P_{1}0}, u_{\text{\texttt{Fake}}0}\right),\,a_{P_{1_{0_{P_{0_{0}}}}}}\left(u_{P_{1}0}, u_{P_{0}0}\right),\,a_{P_{1_{0_{R_{1_{0}}}}}}\left(u_{P_{1}0}, u_{R_{1}0}\right)\right)$ wrt $\left(\begin{array}{c}
+  u_{P_{1}0}
+\end{array}\right)$
+is $\left(\begin{array}{r}
+D[0]\left(r_{P_{1_{0}}}\right)\left(u_{P_{1}0}\right) \\
+D[0]\left(a_{P_{1_{0_{R_{0_{0}}}}}}\right)\left(u_{P_{1}0}, u_{R_{0}0}\right) \\
+D[0]\left(a_{P_{1_{0_{P_{1_{0}}}}}}\right)\left(u_{P_{1}0}, u_{\text{\texttt{Fake}}0}\right) \\
+D[0]\left(a_{P_{1_{0_{P_{0_{0}}}}}}\right)\left(u_{P_{1}0}, u_{P_{0}0}\right) \\
+D[0]\left(a_{P_{1_{0_{R_{1_{0}}}}}}\right)\left(u_{P_{1}0}, u_{R_{1}0}\right)
+\end{array}\right)$
+; $\left(\begin{array}{r}
+D[0]\left(r_{P_{1_{0}}}\right)\left(u_{P_{1}0}\right) \\
+D[0]\left(a_{P_{1_{0_{R_{0_{0}}}}}}\right)\left(u_{P_{1}0}, u_{R_{0}0}\right) \\
+D[0]\left(a_{P_{1_{0_{P_{1_{0}}}}}}\right)\left(u_{P_{1}0}, u_{P_{1}0}\right) \\
+D[0]\left(a_{P_{1_{0_{P_{0_{0}}}}}}\right)\left(u_{P_{1}0}, u_{P_{0}0}\right) \\
+D[0]\left(a_{P_{1_{0_{R_{1_{0}}}}}}\right)\left(u_{P_{1}0}, u_{R_{1}0}\right)
+\end{array}\right)$
+: $\left(\begin{array}{r}
+0 \\
+\frac{1}{3} \, \sin\left(-u_{P_{1}0} + u_{R_{0}0}\right) \\
+0 \\
+0 \\
+\frac{1}{3} \, \sin\left(-u_{P_{1}0} + u_{R_{1}0}\right)
+\end{array}\right)$
+hack A_ij: from (r_R_0_0(u_R_0_0), a_R_0_0_R_0_0(u_R_0_0, u_R_0_0), a_R_0_0_P_1_0(u_R_0_0, u_P_1_0), a_R_0_0_P_0_0(u_R_0_0, u_P_0_0), a_R_0_0_R_1_0(u_R_0_0, u_R_1_0))
+to (r_R_0_0(u_R_0_0), a_R_0_0_R_0_0(u_R_0_0, u_Fake_0), a_R_0_0_P_1_0(u_R_0_0, u_P_1_0), a_R_0_0_P_0_0(u_R_0_0, u_P_0_0), a_R_0_0_R_1_0(u_R_0_0, u_R_1_0))
+d1A: derivative of $\left(r_{R_{0_{0}}}\left(u_{R_{0}0}\right),\,a_{R_{0_{0_{R_{0_{0}}}}}}\left(u_{R_{0}0}, u_{\text{\texttt{Fake}}0}\right),\,a_{R_{0_{0_{P_{1_{0}}}}}}\left(u_{R_{0}0}, u_{P_{1}0}\right),\,a_{R_{0_{0_{P_{0_{0}}}}}}\left(u_{R_{0}0}, u_{P_{0}0}\right),\,a_{R_{0_{0_{R_{1_{0}}}}}}\left(u_{R_{0}0}, u_{R_{1}0}\right)\right)$ wrt $\left(\begin{array}{c}
+  u_{R_{0}0}
+\end{array}\right)$
+is $\left(\begin{array}{r}
+D[0]\left(r_{R_{0_{0}}}\right)\left(u_{R_{0}0}\right) \\
+D[0]\left(a_{R_{0_{0_{R_{0_{0}}}}}}\right)\left(u_{R_{0}0}, u_{\text{\texttt{Fake}}0}\right) \\
+D[0]\left(a_{R_{0_{0_{P_{1_{0}}}}}}\right)\left(u_{R_{0}0}, u_{P_{1}0}\right) \\
+D[0]\left(a_{R_{0_{0_{P_{0_{0}}}}}}\right)\left(u_{R_{0}0}, u_{P_{0}0}\right) \\
+D[0]\left(a_{R_{0_{0_{R_{1_{0}}}}}}\right)\left(u_{R_{0}0}, u_{R_{1}0}\right)
+\end{array}\right)$
+; $\left(\begin{array}{r}
+D[0]\left(r_{R_{0_{0}}}\right)\left(u_{R_{0}0}\right) \\
+D[0]\left(a_{R_{0_{0_{R_{0_{0}}}}}}\right)\left(u_{R_{0}0}, u_{R_{0}0}\right) \\
+D[0]\left(a_{R_{0_{0_{P_{1_{0}}}}}}\right)\left(u_{R_{0}0}, u_{P_{1}0}\right) \\
+D[0]\left(a_{R_{0_{0_{P_{0_{0}}}}}}\right)\left(u_{R_{0}0}, u_{P_{0}0}\right) \\
+D[0]\left(a_{R_{0_{0_{R_{1_{0}}}}}}\right)\left(u_{R_{0}0}, u_{R_{1}0}\right)
+\end{array}\right)$
+: $\left(\begin{array}{r}
+0 \\
+0 \\
+\sin\left(-u_{P_{1}0} + u_{R_{0}0}\right) \\
+\sin\left(-u_{P_{0}0} + u_{R_{0}0}\right) \\
+0
+\end{array}\right)$
+pp0: {t -> 0, u_R_1_0 -> 0, u_R_0_0 -> 0.100000000000000, u_P_1_0 -> -0.200000000000000, u_P_0_0 -> -0.100000000000000}
+D: (0.000914996497959975, 0.00823496848119016)
+I: (-0.00274498949373005, -0.00274498949387992)
+dAdt: (-0.00182999299577008, 0.00548997898731024)
+A: (0, 0)
+S: (1, Xhat_R_0_0, Xhat_P_1_0, Xhat_P_0_0, Xhat_R_1_0)
+S: (1, Xhat_R_0_0, Xhat_P_1_0, Xhat_P_0_0, Xhat_R_1_0)
+S: (0.367992643632881, 0.367992643632881)
+hack A_ij: from (r_P_1_0(u_P_1_0), a_P_1_0_R_0_0(u_P_1_0, u_R_0_0), a_P_1_0_P_1_0(u_P_1_0, u_P_1_0), a_P_1_0_P_0_0(u_P_1_0, u_P_0_0), a_P_1_0_R_1_0(u_P_1_0, u_R_1_0))
+to (r_P_1_0(u_P_1_0), a_P_1_0_R_0_0(u_P_1_0, u_R_0_0), a_P_1_0_P_1_0(u_P_1_0, u_Fake_0), a_P_1_0_P_0_0(u_P_1_0, u_P_0_0), a_P_1_0_R_1_0(u_P_1_0, u_R_1_0))
+d1A: derivative of $\left(r_{P_{1_{0}}}\left(u_{P_{1}0}\right),\,a_{P_{1_{0_{R_{0_{0}}}}}}\left(u_{P_{1}0}, u_{R_{0}0}\right),\,a_{P_{1_{0_{P_{1_{0}}}}}}\left(u_{P_{1}0}, u_{\text{\texttt{Fake}}0}\right),\,a_{P_{1_{0_{P_{0_{0}}}}}}\left(u_{P_{1}0}, u_{P_{0}0}\right),\,a_{P_{1_{0_{R_{1_{0}}}}}}\left(u_{P_{1}0}, u_{R_{1}0}\right)\right)$ wrt $\left(\begin{array}{c}
+  u_{P_{1}0}
+\end{array}\right)$
+is $\left(\begin{array}{r}
+D[0]\left(r_{P_{1_{0}}}\right)\left(u_{P_{1}0}\right) \\
+D[0]\left(a_{P_{1_{0_{R_{0_{0}}}}}}\right)\left(u_{P_{1}0}, u_{R_{0}0}\right) \\
+D[0]\left(a_{P_{1_{0_{P_{1_{0}}}}}}\right)\left(u_{P_{1}0}, u_{\text{\texttt{Fake}}0}\right) \\
+D[0]\left(a_{P_{1_{0_{P_{0_{0}}}}}}\right)\left(u_{P_{1}0}, u_{P_{0}0}\right) \\
+D[0]\left(a_{P_{1_{0_{R_{1_{0}}}}}}\right)\left(u_{P_{1}0}, u_{R_{1}0}\right)
+\end{array}\right)$
+; $\left(\begin{array}{r}
+D[0]\left(r_{P_{1_{0}}}\right)\left(u_{P_{1}0}\right) \\
+D[0]\left(a_{P_{1_{0_{R_{0_{0}}}}}}\right)\left(u_{P_{1}0}, u_{R_{0}0}\right) \\
+D[0]\left(a_{P_{1_{0_{P_{1_{0}}}}}}\right)\left(u_{P_{1}0}, u_{P_{1}0}\right) \\
+D[0]\left(a_{P_{1_{0_{P_{0_{0}}}}}}\right)\left(u_{P_{1}0}, u_{P_{0}0}\right) \\
+D[0]\left(a_{P_{1_{0_{R_{1_{0}}}}}}\right)\left(u_{P_{1}0}, u_{R_{1}0}\right)
+\end{array}\right)$
+: $\left(\begin{array}{r}
+0 \\
+\frac{1}{3} \, \sin\left(-u_{P_{1}0} + u_{R_{0}0}\right) \\
+0 \\
+0 \\
+\frac{1}{3} \, \sin\left(-u_{P_{1}0} + u_{R_{1}0}\right)
+\end{array}\right)$
+hack A_ij: from (r_P_1_0(u_P_1_0), a_P_1_0_R_0_0(u_P_1_0, u_R_0_0), a_P_1_0_P_1_0(u_P_1_0, u_P_1_0), a_P_1_0_P_0_0(u_P_1_0, u_P_0_0), a_P_1_0_R_1_0(u_P_1_0, u_R_1_0))
+to (r_P_1_0(u_P_1_0), a_P_1_0_R_0_0(u_P_1_0, u_R_0_0), a_P_1_0_P_1_0(u_P_1_0, u_Fake_0), a_P_1_0_P_0_0(u_P_1_0, u_P_0_0), a_P_1_0_R_1_0(u_P_1_0, u_R_1_0))
+d1A: derivative of $\left(r_{P_{1_{0}}}\left(u_{P_{1}0}\right),\,a_{P_{1_{0_{R_{0_{0}}}}}}\left(u_{P_{1}0}, u_{R_{0}0}\right),\,a_{P_{1_{0_{P_{1_{0}}}}}}\left(u_{P_{1}0}, u_{\text{\texttt{Fake}}0}\right),\,a_{P_{1_{0_{P_{0_{0}}}}}}\left(u_{P_{1}0}, u_{P_{0}0}\right),\,a_{P_{1_{0_{R_{1_{0}}}}}}\left(u_{P_{1}0}, u_{R_{1}0}\right)\right)$ wrt $\left(\begin{array}{c}
+  u_{P_{1}0}
+\end{array}\right)$
+is $\left(\begin{array}{r}
+D[0]\left(r_{P_{1_{0}}}\right)\left(u_{P_{1}0}\right) \\
+D[0]\left(a_{P_{1_{0_{R_{0_{0}}}}}}\right)\left(u_{P_{1}0}, u_{R_{0}0}\right) \\
+D[0]\left(a_{P_{1_{0_{P_{1_{0}}}}}}\right)\left(u_{P_{1}0}, u_{\text{\texttt{Fake}}0}\right) \\
+D[0]\left(a_{P_{1_{0_{P_{0_{0}}}}}}\right)\left(u_{P_{1}0}, u_{P_{0}0}\right) \\
+D[0]\left(a_{P_{1_{0_{R_{1_{0}}}}}}\right)\left(u_{P_{1}0}, u_{R_{1}0}\right)
+\end{array}\right)$
+; $\left(\begin{array}{r}
+D[0]\left(r_{P_{1_{0}}}\right)\left(u_{P_{1}0}\right) \\
+D[0]\left(a_{P_{1_{0_{R_{0_{0}}}}}}\right)\left(u_{P_{1}0}, u_{R_{0}0}\right) \\
+D[0]\left(a_{P_{1_{0_{P_{1_{0}}}}}}\right)\left(u_{P_{1}0}, u_{P_{1}0}\right) \\
+D[0]\left(a_{P_{1_{0_{P_{0_{0}}}}}}\right)\left(u_{P_{1}0}, u_{P_{0}0}\right) \\
+D[0]\left(a_{P_{1_{0_{R_{1_{0}}}}}}\right)\left(u_{P_{1}0}, u_{R_{1}0}\right)
+\end{array}\right)$
+: $\left(\begin{array}{r}
+0 \\
+\frac{1}{3} \, \sin\left(-u_{P_{1}0} + u_{R_{0}0}\right) \\
+0 \\
+0 \\
+\frac{1}{3} \, \sin\left(-u_{P_{1}0} + u_{R_{1}0}\right)
+\end{array}\right)$
+pp0: {t -> 0, u_R_1_0 -> 0, u_R_0_0 -> 0.100000000000000, u_P_1_0 -> -0.200000000000000, u_P_0_0 -> -0.100000000000000}
+D: (0, 0)
+I: (0, 0)
+dAdt: (0, 0)
+A: (0, 0)
+S: (1, Xhat_R_0_0, Xhat_P_1_0, Xhat_P_0_0, Xhat_R_1_0)
+S: (1, Xhat_R_0_0, Xhat_P_1_0, Xhat_P_0_0, Xhat_R_1_0)
+S: (-0.609234306557551, 0.367992643632881)
+hack A_ij: from (r_P_1_0(u_P_1_0), a_P_1_0_R_0_0(u_P_1_0, u_R_0_0), a_P_1_0_P_1_0(u_P_1_0, u_P_1_0), a_P_1_0_P_0_0(u_P_1_0, u_P_0_0), a_P_1_0_R_1_0(u_P_1_0, u_R_1_0))
+to (r_P_1_0(u_P_1_0), a_P_1_0_R_0_0(u_P_1_0, u_R_0_0), a_P_1_0_P_1_0(u_P_1_0, u_Fake_0), a_P_1_0_P_0_0(u_P_1_0, u_P_0_0), a_P_1_0_R_1_0(u_P_1_0, u_R_1_0))
+d1A: derivative of $\left(r_{P_{1_{0}}}\left(u_{P_{1}0}\right),\,a_{P_{1_{0_{R_{0_{0}}}}}}\left(u_{P_{1}0}, u_{R_{0}0}\right),\,a_{P_{1_{0_{P_{1_{0}}}}}}\left(u_{P_{1}0}, u_{\text{\texttt{Fake}}0}\right),\,a_{P_{1_{0_{P_{0_{0}}}}}}\left(u_{P_{1}0}, u_{P_{0}0}\right),\,a_{P_{1_{0_{R_{1_{0}}}}}}\left(u_{P_{1}0}, u_{R_{1}0}\right)\right)$ wrt $\left(\begin{array}{c}
+  u_{P_{1}0}
+\end{array}\right)$
+is $\left(\begin{array}{r}
+D[0]\left(r_{P_{1_{0}}}\right)\left(u_{P_{1}0}\right) \\
+D[0]\left(a_{P_{1_{0_{R_{0_{0}}}}}}\right)\left(u_{P_{1}0}, u_{R_{0}0}\right) \\
+D[0]\left(a_{P_{1_{0_{P_{1_{0}}}}}}\right)\left(u_{P_{1}0}, u_{\text{\texttt{Fake}}0}\right) \\
+D[0]\left(a_{P_{1_{0_{P_{0_{0}}}}}}\right)\left(u_{P_{1}0}, u_{P_{0}0}\right) \\
+D[0]\left(a_{P_{1_{0_{R_{1_{0}}}}}}\right)\left(u_{P_{1}0}, u_{R_{1}0}\right)
+\end{array}\right)$
+; $\left(\begin{array}{r}
+D[0]\left(r_{P_{1_{0}}}\right)\left(u_{P_{1}0}\right) \\
+D[0]\left(a_{P_{1_{0_{R_{0_{0}}}}}}\right)\left(u_{P_{1}0}, u_{R_{0}0}\right) \\
+D[0]\left(a_{P_{1_{0_{P_{1_{0}}}}}}\right)\left(u_{P_{1}0}, u_{P_{1}0}\right) \\
+D[0]\left(a_{P_{1_{0_{P_{0_{0}}}}}}\right)\left(u_{P_{1}0}, u_{P_{0}0}\right) \\
+D[0]\left(a_{P_{1_{0_{R_{1_{0}}}}}}\right)\left(u_{P_{1}0}, u_{R_{1}0}\right)
+\end{array}\right)$
+: $\left(\begin{array}{r}
+0 \\
+\frac{1}{3} \, \sin\left(-u_{P_{1}0} + u_{R_{0}0}\right) \\
+0 \\
+0 \\
+\frac{1}{3} \, \sin\left(-u_{P_{1}0} + u_{R_{1}0}\right)
+\end{array}\right)$
+hack A_ij: from (r_P_0_0(u_P_0_0), a_P_0_0_R_0_0(u_P_0_0, u_R_0_0), a_P_0_0_P_1_0(u_P_0_0, u_P_1_0), a_P_0_0_P_0_0(u_P_0_0, u_P_0_0), a_P_0_0_R_1_0(u_P_0_0, u_R_1_0))
+to (r_P_0_0(u_P_0_0), a_P_0_0_R_0_0(u_P_0_0, u_R_0_0), a_P_0_0_P_1_0(u_P_0_0, u_P_1_0), a_P_0_0_P_0_0(u_P_0_0, u_Fake_0), a_P_0_0_R_1_0(u_P_0_0, u_R_1_0))
+d1A: derivative of $\left(r_{P_{0_{0}}}\left(u_{P_{0}0}\right),\,a_{P_{0_{0_{R_{0_{0}}}}}}\left(u_{P_{0}0}, u_{R_{0}0}\right),\,a_{P_{0_{0_{P_{1_{0}}}}}}\left(u_{P_{0}0}, u_{P_{1}0}\right),\,a_{P_{0_{0_{P_{0_{0}}}}}}\left(u_{P_{0}0}, u_{\text{\texttt{Fake}}0}\right),\,a_{P_{0_{0_{R_{1_{0}}}}}}\left(u_{P_{0}0}, u_{R_{1}0}\right)\right)$ wrt $\left(\begin{array}{c}
+  u_{P_{0}0}
+\end{array}\right)$
+is $\left(\begin{array}{r}
+D[0]\left(r_{P_{0_{0}}}\right)\left(u_{P_{0}0}\right) \\
+D[0]\left(a_{P_{0_{0_{R_{0_{0}}}}}}\right)\left(u_{P_{0}0}, u_{R_{0}0}\right) \\
+D[0]\left(a_{P_{0_{0_{P_{1_{0}}}}}}\right)\left(u_{P_{0}0}, u_{P_{1}0}\right) \\
+D[0]\left(a_{P_{0_{0_{P_{0_{0}}}}}}\right)\left(u_{P_{0}0}, u_{\text{\texttt{Fake}}0}\right) \\
+D[0]\left(a_{P_{0_{0_{R_{1_{0}}}}}}\right)\left(u_{P_{0}0}, u_{R_{1}0}\right)
+\end{array}\right)$
+; $\left(\begin{array}{r}
+D[0]\left(r_{P_{0_{0}}}\right)\left(u_{P_{0}0}\right) \\
+D[0]\left(a_{P_{0_{0_{R_{0_{0}}}}}}\right)\left(u_{P_{0}0}, u_{R_{0}0}\right) \\
+D[0]\left(a_{P_{0_{0_{P_{1_{0}}}}}}\right)\left(u_{P_{0}0}, u_{P_{1}0}\right) \\
+D[0]\left(a_{P_{0_{0_{P_{0_{0}}}}}}\right)\left(u_{P_{0}0}, u_{P_{0}0}\right) \\
+D[0]\left(a_{P_{0_{0_{R_{1_{0}}}}}}\right)\left(u_{P_{0}0}, u_{R_{1}0}\right)
+\end{array}\right)$
+: $\left(\begin{array}{r}
+0 \\
+\frac{1}{3} \, \sin\left(-u_{P_{0}0} + u_{R_{0}0}\right) \\
+0 \\
+0 \\
+\frac{1}{3} \, \sin\left(-u_{P_{0}0} + u_{R_{1}0}\right)
+\end{array}\right)$
+pp0: {t -> 0, u_R_1_0 -> 0, u_R_0_0 -> 0.100000000000000, u_P_1_0 -> -0.200000000000000, u_P_0_0 -> -0.100000000000000}
+D: (0, 0)
+I: (0, 0)
+dAdt: (0, 0)
+A: (0.660022192613747, -1.98006657784124)
+S: (1, Xhat_R_0_0, Xhat_P_1_0, Xhat_P_0_0, Xhat_R_1_0)
+S: (1, Xhat_R_0_0, Xhat_P_1_0, Xhat_P_0_0, Xhat_R_1_0)
+S: (3.75471778944687, 0.367992643632881)
+hack A_ij: from (r_P_1_0(u_P_1_0), a_P_1_0_R_0_0(u_P_1_0, u_R_0_0), a_P_1_0_P_1_0(u_P_1_0, u_P_1_0), a_P_1_0_P_0_0(u_P_1_0, u_P_0_0), a_P_1_0_R_1_0(u_P_1_0, u_R_1_0))
+to (r_P_1_0(u_P_1_0), a_P_1_0_R_0_0(u_P_1_0, u_R_0_0), a_P_1_0_P_1_0(u_P_1_0, u_Fake_0), a_P_1_0_P_0_0(u_P_1_0, u_P_0_0), a_P_1_0_R_1_0(u_P_1_0, u_R_1_0))
+d1A: derivative of $\left(r_{P_{1_{0}}}\left(u_{P_{1}0}\right),\,a_{P_{1_{0_{R_{0_{0}}}}}}\left(u_{P_{1}0}, u_{R_{0}0}\right),\,a_{P_{1_{0_{P_{1_{0}}}}}}\left(u_{P_{1}0}, u_{\text{\texttt{Fake}}0}\right),\,a_{P_{1_{0_{P_{0_{0}}}}}}\left(u_{P_{1}0}, u_{P_{0}0}\right),\,a_{P_{1_{0_{R_{1_{0}}}}}}\left(u_{P_{1}0}, u_{R_{1}0}\right)\right)$ wrt $\left(\begin{array}{c}
+  u_{P_{1}0}
+\end{array}\right)$
+is $\left(\begin{array}{r}
+D[0]\left(r_{P_{1_{0}}}\right)\left(u_{P_{1}0}\right) \\
+D[0]\left(a_{P_{1_{0_{R_{0_{0}}}}}}\right)\left(u_{P_{1}0}, u_{R_{0}0}\right) \\
+D[0]\left(a_{P_{1_{0_{P_{1_{0}}}}}}\right)\left(u_{P_{1}0}, u_{\text{\texttt{Fake}}0}\right) \\
+D[0]\left(a_{P_{1_{0_{P_{0_{0}}}}}}\right)\left(u_{P_{1}0}, u_{P_{0}0}\right) \\
+D[0]\left(a_{P_{1_{0_{R_{1_{0}}}}}}\right)\left(u_{P_{1}0}, u_{R_{1}0}\right)
+\end{array}\right)$
+; $\left(\begin{array}{r}
+D[0]\left(r_{P_{1_{0}}}\right)\left(u_{P_{1}0}\right) \\
+D[0]\left(a_{P_{1_{0_{R_{0_{0}}}}}}\right)\left(u_{P_{1}0}, u_{R_{0}0}\right) \\
+D[0]\left(a_{P_{1_{0_{P_{1_{0}}}}}}\right)\left(u_{P_{1}0}, u_{P_{1}0}\right) \\
+D[0]\left(a_{P_{1_{0_{P_{0_{0}}}}}}\right)\left(u_{P_{1}0}, u_{P_{0}0}\right) \\
+D[0]\left(a_{P_{1_{0_{R_{1_{0}}}}}}\right)\left(u_{P_{1}0}, u_{R_{1}0}\right)
+\end{array}\right)$
+: $\left(\begin{array}{r}
+0 \\
+\frac{1}{3} \, \sin\left(-u_{P_{1}0} + u_{R_{0}0}\right) \\
+0 \\
+0 \\
+\frac{1}{3} \, \sin\left(-u_{P_{1}0} + u_{R_{1}0}\right)
+\end{array}\right)$
+hack A_ij: from (r_R_1_0(u_R_1_0), a_R_1_0_R_0_0(u_R_1_0, u_R_0_0), a_R_1_0_P_1_0(u_R_1_0, u_P_1_0), a_R_1_0_P_0_0(u_R_1_0, u_P_0_0), a_R_1_0_R_1_0(u_R_1_0, u_R_1_0))
+to (r_R_1_0(u_R_1_0), a_R_1_0_R_0_0(u_R_1_0, u_R_0_0), a_R_1_0_P_1_0(u_R_1_0, u_P_1_0), a_R_1_0_P_0_0(u_R_1_0, u_P_0_0), a_R_1_0_R_1_0(u_R_1_0, u_Fake_0))
+d1A: derivative of $\left(r_{R_{1_{0}}}\left(u_{R_{1}0}\right),\,a_{R_{1_{0_{R_{0_{0}}}}}}\left(u_{R_{1}0}, u_{R_{0}0}\right),\,a_{R_{1_{0_{P_{1_{0}}}}}}\left(u_{R_{1}0}, u_{P_{1}0}\right),\,a_{R_{1_{0_{P_{0_{0}}}}}}\left(u_{R_{1}0}, u_{P_{0}0}\right),\,a_{R_{1_{0_{R_{1_{0}}}}}}\left(u_{R_{1}0}, u_{\text{\texttt{Fake}}0}\right)\right)$ wrt $\left(\begin{array}{c}
+  u_{R_{1}0}
+\end{array}\right)$
+is $\left(\begin{array}{r}
+D[0]\left(r_{R_{1_{0}}}\right)\left(u_{R_{1}0}\right) \\
+D[0]\left(a_{R_{1_{0_{R_{0_{0}}}}}}\right)\left(u_{R_{1}0}, u_{R_{0}0}\right) \\
+D[0]\left(a_{R_{1_{0_{P_{1_{0}}}}}}\right)\left(u_{R_{1}0}, u_{P_{1}0}\right) \\
+D[0]\left(a_{R_{1_{0_{P_{0_{0}}}}}}\right)\left(u_{R_{1}0}, u_{P_{0}0}\right) \\
+D[0]\left(a_{R_{1_{0_{R_{1_{0}}}}}}\right)\left(u_{R_{1}0}, u_{\text{\texttt{Fake}}0}\right)
+\end{array}\right)$
+; $\left(\begin{array}{r}
+D[0]\left(r_{R_{1_{0}}}\right)\left(u_{R_{1}0}\right) \\
+D[0]\left(a_{R_{1_{0_{R_{0_{0}}}}}}\right)\left(u_{R_{1}0}, u_{R_{0}0}\right) \\
+D[0]\left(a_{R_{1_{0_{P_{1_{0}}}}}}\right)\left(u_{R_{1}0}, u_{P_{1}0}\right) \\
+D[0]\left(a_{R_{1_{0_{P_{0_{0}}}}}}\right)\left(u_{R_{1}0}, u_{P_{0}0}\right) \\
+D[0]\left(a_{R_{1_{0_{R_{1_{0}}}}}}\right)\left(u_{R_{1}0}, u_{R_{1}0}\right)
+\end{array}\right)$
+: $\left(\begin{array}{r}
+0 \\
+0 \\
+\sin\left(-u_{P_{1}0} + u_{R_{1}0}\right) \\
+\sin\left(-u_{P_{0}0} + u_{R_{1}0}\right) \\
+0
+\end{array}\right)$
+pp0: {t -> 0, u_R_1_0 -> 0, u_R_0_0 -> 0.100000000000000, u_P_1_0 -> -0.200000000000000, u_P_0_0 -> -0.100000000000000}
+D: (0.000615124576363914, 0.00916538689296281)
+I: (-0.00305512896432094, -0.00184537372909174)
+dAdt: (-0.00244000438795702, 0.00732001316387107)
+A: (0.660022192613747, -1.98006657784124)
+S: (1, Xhat_R_0_0, Xhat_P_1_0, Xhat_P_0_0, Xhat_R_1_0)
+S: (1, Xhat_R_0_0, Xhat_P_1_0, Xhat_P_0_0, Xhat_R_1_0)
+S: (-2.26794274477677, -0.609234306557551)
+hack A_ij: from (r_P_0_0(u_P_0_0), a_P_0_0_R_0_0(u_P_0_0, u_R_0_0), a_P_0_0_P_1_0(u_P_0_0, u_P_1_0), a_P_0_0_P_0_0(u_P_0_0, u_P_0_0), a_P_0_0_R_1_0(u_P_0_0, u_R_1_0))
+to (r_P_0_0(u_P_0_0), a_P_0_0_R_0_0(u_P_0_0, u_R_0_0), a_P_0_0_P_1_0(u_P_0_0, u_P_1_0), a_P_0_0_P_0_0(u_P_0_0, u_Fake_0), a_P_0_0_R_1_0(u_P_0_0, u_R_1_0))
+d1A: derivative of $\left(r_{P_{0_{0}}}\left(u_{P_{0}0}\right),\,a_{P_{0_{0_{R_{0_{0}}}}}}\left(u_{P_{0}0}, u_{R_{0}0}\right),\,a_{P_{0_{0_{P_{1_{0}}}}}}\left(u_{P_{0}0}, u_{P_{1}0}\right),\,a_{P_{0_{0_{P_{0_{0}}}}}}\left(u_{P_{0}0}, u_{\text{\texttt{Fake}}0}\right),\,a_{P_{0_{0_{R_{1_{0}}}}}}\left(u_{P_{0}0}, u_{R_{1}0}\right)\right)$ wrt $\left(\begin{array}{c}
+  u_{P_{0}0}
+\end{array}\right)$
+is $\left(\begin{array}{r}
+D[0]\left(r_{P_{0_{0}}}\right)\left(u_{P_{0}0}\right) \\
+D[0]\left(a_{P_{0_{0_{R_{0_{0}}}}}}\right)\left(u_{P_{0}0}, u_{R_{0}0}\right) \\
+D[0]\left(a_{P_{0_{0_{P_{1_{0}}}}}}\right)\left(u_{P_{0}0}, u_{P_{1}0}\right) \\
+D[0]\left(a_{P_{0_{0_{P_{0_{0}}}}}}\right)\left(u_{P_{0}0}, u_{\text{\texttt{Fake}}0}\right) \\
+D[0]\left(a_{P_{0_{0_{R_{1_{0}}}}}}\right)\left(u_{P_{0}0}, u_{R_{1}0}\right)
+\end{array}\right)$
+; $\left(\begin{array}{r}
+D[0]\left(r_{P_{0_{0}}}\right)\left(u_{P_{0}0}\right) \\
+D[0]\left(a_{P_{0_{0_{R_{0_{0}}}}}}\right)\left(u_{P_{0}0}, u_{R_{0}0}\right) \\
+D[0]\left(a_{P_{0_{0_{P_{1_{0}}}}}}\right)\left(u_{P_{0}0}, u_{P_{1}0}\right) \\
+D[0]\left(a_{P_{0_{0_{P_{0_{0}}}}}}\right)\left(u_{P_{0}0}, u_{P_{0}0}\right) \\
+D[0]\left(a_{P_{0_{0_{R_{1_{0}}}}}}\right)\left(u_{P_{0}0}, u_{R_{1}0}\right)
+\end{array}\right)$
+: $\left(\begin{array}{r}
+0 \\
+\frac{1}{3} \, \sin\left(-u_{P_{0}0} + u_{R_{0}0}\right) \\
+0 \\
+0 \\
+\frac{1}{3} \, \sin\left(-u_{P_{0}0} + u_{R_{1}0}\right)
+\end{array}\right)$
+hack A_ij: from (r_R_0_0(u_R_0_0), a_R_0_0_R_0_0(u_R_0_0, u_R_0_0), a_R_0_0_P_1_0(u_R_0_0, u_P_1_0), a_R_0_0_P_0_0(u_R_0_0, u_P_0_0), a_R_0_0_R_1_0(u_R_0_0, u_R_1_0))
+to (r_R_0_0(u_R_0_0), a_R_0_0_R_0_0(u_R_0_0, u_Fake_0), a_R_0_0_P_1_0(u_R_0_0, u_P_1_0), a_R_0_0_P_0_0(u_R_0_0, u_P_0_0), a_R_0_0_R_1_0(u_R_0_0, u_R_1_0))
+d1A: derivative of $\left(r_{R_{0_{0}}}\left(u_{R_{0}0}\right),\,a_{R_{0_{0_{R_{0_{0}}}}}}\left(u_{R_{0}0}, u_{\text{\texttt{Fake}}0}\right),\,a_{R_{0_{0_{P_{1_{0}}}}}}\left(u_{R_{0}0}, u_{P_{1}0}\right),\,a_{R_{0_{0_{P_{0_{0}}}}}}\left(u_{R_{0}0}, u_{P_{0}0}\right),\,a_{R_{0_{0_{R_{1_{0}}}}}}\left(u_{R_{0}0}, u_{R_{1}0}\right)\right)$ wrt $\left(\begin{array}{c}
+  u_{R_{0}0}
+\end{array}\right)$
+is $\left(\begin{array}{r}
+D[0]\left(r_{R_{0_{0}}}\right)\left(u_{R_{0}0}\right) \\
+D[0]\left(a_{R_{0_{0_{R_{0_{0}}}}}}\right)\left(u_{R_{0}0}, u_{\text{\texttt{Fake}}0}\right) \\
+D[0]\left(a_{R_{0_{0_{P_{1_{0}}}}}}\right)\left(u_{R_{0}0}, u_{P_{1}0}\right) \\
+D[0]\left(a_{R_{0_{0_{P_{0_{0}}}}}}\right)\left(u_{R_{0}0}, u_{P_{0}0}\right) \\
+D[0]\left(a_{R_{0_{0_{R_{1_{0}}}}}}\right)\left(u_{R_{0}0}, u_{R_{1}0}\right)
+\end{array}\right)$
+; $\left(\begin{array}{r}
+D[0]\left(r_{R_{0_{0}}}\right)\left(u_{R_{0}0}\right) \\
+D[0]\left(a_{R_{0_{0_{R_{0_{0}}}}}}\right)\left(u_{R_{0}0}, u_{R_{0}0}\right) \\
+D[0]\left(a_{R_{0_{0_{P_{1_{0}}}}}}\right)\left(u_{R_{0}0}, u_{P_{1}0}\right) \\
+D[0]\left(a_{R_{0_{0_{P_{0_{0}}}}}}\right)\left(u_{R_{0}0}, u_{P_{0}0}\right) \\
+D[0]\left(a_{R_{0_{0_{R_{1_{0}}}}}}\right)\left(u_{R_{0}0}, u_{R_{1}0}\right)
+\end{array}\right)$
+: $\left(\begin{array}{r}
+0 \\
+0 \\
+\sin\left(-u_{P_{1}0} + u_{R_{0}0}\right) \\
+\sin\left(-u_{P_{0}0} + u_{R_{0}0}\right) \\
+0
+\end{array}\right)$
+pp0: {t -> 0, u_R_1_0 -> 0, u_R_0_0 -> 0.100000000000000, u_P_1_0 -> -0.200000000000000, u_P_0_0 -> -0.100000000000000}
+D: (0.00101837632140673, 0.00553612118697297)
+I: (-0.00184537372899099, -0.00305512896422018)
+dAdt: (-0.000826997407584261, 0.00248099222275278)
+A: (0, 0)
+S: (1, Xhat_R_0_0, Xhat_P_1_0, Xhat_P_0_0, Xhat_R_1_0)
+S: (1, Xhat_R_0_0, Xhat_P_1_0, Xhat_P_0_0, Xhat_R_1_0)
+S: (0.367992643632881, -0.609234306557551)
+hack A_ij: from (r_P_0_0(u_P_0_0), a_P_0_0_R_0_0(u_P_0_0, u_R_0_0), a_P_0_0_P_1_0(u_P_0_0, u_P_1_0), a_P_0_0_P_0_0(u_P_0_0, u_P_0_0), a_P_0_0_R_1_0(u_P_0_0, u_R_1_0))
+to (r_P_0_0(u_P_0_0), a_P_0_0_R_0_0(u_P_0_0, u_R_0_0), a_P_0_0_P_1_0(u_P_0_0, u_P_1_0), a_P_0_0_P_0_0(u_P_0_0, u_Fake_0), a_P_0_0_R_1_0(u_P_0_0, u_R_1_0))
+d1A: derivative of $\left(r_{P_{0_{0}}}\left(u_{P_{0}0}\right),\,a_{P_{0_{0_{R_{0_{0}}}}}}\left(u_{P_{0}0}, u_{R_{0}0}\right),\,a_{P_{0_{0_{P_{1_{0}}}}}}\left(u_{P_{0}0}, u_{P_{1}0}\right),\,a_{P_{0_{0_{P_{0_{0}}}}}}\left(u_{P_{0}0}, u_{\text{\texttt{Fake}}0}\right),\,a_{P_{0_{0_{R_{1_{0}}}}}}\left(u_{P_{0}0}, u_{R_{1}0}\right)\right)$ wrt $\left(\begin{array}{c}
+  u_{P_{0}0}
+\end{array}\right)$
+is $\left(\begin{array}{r}
+D[0]\left(r_{P_{0_{0}}}\right)\left(u_{P_{0}0}\right) \\
+D[0]\left(a_{P_{0_{0_{R_{0_{0}}}}}}\right)\left(u_{P_{0}0}, u_{R_{0}0}\right) \\
+D[0]\left(a_{P_{0_{0_{P_{1_{0}}}}}}\right)\left(u_{P_{0}0}, u_{P_{1}0}\right) \\
+D[0]\left(a_{P_{0_{0_{P_{0_{0}}}}}}\right)\left(u_{P_{0}0}, u_{\text{\texttt{Fake}}0}\right) \\
+D[0]\left(a_{P_{0_{0_{R_{1_{0}}}}}}\right)\left(u_{P_{0}0}, u_{R_{1}0}\right)
+\end{array}\right)$
+; $\left(\begin{array}{r}
+D[0]\left(r_{P_{0_{0}}}\right)\left(u_{P_{0}0}\right) \\
+D[0]\left(a_{P_{0_{0_{R_{0_{0}}}}}}\right)\left(u_{P_{0}0}, u_{R_{0}0}\right) \\
+D[0]\left(a_{P_{0_{0_{P_{1_{0}}}}}}\right)\left(u_{P_{0}0}, u_{P_{1}0}\right) \\
+D[0]\left(a_{P_{0_{0_{P_{0_{0}}}}}}\right)\left(u_{P_{0}0}, u_{P_{0}0}\right) \\
+D[0]\left(a_{P_{0_{0_{R_{1_{0}}}}}}\right)\left(u_{P_{0}0}, u_{R_{1}0}\right)
+\end{array}\right)$
+: $\left(\begin{array}{r}
+0 \\
+\frac{1}{3} \, \sin\left(-u_{P_{0}0} + u_{R_{0}0}\right) \\
+0 \\
+0 \\
+\frac{1}{3} \, \sin\left(-u_{P_{0}0} + u_{R_{1}0}\right)
+\end{array}\right)$
+hack A_ij: from (r_P_1_0(u_P_1_0), a_P_1_0_R_0_0(u_P_1_0, u_R_0_0), a_P_1_0_P_1_0(u_P_1_0, u_P_1_0), a_P_1_0_P_0_0(u_P_1_0, u_P_0_0), a_P_1_0_R_1_0(u_P_1_0, u_R_1_0))
+to (r_P_1_0(u_P_1_0), a_P_1_0_R_0_0(u_P_1_0, u_R_0_0), a_P_1_0_P_1_0(u_P_1_0, u_Fake_0), a_P_1_0_P_0_0(u_P_1_0, u_P_0_0), a_P_1_0_R_1_0(u_P_1_0, u_R_1_0))
+d1A: derivative of $\left(r_{P_{1_{0}}}\left(u_{P_{1}0}\right),\,a_{P_{1_{0_{R_{0_{0}}}}}}\left(u_{P_{1}0}, u_{R_{0}0}\right),\,a_{P_{1_{0_{P_{1_{0}}}}}}\left(u_{P_{1}0}, u_{\text{\texttt{Fake}}0}\right),\,a_{P_{1_{0_{P_{0_{0}}}}}}\left(u_{P_{1}0}, u_{P_{0}0}\right),\,a_{P_{1_{0_{R_{1_{0}}}}}}\left(u_{P_{1}0}, u_{R_{1}0}\right)\right)$ wrt $\left(\begin{array}{c}
+  u_{P_{1}0}
+\end{array}\right)$
+is $\left(\begin{array}{r}
+D[0]\left(r_{P_{1_{0}}}\right)\left(u_{P_{1}0}\right) \\
+D[0]\left(a_{P_{1_{0_{R_{0_{0}}}}}}\right)\left(u_{P_{1}0}, u_{R_{0}0}\right) \\
+D[0]\left(a_{P_{1_{0_{P_{1_{0}}}}}}\right)\left(u_{P_{1}0}, u_{\text{\texttt{Fake}}0}\right) \\
+D[0]\left(a_{P_{1_{0_{P_{0_{0}}}}}}\right)\left(u_{P_{1}0}, u_{P_{0}0}\right) \\
+D[0]\left(a_{P_{1_{0_{R_{1_{0}}}}}}\right)\left(u_{P_{1}0}, u_{R_{1}0}\right)
+\end{array}\right)$
+; $\left(\begin{array}{r}
+D[0]\left(r_{P_{1_{0}}}\right)\left(u_{P_{1}0}\right) \\
+D[0]\left(a_{P_{1_{0_{R_{0_{0}}}}}}\right)\left(u_{P_{1}0}, u_{R_{0}0}\right) \\
+D[0]\left(a_{P_{1_{0_{P_{1_{0}}}}}}\right)\left(u_{P_{1}0}, u_{P_{1}0}\right) \\
+D[0]\left(a_{P_{1_{0_{P_{0_{0}}}}}}\right)\left(u_{P_{1}0}, u_{P_{0}0}\right) \\
+D[0]\left(a_{P_{1_{0_{R_{1_{0}}}}}}\right)\left(u_{P_{1}0}, u_{R_{1}0}\right)
+\end{array}\right)$
+: $\left(\begin{array}{r}
+0 \\
+\frac{1}{3} \, \sin\left(-u_{P_{1}0} + u_{R_{0}0}\right) \\
+0 \\
+0 \\
+\frac{1}{3} \, \sin\left(-u_{P_{1}0} + u_{R_{1}0}\right)
+\end{array}\right)$
+pp0: {t -> 0, u_R_1_0 -> 0, u_R_0_0 -> 0.100000000000000, u_P_1_0 -> -0.200000000000000, u_P_0_0 -> -0.100000000000000}
+D: (0, 0)
+I: (0, 0)
+dAdt: (0, 0)
+A: (0, 0)
+S: (1, Xhat_R_0_0, Xhat_P_1_0, Xhat_P_0_0, Xhat_R_1_0)
+S: (1, Xhat_R_0_0, Xhat_P_1_0, Xhat_P_0_0, Xhat_R_1_0)
+S: (-0.609234306557551, -0.609234306557551)
+hack A_ij: from (r_P_0_0(u_P_0_0), a_P_0_0_R_0_0(u_P_0_0, u_R_0_0), a_P_0_0_P_1_0(u_P_0_0, u_P_1_0), a_P_0_0_P_0_0(u_P_0_0, u_P_0_0), a_P_0_0_R_1_0(u_P_0_0, u_R_1_0))
+to (r_P_0_0(u_P_0_0), a_P_0_0_R_0_0(u_P_0_0, u_R_0_0), a_P_0_0_P_1_0(u_P_0_0, u_P_1_0), a_P_0_0_P_0_0(u_P_0_0, u_Fake_0), a_P_0_0_R_1_0(u_P_0_0, u_R_1_0))
+d1A: derivative of $\left(r_{P_{0_{0}}}\left(u_{P_{0}0}\right),\,a_{P_{0_{0_{R_{0_{0}}}}}}\left(u_{P_{0}0}, u_{R_{0}0}\right),\,a_{P_{0_{0_{P_{1_{0}}}}}}\left(u_{P_{0}0}, u_{P_{1}0}\right),\,a_{P_{0_{0_{P_{0_{0}}}}}}\left(u_{P_{0}0}, u_{\text{\texttt{Fake}}0}\right),\,a_{P_{0_{0_{R_{1_{0}}}}}}\left(u_{P_{0}0}, u_{R_{1}0}\right)\right)$ wrt $\left(\begin{array}{c}
+  u_{P_{0}0}
+\end{array}\right)$
+is $\left(\begin{array}{r}
+D[0]\left(r_{P_{0_{0}}}\right)\left(u_{P_{0}0}\right) \\
+D[0]\left(a_{P_{0_{0_{R_{0_{0}}}}}}\right)\left(u_{P_{0}0}, u_{R_{0}0}\right) \\
+D[0]\left(a_{P_{0_{0_{P_{1_{0}}}}}}\right)\left(u_{P_{0}0}, u_{P_{1}0}\right) \\
+D[0]\left(a_{P_{0_{0_{P_{0_{0}}}}}}\right)\left(u_{P_{0}0}, u_{\text{\texttt{Fake}}0}\right) \\
+D[0]\left(a_{P_{0_{0_{R_{1_{0}}}}}}\right)\left(u_{P_{0}0}, u_{R_{1}0}\right)
+\end{array}\right)$
+; $\left(\begin{array}{r}
+D[0]\left(r_{P_{0_{0}}}\right)\left(u_{P_{0}0}\right) \\
+D[0]\left(a_{P_{0_{0_{R_{0_{0}}}}}}\right)\left(u_{P_{0}0}, u_{R_{0}0}\right) \\
+D[0]\left(a_{P_{0_{0_{P_{1_{0}}}}}}\right)\left(u_{P_{0}0}, u_{P_{1}0}\right) \\
+D[0]\left(a_{P_{0_{0_{P_{0_{0}}}}}}\right)\left(u_{P_{0}0}, u_{P_{0}0}\right) \\
+D[0]\left(a_{P_{0_{0_{R_{1_{0}}}}}}\right)\left(u_{P_{0}0}, u_{R_{1}0}\right)
+\end{array}\right)$
+: $\left(\begin{array}{r}
+0 \\
+\frac{1}{3} \, \sin\left(-u_{P_{0}0} + u_{R_{0}0}\right) \\
+0 \\
+0 \\
+\frac{1}{3} \, \sin\left(-u_{P_{0}0} + u_{R_{1}0}\right)
+\end{array}\right)$
+hack A_ij: from (r_P_0_0(u_P_0_0), a_P_0_0_R_0_0(u_P_0_0, u_R_0_0), a_P_0_0_P_1_0(u_P_0_0, u_P_1_0), a_P_0_0_P_0_0(u_P_0_0, u_P_0_0), a_P_0_0_R_1_0(u_P_0_0, u_R_1_0))
+to (r_P_0_0(u_P_0_0), a_P_0_0_R_0_0(u_P_0_0, u_R_0_0), a_P_0_0_P_1_0(u_P_0_0, u_P_1_0), a_P_0_0_P_0_0(u_P_0_0, u_Fake_0), a_P_0_0_R_1_0(u_P_0_0, u_R_1_0))
+d1A: derivative of $\left(r_{P_{0_{0}}}\left(u_{P_{0}0}\right),\,a_{P_{0_{0_{R_{0_{0}}}}}}\left(u_{P_{0}0}, u_{R_{0}0}\right),\,a_{P_{0_{0_{P_{1_{0}}}}}}\left(u_{P_{0}0}, u_{P_{1}0}\right),\,a_{P_{0_{0_{P_{0_{0}}}}}}\left(u_{P_{0}0}, u_{\text{\texttt{Fake}}0}\right),\,a_{P_{0_{0_{R_{1_{0}}}}}}\left(u_{P_{0}0}, u_{R_{1}0}\right)\right)$ wrt $\left(\begin{array}{c}
+  u_{P_{0}0}
+\end{array}\right)$
+is $\left(\begin{array}{r}
+D[0]\left(r_{P_{0_{0}}}\right)\left(u_{P_{0}0}\right) \\
+D[0]\left(a_{P_{0_{0_{R_{0_{0}}}}}}\right)\left(u_{P_{0}0}, u_{R_{0}0}\right) \\
+D[0]\left(a_{P_{0_{0_{P_{1_{0}}}}}}\right)\left(u_{P_{0}0}, u_{P_{1}0}\right) \\
+D[0]\left(a_{P_{0_{0_{P_{0_{0}}}}}}\right)\left(u_{P_{0}0}, u_{\text{\texttt{Fake}}0}\right) \\
+D[0]\left(a_{P_{0_{0_{R_{1_{0}}}}}}\right)\left(u_{P_{0}0}, u_{R_{1}0}\right)
+\end{array}\right)$
+; $\left(\begin{array}{r}
+D[0]\left(r_{P_{0_{0}}}\right)\left(u_{P_{0}0}\right) \\
+D[0]\left(a_{P_{0_{0_{R_{0_{0}}}}}}\right)\left(u_{P_{0}0}, u_{R_{0}0}\right) \\
+D[0]\left(a_{P_{0_{0_{P_{1_{0}}}}}}\right)\left(u_{P_{0}0}, u_{P_{1}0}\right) \\
+D[0]\left(a_{P_{0_{0_{P_{0_{0}}}}}}\right)\left(u_{P_{0}0}, u_{P_{0}0}\right) \\
+D[0]\left(a_{P_{0_{0_{R_{1_{0}}}}}}\right)\left(u_{P_{0}0}, u_{R_{1}0}\right)
+\end{array}\right)$
+: $\left(\begin{array}{r}
+0 \\
+\frac{1}{3} \, \sin\left(-u_{P_{0}0} + u_{R_{0}0}\right) \\
+0 \\
+0 \\
+\frac{1}{3} \, \sin\left(-u_{P_{0}0} + u_{R_{1}0}\right)
+\end{array}\right)$
+pp0: {t -> 0, u_R_1_0 -> 0, u_R_0_0 -> 0.100000000000000, u_P_1_0 -> -0.200000000000000, u_P_0_0 -> -0.100000000000000}
+D: (0, 0)
+I: (0, 0)
+dAdt: (0, 0)
+A: (0.665001388426009, -1.99500416527803)
+S: (1, Xhat_R_0_0, Xhat_P_1_0, Xhat_P_0_0, Xhat_R_1_0)
+S: (1, Xhat_R_0_0, Xhat_P_1_0, Xhat_P_0_0, Xhat_R_1_0)
+S: (3.75471778944687, -0.609234306557551)
+hack A_ij: from (r_P_0_0(u_P_0_0), a_P_0_0_R_0_0(u_P_0_0, u_R_0_0), a_P_0_0_P_1_0(u_P_0_0, u_P_1_0), a_P_0_0_P_0_0(u_P_0_0, u_P_0_0), a_P_0_0_R_1_0(u_P_0_0, u_R_1_0))
+to (r_P_0_0(u_P_0_0), a_P_0_0_R_0_0(u_P_0_0, u_R_0_0), a_P_0_0_P_1_0(u_P_0_0, u_P_1_0), a_P_0_0_P_0_0(u_P_0_0, u_Fake_0), a_P_0_0_R_1_0(u_P_0_0, u_R_1_0))
+d1A: derivative of $\left(r_{P_{0_{0}}}\left(u_{P_{0}0}\right),\,a_{P_{0_{0_{R_{0_{0}}}}}}\left(u_{P_{0}0}, u_{R_{0}0}\right),\,a_{P_{0_{0_{P_{1_{0}}}}}}\left(u_{P_{0}0}, u_{P_{1}0}\right),\,a_{P_{0_{0_{P_{0_{0}}}}}}\left(u_{P_{0}0}, u_{\text{\texttt{Fake}}0}\right),\,a_{P_{0_{0_{R_{1_{0}}}}}}\left(u_{P_{0}0}, u_{R_{1}0}\right)\right)$ wrt $\left(\begin{array}{c}
+  u_{P_{0}0}
+\end{array}\right)$
+is $\left(\begin{array}{r}
+D[0]\left(r_{P_{0_{0}}}\right)\left(u_{P_{0}0}\right) \\
+D[0]\left(a_{P_{0_{0_{R_{0_{0}}}}}}\right)\left(u_{P_{0}0}, u_{R_{0}0}\right) \\
+D[0]\left(a_{P_{0_{0_{P_{1_{0}}}}}}\right)\left(u_{P_{0}0}, u_{P_{1}0}\right) \\
+D[0]\left(a_{P_{0_{0_{P_{0_{0}}}}}}\right)\left(u_{P_{0}0}, u_{\text{\texttt{Fake}}0}\right) \\
+D[0]\left(a_{P_{0_{0_{R_{1_{0}}}}}}\right)\left(u_{P_{0}0}, u_{R_{1}0}\right)
+\end{array}\right)$
+; $\left(\begin{array}{r}
+D[0]\left(r_{P_{0_{0}}}\right)\left(u_{P_{0}0}\right) \\
+D[0]\left(a_{P_{0_{0_{R_{0_{0}}}}}}\right)\left(u_{P_{0}0}, u_{R_{0}0}\right) \\
+D[0]\left(a_{P_{0_{0_{P_{1_{0}}}}}}\right)\left(u_{P_{0}0}, u_{P_{1}0}\right) \\
+D[0]\left(a_{P_{0_{0_{P_{0_{0}}}}}}\right)\left(u_{P_{0}0}, u_{P_{0}0}\right) \\
+D[0]\left(a_{P_{0_{0_{R_{1_{0}}}}}}\right)\left(u_{P_{0}0}, u_{R_{1}0}\right)
+\end{array}\right)$
+: $\left(\begin{array}{r}
+0 \\
+\frac{1}{3} \, \sin\left(-u_{P_{0}0} + u_{R_{0}0}\right) \\
+0 \\
+0 \\
+\frac{1}{3} \, \sin\left(-u_{P_{0}0} + u_{R_{1}0}\right)
+\end{array}\right)$
+hack A_ij: from (r_R_1_0(u_R_1_0), a_R_1_0_R_0_0(u_R_1_0, u_R_0_0), a_R_1_0_P_1_0(u_R_1_0, u_P_1_0), a_R_1_0_P_0_0(u_R_1_0, u_P_0_0), a_R_1_0_R_1_0(u_R_1_0, u_R_1_0))
+to (r_R_1_0(u_R_1_0), a_R_1_0_R_0_0(u_R_1_0, u_R_0_0), a_R_1_0_P_1_0(u_R_1_0, u_P_1_0), a_R_1_0_P_0_0(u_R_1_0, u_P_0_0), a_R_1_0_R_1_0(u_R_1_0, u_Fake_0))
+d1A: derivative of $\left(r_{R_{1_{0}}}\left(u_{R_{1}0}\right),\,a_{R_{1_{0_{R_{0_{0}}}}}}\left(u_{R_{1}0}, u_{R_{0}0}\right),\,a_{R_{1_{0_{P_{1_{0}}}}}}\left(u_{R_{1}0}, u_{P_{1}0}\right),\,a_{R_{1_{0_{P_{0_{0}}}}}}\left(u_{R_{1}0}, u_{P_{0}0}\right),\,a_{R_{1_{0_{R_{1_{0}}}}}}\left(u_{R_{1}0}, u_{\text{\texttt{Fake}}0}\right)\right)$ wrt $\left(\begin{array}{c}
+  u_{R_{1}0}
+\end{array}\right)$
+is $\left(\begin{array}{r}
+D[0]\left(r_{R_{1_{0}}}\right)\left(u_{R_{1}0}\right) \\
+D[0]\left(a_{R_{1_{0_{R_{0_{0}}}}}}\right)\left(u_{R_{1}0}, u_{R_{0}0}\right) \\
+D[0]\left(a_{R_{1_{0_{P_{1_{0}}}}}}\right)\left(u_{R_{1}0}, u_{P_{1}0}\right) \\
+D[0]\left(a_{R_{1_{0_{P_{0_{0}}}}}}\right)\left(u_{R_{1}0}, u_{P_{0}0}\right) \\
+D[0]\left(a_{R_{1_{0_{R_{1_{0}}}}}}\right)\left(u_{R_{1}0}, u_{\text{\texttt{Fake}}0}\right)
+\end{array}\right)$
+; $\left(\begin{array}{r}
+D[0]\left(r_{R_{1_{0}}}\right)\left(u_{R_{1}0}\right) \\
+D[0]\left(a_{R_{1_{0_{R_{0_{0}}}}}}\right)\left(u_{R_{1}0}, u_{R_{0}0}\right) \\
+D[0]\left(a_{R_{1_{0_{P_{1_{0}}}}}}\right)\left(u_{R_{1}0}, u_{P_{1}0}\right) \\
+D[0]\left(a_{R_{1_{0_{P_{0_{0}}}}}}\right)\left(u_{R_{1}0}, u_{P_{0}0}\right) \\
+D[0]\left(a_{R_{1_{0_{R_{1_{0}}}}}}\right)\left(u_{R_{1}0}, u_{R_{1}0}\right)
+\end{array}\right)$
+: $\left(\begin{array}{r}
+0 \\
+0 \\
+\sin\left(-u_{P_{1}0} + u_{R_{1}0}\right) \\
+\sin\left(-u_{P_{0}0} + u_{R_{1}0}\right) \\
+0
+\end{array}\right)$
+pp0: {t -> 0, u_R_1_0 -> 0, u_R_0_0 -> 0.100000000000000, u_P_1_0 -> -0.200000000000000, u_P_0_0 -> -0.100000000000000}
+D: (0.000511744752908734, 0.00460570277633049)
+I: (-0.00153523425877683, -0.00153523425872620)
+dAdt: (-0.00102348950586810, 0.00307046851760429)
+A: (-1, -1)
+S: (1, Xhat_R_0_0, Xhat_P_1_0, Xhat_P_0_0, Xhat_R_1_0)
+S: (1, Xhat_R_0_0, Xhat_P_1_0, Xhat_P_0_0, Xhat_R_1_0)
+S: (-2.26794274477677, 3.75471778944687)
+hack A_ij: from (r_R_1_0(u_R_1_0), a_R_1_0_R_0_0(u_R_1_0, u_R_0_0), a_R_1_0_P_1_0(u_R_1_0, u_P_1_0), a_R_1_0_P_0_0(u_R_1_0, u_P_0_0), a_R_1_0_R_1_0(u_R_1_0, u_R_1_0))
+to (r_R_1_0(u_R_1_0), a_R_1_0_R_0_0(u_R_1_0, u_R_0_0), a_R_1_0_P_1_0(u_R_1_0, u_P_1_0), a_R_1_0_P_0_0(u_R_1_0, u_P_0_0), a_R_1_0_R_1_0(u_R_1_0, u_Fake_0))
+d1A: derivative of $\left(r_{R_{1_{0}}}\left(u_{R_{1}0}\right),\,a_{R_{1_{0_{R_{0_{0}}}}}}\left(u_{R_{1}0}, u_{R_{0}0}\right),\,a_{R_{1_{0_{P_{1_{0}}}}}}\left(u_{R_{1}0}, u_{P_{1}0}\right),\,a_{R_{1_{0_{P_{0_{0}}}}}}\left(u_{R_{1}0}, u_{P_{0}0}\right),\,a_{R_{1_{0_{R_{1_{0}}}}}}\left(u_{R_{1}0}, u_{\text{\texttt{Fake}}0}\right)\right)$ wrt $\left(\begin{array}{c}
+  u_{R_{1}0}
+\end{array}\right)$
+is $\left(\begin{array}{r}
+D[0]\left(r_{R_{1_{0}}}\right)\left(u_{R_{1}0}\right) \\
+D[0]\left(a_{R_{1_{0_{R_{0_{0}}}}}}\right)\left(u_{R_{1}0}, u_{R_{0}0}\right) \\
+D[0]\left(a_{R_{1_{0_{P_{1_{0}}}}}}\right)\left(u_{R_{1}0}, u_{P_{1}0}\right) \\
+D[0]\left(a_{R_{1_{0_{P_{0_{0}}}}}}\right)\left(u_{R_{1}0}, u_{P_{0}0}\right) \\
+D[0]\left(a_{R_{1_{0_{R_{1_{0}}}}}}\right)\left(u_{R_{1}0}, u_{\text{\texttt{Fake}}0}\right)
+\end{array}\right)$
+; $\left(\begin{array}{r}
+D[0]\left(r_{R_{1_{0}}}\right)\left(u_{R_{1}0}\right) \\
+D[0]\left(a_{R_{1_{0_{R_{0_{0}}}}}}\right)\left(u_{R_{1}0}, u_{R_{0}0}\right) \\
+D[0]\left(a_{R_{1_{0_{P_{1_{0}}}}}}\right)\left(u_{R_{1}0}, u_{P_{1}0}\right) \\
+D[0]\left(a_{R_{1_{0_{P_{0_{0}}}}}}\right)\left(u_{R_{1}0}, u_{P_{0}0}\right) \\
+D[0]\left(a_{R_{1_{0_{R_{1_{0}}}}}}\right)\left(u_{R_{1}0}, u_{R_{1}0}\right)
+\end{array}\right)$
+: $\left(\begin{array}{r}
+0 \\
+0 \\
+\sin\left(-u_{P_{1}0} + u_{R_{1}0}\right) \\
+\sin\left(-u_{P_{0}0} + u_{R_{1}0}\right) \\
+0
+\end{array}\right)$
+hack A_ij: from (r_R_0_0(u_R_0_0), a_R_0_0_R_0_0(u_R_0_0, u_R_0_0), a_R_0_0_P_1_0(u_R_0_0, u_P_1_0), a_R_0_0_P_0_0(u_R_0_0, u_P_0_0), a_R_0_0_R_1_0(u_R_0_0, u_R_1_0))
+to (r_R_0_0(u_R_0_0), a_R_0_0_R_0_0(u_R_0_0, u_Fake_0), a_R_0_0_P_1_0(u_R_0_0, u_P_1_0), a_R_0_0_P_0_0(u_R_0_0, u_P_0_0), a_R_0_0_R_1_0(u_R_0_0, u_R_1_0))
+d1A: derivative of $\left(r_{R_{0_{0}}}\left(u_{R_{0}0}\right),\,a_{R_{0_{0_{R_{0_{0}}}}}}\left(u_{R_{0}0}, u_{\text{\texttt{Fake}}0}\right),\,a_{R_{0_{0_{P_{1_{0}}}}}}\left(u_{R_{0}0}, u_{P_{1}0}\right),\,a_{R_{0_{0_{P_{0_{0}}}}}}\left(u_{R_{0}0}, u_{P_{0}0}\right),\,a_{R_{0_{0_{R_{1_{0}}}}}}\left(u_{R_{0}0}, u_{R_{1}0}\right)\right)$ wrt $\left(\begin{array}{c}
+  u_{R_{0}0}
+\end{array}\right)$
+is $\left(\begin{array}{r}
+D[0]\left(r_{R_{0_{0}}}\right)\left(u_{R_{0}0}\right) \\
+D[0]\left(a_{R_{0_{0_{R_{0_{0}}}}}}\right)\left(u_{R_{0}0}, u_{\text{\texttt{Fake}}0}\right) \\
+D[0]\left(a_{R_{0_{0_{P_{1_{0}}}}}}\right)\left(u_{R_{0}0}, u_{P_{1}0}\right) \\
+D[0]\left(a_{R_{0_{0_{P_{0_{0}}}}}}\right)\left(u_{R_{0}0}, u_{P_{0}0}\right) \\
+D[0]\left(a_{R_{0_{0_{R_{1_{0}}}}}}\right)\left(u_{R_{0}0}, u_{R_{1}0}\right)
+\end{array}\right)$
+; $\left(\begin{array}{r}
+D[0]\left(r_{R_{0_{0}}}\right)\left(u_{R_{0}0}\right) \\
+D[0]\left(a_{R_{0_{0_{R_{0_{0}}}}}}\right)\left(u_{R_{0}0}, u_{R_{0}0}\right) \\
+D[0]\left(a_{R_{0_{0_{P_{1_{0}}}}}}\right)\left(u_{R_{0}0}, u_{P_{1}0}\right) \\
+D[0]\left(a_{R_{0_{0_{P_{0_{0}}}}}}\right)\left(u_{R_{0}0}, u_{P_{0}0}\right) \\
+D[0]\left(a_{R_{0_{0_{R_{1_{0}}}}}}\right)\left(u_{R_{0}0}, u_{R_{1}0}\right)
+\end{array}\right)$
+: $\left(\begin{array}{r}
+0 \\
+0 \\
+\sin\left(-u_{P_{1}0} + u_{R_{0}0}\right) \\
+\sin\left(-u_{P_{0}0} + u_{R_{0}0}\right) \\
+0
+\end{array}\right)$
+pp0: {t -> 0, u_R_1_0 -> 0, u_R_0_0 -> 0.100000000000000, u_P_1_0 -> -0.200000000000000, u_P_0_0 -> -0.100000000000000}
+D: (0, 0)
+I: (0, 0)
+dAdt: (0, 0)
+A: (-1.98006657784124, 0.660022192613747)
+S: (1, Xhat_R_0_0, Xhat_P_1_0, Xhat_P_0_0, Xhat_R_1_0)
+S: (1, Xhat_R_0_0, Xhat_P_1_0, Xhat_P_0_0, Xhat_R_1_0)
+S: (0.367992643632881, 3.75471778944687)
+hack A_ij: from (r_R_1_0(u_R_1_0), a_R_1_0_R_0_0(u_R_1_0, u_R_0_0), a_R_1_0_P_1_0(u_R_1_0, u_P_1_0), a_R_1_0_P_0_0(u_R_1_0, u_P_0_0), a_R_1_0_R_1_0(u_R_1_0, u_R_1_0))
+to (r_R_1_0(u_R_1_0), a_R_1_0_R_0_0(u_R_1_0, u_R_0_0), a_R_1_0_P_1_0(u_R_1_0, u_P_1_0), a_R_1_0_P_0_0(u_R_1_0, u_P_0_0), a_R_1_0_R_1_0(u_R_1_0, u_Fake_0))
+d1A: derivative of $\left(r_{R_{1_{0}}}\left(u_{R_{1}0}\right),\,a_{R_{1_{0_{R_{0_{0}}}}}}\left(u_{R_{1}0}, u_{R_{0}0}\right),\,a_{R_{1_{0_{P_{1_{0}}}}}}\left(u_{R_{1}0}, u_{P_{1}0}\right),\,a_{R_{1_{0_{P_{0_{0}}}}}}\left(u_{R_{1}0}, u_{P_{0}0}\right),\,a_{R_{1_{0_{R_{1_{0}}}}}}\left(u_{R_{1}0}, u_{\text{\texttt{Fake}}0}\right)\right)$ wrt $\left(\begin{array}{c}
+  u_{R_{1}0}
+\end{array}\right)$
+is $\left(\begin{array}{r}
+D[0]\left(r_{R_{1_{0}}}\right)\left(u_{R_{1}0}\right) \\
+D[0]\left(a_{R_{1_{0_{R_{0_{0}}}}}}\right)\left(u_{R_{1}0}, u_{R_{0}0}\right) \\
+D[0]\left(a_{R_{1_{0_{P_{1_{0}}}}}}\right)\left(u_{R_{1}0}, u_{P_{1}0}\right) \\
+D[0]\left(a_{R_{1_{0_{P_{0_{0}}}}}}\right)\left(u_{R_{1}0}, u_{P_{0}0}\right) \\
+D[0]\left(a_{R_{1_{0_{R_{1_{0}}}}}}\right)\left(u_{R_{1}0}, u_{\text{\texttt{Fake}}0}\right)
+\end{array}\right)$
+; $\left(\begin{array}{r}
+D[0]\left(r_{R_{1_{0}}}\right)\left(u_{R_{1}0}\right) \\
+D[0]\left(a_{R_{1_{0_{R_{0_{0}}}}}}\right)\left(u_{R_{1}0}, u_{R_{0}0}\right) \\
+D[0]\left(a_{R_{1_{0_{P_{1_{0}}}}}}\right)\left(u_{R_{1}0}, u_{P_{1}0}\right) \\
+D[0]\left(a_{R_{1_{0_{P_{0_{0}}}}}}\right)\left(u_{R_{1}0}, u_{P_{0}0}\right) \\
+D[0]\left(a_{R_{1_{0_{R_{1_{0}}}}}}\right)\left(u_{R_{1}0}, u_{R_{1}0}\right)
+\end{array}\right)$
+: $\left(\begin{array}{r}
+0 \\
+0 \\
+\sin\left(-u_{P_{1}0} + u_{R_{1}0}\right) \\
+\sin\left(-u_{P_{0}0} + u_{R_{1}0}\right) \\
+0
+\end{array}\right)$
+hack A_ij: from (r_P_1_0(u_P_1_0), a_P_1_0_R_0_0(u_P_1_0, u_R_0_0), a_P_1_0_P_1_0(u_P_1_0, u_P_1_0), a_P_1_0_P_0_0(u_P_1_0, u_P_0_0), a_P_1_0_R_1_0(u_P_1_0, u_R_1_0))
+to (r_P_1_0(u_P_1_0), a_P_1_0_R_0_0(u_P_1_0, u_R_0_0), a_P_1_0_P_1_0(u_P_1_0, u_Fake_0), a_P_1_0_P_0_0(u_P_1_0, u_P_0_0), a_P_1_0_R_1_0(u_P_1_0, u_R_1_0))
+d1A: derivative of $\left(r_{P_{1_{0}}}\left(u_{P_{1}0}\right),\,a_{P_{1_{0_{R_{0_{0}}}}}}\left(u_{P_{1}0}, u_{R_{0}0}\right),\,a_{P_{1_{0_{P_{1_{0}}}}}}\left(u_{P_{1}0}, u_{\text{\texttt{Fake}}0}\right),\,a_{P_{1_{0_{P_{0_{0}}}}}}\left(u_{P_{1}0}, u_{P_{0}0}\right),\,a_{P_{1_{0_{R_{1_{0}}}}}}\left(u_{P_{1}0}, u_{R_{1}0}\right)\right)$ wrt $\left(\begin{array}{c}
+  u_{P_{1}0}
+\end{array}\right)$
+is $\left(\begin{array}{r}
+D[0]\left(r_{P_{1_{0}}}\right)\left(u_{P_{1}0}\right) \\
+D[0]\left(a_{P_{1_{0_{R_{0_{0}}}}}}\right)\left(u_{P_{1}0}, u_{R_{0}0}\right) \\
+D[0]\left(a_{P_{1_{0_{P_{1_{0}}}}}}\right)\left(u_{P_{1}0}, u_{\text{\texttt{Fake}}0}\right) \\
+D[0]\left(a_{P_{1_{0_{P_{0_{0}}}}}}\right)\left(u_{P_{1}0}, u_{P_{0}0}\right) \\
+D[0]\left(a_{P_{1_{0_{R_{1_{0}}}}}}\right)\left(u_{P_{1}0}, u_{R_{1}0}\right)
+\end{array}\right)$
+; $\left(\begin{array}{r}
+D[0]\left(r_{P_{1_{0}}}\right)\left(u_{P_{1}0}\right) \\
+D[0]\left(a_{P_{1_{0_{R_{0_{0}}}}}}\right)\left(u_{P_{1}0}, u_{R_{0}0}\right) \\
+D[0]\left(a_{P_{1_{0_{P_{1_{0}}}}}}\right)\left(u_{P_{1}0}, u_{P_{1}0}\right) \\
+D[0]\left(a_{P_{1_{0_{P_{0_{0}}}}}}\right)\left(u_{P_{1}0}, u_{P_{0}0}\right) \\
+D[0]\left(a_{P_{1_{0_{R_{1_{0}}}}}}\right)\left(u_{P_{1}0}, u_{R_{1}0}\right)
+\end{array}\right)$
+: $\left(\begin{array}{r}
+0 \\
+\frac{1}{3} \, \sin\left(-u_{P_{1}0} + u_{R_{0}0}\right) \\
+0 \\
+0 \\
+\frac{1}{3} \, \sin\left(-u_{P_{1}0} + u_{R_{1}0}\right)
+\end{array}\right)$
+pp0: {t -> 0, u_R_1_0 -> 0, u_R_0_0 -> 0.100000000000000, u_P_1_0 -> -0.200000000000000, u_P_0_0 -> -0.100000000000000}
+D: (0.00916538689296281, 0.000615124576363914)
+I: (-0.00184537372909174, -0.00305512896432094)
+dAdt: (0.00732001316387107, -0.00244000438795702)
+A: (-1.99500416527803, 0.665001388426009)
+S: (1, Xhat_R_0_0, Xhat_P_1_0, Xhat_P_0_0, Xhat_R_1_0)
+S: (1, Xhat_R_0_0, Xhat_P_1_0, Xhat_P_0_0, Xhat_R_1_0)
+S: (-0.609234306557551, 3.75471778944687)
+hack A_ij: from (r_R_1_0(u_R_1_0), a_R_1_0_R_0_0(u_R_1_0, u_R_0_0), a_R_1_0_P_1_0(u_R_1_0, u_P_1_0), a_R_1_0_P_0_0(u_R_1_0, u_P_0_0), a_R_1_0_R_1_0(u_R_1_0, u_R_1_0))
+to (r_R_1_0(u_R_1_0), a_R_1_0_R_0_0(u_R_1_0, u_R_0_0), a_R_1_0_P_1_0(u_R_1_0, u_P_1_0), a_R_1_0_P_0_0(u_R_1_0, u_P_0_0), a_R_1_0_R_1_0(u_R_1_0, u_Fake_0))
+d1A: derivative of $\left(r_{R_{1_{0}}}\left(u_{R_{1}0}\right),\,a_{R_{1_{0_{R_{0_{0}}}}}}\left(u_{R_{1}0}, u_{R_{0}0}\right),\,a_{R_{1_{0_{P_{1_{0}}}}}}\left(u_{R_{1}0}, u_{P_{1}0}\right),\,a_{R_{1_{0_{P_{0_{0}}}}}}\left(u_{R_{1}0}, u_{P_{0}0}\right),\,a_{R_{1_{0_{R_{1_{0}}}}}}\left(u_{R_{1}0}, u_{\text{\texttt{Fake}}0}\right)\right)$ wrt $\left(\begin{array}{c}
+  u_{R_{1}0}
+\end{array}\right)$
+is $\left(\begin{array}{r}
+D[0]\left(r_{R_{1_{0}}}\right)\left(u_{R_{1}0}\right) \\
+D[0]\left(a_{R_{1_{0_{R_{0_{0}}}}}}\right)\left(u_{R_{1}0}, u_{R_{0}0}\right) \\
+D[0]\left(a_{R_{1_{0_{P_{1_{0}}}}}}\right)\left(u_{R_{1}0}, u_{P_{1}0}\right) \\
+D[0]\left(a_{R_{1_{0_{P_{0_{0}}}}}}\right)\left(u_{R_{1}0}, u_{P_{0}0}\right) \\
+D[0]\left(a_{R_{1_{0_{R_{1_{0}}}}}}\right)\left(u_{R_{1}0}, u_{\text{\texttt{Fake}}0}\right)
+\end{array}\right)$
+; $\left(\begin{array}{r}
+D[0]\left(r_{R_{1_{0}}}\right)\left(u_{R_{1}0}\right) \\
+D[0]\left(a_{R_{1_{0_{R_{0_{0}}}}}}\right)\left(u_{R_{1}0}, u_{R_{0}0}\right) \\
+D[0]\left(a_{R_{1_{0_{P_{1_{0}}}}}}\right)\left(u_{R_{1}0}, u_{P_{1}0}\right) \\
+D[0]\left(a_{R_{1_{0_{P_{0_{0}}}}}}\right)\left(u_{R_{1}0}, u_{P_{0}0}\right) \\
+D[0]\left(a_{R_{1_{0_{R_{1_{0}}}}}}\right)\left(u_{R_{1}0}, u_{R_{1}0}\right)
+\end{array}\right)$
+: $\left(\begin{array}{r}
+0 \\
+0 \\
+\sin\left(-u_{P_{1}0} + u_{R_{1}0}\right) \\
+\sin\left(-u_{P_{0}0} + u_{R_{1}0}\right) \\
+0
+\end{array}\right)$
+hack A_ij: from (r_P_0_0(u_P_0_0), a_P_0_0_R_0_0(u_P_0_0, u_R_0_0), a_P_0_0_P_1_0(u_P_0_0, u_P_1_0), a_P_0_0_P_0_0(u_P_0_0, u_P_0_0), a_P_0_0_R_1_0(u_P_0_0, u_R_1_0))
+to (r_P_0_0(u_P_0_0), a_P_0_0_R_0_0(u_P_0_0, u_R_0_0), a_P_0_0_P_1_0(u_P_0_0, u_P_1_0), a_P_0_0_P_0_0(u_P_0_0, u_Fake_0), a_P_0_0_R_1_0(u_P_0_0, u_R_1_0))
+d1A: derivative of $\left(r_{P_{0_{0}}}\left(u_{P_{0}0}\right),\,a_{P_{0_{0_{R_{0_{0}}}}}}\left(u_{P_{0}0}, u_{R_{0}0}\right),\,a_{P_{0_{0_{P_{1_{0}}}}}}\left(u_{P_{0}0}, u_{P_{1}0}\right),\,a_{P_{0_{0_{P_{0_{0}}}}}}\left(u_{P_{0}0}, u_{\text{\texttt{Fake}}0}\right),\,a_{P_{0_{0_{R_{1_{0}}}}}}\left(u_{P_{0}0}, u_{R_{1}0}\right)\right)$ wrt $\left(\begin{array}{c}
+  u_{P_{0}0}
+\end{array}\right)$
+is $\left(\begin{array}{r}
+D[0]\left(r_{P_{0_{0}}}\right)\left(u_{P_{0}0}\right) \\
+D[0]\left(a_{P_{0_{0_{R_{0_{0}}}}}}\right)\left(u_{P_{0}0}, u_{R_{0}0}\right) \\
+D[0]\left(a_{P_{0_{0_{P_{1_{0}}}}}}\right)\left(u_{P_{0}0}, u_{P_{1}0}\right) \\
+D[0]\left(a_{P_{0_{0_{P_{0_{0}}}}}}\right)\left(u_{P_{0}0}, u_{\text{\texttt{Fake}}0}\right) \\
+D[0]\left(a_{P_{0_{0_{R_{1_{0}}}}}}\right)\left(u_{P_{0}0}, u_{R_{1}0}\right)
+\end{array}\right)$
+; $\left(\begin{array}{r}
+D[0]\left(r_{P_{0_{0}}}\right)\left(u_{P_{0}0}\right) \\
+D[0]\left(a_{P_{0_{0_{R_{0_{0}}}}}}\right)\left(u_{P_{0}0}, u_{R_{0}0}\right) \\
+D[0]\left(a_{P_{0_{0_{P_{1_{0}}}}}}\right)\left(u_{P_{0}0}, u_{P_{1}0}\right) \\
+D[0]\left(a_{P_{0_{0_{P_{0_{0}}}}}}\right)\left(u_{P_{0}0}, u_{P_{0}0}\right) \\
+D[0]\left(a_{P_{0_{0_{R_{1_{0}}}}}}\right)\left(u_{P_{0}0}, u_{R_{1}0}\right)
+\end{array}\right)$
+: $\left(\begin{array}{r}
+0 \\
+\frac{1}{3} \, \sin\left(-u_{P_{0}0} + u_{R_{0}0}\right) \\
+0 \\
+0 \\
+\frac{1}{3} \, \sin\left(-u_{P_{0}0} + u_{R_{1}0}\right)
+\end{array}\right)$
+pp0: {t -> 0, u_R_1_0 -> 0, u_R_0_0 -> 0.100000000000000, u_P_1_0 -> -0.200000000000000, u_P_0_0 -> -0.100000000000000}
+D: (0.00460570277633049, 0.000511744752908734)
+I: (-0.00153523425872620, -0.00153523425877683)
+dAdt: (0.00307046851760429, -0.00102348950586810)
+A: (-1, -1)
+S: (1, Xhat_R_0_0, Xhat_P_1_0, Xhat_P_0_0, Xhat_R_1_0)
+S: (1, Xhat_R_0_0, Xhat_P_1_0, Xhat_P_0_0, Xhat_R_1_0)
+S: (3.75471778944687, 3.75471778944687)
+hack A_ij: from (r_R_1_0(u_R_1_0), a_R_1_0_R_0_0(u_R_1_0, u_R_0_0), a_R_1_0_P_1_0(u_R_1_0, u_P_1_0), a_R_1_0_P_0_0(u_R_1_0, u_P_0_0), a_R_1_0_R_1_0(u_R_1_0, u_R_1_0))
+to (r_R_1_0(u_R_1_0), a_R_1_0_R_0_0(u_R_1_0, u_R_0_0), a_R_1_0_P_1_0(u_R_1_0, u_P_1_0), a_R_1_0_P_0_0(u_R_1_0, u_P_0_0), a_R_1_0_R_1_0(u_R_1_0, u_Fake_0))
+d1A: derivative of $\left(r_{R_{1_{0}}}\left(u_{R_{1}0}\right),\,a_{R_{1_{0_{R_{0_{0}}}}}}\left(u_{R_{1}0}, u_{R_{0}0}\right),\,a_{R_{1_{0_{P_{1_{0}}}}}}\left(u_{R_{1}0}, u_{P_{1}0}\right),\,a_{R_{1_{0_{P_{0_{0}}}}}}\left(u_{R_{1}0}, u_{P_{0}0}\right),\,a_{R_{1_{0_{R_{1_{0}}}}}}\left(u_{R_{1}0}, u_{\text{\texttt{Fake}}0}\right)\right)$ wrt $\left(\begin{array}{c}
+  u_{R_{1}0}
+\end{array}\right)$
+is $\left(\begin{array}{r}
+D[0]\left(r_{R_{1_{0}}}\right)\left(u_{R_{1}0}\right) \\
+D[0]\left(a_{R_{1_{0_{R_{0_{0}}}}}}\right)\left(u_{R_{1}0}, u_{R_{0}0}\right) \\
+D[0]\left(a_{R_{1_{0_{P_{1_{0}}}}}}\right)\left(u_{R_{1}0}, u_{P_{1}0}\right) \\
+D[0]\left(a_{R_{1_{0_{P_{0_{0}}}}}}\right)\left(u_{R_{1}0}, u_{P_{0}0}\right) \\
+D[0]\left(a_{R_{1_{0_{R_{1_{0}}}}}}\right)\left(u_{R_{1}0}, u_{\text{\texttt{Fake}}0}\right)
+\end{array}\right)$
+; $\left(\begin{array}{r}
+D[0]\left(r_{R_{1_{0}}}\right)\left(u_{R_{1}0}\right) \\
+D[0]\left(a_{R_{1_{0_{R_{0_{0}}}}}}\right)\left(u_{R_{1}0}, u_{R_{0}0}\right) \\
+D[0]\left(a_{R_{1_{0_{P_{1_{0}}}}}}\right)\left(u_{R_{1}0}, u_{P_{1}0}\right) \\
+D[0]\left(a_{R_{1_{0_{P_{0_{0}}}}}}\right)\left(u_{R_{1}0}, u_{P_{0}0}\right) \\
+D[0]\left(a_{R_{1_{0_{R_{1_{0}}}}}}\right)\left(u_{R_{1}0}, u_{R_{1}0}\right)
+\end{array}\right)$
+: $\left(\begin{array}{r}
+0 \\
+0 \\
+\sin\left(-u_{P_{1}0} + u_{R_{1}0}\right) \\
+\sin\left(-u_{P_{0}0} + u_{R_{1}0}\right) \\
+0
+\end{array}\right)$
+hack A_ij: from (r_R_1_0(u_R_1_0), a_R_1_0_R_0_0(u_R_1_0, u_R_0_0), a_R_1_0_P_1_0(u_R_1_0, u_P_1_0), a_R_1_0_P_0_0(u_R_1_0, u_P_0_0), a_R_1_0_R_1_0(u_R_1_0, u_R_1_0))
+to (r_R_1_0(u_R_1_0), a_R_1_0_R_0_0(u_R_1_0, u_R_0_0), a_R_1_0_P_1_0(u_R_1_0, u_P_1_0), a_R_1_0_P_0_0(u_R_1_0, u_P_0_0), a_R_1_0_R_1_0(u_R_1_0, u_Fake_0))
+d1A: derivative of $\left(r_{R_{1_{0}}}\left(u_{R_{1}0}\right),\,a_{R_{1_{0_{R_{0_{0}}}}}}\left(u_{R_{1}0}, u_{R_{0}0}\right),\,a_{R_{1_{0_{P_{1_{0}}}}}}\left(u_{R_{1}0}, u_{P_{1}0}\right),\,a_{R_{1_{0_{P_{0_{0}}}}}}\left(u_{R_{1}0}, u_{P_{0}0}\right),\,a_{R_{1_{0_{R_{1_{0}}}}}}\left(u_{R_{1}0}, u_{\text{\texttt{Fake}}0}\right)\right)$ wrt $\left(\begin{array}{c}
+  u_{R_{1}0}
+\end{array}\right)$
+is $\left(\begin{array}{r}
+D[0]\left(r_{R_{1_{0}}}\right)\left(u_{R_{1}0}\right) \\
+D[0]\left(a_{R_{1_{0_{R_{0_{0}}}}}}\right)\left(u_{R_{1}0}, u_{R_{0}0}\right) \\
+D[0]\left(a_{R_{1_{0_{P_{1_{0}}}}}}\right)\left(u_{R_{1}0}, u_{P_{1}0}\right) \\
+D[0]\left(a_{R_{1_{0_{P_{0_{0}}}}}}\right)\left(u_{R_{1}0}, u_{P_{0}0}\right) \\
+D[0]\left(a_{R_{1_{0_{R_{1_{0}}}}}}\right)\left(u_{R_{1}0}, u_{\text{\texttt{Fake}}0}\right)
+\end{array}\right)$
+; $\left(\begin{array}{r}
+D[0]\left(r_{R_{1_{0}}}\right)\left(u_{R_{1}0}\right) \\
+D[0]\left(a_{R_{1_{0_{R_{0_{0}}}}}}\right)\left(u_{R_{1}0}, u_{R_{0}0}\right) \\
+D[0]\left(a_{R_{1_{0_{P_{1_{0}}}}}}\right)\left(u_{R_{1}0}, u_{P_{1}0}\right) \\
+D[0]\left(a_{R_{1_{0_{P_{0_{0}}}}}}\right)\left(u_{R_{1}0}, u_{P_{0}0}\right) \\
+D[0]\left(a_{R_{1_{0_{R_{1_{0}}}}}}\right)\left(u_{R_{1}0}, u_{R_{1}0}\right)
+\end{array}\right)$
+: $\left(\begin{array}{r}
+0 \\
+0 \\
+\sin\left(-u_{P_{1}0} + u_{R_{1}0}\right) \\
+\sin\left(-u_{P_{0}0} + u_{R_{1}0}\right) \\
+0
+\end{array}\right)$
+pp0: {t -> 0, u_R_1_0 -> 0, u_R_0_0 -> 0.100000000000000, u_P_1_0 -> -0.200000000000000, u_P_0_0 -> -0.100000000000000}
+D: (0, 0)
+I: (0, 0)
+dAdt: (0, 0)

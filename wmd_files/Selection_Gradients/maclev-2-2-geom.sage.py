@@ -45,6 +45,9 @@ class SeriesOfBindings( Bindings ):
     def _latex_(self):
         from operator import add
         return reduce( add, map( latex, self._series ) )
+    def __repr__(self):
+	from operator import add
+	return reduce( add, map( repr, self._series ) )
 
 A_to_c_bindings = (bm_bindings + numeric_params + gamma_bindings
         + lv_adap_c._lv_model._A_bindings
@@ -194,8 +197,9 @@ last_t = -oo
 scale = _sage_const_1 /_sage_const_12 
 vectors = dict()
 for p in c_evolution._timeseries:
-    next_t = p[t]
+    next_t = N(p[t]) # why need N()?
     pp = Bindings( p )
+    #print next_t, '>=?', last_t + 0.1, ':', (next_t >= last_t + 0.1)
     if next_t >= last_t + _sage_const_0p1 :
         last_t = next_t
         for i in (_sage_const_0 ,_sage_const_1 ):
@@ -206,6 +210,7 @@ for p in c_evolution._timeseries:
                     A_to_u_bindings( lv_adap_c.indirect_effect(i) ),
                     A_to_u_bindings( lv_adap_c.dAdt(i) ) )
             (Ai, SAi, Di, Ii, dAdti) = vectors[i]
+	    #print '(Ai, SAi, Di, Ii, dAdti) =', vectors[i]
             # check equality
             #print ( '$D(%s) + I(%s) = %s \\overset{?}{=} \\frac{dA(u)}{du} = %s$\n\n' % (
             #        latex(i), latex(i), latex(
@@ -243,4 +248,4 @@ ltx.close()
 save_session('maclev-2-2-geom')
 sys.exit()
 
-ltx.close() 
+#ltx.close() 

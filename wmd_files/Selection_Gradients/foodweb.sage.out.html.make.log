@@ -1,4 +1,4 @@
-Thu Mar  5 15:24:23 2015
+Mon Mar 30 10:42:37 2015
 /usr/bin/make -C /usr/local/src/jekyll-research/wmd_files/Selection_Gradients \
     foodweb.sage.out.html
 Including .mk files: sage.mk sage-inline.mk 
@@ -14,6 +14,100 @@ make[1]: Nothing to be done for `dynamicalsystems.py'.
 Including .mk files:  
 Including .tex.d files: 
 make[1]: Nothing to be done for `adaptivedynamics.py'.
+latexml  --destination=foodweb.sage.out.latexml.xml foodweb.sage.out.tex
+latexml (LaTeXML version v0.8.0; revision 70f0ce4)
+processing started Mon Mar 30 10:42:40 2015
+
+(Digesting TeX foodweb.sage.out...
+(Loading /usr/local/share/perl/5.18.2/LaTeXML/Package/TeX.pool.ltxml...
+(Loading /usr/local/share/perl/5.18.2/LaTeXML/Package/eTeX.pool.ltxml... 0.03 sec)
+(Loading /usr/local/share/perl/5.18.2/LaTeXML/Package/pdfTeX.pool.ltxml... 0.05 sec) 0.35 sec)
+(Processing content /usr/local/src/jekyll-research/wmd_files/Selection_Gradients/foodweb.sage.out.tex...
+(Loading /usr/local/share/perl/5.18.2/LaTeXML/Package/LaTeX.pool.ltxml... 0.20 sec)
+(Loading /usr/local/share/perl/5.18.2/LaTeXML/Package/article.cls.ltxml... 0.03 sec)
+(Loading /usr/local/share/perl/5.18.2/LaTeXML/Package/amsmath.sty.ltxml...
+(Loading /usr/local/share/perl/5.18.2/LaTeXML/Package/amsbsy.sty.ltxml... 0.01 sec)
+(Loading /usr/local/share/perl/5.18.2/LaTeXML/Package/amstext.sty.ltxml... 0.01 sec)
+(Loading /usr/local/share/perl/5.18.2/LaTeXML/Package/amsopn.sty.ltxml... 0.01 sec) 0.08 sec)
+(Loading /usr/local/share/perl/5.18.2/LaTeXML/Package/amssymb.sty.ltxml...
+(Loading /usr/local/share/perl/5.18.2/LaTeXML/Package/amsfonts.sty.ltxml... 0.00 sec) 0.04 sec)
+(Loading /usr/local/share/perl/5.18.2/LaTeXML/Package/graphicx.sty.ltxml...
+(Loading /usr/local/share/perl/5.18.2/LaTeXML/Package/graphics.sty.ltxml... 0.02 sec) 0.13 sec)
+(Loading /usr/local/share/perl/5.18.2/LaTeXML/Package/inputenc.sty.ltxml...
+(Loading /usr/local/share/perl/5.18.2/LaTeXML/Package/utf8.def.ltxml... 0.00 sec) 0.01 sec)
+(Loading /usr/local/share/perl/5.18.2/LaTeXML/Package/fontenc.sty.ltxml...
+(Loading /usr/local/share/perl/5.18.2/LaTeXML/Package/t1enc.def.ltxml...
+(Processing definitions /usr/share/texlive/texmf-dist/tex/latex/base/t1enc.def...
+(Loading /usr/local/share/perl/5.18.2/LaTeXML/Package/t1.fontmap.ltxml... 0.01 sec) 0.10 sec) 0.15 sec) 0.17 sec) 0.88 sec) 1.25 sec)
+(Building...
+(Loading compiled schema /usr/local/share/perl/5.18.2/LaTeXML/resources/RelaxNG/LaTeXML.model... 0.16 sec)................... 0.79 sec)
+(Rewriting... 0.03 sec)
+(Math Parsing...14 formulae ...[1][2][3][4][5][6]
+Warning:not_parsed:NUMBER>OPEN MathParser failed to match rule 'Anything'
+	at /usr/local/src/jekyll-research/wmd_files/Selection_Gradients/foodweb.sage.out.tex; line 43 col 285
+	In "$\displaystyle\frac{du_{0a}}{dt}=-\frac{10\,{\left(9\,\cos\left(-u_{0a}+u_{0b}%
+	\right)-1\right)}\sin\left(-u_{0a}+u_{0b}\right)}{81\,{\left(\cos\left(-u_{0a}%
+	+u_{0b}\right)^{2}+2\,\cos\left(-u_{0a}+u_{0b}\right)+1\right)}{\left(\cos%
+	\left(-u_{0a}+u_{0b}\right)+1\right)}}\@@ENDINLINEMATH"
+	81[[NUMBER]]
+	        > \left([[OPEN]] cos[[TRIGFUNCTION]] \left([[OPEN]] -[[ADDOP]] u[[UNKNOWN]] _{0a}[[POSTSUBSCRIPT]] +[[ADDOP]] u[[UNKNOWN]] _{0b}[[POSTSUBSCRIPT]] \right)[[CLOSE]] ^{2}[[POSTSUPERSCRIPT]] +[[ADDOP]] 2[[NUMBER]] cos[[TRIGFUNCTION]] \left([[OPEN]] -[[ADDOP]] u[[UNKNOWN]] _{0a}[[POSTSUBSCRIPT]] +[[ADDOP]] u[[UNKNOWN]] _{0b}[[POSTSUBSCRIPT]] \right)[[CLOSE]] +[[ADDOP]] 1[[NUMBER]] \right)[[CLOSE]] \left([[OPEN]] cos[[TRIGFUNCTION]] \left([[OPEN]] -[[ADDOP]] u[[UNKNOWN]] _{0a}[[POSTSUBSCRIPT]] +[[ADDOP]] u[[UNKNOWN]] _{0b}[[POSTSUBSCRIPT]] \right)[[CLOSE]] +[[ADDOP]] 1[[NUMBER]] \right)[[CLOSE]]
+[7][8]
+Warning:not_parsed:NUMBER>OPEN MathParser failed to match rule 'Anything'
+	at /usr/local/src/jekyll-research/wmd_files/Selection_Gradients/foodweb.sage.out.tex; line 43 col 285
+	In "$\displaystyle=-\frac{10\,{\left(9\,\cos\left(-u_{0a}+u_{0b}\right)-1\right)}%
+	\sin\left(-u_{0a}+u_{0b}\right)}{81\,{\left(\cos\left(-u_{0a}+u_{0b}\right)^{2%
+	}+2\,\cos\left(-u_{0a}+u_{0b}\right)+1\right)}{\left(\cos\left(-u_{0a}+u_{0b}%
+	\right)+1\right)}}$"
+	81[[NUMBER]]
+	        > \left([[OPEN]] cos[[TRIGFUNCTION]] \left([[OPEN]] -[[ADDOP]] u[[UNKNOWN]] _{0a}[[POSTSUBSCRIPT]] +[[ADDOP]] u[[UNKNOWN]] _{0b}[[POSTSUBSCRIPT]] \right)[[CLOSE]] ^{2}[[POSTSUPERSCRIPT]] +[[ADDOP]] 2[[NUMBER]] cos[[TRIGFUNCTION]] \left([[OPEN]] -[[ADDOP]] u[[UNKNOWN]] _{0a}[[POSTSUBSCRIPT]] +[[ADDOP]] u[[UNKNOWN]] _{0b}[[POSTSUBSCRIPT]] \right)[[CLOSE]] +[[ADDOP]] 1[[NUMBER]] \right)[[CLOSE]] \left([[OPEN]] cos[[TRIGFUNCTION]] \left([[OPEN]] -[[ADDOP]] u[[UNKNOWN]] _{0a}[[POSTSUBSCRIPT]] +[[ADDOP]] u[[UNKNOWN]] _{0b}[[POSTSUBSCRIPT]] \right)[[CLOSE]] +[[ADDOP]] 1[[NUMBER]] \right)[[CLOSE]]
+[9]
+Warning:not_parsed:NUMBER>OPEN MathParser failed to match rule 'Anything'
+	at /usr/local/src/jekyll-research/wmd_files/Selection_Gradients/foodweb.sage.out.tex; line 44 col 278
+	In "$\displaystyle\frac{du_{0b}}{dt}=-\frac{{\left(9\,\cos\left(-u_{0a}+u_{0b}%
+	\right)-1\right)}\sin\left(-u_{0a}+u_{0b}\right)}{9\,{\left(\cos\left(-u_{0a}+%
+	u_{0b}\right)^{2}+2\,\cos\left(-u_{0a}+u_{0b}\right)+1\right)}{\left(\cos\left%
+	(-u_{0a}+u_{0b}\right)+1\right)}}\@@ENDINLINEMATH"
+	9[[NUMBER]]
+	        > \left([[OPEN]] cos[[TRIGFUNCTION]] \left([[OPEN]] -[[ADDOP]] u[[UNKNOWN]] _{0a}[[POSTSUBSCRIPT]] +[[ADDOP]] u[[UNKNOWN]] _{0b}[[POSTSUBSCRIPT]] \right)[[CLOSE]] ^{2}[[POSTSUPERSCRIPT]] +[[ADDOP]] 2[[NUMBER]] cos[[TRIGFUNCTION]] \left([[OPEN]] -[[ADDOP]] u[[UNKNOWN]] _{0a}[[POSTSUBSCRIPT]] +[[ADDOP]] u[[UNKNOWN]] _{0b}[[POSTSUBSCRIPT]] \right)[[CLOSE]] +[[ADDOP]] 1[[NUMBER]] \right)[[CLOSE]] \left([[OPEN]] cos[[TRIGFUNCTION]] \left([[OPEN]] -[[ADDOP]] u[[UNKNOWN]] _{0a}[[POSTSUBSCRIPT]] +[[ADDOP]] u[[UNKNOWN]] _{0b}[[POSTSUBSCRIPT]] \right)[[CLOSE]] +[[ADDOP]] 1[[NUMBER]] \right)[[CLOSE]]
+[10][11]
+Warning:not_parsed:NUMBER>OPEN MathParser failed to match rule 'Anything'
+	at /usr/local/src/jekyll-research/wmd_files/Selection_Gradients/foodweb.sage.out.tex; line 44 col 278
+	In "$\displaystyle=-\frac{{\left(9\,\cos\left(-u_{0a}+u_{0b}\right)-1\right)}\sin%
+	\left(-u_{0a}+u_{0b}\right)}{9\,{\left(\cos\left(-u_{0a}+u_{0b}\right)^{2}+2\,%
+	\cos\left(-u_{0a}+u_{0b}\right)+1\right)}{\left(\cos\left(-u_{0a}+u_{0b}\right%
+	)+1\right)}}$"
+	9[[NUMBER]]
+	        > \left([[OPEN]] cos[[TRIGFUNCTION]] \left([[OPEN]] -[[ADDOP]] u[[UNKNOWN]] _{0a}[[POSTSUBSCRIPT]] +[[ADDOP]] u[[UNKNOWN]] _{0b}[[POSTSUBSCRIPT]] \right)[[CLOSE]] ^{2}[[POSTSUPERSCRIPT]] +[[ADDOP]] 2[[NUMBER]] cos[[TRIGFUNCTION]] \left([[OPEN]] -[[ADDOP]] u[[UNKNOWN]] _{0a}[[POSTSUBSCRIPT]] +[[ADDOP]] u[[UNKNOWN]] _{0b}[[POSTSUBSCRIPT]] \right)[[CLOSE]] +[[ADDOP]] 1[[NUMBER]] \right)[[CLOSE]] \left([[OPEN]] cos[[TRIGFUNCTION]] \left([[OPEN]] -[[ADDOP]] u[[UNKNOWN]] _{0a}[[POSTSUBSCRIPT]] +[[ADDOP]] u[[UNKNOWN]] _{0b}[[POSTSUBSCRIPT]] \right)[[CLOSE]] +[[ADDOP]] 1[[NUMBER]] \right)[[CLOSE]]
+[12][13][14]
+Math parsing succeeded:
+   ltx:XMArg: 104/108
+   ltx:XMath: 14/14
+Symbols assumed as simple identifiers (with # of occurences):
+   'X{italic}' (18), 'a{italic}' (36), 'b{italic}' (34), 'd{italic}' (16), 't{italic}' (8), 'u{italic}' (76)
+ 1.69 sec)
+(Finalizing... 0.12 sec)
+Conversion complete: 4 warnings.
+processing finished Mon Mar 30 10:42:45 2015
+Updating .workingwiki/foodweb.sage.out.latexml.xml
+rm -f foodweb.sage.out.latexml.html5
+bibxmls=`perl -ne '($_)=/^[^%]*\\\bibliography\{([^\\\\#]*?)\}/;@_=split /,/;foreach $b (@_) { $b =~ s/\.bib$//; print "$b.bib.xml "}' foodweb.sage.out.latexml.xml`; bibxargs=`perl -ne '($_)=/^[^%]*\\\bibliography\{([^\\\\#]*?)\}/;@_=split /,/;foreach $b (@_) { $b =~ s/\.bib$//; print "--bibliography=$b.bib.xml "}' foodweb.sage.out.latexml.xml` && \
+	(test -z "$bibxmls" || /usr/bin/make -f /usr/local/src/workingwiki-trunk/ProjectEngine/resources/makefile $bibxmls) && \
+	lxpost="latexmlpost --noplane1 --novalidate --destination=foodweb.sage.out.intermediate.latexml.html5 --format=html5 $bibxargs foodweb.sage.out.latexml.xml" && echo $lxpost && $lxpost
+latexmlpost --noplane1 --novalidate --destination=foodweb.sage.out.intermediate.latexml.html5 --format=html5 foodweb.sage.out.latexml.xml
+latexmlpost (LaTeXML version v0.8.0; revision 70f0ce4)
+processing started Mon Mar 30 10:42:45 2015
+(foodweb.sage.out.intermediate.latexml.html5 post-processing...
+(Scan foodweb.sage.out.intermediate.latexml.html5 processing...
+(CrossRef foodweb.sage.out.intermediate.latexml.html5 processing...
+(MathML::Presentation foodweb.sage.out.intermediate.latexml.html5 14 to process...
+(XSLT foodweb.sage.out.intermediate.latexml.html5 processing...
+(Writer foodweb.sage.out.intermediate.latexml.html5 processing... 0.23 sec)
+Postprocessing complete: No obvious problems
+processing finished Mon Mar 30 10:42:46 2015
+/usr/local/src/workingwiki-trunk/ProjectEngine/resources/wiki-inclusion.latexml.pl foodweb.sage.out.intermediate.latexml.html5 >foodweb.sage.out.latexml.html5
+ln -f foodweb.sage.out.latexml.html5 foodweb.sage.out.latexml.html
+ln -f foodweb.sage.out.latexml.html foodweb.sage.out.html
+rm foodweb.sage.out.latexml.xml foodweb.sage.out.latexml.html foodweb.sage.out.latexml.html5
 make: Leaving directory `/usr/local/src/jekyll-research/wmd_files/Selection_Gradients'
 Make succeeded.
-Thu Mar  5 15:24:23 2015
+Mon Mar 30 10:42:46 2015

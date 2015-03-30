@@ -214,7 +214,7 @@ The invasion rate for mutant population is:
   \mathscr I = \frac{1}{X_{3}}\frac{dX_{3}}{dt} &= -{\left(\frac{{\left(X_{3} c_{30} - K_{0} r_{0} + X_{0} c_{0}\left(u_{0}\right) + X_{1} c_{0}\left(u_{1}\right) + X_{2} c_{0}\left(u_{2}\right)\right)} c_{30} w_{0}}{r_{0}} + \frac{{\left(X_{3} c_{31} - K_{1} r_{1} + X_{0} c_{1}\left(u_{0}\right) + X_{1} c_{1}\left(u_{1}\right) + X_{2} c_{1}\left(u_{2}\right)\right)} c_{31} w_{1}}{r_{1}} + m_{3}\right)} b_{3} 
 \end{align*}
 
-limit as {u_3: u_1}
+limit as {u_3: u_0}
 after those limits:
    0
                                        0
@@ -225,7 +225,7 @@ The invasion rate for mutant population is:
   \mathscr I = \frac{1}{X_{3}}\frac{dX_{3}}{dt} &= -{\left(\frac{{\left(X_{3} c_{30} - K_{0} r_{0} + X_{0} c_{0}\left(u_{0}\right) + X_{1} c_{0}\left(u_{1}\right) + X_{2} c_{0}\left(u_{2}\right)\right)} c_{30} w_{0}}{r_{0}} + \frac{{\left(X_{3} c_{31} - K_{1} r_{1} + X_{0} c_{1}\left(u_{0}\right) + X_{1} c_{1}\left(u_{1}\right) + X_{2} c_{1}\left(u_{2}\right)\right)} c_{31} w_{1}}{r_{1}} + m_{3}\right)} b_{3} 
 \end{align*}
 
-limit as {u_3: u_0}
+limit as {u_3: u_1}
 after those limits:
    0
                                        0
@@ -250,7 +250,7 @@ The invasion rate for mutant population is:
   \mathscr I = \frac{1}{X_{3}}\frac{dX_{3}}{dt} &= -{\left(\frac{{\left(X_{3} c_{30} - K_{0} r_{0} + X_{0} c_{0}\left(u_{0}\right) + X_{1} c_{0}\left(u_{1}\right) + X_{2} c_{0}\left(u_{2}\right)\right)} c_{30} w_{0}}{r_{0}} + \frac{{\left(X_{3} c_{31} - K_{1} r_{1} + X_{0} c_{1}\left(u_{0}\right) + X_{1} c_{1}\left(u_{1}\right) + X_{2} c_{1}\left(u_{2}\right)\right)} c_{31} w_{1}}{r_{1}} + m_{3}\right)} b_{3} 
 \end{align*}
 
-limit as {u_3: u_1}
+limit as {u_3: u_0}
 after those limits:
    0
                                        0
@@ -261,7 +261,7 @@ The invasion rate for mutant population is:
   \mathscr I = \frac{1}{X_{3}}\frac{dX_{3}}{dt} &= -{\left(\frac{{\left(X_{3} c_{30} - K_{0} r_{0} + X_{0} c_{0}\left(u_{0}\right) + X_{1} c_{0}\left(u_{1}\right) + X_{2} c_{0}\left(u_{2}\right)\right)} c_{30} w_{0}}{r_{0}} + \frac{{\left(X_{3} c_{31} - K_{1} r_{1} + X_{0} c_{1}\left(u_{0}\right) + X_{1} c_{1}\left(u_{1}\right) + X_{2} c_{1}\left(u_{2}\right)\right)} c_{31} w_{1}}{r_{1}} + m_{3}\right)} b_{3} 
 \end{align*}
 
-limit as {u_3: u_0}
+limit as {u_3: u_1}
 after those limits:
    0
                                        0

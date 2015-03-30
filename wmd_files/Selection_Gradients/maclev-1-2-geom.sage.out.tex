@@ -37,48 +37,48 @@
 \[
   A\left(0\right) = \left(\begin{array}{r}
 k_{0} \\
-a_{01} \\
-a_{00}
+a_{00} \\
+a_{01}
 \end{array}\right) = \left(\begin{array}{r}
 2 \, e^{\left(-3 \, {\left(u_{0} - 1\right)}^{2}\right)} + 2 \, e^{\left(-3 \, u_{0}^{2}\right)} - 1 \\
--e^{\left(-3 \, {\left(u_{0} - 1\right)}^{2} - 3 \, {\left(u_{1} - 1\right)}^{2}\right)} - e^{\left(-3 \, u_{0}^{2} - 3 \, u_{1}^{2}\right)} \\
--e^{\left(-6 \, {\left(u_{0} - 1\right)}^{2}\right)} - e^{\left(-6 \, u_{0}^{2}\right)}
+-e^{\left(-6 \, {\left(u_{0} - 1\right)}^{2}\right)} - e^{\left(-6 \, u_{0}^{2}\right)} \\
+-e^{\left(-3 \, {\left(u_{0} - 1\right)}^{2} - 3 \, {\left(u_{1} - 1\right)}^{2}\right)} - e^{\left(-3 \, u_{0}^{2} - 3 \, u_{1}^{2}\right)}
 \end{array}\right)
 \]
 
 \[
   S\left(A\left(0\right)\right) = \left(\begin{array}{r}
 1 \\
-\hat{X}_{1} \\
-\hat{X}_{0}
+\hat{X}_{0} \\
+\hat{X}_{1}
 \end{array}\right) = \left(\begin{array}{r}
 1 \\
--\frac{a_{10} k_{0} - a_{00} k_{1}}{a_{01} a_{10} - a_{00} a_{11}} \\
-\frac{a_{11} k_{0} - a_{01} k_{1}}{a_{01} a_{10} - a_{00} a_{11}}
+\frac{a_{11} k_{0} - a_{01} k_{1}}{a_{01} a_{10} - a_{00} a_{11}} \\
+-\frac{a_{10} k_{0} - a_{00} k_{1}}{a_{01} a_{10} - a_{00} a_{11}}
 \end{array}\right)
 \]
 
 \[
   D(u_0) = \left(\begin{array}{r}
 -12 \, {\left({\left(u_{0}\left(t\right) - 1\right)} e^{\left(-3 \, {\left(u_{0}\left(t\right) - 1\right)}^{2}\right)} + e^{\left(-3 \, u_{0}\left(t\right)^{2}\right)} u_{0}\left(t\right)\right)} D[0]\left(u_{0}\right)\left(t\right) \\
-6 \, {\left({\left(u_{0}\left(t\right) - 1\right)} e^{\left(-3 \, {\left(u_{0}\left(t\right) - 1\right)}^{2} - 3 \, {\left(u_{1}\left(t\right) - 1\right)}^{2}\right)} + e^{\left(-3 \, u_{0}\left(t\right)^{2} - 3 \, u_{1}\left(t\right)^{2}\right)} u_{0}\left(t\right)\right)} D[0]\left(u_{0}\right)\left(t\right) \\
-6 \, {\left({\left(u_{0}\left(t\right) - 1\right)} e^{\left(-6 \, {\left(u_{0}\left(t\right) - 1\right)}^{2}\right)} + e^{\left(-6 \, u_{0}\left(t\right)^{2}\right)} u_{0}\left(t\right)\right)} D[0]\left(u_{0}\right)\left(t\right)
+0 \\
+6 \, {\left({\left(u_{0}\left(t\right) - 1\right)} e^{\left(-3 \, {\left(u_{0}\left(t\right) - 1\right)}^{2} - 3 \, {\left(u_{1}\left(t\right) - 1\right)}^{2}\right)} + e^{\left(-3 \, u_{0}\left(t\right)^{2} - 3 \, u_{1}\left(t\right)^{2}\right)} u_{0}\left(t\right)\right)} D[0]\left(u_{0}\right)\left(t\right)
 \end{array}\right)
 \]
 
 \[
   I(u_0) = \left(\begin{array}{r}
 0 \\
-6 \, {\left({\left(u_{1}\left(t\right) - 1\right)} e^{\left(-3 \, {\left(u_{0}\left(t\right) - 1\right)}^{2} - 3 \, {\left(u_{1}\left(t\right) - 1\right)}^{2}\right)} + e^{\left(-3 \, u_{0}\left(t\right)^{2} - 3 \, u_{1}\left(t\right)^{2}\right)} u_{1}\left(t\right)\right)} D[0]\left(u_{1}\right)\left(t\right) \\
-6 \, {\left({\left(u_{0}\left(t\right) - 1\right)} e^{\left(-6 \, {\left(u_{0}\left(t\right) - 1\right)}^{2}\right)} + e^{\left(-6 \, u_{0}\left(t\right)^{2}\right)} u_{0}\left(t\right)\right)} D[0]\left(u_{0}\right)\left(t\right)
+12 \, {\left({\left(u_{0}\left(t\right) - 1\right)} e^{\left(-6 \, {\left(u_{0}\left(t\right) - 1\right)}^{2}\right)} + e^{\left(-6 \, u_{0}\left(t\right)^{2}\right)} u_{0}\left(t\right)\right)} D[0]\left(u_{0}\right)\left(t\right) \\
+6 \, {\left({\left(u_{1}\left(t\right) - 1\right)} e^{\left(-3 \, {\left(u_{0}\left(t\right) - 1\right)}^{2} - 3 \, {\left(u_{1}\left(t\right) - 1\right)}^{2}\right)} + e^{\left(-3 \, u_{0}\left(t\right)^{2} - 3 \, u_{1}\left(t\right)^{2}\right)} u_{1}\left(t\right)\right)} D[0]\left(u_{1}\right)\left(t\right)
 \end{array}\right)
 \]
 
 \[
   \frac{dA}{dt} = \left(\begin{array}{r}
 -12 \, {\left({\left(u_{0}\left(t\right) - 1\right)} e^{\left(-3 \, {\left(u_{0}\left(t\right) - 1\right)}^{2}\right)} + e^{\left(-3 \, u_{0}\left(t\right)^{2}\right)} u_{0}\left(t\right)\right)} D[0]\left(u_{0}\right)\left(t\right) \\
-6 \, {\left({\left(u_{0}\left(t\right) - 1\right)} e^{\left(-3 \, {\left(u_{0}\left(t\right) - 1\right)}^{2} - 3 \, {\left(u_{1}\left(t\right) - 1\right)}^{2}\right)} + e^{\left(-3 \, u_{0}\left(t\right)^{2} - 3 \, u_{1}\left(t\right)^{2}\right)} u_{0}\left(t\right)\right)} D[0]\left(u_{0}\right)\left(t\right) + 6 \, {\left({\left(u_{1}\left(t\right) - 1\right)} e^{\left(-3 \, {\left(u_{0}\left(t\right) - 1\right)}^{2} - 3 \, {\left(u_{1}\left(t\right) - 1\right)}^{2}\right)} + e^{\left(-3 \, u_{0}\left(t\right)^{2} - 3 \, u_{1}\left(t\right)^{2}\right)} u_{1}\left(t\right)\right)} D[0]\left(u_{1}\right)\left(t\right) \\
-12 \, {\left({\left(u_{0}\left(t\right) - 1\right)} e^{\left(-6 \, {\left(u_{0}\left(t\right) - 1\right)}^{2}\right)} + e^{\left(-6 \, u_{0}\left(t\right)^{2}\right)} u_{0}\left(t\right)\right)} D[0]\left(u_{0}\right)\left(t\right)
+12 \, {\left({\left(u_{0}\left(t\right) - 1\right)} e^{\left(-6 \, {\left(u_{0}\left(t\right) - 1\right)}^{2}\right)} + e^{\left(-6 \, u_{0}\left(t\right)^{2}\right)} u_{0}\left(t\right)\right)} D[0]\left(u_{0}\right)\left(t\right) \\
+6 \, {\left({\left(u_{0}\left(t\right) - 1\right)} e^{\left(-3 \, {\left(u_{0}\left(t\right) - 1\right)}^{2} - 3 \, {\left(u_{1}\left(t\right) - 1\right)}^{2}\right)} + e^{\left(-3 \, u_{0}\left(t\right)^{2} - 3 \, u_{1}\left(t\right)^{2}\right)} u_{0}\left(t\right)\right)} D[0]\left(u_{0}\right)\left(t\right) + 6 \, {\left({\left(u_{1}\left(t\right) - 1\right)} e^{\left(-3 \, {\left(u_{0}\left(t\right) - 1\right)}^{2} - 3 \, {\left(u_{1}\left(t\right) - 1\right)}^{2}\right)} + e^{\left(-3 \, u_{0}\left(t\right)^{2} - 3 \, u_{1}\left(t\right)^{2}\right)} u_{1}\left(t\right)\right)} D[0]\left(u_{1}\right)\left(t\right)
 \end{array}\right)
 \]
 
