@@ -249,7 +249,7 @@ class LotkaVolterraAdaptiveDynamics( object ):
         A.'''
         # This is a vector, intended to be treated as a column vector.
         S = vector( [ self._lv_adap._S[a] for a in A ] )
-	print 'S:', S
+	#print 'S:', S
 	return S
     def d1A( self, i ):
 	'''"Direct effect": derivative of A(u_i) wrt u_i with u_i in the "patient"
@@ -260,18 +260,18 @@ class LotkaVolterraAdaptiveDynamics( object ):
 	uis = column_vector( [ u[i] for u in self._adaptivedynamics._phenotype_indexers ] )
 	xx = self._adaptivedynamics.fake_population_index()
 	uxs = column_vector( [ u[xx] for u in self._adaptivedynamics._phenotype_indexers ] )
-	print 'hack A_ij: from', A_ij
+	#print 'hack A_ij: from', A_ij
         A_ij_hacked = A_ij.apply_map( lambda x: x.subs_expr( function( str( self._a_name_indexer[i][i] ) )(*(list(uis)+list(uis))) == function( str( self._a_name_indexer[i][i] ) )(*(list(uis)+list(uxs))) ) )
-	print 'to', A_ij_hacked
-	print 'd1A: derivative of $%s$ wrt $%s$' % (latex(A_ij_hacked), latex(uis))
+	#print 'to', A_ij_hacked
+	#print 'd1A: derivative of $%s$ wrt $%s$' % (latex(A_ij_hacked), latex(uis))
         d1a = matrix( [ [ aij.derivative( u ) for u in uis ] for aij in A_ij_hacked ] )
-	print 'is $%s$' % latex( d1a )
+	#print 'is $%s$' % latex( d1a )
         d = d1a
         for ux, ui in zip( uxs, uis ):
 	    d = d.subs( ux == ui )
-	print '; $%s$' % latex( d )
+	#print '; $%s$' % latex( d )
 	d = self._A_function_expansion_bindings( d )
-	print ': $%s$' % latex( d )
+	#print ': $%s$' % latex( d )
 	return d
     def direct_effect( self, i ):
         # the component of change in A due to direct selection on population i
@@ -324,7 +324,7 @@ class LotkaVolterraAdaptiveDynamics( object ):
 	        self.d1A(i).transpose() * self.S( self.A(i) ) )
               for i in self._lv_model._population_indices
         }
-        print 'dudts:', dudts
+        #print 'dudts:', dudts
 	return Bindings( {
 	    derivative(
                 self._phenotypes_to_fn_bindings( us[i] ),
@@ -356,11 +356,10 @@ class LotkaVolterraAdaptiveDynamics( object ):
 	    self._A_index_dict = dict( (v,i) for i,v in enumerate( [0] + self._lv_model._population_indices ) )
 	return self._A_index_dict[j]
 
-def plot_aij_with_arrows( evol_trajectory, lvad, filename ):
+def plot_aij_with_arrows( evol_trajectory, lvad, filename, bindings=Bindings(), **options ):
     resolve_A_bindings = (
 	lvad._A_to_function_bindings +
 	lvad._A_function_expansion_bindings +
-	lvad._adaptivedynamics._bindings +
 	lvad.dudt_bindings() +
 	lvad._phenotypes_from_fn_bindings
     )
@@ -370,10 +369,10 @@ def plot_aij_with_arrows( evol_trajectory, lvad, filename ):
 	    aap += evol_trajectory.plot(
 	        lvad._lv_model._A_bindings( lvad._lv_model._a_indexer[i][j] ),
 	        lvad._lv_model._A_bindings( lvad._lv_model._a_indexer[j][i] ),
-	        color='red'
+	        color='red', **options
 	    )
 	    # plot 4 arrows per (i,j) point
-	    pp0 = evol_trajectory._timeseries[0]
+	    pp0 = evol_trajectory._timeseries[0] + bindings + lvad._adaptivedynamics._bindings
 	    Aij = (
 	        pp0( resolve_A_bindings( lvad.A(i)[lvad.A_index(j)] ) ),
 	        pp0( resolve_A_bindings( lvad.A(j)[lvad.A_index(i)] ) )
@@ -387,16 +386,25 @@ def plot_aij_with_arrows( evol_trajectory, lvad, filename ):
 	    if S[0] != 0 or S[1] != 0:
 	        aap += arrow( Aij, ( a+s for a,s in zip(Aij, S) ), color='red' )
 	    D = (
-	        pp0( resolve_A_bindings( lvad.direct_effect( i )[lvad.A_index(j)] ) ),
-	        pp0( resolve_A_bindings( lvad.direct_effect( j )[lvad.A_index(i)] ) )
+	        resolve_A_bindings( lvad.direct_effect( i )[lvad.A_index(j)] ),
+	        resolve_A_bindings( lvad.direct_effect( j )[lvad.A_index(i)] )
 	    )
-	    print 'pp0:', pp0
+	    print 'D:', D
+	    D = (
+	        pp0( D[0] ),
+	        pp0( D[1] )
+	    )
 	    print 'D:', D
 	    if D[0] != 0 or D[1] != 0:
 	        aap += arrow( Aij, ( a+d for a,d in zip(Aij, D) ), color='green' )
 	    I = (
-	        pp0( resolve_A_bindings( lvad.indirect_effect( i )[lvad.A_index(j)] ) ),
-	        pp0( resolve_A_bindings( lvad.indirect_effect( j )[lvad.A_index(i)] ) )
+	        resolve_A_bindings( lvad.indirect_effect( i )[lvad.A_index(j)] ),
+	        resolve_A_bindings( lvad.indirect_effect( j )[lvad.A_index(i)] )
+	    )
+	    print 'I:', I
+	    I = (
+	        pp0( I[0] ),
+	        pp0( I[1] )
 	    )
 	    print 'I:', I
 	    if I[0] != 0 or I[1] != 0:
@@ -408,4 +416,4 @@ def plot_aij_with_arrows( evol_trajectory, lvad, filename ):
 	    print 'dAdt:', d
 	    if d[0] != 0 or d[1] != 0:
 	        aap += arrow( Aij, ( a+d for a,d in zip(Aij, d) ), color='blue' )
-    aap.save( filename, figsize=(5,5) )
+    aap.save( filename, figsize=(5,5), **options )

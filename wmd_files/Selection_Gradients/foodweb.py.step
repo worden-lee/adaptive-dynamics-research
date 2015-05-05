@@ -55,13 +55,13 @@ class FoodWebModel(dynamicalsystems.PopulationDynamicsSystem):
 	outflo = { v: 0 for v in self._vars }
 	basal = self._graph.sources()
 	print 'basal:', basal
-	k = self._bindings( 'k' )
+	k = SR.symbol( 'k' )
 	for i in self._population_indices:
 	    xi = self._population_indexer[i]
 	    for j in self._population_indices:
 	        xj = self._population_indexer[j]
 		if i != j and self._graph.has_edge( j[0], i[0] ):
-		    axx = self._a( i, j ) * xi * xj
+		    axx = self._f( i, j ) * xi * xj
 		    outflo[ xj ] += axx
 		    inflo[ xi ] += k * axx
 		if i[0] in basal and j[0] in basal:
@@ -73,9 +73,9 @@ class FoodWebModel(dynamicalsystems.PopulationDynamicsSystem):
 	return {
 	    v : self._bindings( inflo[v] - outflo[v] ) for v in inflo.keys()
 	}
-    def _a(self, i, j):
+    def _f(self, i, j):
 	from sage.symbolic.function_factory import function
-	return function('a')( self._u_indexer[i], self._u_indexer[j] )
+	return function('f')( self._u_indexer[i], self._u_indexer[j] )
     def mutate(self, index):
 	i = 1 + max( i[1] for i in self._population_indices )
 	sport = (index[0], i)

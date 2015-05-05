@@ -18,7 +18,10 @@ ltx = latex_output.latex_output( 'foodweb-2-2.sage.out.tex' )
 var('R_0 R_1 P_0 P_1')
 foodweb_2_2 = foodweb.FoodWebModel(
     DiGraph( { R_0:[P_0,P_1], R_1:[P_0,P_1] } ),
-    bindings = dynamicalsystems.Bindings( { 'r':1, 'k':9/10, 'm':1 } ) + dynamicalsystems.FunctionBindings( { 'a':SR('1 + cos( u - v )').function(SR('u'),SR('v')) } )
+    bindings = (
+	dynamicalsystems.Bindings( { 'r':1, 'k':9/10, 'm':1 } ) +
+	dynamicalsystems.FunctionBindings( { 'f':SR('1 + cos( u - v )').function(SR('u'),SR('v')) } )
+    )
 );
 
 ltx.write( 'The foodweb model:' )
@@ -33,6 +36,10 @@ foodweb_2_2.plot_tikz( 'foodweb-2-2.tikz.tex' )
 equil = foodweb_2_2.interior_equilibria()
 print equil
 
+init_2_2 = dynamicalsystems.Bindings( { 'u_0_R_0':-0.1, 'u_0_R_1':0, 'u_0_P_0':-0.08, 'u_0_P_1':0.02 } ) 
+
+print init_2_2( dynamicalsystems.Bindings( equil[0] ) )
+
 foodweb_adap = adaptivedynamics.AdaptiveDynamicsModel( 
     foodweb_2_2,
     [ foodweb_2_2._u_indexer ],
@@ -41,8 +48,6 @@ foodweb_adap = adaptivedynamics.AdaptiveDynamicsModel(
 
 ltx.write( 'Adaptive dynamics of model:\n', foodweb_adap )
 #ltx.write_environment( 'align*', [ '\\\\\n  '.join( r'\frac{d%s}{dt} &\propto %s' % (latex(v), latex(foodweb_adap._S[v])) for v in foodweb_adap._vars ) ] )
-
-init_2_2 = dynamicalsystems.Bindings( { 'u_0_R_0':-0.2, 'u_0_R_1':0, 'u_0_P_0':-0.1, 'u_0_P_1':0.2 } ) 
 
 ltx.write( 'flow at ', '$%s$'%latex( latex_output.column_vector( [ init_2_2( v ) for v in foodweb_adap._vars ] ) ), ': ',
     '$%s$'%latex( latex_output.column_vector( init_2_2( foodweb_adap._flow[v] ) for v in foodweb_adap._vars ) ) )

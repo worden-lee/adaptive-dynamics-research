@@ -3,9 +3,9 @@ from sage.all_cmdline import *   # import sage library
 _sage_const_3 = Integer(3); _sage_const_2 = Integer(2); _sage_const_1 = Integer(1); _sage_const_5 = Integer(5); _sage_const_4 = Integer(4); _sage_const_9 = Integer(9); _sage_const_10 = Integer(10); _sage_const_15 = Integer(15)# requires: $(SageDynamics)/dynamicalsystems.py
 # requires: $(SageUtils)/latex_output.py
 # produces: popdyn-example.cd.tex popdyn-example.svg
-from sage.all import * 
+from sage.all import *
 from sage.misc.latex import _latex_file_
- 
+
 sys.path.append( os.environ['SageUtils'] )
 sys.path.append( os.environ['SageDynamics'] )
 import dynamicalsystems

@@ -1,0 +1,395 @@
+\documentclass{exam}
+\usepackage{amsmath}
+\usepackage[margin=2cm]{geometry}
+\usepackage[colorlinks=false]{hyperref}
+\usepackage{microtype}
+\usepackage{graphicx}
+\usepackage{wrapfig}
+\usepackage{caption}
+\usepackage{subcaption}
+
+\usepackage{pgfplots}
+\usepackage{tikz}
+\usetikzlibrary{arrows, positioning, calc}
+
+\renewcommand{\d}[1]{\,\mathrm{d}#1}
+\newcommand{\e}{\mathrm{e}}
+
+% For "compressed" exam -- no vfills, pagebreaks, etc -- uncomment
+% below. The actual value is unimportant; it only matters that it's
+% defined. You can also call latex with something like
+%
+% pdflatex '\newcommand{\compressedformat}{x}\input{exam1.tex}'
+%
+%\newcommand{\compressedformat}{x}
+
+%
+% In the body of the exam, use \myvfill, \mynewpage, and \mycompress
+% (the latter is intended to wrap tikzpicture environments, but works
+% with anything.)
+%
+\newcommand{\mycompress}[1]{\ifdefined\compressedformat\relax\else#1\fi}
+\newcommand{\myvfill}{\mycompress{\vfill}}
+\newcommand{\mynewpage}{\mycompress{\newpage}}
+
+%
+% to print a big "DRAFT" on each page, uncomment below
+%
+%\newcommand{\draftversion}{x}
+\newcommand{\drafttext}{\ifdefined\draftversion
+  \begin{tikzpicture}[remember picture,overlay]
+  \node [rotate=60,scale=12,color=gray!25] at (current page.center)
+  {\textsf{DRAFT}};
+\end{tikzpicture}
+\else
+  \relax
+\fi}
+
+%
+% use this to add "problem continues..."
+%
+\newcommand{\problemcontinues}{
+  \ifdefined\compressedformat
+    \relax
+  \else
+    \runningfooter{}{\thepage\ of \numpages}{problem continues\ldots}
+    \newpage
+    \runningfooter{}{\thepage\ of \numpages}{}
+  \fi}
+
+%
+% Change these appropriately.
+%
+\newcommand{\thedate}{April 9, 2015}
+\newcommand{\theexam}{Homework due April 23, 2015}
+\newcommand{\thecourse}{Systems, Networks, and Strategies}
+
+\begin{document}
+
+\pagestyle{headandfoot}
+\header{\thecourse}{\theexam}{\thedate\drafttext}
+\runningheadrule
+\firstpageheader{\drafttext}{}{}
+\firstpagefooter{}{}{}
+\runningfooter{}{\thepage\ of \numpages}{}
+
+\addpoints
+\parindent 0ex
+
+\textbf{\thecourse} \hfill  
+\textbf{Name:} \makebox[6cm]{\hrulefill}
+
+\textbf{\theexam}
+
+\rule[1ex]{\textwidth}{.1pt}
+
+%%% == Begin ==
+
+\textbf{Reading:} Ed Yong, ``How the Science of swarms can help us fight cancer and predict the future,'' \emph{Wired}, March 19, 2013.
+\\*[12pt]
+
+\textbf{1. Condorcet's Jury Theorem} was established in 1785 by the Marquis de
+Condorcet, a philosopher, mathematician and political scientist who
+held several government positions after the French Revolution, who advocated
+the abolition of slavery and did research into the dynamics of voting and
+democratic practices.
+\\*[12pt]
+His Jury Theorem concerns a group trying to make a decision by majority vote.
+If each person has probability $p$ of voting for the ``correct'' decision,
+and their votes are not influenced by each other, and the probability $p$ is
+greater than $1/2$, then the probability that the group votes for the
+correct decision is greater than $p$. That is, the group is a better decision
+maker than each person in the group. Bigger groups are better decision makers,
+and if we consider larger and larger groups the probability of the correct
+decision approaches 1.
+\\*[12pt]
+Here we explore why, using this diagram.
+
+% Set the overall layout of the tree
+\tikzstyle{level 1}=[level distance=3.5cm, sibling distance=7cm]
+\tikzstyle{level 2}=[level distance=3.5cm, sibling distance=3.5cm]
+\tikzstyle{level 3}=[level distance=3.5cm, sibling distance=2cm]
+
+% Define styles for bags and leafs
+\tikzstyle{bag} = [text width=4em, text centered]
+\tikzstyle{end} = [circle, minimum width=3pt,fill, inner sep=0pt]
+
+% http://www.texample.net/tikz/examples/probability-tree/
+\begin{center}
+% The sloped option gives rotated edge labels. Personally
+% I find sloped labels a bit difficult to read. Remove the sloped options
+% to get horizontal labels. 
+\begin{tikzpicture}[grow=right, sloped]
+\node[bag] {Starting from nothing}
+    child {
+        node[bag] {\textbf{N} $0.4$}
+            child {
+                node[bag] {\textbf{N, N} $0.16$}
+		    child {
+			node[bag] {\textbf{N,~N,~N} \begin{minipage}[b][1.5em]{4em}{\hrulefill}\end{minipage}}
+			edge from parent
+			node[above] {vote N}
+			node[below]  {$0.4$}
+		    }
+		    child {
+			node[bag] {\textbf{N,~N,~Y} \begin{minipage}[b][1.5em]{4em}{\hrulefill}\end{minipage}}
+			edge from parent
+			node[above] {vote Y}
+			node[below]  {$0.6$}
+		    }
+                edge from parent
+                node[above] {vote N}
+                node[below]  {$0.4$}
+            }
+            child {
+                node[bag] {\textbf{N, Y} $0.24$}
+		    child {
+			node[bag] {\textbf{N,~Y,~N} \begin{minipage}[b][1.5em]{4em}{\hrulefill}\end{minipage}}
+			edge from parent
+			node[above] {vote N}
+			node[below]  {$0.4$}
+		    }
+		    child {
+			node[bag] {\textbf{N,~Y,~Y} \begin{minipage}[b][1.5em]{4em}{\hrulefill}\end{minipage}}
+			edge from parent
+			node[above] {vote Y}
+			node[below]  {$0.6$}
+		    }
+                edge from parent
+                node[above] {vote Y}
+                node[below]  {$0.6$}
+            }
+            edge from parent 
+            node[above] {vote N}
+            node[below] {$0.4$}
+    }
+    child {
+        node[bag] {\textbf{Y} $0.6$}
+        child {
+                node[bag] {\textbf{Y, N} $0.24$}
+		    child {
+			node[bag] {\textbf{Y,~N,~N} \begin{minipage}[b][1.5em]{4em}{\hrulefill}\end{minipage}}
+			edge from parent
+			node[above] {vote N}
+			node[below]  {$0.4$}
+		    }
+		    child {
+			node[bag] {\textbf{Y,~N,~Y} \begin{minipage}[b][1.5em]{4em}{\hrulefill}\end{minipage}}
+			edge from parent
+			node[above] {vote Y}
+			node[below]  {$0.6$}
+		    }
+                edge from parent
+                node[above] {vote N}
+                node[below]  {$0.4$}
+            }
+            child {
+                node[bag] {\textbf{Y, Y} $0.36$}
+		    child {
+			node[bag] {\textbf{Y,~Y,~N} \begin{minipage}[b][1.5em]{4em}{\hrulefill}\end{minipage}}
+			edge from parent
+			node[above] {vote N}
+			node[below]  {$0.4$}
+		    }
+		    child {
+			node[bag] {\textbf{Y,~Y,~Y} $0.216$}
+			edge from parent
+			node[above] {vote Y}
+			node[below]  {$0.6$}
+		    }
+                edge from parent
+                node[above] {vote Y}
+                node[below]  {$0.6$}
+            }
+        edge from parent         
+            node[above] {vote Y}
+            node[below] {$0.6$}
+    };
+\end{tikzpicture}
+\end{center}
+In this example, we call the ``correct'' decision \textbf{Y}, and we
+suppose that $p$ is 0.6, the probability that a given
+person chooses \textbf{Y}. So the probability of choosing \textbf{N} is 0.4,
+since they must add to 1.
+And the probability that the first
+person chooses \textbf{Y} and the second person chooses \textbf{Y} is 0.6
+times 0.6, which is 0.36.  If you follow along the very top of this diagram
+from left to right you'll see that 0.36 there. 
+
+\mynewpage
+
+The probability that the
+first three people choose \textbf{Y, Y, Y} is also found by multiplying:
+the first two choose \textbf{Y, Y} with probability 0.36, and the third
+chooses \textbf{Y} with probability 0.6, and  0.36 times 0.6 is 0.216. That's
+the value at the top right.
+\\*[6pt]
+\begin{parts}
+\part Fill in the blanks in that diagram for the other choices that three 
+people can make.
+\\*[40pt]
+\part In a group of two people, the probability of a tie vote is found by
+adding: the two ways it can happen are \textbf{Y,~N} and \textbf{N,~Y}.  
+The sum of those probabilities is 0.24 + 0.24 = 0.48.
+\\*[14pt]
+In a group of three people, list the different ways they can come out
+to exactly two \textbf{Y} votes and one \textbf{N} vote.
+\\*[80pt]
+\part Using the numbers you added to the diagram, what is the total probability of getting
+two \textbf{Y} votes and one \textbf{N} vote?
+\\*[80pt]
+\part What is the probability of three \textbf{Y} votes?
+\\*[80pt]
+\part Adding them together, what is the probability that in a group of three 
+people a majority votes for \textbf{Y}?
+\\*[80pt]
+\end{parts}
+\vfill
+The probability of a majority vote for \textbf{Y} should come out larger
+than 0.6, meaning that the group is more likely to make the ``correct''
+decision than any one person.  It becomes \emph{much} more likely when more
+people vote.
+
+\mynewpage
+
+\textbf{2. When people don't decide independently}
+Unfortunately, Condorcet's theorem only works when people make their choices
+\emph{independently}, without influencing each other.  When people influence
+each other, some of the benefit of the ``wisdom of the crowd'' can be lost.
+\\*[12pt]
+Here we look just a little at this situation. As before, suppose each person
+prefers the ``correct'' decision, \textbf{Y}, with probability 0.6.  But
+before they vote, they look at all the information they know about -- their own
+preference, and the people who have already voted -- and if their preference
+is outnumbered they vote with the majority.  That is, if your preference is
+\textbf{N} and the two people before you voted \textbf{Y}, you go with the
+crowd and vote \textbf{Y}. That means you vote \textbf{Y} in that case
+regardless of your preference.
+\\*[12pt]
+Because of that, this diagram is different from the last one
+in just a few places. If someone is
+outnumbered, they go with the majority no matter what they prefer, so it's
+marked ``always'' and it happens with probability 1, that is, they
+always make that choice.  So the probability of \textbf{Y, Y, Y} is the
+same as the probability of \textbf{Y, Y} because after \textbf{Y, Y} the 
+third person always votes \textbf{Y}.  And \textbf{Y, Y, N} never happens,
+so its probability is 0.
+\\*[12pt]
+\begin{center}
+% The sloped option gives rotated edge labels. Personally
+% I find sloped labels a bit difficult to read. Remove the sloped options
+% to get horizontal labels. 
+\begin{tikzpicture}[grow=right, sloped]
+\node[bag] {Starting from nothing}
+    child {
+        node[bag] {\textbf{N} $0.4$}
+            child {
+                node[bag] {\textbf{N, N} $0.16$}
+		    child {
+			node[bag] {\textbf{N,~N,~N} \begin{minipage}[b][1.5em]{4em}{\hrulefill}\end{minipage}}
+			edge from parent
+			node[above] {vote N}
+			node[below]  {always}
+		    }
+		    child {
+			node[bag] {\textbf{N,~N,~Y} \begin{minipage}[b][1.5em]{4em}{\hrulefill}\end{minipage}}
+			edge from parent
+			node[above] {vote Y}
+			node[below]  {never}
+		    }
+                edge from parent
+                node[above] {vote N}
+                node[below]  {$0.4$}
+            }
+            child {
+                node[bag] {\textbf{N, Y} $0.24$}
+		    child {
+			node[bag] {\textbf{N,~Y,~N} \begin{minipage}[b][1.5em]{4em}{\hrulefill}\end{minipage}}
+			edge from parent
+			node[above] {vote N}
+			node[below]  {$0.4$}
+		    }
+		    child {
+			node[bag] {\textbf{N,~Y,~Y} \begin{minipage}[b][1.5em]{4em}{\hrulefill}\end{minipage}}
+			edge from parent
+			node[above] {vote Y}
+			node[below]  {$0.6$}
+		    }
+                edge from parent
+                node[above] {vote Y}
+                node[below]  {$0.6$}
+            }
+            edge from parent 
+            node[above] {vote N}
+            node[below] {$0.4$}
+    }
+    child {
+        node[bag] {\textbf{Y} $0.6$}
+        child {
+                node[bag] {\textbf{Y, N} $0.24$}
+		    child {
+			node[bag] {\textbf{Y,~N,~N} \begin{minipage}[b][1.5em]{4em}{\hrulefill}\end{minipage}}
+			edge from parent
+			node[above] {vote N}
+			node[below]  {$0.4$}
+		    }
+		    child {
+			node[bag] {\textbf{Y,~N,~Y} \begin{minipage}[b][1.5em]{4em}{\hrulefill}\end{minipage}}
+			edge from parent
+			node[above] {vote Y}
+			node[below]  {$0.6$}
+		    }
+                edge from parent
+                node[above] {vote N}
+                node[below]  {$0.4$}
+            }
+            child {
+                node[bag] {\textbf{Y, Y} $0.36$}
+		    child {
+			node[bag] {\textbf{Y,~Y,~N} 0}
+			edge from parent
+			node[above] {vote N}
+			node[below]  {never}
+		    }
+		    child {
+			node[bag] {\textbf{Y,~Y,~Y} $0.36$}
+			edge from parent
+			node[above] {vote Y}
+			node[below]  {always}
+		    }
+                edge from parent
+                node[above] {vote Y}
+                node[below]  {$0.6$}
+            }
+        edge from parent         
+            node[above] {vote Y}
+            node[below] {$0.6$}
+    };
+\end{tikzpicture}
+\end{center}
+
+\mynewpage
+\begin{parts}
+\part Fill in the blanks in that diagram.
+\\*[40pt]
+\part If the first two people vote \textbf{N}, what does the third person do?
+\\*[80pt]
+\part If the first two people voted \textbf{N}, given what the third person
+does, what will the fourth person do?
+\\*[80pt]
+\part And after that, what will the fifth and sixth person do?
+\\*[80pt]
+\part If the first four people vote \textbf{N, Y, N, N}, what will the fifth person do?
+\\*[80pt]
+\part In these cases, will the majority vote for \textbf{Y} or \textbf{N}?
+\end{parts}
+\vfill
+This is called an \emph{opinion cascade} or \emph{information cascade}. Once
+a cascade starts, a lot of people's insight is unused, and the group can no
+longer be trusted to make the right choice, even if it's a large group.  It's
+worth watching
+out for opinion cascades -- sometimes when a lot of people are making the same
+choice, it's actually just because they're mostly following along,
+not because it's a good idea.
+
+\end{document}

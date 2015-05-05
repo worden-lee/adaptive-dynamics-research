@@ -1,0 +1,233 @@
+\documentclass{exam}
+\usepackage{amsmath}
+\usepackage[margin=2cm]{geometry}
+\usepackage[colorlinks=false]{hyperref}
+\usepackage{microtype}
+\usepackage{graphicx}
+\usepackage{wrapfig}
+\usepackage{caption}
+\usepackage{subcaption}
+
+\usepackage{pgfplots}
+\usepackage{tikz}
+\usetikzlibrary{arrows, positioning, calc}
+
+\renewcommand{\d}[1]{\,\mathrm{d}#1}
+\newcommand{\e}{\mathrm{e}}
+
+% For "compressed" exam -- no vfills, pagebreaks, etc -- uncomment
+% below. The actual value is unimportant; it only matters that it's
+% defined. You can also call latex with something like
+%
+% pdflatex '\newcommand{\compressedformat}{x}\input{exam1.tex}'
+%
+%\newcommand{\compressedformat}{x}
+
+%
+% In the body of the exam, use \myvfill, \mynewpage, and \mycompress
+% (the latter is intended to wrap tikzpicture environments, but works
+% with anything.)
+%
+\newcommand{\mycompress}[1]{\ifdefined\compressedformat\relax\else#1\fi}
+\newcommand{\myvfill}{\mycompress{\vfill}}
+\newcommand{\mynewpage}{\mycompress{\newpage}}
+
+%
+% to print a big "DRAFT" on each page, uncomment below
+%
+%\newcommand{\draftversion}{x}
+\newcommand{\drafttext}{\ifdefined\draftversion
+  \begin{tikzpicture}[remember picture,overlay]
+  \node [rotate=60,scale=12,color=gray!25] at (current page.center)
+  {\textsf{DRAFT}};
+\end{tikzpicture}
+\else
+  \relax
+\fi}
+
+%
+% use this to add "problem continues..."
+%
+\newcommand{\problemcontinues}{
+  \ifdefined\compressedformat
+    \relax
+  \else
+    \runningfooter{}{\thepage\ of \numpages}{problem continues\ldots}
+    \newpage
+    \runningfooter{}{\thepage\ of \numpages}{}
+  \fi}
+
+%
+% Change these appropriately.
+%
+\newcommand{\thedate}{April 30, 2015}
+\newcommand{\theexam}{Extra Homework due May 7, 2015}
+\newcommand{\thecourse}{Systems, Networks, and Strategies}
+
+\begin{document}
+
+\pagestyle{headandfoot}
+\header{\thecourse}{\theexam}{\thedate\drafttext}
+\runningheadrule
+\firstpageheader{\drafttext}{}{}
+\firstpagefooter{}{}{}
+\runningfooter{}{\thepage\ of \numpages}{}
+
+\addpoints
+\parindent 0ex
+
+\textbf{\thecourse} \hfill  
+\textbf{Name:} \makebox[6cm]{\hrulefill}
+
+\textbf{\theexam}
+
+\rule[1ex]{\textwidth}{.1pt}
+
+%%% == Begin ==
+
+\textbf{1. Climate threshold.}
+\\*[12pt]
+The overall temperature on Earth is affected by several positive and negative
+feedback loops that can have complex effects.  For example, rising temperature
+causes more water to evaporate, which adds to the greenhouse effect that
+captures heat from the sun and raises the temperature more.
+Melting ice exposes dark-colored rock, which also captures more heat and raises
+the temperature. But raising temperature also causes more heat to radiate
+away from the earth, which keeps it from rising forever.  
+\\*[12pt]
+So when the planet receives a changing amount of solar heat (which it does
+all the time), the response of temperature may be complex.  One simplified
+model of the global climate gives the relationship between total energy
+received from the sun, $Q$, and temperature, $T$, as
+\[ Q = \frac{A+BT}{c_i+\frac12 (c_f-c_i)(1+\tanh(\gamma T))} \]
+where $A=218$ is the amount of solar energy corresponding to
+$T=0^\circ\text{C}$;
+$B=1.9$ is the amount of solar energy it takes to raise the temperature
+by 1 degree C; $c_i=0.35$ expresses how fast ice soaks up solar energy and
+$c_f=0.7$ expresses how fast bare earth soaks up solar energy (faster because
+it's darker); and $\gamma$ is a number that summarizes how fast the amount
+of ice shrinks when temperature rises.  For more info about this model
+see
+https://johncarlosbaez.wordpress.com/2012/11/06/mathematics-and-the-environment-part-5/.
+\\*[6pt]
+\begin{parts}
+\part It's hard to find $T$ given $Q$, which is the natural thing to want to
+do, but we can plot $Q$ given $T$ and turn it sideways.  Use an online tool or
+graphing calculator or whatever to get a plot of this curve, and sketch it 
+here or attach a screenshot or printout.  Use $\gamma=0.05$.
+\\*[24pt]
+\begin{center}
+\begin{tikzpicture}
+    \begin{axis}[
+        width=10cm, height=10cm,
+        axis lines=left,           % omit right and top border
+        grid = major,
+        grid style={dashed, gray!30},
+        xmin=0,     % start the diagram at this x-coordinate
+        xmax=510,   % end   the diagram at this x-coordinate
+        ymin=-53    % start the diagram at this y-coordinate
+        ymax=53,    % end   the diagram at this y-coordinate
+        /pgfplots/xtick={0,100,...,500},      % draw tick and line every 1
+        /pgfplots/ytick={-50,-25,...,50},
+        %minor y tick num=9,
+        axis background/.style={fill=white},
+        ylabel=$T$,
+        xlabel=$Q$,
+        tick align=inside]
+
+      % mark initial point
+      %\addplot [black, mark=*] coordinates {(0, 0)};
+    \end{axis} 
+\end{tikzpicture}
+\end{center}
+TODO: fix ticks
+\mynewpage
+
+\part That plot shows that for some amounts of incoming solar energy ($Q$),
+there is only one fixed-point value of $T$, which predicts what the temperature
+will be, but at other values of $Q$, there are three fixed-point values of $T$.
+Which value the temperature ends up taking depends on what temperature it
+had before. It will be attracted to either the lower or the upper fixed point,
+depending on whether it is above or below the middle fixed point. 
+If $T$ is near the lower fixed point, it will move to that fixed
+point.  Suppose $Q$ is about 400, and $T$ is at about $-40^\circ\mathrm{C}$.
+If $Q$ increases gradually to about 450, how will $T$ change?  Sketch it on
+the picture and write a brief description here.
+\\*[80pt]
+\part If $Q$ continues to rise to about 500, what will happen to $T$?  Sketch
+it on the picture and describe it here.
+\\*[80pt]
+\part What will happen to $T$ if $Q$ declines from 500 gradually back to 400
+and below?
+\\*[80pt]
+\part This kind of system behavior is called \emph{hysteresis}, from the
+Greek for `memory'. Why might that be?
+\\*[80pt]
+\part What might be happening in this system, in terms of ice and bare earth?
+\\*[80pt]
+\end{parts}
+\mynewpage
+
+\textbf{2. The doubling map.}
+\\*[12pt]
+I showed the beginning of this video about the Lorenz attractor and chaos in
+class: \href{https://youtu.be/aAJkLh76QnM}{https://youtu.be/aAJkLh76QnM}.
+Now watch the rest.
+\\*[12pt]
+Let's do some work with this doubling model:
+\[
+  x \mapsto \begin{cases}2x&\text{if }2x<1 \\ 2x-1&\text{if }1\leq2x\end{cases}	
+\]
+That is, at every step, double $x$, and if the result is 1 or greater, subtract 1.
+The video explains how this is a simpler model that captures the key qualities
+of the Lorenz model.
+\\*[12pt]
+If our initial condition is $x=\frac13$, the next $x$ is found by doubling,
+giving us $x=\frac23$, and the next $x$ after that is $\frac43-1=\frac13$.
+After that $x$ will repeat those two values forever.
+\\*[12pt]
+If the initial condition is $x=0.2$, as in the video, the next values are
+$0.4$, $0.8$, $0.6$, and then it will repeat those four values forever.
+\\*[12pt]
+\begin{parts}
+\part What happens if the initial value is $\frac17$?
+\\*[80pt]
+\part What happens if the initial value is $\frac12$?  Notice that if doubling
+gives 1 exactly, we subtract 1 to get a next value of 0, not 1.
+\\*[80pt]
+\part If we write `L' when $x$ is smaller than $\frac12$ and `R' when it is 
+$\frac12$ or greater, for any initial $x$ we get a sequence of L and R 
+describing the system's behavior.  For example, starting with $x=\frac13$
+we get LRLRLR$\ldots$, continuing forever, and starting with $x=0.2$ it's
+LLRRLLRRLLRR$\ldots$ forever.
+\\*[12pt]
+\part What sequence do we get starting with $x=\frac12$? Notice that the letter
+corresponding to $\frac12$ itself is R, not L.
+\\*[80pt]
+\part What sequence do we get starting with $x=\frac14$?
+\\*[80pt]
+\part What sequence do we get starting with $x=\frac18$?
+\\*[80pt]
+\part What sequence do we get starting with $x=\frac12 + \frac18$?
+\\*[80pt]
+\part Can you find an initial $x$ that generates the sequence LLLR followed by
+an infinite number of Ls?
+\\*[80pt]
+\part Can you find an initial $x$ that generates the sequence RLLR followed by
+an infinite number of Ls?
+\\*[80pt]
+\part Can you find an initial $x$ that generates any given sequence I might
+name followed by an infinite number of Ls?  How?
+\\*[80pt]
+\part Can you find an initial $x$ that generates any given sequence I can
+describe?  How?
+(This question might require a more advanced math background than the others.)
+\\*[200pt]
+\part Does what you've learned about the relationship between numbers and
+the sequences they generate help explain why the model has sensitive dependence
+on initial conditions?  If so, please explain.
+\\*[200pt]
+\end{parts}
+\vfill
+
+\end{document}

@@ -132,6 +132,7 @@ ad flow: {u_1: -Xhat_1*gamma*limit(r_0*r_1*b(u_2)*D[0](m)(u_2) - (K_0*r_0*r_1*w_
 find adaptive dynamics equilibria
 construct u vector field plot
 solve
+NumericalODESystem.solve
 The invasion rate for mutant population is:
 \begin{align*}
   \mathscr I = \frac{1}{X_{3}}\frac{dX_{3}}{dt} &= {\left(\frac{{\left(K_{0} r_{0} - X_{0} c_{0}\left(u_{0}\right) - X_{1} c_{0}\left(u_{1}\right) - X_{2} c_{0}\left(u_{2}\right) - X_{3} c_{0}\left(u_{3}\right)\right)} w_{0} c_{0}\left(u_{3}\right)}{r_{0}} + \frac{{\left(K_{1} r_{1} - X_{0} c_{1}\left(u_{0}\right) - X_{1} c_{1}\left(u_{1}\right) - X_{2} c_{1}\left(u_{2}\right) - X_{3} c_{1}\left(u_{3}\right)\right)} w_{1} c_{1}\left(u_{3}\right)}{r_{1}} - m\left(u_{3}\right)\right)} b\left(u_{3}\right) 

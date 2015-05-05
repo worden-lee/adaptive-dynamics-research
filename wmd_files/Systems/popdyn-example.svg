@@ -1136,12 +1136,12 @@ z
    <g id="patch_3">
     <path d="
 M11.8211 183.158
-L255.773 183.158" style="fill:none;stroke:#000000;stroke-linecap:square;stroke-linejoin:miter;stroke-width:0.8;"/>
+L255.773 183.158" style="fill:none;stroke:#000000;stroke-width:0.8;"/>
    </g>
    <g id="patch_4">
     <path d="
 M16.5125 173.158
-L16.5125 24.8781" style="fill:none;stroke:#000000;stroke-linecap:square;stroke-linejoin:miter;stroke-width:0.8;"/>
+L16.5125 24.8781" style="fill:none;stroke:#000000;stroke-width:0.8;"/>
    </g>
    <g id="legend_1">
     <g id="patch_5">
@@ -1150,8 +1150,9 @@ M212.813 69.9944
 L249.773 69.9944
 L249.773 30.8781
 L212.813 30.8781
+L212.813 69.9944
 z
-" style="fill:#ffffff;stroke:#000000;stroke-linejoin:miter;"/>
+" style="fill:#ffffff;stroke:#000000;"/>
     </g>
     <g id="line2d_78">
      <path d="

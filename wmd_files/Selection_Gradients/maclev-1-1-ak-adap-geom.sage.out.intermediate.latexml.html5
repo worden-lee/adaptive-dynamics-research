@@ -1,7 +1,7 @@
 <!DOCTYPE html><html>
 <head>
 <title>Untitled Document</title>
-<!--Generated on Mon Mar 30 10:45:04 2015 by LaTeXML (version v0.8.0) http://dlmf.nist.gov/LaTeXML/.-->
+<!--Generated on Mon May  4 19:39:00 2015 by LaTeXML (version 0.8.1) http://dlmf.nist.gov/LaTeXML/.-->
 
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" href="LaTeXML.css" type="text/css">
@@ -13,36 +13,36 @@
 <article class="ltx_document">
 <div id="p1" class="ltx_para">
 <p class="ltx_p">As before, the adaptive dynamics of <math id="p1.m1" class="ltx_Math" alttext="u" display="inline"><mi>u</mi></math> is</p>
-<table id="S0.Ex1" class="ltx_equation">
+<table id="S0.Ex1" class="ltx_equation ltx_eqn_table">
 
-<tr class="ltx_equation ltx_align_baseline">
-<td class="ltx_eqn_center_padleft"></td>
-<td class="ltx_align_center"><math id="S0.Ex1.m1" class="ltx_Math" alttext="\mathbf{S}\left(k_{0},\,a_{00}\right)=\left(1,\,\hat{X}_{0}\right)=\left(1,\,-%
-\frac{k_{0}}{a_{00}}\right)" display="block"><mrow><mrow><mi mathvariant="bold">S</mi><mo>⁢</mo><mrow><mo>(</mo><msub id="XM1b"><mi id="XM1">k</mi><mn id="XM1a">0</mn></msub><mo rspace="4.2pt">,</mo><msub id="XM2b"><mi id="XM2">a</mi><mn id="XM2a">00</mn></msub><mo>)</mo></mrow></mrow><mo>=</mo><mrow><mo>(</mo><mn id="XM3">1</mn><mo rspace="4.2pt">,</mo><msub id="XM4d"><mover accent="true" id="XM4b"><mi id="XM4">X</mi><mo stretchy="false" id="XM4a">^</mo></mover><mn id="XM4c">0</mn></msub><mo>)</mo></mrow><mo>=</mo><mrow><mo>(</mo><mn id="XM5">1</mn><mo rspace="4.2pt">,</mo><mrow id="XM6h"><mo id="XM6">-</mo><mfrac id="XM6g"><msub id="XM6c"><mi id="XM6a">k</mi><mn id="XM6b">0</mn></msub><msub id="XM6f"><mi id="XM6d">a</mi><mn id="XM6e">00</mn></msub></mfrac></mrow><mo>)</mo></mrow></mrow></math></td>
-<td class="ltx_eqn_center_padright"></td>
+<tr class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_eqn_cell ltx_align_center"><math id="S0.Ex1.m1" class="ltx_Math" alttext="\mathbf{S}\left(k_{0},\,a_{00}\right)=\left(1,\,\hat{X}_{0}\right)=\left(1,\,-%
+\frac{k_{0}}{a_{00}}\right)" display="block"><mrow><mrow><mi>𝐒</mi><mo>⁢</mo><mrow><mo>(</mo><msub><mi>k</mi><mn>0</mn></msub><mo rspace="4.2pt">,</mo><msub><mi>a</mi><mn>00</mn></msub><mo>)</mo></mrow></mrow><mo>=</mo><mrow><mo>(</mo><mn>1</mn><mo rspace="4.2pt">,</mo><msub><mover accent="true"><mi>X</mi><mo stretchy="false">^</mo></mover><mn>0</mn></msub><mo>)</mo></mrow><mo>=</mo><mrow><mo>(</mo><mn>1</mn><mo rspace="4.2pt">,</mo><mrow><mo>-</mo><mfrac><msub><mi>k</mi><mn>0</mn></msub><msub><mi>a</mi><mn>00</mn></msub></mfrac></mrow><mo>)</mo></mrow></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
 </tr>
 </table>
 </div>
 <div id="p2" class="ltx_para">
-<table id="S0.Ex2" class="ltx_equationgroup">
+<table id="S0.Ex2" class="ltx_equationgroup ltx_eqn_table">
 
-<tr id="S0.Ex2X" class="ltx_equation ltx_align_baseline">
-<td class="ltx_eqn_center_padleft"></td>
-<td class="ltx_td ltx_align_right">
+<tr id="S0.Ex2X" class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_td ltx_align_right ltx_eqn_cell">
               <math id="S0.Ex2X.m2" class="ltx_Math" alttext="\displaystyle\frac{du_{0}}{dt}" display="inline"><mstyle displaystyle="true"><mfrac><mrow><mi>d</mi><mo>⁢</mo><msub><mi>u</mi><mn>0</mn></msub></mrow><mrow><mi>d</mi><mo>⁢</mo><mi>t</mi></mrow></mfrac></mstyle></math>
             </td>
-<td class="ltx_td ltx_align_left">
+<td class="ltx_td ltx_align_left ltx_eqn_cell">
               <math id="S0.Ex2X.m3" class="ltx_Math" alttext="\displaystyle=-\frac{{\left(2\,u_{0}-1\right)}{\left(\frac{2\,u_{0}-1}{u_{0}}-%
-2\right)}}{u_{0}^{2}}" display="inline"><mrow><mi></mi><mo>=</mo><mrow><mo>-</mo><mstyle displaystyle="true"><mfrac><mrow><mrow><mo>(</mo><mrow id="XM9i"><mrow id="XM9f"><mpadded width="+1.7pt" id="XM9"><mn id="XM9a">2</mn></mpadded><mo id="XM9b">⁢</mo><msub id="XM9e"><mi id="XM9c">u</mi><mn id="XM9d">0</mn></msub></mrow><mo id="XM9g">-</mo><mn id="XM9h">1</mn></mrow><mo>)</mo></mrow><mo>⁢</mo><mrow><mo>(</mo><mrow id="XM10p"><mfrac id="XM10m"><mrow id="XM10i"><mrow id="XM10f"><mpadded width="+1.7pt" id="XM10"><mn id="XM10a">2</mn></mpadded><mo id="XM10b">⁢</mo><msub id="XM10e"><mi id="XM10c">u</mi><mn id="XM10d">0</mn></msub></mrow><mo id="XM10g">-</mo><mn id="XM10h">1</mn></mrow><msub id="XM10l"><mi id="XM10j">u</mi><mn id="XM10k">0</mn></msub></mfrac><mo id="XM10n">-</mo><mn id="XM10o">2</mn></mrow><mo>)</mo></mrow></mrow><msubsup><mi>u</mi><mn>0</mn><mn>2</mn></msubsup></mfrac></mstyle></mrow></mrow></math>
+2\right)}}{u_{0}^{2}}" display="inline"><mrow><mi></mi><mo>=</mo><mrow><mo>-</mo><mstyle displaystyle="true"><mfrac><mrow><mrow><mo>(</mo><mrow><mrow><mpadded width="+1.7pt"><mn>2</mn></mpadded><mo>⁢</mo><msub><mi>u</mi><mn>0</mn></msub></mrow><mo>-</mo><mn>1</mn></mrow><mo>)</mo></mrow><mo>⁢</mo><mrow><mo>(</mo><mrow><mfrac><mrow><mrow><mpadded width="+1.7pt"><mn>2</mn></mpadded><mo>⁢</mo><msub><mi>u</mi><mn>0</mn></msub></mrow><mo>-</mo><mn>1</mn></mrow><msub><mi>u</mi><mn>0</mn></msub></mfrac><mo>-</mo><mn>2</mn></mrow><mo>)</mo></mrow></mrow><msubsup><mi>u</mi><mn>0</mn><mn>2</mn></msubsup></mfrac></mstyle></mrow></mrow></math>
             </td>
-<td class="ltx_eqn_center_padright"></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
 </tr>
 </table>
 </div>
 </article>
 </div>
 <footer class="ltx_page_footer">
-<div class="ltx_page_logo">Generated  on Mon Mar 30 10:45:04 2015 by <a href="http://dlmf.nist.gov/LaTeXML/">LaTeXML <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAsAAAAOCAYAAAD5YeaVAAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAALEwAACxMBAJqcGAAAAAd0SU1FB9wKExQZLWTEaOUAAAAddEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIFRoZSBHSU1Q72QlbgAAAdpJREFUKM9tkL+L2nAARz9fPZNCKFapUn8kyI0e4iRHSR1Kb8ng0lJw6FYHFwv2LwhOpcWxTjeUunYqOmqd6hEoRDhtDWdA8ApRYsSUCDHNt5ul13vz4w0vWCgUnnEc975arX6ORqN3VqtVZbfbTQC4uEHANM3jSqXymFI6yWazP2KxWAXAL9zCUa1Wy2tXVxheKA9YNoR8Pt+aTqe4FVVVvz05O6MBhqUIBGk8Hn8HAOVy+T+XLJfLS4ZhTiRJgqIoVBRFIoric47jPnmeB1mW/9rr9ZpSSn3Lsmir1fJZlqWlUonKsvwWwD8ymc/nXwVBeLjf7xEKhdBut9Hr9WgmkyGEkJwsy5eHG5vN5g0AKIoCAEgkEkin0wQAfN9/cXPdheu6P33fBwB4ngcAcByHJpPJl+fn54mD3Gg0NrquXxeLRQAAwzAYj8cwTZPwPH9/sVg8PXweDAauqqr2cDjEer1GJBLBZDJBs9mE4zjwfZ85lAGg2+06hmGgXq+j3+/DsixYlgVN03a9Xu8jgCNCyIegIAgx13Vfd7vdu+FweG8YRkjXdWy329+dTgeSJD3ieZ7RNO0VAXAPwDEAO5VKndi2fWrb9jWl9Esul6PZbDY9Go1OZ7PZ9z/lyuD3OozU2wAAAABJRU5ErkJggg==" alt="[LOGO]"></a>
+<div class="ltx_page_logo">Generated  on Mon May  4 19:39:00 2015 by <a href="http://dlmf.nist.gov/LaTeXML/">LaTeXML <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAsAAAAOCAYAAAD5YeaVAAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAALEwAACxMBAJqcGAAAAAd0SU1FB9wKExQZLWTEaOUAAAAddEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIFRoZSBHSU1Q72QlbgAAAdpJREFUKM9tkL+L2nAARz9fPZNCKFapUn8kyI0e4iRHSR1Kb8ng0lJw6FYHFwv2LwhOpcWxTjeUunYqOmqd6hEoRDhtDWdA8ApRYsSUCDHNt5ul13vz4w0vWCgUnnEc975arX6ORqN3VqtVZbfbTQC4uEHANM3jSqXymFI6yWazP2KxWAXAL9zCUa1Wy2tXVxheKA9YNoR8Pt+aTqe4FVVVvz05O6MBhqUIBGk8Hn8HAOVy+T+XLJfLS4ZhTiRJgqIoVBRFIoric47jPnmeB1mW/9rr9ZpSSn3Lsmir1fJZlqWlUonKsvwWwD8ymc/nXwVBeLjf7xEKhdBut9Hr9WgmkyGEkJwsy5eHG5vN5g0AKIoCAEgkEkin0wQAfN9/cXPdheu6P33fBwB4ngcAcByHJpPJl+fn54mD3Gg0NrquXxeLRQAAwzAYj8cwTZPwPH9/sVg8PXweDAauqqr2cDjEer1GJBLBZDJBs9mE4zjwfZ85lAGg2+06hmGgXq+j3+/DsixYlgVN03a9Xu8jgCNCyIegIAgx13Vfd7vdu+FweG8YRkjXdWy329+dTgeSJD3ieZ7RNO0VAXAPwDEAO5VKndi2fWrb9jWl9Esul6PZbDY9Go1OZ7PZ9z/lyuD3OozU2wAAAABJRU5ErkJggg==" alt="[LOGO]"></a>
 </div></footer>
 </div>
 </body>

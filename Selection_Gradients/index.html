@@ -79,9 +79,574 @@
   <li><a href="https://github.com/worden-lee/SageDynamics.git">SageDynamics</a></li>
 </ul>
 
+<h2 id="general-results-about-selection-gradients">General results about selection gradients</h2>
+
+<p>For some reason a bunch of this is on <a href="MacLev.html">Adaptive Geometry of Resource Competition</a>, including review of adaptive dynamics, adaptive dynamics of constrained phenotypes, and the adaptive dynamics of <!-- 0cc175b9c0f1b6a831c399e269772661.tex-math.latexml.html --><span class="latexml"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="a" display="inline"><mi>a</mi></math></span> and <!-- 8ce4b16b22b58894aa86c421e8759df3.tex-math.latexml.html --><span class="latexml"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="k" display="inline"><mi>k</mi></math></span>, including the direct and indirect effects.</p>
+
+<p>Here is the part about motion of the <!-- 1f7d3da922442bec0425d6e3e395d701.tex-math.latexml.html --><span class="latexml"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="(a_{ij},a_{ji})" display="inline"><mrow><mo stretchy="false">(</mo><msub><mi>a</mi><mrow><mi>i</mi><mo>⁢</mo><mi>j</mi></mrow></msub><mo>,</mo><msub><mi>a</mi><mrow><mi>j</mi><mo>⁢</mo><mi>i</mi></mrow></msub><mo stretchy="false">)</mo></mrow></math></span> pair.</p>
+
+<p>When there are more than one or two species interacting, the only good way to
+visualize the motion of <!-- 0cc175b9c0f1b6a831c399e269772661.tex-math.latexml.html --><span class="latexml"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="a" display="inline"><mi>a</mi></math></span> and <!-- 8ce4b16b22b58894aa86c421e8759df3.tex-math.latexml.html --><span class="latexml"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="k" display="inline"><mi>k</mi></math></span> terms is pairwise, so we’ll be looking
+at <!-- 1f7d3da922442bec0425d6e3e395d701.tex-math.latexml.html --><span class="latexml"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="(a_{ij},a_{ji})" display="inline"><mrow><mo stretchy="false">(</mo><msub><mi>a</mi><mrow><mi>i</mi><mo>⁢</mo><mi>j</mi></mrow></msub><mo>,</mo><msub><mi>a</mi><mrow><mi>j</mi><mo>⁢</mo><mi>i</mi></mrow></msub><mo stretchy="false">)</mo></mrow></math></span> pairs moving on the classic plane of four quadrants.
+This is also how I’ve been presenting the result, as motion from the other
+three quadrants toward the mutualistic quarter.  Here then is the motion
+of those pairs.</p>
+
+<p>Using the expressions for motion of the matrix row <!-- 6c6404adc033dfed51422fdaf7fa0494.tex-math.latexml.html --><span class="latexml"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="\mathbf{A}" display="inline"><mi>𝐀</mi></math></span>, we
+introduce a little new notation: let</p>
+
+<p><!-- a9d33eea935b2e4607a95bab1426239c.tex-math.latexml.html --><span class="latexml"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="D_{ik}=\gamma\hat{X}_{i}\partial_{1}a(\mathbf{u}_{i},\mathbf{u}_{k})\partial_{%&#10;1}\mathbf{A}_{i}(\mathbf{u}_{i})^{T}S(\mathbf{A}_{i})" display="inline"><mrow><msub><mi>D</mi><mrow><mi>i</mi><mo>⁢</mo><mi>k</mi></mrow></msub><mo>=</mo><mrow><mi>γ</mi><mo>⁢</mo><msub><mover accent="true"><mi>X</mi><mo stretchy="false">^</mo></mover><mi>i</mi></msub><mo>⁢</mo><mrow><msub><mo>∂</mo><mn>1</mn></msub><mo>⁡</mo><mi>a</mi></mrow><mo>⁢</mo><mrow><mo stretchy="false">(</mo><msub><mi>𝐮</mi><mi>i</mi></msub><mo>,</mo><msub><mi>𝐮</mi><mi>k</mi></msub><mo stretchy="false">)</mo></mrow><mo>⁢</mo><mrow><msub><mo>∂</mo><mn>1</mn></msub><mo>⁡</mo><msub><mi>𝐀</mi><mi>i</mi></msub></mrow><mo>⁢</mo><msup><mrow><mo stretchy="false">(</mo><msub><mi>𝐮</mi><mi>i</mi></msub><mo stretchy="false">)</mo></mrow><mi>T</mi></msup><mo>⁢</mo><mi>S</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><msub><mi>𝐀</mi><mi>i</mi></msub><mo stretchy="false">)</mo></mrow></mrow></mrow></math></span></p>
+
+<p>be the <!-- 8ce4b16b22b58894aa86c421e8759df3.tex-math.latexml.html --><span class="latexml"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="k" display="inline"><mi>k</mi></math></span>th entry of <!-- aa7989b04c2d41a4343cd90818de18b4.tex-math.latexml.html --><span class="latexml"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="D(\mathbf{u}_{i})" display="inline"><mrow><mi>D</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><msub><mi>𝐮</mi><mi>i</mi></msub><mo stretchy="false">)</mo></mrow></mrow></math></span>, i.e. the direct effect of
+change in <!-- 702c7ec36a2e8896018332ba9b37e8cb.tex-math.latexml.html --><span class="latexml"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="\mathbf{u}_{i}" display="inline"><msub><mi>𝐮</mi><mi>i</mi></msub></math></span> on <!-- 16868711d2f80fc5c4b56ed9721a2224.tex-math.latexml.html --><span class="latexml"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="a_{ik}" display="inline"><msub><mi>a</mi><mrow><mi>i</mi><mo>⁢</mo><mi>k</mi></mrow></msub></math></span>; and let</p>
+
+<p><!-- ce733924c162b437faa1161a75585cae.tex-math.latexml.html --><span class="latexml"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="I_{ik}=\gamma\hat{X}_{k}\partial_{2}a(\mathbf{u}_{i},\mathbf{u}_{k})\partial_{%&#10;1}\mathbf{A}_{k}(\mathbf{u}_{k})^{T}S(\mathbf{A}_{k})" display="inline"><mrow><msub><mi>I</mi><mrow><mi>i</mi><mo>⁢</mo><mi>k</mi></mrow></msub><mo>=</mo><mrow><mi>γ</mi><mo>⁢</mo><msub><mover accent="true"><mi>X</mi><mo stretchy="false">^</mo></mover><mi>k</mi></msub><mo>⁢</mo><mrow><msub><mo>∂</mo><mn>2</mn></msub><mo>⁡</mo><mi>a</mi></mrow><mo>⁢</mo><mrow><mo stretchy="false">(</mo><msub><mi>𝐮</mi><mi>i</mi></msub><mo>,</mo><msub><mi>𝐮</mi><mi>k</mi></msub><mo stretchy="false">)</mo></mrow><mo>⁢</mo><mrow><msub><mo>∂</mo><mn>1</mn></msub><mo>⁡</mo><msub><mi>𝐀</mi><mi>k</mi></msub></mrow><mo>⁢</mo><msup><mrow><mo stretchy="false">(</mo><msub><mi>𝐮</mi><mi>k</mi></msub><mo stretchy="false">)</mo></mrow><mi>T</mi></msup><mo>⁢</mo><mi>S</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><msub><mi>𝐀</mi><mi>k</mi></msub><mo stretchy="false">)</mo></mrow></mrow></mrow></math></span></p>
+
+<p>be the <!-- 8ce4b16b22b58894aa86c421e8759df3.tex-math.latexml.html --><span class="latexml"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="k" display="inline"><mi>k</mi></math></span>th entry of <!-- 1450bd6f70a63c99942a69c0d82b483c.tex-math.latexml.html --><span class="latexml"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="I(\mathbf{u}_{i})" display="inline"><mrow><mi>I</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><msub><mi>𝐮</mi><mi>i</mi></msub><mo stretchy="false">)</mo></mrow></mrow></math></span>, the indirect effect of change in
+<!-- 573d3b8721b7f7d6ec7bfa297098aac7.tex-math.latexml.html --><span class="latexml"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="\mathbf{u}_{k}" display="inline"><msub><mi>𝐮</mi><mi>k</mi></msub></math></span> on <!-- 16868711d2f80fc5c4b56ed9721a2224.tex-math.latexml.html --><span class="latexml"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="a_{ik}" display="inline"><msub><mi>a</mi><mrow><mi>i</mi><mo>⁢</mo><mi>k</mi></mrow></msub></math></span>.</p>
+
+<p>NOTE the <!-- f623e75af30e62bbd73d6df5b50bb7b5.tex-math.latexml.html --><span class="latexml"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="D" display="inline"><mi>D</mi></math></span> and <!-- dd7536794b63bf90eccfd37f9b147d7f.tex-math.latexml.html --><span class="latexml"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="I" display="inline"><mi>I</mi></math></span> notation in the other section is not acceptable:
+<!-- 109fd5c780a1eb6cdf7a073a637a23b2.tex-math.latexml.html --><span class="latexml"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="\partial_{2}\mathbf{A}_{i}(\mathbf{u}_{k})" display="inline"><mrow><mrow><msub><mo>∂</mo><mn>2</mn></msub><mo>⁡</mo><msub><mi>𝐀</mi><mi>i</mi></msub></mrow><mo>⁢</mo><mrow><mo stretchy="false">(</mo><msub><mi>𝐮</mi><mi>k</mi></msub><mo stretchy="false">)</mo></mrow></mrow></math></span>
+is incoherent. Fix throughout.  Possibly using notation like
+<!-- f8919a3b354da3728ba95a2851ec4aa8.tex-math.latexml.html --><span class="latexml"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="\partial_{2}a(\mathbf{u}_{i},\mathbf{u}_{k})" display="inline"><mrow><mrow><msub><mo>∂</mo><mn>2</mn></msub><mo>⁡</mo><mi>a</mi></mrow><mo>⁢</mo><mrow><mo stretchy="false">(</mo><msub><mi>𝐮</mi><mi>i</mi></msub><mo>,</mo><msub><mi>𝐮</mi><mi>k</mi></msub><mo stretchy="false">)</mo></mrow></mrow></math></span>.</p>
+
+<p>Anyway, the change in <!-- 9a59294d35ec9247478796ffb89359eb.tex-math.latexml.html --><span class="latexml"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="a_{ij}" display="inline"><msub><mi>a</mi><mrow><mi>i</mi><mo>⁢</mo><mi>j</mi></mrow></msub></math></span> is</p>
+
+<p><!-- 25889202e8e91acd05680ee72ce1928b.tex-inline.latexml.html --><div class="latexml">
+
+<div class="ltx_page_main">
+<div class="ltx_page_content">
+<article class="ltx_document">
+<div id="p1" class="ltx_para">
+<table id="S0.EGx1" class="ltx_equationgroup ltx_eqn_align ltx_eqn_table">
+
+<tr id="S0.Ex1" class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_td ltx_align_right ltx_eqn_cell">
+              <math xmlns="http://www.w3.org/1998/Math/MathML" id="S0.Ex1.m1" class="ltx_Math" alttext="\displaystyle\dot{a}_{ij}" display="inline"><msub><mover accent="true"><mi>a</mi><mo>˙</mo></mover><mrow><mi>i</mi><mo>⁢</mo><mi>j</mi></mrow></msub></math>
+            </td>
+<td class="ltx_td ltx_align_left ltx_eqn_cell">
+              <math xmlns="http://www.w3.org/1998/Math/MathML" id="S0.Ex1.m2" class="ltx_Math" alttext="\displaystyle=D_{ij}+I_{ij}" display="inline"><mrow><mi></mi><mo>=</mo><mrow><msub><mi>D</mi><mrow><mi>i</mi><mo>⁢</mo><mi>j</mi></mrow></msub><mo>+</mo><msub><mi>I</mi><mrow><mi>i</mi><mo>⁢</mo><mi>j</mi></mrow></msub></mrow></mrow></math>
+            </td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+</tr>
+<tr id="S0.Ex2" class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_td ltx_align_right ltx_eqn_cell"></td>
+<td class="ltx_td ltx_align_left ltx_eqn_cell">
+              <math xmlns="http://www.w3.org/1998/Math/MathML" id="S0.Ex2.m2" class="ltx_Math" alttext="\displaystyle=\partial_{1}a(\mathbf{u}_{i},\mathbf{u}_{j})\dot{\mathbf{u}}_{i}%
++\partial_{2}a(\mathbf{u}_{i},\mathbf{u}_{j})\dot{\mathbf{u}}_{j}" display="inline"><mrow><mi></mi><mo>=</mo><mrow><mrow><mrow><msub><mo>∂</mo><mn>1</mn></msub><mo>⁡</mo><mi>a</mi></mrow><mo>⁢</mo><mrow><mo stretchy="false">(</mo><msub><mi>𝐮</mi><mi>i</mi></msub><mo>,</mo><msub><mi>𝐮</mi><mi>j</mi></msub><mo stretchy="false">)</mo></mrow><mo>⁢</mo><msub><mover accent="true"><mi>𝐮</mi><mo>˙</mo></mover><mi>i</mi></msub></mrow><mo>+</mo><mrow><mrow><msub><mo>∂</mo><mn>2</mn></msub><mo>⁡</mo><mi>a</mi></mrow><mo>⁢</mo><mrow><mo stretchy="false">(</mo><msub><mi>𝐮</mi><mi>i</mi></msub><mo>,</mo><msub><mi>𝐮</mi><mi>j</mi></msub><mo stretchy="false">)</mo></mrow><mo>⁢</mo><msub><mover accent="true"><mi>𝐮</mi><mo>˙</mo></mover><mi>j</mi></msub></mrow></mrow></mrow></math>
+            </td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+</tr>
+</table>
+</div>
+</article>
+</div>
+<footer class="ltx_page_footer">
+<div class="ltx_page_logo">Generated  on Mon May  4 20:56:56 2015 by <a href="http://dlmf.nist.gov/LaTeXML/">LaTeXML <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAsAAAAOCAYAAAD5YeaVAAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAALEwAACxMBAJqcGAAAAAd0SU1FB9wKExQZLWTEaOUAAAAddEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIFRoZSBHSU1Q72QlbgAAAdpJREFUKM9tkL+L2nAARz9fPZNCKFapUn8kyI0e4iRHSR1Kb8ng0lJw6FYHFwv2LwhOpcWxTjeUunYqOmqd6hEoRDhtDWdA8ApRYsSUCDHNt5ul13vz4w0vWCgUnnEc975arX6ORqN3VqtVZbfbTQC4uEHANM3jSqXymFI6yWazP2KxWAXAL9zCUa1Wy2tXVxheKA9YNoR8Pt+aTqe4FVVVvz05O6MBhqUIBGk8Hn8HAOVy+T+XLJfLS4ZhTiRJgqIoVBRFIoric47jPnmeB1mW/9rr9ZpSSn3Lsmir1fJZlqWlUonKsvwWwD8ymc/nXwVBeLjf7xEKhdBut9Hr9WgmkyGEkJwsy5eHG5vN5g0AKIoCAEgkEkin0wQAfN9/cXPdheu6P33fBwB4ngcAcByHJpPJl+fn54mD3Gg0NrquXxeLRQAAwzAYj8cwTZPwPH9/sVg8PXweDAauqqr2cDjEer1GJBLBZDJBs9mE4zjwfZ85lAGg2+06hmGgXq+j3+/DsixYlgVN03a9Xu8jgCNCyIegIAgx13Vfd7vdu+FweG8YRkjXdWy329+dTgeSJD3ieZ7RNO0VAXAPwDEAO5VKndi2fWrb9jWl9Esul6PZbDY9Go1OZ7PZ9z/lyuD3OozU2wAAAABJRU5ErkJggg==" alt="[LOGO]"></a>
+</div></footer>
+</div>
+
+</div>
+</p>
+
+<p>and the change in the pair <!-- 1f7d3da922442bec0425d6e3e395d701.tex-math.latexml.html --><span class="latexml"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="(a_{ij},a_{ji})" display="inline"><mrow><mo stretchy="false">(</mo><msub><mi>a</mi><mrow><mi>i</mi><mo>⁢</mo><mi>j</mi></mrow></msub><mo>,</mo><msub><mi>a</mi><mrow><mi>j</mi><mo>⁢</mo><mi>i</mi></mrow></msub><mo stretchy="false">)</mo></mrow></math></span> is
+<!-- 9d8f0e54ddd376e5e842b33f3ea34e4b.tex-inline.latexml.html --><div class="latexml">
+
+<div class="ltx_page_main">
+<div class="ltx_page_content">
+<article class="ltx_document">
+<div id="p1" class="ltx_para">
+<table id="S0.EGx1" class="ltx_equationgroup ltx_eqn_align ltx_eqn_table">
+
+<tr id="S0.Ex1" class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_td ltx_align_right ltx_eqn_cell">
+              <math xmlns="http://www.w3.org/1998/Math/MathML" id="S0.Ex1.m1" class="ltx_Math" alttext="\displaystyle\frac{d}{dt}\begin{pmatrix}a_{ij}\\
+a_{ji}\end{pmatrix}" display="inline"><mrow><mstyle displaystyle="true"><mfrac><mi>d</mi><mrow><mi>d</mi><mo>⁢</mo><mi>t</mi></mrow></mfrac></mstyle><mo>⁢</mo><mrow><mo>(</mo><mtable><mtr><mtd columnalign="center"><msub><mi>a</mi><mrow><mi>i</mi><mo>⁢</mo><mi>j</mi></mrow></msub></mtd></mtr><mtr><mtd columnalign="center"><msub><mi>a</mi><mrow><mi>j</mi><mo>⁢</mo><mi>i</mi></mrow></msub></mtd></mtr></mtable><mo>)</mo></mrow></mrow></math>
+            </td>
+<td class="ltx_td ltx_align_left ltx_eqn_cell">
+              <math xmlns="http://www.w3.org/1998/Math/MathML" id="S0.Ex1.m2" class="ltx_Math" alttext="\displaystyle=D_{(i,j)}+I_{(i,j)}=\begin{pmatrix}D_{ij}\\
+D_{ji}\end{pmatrix}+\begin{pmatrix}I_{ij}\\
+I_{ji}\end{pmatrix}" display="inline"><mrow><mi></mi><mo>=</mo><mrow><msub><mi>D</mi><mrow><mo stretchy="false">(</mo><mi>i</mi><mo>,</mo><mi>j</mi><mo stretchy="false">)</mo></mrow></msub><mo>+</mo><msub><mi>I</mi><mrow><mo stretchy="false">(</mo><mi>i</mi><mo>,</mo><mi>j</mi><mo stretchy="false">)</mo></mrow></msub></mrow><mo>=</mo><mrow><mrow><mo>(</mo><mtable><mtr><mtd columnalign="center"><msub><mi>D</mi><mrow><mi>i</mi><mo>⁢</mo><mi>j</mi></mrow></msub></mtd></mtr><mtr><mtd columnalign="center"><msub><mi>D</mi><mrow><mi>j</mi><mo>⁢</mo><mi>i</mi></mrow></msub></mtd></mtr></mtable><mo>)</mo></mrow><mo>+</mo><mrow><mo>(</mo><mtable><mtr><mtd columnalign="center"><msub><mi>I</mi><mrow><mi>i</mi><mo>⁢</mo><mi>j</mi></mrow></msub></mtd></mtr><mtr><mtd columnalign="center"><msub><mi>I</mi><mrow><mi>j</mi><mo>⁢</mo><mi>i</mi></mrow></msub></mtd></mtr></mtable><mo>)</mo></mrow></mrow></mrow></math>
+            </td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+</tr>
+<tr id="S0.Ex2" class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_td ltx_align_right ltx_eqn_cell"></td>
+<td class="ltx_td ltx_align_left ltx_eqn_cell">
+              <math xmlns="http://www.w3.org/1998/Math/MathML" id="S0.Ex2.m2" class="ltx_Math" alttext="\displaystyle=\begin{pmatrix}\partial_{1}a(\mathbf{u}_{i},\mathbf{u}_{j})\dot{%
+\mathbf{u}}_{i}\\
+\partial_{1}a(\mathbf{u}_{j},\mathbf{u}_{i})\dot{\mathbf{u}}_{j}\end{pmatrix}+%
+\begin{pmatrix}\partial_{2}a(\mathbf{u}_{i},\mathbf{u}_{j})\dot{\mathbf{u}}_{j%
+}\\
+\partial_{2}a(\mathbf{u}_{j},\mathbf{u}_{i})\dot{\mathbf{u}}_{i}\end{pmatrix}" display="inline"><mrow><mi></mi><mo>=</mo><mrow><mrow><mo>(</mo><mtable><mtr><mtd columnalign="center"><mrow><mrow><msub><mo>∂</mo><mn>1</mn></msub><mo>⁡</mo><mi>a</mi></mrow><mo>⁢</mo><mrow><mo stretchy="false">(</mo><msub><mi>𝐮</mi><mi>i</mi></msub><mo>,</mo><msub><mi>𝐮</mi><mi>j</mi></msub><mo stretchy="false">)</mo></mrow><mo>⁢</mo><msub><mover accent="true"><mi>𝐮</mi><mo>˙</mo></mover><mi>i</mi></msub></mrow></mtd></mtr><mtr><mtd columnalign="center"><mrow><mrow><msub><mo>∂</mo><mn>1</mn></msub><mo>⁡</mo><mi>a</mi></mrow><mo>⁢</mo><mrow><mo stretchy="false">(</mo><msub><mi>𝐮</mi><mi>j</mi></msub><mo>,</mo><msub><mi>𝐮</mi><mi>i</mi></msub><mo stretchy="false">)</mo></mrow><mo>⁢</mo><msub><mover accent="true"><mi>𝐮</mi><mo>˙</mo></mover><mi>j</mi></msub></mrow></mtd></mtr></mtable><mo>)</mo></mrow><mo>+</mo><mrow><mo>(</mo><mtable><mtr><mtd columnalign="center"><mrow><mrow><msub><mo>∂</mo><mn>2</mn></msub><mo>⁡</mo><mi>a</mi></mrow><mo>⁢</mo><mrow><mo stretchy="false">(</mo><msub><mi>𝐮</mi><mi>i</mi></msub><mo>,</mo><msub><mi>𝐮</mi><mi>j</mi></msub><mo stretchy="false">)</mo></mrow><mo>⁢</mo><msub><mover accent="true"><mi>𝐮</mi><mo>˙</mo></mover><mi>j</mi></msub></mrow></mtd></mtr><mtr><mtd columnalign="center"><mrow><mrow><msub><mo>∂</mo><mn>2</mn></msub><mo>⁡</mo><mi>a</mi></mrow><mo>⁢</mo><mrow><mo stretchy="false">(</mo><msub><mi>𝐮</mi><mi>j</mi></msub><mo>,</mo><msub><mi>𝐮</mi><mi>i</mi></msub><mo stretchy="false">)</mo></mrow><mo>⁢</mo><msub><mover accent="true"><mi>𝐮</mi><mo>˙</mo></mover><mi>i</mi></msub></mrow></mtd></mtr></mtable><mo>)</mo></mrow></mrow></mrow></math>
+            </td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+</tr>
+</table>
+</div>
+</article>
+</div>
+<footer class="ltx_page_footer">
+<div class="ltx_page_logo">Generated  on Mon May  4 21:01:34 2015 by <a href="http://dlmf.nist.gov/LaTeXML/">LaTeXML <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAsAAAAOCAYAAAD5YeaVAAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAALEwAACxMBAJqcGAAAAAd0SU1FB9wKExQZLWTEaOUAAAAddEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIFRoZSBHSU1Q72QlbgAAAdpJREFUKM9tkL+L2nAARz9fPZNCKFapUn8kyI0e4iRHSR1Kb8ng0lJw6FYHFwv2LwhOpcWxTjeUunYqOmqd6hEoRDhtDWdA8ApRYsSUCDHNt5ul13vz4w0vWCgUnnEc975arX6ORqN3VqtVZbfbTQC4uEHANM3jSqXymFI6yWazP2KxWAXAL9zCUa1Wy2tXVxheKA9YNoR8Pt+aTqe4FVVVvz05O6MBhqUIBGk8Hn8HAOVy+T+XLJfLS4ZhTiRJgqIoVBRFIoric47jPnmeB1mW/9rr9ZpSSn3Lsmir1fJZlqWlUonKsvwWwD8ymc/nXwVBeLjf7xEKhdBut9Hr9WgmkyGEkJwsy5eHG5vN5g0AKIoCAEgkEkin0wQAfN9/cXPdheu6P33fBwB4ngcAcByHJpPJl+fn54mD3Gg0NrquXxeLRQAAwzAYj8cwTZPwPH9/sVg8PXweDAauqqr2cDjEer1GJBLBZDJBs9mE4zjwfZ85lAGg2+06hmGgXq+j3+/DsixYlgVN03a9Xu8jgCNCyIegIAgx13Vfd7vdu+FweG8YRkjXdWy329+dTgeSJD3ieZ7RNO0VAXAPwDEAO5VKndi2fWrb9jWl9Esul6PZbDY9Go1OZ7PZ9z/lyuD3OozU2wAAAABJRU5ErkJggg==" alt="[LOGO]"></a>
+</div></footer>
+</div>
+
+</div>
+</p>
+
+<p>Q: how does this <!-- 811d6a6518e8b42241ce8a502c121e73.tex-math.latexml.html --><span class="latexml"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="D_{(i,j)}" display="inline"><msub><mi>D</mi><mrow><mo stretchy="false">(</mo><mi>i</mi><mo>,</mo><mi>j</mi><mo stretchy="false">)</mo></mrow></msub></math></span> relate to <!-- 5dbc98dcc983a70728bd082d1a47546e.tex-math.latexml.html --><span class="latexml"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="S" display="inline"><mi>S</mi></math></span>?  Is there a meaningful <!-- fd0cab2ec9d92f6067d532eb1d8097a8.tex-math.latexml.html --><span class="latexml"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="S_{(i,j)}" display="inline"><msub><mi>S</mi><mrow><mo stretchy="false">(</mo><mi>i</mi><mo>,</mo><mi>j</mi><mo stretchy="false">)</mo></mrow></msub></math></span>?</p>
+
+<!-- and here the $$D$$ entries are biased toward positive, while the $$I$$ entries
+are not.  Note that the $$D$$ vector is *not* necessarily positive; it's only
+true that each entry $$D_{ij}$$ is an element of a vector that's in a
+half-space defined by positive dot product with the positive vector
+$$\hat{X}$$.  There may be non-positive entries of the $$D$$ vector, required
+by tradeoffs between the elements of $$\mathbf{u}_i$$ (or by the form of
+$$a()$$??). -->
+
+<p>We are plotting</p>
+
+<ul>
+  <li>the vectors <!-- fd0cab2ec9d92f6067d532eb1d8097a8.tex-math.latexml.html --><span class="latexml"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="S_{(i,j)}" display="inline"><msub><mi>S</mi><mrow><mo stretchy="false">(</mo><mi>i</mi><mo>,</mo><mi>j</mi><mo stretchy="false">)</mo></mrow></msub></math></span> (red), <!-- 811d6a6518e8b42241ce8a502c121e73.tex-math.latexml.html --><span class="latexml"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="D_{(i,j)}" display="inline"><msub><mi>D</mi><mrow><mo stretchy="false">(</mo><mi>i</mi><mo>,</mo><mi>j</mi><mo stretchy="false">)</mo></mrow></msub></math></span> (green), <!-- 0b65bdc592f4bef0de5c56782a84de87.tex-math.latexml.html --><span class="latexml"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="I_{(i,j)}" display="inline"><msub><mi>I</mi><mrow><mo stretchy="false">(</mo><mi>i</mi><mo>,</mo><mi>j</mi><mo stretchy="false">)</mo></mrow></msub></math></span>
+(purple), and <!-- 6a79bf421dede39021b0322f7bd223a6.tex-math.latexml.html --><span class="latexml"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="d/dt(a_{ij},a_{ji})" display="inline"><mrow><mrow><mi>d</mi><mo>/</mo><mi>d</mi></mrow><mo>⁢</mo><mi>t</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><msub><mi>a</mi><mrow><mi>i</mi><mo>⁢</mo><mi>j</mi></mrow></msub><mo>,</mo><msub><mi>a</mi><mrow><mi>j</mi><mo>⁢</mo><mi>i</mi></mrow></msub><mo stretchy="false">)</mo></mrow></mrow></math></span> (blue) at representative points</li>
+  <li>the trajectory of <!-- 1f7d3da922442bec0425d6e3e395d701.tex-math.latexml.html --><span class="latexml"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="(a_{ij},a_{ji})" display="inline"><mrow><mo stretchy="false">(</mo><msub><mi>a</mi><mrow><mi>i</mi><mo>⁢</mo><mi>j</mi></mrow></msub><mo>,</mo><msub><mi>a</mi><mrow><mi>j</mi><mo>⁢</mo><mi>i</mi></mrow></msub><mo stretchy="false">)</mo></mrow></math></span></li>
+</ul>
+
+<p>for all pairs <!-- 5270ae675fac24f97e172dcd9b18fa92.tex-math.latexml.html --><span class="latexml"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="(i,j)" display="inline"><mrow><mo stretchy="false">(</mo><mi>i</mi><mo>,</mo><mi>j</mi><mo stretchy="false">)</mo></mrow></math></span>, or at least the half of them sorted with <!-- f1f27e9c5f7572e13a24c7671e1f74be.tex-math.latexml.html --><span class="latexml"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="i\leq j" display="inline"><mrow><mi>i</mi><mo>≤</mo><mi>j</mi></mrow></math></span>.</p>
+
+<p>Q: how to display the change in <!-- 34c1d173d638ceb8fb5bec184c055549.tex-math.latexml.html --><span class="latexml"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="k_{i}" display="inline"><msub><mi>k</mi><mi>i</mi></msub></math></span>?  <!-- f2a4ab9df3dc2b7d96912b002ad5f3e1.tex-math.latexml.html --><span class="latexml"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="(k_{i},a_{ii})" display="inline"><mrow><mo stretchy="false">(</mo><msub><mi>k</mi><mi>i</mi></msub><mo>,</mo><msub><mi>a</mi><mrow><mi>i</mi><mo>⁢</mo><mi>i</mi></mrow></msub><mo stretchy="false">)</mo></mrow></math></span> or something?</p>
+
 <h2 id="code">Code</h2>
 
-<p>Here are some makefiles that are used by all the code on the various pages in this project.</p>
+<p>Here is Sage code that works with the SageDynamics code to analyze the
+dynamics Lotka-Volterra coefficients.</p>
+
+<p><!-- lotkavolterra.py.step --><fieldset class="ww-project-file-source ww-collapsible"><legend><span>lotkavolterra.py.step</span></legend><div class="ww-collapsible-content"><pre># requires: $(SageDynamics)/dynamicalsystems.py
+# requires: $(SageAdaptiveDynamics)/adaptivedynamics.py
+from sage.all import *
+import os
+import sys
+ 
+sys.path.append( os.environ['SageUtils'] )
+sys.path.append( os.environ['SageDynamics'] )
+from dynamicalsystems import *
+sys.path.append( os.environ['SageAdaptiveDynamics'] )
+from adaptivedynamics import *
+
+from sage.symbolic.relation import solve
+#from sage.symbolic.function_factory import function
+
+class GeneralizedLotkaVolterraModel(PopulationDynamicsSystem):
+    &quot;&quot;&quot;The GLV model is dX_i/dt = (r_i + sum_j a_i_j X_j) X_i&quot;&quot;&quot;
+    def __init__(self, x_indices = [], X = indexer('X'), r = indexer('r'),
+      a = indexer_2d('a'),
+      bindings = Bindings()):
+        self._indexers = {'r': r, 'a': a, 'X': X}
+        super(GeneralizedLotkaVolterraModel,self).__init__(
+            [ ], x_indices, X, bindings=bindings )
+    def flow(self):
+        return self.make_flow(**self._indexers)
+    def make_flow(self, X, r, a):
+        return dict( (X[i],
+          X[i]*(r[i] + sum( a[i][j]*X[j] for j in self._population_indices )))
+          for i in self._population_indices)
+    def interior_equilibrium_bindings( self, phenotype_bindings=Bindings() ):
+	eq = self.bind( phenotype_bindings ).interior_equilibria()[0]
+	eb = Bindings( { vhat:eq[vhat] for vhat in self.equilibrium_vars() } )
+	#print 'equilibrium bindings:', eb
+	return eb
+
+class LotkaVolterraException(Exception):
+    def __init__(self, message):
+	self.value = message
+    def __str__(self):
+	return repr(self.value)
+
+def get_coeff( expr, vars, power ):
+    for c, p in expr.coefficients( vars ):
+        if p == power:
+	    return c
+
+class DerivedLotkaVolterraModel( GeneralizedLotkaVolterraModel ):
+    &quot;&quot;&quot;This is a LotkaVolterraModel made by decomposing the dynamics of
+    some other population dynamics model into linear and quadratic terms.
+    It has the attributes of a GeneralizedLotkaVolterraModel, plus some
+    additional information about the original model.&quot;&quot;&quot;
+    def __init__(self, model, r_name='r', a_name='a', r_indexer=None, a_indexer=None ):
+	self._original_model = model
+	self._a_name = a_name
+	self._r_name = r_name
+	if a_indexer is None: a_indexer = indexer_2d(a_name)
+	if r_indexer is None: r_indexer = indexer_2d(r_name)
+	self._a_indexer = a_indexer
+	self._r_indexer = r_indexer
+	self.calculate_lv()
+        super(DerivedLotkaVolterraModel,self).__init__(
+            model._population_indices,
+	    X = model._population_indexer,
+            r = r_indexer,
+            a = a_indexer
+	)
+    def calculate_lv(self):
+	model = self._original_model
+        x_indexer = model._population_indexer
+        aij_dict = {}
+        vars = {v:1 for v in model._vars}
+        for i in model._population_indices:
+            xi = x_indexer[i]
+	    lvi = model._flow[xi].expand()
+            print 'Inferring LV coefficients from', xi, 'equation:', lvi
+	    xic = get_coeff( lvi, xi, 1 )
+	    if xic is None: xic = 0
+	    ri = xic
+	    aij = get_coeff( lvi, xi, 2 )
+	    if aij is None: aij = 0
+	    aij_dict[self._a_indexer[i][i]] = aij
+            lvi -= aij * xi**2
+	    for j in model._population_indices:
+	        if j != i:
+                    xj = x_indexer[j]
+		    ri = get_coeff( ri, xj, 0 )
+		    if ri is None: ri = 0
+		    aij = get_coeff( xic, xj, 1 )
+		    if aij is None: aij = 0
+		    aij_dict[self._a_indexer[i][j]] = aij
+                    print self._a_indexer[i][j], ':', aij
+                    lvi -= aij * xi * xj
+            print self._r_indexer[i], ':', ri
+	    aij_dict[self._r_indexer[i]] = ri
+            lvi -= ri * xi
+            if lvi != 0:
+                raise LotkaVolterraException( &quot;Population dynamics has excess terms in &quot; + str(i) + &quot;'th component: &quot; + str(lvi) )
+            del vars[xi]
+        if len(vars) &gt; 0:
+            raise LotkaVolterraException( &quot;Population dynamics has extra variables: &quot; + ', '.join(vars.keys()) )
+	print 'aij_dict:',aij_dict; sys.stdout.flush()
+	self._A_bindings = Bindings( aij_dict ) 
+    def set_population_indices(self, npi):
+	super(DerivedLotkaVolterraModel, self).set_population_indices(npi)
+	self.calculate_lv()
+    def mutate(self, resident_index):
+	mutant = self._original_model.mutate(resident_index)
+	self.set_population_indices( self._original_model._population_indices )
+	return mutant
+
+class backward_curry_indexer_2d( indexer ):
+    def __init__(self, ixr):
+	self._f = ixr
+    def __getitem__(self, j):
+	# return a thing that maps i --&gt; ixr[i][j]
+        class inner_curry(indexer):
+	    def __init__(self, ixr, j):
+		self._f = ixr
+		self. _j = j
+	    def __getitem__(self, i):
+		return self._f[i][j]
+	return inner_curry(self._f, j)
+
+class LotkaVolterraAdaptiveDynamics( object ):
+    '''Not an AdaptiveDynamicsModel class, but a helper that works with one.'''
+    def __init__( self, ad, lv_model=None, r_name='r', a_name='a', r_name_indexer=None, a_name_indexer=None ):
+        self._adaptivedynamics = ad
+
+	print 'ad bindings:', self._adaptivedynamics._bindings
+	print 'model bindings:', self._adaptivedynamics._popdyn_model._bindings
+	print '_early_bindings:', self._adaptivedynamics._early_bindings
+	print '_late_bindings:', self._adaptivedynamics._late_bindings
+
+	if a_name_indexer is None: a_name_indexer = indexer_2d(a_name)
+	if r_name_indexer is None: r_name_indexer = indexer(r_name)
+	self._a_name_indexer = a_name_indexer
+	self._r_name_indexer = r_name_indexer
+
+	# make LV model here
+	print 'make LV model'
+	self._lv_model = DerivedLotkaVolterraModel( ad._popdyn_model, r_indexer=r_name_indexer, a_indexer=a_name_indexer )
+
+	print '_A_bindings:', self._lv_model._A_bindings
+
+	# for now, this only supports AD with a single phenotype variable
+	u_indexers = self._adaptivedynamics._phenotype_indexers
+
+	if False:
+	    # sanity check the a values' functional form
+	    # using extended system, in case it's only 1-d otherwise
+	    extended_system = deepcopy( ad._popdyn_model )
+	    # TODO: mutate all populations, not just the first one
+	    mutant_index = extended_system.mutate( extended_system._population_indices[0] )
+	    extended_lv_model = DerivedLotkaVolterraModel( extended_system, r_name=r_name, a_name=a_name )
+	    a_to_u_bindings = self._adaptivedynamics._bindings + self._adaptivedynamics._late_bindings + extended_lv_model._A_bindings
+	    print 'a_to_u_bindings:', a_to_u_bindings
+            u0s = column_vector( [ u_indexer[0] for u_indexer in u_indexers ] )
+            uqis = column_vector( [ u_indexer[mutant_index] for u_indexer in u_indexers ] )
+            a_func = a_to_u_bindings( extended_lv_model._indexers['a'][0][mutant_index] ).function( *(list(u0s) + list(uqis)) )
+	    print 'a_func:', a_func
+	    r_func = a_to_u_bindings( extended_lv_model._indexers['r'][0] ).function( *u0s )
+	    print 'r_func:', r_func
+	    for i in ad._popdyn_model._population_indices:
+                uis = column_vector( u[i] for u in u_indexers )
+	        for j in ad._popdyn_model._population_indices:
+                    ujs = column_vector( u[j] for u in u_indexers )
+	            if a_to_u_bindings( extended_lv_model._indexers['a'][i][j] ) != a_func( *(list(uis)+list(ujs)) ):
+		        raise LotkaVolterraException(
+			    'Model does not have consistent form a(u_i,u_j): ' +
+			    str( a_to_u_bindings( extended_lv_model._indexers['a'][i][j] ) ) +
+			    ' does not have the form of ' +
+                            'a(%s, %s) = ' % (''.join(str(u[i]) for u in u_indexers), ''.join(str(u[j]) for u in u_indexers)) +
+			    str( a_func( *(list(uis) + list(ujs)) ) ) )
+		    if a_to_u_bindings( extended_lv_model._indexers['r'][i] ) != r_func( *uis ):
+		        raise LotkaVolterraException(
+			    'Model does not have consistent form r(u_i): ' +
+			    str( a_to_u_bindings( extended_lv_model._indexers['r'][i] ) ) +
+			    ' does not have the form of ' +
+			    str( r_func( *uis ) ) )
+	            for k in ad._popdyn_model._population_indices:
+		        if len( extended_lv_model._A_bindings( extended_lv_model._indexers['a'][i][j] ).coefficients( extended_lv_model._population_indexer[k] ) ) &gt; 1:
+		            raise LotkaVolterraException( 'Model has super-quadratic terms in population variables' )
+
+
+	print 'make LV adaptive dynamics'
+	print 'population vars', self._lv_model.population_vars()
+	print 'population vars', self._lv_model._original_model.population_vars()
+        formal_equilibrium = Bindings( { v : hat(v) for v in self._lv_model.population_vars() } )
+	self._lv_adap = AdaptiveDynamicsModel(
+	    self._lv_model,
+	    [ self._lv_model._indexers['r'] ] + [ backward_curry_indexer_2d(self._lv_model._indexers['a'])[j] for j in self._lv_model._population_indices ],
+            equilibrium = formal_equilibrium )
+	# todo: what to do with multiple phenotype indexers?
+	print 'make LV evolution bindings'
+	#ui = self._adaptivedynamics._phenotype_indexers[0]
+        us = self._adaptivedynamics._phenotype_indexers
+	# _A_to_function_bindings expands the LV equations
+	# into functions of u_i, e.g. from a_i_j to a(u_i,u_j)
+	# very necessary so that partial derivatives can be taken
+	from sage.symbolic.function_factory import function
+	_A_to_function_dict = [
+	  ( a_name_indexer[i][j], 
+	    self._lv_model._A_bindings( function( str( a_name_indexer[i][j] ) )( *([u[i] for u in us] + [u[j] for u in us] ) ) ) )
+	  for i in self._lv_model._population_indices
+	  for j in self._lv_model._population_indices ] + [
+	  ( r_name_indexer[i],
+	    self._lv_model._A_bindings( function( str( r_name_indexer[i] ) )( *(u[i] for u in us) ) ) )
+	  for i in self._lv_model._population_indices ]
+	#print '_A_to_function_dict:', self._A_to_function_dict
+	self._A_to_function_bindings = Bindings( dict( _A_to_function_dict ) )
+
+	A_late_bindings = self._lv_model._A_bindings + self._adaptivedynamics._bindings + self._adaptivedynamics._late_bindings
+	self._A_function_expansion_dict = dict( [
+	    ( a_name_indexer[i][j],
+		A_late_bindings( a_name_indexer[i][j] )
+		    .function( *([ u_indexer[i] for u_indexer in u_indexers ] + [ u_indexer[j] for u_indexer in u_indexers ]) ) )
+		for i in self._lv_model._population_indices
+		for j in self._lv_model._population_indices
+	] + [
+	    ( r_name_indexer[i],
+		A_late_bindings( r_name_indexer[i] )
+		    .function( *([ u_indexer[i] for u_indexer in u_indexers ]) ) )
+		for i in self._lv_model._population_indices
+	] )
+	#print '_A_function_expansion_dict:', self._A_function_expansion_dict
+	self._A_function_expansion_bindings = Bindings( FunctionBindings(
+	    self._A_function_expansion_dict ) )
+	#print '_A_function_expansion_bindings:', self._A_function_expansion_bindings
+	# _phenotypes_to_fn_bindings: changes u_i to u_i(t)
+	# is used in all the below methods, so that du_i(t)/dt works
+	self._phenotypes_to_fn_bindings = Bindings( dict(
+	    ( u[i], function( str(u[i]), self._adaptivedynamics._time_variable, latex_name=latex(u[i]) ) )
+	    for i in self._lv_model._population_indices
+	    for u in self._adaptivedynamics._phenotype_indexers ) )
+	# _phenotypes_from_fn_bindings: the inverse, change u_i(t) to u_i
+	self._phenotypes_from_fn_bindings = Bindings(
+	    { v:k for k, v in self._phenotypes_to_fn_bindings.items() } )
+	#print '_phenotypes_from_fn_bindings:', self._phenotypes_from_fn_bindings
+    def A( self, i ):
+        '''The 'interaction phenotype' vector of Lotka-Volterra coefficients
+        that are affected by selection on population i.  These are r_i and a_ij
+        for all j.'''
+        # this is a vector, intended to be treated as a column vector.
+        return vector(
+            [ self._lv_model._indexers['r'][i] ] +
+            [ self._lv_model._indexers['a'][i][j] for j in self._lv_model._population_indices ] )
+    def S( self, A ):
+        '''The selection gradient corresponding to the 'interaction phenotype'
+        A.'''
+        # This is a vector, intended to be treated as a column vector.
+        S = vector( [ self._lv_adap._S[a] for a in A ] )
+	#print 'S:', S
+	return S
+    def d1A( self, i ):
+	'''&quot;Direct effect&quot;: derivative of A(u_i) wrt u_i with u_i in the &quot;patient&quot;
+        position, as the first argument of a(.,.).'''
+        # this is a matrix, with row indices the same as in A and column
+        # indices indexing the entries of the u phenotype vector.
+        A_ij = self._A_to_function_bindings( self.A(i) )
+	uis = column_vector( [ u[i] for u in self._adaptivedynamics._phenotype_indexers ] )
+	xx = self._adaptivedynamics.fake_population_index()
+	uxs = column_vector( [ u[xx] for u in self._adaptivedynamics._phenotype_indexers ] )
+	#print 'hack A_ij: from', A_ij
+        A_ij_hacked = A_ij.apply_map( lambda x: x.subs_expr( function( str( self._a_name_indexer[i][i] ) )(*(list(uis)+list(uis))) == function( str( self._a_name_indexer[i][i] ) )(*(list(uis)+list(uxs))) ) )
+	#print 'to', A_ij_hacked
+	#print 'd1A: derivative of $%s$ wrt $%s$' % (latex(A_ij_hacked), latex(uis))
+        d1a = matrix( [ [ aij.derivative( u ) for u in uis ] for aij in A_ij_hacked ] )
+	#print 'is $%s$' % latex( d1a )
+        d = d1a
+        for ux, ui in zip( uxs, uis ):
+	    d = d.subs( ux == ui )
+	#print '; $%s$' % latex( d )
+	d = self._A_function_expansion_bindings( d )
+	#print ': $%s$' % latex( d )
+	return d
+    def direct_effect( self, i ):
+        # the component of change in A due to direct selection on population i
+        # a vector
+	return ( self._phenotypes_to_fn_bindings( self.d1A(i) ) * derivative(
+	        self._phenotypes_to_fn_bindings( vector( [ u[i] for u in self._adaptivedynamics._phenotype_indexers ] ) ),
+	        self._adaptivedynamics._time_variable
+	    ) )
+    def d2A_component( self, i, j ):
+        '''Component of &quot;Indirect effects&quot; on &quot;patient&quot; u_i, due to &quot;agent&quot; u_j.
+        When j is i, this includes only the &quot;agent&quot; role of u_i, which is where
+        it appears as the second argument of a().'''
+        # this is a matrix, with row indices the same as in A and column
+        # indices indexing the entries of the u phenotype vector.
+        A_ij = self._A_to_function_bindings( self.A(i) )
+	u = self._adaptivedynamics._phenotype_indexers[0]
+        if j == i:
+	    uis = [ u[i] for u in self._adaptivedynamics._phenotype_indexers ]
+	    xx = self._adaptivedynamics.fake_population_index()
+	    uxs = [ u[xx] for u in self._adaptivedynamics._phenotype_indexers ]
+            A_ij_hacked = A_ij.apply_map( lambda x: x.subs_expr( function( str( self._a_name_indexer[i][i] ) )( *(uis+uis) ) == function( str( self._a_name_indexer[i][i] ) )( *(uis+uxs) ) ) )
+            #print A_ij,', with', function( self._lv_model._a_name )( *(uis+uis) ), ' =&gt; ', function( self._lv_model._a_name )( *(uis+uxs) ), ' == ', A_ij_hacked
+	    #print 'd2A: derivative of $%s$ wrt $%s$' %(latex(A_ij_hacked), latex(uxs))
+            d2A_hacked = matrix( [ [ aij.derivative( uxi ) for uxi in uxs ] for aij in A_ij_hacked ] )
+	    #print 'is $%s$' % latex(d2A_hacked)
+            d2A = Bindings( { uxi:uii for uxi, uii in zip(uxs, uis) } )( d2A_hacked )
+            #print 'on diagonal: $\partial_2 A = %s$\n\n' % latex( d2A )
+        else:
+	    #print 'd2A: derivative of $%s$ wrt $%s$' %(latex(A_ij), latex(u[j]))
+            d2A = matrix( [ [ aij.derivative( u[j] ) for u in self._adaptivedynamics._phenotype_indexers ] for aij in A_ij ] )
+	    #print 'is $%s$'% latex( d2A )
+            #ltx.write( 'off diagonal: $\partial_2 A = %s$\n\n' % latex( d2A ) )
+	return self._A_function_expansion_bindings( d2A )
+    def indirect_effect( self, i ):
+        # component of the motion of A_i due to selection on all &quot;agents&quot; that
+        # act on population i
+        # a vector
+	components = [ self._phenotypes_to_fn_bindings( self.d2A_component( i, j ) ) * derivative(
+	        self._phenotypes_to_fn_bindings( vector( [ u[j] for u in self._adaptivedynamics._phenotype_indexers ] ) ),
+	        self._adaptivedynamics._time_variable
+	    ) for j in self._lv_model._population_indices ]
+	#import operator
+	return reduce( operator.add, components )
+    def dudt_bindings( self ):
+	# TODO: AD class should provide one of these, and
+	# use it internally as well
+        # TODO: make matrix * column_vector work
+	dudts = {
+            i:( SR('gamma') * hat( self._lv_model._population_indexer[i] ) *
+	        self.d1A(i).transpose() * self.S( self.A(i) ) )
+              for i in self._lv_model._population_indices
+        }
+        #print 'dudts:', dudts
+	return Bindings( {
+	    derivative(
+                self._phenotypes_to_fn_bindings( us[i] ),
+                self._adaptivedynamics._time_variable
+            ): dudts[i][j]
+	      for i in self._lv_model._population_indices
+              for j,us in enumerate(self._adaptivedynamics._phenotype_indexers)
+        } )
+    def dAdt( self, i ):
+        # the motion of the 'interaction phenotype' A_i.  This is not computed
+        # using the above components, but by using the chain rule with the
+        # derivative of the constraint phenotype u_i.
+        # A vector.
+        Ai = self.A(i)
+	Au = self._adaptivedynamics._bindings( self._lv_model._A_bindings( Ai ) )
+	#import operator
+        dAdus = [ self._phenotypes_to_fn_bindings( diff( Au, u[j] ) ) for u in self._adaptivedynamics._phenotype_indexers for j in self._lv_model._population_indices ]
+        dudts = [ diff( self._phenotypes_to_fn_bindings( u[j] ), self._adaptivedynamics._time_variable ) for u in self._adaptivedynamics._phenotype_indexers for j in self._lv_model._population_indices ]
+        dAdts = [ vector( dAiduj * dujdt for dAiduj in dAduj ) for dAduj, dujdt in zip( dAdus, dudts ) ]
+	d = reduce( operator.add, dAdts )
+	#print 'dAdt: diff of Au is $%s$' % latex( d )
+        sys.stdout.flush()
+	return d
+    def A_index( self, j ):
+	# help for using the above vectors: e.g. self.A(i)[self.A_index(j)]
+	# is the a_ij term.
+	try: self._A_index_dict.keys()
+	except AttributeError:
+	    self._A_index_dict = dict( (v,i) for i,v in enumerate( [0] + self._lv_model._population_indices ) )
+	return self._A_index_dict[j]
+
+def plot_aij_with_arrows( evol_trajectory, lvad, filename, bindings=Bindings(), **options ):
+    resolve_A_bindings = (
+	lvad._A_to_function_bindings +
+	lvad._A_function_expansion_bindings +
+	lvad.dudt_bindings() +
+	lvad._phenotypes_from_fn_bindings
+    )
+    aap = Graphics()
+    for i in lvad._lv_model._population_indices:
+        for j in lvad._lv_model._population_indices:
+	    aap += evol_trajectory.plot(
+	        lvad._lv_model._A_bindings( lvad._lv_model._a_indexer[i][j] ),
+	        lvad._lv_model._A_bindings( lvad._lv_model._a_indexer[j][i] ),
+	        color='red', **options
+	    )
+	    # plot 4 arrows per (i,j) point
+	    pp0 = evol_trajectory._timeseries[0] + bindings + lvad._adaptivedynamics._bindings
+	    Aij = (
+	        pp0( resolve_A_bindings( lvad.A(i)[lvad.A_index(j)] ) ),
+	        pp0( resolve_A_bindings( lvad.A(j)[lvad.A_index(i)] ) )
+	    )
+	    print 'A:', Aij
+	    S = (
+	        pp0( resolve_A_bindings( lvad.S( lvad.A(i) )[lvad.A_index(j)] ) ),
+	        pp0( resolve_A_bindings( lvad.S( lvad.A(j) )[lvad.A_index(i)] ) )
+	    )
+	    print 'S:', S
+	    if S[0] != 0 or S[1] != 0:
+	        aap += arrow( Aij, ( a+s for a,s in zip(Aij, S) ), color='red' )
+	    D = (
+	        resolve_A_bindings( lvad.direct_effect( i )[lvad.A_index(j)] ),
+	        resolve_A_bindings( lvad.direct_effect( j )[lvad.A_index(i)] )
+	    )
+	    print 'D:', D
+	    D = (
+	        pp0( D[0] ),
+	        pp0( D[1] )
+	    )
+	    print 'D:', D
+	    if D[0] != 0 or D[1] != 0:
+	        aap += arrow( Aij, ( a+d for a,d in zip(Aij, D) ), color='green' )
+	    I = (
+	        resolve_A_bindings( lvad.indirect_effect( i )[lvad.A_index(j)] ),
+	        resolve_A_bindings( lvad.indirect_effect( j )[lvad.A_index(i)] )
+	    )
+	    print 'I:', I
+	    I = (
+	        pp0( I[0] ),
+	        pp0( I[1] )
+	    )
+	    print 'I:', I
+	    if I[0] != 0 or I[1] != 0:
+	        aap += arrow( Aij, ( a+i for a,i in zip(Aij, I) ), color='purple' )
+	    d = (
+	        pp0( resolve_A_bindings( lvad.dAdt( i )[lvad.A_index(j)] ) ),
+	        pp0( resolve_A_bindings( lvad.dAdt( j )[lvad.A_index(i)] ) )
+	    )
+	    print 'dAdt:', d
+	    if d[0] != 0 or d[1] != 0:
+	        aap += arrow( Aij, ( a+d for a,d in zip(Aij, d) ), color='blue' )
+    aap.save( filename, figsize=(5,5), **options )
+</pre></div></fieldset></p>
+
+<p>Here are makefiles that are used by all the code on the various pages in this project.</p>
 
 <p><!-- sage.mk --><fieldset class="ww-project-file-source ww-collapsible"><legend><span>sage.mk</span></legend><div class="ww-collapsible-content"><pre># Makefile to connect the Sage code here with the code in SageDynamics
 

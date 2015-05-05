@@ -1,5 +1,5 @@
 basal: [a]
-[{Xhat_0_a: 10/9/(cos(-u_0_a + u_0_b) + 1), Xhat_0_b: 1/9*(9*cos(-u_0_a + u_0_b) - 1)/(cos(-u_0_a + u_0_b)^2 + 2*cos(-u_0_a + u_0_b) + 1)}]
+[{Xhat_0_b: (k*f(u_0_b, u_0_a) - 1)/(k*f(u_0_b, u_0_a)^2), Xhat_0_a: 1/(k*f(u_0_b, u_0_a))}]
 basal: [a]
 The invasion rate for mutant population is:
 \begin{align*}
@@ -30,8 +30,8 @@ limit as                                 _SAGE_VAR_X_1_a -> 0
  -->            - _SAGE_VAR_X_0_b sin(_SAGE_VAR_u_0_b - _SAGE_VAR_u_0_a)
 Original pop-dyn system: 
 \[\begin{align*}
-\frac{dX_{0b}}{dt} &= \frac{9}{10} \, X_{0a} X_{0b} {\left(\cos\left(-u_{0a} + u_{0b}\right) + 1\right)} - X_{0b}\\
-\frac{dX_{0a}}{dt} &= -X_{0a} X_{0b} {\left(\cos\left(-u_{0a} + u_{0b}\right) + 1\right)} - X_{0a}^{2} + X_{0a}
+\frac{dX_{0b}}{dt} &= X_{0a} X_{0b} k f\left(u_{0b}, u_{0a}\right) - X_{0b}\\
+\frac{dX_{0a}}{dt} &= -X_{0a} X_{0b} f\left(u_{0b}, u_{0a}\right) - X_{0a}^{2} + X_{0a}
 \end{align*}\]
 Extended pop-dyn system: 
 \[\begin{align*}
@@ -53,8 +53,8 @@ Extended pop-dyn system:
 \end{align*}
  Original pop-dyn system: 
 \[ \begin{align*}
-\frac{dX_{0b}}{dt} &= \frac{9}{10} \, X_{0a} X_{0b} {\left(\cos\left(-u_{0a} + u_{0b}\right) + 1\right)} - X_{0b}\\
-\frac{dX_{0a}}{dt} &= -X_{0a} X_{0b} {\left(\cos\left(-u_{0a} + u_{0b}\right) + 1\right)} - X_{0a}^{2} + X_{0a}
+\frac{dX_{0b}}{dt} &= X_{0a} X_{0b} k f\left(u_{0b}, u_{0a}\right) - X_{0b}\\
+\frac{dX_{0a}}{dt} &= -X_{0a} X_{0b} f\left(u_{0b}, u_{0a}\right) - X_{0a}^{2} + X_{0a}
 \end{align*} \]
  Extended pop-dyn system: 
 \[ \begin{align*}
@@ -83,12 +83,12 @@ Extended pop-dyn system:
 \end{array}\right) \]
  Equilibrium of the population dynamics: 
 \[ \begin{align*}
-  \hat{X}_{0a} &\to \frac{10}{9 \, {\left(\cos\left(-u_{0a} + u_{0b}\right) + 1\right)}} \\
-  \hat{X}_{0b} &\to \frac{9 \, \cos\left(-u_{0a} + u_{0b}\right) - 1}{9 \, {\left(\cos\left(-u_{0a} + u_{0b}\right)^{2} + 2 \, \cos\left(-u_{0a} + u_{0b}\right) + 1\right)}}
+  \hat{X}_{0b} &\to \frac{k f\left(u_{0b}, u_{0a}\right) - 1}{k f\left(u_{0b}, u_{0a}\right)^{2}} \\
+  \hat{X}_{0a} &\to \frac{1}{k f\left(u_{0b}, u_{0a}\right)}
 \end{align*} \]
  The adaptive dynamics comes out to 
 \[ \begin{align*}
-\frac{du_{0a}}{dt} &= -\frac{10 \, \gamma {\left(9 \, \cos\left(-u_{0a} + u_{0b}\right) - 1\right)} \sin\left(-u_{0a} + u_{0b}\right)}{81 \, {\left(\cos\left(-u_{0a} + u_{0b}\right)^{2} + 2 \, \cos\left(-u_{0a} + u_{0b}\right) + 1\right)} {\left(\cos\left(-u_{0a} + u_{0b}\right) + 1\right)}}\\
-\frac{du_{0b}}{dt} &= -\frac{\gamma {\left(9 \, \cos\left(-u_{0a} + u_{0b}\right) - 1\right)} \sin\left(-u_{0a} + u_{0b}\right)}{9 \, {\left(\cos\left(-u_{0a} + u_{0b}\right)^{2} + 2 \, \cos\left(-u_{0a} + u_{0b}\right) + 1\right)} {\left(\cos\left(-u_{0a} + u_{0b}\right) + 1\right)}}
+\frac{du_{0a}}{dt} &= -\frac{10 \, \gamma {\left(9 \, \cos\left(-u_{0a} + u_{0b}\right) - 1\right)} \sin\left(-u_{0a} + u_{0b}\right)}{81 \, {\left(\cos\left(-u_{0a} + u_{0b}\right) + 1\right)}^{3}}\\
+\frac{du_{0b}}{dt} &= -\frac{\gamma {\left(9 \, \cos\left(-u_{0a} + u_{0b}\right) - 1\right)} \sin\left(-u_{0a} + u_{0b}\right)}{9 \, {\left(\cos\left(-u_{0a} + u_{0b}\right) + 1\right)}^{3}}
 \end{align*} \]
 

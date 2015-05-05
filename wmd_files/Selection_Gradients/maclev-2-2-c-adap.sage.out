@@ -41,4 +41,5 @@ c_1_0 -> -(Xhat_0*c_0_0 + Xhat_1*c_1_0 - 2)*Xhat_1
 c_1_1 -> -(Xhat_0*c_0_1 + Xhat_1*c_1_1 - 2)*Xhat_1
 (bindings:  {w_1 -> 1, b_3 -> 1, r_1 -> 1, m_0 -> 1, b_0 -> 1, m_1 -> 1, m_3 -> 1, gamma -> 1, w_0 -> 1, b_2 -> 1, b_1 -> 1, K_0 -> 2, r_0 -> 1, K_1 -> 2, m_2 -> 1} )
 solve
+NumericalODESystem.solve
 done

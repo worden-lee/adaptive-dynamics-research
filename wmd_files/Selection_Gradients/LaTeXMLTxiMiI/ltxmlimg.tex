@@ -1,0 +1,107 @@
+\batchmode
+\def\inlatexml{true}
+\documentclass[onecolumn]{article}
+% Destination maclev-1-2-geom.sage.out.intermediate.latexml.html5
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{graphicx}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath}
+
+\makeatletter
+\setlength{\hoffset}{0pt}\setlength{\voffset}{0pt}
+\setlength{\textwidth}{365pt}
+\thispagestyle{empty}\pagestyle{empty}\title{}\author{}\date{}
+% Extra definitions for LaTeXML generated TeX
+\def\FCN#1{#1}
+\def\DUAL{\@ifnextchar[{\@DUAL}{\@DUAL[]}}
+\def\@DUAL[#1]#2#3{#3}% Use presentation form!!!
+\newbox\lxImageBox
+\newdimen\lxImageBoxSep
+\setlength\lxImageBoxSep{3\p@}
+\newdimen\lxImageBoxRule
+\setlength\lxImageBoxRule{0.4\p@}
+\def\XXXXXlxShowImage{%
+  \@tempdima\lxImageBoxRule
+  \advance\@tempdima\lxImageBoxSep
+  \advance\@tempdima\dp\lxImageBox
+  \hbox{%
+    \lower\@tempdima\hbox{%
+      \vbox{%
+        \hrule\@height\lxImageBoxRule
+        \hbox{%
+          \vrule\@width\lxImageBoxRule
+          \vbox{%
+            \vskip\lxImageBoxSep
+            \box\lxImageBox
+            \vskip\lxImageBoxSep}%
+          \vrule\@width\lxImageBoxRule}%
+        \hrule\@height\lxImageBoxRule}%
+         }%
+        }%
+}%
+\def\lxShowImage{%
+  \@tempdima\lxImageBoxRule
+  \advance\@tempdima\lxImageBoxSep
+  \advance\@tempdima\dp\lxImageBox
+  \hbox{%
+    \lower\@tempdima\hbox{%
+      \vbox{%
+        \hrule\@height\lxImageBoxRule%\@width\lxImageBoxRule
+        \hbox{%
+          \vrule\@width\lxImageBoxRule%\@height\lxImageBoxRule
+          \vbox{%
+           \vskip\lxImageBoxSep
+          \box\lxImageBox
+           \vskip\lxImageBoxSep
+           }%
+          \vrule\@width\lxImageBoxRule%\@height\lxImageBoxRule
+          }%
+        \hrule\@height\lxImageBoxRule%\@width\lxImageBoxRule
+         }%
+         }%
+        }%
+}%
+\def\lxBeginImage{\setbox\lxImageBox\hbox\bgroup\color@begingroup\kern\lxImageBoxSep}
+\def\lxEndImage{\kern\lxImageBoxSep\color@endgroup\egroup}
+\makeatother
+\makeatletter
+\def\AdjustInline{%
+  \@tempdima=\ht\lxImageBox\advance\@tempdima-6pt\advance\@tempdima-\dp\lxImageBox
+  \ifdim\@tempdima>0pt
+    \advance\@tempdima\dp\lxImageBox\dp\lxImageBox=\@tempdima
+  \else\ifdim\@tempdima>0pt
+     \advance\@tempdima-\ht\lxImageBox\ht\lxImageBox=-\@tempdima
+  \fi\fi}
+% For Inline, typeset in box, then extend box so height=depth; then we can center it
+\def\beginINLINE{\lxBeginImage\(}
+\def\endINLINE{\)\lxEndImage\AdjustInline\lxShowImage}
+% For Display, same as inline, but set displaystyle.
+\def\beginDISPLAY{\lxBeginImage\(\displaystyle}
+\def\endDISPLAY{\)\lxEndImage\AdjustInline\lxShowImage}
+
+\makeatother
+\begin{document}
+\beginDISPLAY I(u_{0})=\left(\begin{array}[]{r}0\\
+6\,{\left({\left(u_{{1}}\left(t\right)-1\right)}e^{{\left(-3\,{\left(u_{{0}}\left(t\right)-1\right)}^{{2}}-3\,{\left(u_{{1}}\left(t\right)-1\right)}^{{2}}\right)}}+e^{{\left(-3\, u_{{0}}\left(t\right)^{{2}}-3\, u_{{1}}\left(t\right)^{{2}}\right)}}u_{{1}}\left(t\right)\right)}D[0]\left(u_{{1}}\right)\left(t\right)\\
+12\,{\left({\left(u_{{0}}\left(t\right)-1\right)}e^{{\left(-6\,{\left(u_{{0}}\left(t\right)-1\right)}^{{2}}\right)}}+e^{{\left(-6\, u_{{0}}\left(t\right)^{{2}}\right)}}u_{{0}}\left(t\right)\right)}D[0]\left(u_{{0}}\right)\left(t\right)\end{array}\right)\endDISPLAY\clearpage
+\beginDISPLAY S\left(A\left(0\right)\right)=\left(\begin{array}[]{r}1\\
+\hat{X}_{{1}}\\
+\hat{X}_{{0}}\end{array}\right)=\left(\begin{array}[]{r}1\\
+-\frac{a_{{10}}k_{{0}}-a_{{00}}k_{{1}}}{a_{{01}}a_{{10}}-a_{{00}}a_{{11}}}\\
+\frac{a_{{11}}k_{{0}}-a_{{01}}k_{{1}}}{a_{{01}}a_{{10}}-a_{{00}}a_{{11}}}\end{array}\right)\endDISPLAY\clearpage
+\beginDISPLAY D(u_{0})=\left(\begin{array}[]{r}-12\,{\left({\left(u_{{0}}\left(t\right)-1\right)}e^{{\left(-3\,{\left(u_{{0}}\left(t\right)-1\right)}^{{2}}\right)}}+e^{{\left(-3\, u_{{0}}\left(t\right)^{{2}}\right)}}u_{{0}}\left(t\right)\right)}D[0]\left(u_{{0}}\right)\left(t\right)\\
+6\,{\left({\left(u_{{0}}\left(t\right)-1\right)}e^{{\left(-3\,{\left(u_{{0}}\left(t\right)-1\right)}^{{2}}-3\,{\left(u_{{1}}\left(t\right)-1\right)}^{{2}}\right)}}+e^{{\left(-3\, u_{{0}}\left(t\right)^{{2}}-3\, u_{{1}}\left(t\right)^{{2}}\right)}}u_{{0}}\left(t\right)\right)}D[0]\left(u_{{0}}\right)\left(t\right)\\
+\par
+\end{array}\right)\endDISPLAY\clearpage
+\beginDISPLAY \frac{dA}{dt}=\left(\begin{array}[]{r}-12\,{\left({\left(u_{{0}}\left(t\right)-1\right)}e^{{\left(-3\,{\left(u_{{0}}\left(t\right)-1\right)}^{{2}}\right)}}+e^{{\left(-3\, u_{{0}}\left(t\right)^{{2}}\right)}}u_{{0}}\left(t\right)\right)}D[0]\left(u_{{0}}\right)\left(t\right)\\
+6\,{\left({\left(u_{{0}}\left(t\right)-1\right)}e^{{\left(-3\,{\left(u_{{0}}\left(t\right)-1\right)}^{{2}}-3\,{\left(u_{{1}}\left(t\right)-1\right)}^{{2}}\right)}}+e^{{\left(-3\, u_{{0}}\left(t\right)^{{2}}-3\, u_{{1}}\left(t\right)^{{2}}\right)}}u_{{0}}\left(t\right)\right)}D[0]\left(u_{{0}}\right)\left(t\right)+6\,{\left({\left(u_{{1}}\left(t\right)-1\right)}e^{{\left(-3\,{\left(u_{{0}}\left(t\right)-1\right)}^{{2}}-3\,{\left(u_{{1}}\left(t\right)-1\right)}^{{2}}\right)}}+e^{{\left(-3\, u_{{0}}\left(t\right)^{{2}}-3\, u_{{1}}\left(t\right)^{{2}}\right)}}u_{{1}}\left(t\right)\right)}D[0]\left(u_{{1}}\right)\left(t\right)\\
+12\,{\left({\left(u_{{0}}\left(t\right)-1\right)}e^{{\left(-6\,{\left(u_{{0}}\left(t\right)-1\right)}^{{2}}\right)}}+e^{{\left(-6\, u_{{0}}\left(t\right)^{{2}}\right)}}u_{{0}}\left(t\right)\right)}D[0]\left(u_{{0}}\right)\left(t\right)\end{array}\right)\endDISPLAY\clearpage
+\beginDISPLAY A\left(0\right)=\left(\begin{array}[]{r}k_{{0}}\\
+a_{{01}}\\
+a_{{00}}\end{array}\right)=\left(\begin{array}[]{r}2\, e^{{\left(-3\,{\left(u_{{0}}-1\right)}^{{2}}\right)}}+2\, e^{{\left(-3\, u_{{0}}^{{2}}\right)}}-1\\
+-e^{{\left(-3\,{\left(u_{{0}}-1\right)}^{{2}}-3\,{\left(u_{{1}}-1\right)}^{{2}}\right)}}-e^{{\left(-3\, u_{{0}}^{{2}}-3\, u_{{1}}^{{2}}\right)}}\\
+-e^{{\left(-6\,{\left(u_{{0}}-1\right)}^{{2}}\right)}}-e^{{\left(-6\, u_{{0}}^{{2}}\right)}}\end{array}\right)\endDISPLAY\clearpage
+\end{document}

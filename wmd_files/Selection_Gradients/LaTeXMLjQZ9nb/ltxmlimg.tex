@@ -1,0 +1,94 @@
+\batchmode
+\def\inlatexml{true}
+\documentclass[onecolumn]{article}
+% Destination maclev-2-2-c-geom.sage.out.intermediate.latexml.html5
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{graphicx}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath}
+
+\makeatletter
+\setlength{\hoffset}{0pt}\setlength{\voffset}{0pt}
+\setlength{\textwidth}{365pt}
+\thispagestyle{empty}\pagestyle{empty}\title{}\author{}\date{}
+% Extra definitions for LaTeXML generated TeX
+\def\FCN#1{#1}
+\def\DUAL{\@ifnextchar[{\@DUAL}{\@DUAL[]}}
+\def\@DUAL[#1]#2#3{#3}% Use presentation form!!!
+\newbox\lxImageBox
+\newdimen\lxImageBoxSep
+\setlength\lxImageBoxSep{3\p@}
+\newdimen\lxImageBoxRule
+\setlength\lxImageBoxRule{0.4\p@}
+\def\XXXXXlxShowImage{%
+  \@tempdima\lxImageBoxRule
+  \advance\@tempdima\lxImageBoxSep
+  \advance\@tempdima\dp\lxImageBox
+  \hbox{%
+    \lower\@tempdima\hbox{%
+      \vbox{%
+        \hrule\@height\lxImageBoxRule
+        \hbox{%
+          \vrule\@width\lxImageBoxRule
+          \vbox{%
+            \vskip\lxImageBoxSep
+            \box\lxImageBox
+            \vskip\lxImageBoxSep}%
+          \vrule\@width\lxImageBoxRule}%
+        \hrule\@height\lxImageBoxRule}%
+         }%
+        }%
+}%
+\def\lxShowImage{%
+  \@tempdima\lxImageBoxRule
+  \advance\@tempdima\lxImageBoxSep
+  \advance\@tempdima\dp\lxImageBox
+  \hbox{%
+    \lower\@tempdima\hbox{%
+      \vbox{%
+        \hrule\@height\lxImageBoxRule%\@width\lxImageBoxRule
+        \hbox{%
+          \vrule\@width\lxImageBoxRule%\@height\lxImageBoxRule
+          \vbox{%
+           \vskip\lxImageBoxSep
+          \box\lxImageBox
+           \vskip\lxImageBoxSep
+           }%
+          \vrule\@width\lxImageBoxRule%\@height\lxImageBoxRule
+          }%
+        \hrule\@height\lxImageBoxRule%\@width\lxImageBoxRule
+         }%
+         }%
+        }%
+}%
+\def\lxBeginImage{\setbox\lxImageBox\hbox\bgroup\color@begingroup\kern\lxImageBoxSep}
+\def\lxEndImage{\kern\lxImageBoxSep\color@endgroup\egroup}
+\makeatother
+\makeatletter
+\def\AdjustInline{%
+  \@tempdima=\ht\lxImageBox\advance\@tempdima-6pt\advance\@tempdima-\dp\lxImageBox
+  \ifdim\@tempdima>0pt
+    \advance\@tempdima\dp\lxImageBox\dp\lxImageBox=\@tempdima
+  \else\ifdim\@tempdima>0pt
+     \advance\@tempdima-\ht\lxImageBox\ht\lxImageBox=-\@tempdima
+  \fi\fi}
+% For Inline, typeset in box, then extend box so height=depth; then we can center it
+\def\beginINLINE{\lxBeginImage\(}
+\def\endINLINE{\)\lxEndImage\AdjustInline\lxShowImage}
+% For Display, same as inline, but set displaystyle.
+\def\beginDISPLAY{\lxBeginImage\(\displaystyle}
+\def\endDISPLAY{\)\lxEndImage\AdjustInline\lxShowImage}
+
+\makeatother
+\begin{document}
+\beginDISPLAY A\left(1\right)=\left(k_{{1}},\, a_{{10}},\, a_{{11}}\right)=\left(2\, c_{{10}}+2\, c_{{11}}-1,\,-c_{{00}}c_{{10}}-c_{{01}}c_{{11}},\,-c_{{10}}^{{2}}-c_{{11}}^{{2}}\right)\endDISPLAY\clearpage
+\beginDISPLAY D(u_{0})=\left(2\, D[0]\left(c_{{00}}\right)\left(t\right)+2\, D[0]\left(c_{{01}}\right)\left(t\right),\, 0,\,-c_{{10}}\left(t\right)D[0]\left(c_{{00}}\right)\left(t\right)-c_{{11}}\left(t\right)D[0]\left(c_{{01}}\right)\left(t\right)\right)\endDISPLAY\clearpage
+\beginDISPLAY S\left(A\left(1\right)\right)=\left(1,\,\hat{X}_{{0}},\,\hat{X}_{{1}}\right)=\left(1,\,\frac{a_{{11}}k_{{0}}-a_{{01}}k_{{1}}}{a_{{01}}a_{{10}}-a_{{00}}a_{{11}}},\,-\frac{a_{{10}}k_{{0}}-a_{{00}}k_{{1}}}{a_{{01}}a_{{10}}-a_{{00}}a_{{11}}}\right)\endDISPLAY\clearpage
+\beginDISPLAY S\left(A\left(0\right)\right)=\left(1,\,\hat{X}_{{0}},\,\hat{X}_{{1}}\right)=\left(1,\,\frac{a_{{11}}k_{{0}}-a_{{01}}k_{{1}}}{a_{{01}}a_{{10}}-a_{{00}}a_{{11}}},\,-\frac{a_{{10}}k_{{0}}-a_{{00}}k_{{1}}}{a_{{01}}a_{{10}}-a_{{00}}a_{{11}}}\right)\endDISPLAY\clearpage
+\beginDISPLAY A\left(0\right)=\left(k_{{0}},\, a_{{00}},\, a_{{01}}\right)=\left(2\, c_{{00}}+2\, c_{{01}}-1,\,-c_{{00}}^{{2}}-c_{{01}}^{{2}},\,-c_{{00}}c_{{10}}-c_{{01}}c_{{11}}\right)\endDISPLAY\clearpage
+\beginDISPLAY I(u_{0})=\left(0,\,-2\, c_{{00}}\left(t\right)D[0]\left(c_{{00}}\right)\left(t\right)-2\, c_{{01}}\left(t\right)D[0]\left(c_{{01}}\right)\left(t\right),\,-c_{{00}}\left(t\right)D[0]\left(c_{{10}}\right)\left(t\right)-c_{{01}}\left(t\right)D[0]\left(c_{{11}}\right)\left(t\right)\right)\endDISPLAY\clearpage
+\beginDISPLAY \frac{dA}{dt}=\left(2\, D[0]\left(c_{{00}}\right)\left(t\right)+2\, D[0]\left(c_{{01}}\right)\left(t\right),\,-2\, c_{{00}}\left(t\right)D[0]\left(c_{{00}}\right)\left(t\right)-2\, c_{{01}}\left(t\right)D[0]\left(c_{{01}}\right)\left(t\right),\,-c_{{10}}\left(t\right)D[0]\left(c_{{00}}\right)\left(t\right)-c_{{11}}\left(t\right)D[0]\left(c_{{01}}\right)\left(t\right)-c_{{00}}\left(t\right)D[0]\left(c_{{10}}\right)\left(t\right)-c_{{01}}\left(t\right)D[0]\left(c_{{11}}\right)\left(t\right)\right)\endDISPLAY\clearpage
+\end{document}

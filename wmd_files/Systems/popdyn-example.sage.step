@@ -1,9 +1,9 @@
 # requires: $(SageDynamics)/dynamicalsystems.py
 # requires: $(SageUtils)/latex_output.py
 # produces: popdyn-example.cd.tex popdyn-example.svg
-from sage.all import * 
+from sage.all import *
 from sage.misc.latex import _latex_file_
- 
+
 sys.path.append( os.environ['SageUtils'] )
 sys.path.append( os.environ['SageDynamics'] )
 import dynamicalsystems

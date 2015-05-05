@@ -158,77 +158,7 @@ Extended pop-dyn system:
 \end{align*} \]
 
 make LV evolution bindings
-hack A_ij: from (k_0(c_0_0, c_0_1), a_0_0(c_0_0, c_0_1, c_0_0, c_0_1), a_0_1(c_0_0, c_0_1, c_1_0, c_1_1))
-to (k_0(c_0_0, c_0_1), a_0_0(c_0_0, c_0_1, c_x_0, c_x_1), a_0_1(c_0_0, c_0_1, c_1_0, c_1_1))
-d1A: derivative of $\left(k_{0}\left(c_{00}, c_{01}\right),\,a_{0_{0}}\left(c_{00}, c_{01}, c_{x0}, c_{x1}\right),\,a_{0_{1}}\left(c_{00}, c_{01}, c_{10}, c_{11}\right)\right)$ wrt $\left(\begin{array}{c}
-  c_{00}\\
-  c_{01}
-\end{array}\right)$
-is $\left(\begin{array}{rr}
-D[0]\left(k_{0}\right)\left(c_{00}, c_{01}\right) & D[1]\left(k_{0}\right)\left(c_{00}, c_{01}\right) \\
-D[0]\left(a_{0_{0}}\right)\left(c_{00}, c_{01}, c_{x0}, c_{x1}\right) & D[1]\left(a_{0_{0}}\right)\left(c_{00}, c_{01}, c_{x0}, c_{x1}\right) \\
-D[0]\left(a_{0_{1}}\right)\left(c_{00}, c_{01}, c_{10}, c_{11}\right) & D[1]\left(a_{0_{1}}\right)\left(c_{00}, c_{01}, c_{10}, c_{11}\right)
-\end{array}\right)$
-; $\left(\begin{array}{rr}
-D[0]\left(k_{0}\right)\left(c_{00}, c_{01}\right) & D[1]\left(k_{0}\right)\left(c_{00}, c_{01}\right) \\
-D[0]\left(a_{0_{0}}\right)\left(c_{00}, c_{01}, c_{00}, c_{01}\right) & D[1]\left(a_{0_{0}}\right)\left(c_{00}, c_{01}, c_{00}, c_{01}\right) \\
-D[0]\left(a_{0_{1}}\right)\left(c_{00}, c_{01}, c_{10}, c_{11}\right) & D[1]\left(a_{0_{1}}\right)\left(c_{00}, c_{01}, c_{10}, c_{11}\right)
-\end{array}\right)$
-: $\left(\begin{array}{rr}
-2 & 2 \\
-0 & 0 \\
--c_{10} & -c_{11}
-\end{array}\right)$
-S: (1, Xhat_0, Xhat_1)
-hack A_ij: from (k_1(c_1_0, c_1_1), a_1_0(c_1_0, c_1_1, c_0_0, c_0_1), a_1_1(c_1_0, c_1_1, c_1_0, c_1_1))
-to (k_1(c_1_0, c_1_1), a_1_0(c_1_0, c_1_1, c_0_0, c_0_1), a_1_1(c_1_0, c_1_1, c_x_0, c_x_1))
-d1A: derivative of $\left(k_{1}\left(c_{10}, c_{11}\right),\,a_{1_{0}}\left(c_{10}, c_{11}, c_{00}, c_{01}\right),\,a_{1_{1}}\left(c_{10}, c_{11}, c_{x0}, c_{x1}\right)\right)$ wrt $\left(\begin{array}{c}
-  c_{10}\\
-  c_{11}
-\end{array}\right)$
-is $\left(\begin{array}{rr}
-D[0]\left(k_{1}\right)\left(c_{10}, c_{11}\right) & D[1]\left(k_{1}\right)\left(c_{10}, c_{11}\right) \\
-D[0]\left(a_{1_{0}}\right)\left(c_{10}, c_{11}, c_{00}, c_{01}\right) & D[1]\left(a_{1_{0}}\right)\left(c_{10}, c_{11}, c_{00}, c_{01}\right) \\
-D[0]\left(a_{1_{1}}\right)\left(c_{10}, c_{11}, c_{x0}, c_{x1}\right) & D[1]\left(a_{1_{1}}\right)\left(c_{10}, c_{11}, c_{x0}, c_{x1}\right)
-\end{array}\right)$
-; $\left(\begin{array}{rr}
-D[0]\left(k_{1}\right)\left(c_{10}, c_{11}\right) & D[1]\left(k_{1}\right)\left(c_{10}, c_{11}\right) \\
-D[0]\left(a_{1_{0}}\right)\left(c_{10}, c_{11}, c_{00}, c_{01}\right) & D[1]\left(a_{1_{0}}\right)\left(c_{10}, c_{11}, c_{00}, c_{01}\right) \\
-D[0]\left(a_{1_{1}}\right)\left(c_{10}, c_{11}, c_{10}, c_{11}\right) & D[1]\left(a_{1_{1}}\right)\left(c_{10}, c_{11}, c_{10}, c_{11}\right)
-\end{array}\right)$
-: $\left(\begin{array}{rr}
-2 & 2 \\
--c_{00} & -c_{01} \\
-0 & 0
-\end{array}\right)$
-S: (1, Xhat_0, Xhat_1)
-dudts: {0: (-Xhat_0*Xhat_1*c_1_0*gamma + 2*Xhat_0*gamma, -Xhat_0*Xhat_1*c_1_1*gamma + 2*Xhat_0*gamma), 1: (-Xhat_0*Xhat_1*c_0_0*gamma + 2*Xhat_1*gamma, -Xhat_0*Xhat_1*c_0_1*gamma + 2*Xhat_1*gamma)}
 printing things in LaTeX
-S: (1, Xhat_0, Xhat_1)
-S: (1, Xhat_0, Xhat_1)
-S: (1, Xhat_0, Xhat_1)
-S: (1, Xhat_0, Xhat_1)
-hack A_ij: from (k_0(c_0_0, c_0_1), a_0_0(c_0_0, c_0_1, c_0_0, c_0_1), a_0_1(c_0_0, c_0_1, c_1_0, c_1_1))
-to (k_0(c_0_0, c_0_1), a_0_0(c_0_0, c_0_1, c_x_0, c_x_1), a_0_1(c_0_0, c_0_1, c_1_0, c_1_1))
-d1A: derivative of $\left(k_{0}\left(c_{00}, c_{01}\right),\,a_{0_{0}}\left(c_{00}, c_{01}, c_{x0}, c_{x1}\right),\,a_{0_{1}}\left(c_{00}, c_{01}, c_{10}, c_{11}\right)\right)$ wrt $\left(\begin{array}{c}
-  c_{00}\\
-  c_{01}
-\end{array}\right)$
-is $\left(\begin{array}{rr}
-D[0]\left(k_{0}\right)\left(c_{00}, c_{01}\right) & D[1]\left(k_{0}\right)\left(c_{00}, c_{01}\right) \\
-D[0]\left(a_{0_{0}}\right)\left(c_{00}, c_{01}, c_{x0}, c_{x1}\right) & D[1]\left(a_{0_{0}}\right)\left(c_{00}, c_{01}, c_{x0}, c_{x1}\right) \\
-D[0]\left(a_{0_{1}}\right)\left(c_{00}, c_{01}, c_{10}, c_{11}\right) & D[1]\left(a_{0_{1}}\right)\left(c_{00}, c_{01}, c_{10}, c_{11}\right)
-\end{array}\right)$
-; $\left(\begin{array}{rr}
-D[0]\left(k_{0}\right)\left(c_{00}, c_{01}\right) & D[1]\left(k_{0}\right)\left(c_{00}, c_{01}\right) \\
-D[0]\left(a_{0_{0}}\right)\left(c_{00}, c_{01}, c_{00}, c_{01}\right) & D[1]\left(a_{0_{0}}\right)\left(c_{00}, c_{01}, c_{00}, c_{01}\right) \\
-D[0]\left(a_{0_{1}}\right)\left(c_{00}, c_{01}, c_{10}, c_{11}\right) & D[1]\left(a_{0_{1}}\right)\left(c_{00}, c_{01}, c_{10}, c_{11}\right)
-\end{array}\right)$
-: $\left(\begin{array}{rr}
-2 & 2 \\
-0 & 0 \\
--c_{10} & -c_{11}
-\end{array}\right)$
 plot k vs. t
 k_0: 2*c_0_0 + 2*c_0_1 - 1
 k_1: 2*c_1_0 + 2*c_1_1 - 1
