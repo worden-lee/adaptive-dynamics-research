@@ -1,0 +1,45 @@
+---
+layout: page
+title: R test
+author: Lee Worden
+wmd_project: R test
+---
+
+# Report
+
+Trying to reproduce a problem reported by Jake.
+
+<project-file filename="manual.Rout"/>
+
+I don't see any evidence for the problem.
+
+<source-file filename="manual.R" display="source">
+source("input.R")
+print(x)
+</source-file>
+
+<source-file filename="input.R" display="source">
+x <- 3
+</source-file>
+
+# Alternative
+
+Sourcing files is not recommended, anyway.
+
+<project-file filename="auto.seq.Rout"/>
+
+<project-file filename="auto.Rout"/>
+
+<source-file filename="auto.mk" display="source">
+auto.seq.Rout: input.Rout auto.R
+	$(run-R)
+
+auto.Rout: input.R auto.R
+	$(run-R)
+</source-file>
+
+<source-file filename="auto.R" display="source">
+print(x)
+
+</source-file>
+
