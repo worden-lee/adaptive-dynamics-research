@@ -55,7 +55,10 @@ The model equations, according to Sage:
 <source-file filename=maclev-1-1-adap.sage.step lang=sage>
 # requires: maclevmodels.py $(SageAdaptiveDynamics)/adaptivedynamics.py maclev-1-1.sobj
 # requires: $(SageUtils)/latex_output.py
-# produces: maclev-1-1-c00.png maclev-1-1-X.png maclev-1-1-ak.png maclev-1-1-adap.sage.out.tex maclev-1-1-adap.sobj
+# produces: maclev-1-1-adap.sage.out.tex maclev-1-1-adap.sobj
+# produces: maclev-1-1-c.png maclev-1-1-X.png maclev-1-1-ak.png
+# produces: maclev-1-1-R.png maclev-1-1-a.png maclev-1-1-k.png
+# produces: maclev-1-1-R.svg maclev-1-1-a.svg maclev-1-1-k.svg maclev-1-1-c.svg
 from sage.all import *
 from sage.misc.latex import _latex_file_
 from sage.misc.latex import latex
@@ -111,12 +114,14 @@ c_evolution = maclev_adap_bound.solve( [initial_u], end_time=10 )
 
 # and plot. 
 t = maclev_adap.time_variable()
-c_evolution.plot( t, u_indexer[0], 'maclev-1-1-c00.png', ylabel='$c_{00}$', figsize=(4,4) )
+c_evolution.plot( t, u_indexer[0], 'maclev-1-1-c.png', ymin=0, ylabel='$c_{00}$', figsize=(4,4) )
+c_evolution.plot( t, u_indexer[0], 'maclev-1-1-c.svg', ymin=0, ylabel='$c_{11}$', figsize=(2,2) )
 # Xhat increases.
 Xhat = hat( maclev_adap_bound._popdyn_model._population_indexer[0] )
 c_evolution.plot( t, evol_c_bindings( maclev_adap_bound._bindings( Xhat ) ), "maclev-1-1-X.png", ylabel=Xhat, figsize=(4,4) )
 Rhat = hat( maclev_adap_bound._popdyn_model._rescomp_model._indexers['R'][0] )
-c_evolution.plot( t, evol_c_bindings( maclev_adap_bound._bindings( Rhat ) ), "maclev-1-1-R.png", figsize=(4,4), ylabel=Rhat )
+c_evolution.plot( t, evol_c_bindings( maclev_adap_bound._bindings( Rhat ) ), "maclev-1-1-R.svg", figsize=(2,2), ymin=0, ylabel='$\hat{R}_1$' )
+c_evolution.plot( t, evol_c_bindings( maclev_adap_bound._bindings( Rhat ) ), "maclev-1-1-R.png", figsize=(4,4), ymin=0, ylabel=Rhat )
 # and let's also plot k_0 vs. a_00.
 # these are the coefficients if you rewrite the maclev dynamics
 # as dX_0/dt = X_0(k_0 + a_00 X_0)
@@ -138,6 +143,16 @@ ltx.write( 'And the equilibrium values $\\hat X$ and $\\hat R$:',
     latex( maclev_adap_bound._bindings( Rhat ).expand() ), '\n',
     '\\end{align*}\n' )
 
+c_evolution.plot( t, maclev_adap_bound._early_bindings( k_0 ), "maclev-1-1-k.svg",
+  ymin=0, ylabel='$k_1$', figsize=(2,2) )
+c_evolution.plot( t, maclev_adap_bound._early_bindings( k_0 ), "maclev-1-1-k.png",
+  figsize=(4,4) )
+
+c_evolution.plot( t, maclev_adap_bound._early_bindings( a_00 ), "maclev-1-1-a.svg",
+  ymax=0, ylabel='$a_{11}$', figsize=(2,2) )
+c_evolution.plot( t, maclev_adap_bound._early_bindings( a_00 ), "maclev-1-1-a.png",
+  ymax=0, ylabel='$a_{11}$', figsize=(4,4) )
+
 c_evolution.plot( maclev_adap_bound._early_bindings( a_00 ), maclev_adap_bound._early_bindings( k_0 ), "maclev-1-1-ak.png",
   xlabel = SR.var('a_00'), ylabel = SR.var('k_0'), figsize=(4,4) )
 
@@ -152,7 +167,7 @@ Here we derive the adaptive dynamics equations when it is the uptake rate $$c_{0
 
 With these parameters, the uptake rate $$c_{00}$$ ($$=u_0$$) increases as long as it starts above $$\frac12$$.  This is the only relevant range, because it has to be above $$\frac12$$ in order for the population to be viable ($$\hat X_0 > 0$$).
 
-<project-file filename=maclev-1-1-c00.png make=no/>
+<project-file filename=maclev-1-1-c.png make=no/>
 
 The equilibrium population size $$\hat{X}_0$$ increases to 1 and then decreases.
 
@@ -163,6 +178,10 @@ The availability of the resource $$\hat{R}_0$$ decreases.
 <project-file filename=maclev-1-1-R.png make=no/>
 
 And the Lotka-Volterra coefficients $$k_0$$, $$a_{00}$$ both move away from zero.  Since $$a_{00}$$ is negative, this indicates an intensification of competition.
+
+<project-file filename=maclev-1-1-k.png make=no/>
+
+<project-file filename=maclev-1-1-a.png make=no/>
 
 <project-file filename=maclev-1-1-ak.png make=no/>
 
@@ -709,7 +728,7 @@ $$\usepackage[usenames,dvipsnames,svgnames,table]{xcolor} a_{00} = - {\color{pur
 
 encompasses the loss of reproduction due to draw-down of $$R$$.
 
-The agent-patient distinction is that we consider the fitness of population 0 (as patient) in the environment created by population 0 (as agent).  Adaptive dynamics is driven by the difference of fitness as the patient population varies while the agent population stays fixed.  So the green $$\usepackage[usenames,dvipsnames,svgnames,table]{xcolor}\color{green} c_{00}$$ in the  expression for $$\hat R$$ is the agent population's consumption rate - it shows up in $$a_{00}$$ - and the purple $$\usepackage[usenames,dvipsnames,svgnames,table]{xcolor}\color{purple} b_0 c_{00}$$ and red $$\usepackage[usenames,dvipsnames,svgnames,table]{xcolor}\color{red} b_0 m_0$$$ in the $$X$$ equation - the other population parameters in $$a$$ and $$k$$ - are the patient population's characteristics.
+The agent-patient distinction is that we consider the fitness of population 0 (as patient) in the environment created by population 0 (as agent).  Adaptive dynamics is driven by the difference of fitness as the patient population varies while the agent population stays fixed.  So the green $$\usepackage[usenames,dvipsnames,svgnames,table]{xcolor}\color{green} c_{00}$$ in the  expression for $$\hat R$$ is the agent population's consumption rate - it shows up in $$a_{00}$$ - and the purple $$\usepackage[usenames,dvipsnames,svgnames,table]{xcolor}\color{purple} b_0 c_{00}$$ and red $$\usepackage[usenames,dvipsnames,svgnames,table]{xcolor}\color{red} b_0 m_0$$ in the $$X$$ equation - the other population parameters in $$a$$ and $$k$$ - are the patient population's characteristics.
 
 To summarize: the interaction vector $$A$$ is
 
