@@ -1,3 +1,5 @@
+set_population_indices: [0]
+set_population_indices: [0, 1]
 The invasion rate for mutant population is:
 \begin{align*}
   \mathscr I = \frac{1}{X_{1}}\frac{dX_{1}}{dt} &= -{\left({\left(X h + X_{1} h_{1}\right)} d - q_{0}\right)} h_{1} - 1 
@@ -6,19 +8,35 @@ The invasion rate for mutant population is:
 limit as {h_1: h}
 after those limits:
    -X*d*h - 2*X_1*d*h + q_0
-- 2 _SAGE_VAR_d _SAGE_VAR_h _SAGE_VAR_X_1 - _SAGE_VAR_d _SAGE_VAR_h _SAGE_VAR_X
-                                                                + _SAGE_VAR_q_0
-limit as                                  _SAGE_VAR_X_1 -> 0
- -->               _SAGE_VAR_q_0 - _SAGE_VAR_d _SAGE_VAR_h _SAGE_VAR_X
 Original pop-dyn system: 
-\[\begin{align*}
+\[\iflatexml
+\begin{align*}
 \frac{dX}{dt} &= -{\left({\left(X d h - q_{0}\right)} h + 1\right)} X
-\end{align*}\]
+\end{align*}
+\else
+\begin{dgroup*}
+\begin{dmath*}
+\frac{dX}{dt} = -{\left({\left(X d h - q_{0}\right)} h + 1\right)} X
+\end{dmath*}
+\end{dgroup*}
+\fi
+\]
 Extended pop-dyn system: 
-\[\begin{align*}
+\[\iflatexml
+\begin{align*}
 \frac{dX}{dt} &= -{\left({\left({\left(X h + X_{1} h_{1}\right)} d - q_{0}\right)} h + 1\right)} X\\
 \frac{dX_{1}}{dt} &= -{\left({\left({\left(X h + X_{1} h_{1}\right)} d - q_{0}\right)} h_{1} + 1\right)} X_{1}
-\end{align*}\]
+\end{align*}
+\else
+\begin{dgroup*}
+\begin{dmath*}
+\frac{dX}{dt} = -{\left({\left({\left(X h + X_{1} h_{1}\right)} d - q_{0}\right)} h + 1\right)} X\end{dmath*}
+\begin{dmath*}
+\frac{dX_{1}}{dt} = -{\left({\left({\left(X h + X_{1} h_{1}\right)} d - q_{0}\right)} h_{1} + 1\right)} X_{1}
+\end{dmath*}
+\end{dgroup*}
+\fi
+\]
  The invasion rate for mutant population is:
 \begin{align*}
   \mathscr I = \frac{1}{X_{1}}\frac{dX_{1}}{dt} &= -{\left({\left(X h + X_{1} h_{1}\right)} d - q_{0}\right)} h_{1} - 1 
@@ -41,7 +59,16 @@ Extended pop-dyn system:
   \hat{X} &\to \frac{h q_{0} - 1}{d h^{2}}
 \end{align*} \]
  The adaptive dynamics comes out to 
-\[ \begin{align*}
+\[ \iflatexml
+\begin{align*}
 \frac{dh}{dt} &= \frac{{\left(h q_{0} - 1\right)} \gamma {\left(q_{0} - \frac{h q_{0} - 1}{h}\right)}}{d h^{2}}
-\end{align*} \]
+\end{align*}
+\else
+\begin{dgroup*}
+\begin{dmath*}
+\frac{dh}{dt} = \frac{{\left(h q_{0} - 1\right)} \gamma {\left(q_{0} - \frac{h q_{0} - 1}{h}\right)}}{d h^{2}}
+\end{dmath*}
+\end{dgroup*}
+\fi
+ \]
 

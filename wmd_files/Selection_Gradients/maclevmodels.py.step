@@ -93,7 +93,7 @@ class ResourceCompetitionModel(PopulationDynamicsSystem):
                 #sys.stdout.flush()
                 zri_options = dict( options, thickness=1,
                    color = { X_0:'blue', X_1:'red' }[x_in] )
-                zri_options['filename'] = None
+                del zri_options['filename']
                 P += plot( zri_r1, (R_0,0,4), **zri_options )
                 rstar_soln = solve( [ R_1 == zri_r1, R_1 == zngi ], [ R_0, R_1 ], solution_dict=True )[0]
                 rstar = Bindings( rstar_soln )( vector( [ R_0, R_1 ] ) )

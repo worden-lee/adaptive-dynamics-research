@@ -108,17 +108,18 @@ class DerivedLotkaVolterraModel( GeneralizedLotkaVolterraModel ):
 	self.set_population_indices( self._original_model._population_indices )
 	return mutant
 
+class inner_curry(indexer):
+    def __init__(self, ixr, j):
+	self._f = ixr
+	self. _j = j
+    def __getitem__(self, i):
+	return self._f[i][self._j]
+
 class backward_curry_indexer_2d( indexer ):
     def __init__(self, ixr):
 	self._f = ixr
     def __getitem__(self, j):
 	# return a thing that maps i --> ixr[i][j]
-        class inner_curry(indexer):
-	    def __init__(self, ixr, j):
-		self._f = ixr
-		self. _j = j
-	    def __getitem__(self, i):
-		return self._f[i][j]
 	return inner_curry(self._f, j)
 
 class LotkaVolterraAdaptiveDynamics( object ):
@@ -355,8 +356,33 @@ class LotkaVolterraAdaptiveDynamics( object ):
 	except AttributeError:
 	    self._A_index_dict = dict( (v,i) for i,v in enumerate( [0] + self._lv_model._population_indices ) )
 	return self._A_index_dict[j]
+    def A_pair( self, i, j ):
+	return vector( [
+	    self.A(i)[self.A_index(j)],
+	    self.A(j)[self.A_index(i)]
+	] )
+    def S_pair( self, i, j ):
+	return vector( [
+	    self.S( self.A(i) )[self.A_index(j)],
+	    self.S( self.A(j) )[self.A_index(i)]
+	] )
+    def D_pair( self, i, j ):
+	return vector( [
+	    self.direct_effect( i )[self.A_index(j)],
+	    self.direct_effect( j )[self.A_index(i)]
+	] )
+    def I_pair( self, i, j ):
+	return vector( [
+	    self.indirect_effect( i )[self.A_index(j)],
+	    self.indirect_effect( j )[self.A_index(i)]
+	] )
+    def dAdt_pair( self, i, j ):
+	return vector( [
+	    self.dAdt( i )[self.A_index(j)],
+	    self.dAdt( j )[self.A_index(i)]
+	] )
 
-def plot_aij_with_arrows( evol_trajectory, lvad, filename, bindings=Bindings(), **options ):
+def plot_aij_with_arrows( evol_trajectory, lvad, filename=None, scale=1, bindings=Bindings(), **options ):
     resolve_A_bindings = (
 	lvad._A_to_function_bindings +
 	lvad._A_function_expansion_bindings +
@@ -384,7 +410,7 @@ def plot_aij_with_arrows( evol_trajectory, lvad, filename, bindings=Bindings(), 
 	    )
 	    print 'S:', S
 	    if S[0] != 0 or S[1] != 0:
-	        aap += arrow( Aij, ( a+s for a,s in zip(Aij, S) ), color='red' )
+	        aap += arrow( Aij, ( a+scale*s for a,s in zip(Aij, S) ), color='red' )
 	    D = (
 	        resolve_A_bindings( lvad.direct_effect( i )[lvad.A_index(j)] ),
 	        resolve_A_bindings( lvad.direct_effect( j )[lvad.A_index(i)] )
@@ -396,7 +422,7 @@ def plot_aij_with_arrows( evol_trajectory, lvad, filename, bindings=Bindings(), 
 	    )
 	    print 'D:', D
 	    if D[0] != 0 or D[1] != 0:
-	        aap += arrow( Aij, ( a+d for a,d in zip(Aij, D) ), color='green' )
+	        aap += arrow( Aij, ( a+scale*d for a,d in zip(Aij, D) ), color='green' )
 	    I = (
 	        resolve_A_bindings( lvad.indirect_effect( i )[lvad.A_index(j)] ),
 	        resolve_A_bindings( lvad.indirect_effect( j )[lvad.A_index(i)] )
@@ -408,12 +434,14 @@ def plot_aij_with_arrows( evol_trajectory, lvad, filename, bindings=Bindings(), 
 	    )
 	    print 'I:', I
 	    if I[0] != 0 or I[1] != 0:
-	        aap += arrow( Aij, ( a+i for a,i in zip(Aij, I) ), color='purple' )
+	        aap += arrow( Aij, ( a+scale*i for a,i in zip(Aij, I) ), color='purple' )
 	    d = (
 	        pp0( resolve_A_bindings( lvad.dAdt( i )[lvad.A_index(j)] ) ),
 	        pp0( resolve_A_bindings( lvad.dAdt( j )[lvad.A_index(i)] ) )
 	    )
 	    print 'dAdt:', d
 	    if d[0] != 0 or d[1] != 0:
-	        aap += arrow( Aij, ( a+d for a,d in zip(Aij, d) ), color='blue' )
-    aap.save( filename, figsize=(5,5), **options )
+	        aap += arrow( Aij, ( a+scale*d for a,d in zip(Aij, d) ), color='blue' )
+    if filename is not None:
+        aap.save( filename, figsize=(5,5), **options )
+    return aap

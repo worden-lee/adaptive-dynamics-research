@@ -6,6 +6,7 @@
 \pagestyle{empty}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
+\usepackage{latexml}
 \oddsidemargin 0.0in
 \evensidemargin 0.0in
 \textwidth 6.45in
@@ -42,10 +43,10 @@ adaptive dynamics of $b$, $m$, $c$:
 \end{array}\right)\\
 \to\\
 \left(\begin{array}{c}
-  -{\left(c_{00}^{2} + c_{01}^{2}\right)} \hat{X}_{0} + 2 \, c_{00} + 2 \, c_{01} - m_{0}\\
+  -{\left({c}_{00}^{2} + {c}_{01}^{2}\right)} \hat{X}_{0} + 2 \, {c}_{00} + 2 \, {c}_{01} - m_{0}\\
   -b_{0}\\
-  -\hat{X}_{0} b_{0} c_{00} + 2 \, b_{0}\\
-  -\hat{X}_{0} b_{0} c_{01} + 2 \, b_{0}
+  -\hat{X}_{0} b_{0} {c}_{00} + 2 \, b_{0}\\
+  -\hat{X}_{0} b_{0} {c}_{01} + 2 \, b_{0}
 \end{array}\right)\]
 and note
 
@@ -54,8 +55,8 @@ and note
   \hat{R}_{0}\\
   \hat{R}_{1}
 \end{array}\right) = \left(\begin{array}{c}
-  -\hat{X}_{0} c_{00} + 2\\
-  -\hat{X}_{0} c_{01} + 2
+  -\hat{X}_{0} {c}_{00} + 2\\
+  -\hat{X}_{0} {c}_{01} + 2
 \end{array}\right)
 \]
 so that when $b_0=b_1=1$, $S(\mathbf{c}_0)=S(\mathbf{c}_1)=\hat{\mathbf{R}}$.

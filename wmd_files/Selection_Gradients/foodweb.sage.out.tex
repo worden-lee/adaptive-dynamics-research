@@ -6,6 +6,7 @@
 \pagestyle{empty}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
+\usepackage{latexml}
 \oddsidemargin 0.0in
 \evensidemargin 0.0in
 \textwidth 6.45in
@@ -33,20 +34,40 @@
 \newcommand{\CFF}{\Bold{CFF}}
 \newcommand{\Bold}[1]{\mathbf{#1}}
 \begin{document}
-The foodweb model:
-\[\begin{align*}
-\frac{dX_{0b}}{dt} &= X_{0a} X_{0b} k f\left(u_{0b}, u_{0a}\right) - X_{0b}\\
-\frac{dX_{0a}}{dt} &= -X_{0a} X_{0b} f\left(u_{0b}, u_{0a}\right) - X_{0a}^{2} + X_{0a}
-\end{align*}\]
-Adaptive dynamics of model:
+The foodweb model:\iflatexml
 \begin{align*}
-\frac{du_{0a}}{dt} &= -\frac{10 \, {\left(9 \, \cos\left(-u_{0a} + u_{0b}\right) - 1\right)} \sin\left(-u_{0a} + u_{0b}\right)}{81 \, {\left(\cos\left(-u_{0a} + u_{0b}\right) + 1\right)}^{3}}\\
-\frac{du_{0b}}{dt} &= -\frac{{\left(9 \, \cos\left(-u_{0a} + u_{0b}\right) - 1\right)} \sin\left(-u_{0a} + u_{0b}\right)}{9 \, {\left(\cos\left(-u_{0a} + u_{0b}\right) + 1\right)}^{3}}
-\end{align*}flow at $\left(\begin{array}{c}
+\frac{dX_{0b}}{dt} &= \frac{9}{25} \, X_{0a} X_{0b} {\left(2 \, \cos\left(-u_{0a} + u_{0b}\right) + 5\right)} - X_{0b}\\
+\frac{dX_{0a}}{dt} &= -\frac{2}{5} \, X_{0a} X_{0b} {\left(2 \, \cos\left(-u_{0a} + u_{0b}\right) + 5\right)} - X_{0a}^{2} + X_{0a}
+\end{align*}
+\else
+\begin{dgroup*}
+\begin{dmath*}
+\frac{dX_{0b}}{dt} = \frac{9}{25} \, X_{0a} X_{0b} {\left(2 \, \cos\left(-u_{0a} + u_{0b}\right) + 5\right)} - X_{0b}\end{dmath*}
+\begin{dmath*}
+\frac{dX_{0a}}{dt} = -\frac{2}{5} \, X_{0a} X_{0b} {\left(2 \, \cos\left(-u_{0a} + u_{0b}\right) + 5\right)} - X_{0a}^{2} + X_{0a}
+\end{dmath*}
+\end{dgroup*}
+\fi
+Adaptive dynamics of model:
+\iflatexml
+\begin{align*}
+\frac{du_{0a}}{dt} &= -\frac{100 \, {\left(9 \, \cos\left(-u_{0a} + u_{0b}\right) + 10\right)} \sin\left(-u_{0a} + u_{0b}\right)}{81 \, {\left(2 \, \cos\left(-u_{0a} + u_{0b}\right) + 5\right)}^{3}}\\
+\frac{du_{0b}}{dt} &= -\frac{10 \, {\left(9 \, \cos\left(-u_{0a} + u_{0b}\right) + 10\right)} \sin\left(-u_{0a} + u_{0b}\right)}{9 \, {\left(2 \, \cos\left(-u_{0a} + u_{0b}\right) + 5\right)}^{3}}
+\end{align*}
+\else
+\begin{dgroup*}
+\begin{dmath*}
+\frac{du_{0a}}{dt} = -\frac{100 \, {\left(9 \, \cos\left(-u_{0a} + u_{0b}\right) + 10\right)} \sin\left(-u_{0a} + u_{0b}\right)}{81 \, {\left(2 \, \cos\left(-u_{0a} + u_{0b}\right) + 5\right)}^{3}}\end{dmath*}
+\begin{dmath*}
+\frac{du_{0b}}{dt} = -\frac{10 \, {\left(9 \, \cos\left(-u_{0a} + u_{0b}\right) + 10\right)} \sin\left(-u_{0a} + u_{0b}\right)}{9 \, {\left(2 \, \cos\left(-u_{0a} + u_{0b}\right) + 5\right)}^{3}}
+\end{dmath*}
+\end{dgroup*}
+\fi
+flow at $\left(\begin{array}{c}
   0.100000000000000\\
   0
 \end{array}\right)$: $\left(\begin{array}{c}
-  0.0123481451481798\\
-  0.0111133306333618
+  0.00684041551313924\\
+  0.00615637396182532
 \end{array}\right)$
 \end{document}

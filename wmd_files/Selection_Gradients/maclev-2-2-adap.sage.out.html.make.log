@@ -1,8 +1,8 @@
-Mon May  4 21:13:44 2015
+Thu Jun 18 22:16:06 2015
 /usr/bin/make -C /usr/local/src/jekyll-research/wmd_files/Selection_Gradients \
     maclev-2-2-adap.sage.out.html
 Including .mk files: sage.mk sage-inline.mk 
-Including .mk files from .step files: foodweb.py.mk foodweb.sage.mk foodweb.plot.sage.mk foodweb-2-2.sage.mk foodweb-2-2.plot.sage.mk maclev-1-1.sage.mk maclev-1-1-adap.sage.mk maclev-1-1-mc-adap-geom.sage.mk maclev-1-1-ak-adap-geom.sage.mk S-A-vector-field.sage.mk maclev-1-1-d1A-vector-field.sage.mk maclev-1-1-S-and-d1A-on-curve.sage.mk maclev-1-1-S-and-D-on-curve.sage.mk maclev_1_2_defs.py.mk maclev-1-2-popdyn.sage.mk maclev-1-2-adap.sage.mk maclev-1-2-p.sage.mk maclev-1-2-zngi.sage.mk maclev-1-2-geom.sage.mk maclev_unconstrained_c.py.mk maclev-2-2-c-popdyn.sage.mk maclev-2-2-c-adap.sage.mk maclev-2-2-c-p.sage.mk maclev-2-2-c-zngi.sage.mk maclev-2-2-c-geom.sage.mk maclev_2_2_defs.py.mk maclev-2-2-popdyn.sage.mk maclev-2-2-adap.sage.mk maclev-2-2-p.sage.mk maclev-2-2-zngi.sage.mk maclev-2-2-geom.sage.mk maclev_a_only_defs.py.mk maclev-a-only-popdyn.sage.mk maclev-a-only-adap.sage.mk maclev-a-only-p.sage.mk maclev-a-only-zngi.sage.mk maclev-a-only-geom.sage.mk maclev_a_c.py.mk maclev-2-2-a-c-popdyn.sage.mk maclev-2-2-a-c-adap.sage.mk maclev-2-2-a-c-p.sage.mk maclev-2-2-a-c-zngi.sage.mk maclev-2-2-a-c-geom.sage.mk maclevmodels.py.mk toc.sage.mk maclev-2-2-zngi-invasion.sage.mk lotkavolterra.py.mk
+Including .mk files from .step files: foodweb.py.mk foodweb.sage.mk foodweb.plot.sage.mk foodweb-2-2.sage.mk foodweb-2-2.plot.sage.mk maclev-1-1.sage.mk maclev-1-1-adap.sage.mk maclev-1-1-mc-adap-geom.sage.mk maclev-1-1-ak-adap-geom.sage.mk S-A-vector-field.sage.mk maclev-1-1-d1A-vector-field.sage.mk maclev-1-1-S-and-d1A-on-curve.sage.mk maclev-1-1-S-and-D-on-curve.sage.mk maclev_1_2_defs.py.mk maclev-1-2-popdyn.sage.mk maclev-1-2-adap.sage.mk maclev-1-2-p.sage.mk maclev-1-2-zngi.sage.mk maclev-1-2-geom.sage.mk maclev_unconstrained_c.py.mk maclev-2-2-c-popdyn.sage.mk maclev-2-2-c-adap.sage.mk maclev-2-2-c-p.sage.mk maclev-2-2-c-zngi.sage.mk maclev-2-2-c-geom.sage.mk maclev_2_2_defs.py.mk maclev-2-2-popdyn.sage.mk maclev-2-2-adap.sage.mk maclev-2-2-p.sage.mk maclev-2-2-zngi.sage.mk maclev-2-2-geom.sage.mk maclev_a_only_defs.py.mk maclev-a-only-popdyn.sage.mk maclev-a-only-adap.sage.mk maclev-a-only-p.sage.mk maclev-a-only-zngi.sage.mk maclev-a-only-geom.sage.mk maclev_a_c.py.mk maclev-2-2-a-c-popdyn.sage.mk maclev-2-2-a-c-adap.sage.mk maclev-2-2-a-c-p.sage.mk maclev-2-2-a-c-zngi.sage.mk maclev-2-2-a-c-geom.sage.mk maclevmodels.py.mk statmech.py.mk statmech-assemble.sage.mk statmech-assemble-plot.sage.mk statmech-evol.sage.mk statmech-evol-plot.sage.mk toc.sage.mk maclev-2-2-zngi-invasion.sage.mk lotkavolterra.py.mk
 Including .mk files from .sage-inline files: avec.sage.mk a-careful.sage.mk
 Including .tex.d files: foodweb-2-2.tikz.tex.d foodweb.tikz.tex.d
 make: Entering directory `/usr/local/src/jekyll-research/wmd_files/Selection_Gradients'
@@ -14,6 +14,175 @@ make[1]: Nothing to be done for `dynamicalsystems.py'.
 Including .mk files:  
 Including .tex.d files: 
 make[1]: Nothing to be done for `adaptivedynamics.py'.
+rm -f maclev-2-2-adap.sage.out maclev-2-2-adap.sage.status maclev-2-2-adap.sage.out.tex maclev-2-2-adap.sobj maclev-2-2-u-vs-t.png maclev-2-2-u-vs-u.png
+(sage maclev-2-2-adap.sage && touch maclev-2-2-adap.sage.status) | tee maclev-2-2-adap.sage.dmp
+set_population_indices: [0, 1]
+set_population_indices: [0, 1]
+set_population_indices: [0, 1]
+set_population_indices: [0, 1]
+set_population_indices: [0, 1, 2]
+set_population_indices: [0, 1, 2]
+The invasion rate for mutant population is:
+\begin{align*}
+  \mathscr I = \frac{1}{X_{2}}\frac{dX_{2}}{dt} &= {\left(\frac{{\left(K_{0} r_{0} - X_{0} c_{0}\left(u_{0}\right) - X_{1} c_{0}\left(u_{1}\right) - X_{2} c_{0}\left(u_{2}\right)\right)} w_{0} c_{0}\left(u_{2}\right)}{r_{0}} + \frac{{\left(K_{1} r_{1} - X_{0} c_{1}\left(u_{0}\right) - X_{1} c_{1}\left(u_{1}\right) - X_{2} c_{1}\left(u_{2}\right)\right)} w_{1} c_{1}\left(u_{2}\right)}{r_{1}} - m\left(u_{2}\right)\right)} b\left(u_{2}\right) 
+\end{align*}
+
+limit as {u_2: u_0}
+after those limits:
+   limit(-(X_2*w_0*c_0(u_0)*D[0](c_0)(u_0)/r_0 + X_2*w_1*c_1(u_0)*D[0](c_1)(u_0)/r_1 - (K_0*r_0 - X_0*c_0(u_0) - X_2*c_0(u_0) - X_1*c_0(u_1))*w_0*D[0](c_0)(u_0)/r_0 - (K_1*r_1 - X_0*c_1(u_0) - X_2*c_1(u_0) - X_1*c_1(u_1))*w_1*D[0](c_1)(u_0)/r_1 + D[0](m)(u_0))*b(u_0) + ((K_0*r_0 - X_0*c_0(u_0) - X_2*c_0(u_0) - X_1*c_0(u_1))*w_0*c_0(u_0)/r_0 + (K_1*r_1 - X_0*c_1(u_0) - X_2*c_1(u_0) - X_1*c_1(u_1))*w_1*c_1(u_0)/r_1 - m(u_0))*D[0](b)(u_0), u_0, u_0)
+set_population_indices: [0, 1, 2]
+set_population_indices: [0, 1, 2]
+The invasion rate for mutant population is:
+\begin{align*}
+  \mathscr I = \frac{1}{X_{2}}\frac{dX_{2}}{dt} &= {\left(\frac{{\left(K_{0} r_{0} - X_{0} c_{0}\left(u_{0}\right) - X_{1} c_{0}\left(u_{1}\right) - X_{2} c_{0}\left(u_{2}\right)\right)} w_{0} c_{0}\left(u_{2}\right)}{r_{0}} + \frac{{\left(K_{1} r_{1} - X_{0} c_{1}\left(u_{0}\right) - X_{1} c_{1}\left(u_{1}\right) - X_{2} c_{1}\left(u_{2}\right)\right)} w_{1} c_{1}\left(u_{2}\right)}{r_{1}} - m\left(u_{2}\right)\right)} b\left(u_{2}\right) 
+\end{align*}
+
+limit as {u_2: u_1}
+after those limits:
+   limit(-(X_2*w_0*c_0(u_1)*D[0](c_0)(u_1)/r_0 + X_2*w_1*c_1(u_1)*D[0](c_1)(u_1)/r_1 - (K_0*r_0 - X_0*c_0(u_0) - X_1*c_0(u_1) - X_2*c_0(u_1))*w_0*D[0](c_0)(u_1)/r_0 - (K_1*r_1 - X_0*c_1(u_0) - X_1*c_1(u_1) - X_2*c_1(u_1))*w_1*D[0](c_1)(u_1)/r_1 + D[0](m)(u_1))*b(u_1) + ((K_0*r_0 - X_0*c_0(u_0) - X_1*c_0(u_1) - X_2*c_0(u_1))*w_0*c_0(u_1)/r_0 + (K_1*r_1 - X_0*c_1(u_0) - X_1*c_1(u_1) - X_2*c_1(u_1))*w_1*c_1(u_1)/r_1 - m(u_1))*D[0](b)(u_1), u_1, u_1)
+ad flow: {u_1: -Xhat_1*gamma*limit(r_0*r_1*b(u_1)*D[0](m)(u_1) - (K_0*r_0*r_1*w_0*c_0(u_1) + K_1*r_0*r_1*w_1*c_1(u_1) - r_0*r_1*m(u_1) - (r_1*w_0*c_0(u_0)*c_0(u_1) + r_0*w_1*c_1(u_0)*c_1(u_1))*Xhat_0 - (r_1*w_0*c_0(u_1)^2 + r_0*w_1*c_1(u_1)^2)*Xhat_1)*D[0](b)(u_1) - (K_0*r_0*r_1*w_0*b(u_1) - Xhat_0*r_1*w_0*b(u_1)*c_0(u_0) - Xhat_1*r_1*w_0*b(u_1)*c_0(u_1))*D[0](c_0)(u_1) - (K_1*r_0*r_1*w_1*b(u_1) - Xhat_0*r_0*w_1*b(u_1)*c_1(u_0) - Xhat_1*r_0*w_1*b(u_1)*c_1(u_1))*D[0](c_1)(u_1), u_1, u_1)/(r_0*r_1), u_0: -Xhat_0*gamma*limit(r_0*r_1*b(u_0)*D[0](m)(u_0) - (K_0*r_0*r_1*w_0*c_0(u_0) + K_1*r_0*r_1*w_1*c_1(u_0) - r_0*r_1*m(u_0) - (r_1*w_0*c_0(u_0)^2 + r_0*w_1*c_1(u_0)^2)*Xhat_0 - (r_1*w_0*c_0(u_0)*c_0(u_1) + r_0*w_1*c_1(u_0)*c_1(u_1))*Xhat_1)*D[0](b)(u_0) - (K_0*r_0*r_1*w_0*b(u_0) - Xhat_0*r_1*w_0*b(u_0)*c_0(u_0) - Xhat_1*r_1*w_0*b(u_0)*c_0(u_1))*D[0](c_0)(u_0) - (K_1*r_0*r_1*w_1*b(u_0) - Xhat_0*r_0*w_1*b(u_0)*c_1(u_0) - Xhat_1*r_0*w_1*b(u_0)*c_1(u_1))*D[0](c_1)(u_0), u_0, u_0)/(r_0*r_1)}
++ bindings: {gamma -> 1, K_0 -> 2, b_0 -> 1, Rhat_1 -> -Xhat_0*e^(-3*(u_0 - 1)^2) - Xhat_1*e^(-3*(u_1 - 1)^2) + 2, c_0_1 -> e^(-3*(u_0 - 1)^2), b_2 -> 1, r_1 -> 1, b_1 -> 1, c_2_0 -> e^(-3*u_2^2), m_1 -> 1, m_3 -> 1, c_0_0 -> e^(-3*u_0^2), c_2_1 -> e^(-3*(u_2 - 1)^2), w_1 -> 1, b_3 -> 1, K_1 -> 2, c_1_0 -> e^(-3*u_1^2), R_0 -> -X_0*e^(-3*u_0^2) - X_1*e^(-3*u_1^2) + 2, r_0 -> 1, m_2 -> 1, Rhat_0 -> -Xhat_0*e^(-3*u_0^2) - Xhat_1*e^(-3*u_1^2) + 2, w_0 -> 1, c_3_1 -> e^(-3*(u_3 - 1)^2), m_0 -> 1, c_1_1 -> e^(-3*(u_1 - 1)^2), c_3_0 -> e^(-3*u_3^2), R_1 -> -X_0*e^(-3*(u_0 - 1)^2) - X_1*e^(-3*(u_1 - 1)^2) + 2, c_1(u_0) -> e^(-3*(u_0 - 1)^2), b() -> 1, m() -> 1, c_0(u_0) -> e^(-3*u_0^2)}
+--> flow: {u_1: 6*(Xhat_1*u_1*e^(3*u_0^2 + 6) + ((Xhat_0*e^6 - 2*e^(3*u_0^2 + 6))*u_1 + ((Xhat_0*e^(6*u_0) - 2*e^(3*u_0^2 + 3))*u_1 - Xhat_0*e^(6*u_0) + 2*e^(3*u_0^2 + 3))*e^(6*u_1))*e^(3*u_1^2) + (Xhat_1*u_1*e^(3*u_0^2) - Xhat_1*e^(3*u_0^2))*e^(12*u_1))*Xhat_1*e^(-3*u_0^2 - 6*u_1^2 - 6), u_0: 6*(Xhat_1*u_0*e^(3*u_0^2 + 6) + (Xhat_1*u_0 - Xhat_1)*e^(3*u_0^2 + 6*u_0 + 6*u_1) + (Xhat_0*u_0*e^6 - 2*(u_0*e^6 + (u_0*e^3 - e^3)*e^(6*u_0))*e^(3*u_0^2) + (Xhat_0*u_0 - Xhat_0)*e^(12*u_0))*e^(3*u_1^2))*Xhat_0*e^(-6*u_0^2 - 3*u_1^2 - 6)}
+find adaptive dynamics equilibria
+construct u vector field plot
+solve
+NumericalODESystem.solve
+capi_return is NULL
+Call-back cb_f_in_lsoda__user__routines failed.
+Integration of dynamics interrupted : Equilibrium detected
+set_population_indices: [0, 1, 2]
+set_population_indices: [0, 1, 2]
+set_population_indices: [0, 1, 2, 3]
+set_population_indices: [0, 1, 2, 3]
+The invasion rate for mutant population is:
+\begin{align*}
+  \mathscr I = \frac{1}{X_{3}}\frac{dX_{3}}{dt} &= {\left(\frac{{\left(K_{0} r_{0} - X_{0} c_{0}\left(u_{0}\right) - X_{1} c_{0}\left(u_{1}\right) - X_{2} c_{0}\left(u_{2}\right) - X_{3} c_{0}\left(u_{3}\right)\right)} w_{0} c_{0}\left(u_{3}\right)}{r_{0}} + \frac{{\left(K_{1} r_{1} - X_{0} c_{1}\left(u_{0}\right) - X_{1} c_{1}\left(u_{1}\right) - X_{2} c_{1}\left(u_{2}\right) - X_{3} c_{1}\left(u_{3}\right)\right)} w_{1} c_{1}\left(u_{3}\right)}{r_{1}} - m\left(u_{3}\right)\right)} b\left(u_{3}\right) 
+\end{align*}
+
+limit as {u_3: u_0}
+after those limits:
+   limit(-(X_3*w_0*c_0(u_0)*D[0](c_0)(u_0)/r_0 + X_3*w_1*c_1(u_0)*D[0](c_1)(u_0)/r_1 - (K_0*r_0 - X_0*c_0(u_0) - X_3*c_0(u_0) - X_1*c_0(u_1) - X_2*c_0(u_2))*w_0*D[0](c_0)(u_0)/r_0 - (K_1*r_1 - X_0*c_1(u_0) - X_3*c_1(u_0) - X_1*c_1(u_1) - X_2*c_1(u_2))*w_1*D[0](c_1)(u_0)/r_1 + D[0](m)(u_0))*b(u_0) + ((K_0*r_0 - X_0*c_0(u_0) - X_3*c_0(u_0) - X_1*c_0(u_1) - X_2*c_0(u_2))*w_0*c_0(u_0)/r_0 + (K_1*r_1 - X_0*c_1(u_0) - X_3*c_1(u_0) - X_1*c_1(u_1) - X_2*c_1(u_2))*w_1*c_1(u_0)/r_1 - m(u_0))*D[0](b)(u_0), u_0, u_0)
+set_population_indices: [0, 1, 2, 3]
+set_population_indices: [0, 1, 2, 3]
+The invasion rate for mutant population is:
+\begin{align*}
+  \mathscr I = \frac{1}{X_{3}}\frac{dX_{3}}{dt} &= {\left(\frac{{\left(K_{0} r_{0} - X_{0} c_{0}\left(u_{0}\right) - X_{1} c_{0}\left(u_{1}\right) - X_{2} c_{0}\left(u_{2}\right) - X_{3} c_{0}\left(u_{3}\right)\right)} w_{0} c_{0}\left(u_{3}\right)}{r_{0}} + \frac{{\left(K_{1} r_{1} - X_{0} c_{1}\left(u_{0}\right) - X_{1} c_{1}\left(u_{1}\right) - X_{2} c_{1}\left(u_{2}\right) - X_{3} c_{1}\left(u_{3}\right)\right)} w_{1} c_{1}\left(u_{3}\right)}{r_{1}} - m\left(u_{3}\right)\right)} b\left(u_{3}\right) 
+\end{align*}
+
+limit as {u_3: u_1}
+after those limits:
+   limit(-(X_3*w_0*c_0(u_1)*D[0](c_0)(u_1)/r_0 + X_3*w_1*c_1(u_1)*D[0](c_1)(u_1)/r_1 - (K_0*r_0 - X_0*c_0(u_0) - X_1*c_0(u_1) - X_3*c_0(u_1) - X_2*c_0(u_2))*w_0*D[0](c_0)(u_1)/r_0 - (K_1*r_1 - X_0*c_1(u_0) - X_1*c_1(u_1) - X_3*c_1(u_1) - X_2*c_1(u_2))*w_1*D[0](c_1)(u_1)/r_1 + D[0](m)(u_1))*b(u_1) + ((K_0*r_0 - X_0*c_0(u_0) - X_1*c_0(u_1) - X_3*c_0(u_1) - X_2*c_0(u_2))*w_0*c_0(u_1)/r_0 + (K_1*r_1 - X_0*c_1(u_0) - X_1*c_1(u_1) - X_3*c_1(u_1) - X_2*c_1(u_2))*w_1*c_1(u_1)/r_1 - m(u_1))*D[0](b)(u_1), u_1, u_1)
+set_population_indices: [0, 1, 2, 3]
+set_population_indices: [0, 1, 2, 3]
+The invasion rate for mutant population is:
+\begin{align*}
+  \mathscr I = \frac{1}{X_{3}}\frac{dX_{3}}{dt} &= {\left(\frac{{\left(K_{0} r_{0} - X_{0} c_{0}\left(u_{0}\right) - X_{1} c_{0}\left(u_{1}\right) - X_{2} c_{0}\left(u_{2}\right) - X_{3} c_{0}\left(u_{3}\right)\right)} w_{0} c_{0}\left(u_{3}\right)}{r_{0}} + \frac{{\left(K_{1} r_{1} - X_{0} c_{1}\left(u_{0}\right) - X_{1} c_{1}\left(u_{1}\right) - X_{2} c_{1}\left(u_{2}\right) - X_{3} c_{1}\left(u_{3}\right)\right)} w_{1} c_{1}\left(u_{3}\right)}{r_{1}} - m\left(u_{3}\right)\right)} b\left(u_{3}\right) 
+\end{align*}
+
+limit as {u_3: u_2}
+after those limits:
+   limit(-(X_3*w_0*c_0(u_2)*D[0](c_0)(u_2)/r_0 + X_3*w_1*c_1(u_2)*D[0](c_1)(u_2)/r_1 - (K_0*r_0 - X_0*c_0(u_0) - X_1*c_0(u_1) - X_2*c_0(u_2) - X_3*c_0(u_2))*w_0*D[0](c_0)(u_2)/r_0 - (K_1*r_1 - X_0*c_1(u_0) - X_1*c_1(u_1) - X_2*c_1(u_2) - X_3*c_1(u_2))*w_1*D[0](c_1)(u_2)/r_1 + D[0](m)(u_2))*b(u_2) + ((K_0*r_0 - X_0*c_0(u_0) - X_1*c_0(u_1) - X_2*c_0(u_2) - X_3*c_0(u_2))*w_0*c_0(u_2)/r_0 + (K_1*r_1 - X_0*c_1(u_0) - X_1*c_1(u_1) - X_2*c_1(u_2) - X_3*c_1(u_2))*w_1*c_1(u_2)/r_1 - m(u_2))*D[0](b)(u_2), u_2, u_2)
+ad flow: {u_1: -Xhat_1*gamma*limit(r_0*r_1*b(u_1)*D[0](m)(u_1) - (K_0*r_0*r_1*w_0*c_0(u_1) + K_1*r_0*r_1*w_1*c_1(u_1) - r_0*r_1*m(u_1) - (r_1*w_0*c_0(u_0)*c_0(u_1) + r_0*w_1*c_1(u_0)*c_1(u_1))*Xhat_0 - (r_1*w_0*c_0(u_1)^2 + r_0*w_1*c_1(u_1)^2)*Xhat_1 - (r_1*w_0*c_0(u_1)*c_0(u_2) + r_0*w_1*c_1(u_1)*c_1(u_2))*Xhat_2)*D[0](b)(u_1) - (K_0*r_0*r_1*w_0*b(u_1) - Xhat_0*r_1*w_0*b(u_1)*c_0(u_0) - Xhat_1*r_1*w_0*b(u_1)*c_0(u_1) - Xhat_2*r_1*w_0*b(u_1)*c_0(u_2))*D[0](c_0)(u_1) - (K_1*r_0*r_1*w_1*b(u_1) - Xhat_0*r_0*w_1*b(u_1)*c_1(u_0) - Xhat_1*r_0*w_1*b(u_1)*c_1(u_1) - Xhat_2*r_0*w_1*b(u_1)*c_1(u_2))*D[0](c_1)(u_1), u_1, u_1)/(r_0*r_1), u_0: -Xhat_0*gamma*limit(r_0*r_1*b(u_0)*D[0](m)(u_0) - (K_0*r_0*r_1*w_0*c_0(u_0) + K_1*r_0*r_1*w_1*c_1(u_0) - r_0*r_1*m(u_0) - (r_1*w_0*c_0(u_0)^2 + r_0*w_1*c_1(u_0)^2)*Xhat_0 - (r_1*w_0*c_0(u_0)*c_0(u_1) + r_0*w_1*c_1(u_0)*c_1(u_1))*Xhat_1 - (r_1*w_0*c_0(u_0)*c_0(u_2) + r_0*w_1*c_1(u_0)*c_1(u_2))*Xhat_2)*D[0](b)(u_0) - (K_0*r_0*r_1*w_0*b(u_0) - Xhat_0*r_1*w_0*b(u_0)*c_0(u_0) - Xhat_1*r_1*w_0*b(u_0)*c_0(u_1) - Xhat_2*r_1*w_0*b(u_0)*c_0(u_2))*D[0](c_0)(u_0) - (K_1*r_0*r_1*w_1*b(u_0) - Xhat_0*r_0*w_1*b(u_0)*c_1(u_0) - Xhat_1*r_0*w_1*b(u_0)*c_1(u_1) - Xhat_2*r_0*w_1*b(u_0)*c_1(u_2))*D[0](c_1)(u_0), u_0, u_0)/(r_0*r_1), u_2: -Xhat_2*gamma*limit(r_0*r_1*b(u_2)*D[0](m)(u_2) - (K_0*r_0*r_1*w_0*c_0(u_2) + K_1*r_0*r_1*w_1*c_1(u_2) - r_0*r_1*m(u_2) - (r_1*w_0*c_0(u_0)*c_0(u_2) + r_0*w_1*c_1(u_0)*c_1(u_2))*Xhat_0 - (r_1*w_0*c_0(u_1)*c_0(u_2) + r_0*w_1*c_1(u_1)*c_1(u_2))*Xhat_1 - (r_1*w_0*c_0(u_2)^2 + r_0*w_1*c_1(u_2)^2)*Xhat_2)*D[0](b)(u_2) - (K_0*r_0*r_1*w_0*b(u_2) - Xhat_0*r_1*w_0*b(u_2)*c_0(u_0) - Xhat_1*r_1*w_0*b(u_2)*c_0(u_1) - Xhat_2*r_1*w_0*b(u_2)*c_0(u_2))*D[0](c_0)(u_2) - (K_1*r_0*r_1*w_1*b(u_2) - Xhat_0*r_0*w_1*b(u_2)*c_1(u_0) - Xhat_1*r_0*w_1*b(u_2)*c_1(u_1) - Xhat_2*r_0*w_1*b(u_2)*c_1(u_2))*D[0](c_1)(u_2), u_2, u_2)/(r_0*r_1)}
++ bindings: {gamma -> 1, K_0 -> 2, b_0 -> 1, Rhat_1 -> -Xhat_0*e^(-3*(u_0 - 1)^2) - Xhat_1*e^(-3*(u_1 - 1)^2) - Xhat_2*e^(-3*(u_2 - 1)^2) + 2, c_0_1 -> e^(-3*(u_0 - 1)^2), b_2 -> 1, r_1 -> 1, b_1 -> 1, c_2_0 -> e^(-3*u_2^2), m_1 -> 1, m_3 -> 1, c_0_0 -> e^(-3*u_0^2), c_2_1 -> e^(-3*(u_2 - 1)^2), w_1 -> 1, b_3 -> 1, K_1 -> 2, c_1_0 -> e^(-3*u_1^2), R_0 -> -X_0*e^(-3*u_0^2) - X_1*e^(-3*u_1^2) - X_2*e^(-3*u_2^2) + 2, r_0 -> 1, m_2 -> 1, Rhat_0 -> -Xhat_0*e^(-3*u_0^2) - Xhat_1*e^(-3*u_1^2) - Xhat_2*e^(-3*u_2^2) + 2, w_0 -> 1, c_3_1 -> e^(-3*(u_3 - 1)^2), m_0 -> 1, c_1_1 -> e^(-3*(u_1 - 1)^2), c_3_0 -> e^(-3*u_3^2), R_1 -> -X_0*e^(-3*(u_0 - 1)^2) - X_1*e^(-3*(u_1 - 1)^2) - X_2*e^(-3*(u_2 - 1)^2) + 2, c_1(u_0) -> e^(-3*(u_0 - 1)^2), b() -> 1, m() -> 1, c_0(u_0) -> e^(-3*u_0^2)}
+--> flow: {u_1: 6*(Xhat_2*u_1*e^(3*u_0^2 + 3*u_1^2 + 6) + (Xhat_2*u_1*e^(3*u_0^2) - Xhat_2*e^(3*u_0^2))*e^(3*u_1^2 + 6*u_1 + 6*u_2) + (Xhat_1*u_1*e^(3*u_0^2 + 6) + ((Xhat_0*e^6 - 2*e^(3*u_0^2 + 6))*u_1 + ((Xhat_0*e^(6*u_0) - 2*e^(3*u_0^2 + 3))*u_1 - Xhat_0*e^(6*u_0) + 2*e^(3*u_0^2 + 3))*e^(6*u_1))*e^(3*u_1^2) + (Xhat_1*u_1*e^(3*u_0^2) - Xhat_1*e^(3*u_0^2))*e^(12*u_1))*e^(3*u_2^2))*Xhat_1*e^(-3*u_0^2 - 6*u_1^2 - 3*u_2^2 - 6), u_0: 6*(Xhat_2*u_0*e^(3*u_0^2 + 3*u_1^2 + 6) + (Xhat_2*u_0 - Xhat_2)*e^(3*u_0^2 + 3*u_1^2 + 6*u_0 + 6*u_2) + (Xhat_1*u_0*e^(3*u_0^2 + 6) + (Xhat_1*u_0 - Xhat_1)*e^(3*u_0^2 + 6*u_0 + 6*u_1) + (Xhat_0*u_0*e^6 - 2*(u_0*e^6 + (u_0*e^3 - e^3)*e^(6*u_0))*e^(3*u_0^2) + (Xhat_0*u_0 - Xhat_0)*e^(12*u_0))*e^(3*u_1^2))*e^(3*u_2^2))*Xhat_0*e^(-6*u_0^2 - 3*u_1^2 - 3*u_2^2 - 6), u_2: 6*(Xhat_2*u_2*e^(3*u_0^2 + 3*u_1^2 + 6) + ((Xhat_1*e^(3*u_0^2 + 6) + (Xhat_0*e^6 - 2*e^(3*u_0^2 + 6))*e^(3*u_1^2))*u_2 + ((Xhat_1*e^(3*u_0^2 + 6*u_1) + (Xhat_0*e^(6*u_0) - 2*e^(3*u_0^2 + 3))*e^(3*u_1^2))*u_2 - Xhat_1*e^(3*u_0^2 + 6*u_1) - (Xhat_0*e^(6*u_0) - 2*e^(3*u_0^2 + 3))*e^(3*u_1^2))*e^(6*u_2))*e^(3*u_2^2) + (Xhat_2*u_2*e^(3*u_0^2 + 3*u_1^2) - Xhat_2*e^(3*u_0^2 + 3*u_1^2))*e^(12*u_2))*Xhat_2*e^(-3*u_0^2 - 3*u_1^2 - 6*u_2^2 - 6)}
+set_population_indices: [0, 1, 2]
+set_population_indices: [0, 1, 2]
+set_population_indices: [0, 1, 2, 3]
+set_population_indices: [0, 1, 2, 3]
+The invasion rate for mutant population is:
+\begin{align*}
+  \mathscr I = \frac{1}{X_{3}}\frac{dX_{3}}{dt} &= {\left(\frac{{\left(K_{0} r_{0} - X_{0} c_{0}\left(u_{0}\right) - X_{1} c_{0}\left(u_{1}\right) - X_{2} c_{0}\left(u_{2}\right) - X_{3} c_{0}\left(u_{3}\right)\right)} w_{0} c_{0}\left(u_{3}\right)}{r_{0}} + \frac{{\left(K_{1} r_{1} - X_{0} c_{1}\left(u_{0}\right) - X_{1} c_{1}\left(u_{1}\right) - X_{2} c_{1}\left(u_{2}\right) - X_{3} c_{1}\left(u_{3}\right)\right)} w_{1} c_{1}\left(u_{3}\right)}{r_{1}} - m\left(u_{3}\right)\right)} b\left(u_{3}\right) 
+\end{align*}
+
+limit as {u_3: u_0}
+after those limits:
+   limit(-(X_3*w_0*c_0(u_0)*D[0](c_0)(u_0)/r_0 + X_3*w_1*c_1(u_0)*D[0](c_1)(u_0)/r_1 - (K_0*r_0 - X_0*c_0(u_0) - X_3*c_0(u_0) - X_1*c_0(u_1) - X_2*c_0(u_2))*w_0*D[0](c_0)(u_0)/r_0 - (K_1*r_1 - X_0*c_1(u_0) - X_3*c_1(u_0) - X_1*c_1(u_1) - X_2*c_1(u_2))*w_1*D[0](c_1)(u_0)/r_1 + D[0](m)(u_0))*b(u_0) + ((K_0*r_0 - X_0*c_0(u_0) - X_3*c_0(u_0) - X_1*c_0(u_1) - X_2*c_0(u_2))*w_0*c_0(u_0)/r_0 + (K_1*r_1 - X_0*c_1(u_0) - X_3*c_1(u_0) - X_1*c_1(u_1) - X_2*c_1(u_2))*w_1*c_1(u_0)/r_1 - m(u_0))*D[0](b)(u_0), u_0, u_0)
+set_population_indices: [0, 1, 2, 3]
+set_population_indices: [0, 1, 2, 3]
+The invasion rate for mutant population is:
+\begin{align*}
+  \mathscr I = \frac{1}{X_{3}}\frac{dX_{3}}{dt} &= {\left(\frac{{\left(K_{0} r_{0} - X_{0} c_{0}\left(u_{0}\right) - X_{1} c_{0}\left(u_{1}\right) - X_{2} c_{0}\left(u_{2}\right) - X_{3} c_{0}\left(u_{3}\right)\right)} w_{0} c_{0}\left(u_{3}\right)}{r_{0}} + \frac{{\left(K_{1} r_{1} - X_{0} c_{1}\left(u_{0}\right) - X_{1} c_{1}\left(u_{1}\right) - X_{2} c_{1}\left(u_{2}\right) - X_{3} c_{1}\left(u_{3}\right)\right)} w_{1} c_{1}\left(u_{3}\right)}{r_{1}} - m\left(u_{3}\right)\right)} b\left(u_{3}\right) 
+\end{align*}
+
+limit as {u_3: u_1}
+after those limits:
+   limit(-(X_3*w_0*c_0(u_1)*D[0](c_0)(u_1)/r_0 + X_3*w_1*c_1(u_1)*D[0](c_1)(u_1)/r_1 - (K_0*r_0 - X_0*c_0(u_0) - X_1*c_0(u_1) - X_3*c_0(u_1) - X_2*c_0(u_2))*w_0*D[0](c_0)(u_1)/r_0 - (K_1*r_1 - X_0*c_1(u_0) - X_1*c_1(u_1) - X_3*c_1(u_1) - X_2*c_1(u_2))*w_1*D[0](c_1)(u_1)/r_1 + D[0](m)(u_1))*b(u_1) + ((K_0*r_0 - X_0*c_0(u_0) - X_1*c_0(u_1) - X_3*c_0(u_1) - X_2*c_0(u_2))*w_0*c_0(u_1)/r_0 + (K_1*r_1 - X_0*c_1(u_0) - X_1*c_1(u_1) - X_3*c_1(u_1) - X_2*c_1(u_2))*w_1*c_1(u_1)/r_1 - m(u_1))*D[0](b)(u_1), u_1, u_1)
+set_population_indices: [0, 1, 2, 3]
+set_population_indices: [0, 1, 2, 3]
+The invasion rate for mutant population is:
+\begin{align*}
+  \mathscr I = \frac{1}{X_{3}}\frac{dX_{3}}{dt} &= {\left(\frac{{\left(K_{0} r_{0} - X_{0} c_{0}\left(u_{0}\right) - X_{1} c_{0}\left(u_{1}\right) - X_{2} c_{0}\left(u_{2}\right) - X_{3} c_{0}\left(u_{3}\right)\right)} w_{0} c_{0}\left(u_{3}\right)}{r_{0}} + \frac{{\left(K_{1} r_{1} - X_{0} c_{1}\left(u_{0}\right) - X_{1} c_{1}\left(u_{1}\right) - X_{2} c_{1}\left(u_{2}\right) - X_{3} c_{1}\left(u_{3}\right)\right)} w_{1} c_{1}\left(u_{3}\right)}{r_{1}} - m\left(u_{3}\right)\right)} b\left(u_{3}\right) 
+\end{align*}
+
+limit as {u_3: u_2}
+after those limits:
+   limit(-(X_3*w_0*c_0(u_2)*D[0](c_0)(u_2)/r_0 + X_3*w_1*c_1(u_2)*D[0](c_1)(u_2)/r_1 - (K_0*r_0 - X_0*c_0(u_0) - X_1*c_0(u_1) - X_2*c_0(u_2) - X_3*c_0(u_2))*w_0*D[0](c_0)(u_2)/r_0 - (K_1*r_1 - X_0*c_1(u_0) - X_1*c_1(u_1) - X_2*c_1(u_2) - X_3*c_1(u_2))*w_1*D[0](c_1)(u_2)/r_1 + D[0](m)(u_2))*b(u_2) + ((K_0*r_0 - X_0*c_0(u_0) - X_1*c_0(u_1) - X_2*c_0(u_2) - X_3*c_0(u_2))*w_0*c_0(u_2)/r_0 + (K_1*r_1 - X_0*c_1(u_0) - X_1*c_1(u_1) - X_2*c_1(u_2) - X_3*c_1(u_2))*w_1*c_1(u_2)/r_1 - m(u_2))*D[0](b)(u_2), u_2, u_2)
+ad flow: {u_1: -Xhat_1*gamma*limit(r_0*r_1*b(u_1)*D[0](m)(u_1) - (K_0*r_0*r_1*w_0*c_0(u_1) + K_1*r_0*r_1*w_1*c_1(u_1) - r_0*r_1*m(u_1) - (r_1*w_0*c_0(u_0)*c_0(u_1) + r_0*w_1*c_1(u_0)*c_1(u_1))*Xhat_0 - (r_1*w_0*c_0(u_1)^2 + r_0*w_1*c_1(u_1)^2)*Xhat_1 - (r_1*w_0*c_0(u_1)*c_0(u_2) + r_0*w_1*c_1(u_1)*c_1(u_2))*Xhat_2)*D[0](b)(u_1) - (K_0*r_0*r_1*w_0*b(u_1) - Xhat_0*r_1*w_0*b(u_1)*c_0(u_0) - Xhat_1*r_1*w_0*b(u_1)*c_0(u_1) - Xhat_2*r_1*w_0*b(u_1)*c_0(u_2))*D[0](c_0)(u_1) - (K_1*r_0*r_1*w_1*b(u_1) - Xhat_0*r_0*w_1*b(u_1)*c_1(u_0) - Xhat_1*r_0*w_1*b(u_1)*c_1(u_1) - Xhat_2*r_0*w_1*b(u_1)*c_1(u_2))*D[0](c_1)(u_1), u_1, u_1)/(r_0*r_1), u_0: -Xhat_0*gamma*limit(r_0*r_1*b(u_0)*D[0](m)(u_0) - (K_0*r_0*r_1*w_0*c_0(u_0) + K_1*r_0*r_1*w_1*c_1(u_0) - r_0*r_1*m(u_0) - (r_1*w_0*c_0(u_0)^2 + r_0*w_1*c_1(u_0)^2)*Xhat_0 - (r_1*w_0*c_0(u_0)*c_0(u_1) + r_0*w_1*c_1(u_0)*c_1(u_1))*Xhat_1 - (r_1*w_0*c_0(u_0)*c_0(u_2) + r_0*w_1*c_1(u_0)*c_1(u_2))*Xhat_2)*D[0](b)(u_0) - (K_0*r_0*r_1*w_0*b(u_0) - Xhat_0*r_1*w_0*b(u_0)*c_0(u_0) - Xhat_1*r_1*w_0*b(u_0)*c_0(u_1) - Xhat_2*r_1*w_0*b(u_0)*c_0(u_2))*D[0](c_0)(u_0) - (K_1*r_0*r_1*w_1*b(u_0) - Xhat_0*r_0*w_1*b(u_0)*c_1(u_0) - Xhat_1*r_0*w_1*b(u_0)*c_1(u_1) - Xhat_2*r_0*w_1*b(u_0)*c_1(u_2))*D[0](c_1)(u_0), u_0, u_0)/(r_0*r_1), u_2: -Xhat_2*gamma*limit(r_0*r_1*b(u_2)*D[0](m)(u_2) - (K_0*r_0*r_1*w_0*c_0(u_2) + K_1*r_0*r_1*w_1*c_1(u_2) - r_0*r_1*m(u_2) - (r_1*w_0*c_0(u_0)*c_0(u_2) + r_0*w_1*c_1(u_0)*c_1(u_2))*Xhat_0 - (r_1*w_0*c_0(u_1)*c_0(u_2) + r_0*w_1*c_1(u_1)*c_1(u_2))*Xhat_1 - (r_1*w_0*c_0(u_2)^2 + r_0*w_1*c_1(u_2)^2)*Xhat_2)*D[0](b)(u_2) - (K_0*r_0*r_1*w_0*b(u_2) - Xhat_0*r_1*w_0*b(u_2)*c_0(u_0) - Xhat_1*r_1*w_0*b(u_2)*c_0(u_1) - Xhat_2*r_1*w_0*b(u_2)*c_0(u_2))*D[0](c_0)(u_2) - (K_1*r_0*r_1*w_1*b(u_2) - Xhat_0*r_0*w_1*b(u_2)*c_1(u_0) - Xhat_1*r_0*w_1*b(u_2)*c_1(u_1) - Xhat_2*r_0*w_1*b(u_2)*c_1(u_2))*D[0](c_1)(u_2), u_2, u_2)/(r_0*r_1)}
++ bindings: {gamma -> 1, K_0 -> 2, b_0 -> 1, Rhat_1 -> -Xhat_0*e^(-3*(u_0 - 1)^2) - Xhat_1*e^(-3*(u_1 - 1)^2) - Xhat_2*e^(-3*(u_2 - 1)^2) + 2, c_0_1 -> e^(-3*(u_0 - 1)^2), b_2 -> 1, r_1 -> 1, b_1 -> 1, c_2_0 -> e^(-3*u_2^2), m_1 -> 1, m_3 -> 1, c_0_0 -> e^(-3*u_0^2), c_2_1 -> e^(-3*(u_2 - 1)^2), w_1 -> 1, b_3 -> 1, K_1 -> 2, c_1_0 -> e^(-3*u_1^2), R_0 -> -X_0*e^(-3*u_0^2) - X_1*e^(-3*u_1^2) - X_2*e^(-3*u_2^2) + 2, r_0 -> 1, m_2 -> 1, Rhat_0 -> -Xhat_0*e^(-3*u_0^2) - Xhat_1*e^(-3*u_1^2) - Xhat_2*e^(-3*u_2^2) + 2, w_0 -> 1, c_3_1 -> e^(-3*(u_3 - 1)^2), m_0 -> 1, c_1_1 -> e^(-3*(u_1 - 1)^2), c_3_0 -> e^(-3*u_3^2), R_1 -> -X_0*e^(-3*(u_0 - 1)^2) - X_1*e^(-3*(u_1 - 1)^2) - X_2*e^(-3*(u_2 - 1)^2) + 2, c_1(u_0) -> e^(-3*(u_0 - 1)^2), b() -> 1, m() -> 1, c_0(u_0) -> e^(-3*u_0^2)}
+--> flow: {u_1: 6*(Xhat_2*u_1*e^(3*u_0^2 + 3*u_1^2 + 6) + (Xhat_2*u_1*e^(3*u_0^2) - Xhat_2*e^(3*u_0^2))*e^(3*u_1^2 + 6*u_1 + 6*u_2) + (Xhat_1*u_1*e^(3*u_0^2 + 6) + ((Xhat_0*e^6 - 2*e^(3*u_0^2 + 6))*u_1 + ((Xhat_0*e^(6*u_0) - 2*e^(3*u_0^2 + 3))*u_1 - Xhat_0*e^(6*u_0) + 2*e^(3*u_0^2 + 3))*e^(6*u_1))*e^(3*u_1^2) + (Xhat_1*u_1*e^(3*u_0^2) - Xhat_1*e^(3*u_0^2))*e^(12*u_1))*e^(3*u_2^2))*Xhat_1*e^(-3*u_0^2 - 6*u_1^2 - 3*u_2^2 - 6), u_0: 6*(Xhat_2*u_0*e^(3*u_0^2 + 3*u_1^2 + 6) + (Xhat_2*u_0 - Xhat_2)*e^(3*u_0^2 + 3*u_1^2 + 6*u_0 + 6*u_2) + (Xhat_1*u_0*e^(3*u_0^2 + 6) + (Xhat_1*u_0 - Xhat_1)*e^(3*u_0^2 + 6*u_0 + 6*u_1) + (Xhat_0*u_0*e^6 - 2*(u_0*e^6 + (u_0*e^3 - e^3)*e^(6*u_0))*e^(3*u_0^2) + (Xhat_0*u_0 - Xhat_0)*e^(12*u_0))*e^(3*u_1^2))*e^(3*u_2^2))*Xhat_0*e^(-6*u_0^2 - 3*u_1^2 - 3*u_2^2 - 6), u_2: 6*(Xhat_2*u_2*e^(3*u_0^2 + 3*u_1^2 + 6) + ((Xhat_1*e^(3*u_0^2 + 6) + (Xhat_0*e^6 - 2*e^(3*u_0^2 + 6))*e^(3*u_1^2))*u_2 + ((Xhat_1*e^(3*u_0^2 + 6*u_1) + (Xhat_0*e^(6*u_0) - 2*e^(3*u_0^2 + 3))*e^(3*u_1^2))*u_2 - Xhat_1*e^(3*u_0^2 + 6*u_1) - (Xhat_0*e^(6*u_0) - 2*e^(3*u_0^2 + 3))*e^(3*u_1^2))*e^(6*u_2))*e^(3*u_2^2) + (Xhat_2*u_2*e^(3*u_0^2 + 3*u_1^2) - Xhat_2*e^(3*u_0^2 + 3*u_1^2))*e^(12*u_2))*Xhat_2*e^(-3*u_0^2 - 3*u_1^2 - 6*u_2^2 - 6)}
+plot u vs t
+plot u vs u
+done
+[ -e maclev-2-2-adap.sage.status ] && (rm -f maclev-2-2-adap.sage.status && mv maclev-2-2-adap.sage.dmp maclev-2-2-adap.sage.out) || exit 1
+latexml  --destination=maclev-2-2-adap.sage.out.latexml.xml maclev-2-2-adap.sage.out.tex
+latexml (LaTeXML version 0.8.1; revision 9e4814e)
+processing started Thu Jun 18 22:17:16 2015
+
+(Digesting TeX maclev-2-2-adap.sage.out...
+(Loading /usr/local/share/perl/5.18.2/LaTeXML/Package/TeX.pool.ltxml...
+(Loading /usr/local/share/perl/5.18.2/LaTeXML/Package/eTeX.pool.ltxml... 0.00 sec)
+(Loading /usr/local/share/perl/5.18.2/LaTeXML/Package/pdfTeX.pool.ltxml... 0.01 sec) 0.21 sec)
+(Processing content /usr/local/src/jekyll-research/wmd_files/Selection_Gradients/maclev-2-2-adap.sage.out.tex...
+(Loading /usr/local/share/perl/5.18.2/LaTeXML/Package/LaTeX.pool.ltxml... 0.24 sec)
+(Loading /usr/local/share/perl/5.18.2/LaTeXML/Package/article.cls.ltxml... 0.02 sec)
+(Loading /usr/local/share/perl/5.18.2/LaTeXML/Package/amsmath.sty.ltxml...
+(Loading /usr/local/share/perl/5.18.2/LaTeXML/Package/amsbsy.sty.ltxml... 0.00 sec)
+(Loading /usr/local/share/perl/5.18.2/LaTeXML/Package/amstext.sty.ltxml... 0.00 sec)
+(Loading /usr/local/share/perl/5.18.2/LaTeXML/Package/amsopn.sty.ltxml... 0.01 sec) 0.07 sec)
+(Loading /usr/local/share/perl/5.18.2/LaTeXML/Package/amssymb.sty.ltxml...
+(Loading /usr/local/share/perl/5.18.2/LaTeXML/Package/amsfonts.sty.ltxml... 0.00 sec) 0.04 sec)
+(Loading /usr/local/share/perl/5.18.2/LaTeXML/Package/graphicx.sty.ltxml...
+(Loading /usr/local/share/perl/5.18.2/LaTeXML/Package/graphics.sty.ltxml... 0.00 sec) 0.03 sec)
+(Loading /usr/local/share/perl/5.18.2/LaTeXML/Package/inputenc.sty.ltxml...
+(Loading /usr/local/share/perl/5.18.2/LaTeXML/Package/utf8.def.ltxml... 0.00 sec) 0.02 sec)
+(Loading /usr/local/share/perl/5.18.2/LaTeXML/Package/fontenc.sty.ltxml...
+(Loading /usr/local/share/perl/5.18.2/LaTeXML/Package/t1enc.def.ltxml...
+(Processing definitions /usr/share/texlive/texmf-dist/tex/latex/base/t1enc.def...
+(Loading /usr/local/share/perl/5.18.2/LaTeXML/Package/t1.fontmap.ltxml... 0.00 sec) 0.10 sec) 0.14 sec) 0.15 sec)
+(Loading /usr/local/share/perl/5.18.2/LaTeXML/Package/latexml.sty.ltxml... 0.01 sec) 0.99 sec) 1.20 sec)
+(Building...
+(Loading compiled schema /usr/local/share/perl/5.18.2/LaTeXML/resources/RelaxNG/LaTeXML.model... 0.02 sec).............................................. 1.33 sec)
+(Rewriting... 0.08 sec)
+(Math Parsing...19 formulae ...[1][2][3][4][5][6][7][8][9][10][11][12][13][14][15][16][17][18][19]
+Math parsing succeeded:
+   ltx:XMath: 19/19
+   ltx:XMArg: 429/429
+Symbols assumed as simple identifiers (with # of occurences):
+   'K{italic}' (8), 'X{italic}' (48), 'b{italic}' (4), 'c{italic}' (24), 'd{italic}' (24), 'e{italic}' (72), 'm{italic}' (4), 'r{italic}' (16), 't{italic}' (12), 'u{italic}' (95), 'w{italic}' (8)
+ 4.34 sec)
+(Finalizing... 0.45 sec)
+Conversion complete: No obvious problems.
+processing finished Thu Jun 18 22:17:24 2015
+Updating .workingwiki/maclev-2-2-adap.sage.out.latexml.xml
+rm -f maclev-2-2-adap.sage.out.latexml.html5
+bibxmls=`perl -ne '($_)=/^[^%]*\\\bibliography\{([^\\\\#]*?)\}/;@_=split /,/;foreach $b (@_) { $b =~ s/\.bib$//; print "$b.bib.xml "}' maclev-2-2-adap.sage.out.latexml.xml`; bibxargs=`perl -ne '($_)=/^[^%]*\\\bibliography\{([^\\\\#]*?)\}/;@_=split /,/;foreach $b (@_) { $b =~ s/\.bib$//; print "--bibliography=$b.bib.xml "}' maclev-2-2-adap.sage.out.latexml.xml` && \
+	(test -z "$bibxmls" || /usr/bin/make -f /usr/local/src/workingwiki-trunk/ProjectEngine/resources/makefile $bibxmls) && \
+	lxpost="latexmlpost  --novalidate --destination=maclev-2-2-adap.sage.out.intermediate.latexml.html5 --format=html5 $bibxargs maclev-2-2-adap.sage.out.latexml.xml" && echo $lxpost && $lxpost
+latexmlpost --novalidate --destination=maclev-2-2-adap.sage.out.intermediate.latexml.html5 --format=html5 maclev-2-2-adap.sage.out.latexml.xml
+latexmlpost (LaTeXML version 0.8.1; revision 9e4814e)
+processing started Thu Jun 18 22:17:24 2015
+(maclev-2-2-adap.sage.out.intermediate.latexml.html5 post-processing...
+(Scan maclev-2-2-adap.sage.out.intermediate.latexml.html5 processing... 0.10 sec)
+(CrossRef maclev-2-2-adap.sage.out.intermediate.latexml.html5 processing... 0.03 sec)
+(MathML::Presentation maclev-2-2-adap.sage.out.intermediate.latexml.html5 19 to process... 0.51 sec)
+(XSLT[using LaTeXML-html5.xsl] maclev-2-2-adap.sage.out.intermediate.latexml.html5 processing... 0.05 sec)
+(Writer maclev-2-2-adap.sage.out.intermediate.latexml.html5 processing... 0.00 sec) 0.69 sec)
+Postprocessing complete: No obvious problems
+processing finished Thu Jun 18 22:17:25 2015
+/usr/local/src/workingwiki-trunk/ProjectEngine/resources/wiki-inclusion.latexml.pl maclev-2-2-adap.sage.out.intermediate.latexml.html5 >maclev-2-2-adap.sage.out.latexml.html5
+ln -f maclev-2-2-adap.sage.out.latexml.html5 maclev-2-2-adap.sage.out.latexml.html
+ln -f maclev-2-2-adap.sage.out.latexml.html maclev-2-2-adap.sage.out.html
+rm maclev-2-2-adap.sage.out.latexml.xml maclev-2-2-adap.sage.out.latexml.html maclev-2-2-adap.sage.out.latexml.html5
 make: Leaving directory `/usr/local/src/jekyll-research/wmd_files/Selection_Gradients'
 Make succeeded.
-Mon May  4 21:13:44 2015
+Thu Jun 18 22:17:25 2015

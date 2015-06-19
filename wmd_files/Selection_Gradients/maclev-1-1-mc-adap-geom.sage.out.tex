@@ -6,6 +6,7 @@
 \pagestyle{empty}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
+\usepackage{latexml}
 \oddsidemargin 0.0in
 \evensidemargin 0.0in
 \textwidth 6.45in
@@ -35,10 +36,10 @@
 \begin{document}
 With $c_{00}=u_0$, the vector $\mathbf p$ is 
 \[
-  \mathbf p = \left(\begin{array}{c}
+  {\mathbf p} = \left(\begin{array}{c}
   b_{0}\\
   m_{0}\\
-  c_{00}
+  {c}_{00}
 \end{array}\right) = \left(\begin{array}{c}
   1\\
   1\\
@@ -47,10 +48,10 @@ With $c_{00}=u_0$, the vector $\mathbf p$ is
 \]
 And the selection gradient of $\mathbf p$ is 
 \[
-  \mathbf S(\mathbf p) = \left(\begin{array}{c}
-  -\frac{\hat{X}_{0} c_{00}^{2} w_{0} - K_{0} c_{00} r_{0} w_{0} + m_{0} r_{0}}{r_{0}}\\
+  \mathbf S({\mathbf p}) = \left(\begin{array}{c}
+  -\frac{\hat{X}_{0} {c}_{00}^{2} w_{0} - K_{0} {c}_{00} r_{0} w_{0} + m_{0} r_{0}}{r_{0}}\\
   -b_{0}\\
-  -\frac{\hat{X}_{0} b_{0} c_{00} w_{0} - K_{0} b_{0} r_{0} w_{0}}{r_{0}}
+  -\frac{\hat{X}_{0} b_{0} {c}_{00} w_{0} - K_{0} b_{0} r_{0} w_{0}}{r_{0}}
 \end{array}\right) = \left(\begin{array}{c}
   0\\
   -1\\
@@ -59,13 +60,13 @@ And the selection gradient of $\mathbf p$ is
 \]
 The derivative of $\mathbf p$ is 
 \[
-  \frac{d\mathbf p}{du_{0}} = \left(\begin{array}{c}
+  \frac{d{\mathbf p}}{du_{0}} = \left(\begin{array}{c}
   0\\
   0\\
   1
 \end{array}\right), \]
 and we can recover the motion of $u_0$: 
-\[ \mathbf S(u_{0}) = \frac{d\mathbf p}{du_{0}}^\mathrm{T} \mathbf S(\mathbf p(u_{0})) = -\frac{2 \, u_{0} - 1}{u_{0}} + 2 \]
+\[ \mathbf S(u_{0}) = \frac{d{\mathbf p}}{du_{0}}^\mathrm{T} \mathbf S(\mathbf p(u_{0})) = -\frac{2 \, u_{0} - 1}{u_{0}} + 2 \]
 
 \[
   \frac{du_0}{dt} = \gamma\hat X_0 \mathbf S(u_{0}) = -X_{0} {\left(\frac{2 \, u_{0} - 1}{u_{0}} - 2\right)}
@@ -78,13 +79,13 @@ and the motion of $\mathbf p(u_0)$:
   -X_{0} {\left(\frac{2 \, u_{0} - 1}{u_{0}} - 2\right)}
 \end{array}\right)
 \]
-So now we can get a look at the geometry of $\mathbf p$.  At $u_0=\frac{2}{3}$,
-\[ \mathbf p = \left(\begin{array}{c}
+So now we can get a look at the geometry of ${\mathbf p}$.  At $u_0=\frac{2}{3}$,
+\[ {\mathbf p} = \left(\begin{array}{c}
   1\\
   1\\
   \frac{2}{3}
 \end{array}\right), \]
-\[ \mathbf S(\mathbf p) = \left(\begin{array}{c}
+\[ \mathbf S({\mathbf p}) = \left(\begin{array}{c}
   0\\
   -1\\
   \frac{3}{2}

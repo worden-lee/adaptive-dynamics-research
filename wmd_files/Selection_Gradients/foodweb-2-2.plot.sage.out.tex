@@ -6,6 +6,7 @@
 \pagestyle{empty}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
+\usepackage{latexml}
 \oddsidemargin 0.0in
 \evensidemargin 0.0in
 \textwidth 6.45in
@@ -33,5 +34,28 @@
 \newcommand{\CFF}{\Bold{CFF}}
 \newcommand{\Bold}[1]{\mathbf{#1}}
 \begin{document}
+
+\begin{align*}
+  A\left(\hat{X}_{0R_{0}}, \hat{X}_{0P_{1}}\right) &= \left(a_{0R_{0}0P_{1}},\,a_{0P_{1}0R_{0}}\right)
+\end{align*}
+
+\begin{align*}
+  S\left(\hat{X}_{0R_{0}}, \hat{X}_{0P_{1}}\right) &= \left(\hat{X}_{0P_{1}},\,\hat{X}_{0R_{0}}\right)
+\end{align*}
+
+\begin{align*}
+  D\left(\hat{X}_{0R_{0}}, \hat{X}_{0P_{1}}\right) &= \left(-D[1]\left(f\right)\left(u_{0P_{1}}\left(t\right), u_{0R_{0}}\left(t\right)\right) D[0]\left(u_{0R_{0}}\right)\left(t\right),\,k D[0]\left(f\right)\left(u_{0P_{1}}\left(t\right), u_{0R_{0}}\left(t\right)\right) D[0]\left(u_{0P_{1}}\right)\left(t\right)\right)\\
+    &= \left(\hat{X}_{0P_{0}} \hat{X}_{0R_{0}} \gamma D[1]\left(f\right)\left(u_{0P_{0}}, u_{0R_{0}}\right) D[1]\left(f\right)\left(u_{0P_{1}}\left(t\right), u_{0R_{0}}\left(t\right)\right) + \hat{X}_{0P_{1}} \hat{X}_{0R_{0}} \gamma D[1]\left(f\right)\left(u_{0P_{1}}, u_{0R_{0}}\right) D[1]\left(f\right)\left(u_{0P_{1}}\left(t\right), u_{0R_{0}}\left(t\right)\right),\,\hat{X}_{0P_{1}} \hat{X}_{0R_{0}} \gamma k^{2} D[0]\left(f\right)\left(u_{0P_{1}}, u_{0R_{0}}\right) D[0]\left(f\right)\left(u_{0P_{1}}\left(t\right), u_{0R_{0}}\left(t\right)\right) + \hat{X}_{0P_{1}} \hat{X}_{0R_{1}} \gamma k^{2} D[0]\left(f\right)\left(u_{0P_{1}}, u_{0R_{1}}\right) D[0]\left(f\right)\left(u_{0P_{1}}\left(t\right), u_{0R_{0}}\left(t\right)\right)\right)
+\end{align*}
+
+\begin{align*}
+  I\left(\hat{X}_{0R_{0}}, \hat{X}_{0P_{1}}\right) &= \left(-D[0]\left(f\right)\left(u_{0P_{1}}\left(t\right), u_{0R_{0}}\left(t\right)\right) D[0]\left(u_{0P_{1}}\right)\left(t\right),\,k D[1]\left(f\right)\left(u_{0P_{1}}\left(t\right), u_{0R_{0}}\left(t\right)\right) D[0]\left(u_{0R_{0}}\right)\left(t\right)\right)\\
+    &= \left(-\hat{X}_{0P_{1}} \hat{X}_{0R_{0}} \gamma k D[0]\left(f\right)\left(u_{0P_{1}}, u_{0R_{0}}\right) D[0]\left(f\right)\left(u_{0P_{1}}\left(t\right), u_{0R_{0}}\left(t\right)\right) - \hat{X}_{0P_{1}} \hat{X}_{0R_{1}} \gamma k D[0]\left(f\right)\left(u_{0P_{1}}, u_{0R_{1}}\right) D[0]\left(f\right)\left(u_{0P_{1}}\left(t\right), u_{0R_{0}}\left(t\right)\right),\,-\hat{X}_{0P_{0}} \hat{X}_{0R_{0}} \gamma k D[1]\left(f\right)\left(u_{0P_{0}}, u_{0R_{0}}\right) D[1]\left(f\right)\left(u_{0P_{1}}\left(t\right), u_{0R_{0}}\left(t\right)\right) - \hat{X}_{0P_{1}} \hat{X}_{0R_{0}} \gamma k D[1]\left(f\right)\left(u_{0P_{1}}, u_{0R_{0}}\right) D[1]\left(f\right)\left(u_{0P_{1}}\left(t\right), u_{0R_{0}}\left(t\right)\right)\right)
+\end{align*}
+
+\begin{align*}
+  \frac{dA}{dt}\left(\hat{X}_{0R_{0}}, \hat{X}_{0P_{1}}\right) &= \left(-D[0]\left(f\right)\left(u_{0P_{1}}\left(t\right), u_{0R_{0}}\left(t\right)\right) D[0]\left(u_{0P_{1}}\right)\left(t\right) - D[1]\left(f\right)\left(u_{0P_{1}}\left(t\right), u_{0R_{0}}\left(t\right)\right) D[0]\left(u_{0R_{0}}\right)\left(t\right),\,k D[0]\left(f\right)\left(u_{0P_{1}}\left(t\right), u_{0R_{0}}\left(t\right)\right) D[0]\left(u_{0P_{1}}\right)\left(t\right) + k D[1]\left(f\right)\left(u_{0P_{1}}\left(t\right), u_{0R_{0}}\left(t\right)\right) D[0]\left(u_{0R_{0}}\right)\left(t\right)\right)\\
+    &= \left(-\hat{X}_{0P_{1}} \hat{X}_{0R_{0}} \gamma k D[0]\left(f\right)\left(u_{0P_{1}}, u_{0R_{0}}\right) D[0]\left(f\right)\left(u_{0P_{1}}\left(t\right), u_{0R_{0}}\left(t\right)\right) - \hat{X}_{0P_{1}} \hat{X}_{0R_{1}} \gamma k D[0]\left(f\right)\left(u_{0P_{1}}, u_{0R_{1}}\right) D[0]\left(f\right)\left(u_{0P_{1}}\left(t\right), u_{0R_{0}}\left(t\right)\right) + \hat{X}_{0P_{0}} \hat{X}_{0R_{0}} \gamma D[1]\left(f\right)\left(u_{0P_{0}}, u_{0R_{0}}\right) D[1]\left(f\right)\left(u_{0P_{1}}\left(t\right), u_{0R_{0}}\left(t\right)\right) + \hat{X}_{0P_{1}} \hat{X}_{0R_{0}} \gamma D[1]\left(f\right)\left(u_{0P_{1}}, u_{0R_{0}}\right) D[1]\left(f\right)\left(u_{0P_{1}}\left(t\right), u_{0R_{0}}\left(t\right)\right),\,\hat{X}_{0P_{1}} \hat{X}_{0R_{0}} \gamma k^{2} D[0]\left(f\right)\left(u_{0P_{1}}, u_{0R_{0}}\right) D[0]\left(f\right)\left(u_{0P_{1}}\left(t\right), u_{0R_{0}}\left(t\right)\right) + \hat{X}_{0P_{1}} \hat{X}_{0R_{1}} \gamma k^{2} D[0]\left(f\right)\left(u_{0P_{1}}, u_{0R_{1}}\right) D[0]\left(f\right)\left(u_{0P_{1}}\left(t\right), u_{0R_{0}}\left(t\right)\right) - \hat{X}_{0P_{0}} \hat{X}_{0R_{0}} \gamma k D[1]\left(f\right)\left(u_{0P_{0}}, u_{0R_{0}}\right) D[1]\left(f\right)\left(u_{0P_{1}}\left(t\right), u_{0R_{0}}\left(t\right)\right) - \hat{X}_{0P_{1}} \hat{X}_{0R_{0}} \gamma k D[1]\left(f\right)\left(u_{0P_{1}}, u_{0R_{0}}\right) D[1]\left(f\right)\left(u_{0P_{1}}\left(t\right), u_{0R_{0}}\left(t\right)\right)\right)
+\end{align*}
 
 \end{document}

@@ -3,7 +3,8 @@
 # requires: lotkavolterra.py
 # requires: maclev_2_2_defs.py maclev-2-2-a-c-adap.sobj
 # produces: maclev-2-2-a-c-geom.sage.out.tex
-# produces: maclev-2-2-a-c-k-vs-t.png maclev-2-2-a-c-a-vs-t.png
+# produces: maclev-2-2-a-c-k-vs-t.png
+# produces: maclev-2-2-a-c-a-vs-t.png maclev-2-2-a-c-a-vs-t.svg
 # produces: maclev-2-2-a-c-Xhat-vs-t.png maclev-2-2-a-c-Rhat-vs-t.png
 # produces: maclev-2-2-a-c-a-vs-a.png
 # produces: maclev-2-2-a-c-a-vs-k.png maclev-2-2-a-c-a-arrows.png
@@ -101,9 +102,10 @@ for i in (0, 1):
     for j in (0, 1):
         a_timeseries += c_evolution.plot( t,
             A_to_u_bindings( lv_adap_c._lv_model._A_bindings( lv_adap_c._lv_model._indexers['a'][i][j] ) ), 
-            color=(i == j and 'red' or 'lime'), figsize=(4,4) )
-a_timeseries.axes_labels( [ '$t$', '$a(\cdot,\cdot)$' ] )
-a_timeseries.save( 'maclev-2-2-a-c-a-vs-t.png' )
+            color=(i == j and 'red' or 'lime') )
+a_timeseries.axes_labels( [ '$t$', '$a$' ] )
+a_timeseries.save( 'maclev-2-2-a-c-a-vs-t.png', figsize=(4,4) )
+a_timeseries.save( 'maclev-2-2-a-c-a-vs-t.svg', ymax=0, ticks=0.06, figsize=(2,2) )
 
 print 'plot X vs. t'
 sys.stdout.flush()

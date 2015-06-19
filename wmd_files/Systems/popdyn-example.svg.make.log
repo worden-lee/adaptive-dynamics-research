@@ -1,4 +1,4 @@
-Mon May  4 21:13:49 2015
+Thu Jun 18 22:22:06 2015
 /usr/bin/make -C /usr/local/src/jekyll-research/wmd_files/Systems popdyn-example.svg
 Including .mk files: sage.mk 
 Including .mk files from .step files: phase_portraits.sage.mk popdyn-example.sage.mk
@@ -10,4 +10,4 @@ Including .tex.d files:
 make[1]: Nothing to be done for `dynamicalsystems.py'.
 make: Leaving directory `/usr/local/src/jekyll-research/wmd_files/Systems'
 Make succeeded.
-Mon May  4 21:13:49 2015
+Thu Jun 18 22:22:06 2015

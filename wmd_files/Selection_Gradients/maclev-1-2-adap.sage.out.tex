@@ -6,6 +6,7 @@
 \pagestyle{empty}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
+\usepackage{latexml}
 \oddsidemargin 0.0in
 \evensidemargin 0.0in
 \textwidth 6.45in
@@ -34,17 +35,44 @@
 \newcommand{\Bold}[1]{\mathbf{#1}}
 \begin{document}
 maclev anyone? 
-\[\begin{align*}
-\frac{dX_{0}}{dt} &= -{\left(\frac{{\left(X_{0} c_{00} - K_{0} r_{0}\right)} c_{00} w_{0}}{r_{0}} + \frac{{\left(X_{0} c_{01} - K_{1} r_{1}\right)} c_{01} w_{1}}{r_{1}} + m_{0}\right)} X_{0} b_{0}
-\end{align*}\]
+\[\iflatexml
+\begin{align*}
+\frac{dX_{0}}{dt} &= -{\left(\frac{{\left(X_{0} {c}_{00} - K_{0} r_{0}\right)} {c}_{00} w_{0}}{r_{0}} + \frac{{\left(X_{0} {c}_{01} - K_{1} r_{1}\right)} {c}_{01} w_{1}}{r_{1}} + m_{0}\right)} X_{0} b_{0}
+\end{align*}
+\else
+\begin{dgroup*}
+\begin{dmath*}
+\frac{dX_{0}}{dt} = -{\left(\frac{{\left(X_{0} {c}_{00} - K_{0} r_{0}\right)} {c}_{00} w_{0}}{r_{0}} + \frac{{\left(X_{0} {c}_{01} - K_{1} r_{1}\right)} {c}_{01} w_{1}}{r_{1}} + m_{0}\right)} X_{0} b_{0}
+\end{dmath*}
+\end{dgroup*}
+\fi
+\]
 and with the functional and numeric bindings: 
-\[\begin{align*}
+\[\iflatexml
+\begin{align*}
 \frac{dX_{0}}{dt} &= -{\left({\left(X_{0} e^{\left(-3 \, {\left(u_{0} - 1\right)}^{2}\right)} - 2\right)} e^{\left(-3 \, {\left(u_{0} - 1\right)}^{2}\right)} + {\left(X_{0} e^{\left(-3 \, u_{0}^{2}\right)} - 2\right)} e^{\left(-3 \, u_{0}^{2}\right)} + 1\right)} X_{0}
-\end{align*}\]
+\end{align*}
+\else
+\begin{dgroup*}
+\begin{dmath*}
+\frac{dX_{0}}{dt} = -{\left({\left(X_{0} e^{\left(-3 \, {\left(u_{0} - 1\right)}^{2}\right)} - 2\right)} e^{\left(-3 \, {\left(u_{0} - 1\right)}^{2}\right)} + {\left(X_{0} e^{\left(-3 \, u_{0}^{2}\right)} - 2\right)} e^{\left(-3 \, u_{0}^{2}\right)} + 1\right)} X_{0}
+\end{dmath*}
+\end{dgroup*}
+\fi
+\]
 adaptive dynamics of $u_\cdot$ in that model:
-\[\begin{align*}
+\[\iflatexml
+\begin{align*}
 \frac{du_{0}}{dt} &= 6 \, {\left(\hat{X}_{0} u_{0} e^{6} - 2 \, {\left(u_{0} e^{6} + {\left(u_{0} e^{3} - e^{3}\right)} e^{\left(6 \, u_{0}\right)}\right)} e^{\left(3 \, u_{0}^{2}\right)} + {\left(\hat{X}_{0} u_{0} - \hat{X}_{0}\right)} e^{\left(12 \, u_{0}\right)}\right)} \hat{X}_{0} e^{\left(-6 \, u_{0}^{2} - 6\right)}
-\end{align*}\]
+\end{align*}
+\else
+\begin{dgroup*}
+\begin{dmath*}
+\frac{du_{0}}{dt} = 6 \, {\left(\hat{X}_{0} u_{0} e^{6} - 2 \, {\left(u_{0} e^{6} + {\left(u_{0} e^{3} - e^{3}\right)} e^{\left(6 \, u_{0}\right)}\right)} e^{\left(3 \, u_{0}^{2}\right)} + {\left(\hat{X}_{0} u_{0} - \hat{X}_{0}\right)} e^{\left(12 \, u_{0}\right)}\right)} \hat{X}_{0} e^{\left(-6 \, u_{0}^{2} - 6\right)}
+\end{dmath*}
+\end{dgroup*}
+\fi
+\]
 equilibria:
 \[\begin{align*}
   \hat{u}_{0} &\to 0.50

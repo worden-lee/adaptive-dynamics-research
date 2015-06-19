@@ -6,6 +6,7 @@
 \pagestyle{empty}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
+\usepackage{latexml}
 \oddsidemargin 0.0in
 \evensidemargin 0.0in
 \textwidth 6.45in
@@ -34,35 +35,53 @@
 \newcommand{\Bold}[1]{\mathbf{#1}}
 \begin{document}
 Adaptive dynamics of the Mac-Lev model with $b_i=m_i=1$ and $c_{i0} = u_i$:
-\[\begin{align*}
+\[\iflatexml
+\begin{align*}
 \frac{du_{0}}{dt} &= \frac{{\left(K_{0} r_{0} u_{0} w_{0} - r_{0}\right)} {\left(K_{0} r_{0} w_{0} - \frac{K_{0} r_{0} u_{0} w_{0} - r_{0}}{u_{0}}\right)} \gamma}{r_{0} u_{0}^{2} w_{0}}
-\end{align*}\]
-and the bound adaptive dynamics is:\begin{align*}
+\end{align*}
+\else
+\begin{dgroup*}
+\begin{dmath*}
+\frac{du_{0}}{dt} = \frac{{\left(K_{0} r_{0} u_{0} w_{0} - r_{0}\right)} {\left(K_{0} r_{0} w_{0} - \frac{K_{0} r_{0} u_{0} w_{0} - r_{0}}{u_{0}}\right)} \gamma}{r_{0} u_{0}^{2} w_{0}}
+\end{dmath*}
+\end{dgroup*}
+\fi
+\]
+and the bound adaptive dynamics is:\iflatexml
+\begin{align*}
 \frac{du_{0}}{dt} &= -\frac{{\left(2 \, u_{0} - 1\right)} {\left(\frac{2 \, u_{0} - 1}{u_{0}} - 2\right)}}{u_{0}^{2}}
-\end{align*}its bindings:\begin{align*}
-  \hat{R}_{0} &\to -\frac{2 \, u_{0} - 1}{u_{0}} + 2 \\
-  b_{0} &\to 1 \\
-  m_{1} &\to 1 \\
-  R_{0} &\to -X_{0} u_{0} + 2 \\
-  m_{0} &\to 1 \\
-  r_{0} &\to 1 \\
-  c_{00} &\to u_{0} \\
+\end{align*}
+\else
+\begin{dgroup*}
+\begin{dmath*}
+\frac{du_{0}}{dt} = -\frac{{\left(2 \, u_{0} - 1\right)} {\left(\frac{2 \, u_{0} - 1}{u_{0}} - 2\right)}}{u_{0}^{2}}
+\end{dmath*}
+\end{dgroup*}
+\fi
+its bindings:\begin{align*}
   \gamma &\to 1 \\
+  m_{1} &\to 1 \\
+  b_{0} &\to 1 \\
+  b_{1} &\to 1 \\
   K_{0} &\to 2 \\
+  {c}_{00} &\to u_{0} \\
   \hat{X}_{0} &\to \frac{2 \, u_{0} - 1}{u_{0}^{2}} \\
   w_{0} &\to 1 \\
-  b_{1} &\to 1 \\
-  c_{10} &\to u_{1}
+  r_{0} &\to 1 \\
+  R_{0} &\to -X_{0} u_{0} + 2 \\
+  \hat{R}_{0} &\to -\frac{2 \, u_{0} - 1}{u_{0}} + 2 \\
+  m_{0} &\to 1 \\
+  {c}_{10} &\to u_{1}
 \end{align*}With and without these bindings, the Lotka-Volterra coefficients $k_0$ and $a_{00}$ are:
 \[
   k_{0} = K_{0} b_{0} c_{00} w_{0} - b_{0} m_{0} = 2 \, u_{0} - 1
 \]
 
 \[
-  a_{00} = -\frac{b_{0} c_{00}^{2} w_{0}}{r_{0}} = -u_{0}^{2}
+  {a_{00}} = -\frac{b_{0} c_{00}^{2} w_{0}}{r_{0}} = -u_{0}^{2}
 \]
 And the equilibrium values $\hat X$ and $\hat R$:\begin{align*}
-  \hat X_0 &\to \frac{K_{0} r_{0}}{c_{00}} - \frac{m_{0} r_{0}}{c_{00}^{2} w_{0}} = \frac{2}{u_{0}} - \frac{1}{u_{0}^{2}}\\
+  \hat X_0 &\to \frac{K_{0} r_{0}}{{c}_{00}} - \frac{m_{0} r_{0}}{{c}_{00}^{2} w_{0}} = \frac{2}{u_{0}} - \frac{1}{u_{0}^{2}}\\
   \hat R_0 &\to \frac{m_{0}}{c_{00} w_{0}} = \frac{1}{u_{0}}
 \end{align*}
 

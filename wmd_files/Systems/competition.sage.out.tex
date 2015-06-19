@@ -6,6 +6,7 @@
 \pagestyle{empty}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
+\usepackage{latexml}
 \oddsidemargin 0.0in
 \evensidemargin 0.0in
 \textwidth 6.45in
@@ -34,9 +35,20 @@
 \newcommand{\Bold}[1]{\mathbf{#1}}
 \begin{document}
 The competition model:
-\[\begin{align*}
+\[\iflatexml
+\begin{align*}
 \frac{dX_{2}}{dt} &= -0.400000000000000 \, X_{1} X_{2} - X_{2}^{2} + X_{2}\\
 \frac{dX_{1}}{dt} &= -X_{1}^{2} - 0.500000000000000 \, X_{1} X_{2} + X_{1}
-\end{align*}\]
+\end{align*}
+\else
+\begin{dgroup*}
+\begin{dmath*}
+\frac{dX_{2}}{dt} = -0.400000000000000 \, X_{1} X_{2} - X_{2}^{2} + X_{2}\end{dmath*}
+\begin{dmath*}
+\frac{dX_{1}}{dt} = -X_{1}^{2} - 0.500000000000000 \, X_{1} X_{2} + X_{1}
+\end{dmath*}
+\end{dgroup*}
+\fi
+\]
 equilibria: \left[\left\{\hat{X}_{1} : 0, \hat{X}_{2} : 0\right\}, \left\{\hat{X}_{1} : 1, \hat{X}_{2} : 0\right\}, \left\{\hat{X}_{1} : 0, \hat{X}_{2} : 1\right\}, \left\{\hat{X}_{1} : \frac{5}{8}, \hat{X}_{2} : \frac{3}{4}\right\}\right]
 \end{document}

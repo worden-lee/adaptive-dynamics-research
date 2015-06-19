@@ -73,6 +73,8 @@ class ODETrajectory(SageObject):
                 self.point_to_bindings( point ) for point in timeseries
             ]
             #print 'get', timeseries
+	except IndexError: # timeseries is empty
+	    pass
         self._timeseries = timeseries
     def __repr__(self):
         return 'ODETrajectory(' + repr(self._timeseries) + ')'
@@ -103,6 +105,11 @@ class ODETrajectory(SageObject):
         #print 'as', state
         self._timeseries += [ self.point_to_bindings( state ) ]
         return self
+    def __add__(self, other):
+	# you can combine trajectories from different models, at your own risk
+	#if self._system is not other._system:
+	#    raise ValueError, "Can't concatenate incompatible trajectories"
+	return ODETrajectory( self._system, self._timeseries + other._timeseries )
     def make_points(self, xexpr, yexpr):
         # for branching stuff
         # list the evaluations of the expressions at the points,
@@ -370,22 +377,45 @@ class indexer(SageObject):
             except TypeError:
                 return symbolic_expression("%s_%s" % (self._f,i))
 
+def scriptedsymbol( base, superscripts=(), subscripts=() ):
+    try:
+        base.expand() # see if it's an expression
+    except AttributeError: # if not
+        base = SR.symbol( base ) # it is now
+    name, latex_name = str(base), '{%s}'%latex(base)
+    if len(superscripts) > 0:
+        name += '^' + '^'.join(str(s) for s in superscripts)
+        if len(superscripts) > 1:
+            latex_name += '^{%s}' % ''.join('{%s}'%latex(s) for s in superscripts)
+        else:
+            latex_name += '^{%s}' % latex(superscripts[0])
+    if len(subscripts) > 0:
+        name += '_' + '_'.join(str(s) for s in subscripts)
+        if len(subscripts) > 1:
+            latex_name += '_{%s}' % ''.join('{%s}'%latex(s) for s in subscripts)
+        else:
+            latex_name += '_{%s}' % latex(subscripts[0])
+    return SR.symbol( name, latex_name=latex_name )
+
+def subscriptedsymbol( base, *subscripts ):
+    return scriptedsymbol( base, subscripts=subscripts )
+
 # this class was nested inside indexer_2d, but it broke pickling
-class subindexer(indexer):
+class indexer_2d_inner(indexer):
     def __init__(self, f, i):
 	self._f = f
 	self._i = i
     def __getitem__(self, j):
 	return SR.symbol( '%s_%s_%s' % (self._f, self._i, j),
-	    latex_name='%s_{%s%s}' % (self._f, self._i, j) )
+	    latex_name='{%s}_{%s%s}' % (self._f, self._i, j) )
 
 class indexer_2d(indexer):
     """Instead of mapping i |-> x_i, this does a 2-step mapping
     i |-> j |-> x_i_j.  That is, indexer_2d('x')[i][j] produces x_i_j."""
     def __getitem__(self, i):
-        return subindexer( self._f, i )
+        return indexer_2d_inner( self._f, i )
 
-class reverse_subindexer(indexer):
+class indexer_2d_reverse_inner(indexer):
     def __init__(self, f, j):
 	self._f = f
 	self._j = j
@@ -398,7 +428,12 @@ class indexer_2d_reverse(indexer_2d):
     x_j_i as the other one would do.  Useful when you want a way to
     generate all x_i_j for a given j, as I do."""
     def __getitem__(self, j):
-        return reverse_subindexer( self._f, j )
+        return indexer_2d_reverse_inner( self._f, j )
+
+class const_indexer(indexer):
+    """always return the same value"""
+    def __getitem__(self, i):
+        return self._f
 
 # And now the dynamical systems classes.
 
@@ -443,13 +478,27 @@ class ODESystem(SageObject):
         return other
     def _latex_(self):
         """Output the system as a system of differential equations in LaTeX form"""
-        return '\\begin{align*}\n' + '\\\\\n'.join(
-             r'\frac{d%s}{d%s} &= %s'%(latex(v),latex(self._time_variable),latex(self._flow[v]))
-                for v in self._vars ) + '\n\\end{align*}'
-    def write_latex(self, filename):
+        return self._text_latex_() # not correct in math mode!
+        return '\\mbox{' + self._text_latex_() + '}'
+    def _text_latex_(self):
+        return ('\\iflatexml\n' +
+	    '\\begin{align*}\n' + '\\\\\n'.join(
+            r'\frac{d%s}{d%s} &= %s'%(latex(v),latex(self._time_variable),latex(self._flow[v]))
+                for v in self._vars ) + '\n\\end{align*}\n'
+            '\\else\n' +
+	    '\\begin{dgroup*}\n\\begin{dmath*}\n' + '\\end{dmath*}\n\\begin{dmath*}\n'.join(
+             r'\frac{d%s}{d%s} = %s'%(latex(v),latex(self._time_variable),latex(self._flow[v]))
+                for v in self._vars ) + '\n\\end{dmath*}\n\\end{dgroup*}\n' +
+	    '\\fi\n')
+    def write_latex(self, filename, inline=False):
         """Output the system in LaTeX form to a file"""
-        ltxout = open( filename, 'w' )
-        ltxout.write( _latex_file_( self, title='' ) )
+	if inline:
+            ltxout = open( filename, 'w' )
+	else:
+	    import latex_output
+            ltxout = latex_output.latex_output( filename )
+        ltxout.write( self._text_latex_() )
+        ltxout.write( '\n\\vspace{24pt}\n' )
         ltxout.close()
     def time_variable(self):
         """Provide the independent variable, for instance for plotting"""
@@ -475,6 +524,8 @@ class ODESystem(SageObject):
         bound.bind_in_place( *bindings )
         return bound
     def solve(self, initial_conditions, start_time=0, end_time=20, step=0.1):
+	return self.desolve( initial_conditions, start_time, end_time, step)
+    def desolve(self, initial_conditions, start_time=0, end_time=20, step=0.1):
         """Use a numerical solver to find a concrete trajectory of the system.
 
         initial_conditions: list of initial values for the state variables
@@ -628,6 +679,54 @@ class ODESystem(SageObject):
         if filename is not None:
             bp.save( filename )
         return bp
+    def gsl_system(self):
+        il = range(len(self._vars))
+        cython_code = (
+            "cimport sage.gsl.ode\n"
+            "import sage.gsl.ode\n"
+            "from sage.ext.interpreters.wrapper_rdf cimport Wrapper_rdf\n"
+            "include 'gsl.pxi'\n"
+            "cdef class gsl_ode_system(sage.gsl.ode.ode_system):\n"
+            + ''.join(
+            "    cdef Wrapper_rdf _flow%d\n"%i for i in il
+            ) +
+            "    def __init__( self, "
+            + ', '.join("Wrapper_rdf f%d"%i for i in il)
+            + " ):\n"
+            + ''.join(
+            "        self._flow%d = f%d\n"% (i,i) for i in il
+            ) +
+            "    cdef int c_f( self, double t, double *y, double *dydt ):\n"
+            #"        cdef double *result = [t]\n"
+            + (''.join(
+            "        self._flow%d.call_c( y, &dydt[%d] )\n"
+            #"        dydt[%d] = result[0]\n"
+                % (i,i) for i in il
+            )) +
+            "        return GSL_SUCCESS\n"
+            # need c_j() as well?
+        )
+        #print cython_code
+        module = sage.misc.cython.compile_and_load( cython_code )
+        T = ode_solver()
+        #T.algorithm = 'bsimp'
+        T.function = module.gsl_ode_system( *(
+            fast_float( self._flow[v], *self._vars )
+            for v in self._vars
+        ) )
+        return T
+    def solve_gsl( self, initial_conditions, start_time=0, end_time=20, step=0.1):
+        try:
+            self._gsl_system
+        except AttributeError:
+            self._gsl_system = self.gsl_system()
+        self._gsl_system.ode_solve(
+            t_span=[start_time, end_time],
+            num_points = (end_time - start_time) / step + 1,
+            y_0 = initial_conditions
+        )
+        return ODETrajectory( self, ( [ t ] + ys for t,ys in self._gsl_system.solution ) )
+        return self._gsl_system.solution
 
 # used by NumericalODESystem.solve()
 # unlike the standard odeint(), this fails when the du/dt function
@@ -810,13 +909,21 @@ class PopulationDynamicsSystem(ODESystem):
         self.set_population_indices(population_indices)
     def population_vars(self):
         return [self._population_indexer[i] for i in self._population_indices]
+    def n_populations(self):
+	return len( self._population_indices )
     # don't set _population_indices directly, call this, to keep the flow in sync
     def set_population_indices(self, xi):
+	print 'set_population_indices:', xi
         self._population_indices = xi
         self._vars = self._nonpop_vars + self.population_vars()
         self._flow = self.flow()
         #self._flow = dict( (k,self._bindings(v)) for k,v in self._flow.items() )
         self._add_hats = None
+    def remove_population(self, i):
+	self.set_population_indices( [ j for j in self._population_indices if j != i ] )
+    def remove_populations(self, ps):
+	sps = set(ps)
+	self.set_population_indices( [ j for j in self._population_indices if j not in sps ] )
     # subclasses have to provide the flow
     def flow(self): pass
     def mutate(self, resident_index):

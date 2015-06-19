@@ -1,8 +1,8 @@
-Mon May  4 21:13:39 2015
+Thu Jun 18 22:09:19 2015
 /usr/bin/make -C /usr/local/src/jekyll-research/wmd_files/Selection_Gradients \
     maclev-1-1-adap.sage.out.html
 Including .mk files: sage.mk sage-inline.mk 
-Including .mk files from .step files: foodweb.py.mk foodweb.sage.mk foodweb.plot.sage.mk foodweb-2-2.sage.mk foodweb-2-2.plot.sage.mk maclev-1-1.sage.mk maclev-1-1-adap.sage.mk maclev-1-1-mc-adap-geom.sage.mk maclev-1-1-ak-adap-geom.sage.mk S-A-vector-field.sage.mk maclev-1-1-d1A-vector-field.sage.mk maclev-1-1-S-and-d1A-on-curve.sage.mk maclev-1-1-S-and-D-on-curve.sage.mk maclev_1_2_defs.py.mk maclev-1-2-popdyn.sage.mk maclev-1-2-adap.sage.mk maclev-1-2-p.sage.mk maclev-1-2-zngi.sage.mk maclev-1-2-geom.sage.mk maclev_unconstrained_c.py.mk maclev-2-2-c-popdyn.sage.mk maclev-2-2-c-adap.sage.mk maclev-2-2-c-p.sage.mk maclev-2-2-c-zngi.sage.mk maclev-2-2-c-geom.sage.mk maclev_2_2_defs.py.mk maclev-2-2-popdyn.sage.mk maclev-2-2-adap.sage.mk maclev-2-2-p.sage.mk maclev-2-2-zngi.sage.mk maclev-2-2-geom.sage.mk maclev_a_only_defs.py.mk maclev-a-only-popdyn.sage.mk maclev-a-only-adap.sage.mk maclev-a-only-p.sage.mk maclev-a-only-zngi.sage.mk maclev-a-only-geom.sage.mk maclev_a_c.py.mk maclev-2-2-a-c-popdyn.sage.mk maclev-2-2-a-c-adap.sage.mk maclev-2-2-a-c-p.sage.mk maclev-2-2-a-c-zngi.sage.mk maclev-2-2-a-c-geom.sage.mk maclevmodels.py.mk toc.sage.mk maclev-2-2-zngi-invasion.sage.mk lotkavolterra.py.mk
+Including .mk files from .step files: foodweb.py.mk foodweb.sage.mk foodweb.plot.sage.mk foodweb-2-2.sage.mk foodweb-2-2.plot.sage.mk maclev-1-1.sage.mk maclev-1-1-adap.sage.mk maclev-1-1-mc-adap-geom.sage.mk maclev-1-1-ak-adap-geom.sage.mk S-A-vector-field.sage.mk maclev-1-1-d1A-vector-field.sage.mk maclev-1-1-S-and-d1A-on-curve.sage.mk maclev-1-1-S-and-D-on-curve.sage.mk maclev_1_2_defs.py.mk maclev-1-2-popdyn.sage.mk maclev-1-2-adap.sage.mk maclev-1-2-p.sage.mk maclev-1-2-zngi.sage.mk maclev-1-2-geom.sage.mk maclev_unconstrained_c.py.mk maclev-2-2-c-popdyn.sage.mk maclev-2-2-c-adap.sage.mk maclev-2-2-c-p.sage.mk maclev-2-2-c-zngi.sage.mk maclev-2-2-c-geom.sage.mk maclev_2_2_defs.py.mk maclev-2-2-popdyn.sage.mk maclev-2-2-adap.sage.mk maclev-2-2-p.sage.mk maclev-2-2-zngi.sage.mk maclev-2-2-geom.sage.mk maclev_a_only_defs.py.mk maclev-a-only-popdyn.sage.mk maclev-a-only-adap.sage.mk maclev-a-only-p.sage.mk maclev-a-only-zngi.sage.mk maclev-a-only-geom.sage.mk maclev_a_c.py.mk maclev-2-2-a-c-popdyn.sage.mk maclev-2-2-a-c-adap.sage.mk maclev-2-2-a-c-p.sage.mk maclev-2-2-a-c-zngi.sage.mk maclev-2-2-a-c-geom.sage.mk maclevmodels.py.mk statmech.py.mk statmech-assemble.sage.mk statmech-assemble-plot.sage.mk statmech-evol.sage.mk statmech-evol-plot.sage.mk toc.sage.mk maclev-2-2-zngi-invasion.sage.mk lotkavolterra.py.mk
 Including .mk files from .sage-inline files: avec.sage.mk a-careful.sage.mk
 Including .tex.d files: foodweb-2-2.tikz.tex.d foodweb.tikz.tex.d
 make: Entering directory `/usr/local/src/jekyll-research/wmd_files/Selection_Gradients'
@@ -14,6 +14,150 @@ make[1]: Nothing to be done for `adaptivedynamics.py'.
 Including .mk files:  
 Including .tex.d files: 
 make[1]: Nothing to be done for `dynamicalsystems.py'.
+rm -f maclev-1-1-adap.sage.out maclev-1-1-adap.sage.status maclev-1-1-adap.sage.out.tex maclev-1-1-adap.sobj maclev-1-1-c.png maclev-1-1-X.png maclev-1-1-ak.png maclev-1-1-R.png maclev-1-1-a.png maclev-1-1-k.png maclev-1-1-R.svg maclev-1-1-a.svg maclev-1-1-k.svg maclev-1-1-c.svg
+(sage maclev-1-1-adap.sage && touch maclev-1-1-adap.sage.status) | tee maclev-1-1-adap.sage.dmp
+set_population_indices: [0, 1]
+set_population_indices: [0, 1]
+The invasion rate for mutant population is:
+\begin{align*}
+  \mathscr I = \frac{1}{X_{1}}\frac{dX_{1}}{dt} &= \frac{{\left(K_{0} r_{0} - X_{0} u_{0} - X_{1} u_{1}\right)} u_{1} w_{0}}{r_{0}} - 1 
+\end{align*}
+
+limit as {u_1: u_0}
+after those limits:
+   (K_0*r_0*w_0 - X_0*u_0*w_0 - 2*X_1*u_0*w_0)/r_0
+Original pop-dyn system: 
+\[\iflatexml
+\begin{align*}
+\frac{dX_{0}}{dt} &= -{\left(\frac{{\left(X_{0} c_{00} - K_{0} r_{0}\right)} c_{00} w_{0}}{r_{0}} + m_{0}\right)} X_{0} b_{0}
+\end{align*}
+\else
+\begin{dgroup*}
+\begin{dmath*}
+\frac{dX_{0}}{dt} = -{\left(\frac{{\left(X_{0} c_{00} - K_{0} r_{0}\right)} c_{00} w_{0}}{r_{0}} + m_{0}\right)} X_{0} b_{0}
+\end{dmath*}
+\end{dgroup*}
+\fi
+\]
+Extended pop-dyn system: 
+\[\iflatexml
+\begin{align*}
+\frac{dX_{0}}{dt} &= {\left(\frac{{\left(K_{0} r_{0} - X_{0} u_{0} - X_{1} u_{1}\right)} u_{0} w_{0}}{r_{0}} - 1\right)} X_{0}\\
+\frac{dX_{1}}{dt} &= {\left(\frac{{\left(K_{0} r_{0} - X_{0} u_{0} - X_{1} u_{1}\right)} u_{1} w_{0}}{r_{0}} - 1\right)} X_{1}
+\end{align*}
+\else
+\begin{dgroup*}
+\begin{dmath*}
+\frac{dX_{0}}{dt} = {\left(\frac{{\left(K_{0} r_{0} - X_{0} u_{0} - X_{1} u_{1}\right)} u_{0} w_{0}}{r_{0}} - 1\right)} X_{0}\end{dmath*}
+\begin{dmath*}
+\frac{dX_{1}}{dt} = {\left(\frac{{\left(K_{0} r_{0} - X_{0} u_{0} - X_{1} u_{1}\right)} u_{1} w_{0}}{r_{0}} - 1\right)} X_{1}
+\end{dmath*}
+\end{dgroup*}
+\fi
+\]
+ The invasion rate for mutant population is:
+\begin{align*}
+  \mathscr I = \frac{1}{X_{1}}\frac{dX_{1}}{dt} &= \frac{{\left(K_{0} r_{0} - X_{0} u_{0} - X_{1} u_{1}\right)} u_{1} w_{0}}{r_{0}} - 1 
+\end{align*}
+ And the invasion exponent is
+\begin{align*}
+  \frac{\partial\mathscr I}{\partial u_{0}} = \lim_{u_{1}\to u_{0},X_{1}\to0}-\frac{X_{1} u_{1} w_{0}}{r_{0}} + \frac{{\left(K_{0} r_{0} - X_{0} u_{0} - X_{1} u_{1}\right)} w_{0}}{r_{0}} .
+\end{align*}
+ Which comes out to
+\begin{align*}
+  \frac{\partial\mathscr I}{\partial u_{0}} = \frac{K_{0} r_{0} w_{0} - X_{0} u_{0} w_{0}}{r_{0}} .
+\end{align*}
+ \[ \mathbf S \left(\begin{array}{c}
+  u_{0}
+\end{array}\right) = \left(\begin{array}{c}
+  \frac{K_{0} r_{0} w_{0} - \hat{X}_{0} u_{0} w_{0}}{r_{0}}
+\end{array}\right) \]
+ Equilibrium of the population dynamics: 
+\[ \begin{align*}
+  \hat{X}_{0} &\to \frac{K_{0} {c}_{00} r_{0} w_{0} - m_{0} r_{0}}{{c}_{00}^{2} w_{0}}
+\end{align*} \]
+ The adaptive dynamics comes out to 
+\[ \iflatexml
+\begin{align*}
+\frac{du_{0}}{dt} &= \frac{{\left(K_{0} r_{0} u_{0} w_{0} - r_{0}\right)} {\left(K_{0} r_{0} w_{0} - \frac{K_{0} r_{0} u_{0} w_{0} - r_{0}}{u_{0}}\right)} \gamma}{r_{0} u_{0}^{2} w_{0}}
+\end{align*}
+\else
+\begin{dgroup*}
+\begin{dmath*}
+\frac{du_{0}}{dt} = \frac{{\left(K_{0} r_{0} u_{0} w_{0} - r_{0}\right)} {\left(K_{0} r_{0} w_{0} - \frac{K_{0} r_{0} u_{0} w_{0} - r_{0}}{u_{0}}\right)} \gamma}{r_{0} u_{0}^{2} w_{0}}
+\end{dmath*}
+\end{dgroup*}
+\fi
+ \]
+
+when c_00 == u, the adaptive dynamics is  u_0 -> (K_0*r_0*u_0*w_0 - r_0)*(K_0*r_0*w_0 - (K_0*r_0*u_0*w_0 - r_0)/u_0)*gamma/(r_0*u_0^2*w_0)
+desolve: [-(2*u_0 - 1)*((2*u_0 - 1)/u_0 - 2)/u_0^2], [u_0], [0, 2/3], ivar=t, end_points=10, step=0.1
+timeseries: [{u_0 -> 2/3, t -> 0}, {u_0 -> 0.7837624634215103, t -> 0.1}, {u_0 -> 0.8981178300593889, t -> 0.2}, {u_0 -> 1.002917758495363, t -> 0.3}, {u_0 -> 1.097842734079245, t -> 0.4}, {u_0 -> 1.184114592095328, t -> 0.5}, {u_0 -> 1.263089746984021, t -> 0.6000000000000001}, {u_0 -> 1.335939134996703, t -> 0.7000000000000001}, {u_0 -> 1.403613156463241, t -> 0.8}, {u_0 -> 1.466872608928382, t -> 0.9}, {u_0 -> 1.52632793098105, t -> 1.0}, {u_0 -> 1.582472974445428, t -> 1.1}, {u_0 -> 1.635711384969595, t -> 1.2}, {u_0 -> 1.68637659774166, t -> 1.3}, {u_0 -> 1.734746896176158, t -> 1.4}, {u_0 -> 1.781056791069934, t -> 1.5}, {u_0 -> 1.825505685880811, t -> 1.6}, {u_0 -> 1.868264538613506, t -> 1.7}, {u_0 -> 1.909481035757095, t -> 1.8}, {u_0 -> 1.949283651648307, t -> 1.9}, {u_0 -> 1.987784864932028, t -> 2.0}, {u_0 -> 2.025083731259573, t -> 2.1}, {u_0 -> 2.061267959490261, t -> 2.2}, {u_0 -> 2.096415601326617, t -> 2.3}, {u_0 -> 2.13059643722686, t -maclev-1-1.sage.py:78: DeprecationWarning: coeff is deprecated. Please use coefficient instead.
+See http://trac.sagemath.org/17438 for details.
+maclev-1-1.sage.py:79: DeprecationWarning: coeff is deprecated. Please use coefficient instead.
+See http://trac.sagemath.org/17438 for details.
+> 2.4}, {u_0 -> 2.163873121612938, t -> 2.5}, {u_0 -> 2.196302135748641, t -> 2.6}, {u_0 -> 2.227934585746744, t -> 2.7}, {u_0 -> 2.25881687495447, t -> 2.8}, {u_0 -> 2.288991273738008, t -> 2.9}, {u_0 -> 2.318496404921749, t -> 3.0}, {u_0 -> 2.347367659463028, t -> 3.1}, {u_0 -> 2.375637554087263, t -> 3.2}, {u_0 -> 2.403336040372724, t -> 3.3}, {u_0 -> 2.430490773011763, t -> 3.4}, {u_0 -> 2.457127343576764, t -> 3.5}, {u_0 -> 2.483269485002242, t -> 3.6}, {u_0 -> 2.508939251097246, t -> 3.7}, {u_0 -> 2.534157174677203, t -> 3.8}, {u_0 -> 2.558942407315329, t -> 3.9}, {u_0 -> 2.583312843232701, t -> 4.0}, {u_0 -> 2.607285229451251, t -> 4.100000000000001}, {u_0 -> 2.630875264008381, t -> 4.2}, {u_0 -> 2.654097683762169, t -> 4.3}, {u_0 -> 2.67696634309174, t -> 4.4}, {u_0 -> 2.6994942846099, t -> 4.5}, {u_0 -> 2.721693802847854, t -> 4.600000000000001}, {u_0 -> 2.743576501739441, t -> 4.7}, {u_0 -> 2.765153346620411, t -> 4.800000000000001}, {u_0 -> 2.786434711363364, t -> 4.9}, {u_0 -> 2.807430421188255, t -> 5.0}, {u_0 -> 2.828149791619392, t -> 5.100000000000001}, {u_0 -> 2.848601664000874, t -> 5.2}, {u_0 -> 2.868794437931679, t -> 5.300000000000001}, {u_0 -> 2.888736100937953, t -> 5.4}, {u_0 -> 2.908434255662338, t -> 5.5}, {u_0 -> 2.927896144817481, t -> 5.600000000000001}, {u_0 -> 2.94712867412252, t -> 5.7}, {u_0 -> 2.966138433416619, t -> 5.800000000000001}, {u_0 -> 2.984931716122095, t -> 5.9}, {u_0 -> 3.003514537210811, t -> 6.0}, {u_0 -> 3.021892649810993, t -> 6.100000000000001}, {u_0 -> 3.040071560577114, t -> 6.2}, {u_0 -> 3.058056543932687, t -> 6.300000000000001}, {u_0 -> 3.075852655284555, t -> 6.4}, {u_0 -> 3.093464743297284, t -> 6.5}, {u_0 -> 3.110897461307433, t -> 6.600000000000001}, {u_0 -> 3.128155277949662, t -> 6.7}, {u_0 -> 3.145242487059645, t -> 6.800000000000001}, {u_0 -> 3.162163216912584, t -> 6.9}, {u_0 -> 3.178921438850559, t -> 7.0}, {u_0 -> 3.195520975347043, t -> 7.100000000000001}, {u_0 -> 3.211965507552449, t -> 7.2}, {u_0 -> 3.22825858236064, t -> 7.300000000000001}, {u_0 -> 3.244403619032774, t -> 7.4}, {u_0 -> 3.26040391541162, t -> 7.5}, {u_0 -> 3.276262653756673, t -> 7.600000000000001}, {u_0 -> 3.291982906227707, t -> 7.7}, {u_0 -> 3.307567640042148, t -> 7.800000000000001}, {u_0 -> 3.323019722329478, t -> 7.9}, {u_0 -> 3.338341924703961, t -> 8.0}, {u_0 -> 3.353536927575287, t -> 8.1}, {u_0 -> 3.368607324215104, t -> 8.200000000000001}, {u_0 -> 3.383555624595995, t -> 8.3}, {u_0 -> 3.39838425901817, t -> 8.4}, {u_0 -> 3.413095581537917, t -> 8.5}, {u_0 -> 3.427691873210812, t -> 8.6}, {u_0 -> 3.442175345161679, t -> 8.700000000000001}, {u_0 -> 3.456548141492388, t -> 8.8}, {u_0 -> 3.470812342037775, t -> 8.9}, {u_0 -> 3.484969964979173, t -> 9.0}, {u_0 -> 3.499022969324404, t -> 9.1}, {u_0 -> 3.51297325726239, t -> 9.200000000000001}, {u_0 -> 3.526822676400001, t -> 9.3}, {u_0 -> 3.540573021888206, t -> 9.4}, {u_0 -> 3.554226038444092, t -> 9.5}, {u_0 -> 3.56778342227488, t -> 9.600000000000001}, {u_0 -> 3.581246822909629, t -> 9.700000000000001}, {u_0 -> 3.594617844943958, t -> 9.8}, {u_0 -> 3.607898049702726, t -> 9.9}, {u_0 -> 3.62108895682532, t -> 10.0}]
+X at first pt of timeseries: [3/4]
+[ -e maclev-1-1-adap.sage.status ] && (rm -f maclev-1-1-adap.sage.status && mv maclev-1-1-adap.sage.dmp maclev-1-1-adap.sage.out) || exit 1
+latexml  --destination=maclev-1-1-adap.sage.out.latexml.xml maclev-1-1-adap.sage.out.tex
+latexml (LaTeXML version 0.8.1; revision 9e4814e)
+processing started Thu Jun 18 22:09:31 2015
+
+(Digesting TeX maclev-1-1-adap.sage.out...
+(Loading /usr/local/share/perl/5.18.2/LaTeXML/Package/TeX.pool.ltxml...
+(Loading /usr/local/share/perl/5.18.2/LaTeXML/Package/eTeX.pool.ltxml... 0.01 sec)
+(Loading /usr/local/share/perl/5.18.2/LaTeXML/Package/pdfTeX.pool.ltxml... 0.01 sec) 0.20 sec)
+(Processing content /usr/local/src/jekyll-research/wmd_files/Selection_Gradients/maclev-1-1-adap.sage.out.tex...
+(Loading /usr/local/share/perl/5.18.2/LaTeXML/Package/LaTeX.pool.ltxml... 0.23 sec)
+(Loading /usr/local/share/perl/5.18.2/LaTeXML/Package/article.cls.ltxml... 0.02 sec)
+(Loading /usr/local/share/perl/5.18.2/LaTeXML/Package/amsmath.sty.ltxml...
+(Loading /usr/local/share/perl/5.18.2/LaTeXML/Package/amsbsy.sty.ltxml... 0.00 sec)
+(Loading /usr/local/share/perl/5.18.2/LaTeXML/Package/amstext.sty.ltxml... 0.00 sec)
+(Loading /usr/local/share/perl/5.18.2/LaTeXML/Package/amsopn.sty.ltxml... 0.00 sec) 0.06 sec)
+(Loading /usr/local/share/perl/5.18.2/LaTeXML/Package/amssymb.sty.ltxml...
+(Loading /usr/local/share/perl/5.18.2/LaTeXML/Package/amsfonts.sty.ltxml... 0.00 sec) 0.04 sec)
+(Loading /usr/local/share/perl/5.18.2/LaTeXML/Package/graphicx.sty.ltxml...
+(Loading /usr/local/share/perl/5.18.2/LaTeXML/Package/graphics.sty.ltxml... 0.00 sec) 0.03 sec)
+(Loading /usr/local/share/perl/5.18.2/LaTeXML/Package/inputenc.sty.ltxml...
+(Loading /usr/local/share/perl/5.18.2/LaTeXML/Package/utf8.def.ltxml... 0.00 sec) 0.02 sec)
+(Loading /usr/local/share/perl/5.18.2/LaTeXML/Package/fontenc.sty.ltxml...
+(Loading /usr/local/share/perl/5.18.2/LaTeXML/Package/t1enc.def.ltxml...
+(Processing definitions /usr/share/texlive/texmf-dist/tex/latex/base/t1enc.def...
+(Loading /usr/local/share/perl/5.18.2/LaTeXML/Package/t1.fontmap.ltxml... 0.00 sec) 0.10 sec) 0.16 sec) 0.17 sec)
+(Loading /usr/local/share/perl/5.18.2/LaTeXML/Package/latexml.sty.ltxml... 0.01 sec) 0.91 sec) 1.12 sec)
+(Building...
+(Loading compiled schema /usr/local/share/perl/5.18.2/LaTeXML/resources/RelaxNG/LaTeXML.model... 0.02 sec)........................... 0.64 sec)
+(Rewriting... 0.03 sec)
+(Math Parsing...59 formulae ...[1][2][3][4][5][6][7][8][9][10][11][12][13][14][15][16][17][18][19][20][21][22][23][24][25][26][27][28][29][30][31][32][33][34][35][36][37][38][39][40][41][42][43][44][45][46][47][48][49][50][51][52][53][54][55][56][57][58][59]
+Math parsing succeeded:
+   ltx:XMath: 59/59
+   ltx:XMArg: 216/216
+Symbols assumed as simple identifiers (with # of occurences):
+   'K{italic}' (11), 'R{italic}' (2), 'X{italic}' (2), 'a{italic}' (2), 'b{italic}' (8), 'c{italic}' (13), 'd{italic}' (8), 'gamma' (3), 'i{italic}' (1), 'k{italic}' (2), 'm{italic}' (10), 'r{italic}' (19), 't{italic}' (4), 'u{italic}' (43), 'w{italic}' (16)
+ 1.30 sec)
+(Finalizing... 0.14 sec)
+Conversion complete: No obvious problems.
+processing finished Thu Jun 18 22:09:34 2015
+Updating .workingwiki/maclev-1-1-adap.sage.out.latexml.xml
+rm -f maclev-1-1-adap.sage.out.latexml.html5
+bibxmls=`perl -ne '($_)=/^[^%]*\\\bibliography\{([^\\\\#]*?)\}/;@_=split /,/;foreach $b (@_) { $b =~ s/\.bib$//; print "$b.bib.xml "}' maclev-1-1-adap.sage.out.latexml.xml`; bibxargs=`perl -ne '($_)=/^[^%]*\\\bibliography\{([^\\\\#]*?)\}/;@_=split /,/;foreach $b (@_) { $b =~ s/\.bib$//; print "--bibliography=$b.bib.xml "}' maclev-1-1-adap.sage.out.latexml.xml` && \
+	(test -z "$bibxmls" || /usr/bin/make -f /usr/local/src/workingwiki-trunk/ProjectEngine/resources/makefile $bibxmls) && \
+	lxpost="latexmlpost  --novalidate --destination=maclev-1-1-adap.sage.out.intermediate.latexml.html5 --format=html5 $bibxargs maclev-1-1-adap.sage.out.latexml.xml" && echo $lxpost && $lxpost
+latexmlpost --novalidate --destination=maclev-1-1-adap.sage.out.intermediate.latexml.html5 --format=html5 maclev-1-1-adap.sage.out.latexml.xml
+latexmlpost (LaTeXML version 0.8.1; revision 9e4814e)
+processing started Thu Jun 18 22:09:35 2015
+(maclev-1-1-adap.sage.out.intermediate.latexml.html5 post-processing...
+(Scan maclev-1-1-adap.sage.out.intermediate.latexml.html5 processing... 0.04 sec)
+(CrossRef maclev-1-1-adap.sage.out.intermediate.latexml.html5 processing... 0.01 sec)
+(MathML::Presentation maclev-1-1-adap.sage.out.intermediate.latexml.html5 59 to process... 0.18 sec)
+(XSLT[using LaTeXML-html5.xsl] maclev-1-1-adap.sage.out.intermediate.latexml.html5 processing... 0.04 sec)
+(Writer maclev-1-1-adap.sage.out.intermediate.latexml.html5 processing... 0.00 sec) 0.28 sec)
+Postprocessing complete: No obvious problems
+processing finished Thu Jun 18 22:09:35 2015
+/usr/local/src/workingwiki-trunk/ProjectEngine/resources/wiki-inclusion.latexml.pl maclev-1-1-adap.sage.out.intermediate.latexml.html5 >maclev-1-1-adap.sage.out.latexml.html5
+ln -f maclev-1-1-adap.sage.out.latexml.html5 maclev-1-1-adap.sage.out.latexml.html
+ln -f maclev-1-1-adap.sage.out.latexml.html maclev-1-1-adap.sage.out.html
+rm maclev-1-1-adap.sage.out.latexml.xml maclev-1-1-adap.sage.out.latexml.html5 maclev-1-1-adap.sage.out.latexml.html
 make: Leaving directory `/usr/local/src/jekyll-research/wmd_files/Selection_Gradients'
 Make succeeded.
-Mon May  4 21:13:39 2015
+Thu Jun 18 22:09:35 2015

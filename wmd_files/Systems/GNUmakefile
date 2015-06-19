@@ -6,6 +6,7 @@ ifndef RESOURCES
   # locations.  If they aren't provided, we're in an exported directory.
   export RESOURCES = /usr/local/src/jekyll-research/wmd_files/.workingwiki/resources
   export SageDynamicsRepo = ../SageDynamicsRepo
+  export WW_OUTPUTFORMAT = html
 endif
 include $(RESOURCES)/makefile-before
 ifeq ($(filter makefile, $(wildcard makefile)),makefile)

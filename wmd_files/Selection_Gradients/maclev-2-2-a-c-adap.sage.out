@@ -1,84 +1,77 @@
+set_population_indices: [0, 1]
+set_population_indices: [0, 1]
+set_population_indices: [0, 1]
+set_population_indices: [0, 1]
 create adaptive dynamics
+set_population_indices: [0, 1, 2]
+set_population_indices: [0, 1, 2]
 The invasion rate for mutant population is:
 \begin{align*}
-  \mathscr I = \frac{1}{X_{2}}\frac{dX_{2}}{dt} &= -K_{0} c_{20} - K_{1} c_{21} - \frac{{\left(X_{0} c_{00} + X_{1} c_{10} + X_{2} c_{20} - K_{0} r_{0}\right)} c_{20} w_{0}}{r_{0}} - \frac{{\left(X_{0} c_{01} + X_{1} c_{11} + X_{2} c_{21} - K_{1} r_{1}\right)} c_{21} w_{1}}{r_{1}} + 1 
+  \mathscr I = \frac{1}{X_{2}}\frac{dX_{2}}{dt} &= -K_{0} {c}_{20} - K_{1} {c}_{21} - \frac{{\left(X_{0} {c}_{00} + X_{1} {c}_{10} + X_{2} {c}_{20} - K_{0} r_{0}\right)} {c}_{20} w_{0}}{r_{0}} - \frac{{\left(X_{0} {c}_{01} + X_{1} {c}_{11} + X_{2} {c}_{21} - K_{1} r_{1}\right)} {c}_{21} w_{1}}{r_{1}} + 1 
 \end{align*}
 
 limit as {c_2_1: c_0_1, c_2_0: c_0_0}
 after those limits:
    -(X_0*c_0_0*w_0 + 2*X_2*c_0_0*w_0 + X_1*c_1_0*w_0 - (r_0*w_0 - r_0)*K_0)/r_0
   K_1*w_1 - X_0*c_0_1*w_1/r_1 - 2*X_2*c_0_1*w_1/r_1 - X_1*c_1_1*w_1/r_1 - K_1
-- (2 _SAGE_VAR_c_0_0 _SAGE_VAR_w_0 _SAGE_VAR_X_2
- + _SAGE_VAR_c_1_0 _SAGE_VAR_w_0 _SAGE_VAR_X_1
- + _SAGE_VAR_c_0_0 _SAGE_VAR_w_0 _SAGE_VAR_X_0
- - (_SAGE_VAR_r_0 _SAGE_VAR_w_0 - _SAGE_VAR_r_0) _SAGE_VAR_K_0)/_SAGE_VAR_r_0
-limit as                                  _SAGE_VAR_X_2 -> 0
- --> - (_SAGE_VAR_c_1_0 _SAGE_VAR_w_0 _SAGE_VAR_X_1
- + _SAGE_VAR_c_0_0 _SAGE_VAR_w_0 _SAGE_VAR_X_0
- - (_SAGE_VAR_r_0 _SAGE_VAR_w_0 - _SAGE_VAR_r_0) _SAGE_VAR_K_0)/_SAGE_VAR_r_0
+set_population_indices: [0, 1, 2]
+set_population_indices: [0, 1, 2]
 The invasion rate for mutant population is:
 \begin{align*}
-  \mathscr I = \frac{1}{X_{2}}\frac{dX_{2}}{dt} &= -K_{0} c_{20} - K_{1} c_{21} - \frac{{\left(X_{0} c_{00} + X_{1} c_{10} + X_{2} c_{20} - K_{0} r_{0}\right)} c_{20} w_{0}}{r_{0}} - \frac{{\left(X_{0} c_{01} + X_{1} c_{11} + X_{2} c_{21} - K_{1} r_{1}\right)} c_{21} w_{1}}{r_{1}} + 1 
+  \mathscr I = \frac{1}{X_{2}}\frac{dX_{2}}{dt} &= -K_{0} {c}_{20} - K_{1} {c}_{21} - \frac{{\left(X_{0} {c}_{00} + X_{1} {c}_{10} + X_{2} {c}_{20} - K_{0} r_{0}\right)} {c}_{20} w_{0}}{r_{0}} - \frac{{\left(X_{0} {c}_{01} + X_{1} {c}_{11} + X_{2} {c}_{21} - K_{1} r_{1}\right)} {c}_{21} w_{1}}{r_{1}} + 1 
 \end{align*}
 
 limit as {c_2_1: c_1_1, c_2_0: c_1_0}
 after those limits:
    -(X_0*c_0_0*w_0 + X_1*c_1_0*w_0 + 2*X_2*c_1_0*w_0 - (r_0*w_0 - r_0)*K_0)/r_0
   K_1*w_1 - X_0*c_0_1*w_1/r_1 - X_1*c_1_1*w_1/r_1 - 2*X_2*c_1_1*w_1/r_1 - K_1
-- (2 _SAGE_VAR_c_1_0 _SAGE_VAR_w_0 _SAGE_VAR_X_2
- + _SAGE_VAR_c_1_0 _SAGE_VAR_w_0 _SAGE_VAR_X_1
- + _SAGE_VAR_c_0_0 _SAGE_VAR_w_0 _SAGE_VAR_X_0
- - (_SAGE_VAR_r_0 _SAGE_VAR_w_0 - _SAGE_VAR_r_0) _SAGE_VAR_K_0)/_SAGE_VAR_r_0
-limit as                                  _SAGE_VAR_X_2 -> 0
- --> - (_SAGE_VAR_c_1_0 _SAGE_VAR_w_0 _SAGE_VAR_X_1
- + _SAGE_VAR_c_0_0 _SAGE_VAR_w_0 _SAGE_VAR_X_0
- - (_SAGE_VAR_r_0 _SAGE_VAR_w_0 - _SAGE_VAR_r_0) _SAGE_VAR_K_0)/_SAGE_VAR_r_0
 ad flow: {c_0_1: -(Xhat_0*c_0_1*w_1 + Xhat_1*c_1_1*w_1 - (r_1*w_1 - r_1)*K_1)*Xhat_0*gamma/r_1, c_0_0: -(Xhat_0*c_0_0*w_0 + Xhat_1*c_1_0*w_0 - (r_0*w_0 - r_0)*K_0)*Xhat_0*gamma/r_0, c_1_1: -(Xhat_0*c_0_1*w_1 + Xhat_1*c_1_1*w_1 - (r_1*w_1 - r_1)*K_1)*Xhat_1*gamma/r_1, c_1_0: -(Xhat_0*c_0_0*w_0 + Xhat_1*c_1_0*w_0 - (r_0*w_0 - r_0)*K_0)*Xhat_1*gamma/r_0}
-+ bindings: {gamma -> 1, b_3 -> 1, r_1 -> 1, Rhat_0 -> -Xhat_0*c_0_0 - Xhat_1*c_1_0 + 2, m_0 -> 2*c_0_0 + 2*c_0_1 - 1, R_0 -> -X_0*c_0_0 - X_1*c_1_0 + 2, K_0 -> 2, m_1 -> 2*c_1_0 + 2*c_1_1 - 1, b_0 -> 1, m_3 -> 2*c_3_0 + 2*c_3_1 - 1, w_1 -> 1, w_0 -> 1, b_2 -> 1, Rhat_1 -> -Xhat_0*c_0_1 - Xhat_1*c_1_1 + 2, b_1 -> 1, r_0 -> 1, K_1 -> 2, m_2 -> 2*c_2_0 + 2*c_2_1 - 1, R_1 -> -X_0*c_0_1 - X_1*c_1_1 + 2}
++ bindings: {gamma -> 1, K_0 -> 2, b_3 -> 1, K_1 -> 2, b_0 -> 1, Rhat_1 -> -Xhat_0*c_0_1 - Xhat_1*c_1_1 + 2, R_0 -> -X_0*c_0_0 - X_1*c_1_0 + 2, r_0 -> 1, b_2 -> 1, r_1 -> 1, m_2 -> 2*c_2_0 + 2*c_2_1 - 1, b_1 -> 1, w_0 -> 1, m_1 -> 2*c_1_0 + 2*c_1_1 - 1, Rhat_0 -> -Xhat_0*c_0_0 - Xhat_1*c_1_0 + 2, m_0 -> 2*c_0_0 + 2*c_0_1 - 1, m_3 -> 2*c_3_0 + 2*c_3_1 - 1, w_1 -> 1, R_1 -> -X_0*c_0_1 - X_1*c_1_1 + 2}
 --> flow: {c_0_1: -(Xhat_0*c_0_1 + Xhat_1*c_1_1)*Xhat_0, c_0_0: -(Xhat_0*c_0_0 + Xhat_1*c_1_0)*Xhat_0, c_1_1: -(Xhat_0*c_0_1 + Xhat_1*c_1_1)*Xhat_1, c_1_0: -(Xhat_0*c_0_0 + Xhat_1*c_1_0)*Xhat_1}
 solve
 NumericalODESystem.solve
  lsoda--  warning..internal t (=r1) and h (=r2) are
        such that in the machine, t + h = t on the next step  
        (h = step size). solver will continue anyway
-      In above,  R1 =  0.1249976618226E+00   R2 =  0.4643736658133E-17
+      In above,  R1 =  0.1249976618062E+00   R2 =  0.4643834967764E-17
  lsoda--  warning..internal t (=r1) and h (=r2) are
        such that in the machine, t + h = t on the next step  
        (h = step size). solver will continue anyway
-      In above,  R1 =  0.1249976618226E+00   R2 =  0.4643736658133E-17
+      In above,  R1 =  0.1249976618062E+00   R2 =  0.4643834967764E-17
  lsoda--  warning..internal t (=r1) and h (=r2) are
        such that in the machine, t + h = t on the next step  
        (h = step size). solver will continue anyway
-      In above,  R1 =  0.1249976618226E+00   R2 =  0.4643736658133E-17
+      In above,  R1 =  0.1249976618062E+00   R2 =  0.4643834967764E-17
  lsoda--  warning..internal t (=r1) and h (=r2) are
        such that in the machine, t + h = t on the next step  
        (h = step size). solver will continue anyway
-      In above,  R1 =  0.1249976618226E+00   R2 =  0.6767722428426E-17
+      In above,  R1 =  0.1249976618062E+00   R2 =  0.6768009207772E-17
  lsoda--  warning..internal t (=r1) and h (=r2) are
        such that in the machine, t + h = t on the next step  
        (h = step size). solver will continue anyway
-      In above,  R1 =  0.1249976618226E+00   R2 =  0.1691930607106E-17
+      In above,  R1 =  0.1249976618062E+00   R2 =  0.1692002301943E-17
  lsoda--  warning..internal t (=r1) and h (=r2) are
        such that in the machine, t + h = t on the next step  
        (h = step size). solver will continue anyway
-      In above,  R1 =  0.1249976618226E+00   R2 =  0.1691930607106E-17
+      In above,  R1 =  0.1249976618062E+00   R2 =  0.1692002301943E-17
  lsoda--  warning..internal t (=r1) and h (=r2) are
        such that in the machine, t + h = t on the next step  
        (h = step size). solver will continue anyway
-      In above,  R1 =  0.1249976618226E+00   R2 =  0.1691930607106E-17
+      In above,  R1 =  0.1249976618062E+00   R2 =  0.1692002301943E-17
  lsoda--  warning..internal t (=r1) and h (=r2) are
        such that in the machine, t + h = t on the next step  
        (h = step size). solver will continue anyway
-      In above,  R1 =  0.1249976618226E+00   R2 =  0.2734998170073E-17
+      In above,  R1 =  0.1249976618062E+00   R2 =  0.2735173380939E-17
  lsoda--  warning..internal t (=r1) and h (=r2) are
        such that in the machine, t + h = t on the next step  
        (h = step size). solver will continue anyway
-      In above,  R1 =  0.1249976618226E+00   R2 =  0.6837495425182E-18
+      In above,  R1 =  0.1249976618062E+00   R2 =  0.6837933452348E-18
  lsoda--  warning..internal t (=r1) and h (=r2) are
        such that in the machine, t + h = t on the next step  
        (h = step size). solver will continue anyway
-      In above,  R1 =  0.1249976618226E+00   R2 =  0.6837495425182E-18
+      In above,  R1 =  0.1249976618062E+00   R2 =  0.6837933452348E-18
  lsoda--  above warning has been issued i1 times.  
        it will not be issued again for this problem
       In above message,  I1 =        10
+Integration of dynamics interrupted : Population Dynamics has become unbounded
 done

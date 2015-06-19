@@ -3,6 +3,7 @@
 # requires: maclev_2_2_defs.py maclev-2-2-a-c-adap.sobj
 # produces: maclev-2-2-a-c-p.sage.out.tex
 # produces: maclev-2-2-a-c-c-vs-t.sage.out.tex maclev-2-2-a-c-c-vs-c.png
+# produces: maclev-2-2-a-c-c-vs-t.png maclev-2-2-a-c-c-vs-t.svg
 from maclev_a_c import *
 
 load_session( 'maclev-2-2-a-c-adap' )
@@ -24,6 +25,7 @@ for i in maclev._population_indices:
 
 c_timeseries.axes_labels( [ '$t$', '$c$' ] )
 c_timeseries.save( 'maclev-2-2-a-c-c-vs-t.png', figsize=(6,6), xmin=0, ymin=0 )
+c_timeseries.save( 'maclev-2-2-a-c-c-vs-t.svg', figsize=(2,2), xmin=0, ymin=0, ticks=0.06 )
 
 # plot c_1 vs c_0
 

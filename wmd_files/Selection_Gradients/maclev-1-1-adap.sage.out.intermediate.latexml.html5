@@ -1,7 +1,7 @@
 <!DOCTYPE html><html>
 <head>
 <title>Untitled Document</title>
-<!--Generated on Mon May  4 19:38:42 2015 by LaTeXML (version 0.8.1) http://dlmf.nist.gov/LaTeXML/.-->
+<!--Generated on Thu Jun 18 22:09:35 2015 by LaTeXML (version 0.8.1) http://dlmf.nist.gov/LaTeXML/.-->
 
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" href="LaTeXML.css" type="text/css">
@@ -49,17 +49,17 @@ w_{0}-\frac{K_{0}r_{0}u_{0}w_{0}-r_{0}}{u_{0}}\right)}\gamma}{r_{0}u_{0}^{2}w_%
 <tr id="S0.Ex3" class="ltx_equation ltx_eqn_row ltx_align_baseline">
 <td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
 <td class="ltx_td ltx_align_right ltx_eqn_cell">
-              <math id="S0.Ex3.m1" class="ltx_Math" alttext="\displaystyle\hat{R}_{0}" display="inline"><msub><mover accent="true"><mi>R</mi><mo stretchy="false">^</mo></mover><mn>0</mn></msub></math>
+              <math id="S0.Ex3.m1" class="ltx_Math" alttext="\displaystyle\gamma" display="inline"><mi>γ</mi></math>
             </td>
 <td class="ltx_td ltx_align_left ltx_eqn_cell">
-              <math id="S0.Ex3.m2" class="ltx_Math" alttext="\displaystyle\to-\frac{2\,u_{0}-1}{u_{0}}+2" display="inline"><mrow><mi></mi><mo>→</mo><mrow><mrow><mo>-</mo><mstyle displaystyle="true"><mfrac><mrow><mrow><mpadded width="+1.7pt"><mn>2</mn></mpadded><mo>⁢</mo><msub><mi>u</mi><mn>0</mn></msub></mrow><mo>-</mo><mn>1</mn></mrow><msub><mi>u</mi><mn>0</mn></msub></mfrac></mstyle></mrow><mo>+</mo><mn>2</mn></mrow></mrow></math>
+              <math id="S0.Ex3.m2" class="ltx_Math" alttext="\displaystyle\to 1" display="inline"><mrow><mi></mi><mo>→</mo><mn>1</mn></mrow></math>
             </td>
 <td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
 </tr>
 <tr id="S0.Ex4" class="ltx_equation ltx_eqn_row ltx_align_baseline">
 <td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
 <td class="ltx_td ltx_align_right ltx_eqn_cell">
-              <math id="S0.Ex4.m1" class="ltx_Math" alttext="\displaystyle b_{0}" display="inline"><msub><mi>b</mi><mn>0</mn></msub></math>
+              <math id="S0.Ex4.m1" class="ltx_Math" alttext="\displaystyle m_{1}" display="inline"><msub><mi>m</mi><mn>1</mn></msub></math>
             </td>
 <td class="ltx_td ltx_align_left ltx_eqn_cell">
               <math id="S0.Ex4.m2" class="ltx_Math" alttext="\displaystyle\to 1" display="inline"><mrow><mi></mi><mo>→</mo><mn>1</mn></mrow></math>
@@ -69,7 +69,7 @@ w_{0}-\frac{K_{0}r_{0}u_{0}w_{0}-r_{0}}{u_{0}}\right)}\gamma}{r_{0}u_{0}^{2}w_%
 <tr id="S0.Ex5" class="ltx_equation ltx_eqn_row ltx_align_baseline">
 <td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
 <td class="ltx_td ltx_align_right ltx_eqn_cell">
-              <math id="S0.Ex5.m1" class="ltx_Math" alttext="\displaystyle m_{1}" display="inline"><msub><mi>m</mi><mn>1</mn></msub></math>
+              <math id="S0.Ex5.m1" class="ltx_Math" alttext="\displaystyle b_{0}" display="inline"><msub><mi>b</mi><mn>0</mn></msub></math>
             </td>
 <td class="ltx_td ltx_align_left ltx_eqn_cell">
               <math id="S0.Ex5.m2" class="ltx_Math" alttext="\displaystyle\to 1" display="inline"><mrow><mi></mi><mo>→</mo><mn>1</mn></mrow></math>
@@ -79,47 +79,47 @@ w_{0}-\frac{K_{0}r_{0}u_{0}w_{0}-r_{0}}{u_{0}}\right)}\gamma}{r_{0}u_{0}^{2}w_%
 <tr id="S0.Ex6" class="ltx_equation ltx_eqn_row ltx_align_baseline">
 <td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
 <td class="ltx_td ltx_align_right ltx_eqn_cell">
-              <math id="S0.Ex6.m1" class="ltx_Math" alttext="\displaystyle R_{0}" display="inline"><msub><mi>R</mi><mn>0</mn></msub></math>
+              <math id="S0.Ex6.m1" class="ltx_Math" alttext="\displaystyle b_{1}" display="inline"><msub><mi>b</mi><mn>1</mn></msub></math>
             </td>
 <td class="ltx_td ltx_align_left ltx_eqn_cell">
-              <math id="S0.Ex6.m2" class="ltx_Math" alttext="\displaystyle\to-X_{0}u_{0}+2" display="inline"><mrow><mi></mi><mo>→</mo><mrow><mrow><mo>-</mo><mrow><msub><mi>X</mi><mn>0</mn></msub><mo>⁢</mo><msub><mi>u</mi><mn>0</mn></msub></mrow></mrow><mo>+</mo><mn>2</mn></mrow></mrow></math>
+              <math id="S0.Ex6.m2" class="ltx_Math" alttext="\displaystyle\to 1" display="inline"><mrow><mi></mi><mo>→</mo><mn>1</mn></mrow></math>
             </td>
 <td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
 </tr>
 <tr id="S0.Ex7" class="ltx_equation ltx_eqn_row ltx_align_baseline">
 <td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
 <td class="ltx_td ltx_align_right ltx_eqn_cell">
-              <math id="S0.Ex7.m1" class="ltx_Math" alttext="\displaystyle m_{0}" display="inline"><msub><mi>m</mi><mn>0</mn></msub></math>
+              <math id="S0.Ex7.m1" class="ltx_Math" alttext="\displaystyle K_{0}" display="inline"><msub><mi>K</mi><mn>0</mn></msub></math>
             </td>
 <td class="ltx_td ltx_align_left ltx_eqn_cell">
-              <math id="S0.Ex7.m2" class="ltx_Math" alttext="\displaystyle\to 1" display="inline"><mrow><mi></mi><mo>→</mo><mn>1</mn></mrow></math>
+              <math id="S0.Ex7.m2" class="ltx_Math" alttext="\displaystyle\to 2" display="inline"><mrow><mi></mi><mo>→</mo><mn>2</mn></mrow></math>
             </td>
 <td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
 </tr>
 <tr id="S0.Ex8" class="ltx_equation ltx_eqn_row ltx_align_baseline">
 <td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
 <td class="ltx_td ltx_align_right ltx_eqn_cell">
-              <math id="S0.Ex8.m1" class="ltx_Math" alttext="\displaystyle r_{0}" display="inline"><msub><mi>r</mi><mn>0</mn></msub></math>
+              <math id="S0.Ex8.m1" class="ltx_Math" alttext="\displaystyle{c}_{00}" display="inline"><msub><mi>c</mi><mn>00</mn></msub></math>
             </td>
 <td class="ltx_td ltx_align_left ltx_eqn_cell">
-              <math id="S0.Ex8.m2" class="ltx_Math" alttext="\displaystyle\to 1" display="inline"><mrow><mi></mi><mo>→</mo><mn>1</mn></mrow></math>
+              <math id="S0.Ex8.m2" class="ltx_Math" alttext="\displaystyle\to u_{0}" display="inline"><mrow><mi></mi><mo>→</mo><msub><mi>u</mi><mn>0</mn></msub></mrow></math>
             </td>
 <td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
 </tr>
 <tr id="S0.Ex9" class="ltx_equation ltx_eqn_row ltx_align_baseline">
 <td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
 <td class="ltx_td ltx_align_right ltx_eqn_cell">
-              <math id="S0.Ex9.m1" class="ltx_Math" alttext="\displaystyle c_{00}" display="inline"><msub><mi>c</mi><mn>00</mn></msub></math>
+              <math id="S0.Ex9.m1" class="ltx_Math" alttext="\displaystyle\hat{X}_{0}" display="inline"><msub><mover accent="true"><mi>X</mi><mo stretchy="false">^</mo></mover><mn>0</mn></msub></math>
             </td>
 <td class="ltx_td ltx_align_left ltx_eqn_cell">
-              <math id="S0.Ex9.m2" class="ltx_Math" alttext="\displaystyle\to u_{0}" display="inline"><mrow><mi></mi><mo>→</mo><msub><mi>u</mi><mn>0</mn></msub></mrow></math>
+              <math id="S0.Ex9.m2" class="ltx_Math" alttext="\displaystyle\to\frac{2\,u_{0}-1}{u_{0}^{2}}" display="inline"><mrow><mi></mi><mo>→</mo><mstyle displaystyle="true"><mfrac><mrow><mrow><mpadded width="+1.7pt"><mn>2</mn></mpadded><mo>⁢</mo><msub><mi>u</mi><mn>0</mn></msub></mrow><mo>-</mo><mn>1</mn></mrow><msubsup><mi>u</mi><mn>0</mn><mn>2</mn></msubsup></mfrac></mstyle></mrow></math>
             </td>
 <td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
 </tr>
 <tr id="S0.Ex10" class="ltx_equation ltx_eqn_row ltx_align_baseline">
 <td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
 <td class="ltx_td ltx_align_right ltx_eqn_cell">
-              <math id="S0.Ex10.m1" class="ltx_Math" alttext="\displaystyle\gamma" display="inline"><mi>γ</mi></math>
+              <math id="S0.Ex10.m1" class="ltx_Math" alttext="\displaystyle w_{0}" display="inline"><msub><mi>w</mi><mn>0</mn></msub></math>
             </td>
 <td class="ltx_td ltx_align_left ltx_eqn_cell">
               <math id="S0.Ex10.m2" class="ltx_Math" alttext="\displaystyle\to 1" display="inline"><mrow><mi></mi><mo>→</mo><mn>1</mn></mrow></math>
@@ -129,37 +129,37 @@ w_{0}-\frac{K_{0}r_{0}u_{0}w_{0}-r_{0}}{u_{0}}\right)}\gamma}{r_{0}u_{0}^{2}w_%
 <tr id="S0.Ex11" class="ltx_equation ltx_eqn_row ltx_align_baseline">
 <td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
 <td class="ltx_td ltx_align_right ltx_eqn_cell">
-              <math id="S0.Ex11.m1" class="ltx_Math" alttext="\displaystyle K_{0}" display="inline"><msub><mi>K</mi><mn>0</mn></msub></math>
+              <math id="S0.Ex11.m1" class="ltx_Math" alttext="\displaystyle r_{0}" display="inline"><msub><mi>r</mi><mn>0</mn></msub></math>
             </td>
 <td class="ltx_td ltx_align_left ltx_eqn_cell">
-              <math id="S0.Ex11.m2" class="ltx_Math" alttext="\displaystyle\to 2" display="inline"><mrow><mi></mi><mo>→</mo><mn>2</mn></mrow></math>
+              <math id="S0.Ex11.m2" class="ltx_Math" alttext="\displaystyle\to 1" display="inline"><mrow><mi></mi><mo>→</mo><mn>1</mn></mrow></math>
             </td>
 <td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
 </tr>
 <tr id="S0.Ex12" class="ltx_equation ltx_eqn_row ltx_align_baseline">
 <td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
 <td class="ltx_td ltx_align_right ltx_eqn_cell">
-              <math id="S0.Ex12.m1" class="ltx_Math" alttext="\displaystyle\hat{X}_{0}" display="inline"><msub><mover accent="true"><mi>X</mi><mo stretchy="false">^</mo></mover><mn>0</mn></msub></math>
+              <math id="S0.Ex12.m1" class="ltx_Math" alttext="\displaystyle R_{0}" display="inline"><msub><mi>R</mi><mn>0</mn></msub></math>
             </td>
 <td class="ltx_td ltx_align_left ltx_eqn_cell">
-              <math id="S0.Ex12.m2" class="ltx_Math" alttext="\displaystyle\to\frac{2\,u_{0}-1}{u_{0}^{2}}" display="inline"><mrow><mi></mi><mo>→</mo><mstyle displaystyle="true"><mfrac><mrow><mrow><mpadded width="+1.7pt"><mn>2</mn></mpadded><mo>⁢</mo><msub><mi>u</mi><mn>0</mn></msub></mrow><mo>-</mo><mn>1</mn></mrow><msubsup><mi>u</mi><mn>0</mn><mn>2</mn></msubsup></mfrac></mstyle></mrow></math>
+              <math id="S0.Ex12.m2" class="ltx_Math" alttext="\displaystyle\to-X_{0}u_{0}+2" display="inline"><mrow><mi></mi><mo>→</mo><mrow><mrow><mo>-</mo><mrow><msub><mi>X</mi><mn>0</mn></msub><mo>⁢</mo><msub><mi>u</mi><mn>0</mn></msub></mrow></mrow><mo>+</mo><mn>2</mn></mrow></mrow></math>
             </td>
 <td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
 </tr>
 <tr id="S0.Ex13" class="ltx_equation ltx_eqn_row ltx_align_baseline">
 <td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
 <td class="ltx_td ltx_align_right ltx_eqn_cell">
-              <math id="S0.Ex13.m1" class="ltx_Math" alttext="\displaystyle w_{0}" display="inline"><msub><mi>w</mi><mn>0</mn></msub></math>
+              <math id="S0.Ex13.m1" class="ltx_Math" alttext="\displaystyle\hat{R}_{0}" display="inline"><msub><mover accent="true"><mi>R</mi><mo stretchy="false">^</mo></mover><mn>0</mn></msub></math>
             </td>
 <td class="ltx_td ltx_align_left ltx_eqn_cell">
-              <math id="S0.Ex13.m2" class="ltx_Math" alttext="\displaystyle\to 1" display="inline"><mrow><mi></mi><mo>→</mo><mn>1</mn></mrow></math>
+              <math id="S0.Ex13.m2" class="ltx_Math" alttext="\displaystyle\to-\frac{2\,u_{0}-1}{u_{0}}+2" display="inline"><mrow><mi></mi><mo>→</mo><mrow><mrow><mo>-</mo><mstyle displaystyle="true"><mfrac><mrow><mrow><mpadded width="+1.7pt"><mn>2</mn></mpadded><mo>⁢</mo><msub><mi>u</mi><mn>0</mn></msub></mrow><mo>-</mo><mn>1</mn></mrow><msub><mi>u</mi><mn>0</mn></msub></mfrac></mstyle></mrow><mo>+</mo><mn>2</mn></mrow></mrow></math>
             </td>
 <td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
 </tr>
 <tr id="S0.Ex14" class="ltx_equation ltx_eqn_row ltx_align_baseline">
 <td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
 <td class="ltx_td ltx_align_right ltx_eqn_cell">
-              <math id="S0.Ex14.m1" class="ltx_Math" alttext="\displaystyle b_{1}" display="inline"><msub><mi>b</mi><mn>1</mn></msub></math>
+              <math id="S0.Ex14.m1" class="ltx_Math" alttext="\displaystyle m_{0}" display="inline"><msub><mi>m</mi><mn>0</mn></msub></math>
             </td>
 <td class="ltx_td ltx_align_left ltx_eqn_cell">
               <math id="S0.Ex14.m2" class="ltx_Math" alttext="\displaystyle\to 1" display="inline"><mrow><mi></mi><mo>→</mo><mn>1</mn></mrow></math>
@@ -169,7 +169,7 @@ w_{0}-\frac{K_{0}r_{0}u_{0}w_{0}-r_{0}}{u_{0}}\right)}\gamma}{r_{0}u_{0}^{2}w_%
 <tr id="S0.Ex15" class="ltx_equation ltx_eqn_row ltx_align_baseline">
 <td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
 <td class="ltx_td ltx_align_right ltx_eqn_cell">
-              <math id="S0.Ex15.m1" class="ltx_Math" alttext="\displaystyle c_{10}" display="inline"><msub><mi>c</mi><mn>10</mn></msub></math>
+              <math id="S0.Ex15.m1" class="ltx_Math" alttext="\displaystyle{c}_{10}" display="inline"><msub><mi>c</mi><mn>10</mn></msub></math>
             </td>
 <td class="ltx_td ltx_align_left ltx_eqn_cell">
               <math id="S0.Ex15.m2" class="ltx_Math" alttext="\displaystyle\to u_{1}" display="inline"><mrow><mi></mi><mo>→</mo><msub><mi>u</mi><mn>1</mn></msub></mrow></math>
@@ -192,7 +192,7 @@ w_{0}-\frac{K_{0}r_{0}u_{0}w_{0}-r_{0}}{u_{0}}\right)}\gamma}{r_{0}u_{0}^{2}w_%
 
 <tr class="ltx_equation ltx_eqn_row ltx_align_baseline">
 <td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
-<td class="ltx_eqn_cell ltx_align_center"><math id="S0.Ex17.m1" class="ltx_Math" alttext="a_{00}=-\frac{b_{0}c_{00}^{2}w_{0}}{r_{0}}=-u_{0}^{2}" display="block"><mrow><msub><mi>a</mi><mn>00</mn></msub><mo>=</mo><mrow><mo>-</mo><mfrac><mrow><msub><mi>b</mi><mn>0</mn></msub><mo>⁢</mo><msubsup><mi>c</mi><mn>00</mn><mn>2</mn></msubsup><mo>⁢</mo><msub><mi>w</mi><mn>0</mn></msub></mrow><msub><mi>r</mi><mn>0</mn></msub></mfrac></mrow><mo>=</mo><mrow><mo>-</mo><msubsup><mi>u</mi><mn>0</mn><mn>2</mn></msubsup></mrow></mrow></math></td>
+<td class="ltx_eqn_cell ltx_align_center"><math id="S0.Ex17.m1" class="ltx_Math" alttext="{a_{00}}=-\frac{b_{0}c_{00}^{2}w_{0}}{r_{0}}=-u_{0}^{2}" display="block"><mrow><msub><mi>a</mi><mn>00</mn></msub><mo>=</mo><mrow><mo>-</mo><mfrac><mrow><msub><mi>b</mi><mn>0</mn></msub><mo>⁢</mo><msubsup><mi>c</mi><mn>00</mn><mn>2</mn></msubsup><mo>⁢</mo><msub><mi>w</mi><mn>0</mn></msub></mrow><msub><mi>r</mi><mn>0</mn></msub></mfrac></mrow><mo>=</mo><mrow><mo>-</mo><msubsup><mi>u</mi><mn>0</mn><mn>2</mn></msubsup></mrow></mrow></math></td>
 <td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
 </tr>
 </table>
@@ -205,8 +205,8 @@ w_{0}-\frac{K_{0}r_{0}u_{0}w_{0}-r_{0}}{u_{0}}\right)}\gamma}{r_{0}u_{0}^{2}w_%
               <math id="S0.Ex18.m1" class="ltx_Math" alttext="\displaystyle\hat{X}_{0}" display="inline"><msub><mover accent="true"><mi>X</mi><mo stretchy="false">^</mo></mover><mn>0</mn></msub></math>
             </td>
 <td class="ltx_td ltx_align_left ltx_eqn_cell">
-              <math id="S0.Ex18.m2" class="ltx_Math" alttext="\displaystyle\to\frac{K_{0}r_{0}}{c_{00}}-\frac{m_{0}r_{0}}{c_{00}^{2}w_{0}}=%
-\frac{2}{u_{0}}-\frac{1}{u_{0}^{2}}" display="inline"><mrow><mi></mi><mo>→</mo><mrow><mstyle displaystyle="true"><mfrac><mrow><msub><mi>K</mi><mn>0</mn></msub><mo>⁢</mo><msub><mi>r</mi><mn>0</mn></msub></mrow><msub><mi>c</mi><mn>00</mn></msub></mfrac></mstyle><mo>-</mo><mstyle displaystyle="true"><mfrac><mrow><msub><mi>m</mi><mn>0</mn></msub><mo>⁢</mo><msub><mi>r</mi><mn>0</mn></msub></mrow><mrow><msubsup><mi>c</mi><mn>00</mn><mn>2</mn></msubsup><mo>⁢</mo><msub><mi>w</mi><mn>0</mn></msub></mrow></mfrac></mstyle></mrow><mo>=</mo><mrow><mstyle displaystyle="true"><mfrac><mn>2</mn><msub><mi>u</mi><mn>0</mn></msub></mfrac></mstyle><mo>-</mo><mstyle displaystyle="true"><mfrac><mn>1</mn><msubsup><mi>u</mi><mn>0</mn><mn>2</mn></msubsup></mfrac></mstyle></mrow></mrow></math>
+              <math id="S0.Ex18.m2" class="ltx_Math" alttext="\displaystyle\to\frac{K_{0}r_{0}}{{c}_{00}}-\frac{m_{0}r_{0}}{{c}_{00}^{2}w_{0%
+}}=\frac{2}{u_{0}}-\frac{1}{u_{0}^{2}}" display="inline"><mrow><mi></mi><mo>→</mo><mrow><mstyle displaystyle="true"><mfrac><mrow><msub><mi>K</mi><mn>0</mn></msub><mo>⁢</mo><msub><mi>r</mi><mn>0</mn></msub></mrow><msub><mi>c</mi><mn>00</mn></msub></mfrac></mstyle><mo>-</mo><mstyle displaystyle="true"><mfrac><mrow><msub><mi>m</mi><mn>0</mn></msub><mo>⁢</mo><msub><mi>r</mi><mn>0</mn></msub></mrow><mrow><msubsup><mi>c</mi><mn>00</mn><mn>2</mn></msubsup><mo>⁢</mo><msub><mi>w</mi><mn>0</mn></msub></mrow></mfrac></mstyle></mrow><mo>=</mo><mrow><mstyle displaystyle="true"><mfrac><mn>2</mn><msub><mi>u</mi><mn>0</mn></msub></mfrac></mstyle><mo>-</mo><mstyle displaystyle="true"><mfrac><mn>1</mn><msubsup><mi>u</mi><mn>0</mn><mn>2</mn></msubsup></mfrac></mstyle></mrow></mrow></math>
             </td>
 <td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
 </tr>
@@ -225,7 +225,7 @@ w_{0}-\frac{K_{0}r_{0}u_{0}w_{0}-r_{0}}{u_{0}}\right)}\gamma}{r_{0}u_{0}^{2}w_%
 </article>
 </div>
 <footer class="ltx_page_footer">
-<div class="ltx_page_logo">Generated  on Mon May  4 19:38:42 2015 by <a href="http://dlmf.nist.gov/LaTeXML/">LaTeXML <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAsAAAAOCAYAAAD5YeaVAAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAALEwAACxMBAJqcGAAAAAd0SU1FB9wKExQZLWTEaOUAAAAddEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIFRoZSBHSU1Q72QlbgAAAdpJREFUKM9tkL+L2nAARz9fPZNCKFapUn8kyI0e4iRHSR1Kb8ng0lJw6FYHFwv2LwhOpcWxTjeUunYqOmqd6hEoRDhtDWdA8ApRYsSUCDHNt5ul13vz4w0vWCgUnnEc975arX6ORqN3VqtVZbfbTQC4uEHANM3jSqXymFI6yWazP2KxWAXAL9zCUa1Wy2tXVxheKA9YNoR8Pt+aTqe4FVVVvz05O6MBhqUIBGk8Hn8HAOVy+T+XLJfLS4ZhTiRJgqIoVBRFIoric47jPnmeB1mW/9rr9ZpSSn3Lsmir1fJZlqWlUonKsvwWwD8ymc/nXwVBeLjf7xEKhdBut9Hr9WgmkyGEkJwsy5eHG5vN5g0AKIoCAEgkEkin0wQAfN9/cXPdheu6P33fBwB4ngcAcByHJpPJl+fn54mD3Gg0NrquXxeLRQAAwzAYj8cwTZPwPH9/sVg8PXweDAauqqr2cDjEer1GJBLBZDJBs9mE4zjwfZ85lAGg2+06hmGgXq+j3+/DsixYlgVN03a9Xu8jgCNCyIegIAgx13Vfd7vdu+FweG8YRkjXdWy329+dTgeSJD3ieZ7RNO0VAXAPwDEAO5VKndi2fWrb9jWl9Esul6PZbDY9Go1OZ7PZ9z/lyuD3OozU2wAAAABJRU5ErkJggg==" alt="[LOGO]"></a>
+<div class="ltx_page_logo">Generated  on Thu Jun 18 22:09:35 2015 by <a href="http://dlmf.nist.gov/LaTeXML/">LaTeXML <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAsAAAAOCAYAAAD5YeaVAAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAALEwAACxMBAJqcGAAAAAd0SU1FB9wKExQZLWTEaOUAAAAddEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIFRoZSBHSU1Q72QlbgAAAdpJREFUKM9tkL+L2nAARz9fPZNCKFapUn8kyI0e4iRHSR1Kb8ng0lJw6FYHFwv2LwhOpcWxTjeUunYqOmqd6hEoRDhtDWdA8ApRYsSUCDHNt5ul13vz4w0vWCgUnnEc975arX6ORqN3VqtVZbfbTQC4uEHANM3jSqXymFI6yWazP2KxWAXAL9zCUa1Wy2tXVxheKA9YNoR8Pt+aTqe4FVVVvz05O6MBhqUIBGk8Hn8HAOVy+T+XLJfLS4ZhTiRJgqIoVBRFIoric47jPnmeB1mW/9rr9ZpSSn3Lsmir1fJZlqWlUonKsvwWwD8ymc/nXwVBeLjf7xEKhdBut9Hr9WgmkyGEkJwsy5eHG5vN5g0AKIoCAEgkEkin0wQAfN9/cXPdheu6P33fBwB4ngcAcByHJpPJl+fn54mD3Gg0NrquXxeLRQAAwzAYj8cwTZPwPH9/sVg8PXweDAauqqr2cDjEer1GJBLBZDJBs9mE4zjwfZ85lAGg2+06hmGgXq+j3+/DsixYlgVN03a9Xu8jgCNCyIegIAgx13Vfd7vdu+FweG8YRkjXdWy329+dTgeSJD3ieZ7RNO0VAXAPwDEAO5VKndi2fWrb9jWl9Esul6PZbDY9Go1OZ7PZ9z/lyuD3OozU2wAAAABJRU5ErkJggg==" alt="[LOGO]"></a>
 </div></footer>
 </div>
 </body>

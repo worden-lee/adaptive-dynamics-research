@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=latex 2015.4.21)  21 APR 2015 17:39
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=latex 2015.4.21)  18 JUN 2015 22:07
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -342,20 +342,8 @@ Package: fontenc 2005/09/27 v1.99g Standard LaTeX package
 (/usr/share/texlive/texmf-dist/tex/latex/base/t1enc.def
 File: t1enc.def 2005/09/27 v1.99g Standard LaTeX file
 LaTeX Font Info:    Redeclaring font encoding T1 on input line 43.
-)
-! Font T1/cmr/m/n/10=ecrm1000 at 10.0pt not loadable: Metric (TFM) file not fou
-nd.
-<to be read again> 
-                   relax 
-l.100 \fontencoding\encodingdefault\selectfont
-                                              
-I wasn't able to read the size data for this font,
-so I will ignore the font specification.
-[Wizards can fix TFM files using TFtoPL/PLtoTF.]
-You might try inserting a different font spec;
-e.g., type `I\font<same font id>=<substitute font name>'.
-
-) (/usr/share/texmf/tex/latex/pgf/frontendlayer/tikz.sty
+))
+(/usr/share/texmf/tex/latex/pgf/frontendlayer/tikz.sty
 (/usr/share/texmf/tex/latex/pgf/basiclayer/pgf.sty
 (/usr/share/texmf/tex/latex/pgf/utilities/pgfrcs.sty
 (/usr/share/texmf/tex/generic/pgf/utilities/pgfutil-common.tex
@@ -710,8 +698,7 @@ File: pgflibraryshapes.multipart.code.tex 2010/01/07 v2.10 (rcs-revision 1.2)
 \pgfnodepartsevenbox=\box54
 \pgfnodepartsixbox=\box55
 \pgfnodepartfivebox=\box56
-)))
-No file foodweb-2-2.tikz.aux.
+))) (.//foodweb-2-2.tikz.aux)
 \openout1 = `foodweb-2-2.tikz.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 41.
@@ -726,32 +713,9 @@ LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 41.
 LaTeX Font Info:    ... okay on input line 41.
 LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 41.
 LaTeX Font Info:    ... okay on input line 41.
-ABD: EveryShipout initializing macros
-! Font T1/cmr/m/n/14.4=ecrm1440 at 14.4pt not loadable: Metric (TFM) file not f
-ound.
-<to be read again> 
-                   relax 
-l.42 \begin{center}{\Large
-                          \bf }\end{center}
-I wasn't able to read the size data for this font,
-so I will ignore the font specification.
-[Wizards can fix TFM files using TFtoPL/PLtoTF.]
-You might try inserting a different font spec;
-e.g., type `I\font<same font id>=<substitute font name>'.
-
-! Font T1/cmr/bx/n/14.4=ecbx1440 at 14.4pt not loadable: Metric (TFM) file not 
-found.
-<to be read again> 
-                   relax 
-l.42 \begin{center}{\Large\bf
-                              }\end{center}
-I wasn't able to read the size data for this font,
-so I will ignore the font specification.
-[Wizards can fix TFM files using TFtoPL/PLtoTF.]
-You might try inserting a different font spec;
-e.g., type `I\font<same font id>=<substitute font name>'.
-
+ ABD: EveryShipout initializing macros
 LaTeX Font Info:    Try loading font information for U+msa on input line 43.
+
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
@@ -764,51 +728,17 @@ LaTeX Font Info:    Try loading font information for U+rsfs on input line 43.
 
 (/usr/share/texlive/texmf-dist/tex/latex/jknapltx/ursfs.fd
 File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
-)
-! Font U/rsfs/m/n/10=rsfs10 at 10.0pt not loadable: Metric (TFM) file not found
-.
-<to be read again> 
-                   relax 
-l.43 \vspace{40mm}\[
-                    \begin{tikzpicture}
-I wasn't able to read the size data for this font,
-so I will ignore the font specification.
-[Wizards can fix TFM files using TFtoPL/PLtoTF.]
-You might try inserting a different font spec;
-e.g., type `I\font<same font id>=<substitute font name>'.
+) [1
 
-! Font U/rsfs/m/n/7=rsfs7 at 7.0pt not loadable: Metric (TFM) file not found.
-<to be read again> 
-                   relax 
-l.43 \vspace{40mm}\[
-                    \begin{tikzpicture}
-I wasn't able to read the size data for this font,
-so I will ignore the font specification.
-[Wizards can fix TFM files using TFtoPL/PLtoTF.]
-You might try inserting a different font spec;
-e.g., type `I\font<same font id>=<substitute font name>'.
-
-! Font U/rsfs/m/n/5=rsfs5 at 5.0pt not loadable: Metric (TFM) file not found.
-<to be read again> 
-                   relax 
-l.43 \vspace{40mm}\[
-                    \begin{tikzpicture}
-I wasn't able to read the size data for this font,
-so I will ignore the font specification.
-[Wizards can fix TFM files using TFtoPL/PLtoTF.]
-You might try inserting a different font spec;
-e.g., type `I\font<same font id>=<substitute font name>'.
-
-[1
-
-] (.//foodweb-2-2.tikz.aux) ) 
+]
+(.//foodweb-2-2.tikz.aux) ) 
 Here is how much of TeX's memory you used:
- 13248 strings out of 495029
- 258196 string characters out of 6181523
- 348577 words of memory out of 5000000
- 16189 multiletter control sequences out of 15000+600000
- 5339 words of font info for 22 fonts, out of 8000000 for 9000
+ 13229 strings out of 495029
+ 257572 string characters out of 6181523
+ 348583 words of memory out of 5000000
+ 16168 multiletter control sequences out of 15000+600000
+ 8140 words of font info for 28 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 56i,6n,63p,428b,746s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 56i,6n,63p,428b,750s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on .//foodweb-2-2.tikz.dvi (1 page, 11772 bytes).
+Output written on .//foodweb-2-2.tikz.dvi (1 page, 11252 bytes).

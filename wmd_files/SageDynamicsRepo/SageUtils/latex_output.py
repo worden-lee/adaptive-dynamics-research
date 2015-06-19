@@ -10,6 +10,7 @@ r'''\usepackage{amsmath}
 \pagestyle{empty}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
+\usepackage{latexml}
 '''
 
 LATEX_HEADER = (
@@ -41,7 +42,7 @@ class latex_output_base(SageObject):
     def write_inline(self, *args):
         '''Output latex representation of each argument, inline in math mode'''
         for o in args:
-            self.write( '$%$' % self.latex(o) )
+            self.write( '$%s$' % self.latex(o) )
         return self;
     def write_block(self, *args):
         '''Output latex representation of each argument, set apart in \\[ \\]'''
@@ -55,12 +56,15 @@ class latex_output_base(SageObject):
             '\\\\\n  '.join( self.latex(a) for a in stuff ),
             '\n\\end{', envname, '}\n'
         )
+    def write_align( self, *stuff ):
+        return self.write_environment( 'align*', *stuff )
     def write_equality(self, *args):
         return self.write( '\n\\[\n  ', ' = '.join( self.latex(a) for a in args ), '\n\\]\n' )
     def write_equality_aligned(self, *args):
         '''For convenience: write that one thing is equal to another (or more).
         This is because write_block( a == b ) often just writes "false"...'''
-        return self.write_environment( 'align*', '\n    &= '.join( self.latex(a) for a in args ) );
+        return self.write_environment( 'align*',
+	    self.latex(args[0]) + ' &= ' + '\\\\\n    &= '.join( self.latex(a) for a in args[1:] ) );
     def close(self):
         self._output.close()
         return self;
@@ -104,6 +108,33 @@ class wrap_latex( SageObject ):
         self._str = text
     def _latex_(self):
         return self._str
+
+# TODO: integrate with stuff above
+def write_tex_inline( vname, lname=None, fname=None, bindings=None ):
+    if lname is None: lname = '\\'+str(vname)
+    if fname is None: fname = str(vname)
+    ltx = latex_output_base( open( fname+'.value.tex-inline', 'w' ) )
+    if bindings is None:
+	vval = vname
+    else:
+	vval = bindings(vname)
+    vstr = str(vval)
+    import re
+    if re.search('\.\d*0$',vstr):
+	print 'change', vstr, ':',
+	vstr = str(RDF(vval))
+    if re.search('\.\d{4,}',vstr):
+	print 'reduce', vstr, ':',
+	vstr = str(N(vval, digits=3))
+    if re.search('\.0$', vstr):
+	print 'truncate', vstr, ':'
+	vstr = str(ZZ(vval))
+    print vstr
+    if lname != '':
+        ltx.write( '$' + lname + ' = ' + vstr + '$' )
+    else:
+	ltx.write( '$' + vstr + '$' )
+    ltx.close()
 
 class column_vector(SageObject): # v.column() is missing?
     '''column_vector( x ) behaves just like vector( x ) but draws itself

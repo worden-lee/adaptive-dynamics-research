@@ -6,6 +6,7 @@
 \pagestyle{empty}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
+\usepackage{latexml}
 \oddsidemargin 0.0in
 \evensidemargin 0.0in
 \textwidth 6.45in
@@ -33,8 +34,19 @@
 \newcommand{\CFF}{\Bold{CFF}}
 \newcommand{\Bold}[1]{\mathbf{#1}}
 \begin{document}
+\iflatexml
 \begin{align*}
 \frac{dX_{1}}{dt} &= -\frac{1}{5} \, X_{1}^{2} - \frac{1}{10} \, X_{1} X_{2} + X_{1}\\
 \frac{dX_{2}}{dt} &= -\frac{1}{5} \, X_{1} X_{2} - \frac{1}{3} \, X_{2}^{2} + X_{2}
 \end{align*}
+\else
+\begin{dgroup*}
+\begin{dmath*}
+\frac{dX_{1}}{dt} = -\frac{1}{5} \, X_{1}^{2} - \frac{1}{10} \, X_{1} X_{2} + X_{1}\end{dmath*}
+\begin{dmath*}
+\frac{dX_{2}}{dt} = -\frac{1}{5} \, X_{1} X_{2} - \frac{1}{3} \, X_{2}^{2} + X_{2}
+\end{dmath*}
+\end{dgroup*}
+\fi
+
 \end{document}

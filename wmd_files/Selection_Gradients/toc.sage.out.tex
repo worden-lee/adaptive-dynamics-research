@@ -6,6 +6,7 @@
 \pagestyle{empty}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
+\usepackage{latexml}
 \oddsidemargin 0.0in
 \evensidemargin 0.0in
 \textwidth 6.45in
@@ -34,9 +35,18 @@
 \newcommand{\Bold}[1]{\mathbf{#1}}
 \begin{document}
 The ToC model:
-\[\begin{align*}
+\[\iflatexml
+\begin{align*}
 \frac{dX}{dt} &= -{\left({\left(X d h - q_{0}\right)} h + 1\right)} X
-\end{align*}\]
+\end{align*}
+\else
+\begin{dgroup*}
+\begin{dmath*}
+\frac{dX}{dt} = -{\left({\left(X d h - q_{0}\right)} h + 1\right)} X
+\end{dmath*}
+\end{dgroup*}
+\fi
+\]
 Whence the adaptive dynamics of $h$ is
 \begin{align*}
   \left[\text{\texttt{{\char`\\}frac{\char`\{}dh{\char`\}}{\char`\{}dt{\char`\}}{ }{\char`\&}{\char`\\}propto{ }{-}{\char`\\}hat{\char`\{}X{\char`\}}{ }d{ }h{ }+{ }q{\char`\_}{\char`\{}0{\char`\}}}}\right]

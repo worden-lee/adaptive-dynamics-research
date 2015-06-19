@@ -1,4 +1,4 @@
-Mon May  4 21:13:49 2015
+Thu Jun 18 22:21:52 2015
 /usr/bin/make -C /usr/local/src/jekyll-research/wmd_files/Systems competition.sage.out.html
 Including .mk files: sage.mk 
 Including .mk files from .step files: phase_portraits.sage.mk popdyn-example.sage.mk
@@ -8,6 +8,277 @@ make: Entering directory `/usr/local/src/jekyll-research/wmd_files/Systems'
 Including .mk files:  
 Including .tex.d files: 
 make[1]: Nothing to be done for `dynamicalsystems.py'.
+latexml  --destination=competition.sage.out.latexml.xml competition.sage.out.tex
+latexml (LaTeXML version 0.8.1; revision 9e4814e)
+processing started Thu Jun 18 22:21:53 2015
+
+(Digesting TeX competition.sage.out...
+(Loading /usr/local/share/perl/5.18.2/LaTeXML/Package/TeX.pool.ltxml...
+(Loading /usr/local/share/perl/5.18.2/LaTeXML/Package/eTeX.pool.ltxml... 0.00 sec)
+(Loading /usr/local/share/perl/5.18.2/LaTeXML/Package/pdfTeX.pool.ltxml... 0.01 sec) 0.21 sec)
+(Processing content /usr/local/src/jekyll-research/wmd_files/Systems/competition.sage.out.tex...
+(Loading /usr/local/share/perl/5.18.2/LaTeXML/Package/LaTeX.pool.ltxml... 0.22 sec)
+(Loading /usr/local/share/perl/5.18.2/LaTeXML/Package/article.cls.ltxml... 0.02 sec)
+(Loading /usr/local/share/perl/5.18.2/LaTeXML/Package/amsmath.sty.ltxml...
+(Loading /usr/local/share/perl/5.18.2/LaTeXML/Package/amsbsy.sty.ltxml... 0.00 sec)
+(Loading /usr/local/share/perl/5.18.2/LaTeXML/Package/amstext.sty.ltxml... 0.00 sec)
+(Loading /usr/local/share/perl/5.18.2/LaTeXML/Package/amsopn.sty.ltxml... 0.00 sec) 0.05 sec)
+(Loading /usr/local/share/perl/5.18.2/LaTeXML/Package/amssymb.sty.ltxml...
+(Loading /usr/local/share/perl/5.18.2/LaTeXML/Package/amsfonts.sty.ltxml... 0.00 sec) 0.03 sec)
+(Loading /usr/local/share/perl/5.18.2/LaTeXML/Package/graphicx.sty.ltxml...
+(Loading /usr/local/share/perl/5.18.2/LaTeXML/Package/graphics.sty.ltxml... 0.00 sec) 0.03 sec)
+(Loading /usr/local/share/perl/5.18.2/LaTeXML/Package/inputenc.sty.ltxml...
+(Loading /usr/local/share/perl/5.18.2/LaTeXML/Package/utf8.def.ltxml... 0.00 sec) 0.01 sec)
+(Loading /usr/local/share/perl/5.18.2/LaTeXML/Package/fontenc.sty.ltxml...
+(Loading /usr/local/share/perl/5.18.2/LaTeXML/Package/t1enc.def.ltxml...
+(Processing definitions /usr/share/texlive/texmf-dist/tex/latex/base/t1enc.def...
+(Loading /usr/local/share/perl/5.18.2/LaTeXML/Package/t1.fontmap.ltxml... 0.00 sec) 0.10 sec) 0.13 sec) 0.14 sec)
+(Loading /usr/local/share/perl/5.18.2/LaTeXML/Package/latexml.sty.ltxml... 0.01 sec)
+Warning:unexpected:\hat \hat should only appear in math mode
+	at /usr/local/src/jekyll-research/wmd_files/Systems/competition.sage.out.tex; line 53 col 29
+	In \hat Digested from TeX.pool.ltxml line 5178
+
+Error:unexpected:_ Script _ can only appear in math mode
+	at /usr/local/src/jekyll-research/wmd_files/Systems/competition.sage.out.tex; line 53 col 34
+	In _ from TeX.pool.ltxml line 3385
+	 <= Core::Stomach[@0x2fa6078] <= \@hidden@bgroup <= Core::Stomach[@0x2fa6078] <= ...
+
+Warning:unexpected:\hat \hat should only appear in math mode
+	at /usr/local/src/jekyll-research/wmd_files/Systems/competition.sage.out.tex; line 53 col 46
+	In \hat Digested from TeX.pool.ltxml line 5178
+
+Error:unexpected:_ Script _ can only appear in math mode
+	at /usr/local/src/jekyll-research/wmd_files/Systems/competition.sage.out.tex; line 53 col 51
+	In _ from TeX.pool.ltxml line 3385
+	 <= Core::Stomach[@0x2fa6078] <= \@hidden@bgroup <= Core::Stomach[@0x2fa6078] <= ...
+
+Warning:unexpected:\hat \hat should only appear in math mode
+	at /usr/local/src/jekyll-research/wmd_files/Systems/competition.sage.out.tex; line 53 col 78
+	In \hat Digested from TeX.pool.ltxml line 5178
+
+Error:unexpected:_ Script _ can only appear in math mode
+	at /usr/local/src/jekyll-research/wmd_files/Systems/competition.sage.out.tex; line 53 col 83
+	In _ from TeX.pool.ltxml line 3385
+	 <= Core::Stomach[@0x2fa6078] <= \@hidden@bgroup <= Core::Stomach[@0x2fa6078] <= ...
+
+Warning:unexpected:\hat \hat should only appear in math mode
+	at /usr/local/src/jekyll-research/wmd_files/Systems/competition.sage.out.tex; line 53 col 95
+	In \hat Digested from TeX.pool.ltxml line 5178
+
+Error:unexpected:_ Script _ can only appear in math mode
+	at /usr/local/src/jekyll-research/wmd_files/Systems/competition.sage.out.tex; line 53 col 100
+	In _ from TeX.pool.ltxml line 3385
+	 <= Core::Stomach[@0x2fa6078] <= \@hidden@bgroup <= Core::Stomach[@0x2fa6078] <= ...
+
+Warning:unexpected:\hat \hat should only appear in math mode
+	at /usr/local/src/jekyll-research/wmd_files/Systems/competition.sage.out.tex; line 53 col 127
+	In \hat Digested from TeX.pool.ltxml line 5178
+
+Error:unexpected:_ Script _ can only appear in math mode
+	at /usr/local/src/jekyll-research/wmd_files/Systems/competition.sage.out.tex; line 53 col 132
+	In _ from TeX.pool.ltxml line 3385
+	 <= Core::Stomach[@0x2fa6078] <= \@hidden@bgroup <= Core::Stomach[@0x2fa6078] <= ...
+
+Warning:unexpected:\hat \hat should only appear in math mode
+	at /usr/local/src/jekyll-research/wmd_files/Systems/competition.sage.out.tex; line 53 col 144
+	In \hat Digested from TeX.pool.ltxml line 5178
+
+Error:unexpected:_ Script _ can only appear in math mode
+	at /usr/local/src/jekyll-research/wmd_files/Systems/competition.sage.out.tex; line 53 col 149
+	In _ from TeX.pool.ltxml line 3385
+	 <= Core::Stomach[@0x2fa6078] <= \@hidden@bgroup <= Core::Stomach[@0x2fa6078] <= ...
+
+Warning:unexpected:\hat \hat should only appear in math mode
+	at /usr/local/src/jekyll-research/wmd_files/Systems/competition.sage.out.tex; line 53 col 176
+	In \hat Digested from TeX.pool.ltxml line 5178
+
+Error:unexpected:_ Script _ can only appear in math mode
+	at /usr/local/src/jekyll-research/wmd_files/Systems/competition.sage.out.tex; line 53 col 181
+	In _ from TeX.pool.ltxml line 3385
+	 <= Core::Stomach[@0x2fa6078] <= \@hidden@bgroup <= Core::Stomach[@0x2fa6078] <= ...
+
+Warning:perl:warn Perl warning
+	at /usr/local/src/jekyll-research/wmd_files/Systems/competition.sage.out.tex; line 53 col 191
+	Use of uninitialized value in hash element at /usr/local/share/perl/5.18.2/LaTeXML/Package/TeX.pool.ltxml line 3581, <$IN> line 53.
+	In \frac {}{} from LaTeX.pool.ltxml line 1746
+
+Warning:perl:warn Perl warning
+	at /usr/local/src/jekyll-research/wmd_files/Systems/competition.sage.out.tex; line 53 col 191
+	Use of uninitialized value within @_ in list assignment at /usr/local/share/perl/5.18.2/LaTeXML/Package.pm line 242, <$IN> line 53.
+	In \frac {}{} from LaTeX.pool.ltxml line 1746
+
+Warning:unexpected:\hat \hat should only appear in math mode
+	at /usr/local/src/jekyll-research/wmd_files/Systems/competition.sage.out.tex; line 53 col 203
+	In \hat Digested from TeX.pool.ltxml line 5178
+
+Error:unexpected:_ Script _ can only appear in math mode
+	at /usr/local/src/jekyll-research/wmd_files/Systems/competition.sage.out.tex; line 53 col 208
+	In _ from TeX.pool.ltxml line 3385
+	 <= Core::Stomach[@0x2fa6078] <= \@hidden@bgroup <= Core::Stomach[@0x2fa6078] <= ...
+
+Warning:perl:warn Perl warning
+	at /usr/local/src/jekyll-research/wmd_files/Systems/competition.sage.out.tex; line 53 col 218
+	Use of uninitialized value in hash element at /usr/local/share/perl/5.18.2/LaTeXML/Package/TeX.pool.ltxml line 3581, <$IN> line 53.
+	In \frac {}{} from LaTeX.pool.ltxml line 1746
+
+Warning:perl:warn Perl warning
+	at /usr/local/src/jekyll-research/wmd_files/Systems/competition.sage.out.tex; line 53 col 218
+	Use of uninitialized value within @_ in list assignment at /usr/local/share/perl/5.18.2/LaTeXML/Package.pm line 242, <$IN> line 53.
+	In \frac {}{} from LaTeX.pool.ltxml line 1746
+ 0.67 sec) 0.89 sec)
+(Building...
+(Loading compiled schema /usr/local/share/perl/5.18.2/LaTeXML/resources/RelaxNG/LaTeXML.model... 0.02 sec).....
+Error:malformed:ltx:XMTok <ltx:XMTok> isn't allowed here
+	at /usr/local/src/jekyll-research/wmd_files/Systems/competition.sage.out.tex; line 53 col 1
+	Currently in XMLDocument[70301216]<ltx:document _box="LaTeXML::Core::Whatsit=HASH(0x..." _font="Font[serif,medium,upright,10,b..." _ID_counter_p_="1" xmlns="http://dlmf.nist.gov/LaTeXML">...<ltx:para _box="LaTeXML::Core::Box=ARRAY(0x42c8bd0)" _font="Font[serif,medium,upright,10,b..." xml:id="p1">...<ltx:p _box="LaTeXML::Core::Box=ARRAY(0x4343b70)" _font="Font[serif,medium,upright,10,b...">...
+	In Core::Document[@0x37228e8] at /usr/local/src/jekyll-research/wmd_files/Systems/competition.sage.out.tex; line 53 col 1
+	 <= \@left Token <= \left[ <= Core::Document[@0x37228e8] <= ...
+.
+Error:malformed:ltx:XMTok <ltx:XMTok> isn't allowed here
+	at /usr/local/src/jekyll-research/wmd_files/Systems/competition.sage.out.tex; line 53 col 1
+	Currently in XMLDocument[70301216]<ltx:document _box="LaTeXML::Core::Whatsit=HASH(0x..." _font="Font[serif,medium,upright,10,b..." _ID_counter_p_="1" xmlns="http://dlmf.nist.gov/LaTeXML">...<ltx:para _box="LaTeXML::Core::Box=ARRAY(0x42c8bd0)" _font="Font[serif,medium,upright,10,b..." xml:id="p1">...<ltx:p _box="LaTeXML::Core::Box=ARRAY(0x4343b70)" _font="Font[serif,medium,upright,10,b...">...
+	In Core::Document[@0x37228e8] at /usr/local/src/jekyll-research/wmd_files/Systems/competition.sage.out.tex; line 53 col 1
+	 <= \@left Token <= \left\{ <= Core::Document[@0x37228e8] <= ...
+
+Error:malformed:ltx:XMApp <ltx:XMApp> isn't allowed here
+	at /usr/local/src/jekyll-research/wmd_files/Systems/competition.sage.out.tex; line 53 col 1
+	Currently in XMLDocument[70301216]<ltx:document _box="LaTeXML::Core::Whatsit=HASH(0x..." _font="Font[serif,medium,upright,10,b..." _ID_counter_p_="1" xmlns="http://dlmf.nist.gov/LaTeXML">...<ltx:para _box="LaTeXML::Core::Box=ARRAY(0x42c8bd0)" _font="Font[serif,medium,upright,10,b..." xml:id="p1">...<ltx:p _box="LaTeXML::Core::Box=ARRAY(0x4343b70)" _font="Font[serif,medium,upright,10,b...">...
+	In Core::Document[@0x37228e8] at /usr/local/src/jekyll-research/wmd_files/Systems/competition.sage.out.tex; line 53 col 1
+	 <= \hat Digested <= \hat{X} <= Core::Document[@0x37228e8] <= ...
+
+Error:malformed:ltx:XMApp <ltx:XMApp> isn't allowed here
+	at /usr/local/src/jekyll-research/wmd_files/Systems/competition.sage.out.tex; line 53 col 1
+	Currently in XMLDocument[70301216]<ltx:document _box="LaTeXML::Core::Whatsit=HASH(0x..." _font="Font[serif,medium,upright,10,b..." _ID_counter_p_="1" xmlns="http://dlmf.nist.gov/LaTeXML">...<ltx:para _box="LaTeXML::Core::Box=ARRAY(0x42c8bd0)" _font="Font[serif,medium,upright,10,b..." xml:id="p1">...<ltx:p _box="LaTeXML::Core::Box=ARRAY(0x4343b70)" _font="Font[serif,medium,upright,10,b...">...
+	In Core::Document[@0x37228e8] at /usr/local/src/jekyll-research/wmd_files/Systems/competition.sage.out.tex; line 53 col 1
+	 <= \hat Digested <= \hat{X} <= Core::Document[@0x37228e8] <= ...
+
+Error:malformed:ltx:XMTok <ltx:XMTok> isn't allowed here
+	at /usr/local/src/jekyll-research/wmd_files/Systems/competition.sage.out.tex; line 53 col 1
+	Currently in XMLDocument[70301216]<ltx:document _box="LaTeXML::Core::Whatsit=HASH(0x..." _font="Font[serif,medium,upright,10,b..." _ID_counter_p_="1" xmlns="http://dlmf.nist.gov/LaTeXML">...<ltx:para _box="LaTeXML::Core::Box=ARRAY(0x42c8bd0)" _font="Font[serif,medium,upright,10,b..." xml:id="p1">...<ltx:p _box="LaTeXML::Core::Box=ARRAY(0x4343b70)" _font="Font[serif,medium,upright,10,b...">...
+	In Core::Document[@0x37228e8] at /usr/local/src/jekyll-research/wmd_files/Systems/competition.sage.out.tex; line 53 col 1
+	 <= \@right Token <= \right\} <= Core::Document[@0x37228e8] <= ...
+
+Error:malformed:ltx:XMTok <ltx:XMTok> isn't allowed here
+	at /usr/local/src/jekyll-research/wmd_files/Systems/competition.sage.out.tex; line 53 col 1
+	Currently in XMLDocument[70301216]<ltx:document _box="LaTeXML::Core::Whatsit=HASH(0x..." _font="Font[serif,medium,upright,10,b..." _ID_counter_p_="1" xmlns="http://dlmf.nist.gov/LaTeXML">...<ltx:para _box="LaTeXML::Core::Box=ARRAY(0x42c8bd0)" _font="Font[serif,medium,upright,10,b..." xml:id="p1">...<ltx:p _box="LaTeXML::Core::Box=ARRAY(0x4343b70)" _font="Font[serif,medium,upright,10,b...">...
+	In Core::Document[@0x37228e8] at /usr/local/src/jekyll-research/wmd_files/Systems/competition.sage.out.tex; line 53 col 1
+	 <= \@left Token <= \left\{ <= Core::Document[@0x37228e8] <= ...
+
+Error:malformed:ltx:XMApp <ltx:XMApp> isn't allowed here
+	at /usr/local/src/jekyll-research/wmd_files/Systems/competition.sage.out.tex; line 53 col 1
+	Currently in XMLDocument[70301216]<ltx:document _box="LaTeXML::Core::Whatsit=HASH(0x..." _font="Font[serif,medium,upright,10,b..." _ID_counter_p_="1" xmlns="http://dlmf.nist.gov/LaTeXML">...<ltx:para _box="LaTeXML::Core::Box=ARRAY(0x42c8bd0)" _font="Font[serif,medium,upright,10,b..." xml:id="p1">...<ltx:p _box="LaTeXML::Core::Box=ARRAY(0x4343b70)" _font="Font[serif,medium,upright,10,b...">...
+	In Core::Document[@0x37228e8] at /usr/local/src/jekyll-research/wmd_files/Systems/competition.sage.out.tex; line 53 col 1
+	 <= \hat Digested <= \hat{X} <= Core::Document[@0x37228e8] <= ...
+
+Error:malformed:ltx:XMApp <ltx:XMApp> isn't allowed here
+	at /usr/local/src/jekyll-research/wmd_files/Systems/competition.sage.out.tex; line 53 col 1
+	Currently in XMLDocument[70301216]<ltx:document _box="LaTeXML::Core::Whatsit=HASH(0x..." _font="Font[serif,medium,upright,10,b..." _ID_counter_p_="1" xmlns="http://dlmf.nist.gov/LaTeXML">...<ltx:para _box="LaTeXML::Core::Box=ARRAY(0x42c8bd0)" _font="Font[serif,medium,upright,10,b..." xml:id="p1">...<ltx:p _box="LaTeXML::Core::Box=ARRAY(0x4343b70)" _font="Font[serif,medium,upright,10,b...">...
+	In Core::Document[@0x37228e8] at /usr/local/src/jekyll-research/wmd_files/Systems/competition.sage.out.tex; line 53 col 1
+	 <= \hat Digested <= \hat{X} <= Core::Document[@0x37228e8] <= ...
+
+Error:malformed:ltx:XMTok <ltx:XMTok> isn't allowed here
+	at /usr/local/src/jekyll-research/wmd_files/Systems/competition.sage.out.tex; line 53 col 1
+	Currently in XMLDocument[70301216]<ltx:document _box="LaTeXML::Core::Whatsit=HASH(0x..." _font="Font[serif,medium,upright,10,b..." _ID_counter_p_="1" xmlns="http://dlmf.nist.gov/LaTeXML">...<ltx:para _box="LaTeXML::Core::Box=ARRAY(0x42c8bd0)" _font="Font[serif,medium,upright,10,b..." xml:id="p1">...<ltx:p _box="LaTeXML::Core::Box=ARRAY(0x4343b70)" _font="Font[serif,medium,upright,10,b...">...
+	In Core::Document[@0x37228e8] at /usr/local/src/jekyll-research/wmd_files/Systems/competition.sage.out.tex; line 53 col 1
+	 <= \@right Token <= \right\} <= Core::Document[@0x37228e8] <= ...
+
+Error:malformed:ltx:XMTok <ltx:XMTok> isn't allowed here
+	at /usr/local/src/jekyll-research/wmd_files/Systems/competition.sage.out.tex; line 53 col 1
+	Currently in XMLDocument[70301216]<ltx:document _box="LaTeXML::Core::Whatsit=HASH(0x..." _font="Font[serif,medium,upright,10,b..." _ID_counter_p_="1" xmlns="http://dlmf.nist.gov/LaTeXML">...<ltx:para _box="LaTeXML::Core::Box=ARRAY(0x42c8bd0)" _font="Font[serif,medium,upright,10,b..." xml:id="p1">...<ltx:p _box="LaTeXML::Core::Box=ARRAY(0x4343b70)" _font="Font[serif,medium,upright,10,b...">...
+	In Core::Document[@0x37228e8] at /usr/local/src/jekyll-research/wmd_files/Systems/competition.sage.out.tex; line 53 col 1
+	 <= \@left Token <= \left\{ <= Core::Document[@0x37228e8] <= ...
+
+Error:malformed:ltx:XMApp <ltx:XMApp> isn't allowed here
+	at /usr/local/src/jekyll-research/wmd_files/Systems/competition.sage.out.tex; line 53 col 1
+	Currently in XMLDocument[70301216]<ltx:document _box="LaTeXML::Core::Whatsit=HASH(0x..." _font="Font[serif,medium,upright,10,b..." _ID_counter_p_="1" xmlns="http://dlmf.nist.gov/LaTeXML">...<ltx:para _box="LaTeXML::Core::Box=ARRAY(0x42c8bd0)" _font="Font[serif,medium,upright,10,b..." xml:id="p1">...<ltx:p _box="LaTeXML::Core::Box=ARRAY(0x4343b70)" _font="Font[serif,medium,upright,10,b...">...
+	In Core::Document[@0x37228e8] at /usr/local/src/jekyll-research/wmd_files/Systems/competition.sage.out.tex; line 53 col 1
+	 <= \hat Digested <= \hat{X} <= Core::Document[@0x37228e8] <= ...
+.
+Error:malformed:ltx:XMApp <ltx:XMApp> isn't allowed here
+	at /usr/local/src/jekyll-research/wmd_files/Systems/competition.sage.out.tex; line 53 col 1
+	Currently in XMLDocument[70301216]<ltx:document _box="LaTeXML::Core::Whatsit=HASH(0x..." _font="Font[serif,medium,upright,10,b..." _ID_counter_p_="1" xmlns="http://dlmf.nist.gov/LaTeXML">...<ltx:para _box="LaTeXML::Core::Box=ARRAY(0x42c8bd0)" _font="Font[serif,medium,upright,10,b..." xml:id="p1">...<ltx:p _box="LaTeXML::Core::Box=ARRAY(0x4343b70)" _font="Font[serif,medium,upright,10,b...">...
+	In Core::Document[@0x37228e8] at /usr/local/src/jekyll-research/wmd_files/Systems/competition.sage.out.tex; line 53 col 1
+	 <= \hat Digested <= \hat{X} <= Core::Document[@0x37228e8] <= ...
+
+Error:malformed:ltx:XMTok <ltx:XMTok> isn't allowed here
+	at /usr/local/src/jekyll-research/wmd_files/Systems/competition.sage.out.tex; line 53 col 1
+	Currently in XMLDocument[70301216]<ltx:document _box="LaTeXML::Core::Whatsit=HASH(0x..." _font="Font[serif,medium,upright,10,b..." _ID_counter_p_="1" xmlns="http://dlmf.nist.gov/LaTeXML">...<ltx:para _box="LaTeXML::Core::Box=ARRAY(0x42c8bd0)" _font="Font[serif,medium,upright,10,b..." xml:id="p1">...<ltx:p _box="LaTeXML::Core::Box=ARRAY(0x4343b70)" _font="Font[serif,medium,upright,10,b...">...
+	In Core::Document[@0x37228e8] at /usr/local/src/jekyll-research/wmd_files/Systems/competition.sage.out.tex; line 53 col 1
+	 <= \@right Token <= \right\} <= Core::Document[@0x37228e8] <= ...
+
+Error:malformed:ltx:XMTok <ltx:XMTok> isn't allowed here
+	at /usr/local/src/jekyll-research/wmd_files/Systems/competition.sage.out.tex; line 53 col 1
+	Currently in XMLDocument[70301216]<ltx:document _box="LaTeXML::Core::Whatsit=HASH(0x..." _font="Font[serif,medium,upright,10,b..." _ID_counter_p_="1" xmlns="http://dlmf.nist.gov/LaTeXML">...<ltx:para _box="LaTeXML::Core::Box=ARRAY(0x42c8bd0)" _font="Font[serif,medium,upright,10,b..." xml:id="p1">...<ltx:p _box="LaTeXML::Core::Box=ARRAY(0x4343b70)" _font="Font[serif,medium,upright,10,b...">...
+	In Core::Document[@0x37228e8] at /usr/local/src/jekyll-research/wmd_files/Systems/competition.sage.out.tex; line 53 col 1
+	 <= \@left Token <= \left\{ <= Core::Document[@0x37228e8] <= ...
+
+Error:malformed:ltx:XMApp <ltx:XMApp> isn't allowed here
+	at /usr/local/src/jekyll-research/wmd_files/Systems/competition.sage.out.tex; line 53 col 1
+	Currently in XMLDocument[70301216]<ltx:document _box="LaTeXML::Core::Whatsit=HASH(0x..." _font="Font[serif,medium,upright,10,b..." _ID_counter_p_="1" xmlns="http://dlmf.nist.gov/LaTeXML">...<ltx:para _box="LaTeXML::Core::Box=ARRAY(0x42c8bd0)" _font="Font[serif,medium,upright,10,b..." xml:id="p1">...<ltx:p _box="LaTeXML::Core::Box=ARRAY(0x4343b70)" _font="Font[serif,medium,upright,10,b...">...
+	In Core::Document[@0x37228e8] at /usr/local/src/jekyll-research/wmd_files/Systems/competition.sage.out.tex; line 53 col 1
+	 <= \hat Digested <= \hat{X} <= Core::Document[@0x37228e8] <= ...
+
+Error:malformed:ltx:XMApp <ltx:XMApp> isn't allowed here
+	at /usr/local/src/jekyll-research/wmd_files/Systems/competition.sage.out.tex; line 53 col 1
+	Currently in XMLDocument[70301216]<ltx:document _box="LaTeXML::Core::Whatsit=HASH(0x..." _font="Font[serif,medium,upright,10,b..." _ID_counter_p_="1" xmlns="http://dlmf.nist.gov/LaTeXML">...<ltx:para _box="LaTeXML::Core::Box=ARRAY(0x42c8bd0)" _font="Font[serif,medium,upright,10,b..." xml:id="p1">...<ltx:p _box="LaTeXML::Core::Box=ARRAY(0x4343b70)" _font="Font[serif,medium,upright,10,b...">...
+	In Core::Document[@0x37228e8] at /usr/local/src/jekyll-research/wmd_files/Systems/competition.sage.out.tex; line 53 col 1
+	 <= \frac {}{} <= \frac{5}{8} <= Core::Document[@0x37228e8] <= ...
+
+Error:malformed:ltx:XMApp <ltx:XMApp> isn't allowed here
+	at /usr/local/src/jekyll-research/wmd_files/Systems/competition.sage.out.tex; line 53 col 1
+	Currently in XMLDocument[70301216]<ltx:document _box="LaTeXML::Core::Whatsit=HASH(0x..." _font="Font[serif,medium,upright,10,b..." _ID_counter_p_="1" xmlns="http://dlmf.nist.gov/LaTeXML">...<ltx:para _box="LaTeXML::Core::Box=ARRAY(0x42c8bd0)" _font="Font[serif,medium,upright,10,b..." xml:id="p1">...<ltx:p _box="LaTeXML::Core::Box=ARRAY(0x4343b70)" _font="Font[serif,medium,upright,10,b...">...
+	In Core::Document[@0x37228e8] at /usr/local/src/jekyll-research/wmd_files/Systems/competition.sage.out.tex; line 53 col 1
+	 <= \hat Digested <= \hat{X} <= Core::Document[@0x37228e8] <= ...
+
+Error:malformed:ltx:XMApp <ltx:XMApp> isn't allowed here
+	at /usr/local/src/jekyll-research/wmd_files/Systems/competition.sage.out.tex; line 53 col 1
+	Currently in XMLDocument[70301216]<ltx:document _box="LaTeXML::Core::Whatsit=HASH(0x..." _font="Font[serif,medium,upright,10,b..." _ID_counter_p_="1" xmlns="http://dlmf.nist.gov/LaTeXML">...<ltx:para _box="LaTeXML::Core::Box=ARRAY(0x42c8bd0)" _font="Font[serif,medium,upright,10,b..." xml:id="p1">...<ltx:p _box="LaTeXML::Core::Box=ARRAY(0x4343b70)" _font="Font[serif,medium,upright,10,b...">...
+	In Core::Document[@0x37228e8] at /usr/local/src/jekyll-research/wmd_files/Systems/competition.sage.out.tex; line 53 col 1
+	 <= \frac {}{} <= \frac{3}{4} <= Core::Document[@0x37228e8] <= ...
+.
+Error:malformed:ltx:XMTok <ltx:XMTok> isn't allowed here
+	at /usr/local/src/jekyll-research/wmd_files/Systems/competition.sage.out.tex; line 53 col 1
+	Currently in XMLDocument[70301216]<ltx:document _box="LaTeXML::Core::Whatsit=HASH(0x..." _font="Font[serif,medium,upright,10,b..." _ID_counter_p_="1" xmlns="http://dlmf.nist.gov/LaTeXML">...<ltx:para _box="LaTeXML::Core::Box=ARRAY(0x42c8bd0)" _font="Font[serif,medium,upright,10,b..." xml:id="p1">...<ltx:p _box="LaTeXML::Core::Box=ARRAY(0x4343b70)" _font="Font[serif,medium,upright,10,b...">...
+	In Core::Document[@0x37228e8] at /usr/local/src/jekyll-research/wmd_files/Systems/competition.sage.out.tex; line 53 col 1
+	 <= \@right Token <= \right\} <= Core::Document[@0x37228e8] <= ...
+
+Error:malformed:ltx:XMTok <ltx:XMTok> isn't allowed here
+	at /usr/local/src/jekyll-research/wmd_files/Systems/competition.sage.out.tex; line 53 col 1
+	Currently in XMLDocument[70301216]<ltx:document _box="LaTeXML::Core::Whatsit=HASH(0x..." _font="Font[serif,medium,upright,10,b..." _ID_counter_p_="1" xmlns="http://dlmf.nist.gov/LaTeXML">...<ltx:para _box="LaTeXML::Core::Box=ARRAY(0x42c8bd0)" _font="Font[serif,medium,upright,10,b..." xml:id="p1">...<ltx:p _box="LaTeXML::Core::Box=ARRAY(0x4343b70)" _font="Font[serif,medium,upright,10,b...">...
+	In Core::Document[@0x37228e8] at /usr/local/src/jekyll-research/wmd_files/Systems/competition.sage.out.tex; line 53 col 1
+	 <= \@right Token <= \right] <= Core::Document[@0x37228e8] <= ...
+ 0.23 sec)
+(Rewriting... 0.01 sec)
+(Math Parsing...6 formulae ...[1][2][3][4][5][6]
+Math parsing succeeded:
+   ltx:XMArg: 32/32
+   ltx:XMath: 6/6
+Symbols assumed as simple identifiers (with # of occurences):
+   'X{italic}' (20), 'd{italic}' (8), 't{italic}' (4)
+ 0.20 sec)
+(Finalizing... 0.03 sec)
+Conversion complete: 12 warnings; 28 errors.
+processing finished Thu Jun 18 22:21:54 2015
+Updating .workingwiki/competition.sage.out.latexml.xml
+rm -f competition.sage.out.latexml.html5
+bibxmls=`perl -ne '($_)=/^[^%]*\\\bibliography\{([^\\\\#]*?)\}/;@_=split /,/;foreach $b (@_) { $b =~ s/\.bib$//; print "$b.bib.xml "}' competition.sage.out.latexml.xml`; bibxargs=`perl -ne '($_)=/^[^%]*\\\bibliography\{([^\\\\#]*?)\}/;@_=split /,/;foreach $b (@_) { $b =~ s/\.bib$//; print "--bibliography=$b.bib.xml "}' competition.sage.out.latexml.xml` && \
+	(test -z "$bibxmls" || /usr/bin/make -f /usr/local/src/workingwiki-trunk/ProjectEngine/resources/makefile $bibxmls) && \
+	lxpost="latexmlpost  --novalidate --destination=competition.sage.out.intermediate.latexml.html5 --format=html5 $bibxargs competition.sage.out.latexml.xml" && echo $lxpost && $lxpost
+latexmlpost --novalidate --destination=competition.sage.out.intermediate.latexml.html5 --format=html5 competition.sage.out.latexml.xml
+latexmlpost (LaTeXML version 0.8.1; revision 9e4814e)
+processing started Thu Jun 18 22:21:55 2015
+(competition.sage.out.intermediate.latexml.html5 post-processing...
+(Scan competition.sage.out.intermediate.latexml.html5 processing... 0.01 sec)
+(CrossRef competition.sage.out.intermediate.latexml.html5 processing... 0.00 sec)
+(MathML::Presentation competition.sage.out.intermediate.latexml.html5 6 to process... 0.03 sec)
+(XSLT[using LaTeXML-html5.xsl] competition.sage.out.intermediate.latexml.html5 processing... 0.02 sec)
+(Writer competition.sage.out.intermediate.latexml.html5 processing... 0.00 sec) 0.06 sec)
+Postprocessing complete: No obvious problems
+processing finished Thu Jun 18 22:21:55 2015
+/usr/local/src/workingwiki-trunk/ProjectEngine/resources/wiki-inclusion.latexml.pl competition.sage.out.intermediate.latexml.html5 >competition.sage.out.latexml.html5
+ln -f competition.sage.out.latexml.html5 competition.sage.out.latexml.html
+ln -f competition.sage.out.latexml.html competition.sage.out.html
+rm competition.sage.out.latexml.html5 competition.sage.out.latexml.xml competition.sage.out.latexml.html
 make: Leaving directory `/usr/local/src/jekyll-research/wmd_files/Systems'
 Make succeeded.
-Mon May  4 21:13:49 2015
+Thu Jun 18 22:21:55 2015

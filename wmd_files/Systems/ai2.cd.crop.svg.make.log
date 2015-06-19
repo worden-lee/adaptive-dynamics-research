@@ -1,11 +1,10 @@
-Mon May  4 21:13:49 2015
+Thu Jun 18 22:22:06 2015
 /usr/bin/make -C /usr/local/src/jekyll-research/wmd_files/Systems ai2.cd.crop.svg
 Including .mk files: sage.mk 
 Including .mk files from .step files: phase_portraits.sage.mk popdyn-example.sage.mk
 Including .tex.d files: ad.cd.tex.d ai1.cd.tex.d ai2.cd.tex.d aij.cd.tex.d aji.cd.tex.d constrain.cd.tex.d homework-04-23.tex.d homework-crowds-05-07.tex.d homework-push-05-07.tex.d lv.cd.tex.d popdyn-example.cd.tex.d Sa.cd.tex.d
 make: Entering directory `/usr/local/src/jekyll-research/wmd_files/Systems'
-make: Circular ai2.cd.crop.pdf <- ai2.cd.crop.svg dependency dropped.
 make: `ai2.cd.crop.svg' is up to date.
 make: Leaving directory `/usr/local/src/jekyll-research/wmd_files/Systems'
 Make succeeded.
-Mon May  4 21:13:49 2015
+Thu Jun 18 22:22:06 2015
