@@ -1,3 +1,13 @@
+# to make a single target, you can use make wmd_files/Project/target
+# or more usefully, make sync wmd_files/Project/target
+# using the rule below.
+# that puts the output of make on stdout.  To get the output in the
+# .make.log file, do make wmd_files/Project/target.make.log
+# using this rule.  Note sync is redundant because this includes the
+# sync operation.
+%.make.log : /proc/uptime
+	php $(WW_DIR)/wmd/wmd.php --post --cache-dir=wmd_files --default-project-name=$(subst /,,$(subst wmd_files/,,$(dir $*))) --make-single-file=$(notdir $*)
+
 # make working files in their directories.
 # Note a file in a subdirectory of a working directory won't be made right,
 # you'll have to construct a make -C command yourself.

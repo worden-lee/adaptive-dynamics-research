@@ -543,6 +543,209 @@ the terms of $\mathbf u_i$.]
 [To do: move much of this example's analysis to appendix, leave only
 discussion of it here.]
 
+What is the general condition for competition to decrease?  In a
+one-population system, when $$r$$ and $$a$$ are constrained by a
+scalar phenotype $$u$$, 
+
+In general, given some functions $$b, m, c_1$$ of a scalar $$u$$,
+
+# Constrasting example: competition for space
+
+The other classic ecological competition model is the one that gives
+rise to the traditional distinction between $$r$$-selected and
+$$K$$-selected species.  We take the simple Verhulst equation for
+logistic growth in a single population, and suppose that the two
+parameters $$r$$ and $$K$$ are in fact affected by the population's
+phenotype $$u$$:
+
+$$\frac{dX}{dT} = r(u) X (1-\frac{X}{K(u)})$$.
+
+If adaptation occurs when the population is at its equilibrium size,
+the well-known result is that selection acts to increase the carrying
+capacity $$K$$ and
+is indifferent to the per-capita reproduction rate $$r$$.  If disturbances
+acts to reduce the population below carrying capacity, on the other
+hand, then selection tends to increase $$r$$.
+
+To recast this result into the terms of this paper, we construct a
+vector of the population's ecological characteristics:
+
+$$\mathbf{p}(u) = \begin{pmatrix} r(u) \\ K(u) \end{pmatrix}$$.
+
+The selection gradient on $$\mathbf{p}$$ is
+
+<latex>$
+S(\mathbf{p}) = \begin{pmatrix}
+  \frac{\partial}{\partial r}\frac{dX}{dt} \\ 
+  \frac{\partial}{\partial K}\frac{dX}{dt}
+\end{pmatrix} = \begin{pmatrix}
+  1 - \frac{\hat{X}}{K(u)} \\
+  r(u) \frac{\hat{X}}{K(u)^2}
+\end{pmatrix} = \begin{pmatrix}
+  0 \\ r(u)\frac{\hat{X}}{K(u)^2}
+\end{pmatrix} $</latex>
+
+From this we can see directly that the gradient of selection is entirely
+in the direction of increasing $$K$$, and it follows that selection on
+$$u$$ will necessarily be in a direction that increases $$K$$, regardless
+of the impact on $$r$$.  This is because the first entry of $$S(\mathbf{p})$$
+vanishes when $$\hat{X}=K$$.
+
+In the $$r$$-selection case, we suppose that disturbance acts to reduce
+population size, so that $$\hat{X}<K$$.  Then
+
+<latex>$
+S(\mathbf{p}) = \begin{pmatrix}
+  1 - \frac{\hat{X}}{K(u)} \\
+  r(u) \frac{\hat{X}}{K(u)^2}
+\end{pmatrix}, $</latex>
+
+so that selection will favor increase in both $$r$$ and $$K$$.  If $$\hat{X}$$
+is reduced to near 0, selection will become almost entirely on $$r$$.
+
+## The Lotka-Volterra terms in this model
+
+The above is actually ambiguous: in order to model adaptation it's necessary
+to define a multiple-population form of the model, to specify how a
+resident and rare variant type will interact.  The obvious form is
+
+$$\frac{dX_i}{dt} = r(u_i) X_i (1 - \frac{\sum_j X_j}{K(u_i)})$$.
+
+This model produces the results summarized above.  If multiple populations
+have different $$K(u_i)$$, the only stable equilibrium will be monomorphic
+with only the population with largest $$K$$ persisting.  Thus selection
+increases $$K$$ without regard to $$r$$ when it acts on a population at
+equilibrium.
+
+This model is of course a very simple case of the Lotka-Volterra form,
+with $$r_i = r(u_i)$$, and $$a_{ij}=-r(u_i)/K(u_i)$$.  Thus increasing
+$$K$$ reduces competition, and increasing $$r$$ increases
+competition.
+
+### Incentive and impact
+
+It is possible to
+extend the Verhulst equation to multi-population form differently,
+however, as we will see, with different results.
+
+For example if
+
+$$\frac{dX_i}{dt} = r(u_i) X_i (1 - \sum_j \frac{X_j}{K(u_j)})$$.
+
+In the previous form, $$K(u_i)$$ quantifies what total population size it
+takes to make population $$i$$ stop increasing: it's the response of
+population $$i$$ to total numbers of all populations.  In this form,
+$$K(u_j)$$ quantifies how much an individual of population $$j$$
+contributes to suppressing the growth of all populations -- to be precise,
+$$K(u_j)$$ is the number of type $$j$$ individuals it would take to
+stop population growth in the absence of any other population.
+
+In the latter model,
+all populations come to equilibrium together when $$\sum_j X_j/K(u_j)=1$$.
+There is a continuum of such equilibria.  Selection is neutral in this
+model, and variant types that arise will tend to accumulate in the
+community at low population sizes.  I will refer to these two models
+as the direct and indirect models, respectively.
+
+The outcome of this model with population at equilibrium is the
+opposite of the resource competition model above: in that model competition
+increases as populations use more and more of the resources, and in this
+model competition decreases as they use more and more of the habitat.
+To unpack this difference, we want to compare this model
+to the resource model.  In this section we will consider only the equilibrium
+case with $$\hat{X}=K$$, which leads to $$K$$ selection.
+
+In the former of these two models, the quantity
+$$K(u_i)$$ describes individuals' sensitivity to crowding while all
+contribute equally to crowding, while in the
+latter, $$K(u_j)$$ describes individuals' contribution to crowding
+while all are equally sensitive to it.  In a meaningful sense, the former
+describes **incentive** on individuals due to the environment
+while the latter describes **impact** on the environment due to
+individuals.  We can study the interplay between the two by making
+a combined model:
+
+$$\frac{dX_i}{dt} = r(u_i) X_i (1 - \sum_j\frac{X_j}{k_s(u_i)k_f(u_j)})$$
+
+where we allow for two carrying-capacity factors, $$k_s(u_i)$$ describing
+the sensitivity of population $$i$$ to crowding and $$k_f(u_j)$$ describing
+the "ecological footprint" of population $$j$$.  One way to interpret this
+model is as though each individual of type $$j$$ contributes $$1/k_f(u_j)$$
+"units" to the population, and when the population's total units reaches
+$$k_s(u_i)$$, population $$i$$ is at "carrying capacity".  Thus a single
+population $$i$$ in isolation will be at carrying capacity when its size
+is $$k_s(u_i)k_f(u_i)$$ individuals.
+
+For convenience, let's write $$c_s(u_i)=1/k_s(u_i)$$ and
+$$c_f(u_j)=1/k_f(u_j)$$, so that we have $$a_{ij}=-r(u_i)c_s(u_i)c_f(u_j)$$
+(and $$r_i=r(u_i)$$).  The selection gradient on $$u_i$$ is
+
+<latex>\begin{align*}
+S(u_i) &= r'(u_i)(1 - \sum_j c_s(u_i)c_f(u_j)\hat{X}_j) - r(u_i)\sum_j c_s'(u_i)c_f(u_j) \hat{X}_j \\
+ &= - r(u_i) c_s'(u_i) \sum_j c_f(u_j) \hat{X}_j.
+\end{align*}</latex>
+
+This quantity has the sign of $$-c_s'(u_i)$$ because all its other
+factors are positive.  Thus $$u_i$$ adapts in the direction that decreases
+$$c_s(u_i)$$, which is the direction of increase in $$k_s(u_i)$$.
+The actual impact on the habitat is controlled by $$k_f(u_i)$$, which
+has no influence on selection.
+
+In general, this model only supports one population at a time at
+equilibrium.  Let us assume a single changing population described by
+phenotype variable $$u$$.
+
+The per-capita impact on the environment, $$k_f(u)$$, increases
+if $$k_f'(u)$$ has the same sign as $$k_s'(u)$$ and decreases if
+the derivatives have the opposite sign.
+
+The equilibrium size of the changing
+population is $$k_s(u)k_f(u)$$.  The change in this size is
+
+$$\frac{d(k_s(u)k_f(u))}{du} = k_s'(u)k_f(u)+k_s(u)k_f'(u)$$.
+
+The equilibrium population size increases when that quantity has the same sign
+as $$k_s'(u)$$:
+
+<latex>\begin{align*}
+\frac{k_s'(u)k_f(u) + k_s(u)k_f'(u)}{k_s'(u)} 
+  = k_f(u) + \frac{k_s(u)k_f'(u)}{k_s'(u)}
+  &> 0 \\
+\frac{k_f'(u)}{k_s'(u)} &> - \frac{k_f(u)}{k_s(u)}.
+\end{align*}</latex>
+
+This condition is satisfied any time $$k_f$$ increases along with
+$$k_s$$, any time $$k_f$$ is unchanging, and additionally when $$k_f$$
+decreases as $$k_s$$ increases but its rate of change is sufficiently
+small.
+
+The total impact on the environment is $$\hat{X}/k_f(u) = k_s(u)$$,
+which is an increasing quantity.  Thus interestingly, even in this
+more nuanced model, which unhinges environmental footprint from
+competition to use space, $$K$$ selection drives increasing impact
+on the habitat.  This is very similar to $$R^*$$ competition.  Yet
+the Lotka-Volterra competition coefficient,
+$$a_{ii}=-\frac{r(u_i)}{k_s(u_i)k_f(u_i)}$$, 
+shrinks toward zero (if $$r$$ is compliant) while in $$R^*$$ competition
+it does the opposite.  [TODO: not entirely true.  Clarify.]
+
+The direct effect of selection is 
+
+$$D_i = \gamma \hat{X}_i \begin{pmatrix} r'(u_i) \\ -(r(u_i)c_s'(u_i)+r'(u_i)c_s(u_i))c_f(u_1) \\ \vdots \\ -(r(u_i)c_s'(u_i)+r'(u_i)c_s(u_i))c_f(u_n) \end{pmatrix} S(u_i)$$.
+
+### Competition for space vs. resource competition
+
+As above,
+
+$$\mathbf{A}(u) = \begin{pmatrix} r(u) \\ -r(u)/K(u) \end{pmatrix}$$.
+
+For reference, in the one-species, one-resource MacArthur-Levins system,
+
+$$\mathbf{A}(u) = \begin{pmatrix} b(u) c_1(u) w_1 K_1 - b(u)m(u) \\ -b(u) c_1(u)^2 w_1/r_1 \end{pmatrix}$$. 
+
+In both cases, the selection gradient on $$\mathbf{A}$$ is, as always,
+$$\mathbf{S}(\mathbf{A})=\begin{pmatrix} 1 \\ \hat{X} \end{pmatrix}$$.
+
 # Example: Predator-prey model
 
 [In this model, interaction pairs are confined to the predation quadrants
@@ -1352,6 +1555,66 @@ can look at the motion of $$a_{(i,j)}$$ due to change in $$i$$ and in $$j$$:
 where
 $$\mathbf{S}(\mathbf{A})=\mathbf{S}(\mathbf{A}_i)=\mathbf{S}(\mathbf{A}_j)$$
 is the positive interaction selection gradient.
+
+## Direct effects of constraints on interactions
+
+In the terminology I'm using<latex>\footnote{Which I may want to change:
+``direct effect'' is used differently in Roughgarden's treatment of
+ecological evolution}</latex>,
+the "direct effect" of constraint on evolution is how the restriction
+to interactions $$\mathbf{A}$$ that can be generated by the available
+variation in phenotypes $$\mathbf{u}$$ changes the dynamics of interactions,
+in comparison to the unconstrained direction of selection on interactions
+$$\mathbf{S}(\mathbf{A})$$.
+
+Let the "effect of constraint" be that difference:
+$$C_i = D_i - \gamma\hat{X}_i\mathbf{S}(\mathbf{A}_i)$$,
+so that the actual motion of the interaction vector 
+can be written
+
+$$\frac{d\mathbf{A}_i}{dt} = \gamma\hat{X}_i\mathbf{S}(\mathbf{A}_i) + C_i + I_i$$,
+
+as the interaction selection gradient plus adjustments due to constraints
+and due to externalities.
+
+The form of the direct effect is
+<latex>\begin{align*}
+D_i &= \gamma\hat{X}_i \partial_1\mathbf{A}_i \partial_1\mathbf{A}_i^T\mathbf{S}(\mathbf{A}_i) \\
+ &= \gamma\hat{X}_i \begin{pmatrix}
+      {r_i'}^2 & r_i' \partial_1a_{i1} & \cdots & r_i' \partial_1a_{in} \\
+      r_i' \partial_1a_{i1} & \partial_1a_{i1}^2 & \cdots & \partial_1a_{i1}\partial_1a_{in} \\
+      \vdots & \vdots & \ddots & \vdots \\
+      r_i' \partial_1a_{in} & \partial_1a_{i1}\partial_1a_{in} & \cdots & \partial_1a_{in}^2
+    \end{pmatrix} \begin{pmatrix}
+      1 \\ \hat{X}_1 \\ \vdots \\ \hat{X}_n
+    \end{pmatrix} \\
+ &= \gamma\hat{X}_i \begin{pmatrix}
+      r_i'(r_i' + \sum_j \partial_1a_{ij}\hat{X}_j) \\
+      \partial_1a_{i1} (r_i' + \sum_j \partial_1a_{ij}\hat{X}_j) \\
+      \vdots \\
+      \partial_1a_{in} (r_i' + \sum_j \partial_1a_{ij}\hat{X}_j) 
+    \end{pmatrix}
+\end{align*}</latex>
+
+and the form of the effect of constraint, then, is
+<latex>\begin{align*}
+C_i &= \gamma\hat{X}_i\left(\partial_1\mathbf{A}_i \partial_1\mathbf{A}_i^T\mathbf{S}(\mathbf{A}_i) - \mathbf{S}(\mathbf{A}_i)\right) \\
+ &= \gamma\hat{X}_i\left( \partial_1\mathbf{A}_i \partial_1\mathbf{A}_i^T - \mathbf{I}\right) \mathbf{S}(\mathbf{A}_i) \\
+ &= \gamma\hat{X}_i \begin{pmatrix}
+      r_i'(r_i' + \sum_j \partial_1a_{ij}\hat{X}_j) - 1 \\
+      \partial_1a_{i1} (r_i' + \sum_j \partial_1a_{ij}\hat{X}_j) - \hat{X}_1 \\
+      \vdots \\
+      \partial_1a_{in} (r_i' + \sum_j \partial_1a_{ij}\hat{X}_j) - \hat{X}_n
+    \end{pmatrix}.
+\end{align*}</latex>
+
+Evolution scenarios that have this effect of constraint but no indirect
+effect of adaptation are familiar in evolutionary theory as 
+**density-dependent selection**, whereas cases with indirect effects
+are **frequency-dependent selection**. 
+
+## Indirect effects of externalities on interactions
+
 
 ## Details of resource competition model
 

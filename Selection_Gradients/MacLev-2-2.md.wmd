@@ -993,11 +993,6 @@ And the motion of the Lotka-Volterra coefficients $$k$$ and $$a$$:
 
 {% comment %}<project-file filename=maclev-2-2-a-vs-k.png />{% endcomment %}
 
-## Analysis
-
-Looking at just selection on $$c_0(u)$$ and $$c_1(u)$$, with $$b$$ and $$m$$
-held fixed at 1.
-
 We have that the selection gradient on $$\left(\begin{array}{c}c_{i0}\\c_{i1}\end{array}\right)$$ is $$\left(\begin{array}{c}\hat{R}_0\\\hat{R}_1\end{array}\right)$$, and therefore the selection gradient on $$u$$ is $$S(u) = \frac{\partial\mathbf{c}}{\partial u}^TS(\mathbf{c}) = \hat{R}_0c_0'(u) + \hat{R}_1c_1'(u)$$.
 
 With $$\mathbf{A}=\left(\begin{array}{c}k_i\\a_{i0}\\a_{i1}\end{array}\right)=\left(\begin{array}{c} 2(c_{i0} + c_{i1}) - 1 \\ - c_{i0}c_{00} - c_{i1}c_{01} \\ - c_{i0}c_{10} - c_{i1}c_{11} \end{array}\right)$$,
