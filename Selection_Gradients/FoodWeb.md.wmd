@@ -150,9 +150,28 @@ ltx.write( 'The foodweb model:', foodweb_pred_prey.bind(fb) )
 
 foodweb_pred_prey.plot_tikz( 'foodweb.tikz.tex' )
 
-#ltx.close()
-#save_session('foodweb')
+ltx.close()
+save_session('foodweb')
 #sys.exit( 0r )
+</source-file>
+
+<source-file filename=foodweb-adap.sage.step lang=sage texdisplay=none>
+# requires: foodweb.py foodweb.sobj
+# requires: $(SageDynamics)/dynamicalsystems.py
+# requires: $(SageAdaptiveDynamics)/adaptivedynamics.py
+# requires: $(SageUtils)/latex_output.py
+# produces: foodweb-adap.sage.out.tex foodweb-adap.sobj
+from sage.all import * 
+from sage.misc.latex import _latex_file_
+
+import foodweb
+import latex_output
+import dynamicalsystems
+import adaptivedynamics
+
+load_session("foodweb")
+
+ltx = latex_output.latex_output( 'foodweb-adap.sage.out.tex' )
 
 equil = foodweb_pred_prey.interior_equilibria()
 print equil
@@ -176,7 +195,7 @@ pred_prey_traj = foodweb_adap.bind( fb ).solve( [ pred_prey_init( v ) for v in f
 
 ltx.close()
 
-save_session('foodweb')
+save_session('foodweb-adap')
 </source-file>
 
 <project-file filename=foodweb.tikz.crop.svg/>
@@ -184,7 +203,7 @@ save_session('foodweb')
 <project-file filename=foodweb.sage.out.tex/>
 
 <source-file filename="foodweb.plot.sage.step" texdisplay=none>
-# requires: foodweb.sobj
+# requires: foodweb-adap.sobj
 # requires: $(SageDynamics)/dynamicalsystems.py $(SageAdaptiveDynamics)/adaptivedynamics.py
 # requires: $(SageUtils)/latex_output.py lotkavolterra.py
 # produces: foodweb.plot.sage.out.tex 
@@ -208,7 +227,7 @@ import lotkavolterra
 #SR.symbol( 'c_0_0', latex_name='c_{00}' )
 #SR.symbol( 'c_i_0', latex_name='c_{i0}' )
 
-load_session("foodweb")
+load_session("foodweb-adap")
 
 ltx = latex_output.latex_output( 'foodweb.plot.sage.out.tex' )
 

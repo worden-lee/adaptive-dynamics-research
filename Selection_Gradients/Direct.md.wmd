@@ -1,0 +1,263 @@
+---
+layout: page
+title: Direct (as possible) adaptive dynamics of interaction terms
+wmd_project: Selection_Gradients
+---
+This model investigation is hoped to approximate the behavior of my
+$$\Delta a_{ij}$$ model (in my dissertation).  Here, rather than generate
+small i.i.d. changes to $$a$$ values directly we 
+attempt to make $$a_{ij}$$ drive the evolution of $$u_i$$ as directly as
+possible, in some sense.
+
+<source-file filename=direct.py.step lang=python texdisplay=none>
+from sage.all import * 
+import os
+import sys
+sys.path.append( os.environ['SageUtils'] )
+sys.path.append( os.environ['SageDynamics'] )
+sys.path.append( os.environ['SageAdaptiveDynamics'] )
+import latex_output
+import dynamicalsystems
+import adaptivedynamics
+
+class DirectModel(dynamicalsystems.PopulationDynamicsSystem):
+    def __init__(
+        self,
+        n=10,
+        bindings=dynamicalsystems.Bindings()):
+        self._u_indexer = dynamicalsystems.indexer_2d('u')
+        super(DirectModel,self).__init__(
+            [], range(n), dynamicalsystems.indexer('X'), bindings=bindings
+        )
+    def flow(self):
+        flo = {}
+        for i in self._population_indices:
+            xi = self._population_indexer[i]
+            flo[xi] = xi
+            for j in self._population_indices:
+                xj = self._population_indexer[j]
+                flo[xi] += xi * xj * self._u_indexer[i][j]
+        return flo
+
+</source-file>
+
+<source-file filename=direct-assemble.sage.step lang=sage texdisplay=none>
+# requires: direct.py
+# requires: $(SageDynamics)/dynamicalsystems.py
+# requires: $(SageUtils)/latex_output.py
+# produces: direct-assemble.sobj
+from sage.all import *
+from sage.misc.latex import _latex_file_
+
+import direct
+import latex_output
+import dynamicalsystems
+
+set_random_seed(0)
+
+N_pop = 1#5
+
+comm2 = direct.DirectModel( 2 )
+
+save_session( 'direct-assemble' )
+</source-file>
+
+<source-file filename=direct-assemble-plot.sage.step lang=sage texdisplay=none>
+# requires: direct.py
+# requires: $(SageDynamics)/dynamicalsystems.py
+# requires: $(SageUtils)/latex_output.py
+# requires: direct-assemble.sobj
+# produces: direct-assemble.sage.out.tex direct-assemble.svg
+from sage.all import *
+from sage.misc.latex import _latex_file_
+
+import direct
+import latex_output
+import dynamicalsystems
+
+load_session( 'direct-assemble' )
+
+ltx = latex_output.latex_output( 'direct-assemble.sage.out.tex' )
+
+ltx.write( comm2 )
+
+ltx.close()
+
+#soln.plot( 't', comm2._vars, ylabel='$X$' ).save( filename='direct-assemble.svg' )
+</source-file>
+
+<project-file filename=direct-assemble.sage.out.tex/>
+
+<source-file filename=direct-evol.sage.step lang=sage texdisplay=none>
+# requires: direct.py
+# requires: $(SageUtils)/latex_output.py
+# requires: $(SageDynamics)/dynamicalsystems.py
+# requires: $(SageAdaptiveDynamics)/adaptivedynamics.py
+# requires: lotkavolterra.py
+# requires: direct-assemble.sobj
+# produces: direct-evol.sobj
+from sage.all import *
+from sage.misc.latex import _latex_file_
+
+import direct
+import latex_output
+import dynamicalsystems
+import adaptivedynamics
+import lotkavolterra
+
+load_session( 'direct-assemble' )
+
+ltx = latex_output.latex_output( 'direct-evol.sage.out.tex' )
+
+def lv_interior_equilibrium( popdyn ):
+    import sympy
+    eqns = [ sympy.sympify( popdyn.add_hats()( (popdyn._flow[x]/x).simplify_rational() ) ) for x in popdyn._vars ]
+    print eqns; sys.stdout.flush()
+    #eqs = solve( eqns, *popdyn.equilibrium_vars(), solution_dict=True )
+    eqs = sympy.solve( eqns, *popdyn.equilibrium_vars() )
+    return dynamicalsystems.Bindings( { x: eqs[ sympy.sympify(x) ] for x in popdyn.equilibrium_vars() } )
+
+int_equil = dynamicalsystems.Bindings( lv_interior_equilibrium( comm2 ) )
+
+formal_equil = dynamicalsystems.Bindings( { v : dynamicalsystems.hat(v) for v in comm2.population_vars() } )
+
+#u_init = dynamicalsystems.Bindings( { smr._u_indexer[i]:0 for i in smr._population_indices } )
+
+symbolic_adap = adaptivedynamics.AdaptiveDynamicsModel( 
+    comm2,
+    [ dynamicalsystems.indexer_2d_reverse('u')[i] for i in comm2._population_indices ],
+    #early_bindings=fb,
+    equilibrium = formal_equil
+).bind( { 'gamma':1 } )
+
+ltx.write( 'Adaptive dynamics of model:\n', symbolic_adap )
+
+num_adap = adaptivedynamics.AdaptiveDynamicsModel( 
+    comm2,
+    [ dynamicalsystems.indexer_2d_reverse('u')[i] for i in comm2._population_indices ],
+    equilibrium = int_equil
+).bind( { 'gamma':1 } )
+
+ad_init = dynamicalsystems.Bindings( { comm2._u_indexer[i][j]:(-1 if i == j else -0.75 if i < j else -0.7) for i in comm2._population_indices for j in comm2._population_indices } )
+ad_init_state = [ ad_init(u) for u in num_adap._vars ]
+
+ad_traj = num_adap.solve( ad_init_state, end_time=10, step=0.01 )
+
+nlv = lotkavolterra.LotkaVolterraAdaptiveDynamics( num_adap )
+	#r_name_indexer=direct.vertex_indexer('r'),
+        #a_name_indexer=direct.vertex_indexer_2d('a') )
+
+slv = lotkavolterra.LotkaVolterraAdaptiveDynamics( symbolic_adap )
+	#r_name_indexer=direct.vertex_indexer('r'),
+        #a_name_indexer=direct.vertex_indexer_2d('a') )
+
+ltx.close()
+
+save_session('direct-evol')
+</source-file>
+
+<source-file filename="direct-evol-plot.sage.step" texdisplay=none>
+# requires: direct-evol.sobj
+# produces: direct-evol-plot.sage.out.tex 
+# produces: direct-a-vs-t.svg direct-a-vs-a.svg
+from sage.all import *
+from sage.misc.latex import _latex_file_
+from sage.misc.latex import latex
+
+import direct
+import latex_output
+import dynamicalsystems
+import adaptivedynamics
+import lotkavolterra
+
+# create variables with custom latex names because load_session
+# creates them wrong: http://trac.sagemath.org/ticket/17559
+for x in ('X_0', 'X_i', 'X_1'): dynamicalsystems.hat(SR.symbol(x))
+#SR.symbol( 'c_0_0', latex_name='c_{00}' )
+#SR.symbol( 'c_i_0', latex_name='c_{i0}' )
+
+load_session("direct-evol")
+
+ltx = latex_output.latex_output( 'direct-evol-plot.sage.out.tex' )
+
+#ltx.write( 'sm\_traj t:', [ ts('t') for ts in ad_traj._timeseries ], '\n\n' )
+#ltx.write( 'starts with:' )
+#ltx.write_block( ad_traj._timeseries[0] )
+#if 1 in ad_traj._timeseries:
+#    ltx.write_block( ad_traj._timeseries[1] )
+
+ltx.write( 'flow: $%s \mapsto %s$\n\n' % (
+	latex( latex_output.column_vector( symbolic_adap._vars ) ),
+	latex( latex_output.column_vector( [ symbolic_adap._flow[v] for v in symbolic_adap._vars ] ) ) ) )
+
+#ltx.write( 'flow at ', '$%s$'%latex( latex_output.column_vector( ad_init_state ) ), ': ', 
+#    '$%s$'%latex( latex_output.column_vector( ad_init( symbolic_adap._flow[v] ) for v in symbolic_adap._vars ) ),
+#    '\n\n' )
+
+#ltx.write( 'a values:' )
+#ltx.write_block( matrix( [ [ slv._lv_model._a_indexer[i][j] for j in symbolic_adap._popdyn_model._population_indices ] for i in symbolic_adap._popdyn_model._population_indices ] ) )
+#ltx.write_block( matrix( [ [ slv._lv_model._A_bindings( slv._lv_model._a_indexer[i][j] ) for j in symbolic_adap._popdyn_model._population_indices ] for i in symbolic_adap._popdyn_model._population_indices ] ) )
+#ltx.write( 'X values at time 0:' )
+#ltx.write_block( [ x == ad_traj._timeseries[0]( equil( x ) ) for x in smr.equilibrium_vars() ] )
+#ltx.write( 'sensitivity of $\hat{X}$:\n' )
+#ltx.write_equality(
+#    matrix( [ SR.symbol( 'kdjflkjdf', latex_name=r'\frac{\partial\hat{X}_i}{\partial u_{j0}}' ) ] ),
+#    matrix( [ [ ad_traj._timeseries[0]( diff( equil(x), u ) ) for u in symbolic_adap._vars ] for x in smr.equilibrium_vars() ] )
+#)
+
+atp = Graphics()
+for i in symbolic_adap._popdyn_model._population_indices:
+    for j in symbolic_adap._popdyn_model._population_indices:
+	atp += ad_traj.plot( 't', nlv._lv_model._A_bindings( nlv._lv_model._a_indexer[i][j] ),
+	    color = (i == j and 'red' or 'green') )
+atp.axes_labels( [ '$t$', '$a$' ] )
+atp.save( 'direct-a-vs-t.svg', figsize=(5,5) )
+
+aap = lotkavolterra.plot_aij_with_arrows( ad_traj, nlv, scale=0.05 )
+aap.axes_labels( [ '$a_{ij}$', '$a_{ji}$' ] )
+aap.save( 'direct-a-vs-a.svg', figsize=(5,5) )
+
+ltx.close()
+exit(0r)
+
+#direct_adap.bind_in_place( fb )
+
+print 'flow at initial conditions:', pred_prey_init( direct_adap._flow )
+
+ppp = Graphics()
+for v, c, l in zip( direct_adap._vars, ['blue', 'red'], ['prey $u_0$','predator $u_1$'] ):
+    ppp += pred_prey_traj.plot( 't', v, color=c, legend_label=l )
+ppp.save( 'direct-pred-prey-adap.png',
+    ticks=[100,pi],
+    tick_formatter=[None,pi],
+    figsize=(5,5)
+)
+ppp.save( 'direct-pred-prey-adap.svg',
+    ticks=[500,pi],
+    tick_formatter=[None,pi],
+    figsize=(3,3)
+)
+
+pred_prey_traj.plot( 't', 'u_0_a - u_0_b', legend_label='$u_0-u_1$' ).save(
+    'direct-pred-prey-adap-difference.png',
+    ymin=0,
+    ymax=3.2,
+    ticks=[100,pi/2],
+    tick_formatter=[None,pi],
+    figsize=(5,5)
+)
+
+xs = direct_adap._popdyn_model.equilibrium_vars()
+ppx = Graphics()
+for xhat in xs:
+    ppx += pred_prey_traj.plot( 't', xhat, legend_label='$%s$'%latex(xhat) )
+ppx.save( 'direct-pred-prey-x-vs-t.png', figsize=(5,5) )
+
+ltx.close()
+</source-file>
+
+<project-file filename=direct-evol-plot.sage.out.tex/>
+
+<project-file filename=direct-a-vs-t.svg/>
+
+<project-file filename=direct-a-vs-a.svg/>

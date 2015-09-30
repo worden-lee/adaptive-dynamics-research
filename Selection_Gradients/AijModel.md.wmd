@@ -1,0 +1,391 @@
+---
+layout: page
+title: My original a_ij adaptive dynamics model
+wmd_project: Selection_Gradients
+---
+This model investigation is hoped to reconstruct the behavior of my
+$$\Delta a_{ij}$$ model (in my dissertation).  
+In this model, unlike in the standard adaptive dynamics ODE models,
+we apply mutations directly to the entries of the Lotka-Volterra
+interaction matrix.  The dynamics of this process is not smooth,
+and has to be evaluated directly by integrating the GLV population
+dynamics, rather than by deriving a differential equation for the
+evolutionary dynamics of matrix entries.
+
+<source-file filename=aij.py.step lang=python texdisplay=none>
+from sage.all import * 
+import os
+import sys
+sys.path.append( os.environ['SageUtils'] )
+sys.path.append( os.environ['SageDynamics'] )
+sys.path.append( os.environ['SageAdaptiveDynamics'] )
+import latex_output
+import dynamicalsystems
+import lotkavolterra
+import adaptivedynamics
+
+class AijModel(lotkavolterra.GeneralizedLotkaVolterraModel):
+    def __init__(
+        self,
+        n=10,
+        bindings=dynamicalsystems.Bindings()):
+        super(AijModel,self).__init__(
+            range(n), bindings=bindings
+        )
+
+class NaiveAdaptiveDynamicsModel(adaptivedynamics.AdaptiveDynamicsModel):
+    def __init__(self, popdyn, phenotype_indexers,
+	early_bindings=dynamicalsystems.Bindings(), late_bindings=dynamicalsystems.Bindings()):
+	self._popdyn = early_bindings( popdyn )
+        self._phenotype_indexers = phenotype_indexers
+        self._early_bindings = early_bindings
+        self._late_bindings = late_bindings # use when?
+	self._vars = [ ix[i] for ix in phenotype_indexers for i in popdyn_model._population_indices ]
+    def solve(self, initial_conditions, pop_initial_conditions=None,
+	start_time=0, end_time=10, step=1, **opts):
+	state_bindings = dynamicalsystems.Bindings( { x:v for x,v in zip( self._vars, initial_conditions ) } )
+	print 'state_bindings:', state_bindings
+	## treat the pop models as immutable
+	self._popdyn = self._popdyn.bind( state_bindings )
+	print 'init popdyn:', self._popdyn
+	popstate = pop_initial_conditions 
+	if popstate is None:
+	    popstate = [ 1 for _ in self._popdyn._vars ]
+	t = start_time
+	trajectory = dynamicalsystems.Trajectory( self, [] )
+	self.append_to_trajectory( trajectory, t, None, state_bindings )
+	while t < end_time:
+	    found_equil = False
+	    while found_equil is False:
+		print 'integrate 2500 from', popstate
+	        pop_traj = self._popdyn.solve_gsl( popstate, 0, 2500 )
+	        pop_end = pop_traj._timeseries[-1]
+	        speed = max( [ pop_end( self._popdyn._flow[x] ) for x in self._popdyn._vars ] )
+	        found_equil = (N(speed) < 1e-7)
+		popstate = [ pop_end(x) for x in self._popdyn._vars ]
+	    t += 1
+	    ## clear out any extinctions
+	    persistent_indices = [ i for i in self._popdyn._population_indices if
+	        pop_end( self._popdyn._population_indexer[i] ) > 1e-5 ]
+	    print 'final state:', popstate, ', keep', persistent_indices
+	    ## add a new variant
+	    import numpy.random
+	    pops = [ pop_end( self._popdyn._population_indexer[i] )
+		for i in persistent_indices ]
+	    total_pop = sum( pops )
+	    choose_parent = numpy.random.multinomial( 1,
+		[ p/total_pop for p in pops ] )
+	    mutant_parent = [ i for i,n in zip( persistent_indices, choose_parent ) if n == 1 ][0]
+	    self._popdyn = deepcopy( self._popdyn )
+	    mutant_index = self._popdyn.mutate( mutant_parent )
+	    self._popdyn.set_population_indices( persistent_indices + [ mutant_index ] )
+	    mb = state_bindings( self.mutation_bindings( mutant_parent, mutant_index ) )
+	    self._popdyn.bind_in_place( mb )
+	    state_bindings += mb
+	    print "mutate from", mutant_parent, "to", mutant_index
+	    print self._popdyn
+	    popstate = [
+		pop_end( self._popdyn._population_indexer[i] ) -
+		    (1e-3 if i is mutant_parent else 0)
+		for i in persistent_indices
+	    ] + [ 1e-3 ]
+	    self.append_to_trajectory( trajectory, t, (mutant_parent,mutant_index), state_bindings )
+	return trajectory
+    def mutation_bindings(self, parent, sport):
+	return dynamicalsystems.Bindings()
+    def append_to_trajectory( self, trajectory, t, mutation, state_bindings ):
+	trajectory._timeseries.append( dict(
+	    [ (x,state_bindings(x)) for x in self._vars ] +
+	    [ (SR.symbol('t'),t) ]
+	) )
+
+class AijAdaptiveDynamics(NaiveAdaptiveDynamicsModel):
+    def __init__(self, popdyn, delta_a=0.01, delta_r=0, **opts):
+	super(AijAdaptiveDynamics,self).__init__( popdyn, [], **opts )
+	self._vars = [
+	    popdyn._indexers['a'][i][j]
+		for i in popdyn._population_indices
+		for j in popdyn._population_indices
+	] + [
+	    popdyn._indexers['r'][i]
+		for i in popdyn._population_indices
+	]
+	self._delta_a = delta_a
+	self._delta_r = delta_r
+    def mutation_bindings(self, i, iprime):
+	import numpy.random
+	if self._delta_a > 0:
+	    da = lambda : numpy.random.normal()*self._delta_a
+	else:
+	    da = lambda : 0
+	if self._delta_r > 0:
+	    dr = lambda : numpy.random.normal()*self._delta_r
+	else:
+	    dr = lambda : 0
+	il = self._popdyn._population_indices
+	ax = self._popdyn._indexers['a']
+	rx = self._popdyn._indexers['r']
+	mb = dynamicalsystems.Bindings( dict( [
+		(ax[iprime][j], ax[i][j] + da()) for j in il
+	    ] + [
+		(ax[j][iprime], ax[j][i] + da()) for j in il
+	    ] + [
+		(ax[iprime][iprime], ax[i][i] + da())
+	    ] + [
+		(rx[iprime], rx[i] + dr())
+	] ) )
+	print 'mutant bindings', i, '->', iprime, ':', mb
+	return mb
+    def append_to_trajectory( self, trajectory, t, mutation, state_bindings ):
+	super(AijAdaptiveDynamics,self).append_to_trajectory( trajectory, t, mutation, state_bindings )
+	try: trajectory._annotated_timeseries
+	except AttributeError:
+	    trajectory._annotated_timeseries = []
+	    trajectory._lineage = {}
+	ax = self._popdyn._indexers['a']
+	sa = SR.symbol( ax._f )
+	rx = self._popdyn._indexers['r']
+	sr = SR.symbol( rx._f )
+	st = SR.symbol('t')
+	il = self._popdyn._population_indices
+	alist = (
+	    [ ((sa,i,j),state_bindings(ax[i][j])) for i in il for j in il ] +
+	    [ ((sr,i),  state_bindings(rx[i])) for i in il ] +
+	    [ ((st,),   t) ]
+	)
+	#print alist
+	trajectory._annotated_timeseries.append( dict( alist ) )
+	if mutation is not None:
+	    parent,child = mutation
+	    trajectory._lineage[child] = (parent,t)
+
+</source-file>
+
+<source-file filename=aij-assemble.sage.step lang=sage texdisplay=none>
+# requires: aij.py
+# requires: $(SageDynamics)/dynamicalsystems.py
+# requires: $(SageUtils)/latex_output.py
+# produces: aij-assemble.sobj
+from sage.all import *
+from sage.misc.latex import _latex_file_
+
+import aij
+import latex_output
+import dynamicalsystems
+
+set_random_seed(0)
+
+comm2 = aij.AijModel( 1 )
+
+save_session( 'aij-assemble' )
+</source-file>
+
+<source-file filename=aij-assemble-plot.sage.step lang=sage texdisplay=none>
+# requires: aij.py
+# requires: $(SageDynamics)/dynamicalsystems.py
+# requires: $(SageUtils)/latex_output.py
+# requires: aij-assemble.sobj
+# produces: aij-assemble.sage.out.tex aij-assemble.svg
+from sage.all import *
+from sage.misc.latex import _latex_file_
+
+import aij
+import latex_output
+import dynamicalsystems
+
+load_session( 'aij-assemble' )
+
+ltx = latex_output.latex_output( 'aij-assemble.sage.out.tex' )
+
+ltx.write( comm2 )
+
+ltx.close()
+
+#soln.plot( 't', comm2._vars, ylabel='$X$' ).save( filename='aij-assemble.svg' )
+</source-file>
+
+<project-file filename=aij-assemble.sage.out.tex/>
+
+<source-file filename=aij-evol.sage.step lang=sage texdisplay=none>
+# requires: aij.py
+# requires: $(SageUtils)/latex_output.py
+# requires: $(SageDynamics)/dynamicalsystems.py
+# requires: $(SageAdaptiveDynamics)/adaptivedynamics.py
+# requires: lotkavolterra.py
+# requires: aij-assemble.sobj
+# produces: aij-evol.sobj
+from sage.all import *
+from sage.misc.latex import _latex_file_
+
+import aij
+import latex_output
+import dynamicalsystems
+import adaptivedynamics
+import lotkavolterra
+
+load_session( 'aij-assemble' )
+
+ltx = latex_output.latex_output( 'aij-evol.sage.out.tex' )
+
+adap = aij.AijAdaptiveDynamics( comm2 )
+
+ad_init = dynamicalsystems.Bindings( { comm2._indexers['a'][i][j]:-1 for i in comm2._population_indices for j in comm2._population_indices } ) + dynamicalsystems.Bindings( { comm2._indexers['r'][i]:1 for i in comm2._population_indices } )
+#ad_init = dynamicalsystems.Bindings( { comm2._indexers['a'][i][j]:(-1 if i == j else -0.75 if i < j else -0.7) for i in comm2._population_indices for j in comm2._population_indices } ) + dynamicalsystems.Bindings( { comm2._indexers['r'][i]:1 for i in comm2._population_indices } )
+ad_init_state = [ ad_init(u) for u in adap._vars ]
+
+ad_traj = adap.solve( ad_init_state, end_time=20 )
+
+ltx.close()
+
+save_session('aij-evol')
+</source-file>
+
+<source-file filename="aij-evol-plot.sage.step" texdisplay=none>
+# requires: aij-evol.sobj
+# produces: aij-evol-plot.sage.out.tex 
+# produces: aij-a-vs-t.svg aij-a-vs-a.svg
+from sage.all import *
+from sage.misc.latex import _latex_file_
+from sage.misc.latex import latex
+
+import aij
+import latex_output
+import dynamicalsystems
+import adaptivedynamics
+import lotkavolterra
+
+# create variables with custom latex names because load_session
+# creates them wrong: http://trac.sagemath.org/ticket/17559
+for x in ('X_0', 'X_i', 'X_1'): dynamicalsystems.hat(SR.symbol(x))
+#SR.symbol( 'c_0_0', latex_name='c_{00}' )
+#SR.symbol( 'c_i_0', latex_name='c_{i0}' )
+
+load_session("aij-evol")
+
+ltx = latex_output.latex_output( 'aij-evol-plot.sage.out.tex' )
+
+#ltx.write( 'sm\_traj t:', [ ts('t') for ts in ad_traj._timeseries ], '\n\n' )
+#ltx.write( 'starts with:' )
+#ltx.write_block( ad_traj._timeseries[0] )
+#if 1 in ad_traj._timeseries:
+#    ltx.write_block( ad_traj._timeseries[1] )
+
+#ltx.write( 'flow: $%s \mapsto %s$\n\n' % (
+#	latex( latex_output.column_vector( symbolic_adap._vars ) ),
+#	latex( latex_output.column_vector( [ symbolic_adap._flow[v] for v in symbolic_adap._vars ] ) ) ) )
+
+#ltx.write( 'flow at ', '$%s$'%latex( latex_output.column_vector( ad_init_state ) ), ': ', 
+#    '$%s$'%latex( latex_output.column_vector( ad_init( symbolic_adap._flow[v] ) for v in symbolic_adap._vars ) ),
+#    '\n\n' )
+
+#ltx.write( 'a values:' )
+#ltx.write_block( matrix( [ [ slv._lv_model._a_indexer[i][j] for j in symbolic_adap._popdyn_model._population_indices ] for i in symbolic_adap._popdyn_model._population_indices ] ) )
+#ltx.write_block( matrix( [ [ slv._lv_model._A_bindings( slv._lv_model._a_indexer[i][j] ) for j in symbolic_adap._popdyn_model._population_indices ] for i in symbolic_adap._popdyn_model._population_indices ] ) )
+#ltx.write( 'X values at time 0:' )
+#ltx.write_block( [ x == ad_traj._timeseries[0]( equil( x ) ) for x in smr.equilibrium_vars() ] )
+#ltx.write( 'sensitivity of $\hat{X}$:\n' )
+#ltx.write_equality(
+#    matrix( [ SR.symbol( 'kdjflkjdf', latex_name=r'\frac{\partial\hat{X}_i}{\partial u_{j0}}' ) ] ),
+#    matrix( [ [ ad_traj._timeseries[0]( diff( equil(x), u ) ) for u in symbolic_adap._vars ] for x in smr.equilibrium_vars() ] )
+#)
+
+print ad_traj._annotated_timeseries
+t = SR.symbol('t')
+
+#atp = list_plot( [ (d[t],aij) for d in ad_traj._annotated_timeseries for ann,aij in d.iteritems() if str(ann[0]) == 'a' ], color='red' )
+#atp.axes_labels( [ '$t$', '$a$' ] )
+#atp.save( 'aij-a-vs-t-0.svg', figsize=(5,5) )
+
+atp = Graphics()
+dprev = None
+for d in ad_traj._annotated_timeseries:
+    tval = d[(t,)]
+    for ann,aij in d.iteritems():
+	if dprev is None:
+	    dprev = d
+	    continue
+	dprev = d
+	if str(ann[0]) != 'a': continue
+	a,i,j = ann
+	if i in ad_traj._lineage and ad_traj._lineage[i][1] == tval:
+	    ipar = ad_traj._lineage[i][0]
+	else: ipar = i
+	if j in ad_traj._lineage and ad_traj._lineage[j][1] == tval:
+	    jpar = ad_traj._lineage[j][0]
+	else: jpar = j
+	atp += line( [(tval-1,dprev[(a,ipar,jpar)]),(tval,aij)],
+	    color = (i == j and 'black' or (1,0.7,0.7)) )
+atp.axes_labels( [ '$t$', '$a$' ] )
+atp.save( 'aij-a-vs-t.svg', figsize=(5,5) )
+
+#aap = lotkavolterra.plot_aij_with_arrows( ad_traj, nlv, scale=0.05 )
+
+aap = Graphics()
+dprev = None
+for d in ad_traj._annotated_timeseries:
+    if dprev is not None:
+        tval = d[(t,)]
+        for ann,aij in d.iteritems():
+	    if str(ann[0]) != 'a': continue
+	    a,i,j = ann
+	    if i in ad_traj._lineage and ad_traj._lineage[i][1] == tval:
+	        ipar = ad_traj._lineage[i][0]
+		print 'time', tval, ipar, '->', i
+	    else: ipar = i
+	    if j in ad_traj._lineage and ad_traj._lineage[j][1] == tval:
+	        jpar = ad_traj._lineage[j][0]
+		print 'time', tval, jpar, '->', j
+	    else: jpar = j
+	    if i is ipar and j is jpar: continue
+	    print 'dprev', dprev
+	    print 'line', [(ipar,jpar),(i,j)], [(dprev[(a,jpar,ipar)],dprev[(a,ipar,jpar)]),(d[(a,j,i)],aij)]
+	    aap += line( [(dprev[(a,jpar,ipar)],dprev[(a,ipar,jpar)]),(d[(a,j,i)],aij)],
+	        color = (i == j and 'black' or (1,0.7,0.7)) )
+    dprev = d
+aap.axes_labels( [ '$a_{ij}$', '$a_{ji}$' ] )
+aap.save( 'aij-a-vs-a.svg', figsize=(5,5) )
+
+ltx.close()
+exit(0r)
+
+#aij_adap.bind_in_place( fb )
+
+print 'flow at initial conditions:', pred_prey_init( aij_adap._flow )
+
+ppp = Graphics()
+for v, c, l in zip( aij_adap._vars, ['blue', 'red'], ['prey $u_0$','predator $u_1$'] ):
+    ppp += pred_prey_traj.plot( 't', v, color=c, legend_label=l )
+ppp.save( 'aij-pred-prey-adap.png',
+    ticks=[100,pi],
+    tick_formatter=[None,pi],
+    figsize=(5,5)
+)
+ppp.save( 'aij-pred-prey-adap.svg',
+    ticks=[500,pi],
+    tick_formatter=[None,pi],
+    figsize=(3,3)
+)
+
+pred_prey_traj.plot( 't', 'u_0_a - u_0_b', legend_label='$u_0-u_1$' ).save(
+    'aij-pred-prey-adap-difference.png',
+    ymin=0,
+    ymax=3.2,
+    ticks=[100,pi/2],
+    tick_formatter=[None,pi],
+    figsize=(5,5)
+)
+
+xs = aij_adap._popdyn_model.equilibrium_vars()
+ppx = Graphics()
+for xhat in xs:
+    ppx += pred_prey_traj.plot( 't', xhat, legend_label='$%s$'%latex(xhat) )
+ppx.save( 'aij-pred-prey-x-vs-t.png', figsize=(5,5) )
+
+ltx.close()
+</source-file>
+
+<project-file filename=aij-evol-plot.sage.out.tex/>
+
+<project-file filename=aij-a-vs-t.svg/>
+
+<project-file filename=aij-a-vs-a.svg/>

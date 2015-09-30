@@ -3,7 +3,9 @@ layout: page
 title: "'Statistical Mechanics' adaptive dynamics model"
 wmd_project: Selection_Gradients
 ---
-Here we give each assign, for each $$(i,j)$$,
+[Sorry, self, I broke this page ☹ ]
+
+Here we assign, for each $$(i,j)$$,
 
 <source-file filename=statmech.py.step lang=python texdisplay=none>
 from sage.all import * 
@@ -126,7 +128,7 @@ import dynamicalsystems
 
 set_random_seed(0)
 
-N_pop = 5
+N_pop = 1#5
 
 smr = statmech.StatMechPopulation( 0 )
 
@@ -176,9 +178,9 @@ ltx = latex_output.latex_output( 'statmech-assemble.sage.out.tex' )
 
 ltx.write( smr )
 
-soln.plot( 't', smr._vars, ylabel='$X$' ).save( filename='statmech-assemble.svg' )
-
 ltx.close()
+
+soln.plot( 't', smr._vars, ylabel='$X$' ).save( filename='statmech-assemble.svg' )
 </source-file>
 
 <project-file filename=statmech-assemble.sage.out.tex/>
@@ -231,10 +233,10 @@ sm_adap = adaptivedynamics.AdaptiveDynamicsModel(
 
 ltx.write( 'Adaptive dynamics of model:\n', sm_adap )
 
-#ltx.write( 'flow at ', '$%s$'%latex( latex_output.column_vector( [ pred_prey_init( v ) for v in statmech_adap._vars ] ) ), ': ', 
-#    '$%s$'%latex( latex_output.column_vector( pred_prey_init( statmech_adap._flow[v] ) for v in statmech_adap._vars ) ) )
+ad_init = dynamicalsystems.Bindings( { u:0 for u in sm_adap._vars } )
+ad_init_state = [ ad_init(u) for u in sm_adap._vars ]
 
-sm_traj = sm_adap.solve( [ 0 for u in sm_adap._vars ], end_time=1, step=0.01 )
+sm_traj = sm_adap.solve( ad_init_state, end_time=10, step=0.01 )
 
 slv = lotkavolterra.LotkaVolterraAdaptiveDynamics( sm_adap,
 	r_name_indexer=statmech.vertex_indexer('r'),
@@ -269,11 +271,18 @@ load_session("statmech-evol")
 
 ltx = latex_output.latex_output( 'statmech-evol-plot.sage.out.tex' )
 
-ltx.write( 'sm\_traj t:', [ ts('t') for ts in sm_traj._timeseries ], '\n\n' )
-ltx.write( 'starts with:' )
-ltx.write_block( sm_traj._timeseries[0] )
-if 1 in sm_traj._timeseries:
-    ltx.write_block( sm_traj._timeseries[1] )
+#ltx.write( 'sm\_traj t:', [ ts('t') for ts in sm_traj._timeseries ], '\n\n' )
+#ltx.write( 'starts with:' )
+#ltx.write_block( sm_traj._timeseries[0] )
+#if 1 in sm_traj._timeseries:
+#    ltx.write_block( sm_traj._timeseries[1] )
+
+ltx.write( 'flow: $%s$\n\n' % latex( latex_output.column_vector( [ sm_adap._flow[v] for v in sm_adap._vars ] ) ) )
+
+ltx.write( 'flow at ', '$%s$'%latex( latex_output.column_vector( ad_init_state ) ), ': ', 
+    '$%s$'%latex( latex_output.column_vector( ad_init( sm_adap._flow[v] ) for v in sm_adap._vars ) ),
+    '\n\n' )
+
 ltx.write( 'a values:' )
 ltx.write_block( matrix( [ [ slv._lv_model._a_indexer[i][j] for j in sm_adap._popdyn_model._population_indices ] for i in sm_adap._popdyn_model._population_indices ] ) )
 ltx.write_block( matrix( [ [ slv._lv_model._A_bindings( slv._lv_model._a_indexer[i][j] ) for j in sm_adap._popdyn_model._population_indices ] for i in sm_adap._popdyn_model._population_indices ] ) )
@@ -290,9 +299,12 @@ for i in sm_adap._popdyn_model._population_indices:
     for j in sm_adap._popdyn_model._population_indices:
 	atp += sm_traj.plot( 't', slv._lv_model._A_bindings( slv._lv_model._a_indexer[i][j] ),
 	    color = (i == j and 'red' or 'green') )
+atp.axes_labels( [ '$t$', '$a$' ] )
 atp.save( 'statmech-a-vs-t.svg', figsize=(5,5) )
 
-lotkavolterra.plot_aij_with_arrows( sm_traj, slv, 'statmech-a-vs-a.svg', scale=0.05 )
+aap = lotkavolterra.plot_aij_with_arrows( sm_traj, slv, scale=0.05 )
+aap.axes_labels( [ '$a_{ij}$', '$a_{ji}$' ] )
+aap.save( 'statmech-a-vs-a.svg', figsize=(5,5) )
 
 ltx.close()
 exit(0r)

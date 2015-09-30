@@ -22,6 +22,27 @@ Coevolutionary dynamics, frequency-dependent selection
 
 Related questions about cooperation, incentives, and externalities
 
+# Overture: evolution of interaction matrix
+
+Introduce the $$\Delta a_{ij}$$ model. Motivations include Kauffman's
+*Investigations* on non-specifiability of affordances
+
+Figure: evolution of $$a_{ij}$$ terms in that model.
+
+Major result: accumulation of mutualistic interactions.
+
+That model has problematic discontinuities in $$a_{ii}$$, so I introduce
+an adaptive dynamics counterpart to the model.
+
+Figure: results in that model.
+
+Something about questions this raises and how it motivates the following
+theory.  Relationship to temptation-to-defect theory of cooperation.
+
+## direct model
+
+<project-file filename=direct-a-vs-a.svg/>
+
 # Coevolution of constrained characters
 
 When there are two or more phenotypic characters, or ecological
@@ -349,7 +370,8 @@ I want to move on to the question about $$a_{ij}$$.]
 
 ## Evolution of Lotka-Volterra interactions
 
-<latex htmldisplay=none>\begin{figure}
+<latex htmldisplay=none>
+\begin{figure}
 \centering
 </latex>
 <project-file filename=maclev-1-1-k.svg/>
@@ -369,6 +391,9 @@ explained their negative trajectory in terms of the selection on the
 ecological parameter $$c_{i\ell}$$.  Now let us analyze the evolution of
 the Lotka-Volterra terms in terms of selection on those terms
 and constraints among them.
+
+[to do somewhere along here: tragedy of commons of the one a term in
+monomorphic maclev model, in 1-d with both partials visible.]
 
 The key step here is to understand the direction of selection
 on each of the the Lotka-Volterra terms and how those effects produce
@@ -436,9 +461,10 @@ $$b_i$$ and the $$c_{i\ell}$$ terms, and is independent of $$m_i$$:
 
 $$\frac{\partial a_{ij}}{\partial b_i} = - \sum_\ell c_{i\ell} w_\ell \sum_j \frac{c_{j\ell}}{r_\ell}$$
 
-$$\frac{\partial a_{ij}}{\partial m_i} = 0$$
+\[* \frac{\partial a_{ij}}{\partial m_i} = 0 \]
 
-$$\frac{\partial a_{ij}}{\partial c_{i\ell}} = - b_i w_\ell \frac{c_{j\ell}}{r_\ell}$$.<latex>\footnote{Note that this partial derivative is taken only with respect
+$$\frac{\partial a_{ij}}{\partial c_{i\ell}} = - b_i w_\ell \frac{c_{j\ell}}{r_\ell}$$.<latex>%
+\footnote{Note that this partial derivative is taken only with respect
 to the $c_{i\ell}$ term corresponding to the \emph{patient of the
 interaction}, that is, the first argument of each interaction term
 $a(u_i,u_j)$ -- see the appendix for
@@ -899,7 +925,7 @@ term $$a_{01}$$.
 <latex htmldisplay=none>\begin{figure}
 \centering
 </latex>
-<project-file filename=foodweb-pred-prey-adap.svg/>
+<project-file filename=foodweb-pred-prey-adap.svg make=false/>
 <latex htmldisplay=none>
 \caption{Coevolutionary chase of predator and prey's phenotypes
 \label{fig:pred-prey-adap}
@@ -1615,6 +1641,114 @@ are **frequency-dependent selection**.
 
 ## Indirect effects of externalities on interactions
 
+## Structure of direct and indirect effects in monomorphic models
+
+### Direct effect
+
+The direct effect predicts what adaptation in the population would
+do if there were no frequency-dependent selection, often referred to
+as density-dependent selection (cite Roughgarden or whatever).  Interestingly,
+when there is only a single species, density-dependent selection
+can reduce the intrinsic growth $$r$$ or the interaction term $$a$$,
+but not both.  [Todo: is this true if $$u$$ is more than one dimensional?]
+
+The $$\mathbf A$$ vector is $$\begin{pmatrix} r(u) \\ a(u,u) \end{pmatrix}$$,
+the line of available variation is parallel to the vector
+$$\partial_1\mathbf A = \begin{pmatrix} r'(u) \\ \partial_1 a(u,u) \end{pmatrix}$$,
+and the vector of adaptive change due to the direct effect of selection is
+$$\partial_1\mathbf A \partial_1\mathbf A^T \mathbf{S}(\mathbf{A})$$.
+
+Selection on $$r$$ and $$a$$ are in *conflict* if increasing one requires
+decreasing the other.  This is the case if the elements of $$\partial_1 A$$
+are opposite in sign: that is, if
+
+$$\frac{\partial_1 a(u,u)}{r'(u)} < 0$$.
+
+If $$r$$ and $$a$$ are not in conflict, then 
+the direct effect of selection can never decrease both:
+since $$\hat{X}$$ is positive,
+
+$$\partial_1\mathbf A \partial_1\mathbf A^T \mathbf{S}(\mathbf{A}) = (r'(u) + \hat{X}\partial_1 a(u,u))\begin{pmatrix} r'(u) \\ \partial_1 a(u,u) \end{pmatrix}$$
+
+is a nonnegative vector.
+
+If $$r$$ and $$a$$ are in conflict, then 
+the direct effect will increase one at the expense of the other.
+
+The condition for increase in $$r$$ is for $$(r'(u)+\hat{X}\partial_1a(u,u))$$
+and $$r'(u)$$ to have the same sign, which is satisfied if and only if
+
+<latex>\begin{align*}
+\frac{(r'(u) + \hat{X}\partial_1 a(u,u))}{r'(u)} &> 0 \\
+1 + \hat{X}\frac{\partial_1 a(u,u)}{r'(u)} &> 0;
+\end{align*}</latex>
+
+since $$\hat{X} = -r(u)/a(u,u) > 0$$, this is equivalent to
+
+<latex>\begin{align*}
+1 - \frac{r(u)}{a(u,u)}\frac{\partial_1 a(u,u)}{r'(u)} &> 0 \\
+1 &> \frac{r(u)}{a(u,u)}\frac{\partial_1 a(u,u)}{r'(u)} \\
+\frac{a(u,u)}{r(u)} &< \frac{\partial_1 a(u,u)}{r'(u)}
+\end{align*}</latex>
+
+A similar process gives the condition for increase in $$a$$, which can
+be bypassed by observing that it must be the opposite of the above condition:
+
+$$\frac{\partial_1 a(u,u)}{r'(u)} < \frac{a(u,u)}{r(u)}$$.
+
+Thus, to summarize, there are three cases, determined by the ratio
+$$\frac{\partial_1 a(u,u)}{r'(u)}$$:
+
+<latex>\[\begin{dcases*}
+\frac{\partial_1 a(u,u)}{r'(u)} < \frac{a(u,u)}{r(u)} < 0 & 
+   $r$ decreases, $a$ increases \\
+\frac{a(u,u)}{r(u)} < \frac{\partial_1 a(u,u)}{r'(u)} < 0 &
+   $r$ increases, $a$ decreases \\
+0 > \frac{\partial_1 a(u,u)}{r'(u)} &
+   both $r$ and $a$ increase.
+\end{dcases*}\]</latex>
+
+There is no case in which both $$r$$ and $$a$$ decrease due to direct
+effects of selection.
+
+### Externalities
+
+Externalities of selection on interactions, represented by the indirect
+effect vector $$\mathbf I$$, act on $$a$$ but not on $$r$$.  In a monomorphic
+model, the indirect effect is
+
+$$\mathbf I = \gamma\begin{pmatrix} 0 \\ \hat{X} \partial_2 a(u,u) S(u)\end{pmatrix}$$.
+
+The nontrivial term of that expands out to
+
+$$\gamma \hat{X} \partial_2 a(u,u) (r'(u) + \hat{X}\partial_1 a(u,u))$$,
+
+the sign of which depends on the sign of $$\partial_2 a(u,u)$$ and the
+direction of change in $$u$$, which is $$S(u)$$.
+
+Of at least as much interest is the actual change in $$a$$ due to the
+combined direct and indirect effects.  The full direct effect of selection
+on $$a(u,u)$$ is
+
+$$\gamma\hat{X}\partial_1 a(u,u) S(u) = \gamma\hat{X}\partial_1 a(u,u) (r'(u)+\hat{X}\partial_1 a(u,u))$$,
+
+and the combined change in $$a$$ is
+
+$$\frac{da(u,u)}{dt} = \gamma\hat{X}(\partial_1 a(u,u) + \partial_2 a(u,u))(r'(u) + \hat{X}\partial_1 a(u,u))$$.
+
+The condition on $$\partial_2 a(u,u)$$ for $$a$$ to decrease is
+
+<latex>\begin{align*}
+\partial_2 a(u,u)\operatorname{sgn}(r'(u)+\hat{X}\partial_1 a(u,u)) &< -\frac{\partial_1 a(u,u) (r'(u) +\hat{X}\partial_1 a(u,u))}{|r'(u)+\hat{X}\partial_1 a(u,u)|} \\
+ &< - \partial_1 a(u,u)\operatorname{sgn}(r'(u)+\hat{X}\partial_1 a(u,u)).
+\end{align*}</latex>
+
+This requires the two partials of the $$a$$ function to be opposite in sign.
+
+Note, however, that the right hand side is biased toward negative values by
+the double occurrence of $$\partial_1 a$$, so that this
+condition typically requires $$\partial_2 a(u,u)$$ to be not only opposite in
+sign to $$\partial_1 a(u,u)$$ but additionally to exceed some distance from zero.
 
 ## Details of resource competition model
 
