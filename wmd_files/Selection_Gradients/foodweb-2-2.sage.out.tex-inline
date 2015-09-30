@@ -1,0 +1,14 @@
+The foodweb model:\begin{align*}
+\frac{dX_{0R_{0}}}{dt} &= -X_{0P_{0}} X_{0R_{0}} {\left(\cos\left(u_{0P_{0}} - u_{0R_{0}}\right) + 1\right)} - X_{0P_{1}} X_{0R_{0}} {\left(\cos\left(u_{0P_{1}} - u_{0R_{0}}\right) + 1\right)} - X_{0R_{0}}^{2} - X_{0R_{0}} X_{0R_{1}} + X_{0R_{0}}\\
+\frac{dX_{0P_{1}}}{dt} &= \frac{9}{10} \, X_{0P_{1}} X_{0R_{0}} {\left(\cos\left(u_{0P_{1}} - u_{0R_{0}}\right) + 1\right)} + \frac{9}{10} \, X_{0P_{1}} X_{0R_{1}} {\left(\cos\left(u_{0P_{1}} - u_{0R_{1}}\right) + 1\right)} - X_{0P_{1}}\\
+\frac{dX_{0P_{0}}}{dt} &= \frac{9}{10} \, X_{0P_{0}} X_{0R_{0}} {\left(\cos\left(u_{0P_{0}} - u_{0R_{0}}\right) + 1\right)} + \frac{9}{10} \, X_{0P_{0}} X_{0R_{1}} {\left(\cos\left(u_{0P_{0}} - u_{0R_{1}}\right) + 1\right)} - X_{0P_{0}}\\
+\frac{dX_{0R_{1}}}{dt} &= -X_{0P_{0}} X_{0R_{1}} {\left(\cos\left(u_{0P_{0}} - u_{0R_{1}}\right) + 1\right)} - X_{0P_{1}} X_{0R_{1}} {\left(\cos\left(u_{0P_{1}} - u_{0R_{1}}\right) + 1\right)} - X_{0R_{0}} X_{0R_{1}} - X_{0R_{1}}^{2} + X_{0R_{1}}
+\end{align*}
+Adaptive dynamics of model:
+\begin{align*}
+\frac{du_{0P_{1}}}{dt} &= {\left(\hat{X}_{0R_{0}} k D[0]\left(f\right)\left(u_{0P_{1}}, u_{0R_{0}}\right) + \hat{X}_{0R_{1}} k D[0]\left(f\right)\left(u_{0P_{1}}, u_{0R_{1}}\right)\right)} \hat{X}_{0P_{1}}\\
+\frac{du_{0P_{0}}}{dt} &= {\left(\hat{X}_{0R_{0}} k D[0]\left(f\right)\left(u_{0P_{0}}, u_{0R_{0}}\right) + \hat{X}_{0R_{1}} k D[0]\left(f\right)\left(u_{0P_{0}}, u_{0R_{1}}\right)\right)} \hat{X}_{0P_{0}}\\
+\frac{du_{0R_{1}}}{dt} &= -{\left(\hat{X}_{0P_{0}} D[1]\left(f\right)\left(u_{0P_{0}}, u_{0R_{1}}\right) + \hat{X}_{0P_{1}} D[1]\left(f\right)\left(u_{0P_{1}}, u_{0R_{1}}\right)\right)} \hat{X}_{0R_{1}}\\
+\frac{du_{0R_{0}}}{dt} &= -{\left(\hat{X}_{0P_{0}} D[1]\left(f\right)\left(u_{0P_{0}}, u_{0R_{0}}\right) + \hat{X}_{0P_{1}} D[1]\left(f\right)\left(u_{0P_{1}}, u_{0R_{0}}\right)\right)} \hat{X}_{0R_{0}}
+\end{align*}
+

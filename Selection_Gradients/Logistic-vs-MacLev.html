@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html>
+
+      <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Comparison of Logistic Growth and Resource Competition Models</title>
+        <meta name="viewport" content="width=device-width">
+        <meta name="description" content="Lee Worden prototype research website" />
+        <link rel="canonical" href="/Selection_Gradients/Logistic-vs-MacLev.html/" />
+
+        <!-- Custom CSS -->
+	<link rel="stylesheet" href="/adaptive-dynamics-research/css/main.css">
+	<link rel="stylesheet" href="/adaptive-dynamics-research/css/auto-generated-from-ww.css">
+	<link rel="stylesheet" href="/adaptive-dynamics-research/css/wmd.css">
+        <script type="text/x-mathjax-config">MathJax.Hub.Config({ jax: ["input/MathML", "output/HTML-CSS"] });</script>
+        <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=MML_HTMLorMML"></script>
+
+    </head>
+
+
+    <body>
+
+    <header class="site-header">
+
+  <div class="wrap">
+
+    <a class="site-title" href="/adaptive-dynamics-research/">Lee Worden research prototype website</a>
+
+    <nav class="site-nav">
+      <a href="#" class="menu-icon">
+        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+           viewBox="0 0 18 15" enable-background="new 0 0 18 15" xml:space="preserve">
+          <path fill="#505050" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0
+            h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+          <path fill="#505050" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484
+            h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+          <path fill="#505050" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0
+            c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+        </svg>
+      </a>
+      <div class="trigger">
+        <a class="page-link" href="/adaptive-dynamics-research/about">About</a>
+	<a class="page-link" href="/adaptive-dynamics-research/projects">Projects</a>
+      </div>
+    </nav>
+
+  </div>
+
+</header>
+
+
+    <div class="page-content">
+      <div class="wrap">
+      <div class="post">
+
+  <header class="post-header">
+    <h1>Comparison of Logistic Growth and Resource Competition Models</h1>
+  </header>
+
+  <article class="post-content">
+  <p>In the monomorphic <a href="MacLev-1-1.html">Macarthur-Levins model</a> the population
+dynamics is</p>
+
+<p><!-- f7296e55ef580a3266600699f94f9ab5.tex-math.latexml.html --><span class="latexml"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="\frac{dX}{dt}=b(u)X(c(u)w(K-\frac{c(u)X}{r})-m(u))" display="inline"><mrow><mfrac><mrow><mi>d</mi><mo>⁢</mo><mi>X</mi></mrow><mrow><mi>d</mi><mo>⁢</mo><mi>t</mi></mrow></mfrac><mo>=</mo><mrow><mi>b</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mi>u</mi><mo stretchy="false">)</mo></mrow><mo>⁢</mo><mi>X</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mrow><mrow><mi>c</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mi>u</mi><mo stretchy="false">)</mo></mrow><mo>⁢</mo><mi>w</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mrow><mi>K</mi><mo>-</mo><mfrac><mrow><mi>c</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mi>u</mi><mo stretchy="false">)</mo></mrow><mo>⁢</mo><mi>X</mi></mrow><mi>r</mi></mfrac></mrow><mo stretchy="false">)</mo></mrow></mrow><mo>-</mo><mrow><mi>m</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mi>u</mi><mo stretchy="false">)</mo></mrow></mrow></mrow><mo stretchy="false">)</mo></mrow></mrow></mrow></math></span></p>
+
+<p>so that</p>
+
+<p><!-- e5d3c4a6a116a2ba38099ded8ded56d0.tex-math.latexml.html --><span class="latexml"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="\mathbf{A}(u)=\begin{pmatrix}r\\&#10;a_{00}\end{pmatrix}=\begin{pmatrix}b(u)\left(c(u)wK-m(u)\right)\\&#10;b(u)\frac{c(u)^{2}w}{r}\end{pmatrix}" display="inline"><mrow><mrow><mi>𝐀</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mi>u</mi><mo stretchy="false">)</mo></mrow></mrow><mo>=</mo><mrow><mo>(</mo><mtable displaystyle="true"><mtr><mtd columnalign="center"><mi>r</mi></mtd></mtr><mtr><mtd columnalign="center"><msub><mi>a</mi><mn>00</mn></msub></mtd></mtr></mtable><mo>)</mo></mrow><mo>=</mo><mrow><mo>(</mo><mtable displaystyle="true"><mtr><mtd columnalign="center"><mrow><mi>b</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mi>u</mi><mo stretchy="false">)</mo></mrow><mo>⁢</mo><mrow><mo>(</mo><mrow><mrow><mi>c</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mi>u</mi><mo stretchy="false">)</mo></mrow><mo>⁢</mo><mi>w</mi><mo>⁢</mo><mi>K</mi></mrow><mo>-</mo><mrow><mi>m</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mi>u</mi><mo stretchy="false">)</mo></mrow></mrow></mrow><mo>)</mo></mrow></mrow></mtd></mtr><mtr><mtd columnalign="center"><mrow><mi>b</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mi>u</mi><mo stretchy="false">)</mo></mrow><mo>⁢</mo><mstyle displaystyle="false"><mfrac><mrow><mi>c</mi><mo>⁢</mo><msup><mrow><mo stretchy="false">(</mo><mi>u</mi><mo stretchy="false">)</mo></mrow><mn>2</mn></msup><mo>⁢</mo><mi>w</mi></mrow><mi>r</mi></mfrac></mstyle></mrow></mtd></mtr></mtable><mo>)</mo></mrow></mrow></math></span>.</p>
+
+<!--
+Here I'm interested in the situation where evolution in $$c(u)$$ tends
+to intensify competition, so let's hold $$b$$ and $$m$$ constant.  In this
+case
+
+$$\partial_1\mathbf{A}(u) = \begin{pmatrix} b w K \\ -b\frac{c(u)w}{r} \end{pmatrix}$$.
+-->
+
+<p>As we’ve seen, for some, though, not all, choices of functions <!-- 92eb5ffee6ae2fec3ad71c777531578f.tex-math.latexml.html --><span class="latexml"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="b" display="inline"><mi>b</mi></math></span>,
+<!-- 6f8f57715090da2632453988d9a1501b.tex-math.latexml.html --><span class="latexml"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="m" display="inline"><mi>m</mi></math></span>, and <!-- 4a8a08f09d37b73795649038408b5f33.tex-math.latexml.html --><span class="latexml"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="c" display="inline"><mi>c</mi></math></span>, adaptive increase in <!-- 4a8a08f09d37b73795649038408b5f33.tex-math.latexml.html --><span class="latexml"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="c" display="inline"><mi>c</mi></math></span> drives the competition
+term <!-- 21499c607b0bf430a565a95753cf9158.tex-math.latexml.html --><span class="latexml"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="a_{00}" display="inline"><msub><mi>a</mi><mn>00</mn></msub></math></span> away from zero in the negative direction.  This is because
+adaptation in this system tends to increase the Lotka-Volterra intrinsic
+growth term at the expense of the competition term.</p>
+
+<p>It should be possible to analyze this situation geometrically, in terms
+of motion of a point on a curve in the <!-- 6c6404adc033dfed51422fdaf7fa0494.tex-math.latexml.html --><span class="latexml"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="\mathbf{A}" display="inline"><mi>𝐀</mi></math></span> plane, in which 
+the motion is driven by the <!-- 8ce4b16b22b58894aa86c421e8759df3.tex-math.latexml.html --><span class="latexml"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="k" display="inline"><mi>k</mi></math></span> component of the selection gradient,
+against the <!-- 0cc175b9c0f1b6a831c399e269772661.tex-math.latexml.html --><span class="latexml"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="a" display="inline"><mi>a</mi></math></span> component.</p>
+
+<p>I would like to compare this to the dynamics of <!-- a5f3c6a11b03839d46af9fb43c97c188.tex-math.latexml.html --><span class="latexml"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="K" display="inline"><mi>K</mi></math></span> selection in the
+logistic growth model, in which selection on the <!-- a5f3c6a11b03839d46af9fb43c97c188.tex-math.latexml.html --><span class="latexml"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="K" display="inline"><mi>K</mi></math></span> character of a
+population tends to <em>decrease</em> competition.</p>
+
+<p>The interaction selection gradient <!-- bf9878a51ce9bd789a17c890aea042f3.tex-math.latexml.html --><span class="latexml"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="\mathbf{S}(\mathbf{A})" display="inline"><mrow><mi>𝐒</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mi>𝐀</mi><mo stretchy="false">)</mo></mrow></mrow></math></span> is the
+same for all monomorphic Lotka-Volterra models, concerned only with
+selection on the Lotka-Volterra coefficients <!-- 8ce4b16b22b58894aa86c421e8759df3.tex-math.latexml.html --><span class="latexml"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="k" display="inline"><mi>k</mi></math></span> and <!-- 0cc175b9c0f1b6a831c399e269772661.tex-math.latexml.html --><span class="latexml"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="a" display="inline"><mi>a</mi></math></span> regardless
+of their functional form in terms of population phenotypes.  The
+interaction selection gradient vector field is</p>
+
+<p><!-- 0a035600834d36a50ed5f1b876d0f433.tex-math.latexml.html --><span class="latexml"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="\mathbf{S}(\mathbf{A})=\begin{pmatrix}1\\&#10;-a/k\end{pmatrix}" display="inline"><mrow><mrow><mi>𝐒</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mi>𝐀</mi><mo stretchy="false">)</mo></mrow></mrow><mo>=</mo><mrow><mo>(</mo><mtable displaystyle="true"><mtr><mtd columnalign="center"><mn>1</mn></mtd></mtr><mtr><mtd columnalign="center"><mrow><mo>-</mo><mrow><mi>a</mi><mo>/</mo><mi>k</mi></mrow></mrow></mtd></mtr></mtable><mo>)</mo></mrow></mrow></math></span>.</p>
+
+<p>The selection gradient is perpendicular to a neutral-invasion-exponent
+curve that divides the plane into viable and inviable halves at each
+point.</p>
+
+<p><!-- logistic-S-A-curves.png --><img src="/adaptive-dynamics-research/wmd_files/Selection_Gradients/logistic-S-A-curves.png" alt="(logistic-S-A-curves.png)"/></p>
+
+<p>Here is the <!-- 53a457afd664bfcdacdfde03902f2f44.tex-math.latexml.html --><span class="latexml"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="(k,a)" display="inline"><mrow><mo stretchy="false">(</mo><mi>k</mi><mo>,</mo><mi>a</mi><mo stretchy="false">)</mo></mrow></math></span> curve for the monomorphic resource competition
+model, with <!-- 92eb5ffee6ae2fec3ad71c777531578f.tex-math.latexml.html --><span class="latexml"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="b" display="inline"><mi>b</mi></math></span> and <!-- 6f8f57715090da2632453988d9a1501b.tex-math.latexml.html --><span class="latexml"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="m" display="inline"><mi>m</mi></math></span> fixed, showing the motion through the
+plane due to change in <!-- 4a8a08f09d37b73795649038408b5f33.tex-math.latexml.html --><span class="latexml"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="c" display="inline"><mi>c</mi></math></span>.</p>
+
+<p><!-- maclev-S-A-curve.png --><img src="/adaptive-dynamics-research/wmd_files/Selection_Gradients/maclev-S-A-curve.png" alt="(maclev-S-A-curve.png)"/></p>
+
+<p>And some other choices of <!-- 4a8a08f09d37b73795649038408b5f33.tex-math.latexml.html --><span class="latexml"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="c" display="inline"><mi>c</mi></math></span>, <!-- 6f8f57715090da2632453988d9a1501b.tex-math.latexml.html --><span class="latexml"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="m" display="inline"><mi>m</mi></math></span>, <!-- 92eb5ffee6ae2fec3ad71c777531578f.tex-math.latexml.html --><span class="latexml"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="b" display="inline"><mi>b</mi></math></span>:</p>
+
+<p><!-- maclev-S-A-more-curve.png --><img src="/adaptive-dynamics-research/wmd_files/Selection_Gradients/maclev-S-A-more-curve.png" alt="(maclev-S-A-more-curve.png)"/></p>
+
+<p>This appears to be a case of competition worsening due to a tragedy of the
+commons; specifically, where adaptation is driven by the vector
+<!-- 161340657e8bac62c9f112d93fd65f47.tex-math.latexml.html --><span class="latexml"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="\partial_{1}\mathbf{A}" display="inline"><mrow><msub><mo>∂</mo><mn>1</mn></msub><mo>⁡</mo><mi>𝐀</mi></mrow></math></span> pointing into the viable half plane while the
+resultant direction of motion <!-- 775a0b420b74febcb1cadbaf6f30dcad.tex-math.latexml.html --><span class="latexml"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="d\mathbf{A}/dt" display="inline"><mrow><mrow><mrow><mi>d</mi><mo>⁢</mo><mi>𝐀</mi></mrow><mo>/</mo><mi>d</mi></mrow><mo>⁢</mo><mi>t</mi></mrow></math></span> is near but below the
+line, and drags the population into worsening conditions.</p>
+
+<p>TODO here: verify that</p>
+
+<ul>
+  <li><!-- 161340657e8bac62c9f112d93fd65f47.tex-math.latexml.html --><span class="latexml"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="\partial_{1}\mathbf{A}" display="inline"><mrow><msub><mo>∂</mo><mn>1</mn></msub><mo>⁡</mo><mi>𝐀</mi></mrow></math></span> is as shown, and above the gray line in all places</li>
+  <li>It’s very close to neutral</li>
+  <li>The marginal-viability measure <!-- 18db72ff4f1e32e46e8e4497b400fb9e.tex-math.latexml.html --><span class="latexml"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="k/a" display="inline"><mrow><mi>k</mi><mo>/</mo><mi>a</mi></mrow></math></span> is actually decreasing where it looks like it is</li>
+</ul>
+
+<h2 id="uniq-ww-1531476082-qinu-selection-in-the-logistic-model"><!-- a5f3c6a11b03839d46af9fb43c97c188.tex-math.latexml.html --><span class="latexml"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="K" display="inline"><mi>K</mi></math></span> selection in the logistic model</h2>
+
+<p>This model is</p>
+
+<p><!-- 5c224bab4797f587c388a5f14d5307fa.tex-math.latexml.html --><span class="latexml"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="\frac{dX}{dt}=r(u)X(1-\frac{X}{K(u)})" display="inline"><mrow><mfrac><mrow><mi>d</mi><mo>⁢</mo><mi>X</mi></mrow><mrow><mi>d</mi><mo>⁢</mo><mi>t</mi></mrow></mfrac><mo>=</mo><mrow><mi>r</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mi>u</mi><mo stretchy="false">)</mo></mrow><mo>⁢</mo><mi>X</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mrow><mn>1</mn><mo>-</mo><mfrac><mi>X</mi><mrow><mi>K</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mi>u</mi><mo stretchy="false">)</mo></mrow></mrow></mfrac></mrow><mo stretchy="false">)</mo></mrow></mrow></mrow></math></span>,</p>
+
+<p>so that</p>
+
+<p><!-- 963951f2824056f3c8548e33521477a7.tex-math.latexml.html --><span class="latexml"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="\mathbf{A}(u)=\begin{pmatrix}r(u)\\&#10;-\frac{r(u)}{K(u)}\end{pmatrix}" display="inline"><mrow><mrow><mi>𝐀</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mi>u</mi><mo stretchy="false">)</mo></mrow></mrow><mo>=</mo><mrow><mo>(</mo><mtable displaystyle="true"><mtr><mtd columnalign="center"><mrow><mi>r</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mi>u</mi><mo stretchy="false">)</mo></mrow></mrow></mtd></mtr><mtr><mtd columnalign="center"><mrow><mo>-</mo><mstyle displaystyle="false"><mfrac><mrow><mi>r</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mi>u</mi><mo stretchy="false">)</mo></mrow></mrow><mrow><mi>K</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mi>u</mi><mo stretchy="false">)</mo></mrow></mrow></mfrac></mstyle></mrow></mtd></mtr></mtable><mo>)</mo></mrow></mrow></math></span>,</p>
+
+<p>with</p>
+
+<p><!-- 4fc428b713744cecf40541d5cb8b576f.tex-math.latexml.html --><span class="latexml"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="\partial_{1}\mathbf{A}(u)=\begin{pmatrix}r^{\prime}(u)\\&#10;\frac{r(u)K^{\prime}(u)-r^{\prime}(u)K(u)}{K(u)^{2}}\end{pmatrix}" display="inline"><mrow><mrow><mrow><msub><mo>∂</mo><mn>1</mn></msub><mo>⁡</mo><mi>𝐀</mi></mrow><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mi>u</mi><mo stretchy="false">)</mo></mrow></mrow><mo>=</mo><mrow><mo>(</mo><mtable displaystyle="true"><mtr><mtd columnalign="center"><mrow><msup><mi>r</mi><mo>′</mo></msup><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mi>u</mi><mo stretchy="false">)</mo></mrow></mrow></mtd></mtr><mtr><mtd columnalign="center"><mstyle displaystyle="false"><mfrac><mrow><mrow><mi>r</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mi>u</mi><mo stretchy="false">)</mo></mrow><mo>⁢</mo><msup><mi>K</mi><mo>′</mo></msup><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mi>u</mi><mo stretchy="false">)</mo></mrow></mrow><mo>-</mo><mrow><msup><mi>r</mi><mo>′</mo></msup><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mi>u</mi><mo stretchy="false">)</mo></mrow><mo>⁢</mo><mi>K</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mi>u</mi><mo stretchy="false">)</mo></mrow></mrow></mrow><mrow><mi>K</mi><mo>⁢</mo><msup><mrow><mo stretchy="false">(</mo><mi>u</mi><mo stretchy="false">)</mo></mrow><mn>2</mn></msup></mrow></mfrac></mstyle></mtd></mtr></mtable><mo>)</mo></mrow></mrow></math></span>.</p>
+
+<p>See <a href="the paper draft">paper.html</a> for logistic model details.</p>
+
+<p>In this model, the direction of invasion (?) <!-- 161340657e8bac62c9f112d93fd65f47.tex-math.latexml.html --><span class="latexml"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="\partial_{1}\mathbf{A}" display="inline"><mrow><msub><mo>∂</mo><mn>1</mn></msub><mo>⁡</mo><mi>𝐀</mi></mrow></math></span> is
+always collinear with <!-- 775a0b420b74febcb1cadbaf6f30dcad.tex-math.latexml.html --><span class="latexml"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="d\mathbf{A}/dt" display="inline"><mrow><mrow><mrow><mi>d</mi><mo>⁢</mo><mi>𝐀</mi></mrow><mo>/</mo><mi>d</mi></mrow><mo>⁢</mo><mi>t</mi></mrow></math></span>, so there is no tragedy and
+adaptation always increases <!-- 18db72ff4f1e32e46e8e4497b400fb9e.tex-math.latexml.html --><span class="latexml"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="k/a" display="inline"><mrow><mi>k</mi><mo>/</mo><mi>a</mi></mrow></math></span>.</p>
+
+<p><!-- logistic-S-A-curve.png --><img src="/adaptive-dynamics-research/wmd_files/Selection_Gradients/logistic-S-A-curve.png" alt="(logistic-S-A-curve.png)"/></p>
+
+  </article>
+
+</div>
+
+      </div>
+    </div>
+
+    <footer class="site-footer">
+
+  <div class="wrap">
+
+    <h2 class="footer-heading">Lee Worden</h2>
+
+    <div class="footer-col-1 column">
+      <ul>
+        <li><a href="mailto:worden.lee@gmail.com">worden.lee@gmail.com</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col-2 column">
+      <ul>
+        <li>
+          <a href="https://github.com/worden-lee">
+            <span class="icon github">
+              <svg version="1.1" class="github-icon-svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                 viewBox="0 0 16 16" enable-background="new 0 0 16 16" xml:space="preserve">
+                <path fill-rule="evenodd" clip-rule="evenodd" fill="#C2C2C2" d="M7.999,0.431c-4.285,0-7.76,3.474-7.76,7.761
+                c0,3.428,2.223,6.337,5.307,7.363c0.388,0.071,0.53-0.168,0.53-0.374c0-0.184-0.007-0.672-0.01-1.32
+                c-2.159,0.469-2.614-1.04-2.614-1.04c-0.353-0.896-0.862-1.135-0.862-1.135c-0.705-0.481,0.053-0.472,0.053-0.472
+                c0.779,0.055,1.189,0.8,1.189,0.8c0.692,1.186,1.816,0.843,2.258,0.645c0.071-0.502,0.271-0.843,0.493-1.037
+                C4.86,11.425,3.049,10.76,3.049,7.786c0-0.847,0.302-1.54,0.799-2.082C3.768,5.507,3.501,4.718,3.924,3.65
+                c0,0,0.652-0.209,2.134,0.796C6.677,4.273,7.34,4.187,8,4.184c0.659,0.003,1.323,0.089,1.943,0.261
+                c1.482-1.004,2.132-0.796,2.132-0.796c0.423,1.068,0.157,1.857,0.077,2.054c0.497,0.542,0.798,1.235,0.798,2.082
+                c0,2.981-1.814,3.637-3.543,3.829c0.279,0.24,0.527,0.713,0.527,1.437c0,1.037-0.01,1.874-0.01,2.129
+                c0,0.208,0.14,0.449,0.534,0.373c3.081-1.028,5.302-3.935,5.302-7.362C15.76,3.906,12.285,0.431,7.999,0.431z"/>
+              </svg>
+            </span>
+            <span class="username">worden-lee</span>
+          </a>
+        </li>
+        <li>
+          <a href="https://twitter.com/leeworden">
+            <span class="icon twitter">
+              <svg version="1.1" class="twitter-icon-svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                 viewBox="0 0 16 16" enable-background="new 0 0 16 16" xml:space="preserve">
+                <path fill="#C2C2C2" d="M15.969,3.058c-0.586,0.26-1.217,0.436-1.878,0.515c0.675-0.405,1.194-1.045,1.438-1.809
+                c-0.632,0.375-1.332,0.647-2.076,0.793c-0.596-0.636-1.446-1.033-2.387-1.033c-1.806,0-3.27,1.464-3.27,3.27
+                c0,0.256,0.029,0.506,0.085,0.745C5.163,5.404,2.753,4.102,1.14,2.124C0.859,2.607,0.698,3.168,0.698,3.767
+                c0,1.134,0.577,2.135,1.455,2.722C1.616,6.472,1.112,6.325,0.671,6.08c0,0.014,0,0.027,0,0.041c0,1.584,1.127,2.906,2.623,3.206
+                C3.02,9.402,2.731,9.442,2.433,9.442c-0.211,0-0.416-0.021-0.615-0.059c0.416,1.299,1.624,2.245,3.055,2.271
+                c-1.119,0.877-2.529,1.4-4.061,1.4c-0.264,0-0.524-0.015-0.78-0.046c1.447,0.928,3.166,1.469,5.013,1.469
+                c6.015,0,9.304-4.983,9.304-9.304c0-0.142-0.003-0.283-0.009-0.423C14.976,4.29,15.531,3.714,15.969,3.058z"/>
+              </svg>
+            </span>
+            <span class="username">leeworden</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="footer-col-3 column">
+	    <p class="text"><!-- Any additional text --></p>
+    </div>
+
+  </div>
+
+</footer>
+
+
+    </body>
+</html>

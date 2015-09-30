@@ -1,29 +1,34 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3c.org/TR/html4/strict.dtd">
-<html>
-  <head>
-    <title></title>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <link rel="stylesheet" type="text/css" href="core.css">
-  </head>
-  <body>
-    <div class="navbar">
-  <ul class="toc">
-  <li class="tocentry" id=""><span class="ref toc here">?</span></li>
-    </ul>
-      </div>
-    <div class="main">
-    <div class="content">
-<div class="document" id=""><div class="para" id="p1"><table class="equation" id="S0.Ex1">
-      
-      <tr valign="baseline" class="equation" id="S0.Ex1">
-<td class="eqpad"></td>
-<td nowrap align="center" colspan="1"><img src="mi/mi97.png" width="318" height="59" alt="A=\left(\begin{array}[]{r}a_{{00}}\\
-k_{{0}}\end{array}\right)=\left(\begin{array}[]{r}-\frac{b_{{0}}c_{{00}}^{{2}}w_{{0}}}{r_{{0}}}\\
-K_{{0}}b_{{0}}c_{{00}}w_{{0}}-b_{{0}}m_{{0}}\end{array}\right)" class="math"></td>
-<td class="eqpad"></td>
+<!DOCTYPE html><html>
+<head>
+<title>Untitled Document</title>
+<!--Generated on Wed Sep  9 20:36:54 2015 by LaTeXML (version 0.8.1) http://dlmf.nist.gov/LaTeXML/.-->
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" href="LaTeXML.css" type="text/css">
+<link rel="stylesheet" href="ltx-article.css" type="text/css">
+</head>
+<body>
+<div class="ltx_page_main">
+<div class="ltx_page_content">
+<article class="ltx_document">
+<div id="p1" class="ltx_para">
+<table id="S0.Ex1" class="ltx_equation ltx_eqn_table">
+
+<tr class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_eqn_cell ltx_align_center"><math id="S0.Ex1.m1" class="ltx_Math" alttext="A=\left(\begin{array}[]{r}{a_{00}}\\
+k_{0}\end{array}\right)=\left(\begin{array}[]{r}-\frac{b_{0}{c_{00}}^{2}w_{0}}%
+{r_{0}}\\
+K_{0}b_{0}{c_{00}}w_{0}-b_{0}m_{0}\end{array}\right)" display="block"><mrow><mi>A</mi><mo>=</mo><mrow><mo>(</mo><mtable displaystyle="true"><mtr><mtd columnalign="right"><msub><mi>a</mi><mn>00</mn></msub></mtd></mtr><mtr><mtd columnalign="right"><msub><mi>k</mi><mn>0</mn></msub></mtd></mtr></mtable><mo>)</mo></mrow><mo>=</mo><mrow><mo>(</mo><mtable displaystyle="true"><mtr><mtd columnalign="right"><mrow><mo>-</mo><mfrac><mrow><msub><mi>b</mi><mn>0</mn></msub><mo>⁢</mo><mmultiscripts><mi>c</mi><mn>00</mn><none></none><none></none><mn>2</mn></mmultiscripts><mo>⁢</mo><msub><mi>w</mi><mn>0</mn></msub></mrow><msub><mi>r</mi><mn>0</mn></msub></mfrac></mrow></mtd></mtr><mtr><mtd columnalign="right"><mrow><mrow><msub><mi>K</mi><mn>0</mn></msub><mo>⁢</mo><msub><mi>b</mi><mn>0</mn></msub><mo>⁢</mo><msub><mi>c</mi><mn>00</mn></msub><mo>⁢</mo><msub><mi>w</mi><mn>0</mn></msub></mrow><mo>-</mo><mrow><msub><mi>b</mi><mn>0</mn></msub><mo>⁢</mo><msub><mi>m</mi><mn>0</mn></msub></mrow></mrow></mtd></mtr></mtable><mo>)</mo></mrow></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
 </tr>
-      </table></div></div>
-        </div>
-      </div>
-    </body>
+</table>
+</div>
+</article>
+</div>
+<footer class="ltx_page_footer">
+<div class="ltx_page_logo">Generated  on Wed Sep  9 20:36:54 2015 by <a href="http://dlmf.nist.gov/LaTeXML/">LaTeXML <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAsAAAAOCAYAAAD5YeaVAAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAALEwAACxMBAJqcGAAAAAd0SU1FB9wKExQZLWTEaOUAAAAddEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIFRoZSBHSU1Q72QlbgAAAdpJREFUKM9tkL+L2nAARz9fPZNCKFapUn8kyI0e4iRHSR1Kb8ng0lJw6FYHFwv2LwhOpcWxTjeUunYqOmqd6hEoRDhtDWdA8ApRYsSUCDHNt5ul13vz4w0vWCgUnnEc975arX6ORqN3VqtVZbfbTQC4uEHANM3jSqXymFI6yWazP2KxWAXAL9zCUa1Wy2tXVxheKA9YNoR8Pt+aTqe4FVVVvz05O6MBhqUIBGk8Hn8HAOVy+T+XLJfLS4ZhTiRJgqIoVBRFIoric47jPnmeB1mW/9rr9ZpSSn3Lsmir1fJZlqWlUonKsvwWwD8ymc/nXwVBeLjf7xEKhdBut9Hr9WgmkyGEkJwsy5eHG5vN5g0AKIoCAEgkEkin0wQAfN9/cXPdheu6P33fBwB4ngcAcByHJpPJl+fn54mD3Gg0NrquXxeLRQAAwzAYj8cwTZPwPH9/sVg8PXweDAauqqr2cDjEer1GJBLBZDJBs9mE4zjwfZ85lAGg2+06hmGgXq+j3+/DsixYlgVN03a9Xu8jgCNCyIegIAgx13Vfd7vdu+FweG8YRkjXdWy329+dTgeSJD3ieZ7RNO0VAXAPwDEAO5VKndi2fWrb9jWl9Esul6PZbDY9Go1OZ7PZ9z/lyuD3OozU2wAAAABJRU5ErkJggg==" alt="[LOGO]"></a>
+</div></footer>
+</div>
+</body>
 </html>

@@ -1,0 +1,83 @@
+(('m', (u,)), 1) as tuple:expr?
+{('m', (u,)): 1}
+(('b', (u,)), 1) as tuple:expr?
+{('b', (u,)): 1}
+(('c', (u,)), 1) as tuple:expr?
+{('c', (u,)): 1}
+maclev curve ((K*w*c(u) - m(u))*b(u), -w*b(u)*c(u)^2/r)
+maclev_d1a: ((K*w*D[0](c)(u) - D[0](m)(u))*b(u) + (K*w*c(u) - m(u))*D[0](b)(u), -w*c(u)^2*D[0](b)(u)/r - w*b(u)*c(u)*D[0](c)(u)/r)
+d1a vf: (((K*w*D[0](c)(u) - D[0](m)(u))*b(u) + (K*w*c(u) - m(u))*D[0](b)(u))*sgn((K*w*D[0](c)(u) - D[0](m)(u))*b(u) - (w*c(u)^2*D[0](b)(u)/r + w*b(u)*c(u)*D[0](c)(u)/r)*w*c(u)^2/((K*w*c(u) - m(u))*r) + (K*w*c(u) - m(u))*D[0](b)(u))/sqrt((conjugate(w)*conjugate(c(u))^2*conjugate(D[0](b)(u))/conjugate(r) + conjugate(w)*conjugate(b(u))*conjugate(c(u))*conjugate(D[0](c)(u))/conjugate(r))*(w*c(u)^2*D[0](b)(u)/r + w*b(u)*c(u)*D[0](c)(u)/r) + ((K*w*D[0](c)(u) - D[0](m)(u))*b(u) + (K*w*c(u) - m(u))*D[0](b)(u))*((conjugate(K)*conjugate(w)*conjugate(D[0](c)(u)) - conjugate(D[0](m)(u)))*conjugate(b(u)) + (conjugate(K)*conjugate(w)*conjugate(c(u)) - conjugate(m(u)))*conjugate(D[0](b)(u)))), -(w*c(u)^2*D[0](b)(u)/r + w*b(u)*c(u)*D[0](c)(u)/r)*sgn((K*w*D[0](c)(u) - D[0](m)(u))*b(u) - (w*c(u)^2*D[0](b)(u)/r + w*b(u)*c(u)*D[0](c)(u)/r)*w*c(u)^2/((K*w*c(u) - m(u))*r) + (K*w*c(u) - m(u))*D[0](b)(u))/sqrt((conjugate(w)*conjugate(c(u))^2*conjugate(D[0](b)(u))/conjugate(r) + conjugate(w)*conjugate(b(u))*conjugate(c(u))*conjugate(D[0](c)(u))/conjugate(r))*(w*c(u)^2*D[0](b)(u)/r + w*b(u)*c(u)*D[0](c)(u)/r) + ((K*w*D[0](c)(u) - D[0](m)(u))*b(u) + (K*w*c(u) - m(u))*D[0](b)(u))*((conjugate(K)*conjugate(w)*conjugate(D[0](c)(u)) - conjugate(D[0](m)(u)))*conjugate(b(u)) + (conjugate(K)*conjugate(w)*conjugate(c(u)) - conjugate(m(u)))*conjugate(D[0](b)(u)))))
+try curve: ('c', u |--> u) as tuple:expr?
+('c', u |--> u) as expr:function?
+{('c', (u,)): u |--> u}
+(('m', (u,)), 1) as tuple:expr?
+{('m', (u,)): 1}
+(('b', (u,)), 1) as tuple:expr?
+{('b', (u,)): 1}
+(('c', (u,)), 1) as tuple:expr?
+{('c', (u,)): 1}
+(2*u - 1, -u^2)
+('c', u |--> u) as tuple:expr?
+('c', u |--> u) as expr:function?
+{('c', (u,)): u |--> u}
+(('m', (u,)), 1) as tuple:expr?
+{('m', (u,)): 1}
+(('b', (u,)), 1) as tuple:expr?
+{('b', (u,)): 1}
+(('c', (u,)), 1) as tuple:expr?
+{('c', (u,)): 1}
+bindings: {gamma -> 1, w -> 1, r -> 1, K -> 2, {m(u) -> 1, b(u) -> 1, c(u) -> u |--> u}}
+(('m', (u,)), 2) as tuple:expr?
+{('m', (u,)): 2}
+(('c', (u,)), u) as tuple:expr?
+{('c', (u,)): u}
+(('m', (u,)), 1) as tuple:expr?
+{('m', (u,)): 1}
+(('b', (u,)), 1) as tuple:expr?
+{('b', (u,)): 1}
+(('c', (u,)), 1) as tuple:expr?
+{('c', (u,)): 1}
+bindings: {gamma -> 1, w -> 1, r -> 1, K -> 2, {m(u) -> 2, b(u) -> 1, c(u) -> u}}
+(('m', (u,)), 1/2) as tuple:expr?
+{('m', (u,)): 1/2}
+(('c', (u,)), u) as tuple:expr?
+{('c', (u,)): u}
+(('m', (u,)), 1) as tuple:expr?
+{('m', (u,)): 1}
+(('b', (u,)), 1) as tuple:expr?
+{('b', (u,)): 1}
+(('c', (u,)), 1) as tuple:expr?
+{('c', (u,)): 1}
+bindings: {gamma -> 1, w -> 1, r -> 1, K -> 2, {m(u) -> 1/2, b(u) -> 1, c(u) -> u}}
+('c', u |--> u) as tuple:expr?
+('c', u |--> u) as expr:function?
+{('c', (u,)): u |--> u}
+('b', b) as tuple:expr?
+('b', b) as expr:function?
+{('b', (b,)): b}
+('m', m) as tuple:expr?
+('m', m) as expr:function?
+{('m', (m,)): m}
+d1a on c(u): (K*u*w + (K*w - 1)*u - u, -2*u^2*w/r)
+(('m', (u,)), u) as tuple:expr?
+{('m', (u,)): u}
+(('c', (u,)), 1) as tuple:expr?
+{('c', (u,)): 1}
+(('m', (u,)), 1) as tuple:expr?
+{('m', (u,)): 1}
+(('b', (u,)), 1) as tuple:expr?
+{('b', (u,)): 1}
+(('c', (u,)), 1) as tuple:expr?
+{('c', (u,)): 1}
+bindings: {gamma -> 1, w -> 1, r -> 1, K -> 2, {m(u) -> u, b(u) -> 1, c(u) -> 1}}
+(('m', (u,)), 1/u) as tuple:expr?
+{('m', (u,)): 1/u}
+(('c', (u,)), u) as tuple:expr?
+{('c', (u,)): u}
+(('m', (u,)), 1) as tuple:expr?
+{('m', (u,)): 1}
+(('b', (u,)), 1) as tuple:expr?
+{('b', (u,)): 1}
+(('c', (u,)), 1) as tuple:expr?
+{('c', (u,)): 1}
+bindings: {gamma -> 1, w -> 1, r -> 1, K -> 2, {m(u) -> 1/u, b(u) -> 1, c(u) -> u}}

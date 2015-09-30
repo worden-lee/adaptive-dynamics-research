@@ -1,0 +1,12 @@
+Wed Sep  2 17:38:13 2015
+/usr/bin/make -C /usr/local/src/jekyll-research/wmd_files/Selection_Gradients \
+    \"740445af899fb689ba7dde1ccc686fc3.tex-inline\.tex
+Including .mk files: sage.mk sage-inline.mk 
+Including .mk files from .step files: foodweb.py.mk foodweb.sage.mk foodweb.plot.sage.mk foodweb-2-2.sage.mk foodweb-2-2.plot.sage.mk logistic-S-A-curves.sage.mk maclev-S-A-curve.sage.mk logistic-S-A-curve.sage.mk maclev-1-1.sage.mk maclev-1-1-adap.sage.mk maclev-1-1-mc-adap-geom.sage.mk maclev-1-1-ak-adap-geom.sage.mk S-A-vector-field.sage.mk maclev-1-1-d1A-vector-field.sage.mk maclev-1-1-S-and-d1A-on-curve.sage.mk maclev-1-1-S-and-D-on-curve.sage.mk maclev_1_2_defs.py.mk maclev-1-2-popdyn.sage.mk maclev-1-2-adap.sage.mk maclev-1-2-p.sage.mk maclev-1-2-zngi.sage.mk maclev-1-2-geom.sage.mk maclev_unconstrained_c.py.mk maclev-2-2-c-popdyn.sage.mk maclev-2-2-c-adap.sage.mk maclev-2-2-c-p.sage.mk maclev-2-2-c-zngi.sage.mk maclev-2-2-c-geom.sage.mk maclev_2_2_defs.py.mk maclev-2-2-popdyn.sage.mk maclev-2-2-adap.sage.mk maclev-2-2-p.sage.mk maclev-2-2-zngi.sage.mk maclev-2-2-geom.sage.mk maclev_a_only_defs.py.mk maclev-a-only-popdyn.sage.mk maclev-a-only-adap.sage.mk maclev-a-only-p.sage.mk maclev-a-only-zngi.sage.mk maclev-a-only-geom.sage.mk maclev_a_c.py.mk maclev-2-2-a-c-popdyn.sage.mk maclev-2-2-a-c-adap.sage.mk maclev-2-2-a-c-p.sage.mk maclev-2-2-a-c-zngi.sage.mk maclev-2-2-a-c-geom.sage.mk maclevmodels.py.mk statmech.py.mk statmech-assemble.sage.mk statmech-assemble-plot.sage.mk statmech-evol.sage.mk statmech-evol-plot.sage.mk toc.sage.mk maclev-2-2-zngi-invasion.sage.mk lotkavolterra.py.mk
+Including .mk files from .sage-inline files: avec.sage.mk a-careful.sage.mk
+Including .tex.d files: foodweb-2-2.tikz.tex.d foodweb.tikz.tex.d
+make[1]: Entering directory `/usr/local/src/jekyll-research/wmd_files/Selection_Gradients'
+make[1]: *** No rule to make target `\"740445af899fb689ba7dde1ccc686fc3.tex-inline\.tex'.  Stop.
+make[1]: Leaving directory `/usr/local/src/jekyll-research/wmd_files/Selection_Gradients'
+Make failed with exit code 2.
+Wed Sep  2 17:38:13 2015

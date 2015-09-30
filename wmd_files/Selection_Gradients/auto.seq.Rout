@@ -1,0 +1,9 @@
+> # Global Environment: input.RData
+> 
+> # Scripts: auto.R
+> 
+> print(x)
+[1] 3
+> 
+> 
+> 

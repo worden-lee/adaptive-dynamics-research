@@ -1,0 +1,7 @@
+> # Scripts: manual.R
+> 
+> source("input.R")
+> print(x)
+[1] 3
+> 
+> 

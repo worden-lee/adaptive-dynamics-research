@@ -1,0 +1,10 @@
+pdf("manual.Rout.pdf")
+# End RR preface
+# Scripts: manual.R
+
+source("input.R")
+print(x)
+
+# Begin RR postscript
+# If you see this in an R log, your R script did not close properly
+save.image(file="manual.RData")

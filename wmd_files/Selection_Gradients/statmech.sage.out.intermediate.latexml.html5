@@ -1,0 +1,96 @@
+<!DOCTYPE html><html>
+<head>
+<title>Untitled Document</title>
+<!--Generated on Sun Jun 14 18:46:42 2015 by LaTeXML (version 0.8.1) http://dlmf.nist.gov/LaTeXML/.-->
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" href="LaTeXML.css" type="text/css">
+<link rel="stylesheet" href="ltx-article.css" type="text/css">
+</head>
+<body>
+<div class="ltx_page_main">
+<div class="ltx_page_content">
+<article class="ltx_document">
+<div id="p1" class="ltx_para">
+<table id="S0.EGx1" class="ltx_equationgroup ltx_eqn_align ltx_eqn_table">
+
+<tr id="S0.Ex1" class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_td ltx_align_right ltx_eqn_cell">
+              <math id="S0.Ex1.m1" class="ltx_Math" alttext="\displaystyle\frac{dX_{20}}{dt}" display="inline"><mstyle displaystyle="true"><mfrac><mrow><mi>d</mi><mo>⁢</mo><msub><mi>X</mi><mn>20</mn></msub></mrow><mrow><mi>d</mi><mo>⁢</mo><mi>t</mi></mrow></mfrac></mstyle></math>
+            </td>
+<td class="ltx_td ltx_align_left ltx_eqn_cell">
+              <math id="S0.Ex1.m2" class="ltx_Math" alttext="\displaystyle=X_{20}X_{30}{\left(0.994348598328\,u_{20}+0.340345482921\,u_{30}%
++2.8995091136\right)}+X_{20}X_{60}{\left(0.230545711995\,u_{20}-0.973687057444%
+\,u_{60}+0.585287421194\right)}+X_{20}X_{40}{\left(-0.84193920864\,u_{20}-0.59%
+9250671163\,u_{40}+0.624780655154\right)}+X_{20}X_{70}{\left(-0.960201728842\,%
+u_{20}-0.905981758164\,u_{70}-0.458874456594\right)}-X_{20}^{2}+X_{20}" display="inline"><mrow><mi></mi><mo>=</mo><mrow><mrow><mrow><mrow><msub><mi>X</mi><mn>20</mn></msub><mo>⁢</mo><msub><mi>X</mi><mn>30</mn></msub><mo>⁢</mo><mrow><mo>(</mo><mrow><mrow><mpadded width="+1.7pt"><mn>0.994348598328</mn></mpadded><mo>⁢</mo><msub><mi>u</mi><mn>20</mn></msub></mrow><mo>+</mo><mrow><mpadded width="+1.7pt"><mn>0.340345482921</mn></mpadded><mo>⁢</mo><msub><mi>u</mi><mn>30</mn></msub></mrow><mo>+</mo><mn>2.8995091136</mn></mrow><mo>)</mo></mrow></mrow><mo>+</mo><mrow><msub><mi>X</mi><mn>20</mn></msub><mo>⁢</mo><msub><mi>X</mi><mn>60</mn></msub><mo>⁢</mo><mrow><mo>(</mo><mrow><mrow><mrow><mpadded width="+1.7pt"><mn>0.230545711995</mn></mpadded><mo>⁢</mo><msub><mi>u</mi><mn>20</mn></msub></mrow><mo>-</mo><mrow><mpadded width="+1.7pt"><mn>0.973687057444</mn></mpadded><mo>⁢</mo><msub><mi>u</mi><mn>60</mn></msub></mrow></mrow><mo>+</mo><mn>0.585287421194</mn></mrow><mo>)</mo></mrow></mrow><mo>+</mo><mrow><msub><mi>X</mi><mn>20</mn></msub><mo>⁢</mo><msub><mi>X</mi><mn>40</mn></msub><mo>⁢</mo><mrow><mo>(</mo><mrow><mrow><mrow><mo>-</mo><mrow><mpadded width="+1.7pt"><mn>0.84193920864</mn></mpadded><mo>⁢</mo><msub><mi>u</mi><mn>20</mn></msub></mrow></mrow><mo>-</mo><mrow><mpadded width="+1.7pt"><mn>0.599250671163</mn></mpadded><mo>⁢</mo><msub><mi>u</mi><mn>40</mn></msub></mrow></mrow><mo>+</mo><mn>0.624780655154</mn></mrow><mo>)</mo></mrow></mrow><mo>+</mo><mrow><msub><mi>X</mi><mn>20</mn></msub><mo>⁢</mo><msub><mi>X</mi><mn>70</mn></msub><mo>⁢</mo><mrow><mo>(</mo><mrow><mrow><mo>-</mo><mrow><mpadded width="+1.7pt"><mn>0.960201728842</mn></mpadded><mo>⁢</mo><msub><mi>u</mi><mn>20</mn></msub></mrow></mrow><mo>-</mo><mrow><mpadded width="+1.7pt"><mn>0.905981758164</mn></mpadded><mo>⁢</mo><msub><mi>u</mi><mn>70</mn></msub></mrow><mo>-</mo><mn>0.458874456594</mn></mrow><mo>)</mo></mrow></mrow></mrow><mo>-</mo><msubsup><mi>X</mi><mn>20</mn><mn>2</mn></msubsup></mrow><mo>+</mo><msub><mi>X</mi><mn>20</mn></msub></mrow></mrow></math>
+            </td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+</tr>
+<tr id="S0.Ex2" class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_td ltx_align_right ltx_eqn_cell">
+              <math id="S0.Ex2.m1" class="ltx_Math" alttext="\displaystyle\frac{dX_{30}}{dt}" display="inline"><mstyle displaystyle="true"><mfrac><mrow><mi>d</mi><mo>⁢</mo><msub><mi>X</mi><mn>30</mn></msub></mrow><mrow><mi>d</mi><mo>⁢</mo><mi>t</mi></mrow></mfrac></mstyle></math>
+            </td>
+<td class="ltx_td ltx_align_left ltx_eqn_cell">
+              <math id="S0.Ex2.m2" class="ltx_Math" alttext="\displaystyle=X_{20}X_{30}{\left(-0.9403004585\,u_{20}+0.106164330187\,u_{30}+%
+0.198219966755\right)}+X_{30}X_{60}{\left(0.964497601022\,u_{30}-0.2216188951%
+\,u_{60}-0.637591974684\right)}+X_{30}X_{40}{\left(-0.559095973754\,u_{30}-0.3%
+81978840526\,u_{40}+0.662309593441\right)}+X_{30}X_{70}{\left(-0.995727514935%
+\,u_{30}+0.924589986977\,u_{70}-1.10997182289\right)}-X_{30}^{2}+X_{30}" display="inline"><mrow><mi></mi><mo>=</mo><mrow><mrow><mrow><mrow><msub><mi>X</mi><mn>20</mn></msub><mo>⁢</mo><msub><mi>X</mi><mn>30</mn></msub><mo>⁢</mo><mrow><mo>(</mo><mrow><mrow><mo>-</mo><mrow><mpadded width="+1.7pt"><mn>0.9403004585</mn></mpadded><mo>⁢</mo><msub><mi>u</mi><mn>20</mn></msub></mrow></mrow><mo>+</mo><mrow><mpadded width="+1.7pt"><mn>0.106164330187</mn></mpadded><mo>⁢</mo><msub><mi>u</mi><mn>30</mn></msub></mrow><mo>+</mo><mn>0.198219966755</mn></mrow><mo>)</mo></mrow></mrow><mo>+</mo><mrow><msub><mi>X</mi><mn>30</mn></msub><mo>⁢</mo><msub><mi>X</mi><mn>60</mn></msub><mo>⁢</mo><mrow><mo>(</mo><mrow><mrow><mpadded width="+1.7pt"><mn>0.964497601022</mn></mpadded><mo>⁢</mo><msub><mi>u</mi><mn>30</mn></msub></mrow><mo>-</mo><mrow><mpadded width="+1.7pt"><mn>0.2216188951</mn></mpadded><mo>⁢</mo><msub><mi>u</mi><mn>60</mn></msub></mrow><mo>-</mo><mn>0.637591974684</mn></mrow><mo>)</mo></mrow></mrow><mo>+</mo><mrow><msub><mi>X</mi><mn>30</mn></msub><mo>⁢</mo><msub><mi>X</mi><mn>40</mn></msub><mo>⁢</mo><mrow><mo>(</mo><mrow><mrow><mrow><mo>-</mo><mrow><mpadded width="+1.7pt"><mn>0.559095973754</mn></mpadded><mo>⁢</mo><msub><mi>u</mi><mn>30</mn></msub></mrow></mrow><mo>-</mo><mrow><mpadded width="+1.7pt"><mn>0.381978840526</mn></mpadded><mo>⁢</mo><msub><mi>u</mi><mn>40</mn></msub></mrow></mrow><mo>+</mo><mn>0.662309593441</mn></mrow><mo>)</mo></mrow></mrow><mo>+</mo><mrow><msub><mi>X</mi><mn>30</mn></msub><mo>⁢</mo><msub><mi>X</mi><mn>70</mn></msub><mo>⁢</mo><mrow><mo>(</mo><mrow><mrow><mrow><mo>-</mo><mrow><mpadded width="+1.7pt"><mn>0.995727514935</mn></mpadded><mo>⁢</mo><msub><mi>u</mi><mn>30</mn></msub></mrow></mrow><mo>+</mo><mrow><mpadded width="+1.7pt"><mn>0.924589986977</mn></mpadded><mo>⁢</mo><msub><mi>u</mi><mn>70</mn></msub></mrow></mrow><mo>-</mo><mn>1.10997182289</mn></mrow><mo>)</mo></mrow></mrow></mrow><mo>-</mo><msubsup><mi>X</mi><mn>30</mn><mn>2</mn></msubsup></mrow><mo>+</mo><msub><mi>X</mi><mn>30</mn></msub></mrow></mrow></math>
+            </td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+</tr>
+<tr id="S0.Ex3" class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_td ltx_align_right ltx_eqn_cell">
+              <math id="S0.Ex3.m1" class="ltx_Math" alttext="\displaystyle\frac{dX_{40}}{dt}" display="inline"><mstyle displaystyle="true"><mfrac><mrow><mi>d</mi><mo>⁢</mo><msub><mi>X</mi><mn>40</mn></msub></mrow><mrow><mi>d</mi><mo>⁢</mo><mi>t</mi></mrow></mfrac></mstyle></math>
+            </td>
+<td class="ltx_td ltx_align_left ltx_eqn_cell">
+              <math id="S0.Ex3.m2" class="ltx_Math" alttext="\displaystyle=X_{20}X_{40}{\left(0.800561448679\,u_{20}+0.539572394544\,u_{40}%
++0.310977832313\right)}+X_{30}X_{40}{\left(0.924171069332\,u_{30}-0.8291029442%
+31\,u_{40}-0.994620015592\right)}+X_{40}X_{70}{\left(0.197746665169\,u_{40}+0.%
+149892355072\,u_{70}+0.0601162393215\right)}+X_{40}X_{60}{\left(-0.55805086830%
+3\,u_{40}-0.556732459375\,u_{60}+0.0172895179281\right)}-X_{40}^{2}+X_{40}" display="inline"><mrow><mi></mi><mo>=</mo><mrow><mrow><mrow><mrow><msub><mi>X</mi><mn>20</mn></msub><mo>⁢</mo><msub><mi>X</mi><mn>40</mn></msub><mo>⁢</mo><mrow><mo>(</mo><mrow><mrow><mpadded width="+1.7pt"><mn>0.800561448679</mn></mpadded><mo>⁢</mo><msub><mi>u</mi><mn>20</mn></msub></mrow><mo>+</mo><mrow><mpadded width="+1.7pt"><mn>0.539572394544</mn></mpadded><mo>⁢</mo><msub><mi>u</mi><mn>40</mn></msub></mrow><mo>+</mo><mn>0.310977832313</mn></mrow><mo>)</mo></mrow></mrow><mo>+</mo><mrow><msub><mi>X</mi><mn>30</mn></msub><mo>⁢</mo><msub><mi>X</mi><mn>40</mn></msub><mo>⁢</mo><mrow><mo>(</mo><mrow><mrow><mpadded width="+1.7pt"><mn>0.924171069332</mn></mpadded><mo>⁢</mo><msub><mi>u</mi><mn>30</mn></msub></mrow><mo>-</mo><mrow><mpadded width="+1.7pt"><mn>0.829102944231</mn></mpadded><mo>⁢</mo><msub><mi>u</mi><mn>40</mn></msub></mrow><mo>-</mo><mn>0.994620015592</mn></mrow><mo>)</mo></mrow></mrow><mo>+</mo><mrow><msub><mi>X</mi><mn>40</mn></msub><mo>⁢</mo><msub><mi>X</mi><mn>70</mn></msub><mo>⁢</mo><mrow><mo>(</mo><mrow><mrow><mpadded width="+1.7pt"><mn>0.197746665169</mn></mpadded><mo>⁢</mo><msub><mi>u</mi><mn>40</mn></msub></mrow><mo>+</mo><mrow><mpadded width="+1.7pt"><mn>0.149892355072</mn></mpadded><mo>⁢</mo><msub><mi>u</mi><mn>70</mn></msub></mrow><mo>+</mo><mn>0.0601162393215</mn></mrow><mo>)</mo></mrow></mrow><mo>+</mo><mrow><msub><mi>X</mi><mn>40</mn></msub><mo>⁢</mo><msub><mi>X</mi><mn>60</mn></msub><mo>⁢</mo><mrow><mo>(</mo><mrow><mrow><mrow><mo>-</mo><mrow><mpadded width="+1.7pt"><mn>0.558050868303</mn></mpadded><mo>⁢</mo><msub><mi>u</mi><mn>40</mn></msub></mrow></mrow><mo>-</mo><mrow><mpadded width="+1.7pt"><mn>0.556732459375</mn></mpadded><mo>⁢</mo><msub><mi>u</mi><mn>60</mn></msub></mrow></mrow><mo>+</mo><mn>0.0172895179281</mn></mrow><mo>)</mo></mrow></mrow></mrow><mo>-</mo><msubsup><mi>X</mi><mn>40</mn><mn>2</mn></msubsup></mrow><mo>+</mo><msub><mi>X</mi><mn>40</mn></msub></mrow></mrow></math>
+            </td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+</tr>
+<tr id="S0.Ex4" class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_td ltx_align_right ltx_eqn_cell">
+              <math id="S0.Ex4.m1" class="ltx_Math" alttext="\displaystyle\frac{dX_{60}}{dt}" display="inline"><mstyle displaystyle="true"><mfrac><mrow><mi>d</mi><mo>⁢</mo><msub><mi>X</mi><mn>60</mn></msub></mrow><mrow><mi>d</mi><mo>⁢</mo><mi>t</mi></mrow></mfrac></mstyle></math>
+            </td>
+<td class="ltx_td ltx_align_left ltx_eqn_cell">
+              <math id="S0.Ex4.m2" class="ltx_Math" alttext="\displaystyle=X_{20}X_{60}{\left(-0.227889258556\,u_{20}-0.973061495837\,u_{60%
+}-0.420545413657\right)}+X_{30}X_{60}{\left(0.975133357718\,u_{30}-0.264091608%
+391\,u_{60}+2.87338157554\right)}+X_{40}X_{60}{\left(-0.830691861449\,u_{40}-0%
+.829806741589\,u_{60}-1.46842129217\right)}+X_{60}X_{70}{\left(0.489555285439%
+\,u_{60}+0.0592231449338\,u_{70}+0.38896611277\right)}-X_{60}^{2}+X_{60}" display="inline"><mrow><mi></mi><mo>=</mo><mrow><mrow><mrow><mrow><msub><mi>X</mi><mn>20</mn></msub><mo>⁢</mo><msub><mi>X</mi><mn>60</mn></msub><mo>⁢</mo><mrow><mo>(</mo><mrow><mrow><mo>-</mo><mrow><mpadded width="+1.7pt"><mn>0.227889258556</mn></mpadded><mo>⁢</mo><msub><mi>u</mi><mn>20</mn></msub></mrow></mrow><mo>-</mo><mrow><mpadded width="+1.7pt"><mn>0.973061495837</mn></mpadded><mo>⁢</mo><msub><mi>u</mi><mn>60</mn></msub></mrow><mo>-</mo><mn>0.420545413657</mn></mrow><mo>)</mo></mrow></mrow><mo>+</mo><mrow><msub><mi>X</mi><mn>30</mn></msub><mo>⁢</mo><msub><mi>X</mi><mn>60</mn></msub><mo>⁢</mo><mrow><mo>(</mo><mrow><mrow><mrow><mpadded width="+1.7pt"><mn>0.975133357718</mn></mpadded><mo>⁢</mo><msub><mi>u</mi><mn>30</mn></msub></mrow><mo>-</mo><mrow><mpadded width="+1.7pt"><mn>0.264091608391</mn></mpadded><mo>⁢</mo><msub><mi>u</mi><mn>60</mn></msub></mrow></mrow><mo>+</mo><mn>2.87338157554</mn></mrow><mo>)</mo></mrow></mrow><mo>+</mo><mrow><msub><mi>X</mi><mn>40</mn></msub><mo>⁢</mo><msub><mi>X</mi><mn>60</mn></msub><mo>⁢</mo><mrow><mo>(</mo><mrow><mrow><mo>-</mo><mrow><mpadded width="+1.7pt"><mn>0.830691861449</mn></mpadded><mo>⁢</mo><msub><mi>u</mi><mn>40</mn></msub></mrow></mrow><mo>-</mo><mrow><mpadded width="+1.7pt"><mn>0.829806741589</mn></mpadded><mo>⁢</mo><msub><mi>u</mi><mn>60</mn></msub></mrow><mo>-</mo><mn>1.46842129217</mn></mrow><mo>)</mo></mrow></mrow><mo>+</mo><mrow><msub><mi>X</mi><mn>60</mn></msub><mo>⁢</mo><msub><mi>X</mi><mn>70</mn></msub><mo>⁢</mo><mrow><mo>(</mo><mrow><mrow><mpadded width="+1.7pt"><mn>0.489555285439</mn></mpadded><mo>⁢</mo><msub><mi>u</mi><mn>60</mn></msub></mrow><mo>+</mo><mrow><mpadded width="+1.7pt"><mn>0.0592231449338</mn></mpadded><mo>⁢</mo><msub><mi>u</mi><mn>70</mn></msub></mrow><mo>+</mo><mn>0.38896611277</mn></mrow><mo>)</mo></mrow></mrow></mrow><mo>-</mo><msubsup><mi>X</mi><mn>60</mn><mn>2</mn></msubsup></mrow><mo>+</mo><msub><mi>X</mi><mn>60</mn></msub></mrow></mrow></math>
+            </td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+</tr>
+<tr id="S0.Ex5" class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_td ltx_align_right ltx_eqn_cell">
+              <math id="S0.Ex5.m1" class="ltx_Math" alttext="\displaystyle\frac{dX_{70}}{dt}" display="inline"><mstyle displaystyle="true"><mfrac><mrow><mi>d</mi><mo>⁢</mo><msub><mi>X</mi><mn>70</mn></msub></mrow><mrow><mi>d</mi><mo>⁢</mo><mi>t</mi></mrow></mfrac></mstyle></math>
+            </td>
+<td class="ltx_td ltx_align_left ltx_eqn_cell">
+              <math id="S0.Ex5.m2" class="ltx_Math" alttext="\displaystyle=X_{20}X_{70}{\left(-0.423316729972\,u_{20}+0.279307429061\,u_{70%
+}+0.144607079573\right)}+X_{30}X_{70}{\left(0.380963720034\,u_{30}-0.092340218%
+7692\,u_{70}+2.21908683638\right)}+X_{40}X_{70}{\left(0.988702322183\,u_{40}+0%
+.980253159349\,u_{70}-0.498068771827\right)}+X_{60}X_{70}{\left(0.998244769134%
+\,u_{60}+0.871972260166\,u_{70}-1.10434010611\right)}-X_{70}^{2}+X_{70}" display="inline"><mrow><mi></mi><mo>=</mo><mrow><mrow><mrow><mrow><msub><mi>X</mi><mn>20</mn></msub><mo>⁢</mo><msub><mi>X</mi><mn>70</mn></msub><mo>⁢</mo><mrow><mo>(</mo><mrow><mrow><mo>-</mo><mrow><mpadded width="+1.7pt"><mn>0.423316729972</mn></mpadded><mo>⁢</mo><msub><mi>u</mi><mn>20</mn></msub></mrow></mrow><mo>+</mo><mrow><mpadded width="+1.7pt"><mn>0.279307429061</mn></mpadded><mo>⁢</mo><msub><mi>u</mi><mn>70</mn></msub></mrow><mo>+</mo><mn>0.144607079573</mn></mrow><mo>)</mo></mrow></mrow><mo>+</mo><mrow><msub><mi>X</mi><mn>30</mn></msub><mo>⁢</mo><msub><mi>X</mi><mn>70</mn></msub><mo>⁢</mo><mrow><mo>(</mo><mrow><mrow><mrow><mpadded width="+1.7pt"><mn>0.380963720034</mn></mpadded><mo>⁢</mo><msub><mi>u</mi><mn>30</mn></msub></mrow><mo>-</mo><mrow><mpadded width="+1.7pt"><mn>0.0923402187692</mn></mpadded><mo>⁢</mo><msub><mi>u</mi><mn>70</mn></msub></mrow></mrow><mo>+</mo><mn>2.21908683638</mn></mrow><mo>)</mo></mrow></mrow><mo>+</mo><mrow><msub><mi>X</mi><mn>40</mn></msub><mo>⁢</mo><msub><mi>X</mi><mn>70</mn></msub><mo>⁢</mo><mrow><mo>(</mo><mrow><mrow><mrow><mpadded width="+1.7pt"><mn>0.988702322183</mn></mpadded><mo>⁢</mo><msub><mi>u</mi><mn>40</mn></msub></mrow><mo>+</mo><mrow><mpadded width="+1.7pt"><mn>0.980253159349</mn></mpadded><mo>⁢</mo><msub><mi>u</mi><mn>70</mn></msub></mrow></mrow><mo>-</mo><mn>0.498068771827</mn></mrow><mo>)</mo></mrow></mrow><mo>+</mo><mrow><msub><mi>X</mi><mn>60</mn></msub><mo>⁢</mo><msub><mi>X</mi><mn>70</mn></msub><mo>⁢</mo><mrow><mo>(</mo><mrow><mrow><mrow><mpadded width="+1.7pt"><mn>0.998244769134</mn></mpadded><mo>⁢</mo><msub><mi>u</mi><mn>60</mn></msub></mrow><mo>+</mo><mrow><mpadded width="+1.7pt"><mn>0.871972260166</mn></mpadded><mo>⁢</mo><msub><mi>u</mi><mn>70</mn></msub></mrow></mrow><mo>-</mo><mn>1.10434010611</mn></mrow><mo>)</mo></mrow></mrow></mrow><mo>-</mo><msubsup><mi>X</mi><mn>70</mn><mn>2</mn></msubsup></mrow><mo>+</mo><msub><mi>X</mi><mn>70</mn></msub></mrow></mrow></math>
+            </td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+</tr>
+</table>
+</div>
+</article>
+</div>
+<footer class="ltx_page_footer">
+<div class="ltx_page_logo">Generated  on Sun Jun 14 18:46:42 2015 by <a href="http://dlmf.nist.gov/LaTeXML/">LaTeXML <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAsAAAAOCAYAAAD5YeaVAAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAALEwAACxMBAJqcGAAAAAd0SU1FB9wKExQZLWTEaOUAAAAddEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIFRoZSBHSU1Q72QlbgAAAdpJREFUKM9tkL+L2nAARz9fPZNCKFapUn8kyI0e4iRHSR1Kb8ng0lJw6FYHFwv2LwhOpcWxTjeUunYqOmqd6hEoRDhtDWdA8ApRYsSUCDHNt5ul13vz4w0vWCgUnnEc975arX6ORqN3VqtVZbfbTQC4uEHANM3jSqXymFI6yWazP2KxWAXAL9zCUa1Wy2tXVxheKA9YNoR8Pt+aTqe4FVVVvz05O6MBhqUIBGk8Hn8HAOVy+T+XLJfLS4ZhTiRJgqIoVBRFIoric47jPnmeB1mW/9rr9ZpSSn3Lsmir1fJZlqWlUonKsvwWwD8ymc/nXwVBeLjf7xEKhdBut9Hr9WgmkyGEkJwsy5eHG5vN5g0AKIoCAEgkEkin0wQAfN9/cXPdheu6P33fBwB4ngcAcByHJpPJl+fn54mD3Gg0NrquXxeLRQAAwzAYj8cwTZPwPH9/sVg8PXweDAauqqr2cDjEer1GJBLBZDJBs9mE4zjwfZ85lAGg2+06hmGgXq+j3+/DsixYlgVN03a9Xu8jgCNCyIegIAgx13Vfd7vdu+FweG8YRkjXdWy329+dTgeSJD3ieZ7RNO0VAXAPwDEAO5VKndi2fWrb9jWl9Esul6PZbDY9Go1OZ7PZ9z/lyuD3OozU2wAAAABJRU5ErkJggg==" alt="[LOGO]"></a>
+</div></footer>
+</div>
+</body>
+</html>

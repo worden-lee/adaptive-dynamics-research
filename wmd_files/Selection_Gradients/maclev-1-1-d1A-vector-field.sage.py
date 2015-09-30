@@ -11,12 +11,15 @@ from dynamicalsystems import *
 from adaptivedynamics import *
 load_session( 'maclev-1-1-mc-adap-geom' )
 fixed_parameter_bindings = Bindings( 
-  { SR.var('r_0'): _sage_const_1 , SR.var('w_0'): _sage_const_1 ,
+  { SR.var('r_0'): _sage_const_1 , SR.var('w_0'): _sage_const_1 , SR.var('b_0'): _sage_const_1 , SR.var('m_0'): _sage_const_1 ,
     SR.var('K_0'): _sage_const_2 , SR.var('gamma'): _sage_const_1  } )
 outer = _sage_const_3 
 var( 'a k' )
 c = symbolic_expression( '(k + b_0 *m_0) / (b_0 w_0 K_0)' )
-vf = [ fixed_parameter_bindings( c00_bindings( change_p_to_functions( e ) ) ) for e in [ c * symbolic_expression('- b_0 * w_0 / r_0'), symbolic_expression( 'K_0 * b_0 * w_0' ) ] ]
+print c
+# removed 'change to functions' bindings call
+# probably need to put it back
+vf = [ fixed_parameter_bindings( c00_bindings( e ) ) for e in [ c * symbolic_expression('- b_0 * w_0 / r_0'), symbolic_expression( 'K_0 * b_0 * w_0' ) ] ]
 print vf; sys.stdout.flush()
 vfp = plot_vector_field( vf, [a,-outer,_sage_const_0 ], [k,_sage_const_0 ,outer], color='green', figsize=(_sage_const_4 ,_sage_const_4 ), frame=false );
 vfp.axes_labels( [ '$a$', '$k$' ] );

@@ -1,4 +1,4 @@
-# requires: foodweb.sobj
+# requires: foodweb-adap.sobj
 # requires: $(SageDynamics)/dynamicalsystems.py $(SageAdaptiveDynamics)/adaptivedynamics.py
 # requires: $(SageUtils)/latex_output.py lotkavolterra.py
 # produces: foodweb.plot.sage.out.tex 
@@ -22,7 +22,7 @@ import lotkavolterra
 #SR.symbol( 'c_0_0', latex_name='c_{00}' )
 #SR.symbol( 'c_i_0', latex_name='c_{i0}' )
 
-load_session("foodweb")
+load_session("foodweb-adap")
 
 ltx = latex_output.latex_output( 'foodweb.plot.sage.out.tex' )
 

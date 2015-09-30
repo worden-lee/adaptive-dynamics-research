@@ -1,0 +1,11 @@
+pdf("auto.Rout.pdf")
+# End RR preface
+# Scripts: input.R auto.R
+
+x <- 3
+print(x)
+
+
+# Begin RR postscript
+# If you see this in an R log, your R script did not close properly
+save.image(file="auto.RData")

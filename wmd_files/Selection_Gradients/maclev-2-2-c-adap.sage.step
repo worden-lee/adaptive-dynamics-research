@@ -38,10 +38,8 @@ try:
     try:
         c_evolution = maclev_adap_c.solve( [ initial_conditions( c ) for c in maclev_adap_c._vars ], end_time=integrate_adapdyn_to, step=integrate_adapdyn_step )
     except AdaptiveDynamicsException, e:
-        print( 'AdaptiveDynamicsException: %s' % e ) 
         print 'Failed to integrate adaptive dynamics'
-        sys.stdout.flush()
-        ltx.write( e._latex_str or '', r'\\Exception: %s\\' % e )
+	raise
 except AdaptiveDynamicsException, e:
     print( 'AdaptiveDynamicsException: %s' % e )
     print 'Failed to construct adaptive dynamics'

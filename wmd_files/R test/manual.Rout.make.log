@@ -1,0 +1,9 @@
+Wed Sep 16 15:28:05 2015
+/usr/bin/make -C /usr/local/src/adaptive-dynamics-research/wmd_files/R test manual.Rout
+Including .mk files:  
+Including .tex.d files: 
+make: Entering directory `/usr/local/src/adaptive-dynamics-research/wmd_files/R test'
+make: `manual.Rout' is up to date.
+make: Leaving directory `/usr/local/src/adaptive-dynamics-research/wmd_files/R test'
+Make succeeded.
+Wed Sep 16 15:28:05 2015

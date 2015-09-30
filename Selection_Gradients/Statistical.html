@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html>
+
+      <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>'Statistical Mechanics' adaptive dynamics model</title>
+        <meta name="viewport" content="width=device-width">
+        <meta name="description" content="Lee Worden prototype research website" />
+        <link rel="canonical" href="/Selection_Gradients/Statistical.html/" />
+
+        <!-- Custom CSS -->
+	<link rel="stylesheet" href="/adaptive-dynamics-research/css/main.css">
+	<link rel="stylesheet" href="/adaptive-dynamics-research/css/auto-generated-from-ww.css">
+	<link rel="stylesheet" href="/adaptive-dynamics-research/css/wmd.css">
+        <script type="text/x-mathjax-config">MathJax.Hub.Config({ jax: ["input/MathML", "output/HTML-CSS"] });</script>
+        <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=MML_HTMLorMML"></script>
+
+    </head>
+
+
+    <body>
+
+    <header class="site-header">
+
+  <div class="wrap">
+
+    <a class="site-title" href="/adaptive-dynamics-research/">Lee Worden research prototype website</a>
+
+    <nav class="site-nav">
+      <a href="#" class="menu-icon">
+        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+           viewBox="0 0 18 15" enable-background="new 0 0 18 15" xml:space="preserve">
+          <path fill="#505050" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0
+            h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+          <path fill="#505050" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484
+            h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+          <path fill="#505050" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0
+            c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+        </svg>
+      </a>
+      <div class="trigger">
+        <a class="page-link" href="/adaptive-dynamics-research/about">About</a>
+	<a class="page-link" href="/adaptive-dynamics-research/projects">Projects</a>
+      </div>
+    </nav>
+
+  </div>
+
+</header>
+
+
+    <div class="page-content">
+      <div class="wrap">
+      <div class="post">
+
+  <header class="post-header">
+    <h1>'Statistical Mechanics' adaptive dynamics model</h1>
+  </header>
+
+  <article class="post-content">
+  <p>[Sorry, self, I broke this page ☹ ]</p>
+
+<p>Here we assign, for each <!-- 5270ae675fac24f97e172dcd9b18fa92.tex-math.latexml.html --><span class="latexml"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="(i,j)" display="inline"><mrow><mo stretchy="false">(</mo><mi>i</mi><mo>,</mo><mi>j</mi><mo stretchy="false">)</mo></mrow></math></span>,</p>
+
+<p><!-- statmech.py.step --><fieldset class="ww-project-file-source ww-collapsible"><legend><span>statmech.py.step</span></legend><div class="ww-collapsible-content"><pre>from sage.all import * 
+import os
+import sys
+sys.path.append( os.environ['SageUtils'] )
+sys.path.append( os.environ['SageDynamics'] )
+sys.path.append( os.environ['SageAdaptiveDynamics'] )
+import latex_output
+import dynamicalsystems
+import adaptivedynamics
+
+class vertex_indexer(dynamicalsystems.indexer):
+    def init(self, x):
+	self._f = x
+    def __getitem__(self, tup):
+	# tup is a tuple (vertex, number)
+	v, i = tup
+	return SR.symbol(
+	    '%s_%s_%s' % (self._f, str(v), str(i)),
+	    latex_name = '%s_{%s%s}' % (self._f, latex(v), latex(i))
+	)
+
+class vertex_indexer_2d(dynamicalsystems.indexer):
+    def __init__(self, x):
+	self._f = x
+    def __getitem__(self, tupi):
+        class vertex_indexer_2d_inner( dynamicalsystems.indexer ):
+	    def __init__(self, x, tupi):
+		self._f = x
+		self._tupi = tupi
+	    def __getitem__(self, tupj):
+		# tup* is a tuple (vertex, number)
+		v, i = self._tupi
+		w, j = tupj
+		return SR.symbol(
+		    '_'.join( [self._f, str(v), str(i), str(w), str(j)] ),
+		    latex_name = '%s_{%s%s%s%s}' % (self._f, latex(v), latex(i), latex(w), latex(j))
+		)
+	return vertex_indexer_2d_inner(self._f, tupi)
+
+class a_indexer(dynamicalsystems.indexer):
+    def __init__(self, model):
+	self._model = model
+    def __getitem__(self, i):
+	class a_indexer_inner(dynamicalsystems.indexer):
+	    def __init__(self, model, i):
+		self._model = model
+		self._i = i
+	    def __getitem__(self, j):
+		b,c,d = self._model._a_lookup[i[0]][j[0]]
+		return b + c*self._model._u_indexer[i] + d*self._model._u_indexer[j]
+	return a_indexer_inner( self._model, i )
+
+class StatMechPopulation(dynamicalsystems.PopulationDynamicsSystem):
+    def __init__(
+	self,
+	n=10,
+	bindings=dynamicalsystems.Bindings()):
+	# population indices in this model are tuples (lookup index, sequential number)
+	self._u_indexer = vertex_indexer('u')
+	self._r_indexer = dynamicalsystems.const_indexer(1)
+	self._a_lookup = {}
+	self._a_indexer = a_indexer(self)
+	super(StatMechPopulation,self).__init__(
+	    [], [], vertex_indexer('X'), bindings=bindings
+	)
+	self.generate_random_community(n)
+    def flow(self):
+	flo = {}
+	for i in self._population_indices:
+	    xi = self._population_indexer[i]
+	    flo[xi] = self._r_indexer[i]*xi
+	    for j in self._population_indices:
+	        xj = self._population_indexer[j]
+		flo[xi] += xi * xj * self._a_indexer[i][j]
+	return flo
+    def generate_random_community(self, n):
+	for _ in range(n):
+	    self.add_random_species()
+    def add_random_species(self):
+	try:
+	    n = 1 + max( i[0] for i in self._population_indices )
+	except ValueError: # empty sequence
+	    n = 0
+	import numpy
+	self._a_lookup[n] = { n: (-1,0,0) }
+	for i in self._population_indices:
+	    bin = RDF(numpy.random.normal(0,1))
+	    bni = RDF(numpy.random.normal(0,1))
+	    c = 1
+	    d = 1
+	    theta = RDF(numpy.random.uniform(0,2*pi))
+	    rho = RDF(numpy.random.uniform(0,2*pi))
+	    self._a_lookup[i[0]][n] = (bin, c*cos(theta), d*cos(rho))
+	    self._a_lookup[n][i[0]] = (bni, c*sin(theta), d*sin(rho))
+	ni = (n,0)
+	self.set_population_indices( self._population_indices + [ni] )
+	return ni
+    def mutate(self, index):
+	i = 1 + max( i[1] for i in self._population_indices )
+	sport = (index[0], i)
+	self.set_population_indices( self._population_indices + [ sport ] )
+	return sport
+    def fake_population_index(self):
+	return ('Fake', 0)
+</pre></div></fieldset></p>
+
+<p><!-- statmech-assemble.sage.step --><fieldset class="ww-project-file-source ww-collapsible"><legend><span>statmech-assemble.sage.step</span></legend><div class="ww-collapsible-content"><pre># requires: statmech.py
+# requires: $(SageDynamics)/dynamicalsystems.py
+# requires: $(SageUtils)/latex_output.py
+# produces: statmech-assemble.sobj
+from sage.all import *
+from sage.misc.latex import _latex_file_
+
+import statmech
+import latex_output
+import dynamicalsystems
+
+set_random_seed(0)
+
+N_pop = 1#5
+
+smr = statmech.StatMechPopulation( 0 )
+
+t = 0
+state = dynamicalsystems.Bindings()
+soln = dynamicalsystems.Trajectory( smr, [] )
+while smr.n_populations() &lt; N_pop:
+    ni = smr.add_random_species()
+    state[ smr._population_indexer[ni] ] = 1
+    smu = smr.bind( { smr._u_indexer[i]:0 for i in smr._population_indices } )
+    print 'go', t, 'to', t+100; sys.stdout.flush()
+    ni_soln = smu.solve_gsl( [ state(x) for x in smu._vars ], start_time=t, end_time=t+100 )
+    if any( abs(x)&gt;1e+7 or math.isnan(x) for x in ni_soln._timeseries[-1].values() ):
+	# it caused an explosion, back it out
+	print ni, 'caused an explosion'
+	smr.remove_population( ni )
+	continue
+    state = ni_soln._timeseries[-1]
+    t = state('t')
+    soln += ni_soln
+    defunct = set( [ i for i in smr._population_indices if ni_soln._timeseries[-1]( smr._population_indexer[i] ) &lt; 0.001 ] )
+    if len(defunct) &gt; 0:
+        print 'extinctions:', defunct
+        smr.remove_populations( defunct )
+
+del smu
+del ni_soln
+save_session( 'statmech-assemble' )
+</pre></div></fieldset></p>
+
+<p><!-- statmech-assemble-plot.sage.step --><fieldset class="ww-project-file-source ww-collapsible"><legend><span>statmech-assemble-plot.sage.step</span></legend><div class="ww-collapsible-content"><pre># requires: statmech.py
+# requires: $(SageDynamics)/dynamicalsystems.py
+# requires: $(SageUtils)/latex_output.py
+# requires: statmech-assemble.sobj
+# produces: statmech-assemble.sage.out.tex statmech-assemble.svg
+from sage.all import *
+from sage.misc.latex import _latex_file_
+
+import statmech
+import latex_output
+import dynamicalsystems
+
+load_session( 'statmech-assemble' )
+
+ltx = latex_output.latex_output( 'statmech-assemble.sage.out.tex' )
+
+ltx.write( smr )
+
+ltx.close()
+
+soln.plot( 't', smr._vars, ylabel='$X$' ).save( filename='statmech-assemble.svg' )
+</pre></div></fieldset></p>
+
+<p><!-- statmech-assemble.sage.out.latexml.html --><div class="latexml">
+
+<div class="ltx_page_main">
+<div class="ltx_page_content">
+<article class="ltx_document">
+<div id="p1" class="ltx_para">
+<table id="S0.EGx1" class="ltx_equationgroup ltx_eqn_align ltx_eqn_table">
+
+<tr id="S0.Ex1" class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_td ltx_align_right ltx_eqn_cell">
+              <math xmlns="http://www.w3.org/1998/Math/MathML" id="S0.Ex1.m1" class="ltx_Math" alttext="\displaystyle\frac{dX_{0_{0}}}{dt}" display="inline"><mstyle displaystyle="true"><mfrac><mrow><mi>d</mi><mo>⁢</mo><msub><mi>X</mi><msub><mn>0</mn><mn>0</mn></msub></msub></mrow><mrow><mi>d</mi><mo>⁢</mo><mi>t</mi></mrow></mfrac></mstyle></math>
+            </td>
+<td class="ltx_td ltx_align_left ltx_eqn_cell">
+              <math xmlns="http://www.w3.org/1998/Math/MathML" id="S0.Ex1.m2" class="ltx_Math" alttext="\displaystyle=-X_{0_{0}}^{2}+X_{0_{0}}" display="inline"><mrow><mi></mi><mo>=</mo><mrow><mrow><mo>-</mo><msubsup><mi>X</mi><msub><mn>0</mn><mn>0</mn></msub><mn>2</mn></msubsup></mrow><mo>+</mo><msub><mi>X</mi><msub><mn>0</mn><mn>0</mn></msub></msub></mrow></mrow></math>
+            </td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+</tr>
+</table>
+</div>
+</article>
+</div>
+<footer class="ltx_page_footer">
+<div class="ltx_page_logo">Generated  on Wed Sep 16 16:10:05 2015 by <a href="http://dlmf.nist.gov/LaTeXML/">LaTeXML <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAsAAAAOCAYAAAD5YeaVAAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAALEwAACxMBAJqcGAAAAAd0SU1FB9wKExQZLWTEaOUAAAAddEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIFRoZSBHSU1Q72QlbgAAAdpJREFUKM9tkL+L2nAARz9fPZNCKFapUn8kyI0e4iRHSR1Kb8ng0lJw6FYHFwv2LwhOpcWxTjeUunYqOmqd6hEoRDhtDWdA8ApRYsSUCDHNt5ul13vz4w0vWCgUnnEc975arX6ORqN3VqtVZbfbTQC4uEHANM3jSqXymFI6yWazP2KxWAXAL9zCUa1Wy2tXVxheKA9YNoR8Pt+aTqe4FVVVvz05O6MBhqUIBGk8Hn8HAOVy+T+XLJfLS4ZhTiRJgqIoVBRFIoric47jPnmeB1mW/9rr9ZpSSn3Lsmir1fJZlqWlUonKsvwWwD8ymc/nXwVBeLjf7xEKhdBut9Hr9WgmkyGEkJwsy5eHG5vN5g0AKIoCAEgkEkin0wQAfN9/cXPdheu6P33fBwB4ngcAcByHJpPJl+fn54mD3Gg0NrquXxeLRQAAwzAYj8cwTZPwPH9/sVg8PXweDAauqqr2cDjEer1GJBLBZDJBs9mE4zjwfZ85lAGg2+06hmGgXq+j3+/DsixYlgVN03a9Xu8jgCNCyIegIAgx13Vfd7vdu+FweG8YRkjXdWy329+dTgeSJD3ieZ7RNO0VAXAPwDEAO5VKndi2fWrb9jWl9Esul6PZbDY9Go1OZ7PZ9z/lyuD3OozU2wAAAABJRU5ErkJggg==" alt="[LOGO]"></a>
+</div></footer>
+</div>
+
+</div>
+</p>
+
+<p><!-- statmech-assemble.svg --><object data="/adaptive-dynamics-research/wmd_files/Selection_Gradients/statmech-assemble.svg" type="image/svg+xml"><img src="/adaptive-dynamics-research/wmd_files/Selection_Gradients/statmech-assemble.png" alt="statmech-assemble.svg"/></object></p>
+
+<p><!-- statmech-evol.sage.step --><fieldset class="ww-project-file-source ww-collapsible"><legend><span>statmech-evol.sage.step</span></legend><div class="ww-collapsible-content"><pre># requires: statmech.py
+# requires: $(SageUtils)/latex_output.py
+# requires: $(SageDynamics)/dynamicalsystems.py
+# requires: $(SageAdaptiveDynamics)/adaptivedynamics.py
+# requires: lotkavolterra.py
+# requires: statmech-assemble.sobj
+# produces: statmech-evol.sobj
+from sage.all import *
+from sage.misc.latex import _latex_file_
+
+import statmech
+import latex_output
+import dynamicalsystems
+import adaptivedynamics
+import lotkavolterra
+
+load_session( 'statmech-assemble' )
+
+ltx = latex_output.latex_output( 'statmech-evol.sage.out.tex' )
+
+def lv_interior_equilibrium( popdyn ):
+    import sympy
+    eqns = [ sympy.sympify( popdyn.add_hats()( (popdyn._flow[x]/x).simplify_rational() ) ) for x in popdyn._vars ]
+    print eqns; sys.stdout.flush()
+    #eqs = solve( eqns, *popdyn.equilibrium_vars(), solution_dict=True )
+    eqs = sympy.solve( eqns, *popdyn.equilibrium_vars() )
+    return dynamicalsystems.Bindings( { x: eqs[ sympy.sympify(x) ] for x in popdyn.equilibrium_vars() } )
+
+u_init = dynamicalsystems.Bindings( { smr._u_indexer[i]:0 for i in smr._population_indices } )
+
+equil = lv_interior_equilibrium( smr )
+eq0 = dynamicalsystems.Bindings( equil )
+#equil = smr.interior_equilibria()
+print 'equil:', eq0
+print 'equil at u=0:', u_init( eq0 )
+
+sm_adap = adaptivedynamics.AdaptiveDynamicsModel( 
+    smr,
+    [ smr._u_indexer ],
+    #early_bindings=fb,
+    equilibrium = eq0
+).bind( { 'gamma':1 } )
+
+ltx.write( 'Adaptive dynamics of model:\n', sm_adap )
+
+ad_init = dynamicalsystems.Bindings( { u:0 for u in sm_adap._vars } )
+ad_init_state = [ ad_init(u) for u in sm_adap._vars ]
+
+sm_traj = sm_adap.solve( ad_init_state, end_time=10, step=0.01 )
+
+slv = lotkavolterra.LotkaVolterraAdaptiveDynamics( sm_adap,
+	r_name_indexer=statmech.vertex_indexer('r'),
+        a_name_indexer=statmech.vertex_indexer_2d('a') )
+
+ltx.close()
+
+save_session('statmech-evol')
+</pre></div></fieldset></p>
+
+<p><!-- statmech-evol-plot.sage.step --><fieldset class="ww-project-file-source ww-collapsible"><legend><span>statmech-evol-plot.sage.step</span></legend><div class="ww-collapsible-content"><pre># requires: statmech-evol.sobj
+# produces: statmech-evol-plot.sage.out.tex 
+# produces: statmech-a-vs-t.svg statmech-a-vs-a.svg
+from sage.all import *
+from sage.misc.latex import _latex_file_
+from sage.misc.latex import latex
+
+import statmech
+import latex_output
+import dynamicalsystems
+import adaptivedynamics
+import lotkavolterra
+
+# create variables with custom latex names because load_session
+# creates them wrong: http://trac.sagemath.org/ticket/17559
+#for x in ('X_0', 'X_i', 'R_0'): hat(SR.symbol(x))
+#SR.symbol( 'c_0_0', latex_name='c_{00}' )
+#SR.symbol( 'c_i_0', latex_name='c_{i0}' )
+
+load_session(&quot;statmech-evol&quot;)
+
+ltx = latex_output.latex_output( 'statmech-evol-plot.sage.out.tex' )
+
+#ltx.write( 'sm\_traj t:', [ ts('t') for ts in sm_traj._timeseries ], '\n\n' )
+#ltx.write( 'starts with:' )
+#ltx.write_block( sm_traj._timeseries[0] )
+#if 1 in sm_traj._timeseries:
+#    ltx.write_block( sm_traj._timeseries[1] )
+
+ltx.write( 'flow: $%s$\n\n' % latex( latex_output.column_vector( [ sm_adap._flow[v] for v in sm_adap._vars ] ) ) )
+
+ltx.write( 'flow at ', '$%s$'%latex( latex_output.column_vector( ad_init_state ) ), ': ', 
+    '$%s$'%latex( latex_output.column_vector( ad_init( sm_adap._flow[v] ) for v in sm_adap._vars ) ),
+    '\n\n' )
+
+ltx.write( 'a values:' )
+ltx.write_block( matrix( [ [ slv._lv_model._a_indexer[i][j] for j in sm_adap._popdyn_model._population_indices ] for i in sm_adap._popdyn_model._population_indices ] ) )
+ltx.write_block( matrix( [ [ slv._lv_model._A_bindings( slv._lv_model._a_indexer[i][j] ) for j in sm_adap._popdyn_model._population_indices ] for i in sm_adap._popdyn_model._population_indices ] ) )
+ltx.write( 'X values at time 0:' )
+ltx.write_block( [ x == sm_traj._timeseries[0]( equil( x ) ) for x in smr.equilibrium_vars() ] )
+ltx.write( 'sensitivity of $\hat{X}$:\n' )
+ltx.write_equality(
+    matrix( [ SR.symbol( 'kdjflkjdf', latex_name=r'\frac{\partial\hat{X}_i}{\partial u_{j0}}' ) ] ),
+    matrix( [ [ sm_traj._timeseries[0]( diff( equil(x), u ) ) for u in sm_adap._vars ] for x in smr.equilibrium_vars() ] )
+)
+
+atp = Graphics()
+for i in sm_adap._popdyn_model._population_indices:
+    for j in sm_adap._popdyn_model._population_indices:
+	atp += sm_traj.plot( 't', slv._lv_model._A_bindings( slv._lv_model._a_indexer[i][j] ),
+	    color = (i == j and 'red' or 'green') )
+atp.axes_labels( [ '$t$', '$a$' ] )
+atp.save( 'statmech-a-vs-t.svg', figsize=(5,5) )
+
+aap = lotkavolterra.plot_aij_with_arrows( sm_traj, slv, scale=0.05 )
+aap.axes_labels( [ '$a_{ij}$', '$a_{ji}$' ] )
+aap.save( 'statmech-a-vs-a.svg', figsize=(5,5) )
+
+ltx.close()
+exit(0r)
+
+#statmech_adap.bind_in_place( fb )
+
+print 'flow at initial conditions:', pred_prey_init( statmech_adap._flow )
+
+ppp = Graphics()
+for v, c, l in zip( statmech_adap._vars, ['blue', 'red'], ['prey $u_0$','predator $u_1$'] ):
+    ppp += pred_prey_traj.plot( 't', v, color=c, legend_label=l )
+ppp.save( 'statmech-pred-prey-adap.png',
+    ticks=[100,pi],
+    tick_formatter=[None,pi],
+    figsize=(5,5)
+)
+ppp.save( 'statmech-pred-prey-adap.svg',
+    ticks=[500,pi],
+    tick_formatter=[None,pi],
+    figsize=(3,3)
+)
+
+pred_prey_traj.plot( 't', 'u_0_a - u_0_b', legend_label='$u_0-u_1$' ).save(
+    'statmech-pred-prey-adap-difference.png',
+    ymin=0,
+    ymax=3.2,
+    ticks=[100,pi/2],
+    tick_formatter=[None,pi],
+    figsize=(5,5)
+)
+
+xs = statmech_adap._popdyn_model.equilibrium_vars()
+ppx = Graphics()
+for xhat in xs:
+    ppx += pred_prey_traj.plot( 't', xhat, legend_label='$%s$'%latex(xhat) )
+ppx.save( 'statmech-pred-prey-x-vs-t.png', figsize=(5,5) )
+
+ltx.close()
+</pre></div></fieldset></p>
+
+<p><!-- statmech-evol-plot.sage.out.latexml.html --><div class="latexml">
+
+<div class="ltx_page_main">
+<div class="ltx_page_content">
+<article class="ltx_document">
+<div id="p1" class="ltx_para">
+<p class="ltx_p">flow: <math xmlns="http://www.w3.org/1998/Math/MathML" id="p1.m1" class="ltx_Math" alttext="\left(\begin{array}[]{c}0\end{array}\right)" display="inline"><mrow><mo>(</mo><mtable><mtr><mtd columnalign="center"><mn>0</mn></mtd></mtr></mtable><mo>)</mo></mrow></math></p>
+</div>
+<div id="p2" class="ltx_para">
+<p class="ltx_p">flow at <math xmlns="http://www.w3.org/1998/Math/MathML" id="p2.m1" class="ltx_Math" alttext="\left(\begin{array}[]{c}0\end{array}\right)" display="inline"><mrow><mo>(</mo><mtable><mtr><mtd columnalign="center"><mn>0</mn></mtd></mtr></mtable><mo>)</mo></mrow></math>: <math xmlns="http://www.w3.org/1998/Math/MathML" id="p2.m2" class="ltx_Math" alttext="\left(\begin{array}[]{c}0\end{array}\right)" display="inline"><mrow><mo>(</mo><mtable><mtr><mtd columnalign="center"><mn>0</mn></mtd></mtr></mtable><mo>)</mo></mrow></math></p>
+</div>
+<div id="p3" class="ltx_para">
+<p class="ltx_p">a values:</p>
+<table id="S0.Ex1" class="ltx_equation ltx_eqn_table">
+
+<tr class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_eqn_cell ltx_align_center"><math xmlns="http://www.w3.org/1998/Math/MathML" id="S0.Ex1.m1" class="ltx_Math" alttext="\left(\begin{array}[]{r}a_{0000}\end{array}\right)" display="block"><mrow><mo>(</mo><mtable displaystyle="true"><mtr><mtd columnalign="right"><msub><mi>a</mi><mn>0000</mn></msub></mtd></mtr></mtable><mo>)</mo></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+</tr>
+</table>
+</div>
+<div id="p4" class="ltx_para">
+<table id="S0.Ex2" class="ltx_equation ltx_eqn_table">
+
+<tr class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_eqn_cell ltx_align_center"><math xmlns="http://www.w3.org/1998/Math/MathML" id="S0.Ex2.m1" class="ltx_Math" alttext="\left(\begin{array}[]{r}-1\end{array}\right)" display="block"><mrow><mo>(</mo><mtable displaystyle="true"><mtr><mtd columnalign="right"><mrow><mo>-</mo><mn>1</mn></mrow></mtd></mtr></mtable><mo>)</mo></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+</tr>
+</table>
+<p class="ltx_p">X values at time 0:</p>
+<table id="S0.Ex3" class="ltx_equation ltx_eqn_table">
+
+<tr class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_eqn_cell ltx_align_center"><math xmlns="http://www.w3.org/1998/Math/MathML" id="S0.Ex3.m1" class="ltx_Math" alttext="\left[\mathit{Xhat}_{0_{0}}=1\right]" display="block"><mrow><mo>[</mo><mrow><msub><mi>𝑋ℎ𝑎𝑡</mi><msub><mn>0</mn><mn>0</mn></msub></msub><mo>=</mo><mn>1</mn></mrow><mo>]</mo></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+</tr>
+</table>
+<p class="ltx_p">sensitivity of <math xmlns="http://www.w3.org/1998/Math/MathML" id="p4.m1" class="ltx_Math" alttext="\hat{X}" display="inline"><mover accent="true"><mi>X</mi><mo stretchy="false">^</mo></mover></math>:</p>
+</div>
+<div id="p5" class="ltx_para">
+<table id="S0.Ex4" class="ltx_equation ltx_eqn_table">
+
+<tr class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_eqn_cell ltx_align_center"><math xmlns="http://www.w3.org/1998/Math/MathML" id="S0.Ex4.m1" class="ltx_Math" alttext="\left(\begin{array}[]{r}\frac{\partial\hat{X}_{i}}{\partial u_{j0}}\end{array}%
+\right)=\left(\begin{array}[]{r}\par
+\end{array}\right)" display="block"><mrow><mrow><mo>(</mo><mtable displaystyle="true"><mtr><mtd columnalign="right"><mfrac><mrow><mo>∂</mo><mo>⁡</mo><msub><mover accent="true"><mi>X</mi><mo stretchy="false">^</mo></mover><mi>i</mi></msub></mrow><mrow><mo>∂</mo><mo>⁡</mo><msub><mi>u</mi><mrow><mi>j</mi><mo>⁢</mo><mn>0</mn></mrow></msub></mrow></mfrac></mtd></mtr></mtable><mo>)</mo></mrow><mo>=</mo><mrow><mo>(</mo><mtable displaystyle="true"><mtr><mtd columnalign="right"><mi></mi></mtd></mtr></mtable><mo>)</mo></mrow></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+</tr>
+</table>
+</div>
+</article>
+</div>
+<footer class="ltx_page_footer">
+<div class="ltx_page_logo">Generated  on Wed Sep 16 16:10:25 2015 by <a href="http://dlmf.nist.gov/LaTeXML/">LaTeXML <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAsAAAAOCAYAAAD5YeaVAAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAALEwAACxMBAJqcGAAAAAd0SU1FB9wKExQZLWTEaOUAAAAddEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIFRoZSBHSU1Q72QlbgAAAdpJREFUKM9tkL+L2nAARz9fPZNCKFapUn8kyI0e4iRHSR1Kb8ng0lJw6FYHFwv2LwhOpcWxTjeUunYqOmqd6hEoRDhtDWdA8ApRYsSUCDHNt5ul13vz4w0vWCgUnnEc975arX6ORqN3VqtVZbfbTQC4uEHANM3jSqXymFI6yWazP2KxWAXAL9zCUa1Wy2tXVxheKA9YNoR8Pt+aTqe4FVVVvz05O6MBhqUIBGk8Hn8HAOVy+T+XLJfLS4ZhTiRJgqIoVBRFIoric47jPnmeB1mW/9rr9ZpSSn3Lsmir1fJZlqWlUonKsvwWwD8ymc/nXwVBeLjf7xEKhdBut9Hr9WgmkyGEkJwsy5eHG5vN5g0AKIoCAEgkEkin0wQAfN9/cXPdheu6P33fBwB4ngcAcByHJpPJl+fn54mD3Gg0NrquXxeLRQAAwzAYj8cwTZPwPH9/sVg8PXweDAauqqr2cDjEer1GJBLBZDJBs9mE4zjwfZ85lAGg2+06hmGgXq+j3+/DsixYlgVN03a9Xu8jgCNCyIegIAgx13Vfd7vdu+FweG8YRkjXdWy329+dTgeSJD3ieZ7RNO0VAXAPwDEAO5VKndi2fWrb9jWl9Esul6PZbDY9Go1OZ7PZ9z/lyuD3OozU2wAAAABJRU5ErkJggg==" alt="[LOGO]"></a>
+</div></footer>
+</div>
+
+</div>
+</p>
+
+<p><!-- statmech-a-vs-t.svg --><object data="/adaptive-dynamics-research/wmd_files/Selection_Gradients/statmech-a-vs-t.svg" type="image/svg+xml"><img src="/adaptive-dynamics-research/wmd_files/Selection_Gradients/statmech-a-vs-t.png" alt="statmech-a-vs-t.svg"/></object></p>
+
+<p><!-- statmech-a-vs-a.svg --><object data="/adaptive-dynamics-research/wmd_files/Selection_Gradients/statmech-a-vs-a.svg" type="image/svg+xml"><img src="/adaptive-dynamics-research/wmd_files/Selection_Gradients/statmech-a-vs-a.png" alt="statmech-a-vs-a.svg"/></object></p>
+
+  </article>
+
+</div>
+
+      </div>
+    </div>
+
+    <footer class="site-footer">
+
+  <div class="wrap">
+
+    <h2 class="footer-heading">Lee Worden</h2>
+
+    <div class="footer-col-1 column">
+      <ul>
+        <li><a href="mailto:worden.lee@gmail.com">worden.lee@gmail.com</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col-2 column">
+      <ul>
+        <li>
+          <a href="https://github.com/worden-lee">
+            <span class="icon github">
+              <svg version="1.1" class="github-icon-svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                 viewBox="0 0 16 16" enable-background="new 0 0 16 16" xml:space="preserve">
+                <path fill-rule="evenodd" clip-rule="evenodd" fill="#C2C2C2" d="M7.999,0.431c-4.285,0-7.76,3.474-7.76,7.761
+                c0,3.428,2.223,6.337,5.307,7.363c0.388,0.071,0.53-0.168,0.53-0.374c0-0.184-0.007-0.672-0.01-1.32
+                c-2.159,0.469-2.614-1.04-2.614-1.04c-0.353-0.896-0.862-1.135-0.862-1.135c-0.705-0.481,0.053-0.472,0.053-0.472
+                c0.779,0.055,1.189,0.8,1.189,0.8c0.692,1.186,1.816,0.843,2.258,0.645c0.071-0.502,0.271-0.843,0.493-1.037
+                C4.86,11.425,3.049,10.76,3.049,7.786c0-0.847,0.302-1.54,0.799-2.082C3.768,5.507,3.501,4.718,3.924,3.65
+                c0,0,0.652-0.209,2.134,0.796C6.677,4.273,7.34,4.187,8,4.184c0.659,0.003,1.323,0.089,1.943,0.261
+                c1.482-1.004,2.132-0.796,2.132-0.796c0.423,1.068,0.157,1.857,0.077,2.054c0.497,0.542,0.798,1.235,0.798,2.082
+                c0,2.981-1.814,3.637-3.543,3.829c0.279,0.24,0.527,0.713,0.527,1.437c0,1.037-0.01,1.874-0.01,2.129
+                c0,0.208,0.14,0.449,0.534,0.373c3.081-1.028,5.302-3.935,5.302-7.362C15.76,3.906,12.285,0.431,7.999,0.431z"/>
+              </svg>
+            </span>
+            <span class="username">worden-lee</span>
+          </a>
+        </li>
+        <li>
+          <a href="https://twitter.com/leeworden">
+            <span class="icon twitter">
+              <svg version="1.1" class="twitter-icon-svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                 viewBox="0 0 16 16" enable-background="new 0 0 16 16" xml:space="preserve">
+                <path fill="#C2C2C2" d="M15.969,3.058c-0.586,0.26-1.217,0.436-1.878,0.515c0.675-0.405,1.194-1.045,1.438-1.809
+                c-0.632,0.375-1.332,0.647-2.076,0.793c-0.596-0.636-1.446-1.033-2.387-1.033c-1.806,0-3.27,1.464-3.27,3.27
+                c0,0.256,0.029,0.506,0.085,0.745C5.163,5.404,2.753,4.102,1.14,2.124C0.859,2.607,0.698,3.168,0.698,3.767
+                c0,1.134,0.577,2.135,1.455,2.722C1.616,6.472,1.112,6.325,0.671,6.08c0,0.014,0,0.027,0,0.041c0,1.584,1.127,2.906,2.623,3.206
+                C3.02,9.402,2.731,9.442,2.433,9.442c-0.211,0-0.416-0.021-0.615-0.059c0.416,1.299,1.624,2.245,3.055,2.271
+                c-1.119,0.877-2.529,1.4-4.061,1.4c-0.264,0-0.524-0.015-0.78-0.046c1.447,0.928,3.166,1.469,5.013,1.469
+                c6.015,0,9.304-4.983,9.304-9.304c0-0.142-0.003-0.283-0.009-0.423C14.976,4.29,15.531,3.714,15.969,3.058z"/>
+              </svg>
+            </span>
+            <span class="username">leeworden</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="footer-col-3 column">
+	    <p class="text"><!-- Any additional text --></p>
+    </div>
+
+  </div>
+
+</footer>
+
+
+    </body>
+</html>

@@ -2,8 +2,7 @@
 from sage.all_cmdline import *   # import sage library
 _sage_const_2 = Integer(2); _sage_const_1 = Integer(1); _sage_const_0 = Integer(0); _sage_const_4 = Integer(4); _sage_const_1p2 = RealNumber('1.2'); _sage_const_0p5 = RealNumber('0.5')# requires: maclevmodels.py maclev-1-1-mc-adap-geom.sobj
 # produces: maclev-1-1-S-and-d1A-on-curve.png
-import os
-import sys
+import os, sys
 sys.path.append( os.environ['SageUtils'] )
 sys.path.append( os.environ['SageDynamics'] )
 sys.path.append( os.environ['SageAdaptiveDynamics'] )
@@ -15,10 +14,12 @@ var( 'b_0 c m_0 w_0 r_0 K_0 gamma' )
 fixed_parameter_bindings = Bindings( 
   { r_0: _sage_const_1 , w_0: _sage_const_1 ,
     K_0: _sage_const_2 , gamma: _sage_const_1  } )
+
 curve = [ fixed_parameter_bindings( c00_bindings( change_p_to_functions( e ) ) ) for e in [ - b_0 * c * c * w_0 / r_0, K_0 * b_0 * c * w_0 - b_0 * m_0 ] ]
 vf_S = [ fixed_parameter_bindings( c00_bindings( change_p_to_functions( e ) ) ) for e in [ - curve[_sage_const_1 ]/curve[_sage_const_0 ], _sage_const_1  ] ]
 vf_d = [ fixed_parameter_bindings( c00_bindings( change_p_to_functions( e ) ) ) for e in [ - c * b_0 * w_0 / r_0, K_0 * b_0 * w_0 ] ]
 crange = (c, _sage_const_0p5 , _sage_const_1p2 )
+print curve; sys.stdout.flush()
 cp = parametric_plot( curve, crange, color='black' )
 vfp_S = plot_vector_field_on_curve( vf_S, curve, crange, color='red', frame=false );
 vfp_d = plot_vector_field_on_curve( vf_d, curve, crange, color='green', frame=false );

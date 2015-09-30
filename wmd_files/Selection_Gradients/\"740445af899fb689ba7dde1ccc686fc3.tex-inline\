@@ -1,0 +1,10 @@
+\begin{align}
+\begin{dcases*}
+\frac{\partial_1 a(u,u)}{r'(u)} < \frac{a(u,u)}{r(u)} < 0 & 
+   $r$ decreases, $a$ increases \\
+\frac{a(u,u)}{r(u)} < \frac{\partial_1 a(u,u)}{r'(u)} < 0 &
+   $r$ increases, $a$ decreases \\
+0 > \frac{\partial_1 a(u,u)}{r'(u)} &
+   both $r$ and $a$ increase.
+\end{dcases*}
+\end{align}

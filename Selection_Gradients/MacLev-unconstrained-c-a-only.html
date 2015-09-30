@@ -65,78 +65,9 @@
 
 <p>The model equations, according to Sage:</p>
 
-<p><!-- maclev-2-2-a-c-popdyn.sage.out.html --><div class="latexml">
-
-<div class="ltx_page_main">
-<div class="ltx_page_content">
-<article class="ltx_document">
-<div id="p1" class="ltx_para">
-<p class="ltx_p">The Mac-Lev model in generic form:</p>
-<table id="S0.Ex1" class="ltx_equationgroup ltx_eqn_table">
-
-<tr id="S0.Ex1X" class="ltx_equation ltx_eqn_row ltx_align_baseline">
-<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
-<td class="ltx_td ltx_align_right ltx_eqn_cell">
-              <math xmlns="http://www.w3.org/1998/Math/MathML" id="S0.Ex1X.m2" class="ltx_Math" alttext="\displaystyle\frac{dX_{0}}{dt}" display="inline"><mstyle displaystyle="true"><mfrac><mrow><mi>d</mi><mo>⁢</mo><msub><mi>X</mi><mn>0</mn></msub></mrow><mrow><mi>d</mi><mo>⁢</mo><mi>t</mi></mrow></mfrac></mstyle></math>
-            </td>
-<td class="ltx_td ltx_align_left ltx_eqn_cell">
-              <math xmlns="http://www.w3.org/1998/Math/MathML" id="S0.Ex1X.m3" class="ltx_Math" alttext="\displaystyle=-{\left(\frac{{\left(X_{0}{c}_{00}+X_{1}{c}_{10}-K_{0}r_{0}%
-\right)}{c}_{00}w_{0}}{r_{0}}+\frac{{\left(X_{0}{c}_{01}+X_{1}{c}_{11}-K_{1}r_%
-{1}\right)}{c}_{01}w_{1}}{r_{1}}+m_{0}\right)}X_{0}b_{0}" display="inline"><mrow><mi></mi><mo>=</mo><mrow><mo>-</mo><mrow><mrow><mo>(</mo><mrow><mstyle displaystyle="true"><mfrac><mrow><mrow><mo>(</mo><mrow><mrow><mrow><msub><mi>X</mi><mn>0</mn></msub><mo>⁢</mo><msub><mi>c</mi><mn>00</mn></msub></mrow><mo>+</mo><mrow><msub><mi>X</mi><mn>1</mn></msub><mo>⁢</mo><msub><mi>c</mi><mn>10</mn></msub></mrow></mrow><mo>-</mo><mrow><msub><mi>K</mi><mn>0</mn></msub><mo>⁢</mo><msub><mi>r</mi><mn>0</mn></msub></mrow></mrow><mo>)</mo></mrow><mo>⁢</mo><msub><mi>c</mi><mn>00</mn></msub><mo>⁢</mo><msub><mi>w</mi><mn>0</mn></msub></mrow><msub><mi>r</mi><mn>0</mn></msub></mfrac></mstyle><mo>+</mo><mstyle displaystyle="true"><mfrac><mrow><mrow><mo>(</mo><mrow><mrow><mrow><msub><mi>X</mi><mn>0</mn></msub><mo>⁢</mo><msub><mi>c</mi><mn>01</mn></msub></mrow><mo>+</mo><mrow><msub><mi>X</mi><mn>1</mn></msub><mo>⁢</mo><msub><mi>c</mi><mn>11</mn></msub></mrow></mrow><mo>-</mo><mrow><msub><mi>K</mi><mn>1</mn></msub><mo>⁢</mo><msub><mi>r</mi><mn>1</mn></msub></mrow></mrow><mo>)</mo></mrow><mo>⁢</mo><msub><mi>c</mi><mn>01</mn></msub><mo>⁢</mo><msub><mi>w</mi><mn>1</mn></msub></mrow><msub><mi>r</mi><mn>1</mn></msub></mfrac></mstyle><mo>+</mo><msub><mi>m</mi><mn>0</mn></msub></mrow><mo>)</mo></mrow><mo>⁢</mo><msub><mi>X</mi><mn>0</mn></msub><mo>⁢</mo><msub><mi>b</mi><mn>0</mn></msub></mrow></mrow></mrow></math>
-            </td>
-<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
-</tr>
-<tr id="S0.Ex1Xa" class="ltx_equation ltx_eqn_row ltx_align_baseline">
-<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
-<td class="ltx_td ltx_align_right ltx_eqn_cell">
-              <math xmlns="http://www.w3.org/1998/Math/MathML" id="S0.Ex1Xa.m2" class="ltx_Math" alttext="\displaystyle\frac{dX_{1}}{dt}" display="inline"><mstyle displaystyle="true"><mfrac><mrow><mi>d</mi><mo>⁢</mo><msub><mi>X</mi><mn>1</mn></msub></mrow><mrow><mi>d</mi><mo>⁢</mo><mi>t</mi></mrow></mfrac></mstyle></math>
-            </td>
-<td class="ltx_td ltx_align_left ltx_eqn_cell">
-              <math xmlns="http://www.w3.org/1998/Math/MathML" id="S0.Ex1Xa.m3" class="ltx_Math" alttext="\displaystyle=-{\left(\frac{{\left(X_{0}{c}_{00}+X_{1}{c}_{10}-K_{0}r_{0}%
-\right)}{c}_{10}w_{0}}{r_{0}}+\frac{{\left(X_{0}{c}_{01}+X_{1}{c}_{11}-K_{1}r_%
-{1}\right)}{c}_{11}w_{1}}{r_{1}}+m_{1}\right)}X_{1}b_{1}" display="inline"><mrow><mi></mi><mo>=</mo><mrow><mo>-</mo><mrow><mrow><mo>(</mo><mrow><mstyle displaystyle="true"><mfrac><mrow><mrow><mo>(</mo><mrow><mrow><mrow><msub><mi>X</mi><mn>0</mn></msub><mo>⁢</mo><msub><mi>c</mi><mn>00</mn></msub></mrow><mo>+</mo><mrow><msub><mi>X</mi><mn>1</mn></msub><mo>⁢</mo><msub><mi>c</mi><mn>10</mn></msub></mrow></mrow><mo>-</mo><mrow><msub><mi>K</mi><mn>0</mn></msub><mo>⁢</mo><msub><mi>r</mi><mn>0</mn></msub></mrow></mrow><mo>)</mo></mrow><mo>⁢</mo><msub><mi>c</mi><mn>10</mn></msub><mo>⁢</mo><msub><mi>w</mi><mn>0</mn></msub></mrow><msub><mi>r</mi><mn>0</mn></msub></mfrac></mstyle><mo>+</mo><mstyle displaystyle="true"><mfrac><mrow><mrow><mo>(</mo><mrow><mrow><mrow><msub><mi>X</mi><mn>0</mn></msub><mo>⁢</mo><msub><mi>c</mi><mn>01</mn></msub></mrow><mo>+</mo><mrow><msub><mi>X</mi><mn>1</mn></msub><mo>⁢</mo><msub><mi>c</mi><mn>11</mn></msub></mrow></mrow><mo>-</mo><mrow><msub><mi>K</mi><mn>1</mn></msub><mo>⁢</mo><msub><mi>r</mi><mn>1</mn></msub></mrow></mrow><mo>)</mo></mrow><mo>⁢</mo><msub><mi>c</mi><mn>11</mn></msub><mo>⁢</mo><msub><mi>w</mi><mn>1</mn></msub></mrow><msub><mi>r</mi><mn>1</mn></msub></mfrac></mstyle><mo>+</mo><msub><mi>m</mi><mn>1</mn></msub></mrow><mo>)</mo></mrow><mo>⁢</mo><msub><mi>X</mi><mn>1</mn></msub><mo>⁢</mo><msub><mi>b</mi><mn>1</mn></msub></mrow></mrow></mrow></math>
-            </td>
-<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
-</tr>
-</table>
-<p class="ltx_p">The Mac-Lev model with <math xmlns="http://www.w3.org/1998/Math/MathML" id="p1.m1" class="ltx_Math" alttext="c" display="inline"><mi>c</mi></math> varying freely:</p>
-<table id="S0.Ex2" class="ltx_equationgroup ltx_eqn_table">
-
-<tr id="S0.Ex2X" class="ltx_equation ltx_eqn_row ltx_align_baseline">
-<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
-<td class="ltx_td ltx_align_right ltx_eqn_cell">
-              <math xmlns="http://www.w3.org/1998/Math/MathML" id="S0.Ex2X.m2" class="ltx_Math" alttext="\displaystyle\frac{dX_{0}}{dt}" display="inline"><mstyle displaystyle="true"><mfrac><mrow><mi>d</mi><mo>⁢</mo><msub><mi>X</mi><mn>0</mn></msub></mrow><mrow><mi>d</mi><mo>⁢</mo><mi>t</mi></mrow></mfrac></mstyle></math>
-            </td>
-<td class="ltx_td ltx_align_left ltx_eqn_cell">
-              <math xmlns="http://www.w3.org/1998/Math/MathML" id="S0.Ex2X.m3" class="ltx_Math" alttext="\displaystyle=-{\left({\left(X_{0}{c}_{00}+X_{1}{c}_{10}-2\right)}{c}_{00}+{%
-\left(X_{0}{c}_{01}+X_{1}{c}_{11}-2\right)}{c}_{01}+2\,{c}_{00}+2\,{c}_{01}-1%
-\right)}X_{0}" display="inline"><mrow><mi></mi><mo>=</mo><mrow><mo>-</mo><mrow><mrow><mo>(</mo><mrow><mrow><mrow><mrow><mo>(</mo><mrow><mrow><mrow><msub><mi>X</mi><mn>0</mn></msub><mo>⁢</mo><msub><mi>c</mi><mn>00</mn></msub></mrow><mo>+</mo><mrow><msub><mi>X</mi><mn>1</mn></msub><mo>⁢</mo><msub><mi>c</mi><mn>10</mn></msub></mrow></mrow><mo>-</mo><mn>2</mn></mrow><mo>)</mo></mrow><mo>⁢</mo><msub><mi>c</mi><mn>00</mn></msub></mrow><mo>+</mo><mrow><mrow><mo>(</mo><mrow><mrow><mrow><msub><mi>X</mi><mn>0</mn></msub><mo>⁢</mo><msub><mi>c</mi><mn>01</mn></msub></mrow><mo>+</mo><mrow><msub><mi>X</mi><mn>1</mn></msub><mo>⁢</mo><msub><mi>c</mi><mn>11</mn></msub></mrow></mrow><mo>-</mo><mn>2</mn></mrow><mo>)</mo></mrow><mo>⁢</mo><msub><mi>c</mi><mn>01</mn></msub></mrow><mo>+</mo><mrow><mpadded width="+1.7pt"><mn>2</mn></mpadded><mo>⁢</mo><msub><mi>c</mi><mn>00</mn></msub></mrow><mo>+</mo><mrow><mpadded width="+1.7pt"><mn>2</mn></mpadded><mo>⁢</mo><msub><mi>c</mi><mn>01</mn></msub></mrow></mrow><mo>-</mo><mn>1</mn></mrow><mo>)</mo></mrow><mo>⁢</mo><msub><mi>X</mi><mn>0</mn></msub></mrow></mrow></mrow></math>
-            </td>
-<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
-</tr>
-<tr id="S0.Ex2Xa" class="ltx_equation ltx_eqn_row ltx_align_baseline">
-<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
-<td class="ltx_td ltx_align_right ltx_eqn_cell">
-              <math xmlns="http://www.w3.org/1998/Math/MathML" id="S0.Ex2Xa.m2" class="ltx_Math" alttext="\displaystyle\frac{dX_{1}}{dt}" display="inline"><mstyle displaystyle="true"><mfrac><mrow><mi>d</mi><mo>⁢</mo><msub><mi>X</mi><mn>1</mn></msub></mrow><mrow><mi>d</mi><mo>⁢</mo><mi>t</mi></mrow></mfrac></mstyle></math>
-            </td>
-<td class="ltx_td ltx_align_left ltx_eqn_cell">
-              <math xmlns="http://www.w3.org/1998/Math/MathML" id="S0.Ex2Xa.m3" class="ltx_Math" alttext="\displaystyle=-{\left({\left(X_{0}{c}_{00}+X_{1}{c}_{10}-2\right)}{c}_{10}+{%
-\left(X_{0}{c}_{01}+X_{1}{c}_{11}-2\right)}{c}_{11}+2\,{c}_{10}+2\,{c}_{11}-1%
-\right)}X_{1}" display="inline"><mrow><mi></mi><mo>=</mo><mrow><mo>-</mo><mrow><mrow><mo>(</mo><mrow><mrow><mrow><mrow><mo>(</mo><mrow><mrow><mrow><msub><mi>X</mi><mn>0</mn></msub><mo>⁢</mo><msub><mi>c</mi><mn>00</mn></msub></mrow><mo>+</mo><mrow><msub><mi>X</mi><mn>1</mn></msub><mo>⁢</mo><msub><mi>c</mi><mn>10</mn></msub></mrow></mrow><mo>-</mo><mn>2</mn></mrow><mo>)</mo></mrow><mo>⁢</mo><msub><mi>c</mi><mn>10</mn></msub></mrow><mo>+</mo><mrow><mrow><mo>(</mo><mrow><mrow><mrow><msub><mi>X</mi><mn>0</mn></msub><mo>⁢</mo><msub><mi>c</mi><mn>01</mn></msub></mrow><mo>+</mo><mrow><msub><mi>X</mi><mn>1</mn></msub><mo>⁢</mo><msub><mi>c</mi><mn>11</mn></msub></mrow></mrow><mo>-</mo><mn>2</mn></mrow><mo>)</mo></mrow><mo>⁢</mo><msub><mi>c</mi><mn>11</mn></msub></mrow><mo>+</mo><mrow><mpadded width="+1.7pt"><mn>2</mn></mpadded><mo>⁢</mo><msub><mi>c</mi><mn>10</mn></msub></mrow><mo>+</mo><mrow><mpadded width="+1.7pt"><mn>2</mn></mpadded><mo>⁢</mo><msub><mi>c</mi><mn>11</mn></msub></mrow></mrow><mo>-</mo><mn>1</mn></mrow><mo>)</mo></mrow><mo>⁢</mo><msub><mi>X</mi><mn>1</mn></msub></mrow></mrow></mrow></math>
-            </td>
-<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
-</tr>
-</table>
-</div>
-</article>
-</div>
-<footer class="ltx_page_footer">
-<div class="ltx_page_logo">Generated  on Thu Jun 18 22:19:24 2015 by <a href="http://dlmf.nist.gov/LaTeXML/">LaTeXML <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAsAAAAOCAYAAAD5YeaVAAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAALEwAACxMBAJqcGAAAAAd0SU1FB9wKExQZLWTEaOUAAAAddEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIFRoZSBHSU1Q72QlbgAAAdpJREFUKM9tkL+L2nAARz9fPZNCKFapUn8kyI0e4iRHSR1Kb8ng0lJw6FYHFwv2LwhOpcWxTjeUunYqOmqd6hEoRDhtDWdA8ApRYsSUCDHNt5ul13vz4w0vWCgUnnEc975arX6ORqN3VqtVZbfbTQC4uEHANM3jSqXymFI6yWazP2KxWAXAL9zCUa1Wy2tXVxheKA9YNoR8Pt+aTqe4FVVVvz05O6MBhqUIBGk8Hn8HAOVy+T+XLJfLS4ZhTiRJgqIoVBRFIoric47jPnmeB1mW/9rr9ZpSSn3Lsmir1fJZlqWlUonKsvwWwD8ymc/nXwVBeLjf7xEKhdBut9Hr9WgmkyGEkJwsy5eHG5vN5g0AKIoCAEgkEkin0wQAfN9/cXPdheu6P33fBwB4ngcAcByHJpPJl+fn54mD3Gg0NrquXxeLRQAAwzAYj8cwTZPwPH9/sVg8PXweDAauqqr2cDjEer1GJBLBZDJBs9mE4zjwfZ85lAGg2+06hmGgXq+j3+/DsixYlgVN03a9Xu8jgCNCyIegIAgx13Vfd7vdu+FweG8YRkjXdWy329+dTgeSJD3ieZ7RNO0VAXAPwDEAO5VKndi2fWrb9jWl9Esul6PZbDY9Go1OZ7PZ9z/lyuD3OozU2wAAAABJRU5ErkJggg==" alt="[LOGO]"></a>
-</div></footer>
-</div>
-
-</div>
-</p>
+<p><fieldset class="ww-messages"><legend>&lt;ww-messages-legend: &gt;</legend><p class='error'>Error: Project file not found: Selection_Gradients › maclev-2-2-a-c-popdyn.sage.out.html</p>
+</fieldset>
+<!-- maclev-2-2-a-c-popdyn.sage.out.html --></p>
 
 <p>State space of this population dynamics model:</p>
 
@@ -146,116 +77,21 @@
 
 <p><!-- maclev-2-2-a-c-r-zngis.png --><img src="/adaptive-dynamics-research/wmd_files/Selection_Gradients/maclev-2-2-a-c-r-zngis.png" alt="(maclev-2-2-a-c-r-zngis.png)"/></p>
 
-<h2 id="adaptive-dynamics-of-uniq-ww-1475494282-qinu">Adaptive dynamics of <!-- 4a8a08f09d37b73795649038408b5f33.tex-math.latexml.html --><span class="latexml"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="c" display="inline"><mi>c</mi></math></span></h2>
+<h2 id="adaptive-dynamics-of-uniq-ww-372107220-qinu">Adaptive dynamics of <!-- 4a8a08f09d37b73795649038408b5f33.tex-math.latexml.html --><span class="latexml"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="c" display="inline"><mi>c</mi></math></span></h2>
 
 <p><!-- maclev-2-2-a-c-adap.sage.step --><a href="/adaptive-dynamics-research/wmd_files/Selection_Gradients/maclev-2-2-a-c-adap.sage.step">maclev-2-2-a-c-adap.sage.step</a></p>
 
 <p>Here we derive the adaptive dynamics equations when it is the uptake rates <!-- 98b138f960a584c015cd9ce83d71ca55.tex-math.latexml.html --><span class="latexml"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="c_{ij}" display="inline"><msub><mi>c</mi><mrow><mi>i</mi><mo>⁢</mo><mi>j</mi></mrow></msub></math></span> that is evolving – that is, when <!-- 8725ac49437e72de318f345a8820f055.tex-math.latexml.html --><span class="latexml"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="c_{ij}=c_{j}(u_{i})" display="inline"><mrow><msub><mi>c</mi><mrow><mi>i</mi><mo>⁢</mo><mi>j</mi></mrow></msub><mo>=</mo><mrow><msub><mi>c</mi><mi>j</mi></msub><mo>⁢</mo><mrow><mo stretchy="false">(</mo><msub><mi>u</mi><mi>i</mi></msub><mo stretchy="false">)</mo></mrow></mrow></mrow></math></span>, <!-- 4d8a4767fa9713181473bbc7e6dfdfe7.tex-math.latexml.html --><span class="latexml"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="b_{0}=1" display="inline"><mrow><msub><mi>b</mi><mn>0</mn></msub><mo>=</mo><mn>1</mn></mrow></math></span>, and <!-- 295d1f86eb1d5ac5826608957e7e0287.tex-math.latexml.html --><span class="latexml"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="m_{0}=1" display="inline"><mrow><msub><mi>m</mi><mn>0</mn></msub><mo>=</mo><mn>1</mn></mrow></math></span>; and then we bind the remaining parameters to get a realization of the system that we can integrate and plot.</p>
 
-<p><!-- maclev-2-2-a-c-adap.sage.out.html --><div class="latexml">
-
-<div class="ltx_page_main">
-<div class="ltx_page_content">
-<article class="ltx_document">
-<div id="p1" class="ltx_para">
-<table id="S0.Ex1" class="ltx_equationgroup ltx_eqn_table">
-
-<tr id="S0.Ex1X" class="ltx_equation ltx_eqn_row ltx_align_baseline">
-<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
-<td class="ltx_td ltx_align_right ltx_eqn_cell">
-              <math xmlns="http://www.w3.org/1998/Math/MathML" id="S0.Ex1X.m2" class="ltx_Math" alttext="\displaystyle\frac{dX_{0}}{dt}" display="inline"><mstyle displaystyle="true"><mfrac><mrow><mi>d</mi><mo>⁢</mo><msub><mi>X</mi><mn>0</mn></msub></mrow><mrow><mi>d</mi><mo>⁢</mo><mi>t</mi></mrow></mfrac></mstyle></math>
-            </td>
-<td class="ltx_td ltx_align_left ltx_eqn_cell">
-              <math xmlns="http://www.w3.org/1998/Math/MathML" id="S0.Ex1X.m3" class="ltx_Math" alttext="\displaystyle=-{\left({\left(X_{0}{c}_{00}+X_{1}{c}_{10}-2\right)}{c}_{00}+{%
-\left(X_{0}{c}_{01}+X_{1}{c}_{11}-2\right)}{c}_{01}+2\,{c}_{00}+2\,{c}_{01}-1%
-\right)}X_{0}" display="inline"><mrow><mi></mi><mo>=</mo><mrow><mo>-</mo><mrow><mrow><mo>(</mo><mrow><mrow><mrow><mrow><mo>(</mo><mrow><mrow><mrow><msub><mi>X</mi><mn>0</mn></msub><mo>⁢</mo><msub><mi>c</mi><mn>00</mn></msub></mrow><mo>+</mo><mrow><msub><mi>X</mi><mn>1</mn></msub><mo>⁢</mo><msub><mi>c</mi><mn>10</mn></msub></mrow></mrow><mo>-</mo><mn>2</mn></mrow><mo>)</mo></mrow><mo>⁢</mo><msub><mi>c</mi><mn>00</mn></msub></mrow><mo>+</mo><mrow><mrow><mo>(</mo><mrow><mrow><mrow><msub><mi>X</mi><mn>0</mn></msub><mo>⁢</mo><msub><mi>c</mi><mn>01</mn></msub></mrow><mo>+</mo><mrow><msub><mi>X</mi><mn>1</mn></msub><mo>⁢</mo><msub><mi>c</mi><mn>11</mn></msub></mrow></mrow><mo>-</mo><mn>2</mn></mrow><mo>)</mo></mrow><mo>⁢</mo><msub><mi>c</mi><mn>01</mn></msub></mrow><mo>+</mo><mrow><mpadded width="+1.7pt"><mn>2</mn></mpadded><mo>⁢</mo><msub><mi>c</mi><mn>00</mn></msub></mrow><mo>+</mo><mrow><mpadded width="+1.7pt"><mn>2</mn></mpadded><mo>⁢</mo><msub><mi>c</mi><mn>01</mn></msub></mrow></mrow><mo>-</mo><mn>1</mn></mrow><mo>)</mo></mrow><mo>⁢</mo><msub><mi>X</mi><mn>0</mn></msub></mrow></mrow></mrow></math>
-            </td>
-<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
-</tr>
-<tr id="S0.Ex1Xa" class="ltx_equation ltx_eqn_row ltx_align_baseline">
-<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
-<td class="ltx_td ltx_align_right ltx_eqn_cell">
-              <math xmlns="http://www.w3.org/1998/Math/MathML" id="S0.Ex1Xa.m2" class="ltx_Math" alttext="\displaystyle\frac{dX_{1}}{dt}" display="inline"><mstyle displaystyle="true"><mfrac><mrow><mi>d</mi><mo>⁢</mo><msub><mi>X</mi><mn>1</mn></msub></mrow><mrow><mi>d</mi><mo>⁢</mo><mi>t</mi></mrow></mfrac></mstyle></math>
-            </td>
-<td class="ltx_td ltx_align_left ltx_eqn_cell">
-              <math xmlns="http://www.w3.org/1998/Math/MathML" id="S0.Ex1Xa.m3" class="ltx_Math" alttext="\displaystyle=-{\left({\left(X_{0}{c}_{00}+X_{1}{c}_{10}-2\right)}{c}_{10}+{%
-\left(X_{0}{c}_{01}+X_{1}{c}_{11}-2\right)}{c}_{11}+2\,{c}_{10}+2\,{c}_{11}-1%
-\right)}X_{1}" display="inline"><mrow><mi></mi><mo>=</mo><mrow><mo>-</mo><mrow><mrow><mo>(</mo><mrow><mrow><mrow><mrow><mo>(</mo><mrow><mrow><mrow><msub><mi>X</mi><mn>0</mn></msub><mo>⁢</mo><msub><mi>c</mi><mn>00</mn></msub></mrow><mo>+</mo><mrow><msub><mi>X</mi><mn>1</mn></msub><mo>⁢</mo><msub><mi>c</mi><mn>10</mn></msub></mrow></mrow><mo>-</mo><mn>2</mn></mrow><mo>)</mo></mrow><mo>⁢</mo><msub><mi>c</mi><mn>10</mn></msub></mrow><mo>+</mo><mrow><mrow><mo>(</mo><mrow><mrow><mrow><msub><mi>X</mi><mn>0</mn></msub><mo>⁢</mo><msub><mi>c</mi><mn>01</mn></msub></mrow><mo>+</mo><mrow><msub><mi>X</mi><mn>1</mn></msub><mo>⁢</mo><msub><mi>c</mi><mn>11</mn></msub></mrow></mrow><mo>-</mo><mn>2</mn></mrow><mo>)</mo></mrow><mo>⁢</mo><msub><mi>c</mi><mn>11</mn></msub></mrow><mo>+</mo><mrow><mpadded width="+1.7pt"><mn>2</mn></mpadded><mo>⁢</mo><msub><mi>c</mi><mn>10</mn></msub></mrow><mo>+</mo><mrow><mpadded width="+1.7pt"><mn>2</mn></mpadded><mo>⁢</mo><msub><mi>c</mi><mn>11</mn></msub></mrow></mrow><mo>-</mo><mn>1</mn></mrow><mo>)</mo></mrow><mo>⁢</mo><msub><mi>X</mi><mn>1</mn></msub></mrow></mrow></mrow></math>
-            </td>
-<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
-</tr>
-</table>
-<p class="ltx_p">adaptive dynamics of <math xmlns="http://www.w3.org/1998/Math/MathML" id="p1.m1" class="ltx_Math" alttext="c" display="inline"><mi>c</mi></math> in that model:</p>
-<table id="S0.Ex2" class="ltx_equationgroup ltx_eqn_table">
-
-<tr id="S0.Ex2X" class="ltx_equation ltx_eqn_row ltx_align_baseline">
-<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
-<td class="ltx_td ltx_align_right ltx_eqn_cell">
-              <math xmlns="http://www.w3.org/1998/Math/MathML" id="S0.Ex2X.m2" class="ltx_Math" alttext="\displaystyle\frac{d{c}_{00}}{dt}" display="inline"><mstyle displaystyle="true"><mfrac><mrow><mi>d</mi><mo>⁢</mo><msub><mi>c</mi><mn>00</mn></msub></mrow><mrow><mi>d</mi><mo>⁢</mo><mi>t</mi></mrow></mfrac></mstyle></math>
-            </td>
-<td class="ltx_td ltx_align_left ltx_eqn_cell">
-              <math xmlns="http://www.w3.org/1998/Math/MathML" id="S0.Ex2X.m3" class="ltx_Math" alttext="\displaystyle=-{\left(\hat{X}_{0}{c}_{00}+\hat{X}_{1}{c}_{10}\right)}\hat{X}_{0}" display="inline"><mrow><mi></mi><mo>=</mo><mrow><mo>-</mo><mrow><mrow><mo>(</mo><mrow><mrow><msub><mover accent="true"><mi>X</mi><mo stretchy="false">^</mo></mover><mn>0</mn></msub><mo>⁢</mo><msub><mi>c</mi><mn>00</mn></msub></mrow><mo>+</mo><mrow><msub><mover accent="true"><mi>X</mi><mo stretchy="false">^</mo></mover><mn>1</mn></msub><mo>⁢</mo><msub><mi>c</mi><mn>10</mn></msub></mrow></mrow><mo>)</mo></mrow><mo>⁢</mo><msub><mover accent="true"><mi>X</mi><mo stretchy="false">^</mo></mover><mn>0</mn></msub></mrow></mrow></mrow></math>
-            </td>
-<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
-</tr>
-<tr id="S0.Ex2Xa" class="ltx_equation ltx_eqn_row ltx_align_baseline">
-<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
-<td class="ltx_td ltx_align_right ltx_eqn_cell">
-              <math xmlns="http://www.w3.org/1998/Math/MathML" id="S0.Ex2Xa.m2" class="ltx_Math" alttext="\displaystyle\frac{d{c}_{01}}{dt}" display="inline"><mstyle displaystyle="true"><mfrac><mrow><mi>d</mi><mo>⁢</mo><msub><mi>c</mi><mn>01</mn></msub></mrow><mrow><mi>d</mi><mo>⁢</mo><mi>t</mi></mrow></mfrac></mstyle></math>
-            </td>
-<td class="ltx_td ltx_align_left ltx_eqn_cell">
-              <math xmlns="http://www.w3.org/1998/Math/MathML" id="S0.Ex2Xa.m3" class="ltx_Math" alttext="\displaystyle=-{\left(\hat{X}_{0}c_{01}+\hat{X}_{1}{c}_{11}\right)}\hat{X}_{0}" display="inline"><mrow><mi></mi><mo>=</mo><mrow><mo>-</mo><mrow><mrow><mo>(</mo><mrow><mrow><msub><mover accent="true"><mi>X</mi><mo stretchy="false">^</mo></mover><mn>0</mn></msub><mo>⁢</mo><msub><mi>c</mi><mn>01</mn></msub></mrow><mo>+</mo><mrow><msub><mover accent="true"><mi>X</mi><mo stretchy="false">^</mo></mover><mn>1</mn></msub><mo>⁢</mo><msub><mi>c</mi><mn>11</mn></msub></mrow></mrow><mo>)</mo></mrow><mo>⁢</mo><msub><mover accent="true"><mi>X</mi><mo stretchy="false">^</mo></mover><mn>0</mn></msub></mrow></mrow></mrow></math>
-            </td>
-<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
-</tr>
-<tr id="S0.Ex2Xb" class="ltx_equation ltx_eqn_row ltx_align_baseline">
-<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
-<td class="ltx_td ltx_align_right ltx_eqn_cell">
-              <math xmlns="http://www.w3.org/1998/Math/MathML" id="S0.Ex2Xb.m2" class="ltx_Math" alttext="\displaystyle\frac{dc_{10}}{dt}" display="inline"><mstyle displaystyle="true"><mfrac><mrow><mi>d</mi><mo>⁢</mo><msub><mi>c</mi><mn>10</mn></msub></mrow><mrow><mi>d</mi><mo>⁢</mo><mi>t</mi></mrow></mfrac></mstyle></math>
-            </td>
-<td class="ltx_td ltx_align_left ltx_eqn_cell">
-              <math xmlns="http://www.w3.org/1998/Math/MathML" id="S0.Ex2Xb.m3" class="ltx_Math" alttext="\displaystyle=-{\left(\hat{X}_{0}{c}_{00}+\hat{X}_{1}{c}_{10}\right)}\hat{X}_{1}" display="inline"><mrow><mi></mi><mo>=</mo><mrow><mo>-</mo><mrow><mrow><mo>(</mo><mrow><mrow><msub><mover accent="true"><mi>X</mi><mo stretchy="false">^</mo></mover><mn>0</mn></msub><mo>⁢</mo><msub><mi>c</mi><mn>00</mn></msub></mrow><mo>+</mo><mrow><msub><mover accent="true"><mi>X</mi><mo stretchy="false">^</mo></mover><mn>1</mn></msub><mo>⁢</mo><msub><mi>c</mi><mn>10</mn></msub></mrow></mrow><mo>)</mo></mrow><mo>⁢</mo><msub><mover accent="true"><mi>X</mi><mo stretchy="false">^</mo></mover><mn>1</mn></msub></mrow></mrow></mrow></math>
-            </td>
-<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
-</tr>
-<tr id="S0.Ex2Xc" class="ltx_equation ltx_eqn_row ltx_align_baseline">
-<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
-<td class="ltx_td ltx_align_right ltx_eqn_cell">
-              <math xmlns="http://www.w3.org/1998/Math/MathML" id="S0.Ex2Xc.m2" class="ltx_Math" alttext="\displaystyle\frac{dc_{11}}{dt}" display="inline"><mstyle displaystyle="true"><mfrac><mrow><mi>d</mi><mo>⁢</mo><msub><mi>c</mi><mn>11</mn></msub></mrow><mrow><mi>d</mi><mo>⁢</mo><mi>t</mi></mrow></mfrac></mstyle></math>
-            </td>
-<td class="ltx_td ltx_align_left ltx_eqn_cell">
-              <math xmlns="http://www.w3.org/1998/Math/MathML" id="S0.Ex2Xc.m3" class="ltx_Math" alttext="\displaystyle=-{\left(\hat{X}_{0}{c}_{01}+\hat{X}_{1}{c}_{11}\right)}\hat{X}_{1}" display="inline"><mrow><mi></mi><mo>=</mo><mrow><mo>-</mo><mrow><mrow><mo>(</mo><mrow><mrow><msub><mover accent="true"><mi>X</mi><mo stretchy="false">^</mo></mover><mn>0</mn></msub><mo>⁢</mo><msub><mi>c</mi><mn>01</mn></msub></mrow><mo>+</mo><mrow><msub><mover accent="true"><mi>X</mi><mo stretchy="false">^</mo></mover><mn>1</mn></msub><mo>⁢</mo><msub><mi>c</mi><mn>11</mn></msub></mrow></mrow><mo>)</mo></mrow><mo>⁢</mo><msub><mover accent="true"><mi>X</mi><mo stretchy="false">^</mo></mover><mn>1</mn></msub></mrow></mrow></mrow></math>
-            </td>
-<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
-</tr>
-</table>
-</div>
-</article>
-</div>
-<footer class="ltx_page_footer">
-<div class="ltx_page_logo">Generated  on Thu Jun 18 22:19:38 2015 by <a href="http://dlmf.nist.gov/LaTeXML/">LaTeXML <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAsAAAAOCAYAAAD5YeaVAAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAALEwAACxMBAJqcGAAAAAd0SU1FB9wKExQZLWTEaOUAAAAddEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIFRoZSBHSU1Q72QlbgAAAdpJREFUKM9tkL+L2nAARz9fPZNCKFapUn8kyI0e4iRHSR1Kb8ng0lJw6FYHFwv2LwhOpcWxTjeUunYqOmqd6hEoRDhtDWdA8ApRYsSUCDHNt5ul13vz4w0vWCgUnnEc975arX6ORqN3VqtVZbfbTQC4uEHANM3jSqXymFI6yWazP2KxWAXAL9zCUa1Wy2tXVxheKA9YNoR8Pt+aTqe4FVVVvz05O6MBhqUIBGk8Hn8HAOVy+T+XLJfLS4ZhTiRJgqIoVBRFIoric47jPnmeB1mW/9rr9ZpSSn3Lsmir1fJZlqWlUonKsvwWwD8ymc/nXwVBeLjf7xEKhdBut9Hr9WgmkyGEkJwsy5eHG5vN5g0AKIoCAEgkEkin0wQAfN9/cXPdheu6P33fBwB4ngcAcByHJpPJl+fn54mD3Gg0NrquXxeLRQAAwzAYj8cwTZPwPH9/sVg8PXweDAauqqr2cDjEer1GJBLBZDJBs9mE4zjwfZ85lAGg2+06hmGgXq+j3+/DsixYlgVN03a9Xu8jgCNCyIegIAgx13Vfd7vdu+FweG8YRkjXdWy329+dTgeSJD3ieZ7RNO0VAXAPwDEAO5VKndi2fWrb9jWl9Esul6PZbDY9Go1OZ7PZ9z/lyuD3OozU2wAAAABJRU5ErkJggg==" alt="[LOGO]"></a>
-</div></footer>
-</div>
-
-</div>
-</p>
+<p><fieldset class="ww-messages"><legend>&lt;ww-messages-legend: &gt;</legend><p class='error'>Error: Project file not found: Selection_Gradients › maclev-2-2-a-c-adap.sage.out.html</p>
+</fieldset>
+<!-- maclev-2-2-a-c-adap.sage.out.html --></p>
 
 <p><!-- maclev-2-2-a-c-p.sage.step --><a href="/adaptive-dynamics-research/wmd_files/Selection_Gradients/maclev-2-2-a-c-p.sage.step">maclev-2-2-a-c-p.sage.step</a></p>
 
-<p><!-- maclev-2-2-a-c-p.sage.out.html --><div class="latexml">
-
-<div class="ltx_page_main">
-<div class="ltx_page_content">
-<article class="ltx_document">
-</article>
-</div>
-<footer class="ltx_page_footer">
-<div class="ltx_page_logo">Generated  on Thu Jun 18 22:19:48 2015 by <a href="http://dlmf.nist.gov/LaTeXML/">LaTeXML <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAsAAAAOCAYAAAD5YeaVAAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAALEwAACxMBAJqcGAAAAAd0SU1FB9wKExQZLWTEaOUAAAAddEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIFRoZSBHSU1Q72QlbgAAAdpJREFUKM9tkL+L2nAARz9fPZNCKFapUn8kyI0e4iRHSR1Kb8ng0lJw6FYHFwv2LwhOpcWxTjeUunYqOmqd6hEoRDhtDWdA8ApRYsSUCDHNt5ul13vz4w0vWCgUnnEc975arX6ORqN3VqtVZbfbTQC4uEHANM3jSqXymFI6yWazP2KxWAXAL9zCUa1Wy2tXVxheKA9YNoR8Pt+aTqe4FVVVvz05O6MBhqUIBGk8Hn8HAOVy+T+XLJfLS4ZhTiRJgqIoVBRFIoric47jPnmeB1mW/9rr9ZpSSn3Lsmir1fJZlqWlUonKsvwWwD8ymc/nXwVBeLjf7xEKhdBut9Hr9WgmkyGEkJwsy5eHG5vN5g0AKIoCAEgkEkin0wQAfN9/cXPdheu6P33fBwB4ngcAcByHJpPJl+fn54mD3Gg0NrquXxeLRQAAwzAYj8cwTZPwPH9/sVg8PXweDAauqqr2cDjEer1GJBLBZDJBs9mE4zjwfZ85lAGg2+06hmGgXq+j3+/DsixYlgVN03a9Xu8jgCNCyIegIAgx13Vfd7vdu+FweG8YRkjXdWy329+dTgeSJD3ieZ7RNO0VAXAPwDEAO5VKndi2fWrb9jWl9Esul6PZbDY9Go1OZ7PZ9z/lyuD3OozU2wAAAABJRU5ErkJggg==" alt="[LOGO]"></a>
-</div></footer>
-</div>
-
-</div>
-</p>
+<p><fieldset class="ww-messages"><legend>&lt;ww-messages-legend: &gt;</legend><p class='error'>Error: Project file not found: Selection_Gradients › maclev-2-2-a-c-p.sage.out.html</p>
+</fieldset>
+<!-- maclev-2-2-a-c-p.sage.out.html --></p>
 
 <p><!-- maclev-2-2-a-c-c-vs-t.png --><img src="/adaptive-dynamics-research/wmd_files/Selection_Gradients/maclev-2-2-a-c-c-vs-t.png" alt="(maclev-2-2-a-c-c-vs-t.png)"/></p>
 
@@ -263,31 +99,9 @@
 
 <p><!-- maclev-2-2-a-c-zngi.sage.step --><a href="/adaptive-dynamics-research/wmd_files/Selection_Gradients/maclev-2-2-a-c-zngi.sage.step">maclev-2-2-a-c-zngi.sage.step</a></p>
 
-<p><!-- maclev-2-2-a-c-zngi.sage.out.html --><div class="latexml">
-
-<div class="ltx_page_main">
-<div class="ltx_page_content">
-<article class="ltx_document">
-<div id="p1" class="ltx_para">
-<p class="ltx_p">generic ZNGI curve:</p>
-<table id="S0.Ex1" class="ltx_equation ltx_eqn_table">
-
-<tr class="ltx_equation ltx_eqn_row ltx_align_baseline">
-<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
-<td class="ltx_eqn_cell ltx_align_center"><math xmlns="http://www.w3.org/1998/Math/MathML" id="S0.Ex1.m1" class="ltx_Math" alttext="R_{0}{c}_{00}+R_{1}{c}_{01}-2\,{c}_{00}-2\,{c}_{01}+1=0" display="block"><mrow><mrow><mrow><mrow><mrow><msub><mi>R</mi><mn>0</mn></msub><mo>⁢</mo><msub><mi>c</mi><mn>00</mn></msub></mrow><mo>+</mo><mrow><msub><mi>R</mi><mn>1</mn></msub><mo>⁢</mo><msub><mi>c</mi><mn>01</mn></msub></mrow></mrow><mo>-</mo><mrow><mpadded width="+1.7pt"><mn>2</mn></mpadded><mo>⁢</mo><msub><mi>c</mi><mn>00</mn></msub></mrow><mo>-</mo><mrow><mpadded width="+1.7pt"><mn>2</mn></mpadded><mo>⁢</mo><msub><mi>c</mi><mn>01</mn></msub></mrow></mrow><mo>+</mo><mn>1</mn></mrow><mo>=</mo><mn>0</mn></mrow></math></td>
-<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
-</tr>
-</table>
-</div>
-</article>
-</div>
-<footer class="ltx_page_footer">
-<div class="ltx_page_logo">Generated  on Thu Jun 18 22:21:23 2015 by <a href="http://dlmf.nist.gov/LaTeXML/">LaTeXML <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAsAAAAOCAYAAAD5YeaVAAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAALEwAACxMBAJqcGAAAAAd0SU1FB9wKExQZLWTEaOUAAAAddEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIFRoZSBHSU1Q72QlbgAAAdpJREFUKM9tkL+L2nAARz9fPZNCKFapUn8kyI0e4iRHSR1Kb8ng0lJw6FYHFwv2LwhOpcWxTjeUunYqOmqd6hEoRDhtDWdA8ApRYsSUCDHNt5ul13vz4w0vWCgUnnEc975arX6ORqN3VqtVZbfbTQC4uEHANM3jSqXymFI6yWazP2KxWAXAL9zCUa1Wy2tXVxheKA9YNoR8Pt+aTqe4FVVVvz05O6MBhqUIBGk8Hn8HAOVy+T+XLJfLS4ZhTiRJgqIoVBRFIoric47jPnmeB1mW/9rr9ZpSSn3Lsmir1fJZlqWlUonKsvwWwD8ymc/nXwVBeLjf7xEKhdBut9Hr9WgmkyGEkJwsy5eHG5vN5g0AKIoCAEgkEkin0wQAfN9/cXPdheu6P33fBwB4ngcAcByHJpPJl+fn54mD3Gg0NrquXxeLRQAAwzAYj8cwTZPwPH9/sVg8PXweDAauqqr2cDjEer1GJBLBZDJBs9mE4zjwfZ85lAGg2+06hmGgXq+j3+/DsixYlgVN03a9Xu8jgCNCyIegIAgx13Vfd7vdu+FweG8YRkjXdWy329+dTgeSJD3ieZ7RNO0VAXAPwDEAO5VKndi2fWrb9jWl9Esul6PZbDY9Go1OZ7PZ9z/lyuD3OozU2wAAAABJRU5ErkJggg==" alt="[LOGO]"></a>
-</div></footer>
-</div>
-
-</div>
-</p>
+<p><fieldset class="ww-messages"><legend>&lt;ww-messages-legend: &gt;</legend><p class='error'>Error: Project file not found: Selection_Gradients › maclev-2-2-a-c-zngi.sage.out.html</p>
+</fieldset>
+<!-- maclev-2-2-a-c-zngi.sage.out.html --></p>
 
 <p><!-- maclev-2-2-a-c-zngi-animation.gif --><img src="/adaptive-dynamics-research/wmd_files/Selection_Gradients/maclev-2-2-a-c-zngi-animation.gif" alt="(maclev-2-2-a-c-zngi-animation.gif)"/></p>
 
@@ -301,108 +115,13 @@ intersection of the two gray ZNGI lines.</p>
 in whichever direction places the current
 resources <!-- 3b0d309db579432ca0546730b58ac2e4.tex-math.latexml.html --><span class="latexml"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="(R_{0},R_{1})" display="inline"><mrow><mo stretchy="false">(</mo><msub><mi>R</mi><mn>0</mn></msub><mo>,</mo><msub><mi>R</mi><mn>1</mn></msub><mo stretchy="false">)</mo></mrow></math></span> in the white region above the line.</p>
 
-<h2 id="adaptive-geometry-community-structure-measures-uniq-ww-266090507-qinu-and-uniq-ww-1090785449-qinu">Adaptive Geometry: Community-structure measures <!-- 0cc175b9c0f1b6a831c399e269772661.tex-math.latexml.html --><span class="latexml"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="a" display="inline"><mi>a</mi></math></span> and <!-- 8ce4b16b22b58894aa86c421e8759df3.tex-math.latexml.html --><span class="latexml"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="k" display="inline"><mi>k</mi></math></span></h2>
+<h2 id="adaptive-geometry-community-structure-measures-uniq-ww-1076598850-qinu-and-uniq-ww-2100040118-qinu">Adaptive Geometry: Community-structure measures <!-- 0cc175b9c0f1b6a831c399e269772661.tex-math.latexml.html --><span class="latexml"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="a" display="inline"><mi>a</mi></math></span> and <!-- 8ce4b16b22b58894aa86c421e8759df3.tex-math.latexml.html --><span class="latexml"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="k" display="inline"><mi>k</mi></math></span></h2>
 
 <p><!-- maclev-2-2-a-c-geom.sage.step --><a href="/adaptive-dynamics-research/wmd_files/Selection_Gradients/maclev-2-2-a-c-geom.sage.step">maclev-2-2-a-c-geom.sage.step</a></p>
 
-<p><!-- maclev-2-2-a-c-geom.sage.out.html --><div class="latexml">
-
-<div class="ltx_page_main">
-<div class="ltx_page_content">
-<article class="ltx_document">
-<div id="p1" class="ltx_para">
-<table id="S0.Ex1" class="ltx_equation ltx_eqn_table">
-
-<tr class="ltx_equation ltx_eqn_row ltx_align_baseline">
-<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
-<td class="ltx_eqn_cell ltx_align_center"><math xmlns="http://www.w3.org/1998/Math/MathML" id="S0.Ex1.m1" class="ltx_Math" alttext="A\left(0\right)=\left(k_{0},\,{a}_{00},\,{a}_{01}\right)=\left(1,\,-{c}_{00}^{%
-2}-{c}_{01}^{2},\,-{c}_{00}{c}_{10}-{c}_{01}{c}_{11}\right)" display="block"><mrow><mrow><mi>A</mi><mo>⁢</mo><mrow><mo>(</mo><mn>0</mn><mo>)</mo></mrow></mrow><mo>=</mo><mrow><mo>(</mo><msub><mi>k</mi><mn>0</mn></msub><mo rspace="4.2pt">,</mo><msub><mi>a</mi><mn>00</mn></msub><mo rspace="4.2pt">,</mo><msub><mi>a</mi><mn>01</mn></msub><mo>)</mo></mrow><mo>=</mo><mrow><mo>(</mo><mn>1</mn><mo rspace="4.2pt">,</mo><mrow><mrow><mo>-</mo><msubsup><mi>c</mi><mn>00</mn><mn>2</mn></msubsup></mrow><mo>-</mo><msubsup><mi>c</mi><mn>01</mn><mn>2</mn></msubsup></mrow><mo rspace="4.2pt">,</mo><mrow><mrow><mo>-</mo><mrow><msub><mi>c</mi><mn>00</mn></msub><mo>⁢</mo><msub><mi>c</mi><mn>10</mn></msub></mrow></mrow><mo>-</mo><mrow><msub><mi>c</mi><mn>01</mn></msub><mo>⁢</mo><msub><mi>c</mi><mn>11</mn></msub></mrow></mrow><mo>)</mo></mrow></mrow></math></td>
-<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
-</tr>
-</table>
-</div>
-<div id="p2" class="ltx_para">
-<table id="S0.Ex2" class="ltx_equation ltx_eqn_table">
-
-<tr class="ltx_equation ltx_eqn_row ltx_align_baseline">
-<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
-<td class="ltx_eqn_cell ltx_align_center"><math xmlns="http://www.w3.org/1998/Math/MathML" id="S0.Ex2.m1" class="ltx_Math" alttext="A\left(1\right)=\left(k_{1},\,{a}_{10},\,{a}_{11}\right)=\left(1,\,-{c}_{00}{c%
-}_{10}-{c}_{01}{c}_{11},\,-{c}_{10}^{2}-{c}_{11}^{2}\right)" display="block"><mrow><mrow><mi>A</mi><mo>⁢</mo><mrow><mo>(</mo><mn>1</mn><mo>)</mo></mrow></mrow><mo>=</mo><mrow><mo>(</mo><msub><mi>k</mi><mn>1</mn></msub><mo rspace="4.2pt">,</mo><msub><mi>a</mi><mn>10</mn></msub><mo rspace="4.2pt">,</mo><msub><mi>a</mi><mn>11</mn></msub><mo>)</mo></mrow><mo>=</mo><mrow><mo>(</mo><mn>1</mn><mo rspace="4.2pt">,</mo><mrow><mrow><mo>-</mo><mrow><msub><mi>c</mi><mn>00</mn></msub><mo>⁢</mo><msub><mi>c</mi><mn>10</mn></msub></mrow></mrow><mo>-</mo><mrow><msub><mi>c</mi><mn>01</mn></msub><mo>⁢</mo><msub><mi>c</mi><mn>11</mn></msub></mrow></mrow><mo rspace="4.2pt">,</mo><mrow><mrow><mo>-</mo><msubsup><mi>c</mi><mn>10</mn><mn>2</mn></msubsup></mrow><mo>-</mo><msubsup><mi>c</mi><mn>11</mn><mn>2</mn></msubsup></mrow><mo>)</mo></mrow></mrow></math></td>
-<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
-</tr>
-</table>
-</div>
-<div id="p3" class="ltx_para">
-<table id="S0.Ex3" class="ltx_equation ltx_eqn_table">
-
-<tr class="ltx_equation ltx_eqn_row ltx_align_baseline">
-<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
-<td class="ltx_eqn_cell ltx_align_center"><math xmlns="http://www.w3.org/1998/Math/MathML" id="S0.Ex3.m1" class="ltx_Math" alttext="S\left(A\left(0\right)\right)=\left(1,\,\hat{X}_{0},\,\hat{X}_{1}\right)=\left%
-(1,\,\frac{{a}_{11}k_{0}-{a}_{01}k_{1}}{{a}_{01}{a}_{10}-{a}_{00}{a}_{11}},\,-%
-\frac{{a}_{10}k_{0}-{a}_{00}k_{1}}{{a}_{01}{a}_{10}-{a}_{00}{a}_{11}}\right)" display="block"><mrow><mrow><mi>S</mi><mo>⁢</mo><mrow><mo>(</mo><mrow><mi>A</mi><mo>⁢</mo><mrow><mo>(</mo><mn>0</mn><mo>)</mo></mrow></mrow><mo>)</mo></mrow></mrow><mo>=</mo><mrow><mo>(</mo><mn>1</mn><mo rspace="4.2pt">,</mo><msub><mover accent="true"><mi>X</mi><mo stretchy="false">^</mo></mover><mn>0</mn></msub><mo rspace="4.2pt">,</mo><msub><mover accent="true"><mi>X</mi><mo stretchy="false">^</mo></mover><mn>1</mn></msub><mo>)</mo></mrow><mo>=</mo><mrow><mo>(</mo><mn>1</mn><mo rspace="4.2pt">,</mo><mfrac><mrow><mrow><msub><mi>a</mi><mn>11</mn></msub><mo>⁢</mo><msub><mi>k</mi><mn>0</mn></msub></mrow><mo>-</mo><mrow><msub><mi>a</mi><mn>01</mn></msub><mo>⁢</mo><msub><mi>k</mi><mn>1</mn></msub></mrow></mrow><mrow><mrow><msub><mi>a</mi><mn>01</mn></msub><mo>⁢</mo><msub><mi>a</mi><mn>10</mn></msub></mrow><mo>-</mo><mrow><msub><mi>a</mi><mn>00</mn></msub><mo>⁢</mo><msub><mi>a</mi><mn>11</mn></msub></mrow></mrow></mfrac><mo rspace="4.2pt">,</mo><mrow><mo>-</mo><mfrac><mrow><mrow><msub><mi>a</mi><mn>10</mn></msub><mo>⁢</mo><msub><mi>k</mi><mn>0</mn></msub></mrow><mo>-</mo><mrow><msub><mi>a</mi><mn>00</mn></msub><mo>⁢</mo><msub><mi>k</mi><mn>1</mn></msub></mrow></mrow><mrow><mrow><msub><mi>a</mi><mn>01</mn></msub><mo>⁢</mo><msub><mi>a</mi><mn>10</mn></msub></mrow><mo>-</mo><mrow><msub><mi>a</mi><mn>00</mn></msub><mo>⁢</mo><msub><mi>a</mi><mn>11</mn></msub></mrow></mrow></mfrac></mrow><mo>)</mo></mrow></mrow></math></td>
-<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
-</tr>
-</table>
-</div>
-<div id="p4" class="ltx_para">
-<table id="S0.Ex4" class="ltx_equation ltx_eqn_table">
-
-<tr class="ltx_equation ltx_eqn_row ltx_align_baseline">
-<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
-<td class="ltx_eqn_cell ltx_align_center"><math xmlns="http://www.w3.org/1998/Math/MathML" id="S0.Ex4.m1" class="ltx_Math" alttext="S\left(A\left(1\right)\right)=\left(1,\,\hat{X}_{0},\,\hat{X}_{1}\right)=\left%
-(1,\,\frac{{a}_{11}k_{0}-{a}_{01}k_{1}}{{a}_{01}{a}_{10}-{a}_{00}{a}_{11}},\,-%
-\frac{{a}_{10}k_{0}-{a}_{00}k_{1}}{{a}_{01}{a}_{10}-{a}_{00}{a}_{11}}\right)" display="block"><mrow><mrow><mi>S</mi><mo>⁢</mo><mrow><mo>(</mo><mrow><mi>A</mi><mo>⁢</mo><mrow><mo>(</mo><mn>1</mn><mo>)</mo></mrow></mrow><mo>)</mo></mrow></mrow><mo>=</mo><mrow><mo>(</mo><mn>1</mn><mo rspace="4.2pt">,</mo><msub><mover accent="true"><mi>X</mi><mo stretchy="false">^</mo></mover><mn>0</mn></msub><mo rspace="4.2pt">,</mo><msub><mover accent="true"><mi>X</mi><mo stretchy="false">^</mo></mover><mn>1</mn></msub><mo>)</mo></mrow><mo>=</mo><mrow><mo>(</mo><mn>1</mn><mo rspace="4.2pt">,</mo><mfrac><mrow><mrow><msub><mi>a</mi><mn>11</mn></msub><mo>⁢</mo><msub><mi>k</mi><mn>0</mn></msub></mrow><mo>-</mo><mrow><msub><mi>a</mi><mn>01</mn></msub><mo>⁢</mo><msub><mi>k</mi><mn>1</mn></msub></mrow></mrow><mrow><mrow><msub><mi>a</mi><mn>01</mn></msub><mo>⁢</mo><msub><mi>a</mi><mn>10</mn></msub></mrow><mo>-</mo><mrow><msub><mi>a</mi><mn>00</mn></msub><mo>⁢</mo><msub><mi>a</mi><mn>11</mn></msub></mrow></mrow></mfrac><mo rspace="4.2pt">,</mo><mrow><mo>-</mo><mfrac><mrow><mrow><msub><mi>a</mi><mn>10</mn></msub><mo>⁢</mo><msub><mi>k</mi><mn>0</mn></msub></mrow><mo>-</mo><mrow><msub><mi>a</mi><mn>00</mn></msub><mo>⁢</mo><msub><mi>k</mi><mn>1</mn></msub></mrow></mrow><mrow><mrow><msub><mi>a</mi><mn>01</mn></msub><mo>⁢</mo><msub><mi>a</mi><mn>10</mn></msub></mrow><mo>-</mo><mrow><msub><mi>a</mi><mn>00</mn></msub><mo>⁢</mo><msub><mi>a</mi><mn>11</mn></msub></mrow></mrow></mfrac></mrow><mo>)</mo></mrow></mrow></math></td>
-<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
-</tr>
-</table>
-</div>
-<div id="p5" class="ltx_para">
-<table id="S0.Ex5" class="ltx_equation ltx_eqn_table">
-
-<tr class="ltx_equation ltx_eqn_row ltx_align_baseline">
-<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
-<td class="ltx_eqn_cell ltx_align_center"><math xmlns="http://www.w3.org/1998/Math/MathML" id="S0.Ex5.m1" class="ltx_Math" alttext="D(u_{0})=\left(0,\,0,\,-c_{10}\left(t\right)D[0]\left(c_{00}\right)\left(t%
-\right)-c_{11}\left(t\right)D[0]\left(c_{01}\right)\left(t\right)\right)" display="block"><mrow><mrow><mi>D</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><msub><mi>u</mi><mn>0</mn></msub><mo stretchy="false">)</mo></mrow></mrow><mo>=</mo><mrow><mo>(</mo><mn>0</mn><mo>,</mo><mn> 0</mn><mo rspace="4.2pt">,</mo><mrow><mrow><mo>-</mo><mrow><msub><mi>c</mi><mn>10</mn></msub><mo>⁢</mo><mrow><mo>(</mo><mi>t</mi><mo>)</mo></mrow><mo>⁢</mo><mi>D</mi><mo>⁢</mo><mrow><mo stretchy="false">[</mo><mn>0</mn><mo stretchy="false">]</mo></mrow><mo>⁢</mo><mrow><mo>(</mo><msub><mi>c</mi><mn>00</mn></msub><mo>)</mo></mrow><mo>⁢</mo><mrow><mo>(</mo><mi>t</mi><mo>)</mo></mrow></mrow></mrow><mo>-</mo><mrow><msub><mi>c</mi><mn>11</mn></msub><mo>⁢</mo><mrow><mo>(</mo><mi>t</mi><mo>)</mo></mrow><mo>⁢</mo><mi>D</mi><mo>⁢</mo><mrow><mo stretchy="false">[</mo><mn>0</mn><mo stretchy="false">]</mo></mrow><mo>⁢</mo><mrow><mo>(</mo><msub><mi>c</mi><mn>01</mn></msub><mo>)</mo></mrow><mo>⁢</mo><mrow><mo>(</mo><mi>t</mi><mo>)</mo></mrow></mrow></mrow><mo>)</mo></mrow></mrow></math></td>
-<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
-</tr>
-</table>
-</div>
-<div id="p6" class="ltx_para">
-<table id="S0.Ex6" class="ltx_equation ltx_eqn_table">
-
-<tr class="ltx_equation ltx_eqn_row ltx_align_baseline">
-<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
-<td class="ltx_eqn_cell ltx_align_center"><math xmlns="http://www.w3.org/1998/Math/MathML" id="S0.Ex6.m1" class="ltx_Math" alttext="I(u_{0})=\left(0,\,-2\,c_{00}\left(t\right)D[0]\left(c_{00}\right)\left(t%
-\right)-2\,c_{01}\left(t\right)D[0]\left(c_{01}\right)\left(t\right),\,-c_{00}%
-\left(t\right)D[0]\left(c_{10}\right)\left(t\right)-c_{01}\left(t\right)D[0]%
-\left(c_{11}\right)\left(t\right)\right)" display="block"><mrow><mrow><mi>I</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><msub><mi>u</mi><mn>0</mn></msub><mo stretchy="false">)</mo></mrow></mrow><mo>=</mo><mrow><mo>(</mo><mn>0</mn><mo rspace="4.2pt">,</mo><mrow><mrow><mo>-</mo><mrow><mpadded width="+1.7pt"><mn>2</mn></mpadded><mo>⁢</mo><msub><mi>c</mi><mn>00</mn></msub><mo>⁢</mo><mrow><mo>(</mo><mi>t</mi><mo>)</mo></mrow><mo>⁢</mo><mi>D</mi><mo>⁢</mo><mrow><mo stretchy="false">[</mo><mn>0</mn><mo stretchy="false">]</mo></mrow><mo>⁢</mo><mrow><mo>(</mo><msub><mi>c</mi><mn>00</mn></msub><mo>)</mo></mrow><mo>⁢</mo><mrow><mo>(</mo><mi>t</mi><mo>)</mo></mrow></mrow></mrow><mo>-</mo><mrow><mpadded width="+1.7pt"><mn>2</mn></mpadded><mo>⁢</mo><msub><mi>c</mi><mn>01</mn></msub><mo>⁢</mo><mrow><mo>(</mo><mi>t</mi><mo>)</mo></mrow><mo>⁢</mo><mi>D</mi><mo>⁢</mo><mrow><mo stretchy="false">[</mo><mn>0</mn><mo stretchy="false">]</mo></mrow><mo>⁢</mo><mrow><mo>(</mo><msub><mi>c</mi><mn>01</mn></msub><mo>)</mo></mrow><mo>⁢</mo><mrow><mo>(</mo><mi>t</mi><mo>)</mo></mrow></mrow></mrow><mo rspace="4.2pt">,</mo><mrow><mrow><mo>-</mo><mrow><msub><mi>c</mi><mn>00</mn></msub><mo>⁢</mo><mrow><mo>(</mo><mi>t</mi><mo>)</mo></mrow><mo>⁢</mo><mi>D</mi><mo>⁢</mo><mrow><mo stretchy="false">[</mo><mn>0</mn><mo stretchy="false">]</mo></mrow><mo>⁢</mo><mrow><mo>(</mo><msub><mi>c</mi><mn>10</mn></msub><mo>)</mo></mrow><mo>⁢</mo><mrow><mo>(</mo><mi>t</mi><mo>)</mo></mrow></mrow></mrow><mo>-</mo><mrow><msub><mi>c</mi><mn>01</mn></msub><mo>⁢</mo><mrow><mo>(</mo><mi>t</mi><mo>)</mo></mrow><mo>⁢</mo><mi>D</mi><mo>⁢</mo><mrow><mo stretchy="false">[</mo><mn>0</mn><mo stretchy="false">]</mo></mrow><mo>⁢</mo><mrow><mo>(</mo><msub><mi>c</mi><mn>11</mn></msub><mo>)</mo></mrow><mo>⁢</mo><mrow><mo>(</mo><mi>t</mi><mo>)</mo></mrow></mrow></mrow><mo>)</mo></mrow></mrow></math></td>
-<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
-</tr>
-</table>
-</div>
-<div id="p7" class="ltx_para">
-<table id="S0.Ex7" class="ltx_equation ltx_eqn_table">
-
-<tr class="ltx_equation ltx_eqn_row ltx_align_baseline">
-<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
-<td class="ltx_eqn_cell ltx_align_center"><math xmlns="http://www.w3.org/1998/Math/MathML" id="S0.Ex7.m1" class="ltx_Math" alttext="\frac{dA}{dt}=\left(0,\,-2\,c_{00}\left(t\right)D[0]\left(c_{00}\right)\left(t%
-\right)-2\,c_{01}\left(t\right)D[0]\left(c_{01}\right)\left(t\right),\,-c_{10}%
-\left(t\right)D[0]\left(c_{00}\right)\left(t\right)-c_{11}\left(t\right)D[0]%
-\left(c_{01}\right)\left(t\right)-c_{00}\left(t\right)D[0]\left(c_{10}\right)%
-\left(t\right)-c_{01}\left(t\right)D[0]\left(c_{11}\right)\left(t\right)\right)" display="block"><mrow><mfrac><mrow><mi>d</mi><mo>⁢</mo><mi>A</mi></mrow><mrow><mi>d</mi><mo>⁢</mo><mi>t</mi></mrow></mfrac><mo>=</mo><mrow><mo>(</mo><mn>0</mn><mo rspace="4.2pt">,</mo><mrow><mrow><mo>-</mo><mrow><mpadded width="+1.7pt"><mn>2</mn></mpadded><mo>⁢</mo><msub><mi>c</mi><mn>00</mn></msub><mo>⁢</mo><mrow><mo>(</mo><mi>t</mi><mo>)</mo></mrow><mo>⁢</mo><mi>D</mi><mo>⁢</mo><mrow><mo stretchy="false">[</mo><mn>0</mn><mo stretchy="false">]</mo></mrow><mo>⁢</mo><mrow><mo>(</mo><msub><mi>c</mi><mn>00</mn></msub><mo>)</mo></mrow><mo>⁢</mo><mrow><mo>(</mo><mi>t</mi><mo>)</mo></mrow></mrow></mrow><mo>-</mo><mrow><mpadded width="+1.7pt"><mn>2</mn></mpadded><mo>⁢</mo><msub><mi>c</mi><mn>01</mn></msub><mo>⁢</mo><mrow><mo>(</mo><mi>t</mi><mo>)</mo></mrow><mo>⁢</mo><mi>D</mi><mo>⁢</mo><mrow><mo stretchy="false">[</mo><mn>0</mn><mo stretchy="false">]</mo></mrow><mo>⁢</mo><mrow><mo>(</mo><msub><mi>c</mi><mn>01</mn></msub><mo>)</mo></mrow><mo>⁢</mo><mrow><mo>(</mo><mi>t</mi><mo>)</mo></mrow></mrow></mrow><mo rspace="4.2pt">,</mo><mrow><mrow><mo>-</mo><mrow><msub><mi>c</mi><mn>10</mn></msub><mo>⁢</mo><mrow><mo>(</mo><mi>t</mi><mo>)</mo></mrow><mo>⁢</mo><mi>D</mi><mo>⁢</mo><mrow><mo stretchy="false">[</mo><mn>0</mn><mo stretchy="false">]</mo></mrow><mo>⁢</mo><mrow><mo>(</mo><msub><mi>c</mi><mn>00</mn></msub><mo>)</mo></mrow><mo>⁢</mo><mrow><mo>(</mo><mi>t</mi><mo>)</mo></mrow></mrow></mrow><mo>-</mo><mrow><msub><mi>c</mi><mn>11</mn></msub><mo>⁢</mo><mrow><mo>(</mo><mi>t</mi><mo>)</mo></mrow><mo>⁢</mo><mi>D</mi><mo>⁢</mo><mrow><mo stretchy="false">[</mo><mn>0</mn><mo stretchy="false">]</mo></mrow><mo>⁢</mo><mrow><mo>(</mo><msub><mi>c</mi><mn>01</mn></msub><mo>)</mo></mrow><mo>⁢</mo><mrow><mo>(</mo><mi>t</mi><mo>)</mo></mrow></mrow><mo>-</mo><mrow><msub><mi>c</mi><mn>00</mn></msub><mo>⁢</mo><mrow><mo>(</mo><mi>t</mi><mo>)</mo></mrow><mo>⁢</mo><mi>D</mi><mo>⁢</mo><mrow><mo stretchy="false">[</mo><mn>0</mn><mo stretchy="false">]</mo></mrow><mo>⁢</mo><mrow><mo>(</mo><msub><mi>c</mi><mn>10</mn></msub><mo>)</mo></mrow><mo>⁢</mo><mrow><mo>(</mo><mi>t</mi><mo>)</mo></mrow></mrow><mo>-</mo><mrow><msub><mi>c</mi><mn>01</mn></msub><mo>⁢</mo><mrow><mo>(</mo><mi>t</mi><mo>)</mo></mrow><mo>⁢</mo><mi>D</mi><mo>⁢</mo><mrow><mo stretchy="false">[</mo><mn>0</mn><mo stretchy="false">]</mo></mrow><mo>⁢</mo><mrow><mo>(</mo><msub><mi>c</mi><mn>11</mn></msub><mo>)</mo></mrow><mo>⁢</mo><mrow><mo>(</mo><mi>t</mi><mo>)</mo></mrow></mrow></mrow><mo>)</mo></mrow></mrow></math></td>
-<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
-</tr>
-</table>
-</div>
-</article>
-</div>
-<footer class="ltx_page_footer">
-<div class="ltx_page_logo">Generated  on Thu Jun 18 22:21:40 2015 by <a href="http://dlmf.nist.gov/LaTeXML/">LaTeXML <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAsAAAAOCAYAAAD5YeaVAAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAALEwAACxMBAJqcGAAAAAd0SU1FB9wKExQZLWTEaOUAAAAddEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIFRoZSBHSU1Q72QlbgAAAdpJREFUKM9tkL+L2nAARz9fPZNCKFapUn8kyI0e4iRHSR1Kb8ng0lJw6FYHFwv2LwhOpcWxTjeUunYqOmqd6hEoRDhtDWdA8ApRYsSUCDHNt5ul13vz4w0vWCgUnnEc975arX6ORqN3VqtVZbfbTQC4uEHANM3jSqXymFI6yWazP2KxWAXAL9zCUa1Wy2tXVxheKA9YNoR8Pt+aTqe4FVVVvz05O6MBhqUIBGk8Hn8HAOVy+T+XLJfLS4ZhTiRJgqIoVBRFIoric47jPnmeB1mW/9rr9ZpSSn3Lsmir1fJZlqWlUonKsvwWwD8ymc/nXwVBeLjf7xEKhdBut9Hr9WgmkyGEkJwsy5eHG5vN5g0AKIoCAEgkEkin0wQAfN9/cXPdheu6P33fBwB4ngcAcByHJpPJl+fn54mD3Gg0NrquXxeLRQAAwzAYj8cwTZPwPH9/sVg8PXweDAauqqr2cDjEer1GJBLBZDJBs9mE4zjwfZ85lAGg2+06hmGgXq+j3+/DsixYlgVN03a9Xu8jgCNCyIegIAgx13Vfd7vdu+FweG8YRkjXdWy329+dTgeSJD3ieZ7RNO0VAXAPwDEAO5VKndi2fWrb9jWl9Esul6PZbDY9Go1OZ7PZ9z/lyuD3OozU2wAAAABJRU5ErkJggg==" alt="[LOGO]"></a>
-</div></footer>
-</div>
-
-</div>
-</p>
+<p><fieldset class="ww-messages"><legend>&lt;ww-messages-legend: &gt;</legend><p class='error'>Error: Project file not found: Selection_Gradients › maclev-2-2-a-c-geom.sage.out.html</p>
+</fieldset>
+<!-- maclev-2-2-a-c-geom.sage.out.html --></p>
 
 <p>And the motion of the Lotka-Volterra coefficients <!-- 8ce4b16b22b58894aa86c421e8759df3.tex-math.latexml.html --><span class="latexml"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="k" display="inline"><mi>k</mi></math></span> and <!-- 0cc175b9c0f1b6a831c399e269772661.tex-math.latexml.html --><span class="latexml"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="a" display="inline"><mi>a</mi></math></span>:</p>
 

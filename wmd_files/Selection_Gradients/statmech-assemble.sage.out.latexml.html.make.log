@@ -1,0 +1,82 @@
+Wed Sep 16 16:09:43 2015
+/usr/bin/make -C /usr/local/src/adaptive-dynamics-research/wmd_files/Selection_Gradients \
+    statmech-assemble.sage.out.latexml.html
+Including .mk files: sage.mk sage-inline.mk 
+Including .mk files from .step files: foodweb.py.mk foodweb.sage.mk foodweb.plot.sage.mk foodweb-2-2.sage.mk foodweb-2-2.plot.sage.mk logistic-S-A-curves.sage.mk maclev-S-A-curve.sage.mk logistic-S-A-curve.sage.mk maclev-1-1.sage.mk maclev-1-1-adap.sage.mk maclev-1-1-mc-adap-geom.sage.mk maclev-1-1-ak-adap-geom.sage.mk S-A-vector-field.sage.mk maclev-1-1-d1A-vector-field.sage.mk maclev-1-1-S-and-d1A-on-curve.sage.mk maclev-1-1-S-and-D-on-curve.sage.mk maclev_1_2_defs.py.mk maclev-1-2-popdyn.sage.mk maclev-1-2-adap.sage.mk maclev-1-2-p.sage.mk maclev-1-2-zngi.sage.mk maclev-1-2-geom.sage.mk maclev_unconstrained_c.py.mk maclev-2-2-c-popdyn.sage.mk maclev-2-2-c-adap.sage.mk maclev-2-2-c-p.sage.mk maclev-2-2-c-zngi.sage.mk maclev-2-2-c-geom.sage.mk maclev_2_2_defs.py.mk maclev-2-2-popdyn.sage.mk maclev-2-2-adap.sage.mk maclev-2-2-p.sage.mk maclev-2-2-zngi.sage.mk maclev-2-2-geom.sage.mk maclev_a_only_defs.py.mk maclev-a-only-popdyn.sage.mk maclev-a-only-adap.sage.mk maclev-a-only-p.sage.mk maclev-a-only-zngi.sage.mk maclev-a-only-geom.sage.mk maclev_a_c.py.mk maclev-2-2-a-c-popdyn.sage.mk maclev-2-2-a-c-adap.sage.mk maclev-2-2-a-c-p.sage.mk maclev-2-2-a-c-zngi.sage.mk maclev-2-2-a-c-geom.sage.mk maclevmodels.py.mk statmech.py.mk statmech-assemble.sage.mk statmech-assemble-plot.sage.mk statmech-evol.sage.mk statmech-evol-plot.sage.mk toc.sage.mk maclev-2-2-zngi-invasion.sage.mk lotkavolterra.py.mk
+Including .mk files from .sage-inline files: avec.sage.mk a-careful.sage.mk
+Including .tex.d files: foodweb-2-2.tikz.tex.d foodweb.tikz.tex.d
+make[1]: Entering directory `/usr/local/src/adaptive-dynamics-research/wmd_files/Selection_Gradients'
+/usr/bin/make --no-print-directory -C /usr/local/src/adaptive-dynamics-research/wmd_files/SageDynamicsRepo/SageDynamics dynamicalsystems.py
+make[2]: Nothing to be done for `dynamicalsystems.py'.
+perl -f /usr/local/src/adaptive-dynamics-research/wmd_files/SageDynamicsRepo/SageUtils/step.pl statmech-assemble.sage '#'
+rm -f statmech-assemble.sage.out statmech-assemble.sage.status statmech-assemble.sobj
+(sage statmech-assemble.sage && touch statmech-assemble.sage.status) | tee statmech-assemble.sage.dmp
+set_population_indices: []
+set_population_indices: [(0, 0)]
+go 0 to 100
+[ -e statmech-assemble.sage.status ] && (rm -f statmech-assemble.sage.status && mv statmech-assemble.sage.dmp statmech-assemble.sage.out) || exit 1
+perl -f /usr/local/src/adaptive-dynamics-research/wmd_files/SageDynamicsRepo/SageUtils/step.pl statmech-assemble-plot.sage '#'
+rm -f statmech-assemble-plot.sage.out statmech-assemble-plot.sage.status statmech-assemble.sage.out.tex statmech-assemble.svg
+(sage statmech-assemble-plot.sage && touch statmech-assemble-plot.sage.status) | tee statmech-assemble-plot.sage.dmp
+[ -e statmech-assemble-plot.sage.status ] && (rm -f statmech-assemble-plot.sage.status && mv statmech-assemble-plot.sage.dmp statmech-assemble-plot.sage.out) || exit 1
+latexml  --destination=statmech-assemble.sage.out.latexml.xml statmech-assemble.sage.out.tex
+latexml (LaTeXML version 0.8.1; revision 9e4814e)
+processing started Wed Sep 16 16:10:03 2015
+
+(Digesting TeX statmech-assemble.sage.out...
+(Loading /usr/local/share/perl/5.18.2/LaTeXML/Package/TeX.pool.ltxml...
+(Loading /usr/local/share/perl/5.18.2/LaTeXML/Package/eTeX.pool.ltxml... 0.00 sec)
+(Loading /usr/local/share/perl/5.18.2/LaTeXML/Package/pdfTeX.pool.ltxml... 0.01 sec) 0.23 sec)
+(Processing content /usr/local/src/adaptive-dynamics-research/wmd_files/Selection_Gradients/statmech-assemble.sage.out.tex...
+(Loading /usr/local/share/perl/5.18.2/LaTeXML/Package/LaTeX.pool.ltxml... 0.24 sec)
+(Loading /usr/local/share/perl/5.18.2/LaTeXML/Package/article.cls.ltxml... 0.04 sec)
+(Loading /usr/local/share/perl/5.18.2/LaTeXML/Package/amsmath.sty.ltxml...
+(Loading /usr/local/share/perl/5.18.2/LaTeXML/Package/amsbsy.sty.ltxml... 0.00 sec)
+(Loading /usr/local/share/perl/5.18.2/LaTeXML/Package/amstext.sty.ltxml... 0.00 sec)
+(Loading /usr/local/share/perl/5.18.2/LaTeXML/Package/amsopn.sty.ltxml... 0.00 sec) 0.05 sec)
+(Loading /usr/local/share/perl/5.18.2/LaTeXML/Package/amssymb.sty.ltxml...
+(Loading /usr/local/share/perl/5.18.2/LaTeXML/Package/amsfonts.sty.ltxml... 0.00 sec) 0.03 sec)
+(Loading /usr/local/share/perl/5.18.2/LaTeXML/Package/graphicx.sty.ltxml...
+(Loading /usr/local/share/perl/5.18.2/LaTeXML/Package/graphics.sty.ltxml... 0.00 sec) 0.03 sec)
+(Loading /usr/local/share/perl/5.18.2/LaTeXML/Package/inputenc.sty.ltxml...
+(Loading /usr/local/share/perl/5.18.2/LaTeXML/Package/utf8.def.ltxml... 0.00 sec) 0.01 sec)
+(Loading /usr/local/share/perl/5.18.2/LaTeXML/Package/fontenc.sty.ltxml...
+(Loading /usr/local/share/perl/5.18.2/LaTeXML/Package/t1enc.def.ltxml...
+(Processing definitions /usr/share/texlive/texmf-dist/tex/latex/base/t1enc.def...
+(Loading /usr/local/share/perl/5.18.2/LaTeXML/Package/t1.fontmap.ltxml... 0.00 sec) 0.13 sec) 0.16 sec) 0.17 sec)
+(Loading /usr/local/share/perl/5.18.2/LaTeXML/Package/latexml.sty.ltxml... 0.02 sec) 0.74 sec) 0.97 sec)
+(Building...
+(Loading compiled schema /usr/local/share/perl/5.18.2/LaTeXML/resources/RelaxNG/LaTeXML.model... 0.01 sec).. 0.09 sec)
+(Rewriting... 0.00 sec)
+(Math Parsing...3 formulae ...[1][2][3]
+Math parsing succeeded:
+   ltx:XMArg: 18/18
+   ltx:XMath: 3/3
+Symbols assumed as simple identifiers (with # of occurences):
+   'X{italic}' (6), 'd{italic}' (4), 't{italic}' (2)
+ 0.11 sec)
+(Finalizing... 0.01 sec)
+Conversion complete: No obvious problems.
+processing finished Wed Sep 16 16:10:04 2015
+Updating .workingwiki/statmech-assemble.sage.out.latexml.xml
+rm -f statmech-assemble.sage.out.latexml.html5
+bibxmls=`perl -ne '($_)=/^[^%]*\\\bibliography\{([^\\\\#]*?)\}/;@_=split /,/;foreach $b (@_) { $b =~ s/\.bib$//; print "$b.bib.xml "}' statmech-assemble.sage.out.latexml.xml`; bibxargs=`perl -ne '($_)=/^[^%]*\\\bibliography\{([^\\\\#]*?)\}/;@_=split /,/;foreach $b (@_) { $b =~ s/\.bib$//; print "--bibliography=$b.bib.xml "}' statmech-assemble.sage.out.latexml.xml` && \
+	(test -z "$bibxmls" || /usr/bin/make -f /usr/local/src/workingwiki-trunk/ProjectEngine/resources/makefile $bibxmls) && \
+	lxpost="latexmlpost  --novalidate --destination=statmech-assemble.sage.out.intermediate.latexml.html5 --format=html5 $bibxargs statmech-assemble.sage.out.latexml.xml" && echo $lxpost && $lxpost
+latexmlpost --novalidate --destination=statmech-assemble.sage.out.intermediate.latexml.html5 --format=html5 statmech-assemble.sage.out.latexml.xml
+latexmlpost (LaTeXML version 0.8.1; revision 9e4814e)
+processing started Wed Sep 16 16:10:05 2015
+(statmech-assemble.sage.out.intermediate.latexml.html5 post-processing...
+(Scan statmech-assemble.sage.out.intermediate.latexml.html5 processing... 0.01 sec)
+(CrossRef statmech-assemble.sage.out.intermediate.latexml.html5 processing... 0.01 sec)
+(MathML::Presentation statmech-assemble.sage.out.intermediate.latexml.html5 3 to process... 0.04 sec)
+(XSLT[using LaTeXML-html5.xsl] statmech-assemble.sage.out.intermediate.latexml.html5 processing... 0.01 sec)
+(Writer statmech-assemble.sage.out.intermediate.latexml.html5 processing... 0.00 sec) 0.07 sec)
+Postprocessing complete: No obvious problems
+processing finished Wed Sep 16 16:10:05 2015
+/usr/local/src/workingwiki-trunk/ProjectEngine/resources/wiki-inclusion.latexml.pl statmech-assemble.sage.out.intermediate.latexml.html5 >statmech-assemble.sage.out.latexml.html5
+ln -f statmech-assemble.sage.out.latexml.html5 statmech-assemble.sage.out.latexml.html
+rm statmech-assemble.sage.out.latexml.html5 statmech-assemble.sage.out.latexml.xml
+make[1]: Leaving directory `/usr/local/src/adaptive-dynamics-research/wmd_files/Selection_Gradients'
+Make succeeded.
+Wed Sep 16 16:10:05 2015

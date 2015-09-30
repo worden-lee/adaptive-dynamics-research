@@ -1,0 +1,14 @@
+\begin{align}
+
+\mathbf{S}(\mathbf b_i) = \begin{pmatrix}
+  \sum_\ell c_{i\ell} w_\ell (K_\ell - \sum_j \hat X_j \frac{c_\ell}{r_\ell}) - m_i \\
+  -b_i \\
+  b_i w_1 (K_1 - \sum_j\hat X_j\frac{c_{j1}}{r_1}) \\
+  \vdots \\
+  b_i w_n (K_n - \sum_j\hat X_j\frac{c_{jn}}{r_n}) \\
+\end{pmatrix} = \begin{pmatrix}
+  0 \\ -b_i \\
+  \hat R_1 \\ \vdots \\ \hat R_n
+\end{pmatrix}.
+
+\end{align}

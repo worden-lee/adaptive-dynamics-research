@@ -1,0 +1,13 @@
+load('input.RData')
+pdf("auto.seq.Rout.pdf")
+# End RR preface
+# Global Environment: input.RData
+
+# Scripts: auto.R
+
+print(x)
+
+
+# Begin RR postscript
+# If you see this in an R log, your R script did not close properly
+save.image(file="auto.seq.RData")

@@ -1,0 +1,1 @@
+a(\mathbf{u}_i,\mathbf{u}_j)=b + c\left(\cos\theta, \sin\theta\right) \mathbf{u}_i + d\left(\cos\rho, \sin\rho\right)\mathbf{u}_j

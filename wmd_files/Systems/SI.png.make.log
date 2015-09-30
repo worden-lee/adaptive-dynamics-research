@@ -1,13 +1,11 @@
-Thu Jun 18 22:21:52 2015
-/usr/bin/make -C /usr/local/src/jekyll-research/wmd_files/Systems SI.png
+Wed Sep 16 15:28:06 2015
+/usr/bin/make -C /usr/local/src/adaptive-dynamics-research/wmd_files/Systems SI.png
 Including .mk files: sage.mk 
-Including .mk files from .step files: phase_portraits.sage.mk popdyn-example.sage.mk
+Including .mk files from .step files: phase_portraits.sage.mk
 Including .tex.d files: ad.cd.tex.d ai1.cd.tex.d ai2.cd.tex.d aij.cd.tex.d aji.cd.tex.d constrain.cd.tex.d homework-04-23.tex.d homework-crowds-05-07.tex.d homework-push-05-07.tex.d lv.cd.tex.d popdyn-example.cd.tex.d Sa.cd.tex.d
-make: Entering directory `/usr/local/src/jekyll-research/wmd_files/Systems'
-/usr/bin/make --no-print-directory -C /usr/local/src/jekyll-research/wmd_files/SageDynamicsRepo/SageDynamics dynamicalsystems.py
-Including .mk files:  
-Including .tex.d files: 
+make: Entering directory `/usr/local/src/adaptive-dynamics-research/wmd_files/Systems'
+/usr/bin/make --no-print-directory -C /usr/local/src/adaptive-dynamics-research/wmd_files/SageDynamicsRepo/SageDynamics dynamicalsystems.py
 make[1]: Nothing to be done for `dynamicalsystems.py'.
-make: Leaving directory `/usr/local/src/jekyll-research/wmd_files/Systems'
+make: Leaving directory `/usr/local/src/adaptive-dynamics-research/wmd_files/Systems'
 Make succeeded.
-Thu Jun 18 22:21:52 2015
+Wed Sep 16 15:28:06 2015

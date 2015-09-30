@@ -27,6 +27,12 @@ class AdaptiveDynamicsException(DynamicsException):
     def __init__( self, message, latex_str=None ):
         DynamicsException.__init__( self, message, latex_str )
 
+class ExtinctionException(TrajectoryInterruptedException,AdaptiveDynamicsException):
+    def __init__( self, trajectory, who ):
+        TrajectoryInterruptedException.__init__( self, trajectory, 'Extinction' )
+	AdaptiveDynamicsException.__init__( 'Extinction', '' )
+	self._who = who # should be a population index
+
 class AdaptiveDynamicsModel(ODESystem):
     """Given a population dynamics model in which dynamics of population
     sizes are driven by certain parameters, if we suppose that some of those
@@ -70,7 +76,10 @@ class AdaptiveDynamicsModel(ODESystem):
           calculations - and then expand that out to the value of r_i in
           late_bindings, and get the right answer without bogging the
           computer down."""
-        self._debug_output = latex_output_base( write_to_string() )
+	try:
+		self._debug_output
+	except AttributeError:
+		self._debug_output = latex_output_base( write_to_string() )
         self._popdyn_model = popdyn_model
         self._phenotype_indexers = phenotype_indexers
         self._early_bindings = early_bindings
@@ -103,7 +112,7 @@ class AdaptiveDynamicsModel(ODESystem):
         self._debug_output.write( 'The adaptive dynamics comes out to' )
         self._debug_output.write_block( self )
         self._debug_output.close()
-        print self._debug_output._output._str
+        #print self._debug_output._output._str
     def calculate_adaptive_dynamics(self):
         # We get the invasion exponent for u_i by adding an extra population,
         # which will soon be asymptotically identical to u_i.
@@ -184,31 +193,36 @@ class AdaptiveDynamicsModel(ODESystem):
         # separately from each other
         return self._popdyn_model.fake_population_index()
     def solve(self, initial_conditions, **opts):
+	continue_on_extinction = False #opts.pop( 'continue_on_extinction', False )
         # check that initial populations are positive
         icbind = Bindings( { v:iv for v, iv in zip(self._vars, initial_conditions) } )
         if any( icbind(self._bindings(x)) <= 0 for x in self._popdyn_model.equilibrium_vars() ):
 	    print ( 'Aborting solve: initial population sizes are non-positive:',
-                str( [ x == N(_t(self._bindings(x))) for x in self._popdyn_model.equilibrium_vars() ] ) )
+                str( [ x == N(icbind(self._bindings(x))) for x in self._popdyn_model.equilibrium_vars() ] ) )
             raise AdaptiveDynamicsException(
                 'Initial population sizes are non-positive: ' +
-                str( [ x == N(_t(self._bindings(x))) for x in self._popdyn_model.equilibrium_vars() ] )
+                str( [ x == N(icbind(self._bindings(x))) for x in self._popdyn_model.equilibrium_vars() ] )
             )
+	if 'step' not in opts: opts['step'] = 0.001
         trajectory = super(AdaptiveDynamicsModel,self).solve(initial_conditions, **opts)
         # check that populations stay positive
         xs = [ self._bindings(x) for x in self._popdyn_model.equilibrium_vars() ]
         print 'timeseries:', trajectory._timeseries
         print 'X at first pt of timeseries:', [ trajectory._timeseries[0](x) for x in xs ]
         for i in range(len(trajectory._timeseries)):
-            if any( N(trajectory._timeseries[i](x)) <= 0 for x in xs ):
-                print 'Adaptive dynamics cut short by extinction at ' + str( trajectory._timeseries[i] )
-		#print '_timeseries[i]:', trajectory._timeseries[i]
-		#print 'maps', { x:self._bindings(x) for x in self._popdyn_model.equilibrium_vars() }
-		#print 'to', { x:trajectory._timeseries[i](self._bindings(x)) for x in self._popdyn_model.equilibrium_vars() }
-                trajectory._timeseries = trajectory._timeseries[:i]
-                break
+	    exts = [ x for x in xs if N(trajectory._timeseries[i](x)) <= 0 ]
+            if len( exts ) > 0:
+		if not continue_on_extinction:
+                    print 'Adaptive dynamics cut short by extinction at ' + str( trajectory._timeseries[i] )
+		    #print '_timeseries[i]:', trajectory._timeseries[i]
+		    print 'at which', # with', { x:self._bindings(x) for x in self._popdyn_model.equilibrium_vars() }
+		    print 'X values are', { x:trajectory._timeseries[i](self._bindings(x)) for x in self._popdyn_model.equilibrium_vars() }
+		    print 'and previously were', { x:trajectory._timeseries[i-1](self._bindings(x)) for x in self._popdyn_model.equilibrium_vars() }
+                    trajectory._timeseries = trajectory._timeseries[:i]
+                    break
+		else: # this needs some thought
+		    pass #for ix in self._
         return trajectory
-
-import numpy # do this now, not during compute_flow
 
 class NumericalAdaptiveDynamicsModel( NumericalODESystem, AdaptiveDynamicsModel ):
     """Where AdaptiveDynamicsModel derives a closed expression for the
@@ -277,8 +291,8 @@ class NumericalAdaptiveDynamicsModel( NumericalODESystem, AdaptiveDynamicsModel 
         #print 'compute_flow:', u, t
         u_bindings = Bindings( dict( zip( self._vars, u ) ) )
         #print 'u_bindings:', u_bindings
-        # note equilibrium_function can raise DynamicsExceptions if there's
-        # a problem finding pop. dyn. equilibria
+        # note equilibrium_function can raise TrajectoryInterruptedExceptions
+	# if there's a problem finding pop. dyn. equilibria
         eq = self.equilibrium_function( u_bindings )
         #print 'eq:', eq
         #print 'eq Xhat_0:', eq(hat('X_0'))
@@ -290,6 +304,7 @@ class NumericalAdaptiveDynamicsModel( NumericalODESystem, AdaptiveDynamicsModel 
         #print 'eq flow:', eq( self._flow[self._vars[0]] )
         #print 'u eq flow:', [ u_bindings( eq( self._flow[v] ) ) for v in self._vars ]
         #sys.stdout.flush()
+	import numpy
         try:
             dudt = numpy.array( [ N( u_bindings( eq( self._flow[v] ) ) ) for v in self._vars ], float )
         except TypeError:
@@ -301,37 +316,40 @@ class NumericalAdaptiveDynamicsModel( NumericalODESystem, AdaptiveDynamicsModel 
             # if there's an equilibrium, kick to the caller, who can
             # test for a branching point
             self._equilibrium_detected_at = t
+	    # note we don't store the trajectory in the Exception object
+	    # here, because we don't have it - fake_odeint(), in the
+	    # dynamicalsystems module, adds it before reraising.
             raise EquilibriumDetectedException()
         return dudt
     def solve(self, initial_conditions, start_time=0, end_time=20, step=0.1):
         self._equilibrium_detected_at = -oo
         try:
             traj = super(NumericalAdaptiveDynamicsModel,self).solve( initial_conditions, start_time, end_time, step )
-        except TrajectoryInterruptedException, ex:
-            print ex, ':', ex._reason
-            if isinstance( ex._reason, EquilibriumDetectedException ):
-                # in case we returned early due to equilibrium, see if
-                # we're at an evolutionary branching point
-                traj = ex._trajectory
-                branched_state = self.test_for_branch( traj )
-                if branched_state:
-                    rest = self.solve( [ branched_state[v] for v in self._vars ], self._equilibrium_detected_at, end_time, step )
-                    bt = ODETrajectory( self, traj._timeseries + rest._timeseries )
-                    #print 'composite trajectory after branching:', bt
-                    return bt
-                # if we're at equilibrium and didn't branch, skip ahead
-                # to the end time
-                end_point = dict( traj._timeseries[-1] )
-                end_point[ self._time_variable ] = end_time
-                traj.append( end_point )
-                #print 'extended timeseries to', end_time
-                #print 'end point is', end_point
-            # TODO: if it returned early due to an extinction
-            elif isinstance( ex._reason, UnboundedDynamicsException ):
-                return ex._trajectory
-            else:
-                print 'unhandled TrajectoryInterruptedException:', ex._reason
-                raise
+	except EquilibriumDetectedException, ex:
+            # in case we returned early due to equilibrium, see if
+            # we're at an evolutionary branching point
+	    print 'Equilibrium detected'
+            traj = ex._trajectory
+            branched_state = self.test_for_branch( traj )
+            if branched_state:
+                rest = self.solve( [ branched_state[v] for v in self._vars ], self._equilibrium_detected_at, end_time, step )
+                #bt = traj + Trajectory( self, rest._timeseries ) # ??
+                bt = traj + rest
+                #print 'composite trajectory after branching:', bt
+                return bt
+            # if we're at equilibrium and didn't branch, skip ahead
+            # to the end time
+            end_point = dict( traj._timeseries[-1] )
+            end_point[ self._time_variable ] = end_time
+            traj.append( end_point )
+            #print 'extended timeseries to', end_time
+            #print 'end point is', end_point
+        # TODO: if it returned early due to an extinction
+        except UnboundedDynamicsException, ex:
+            return ex._trajectory
+	except ExtinctionException, ex:
+	    # todo: handle extinction and keep going
+	    pass
         #print 'solve returns', traj._timeseries
         return traj
     def test_for_branch( self, traj ):
@@ -358,6 +376,7 @@ class NumericalAdaptiveDynamicsModel( NumericalODESystem, AdaptiveDynamicsModel 
                 # test for whether they diverge
                 try:
                     #print 'test for branch at state', branched_state
+		    import numpy
                     flow = branched_ad.compute_flow( numpy.array( [ branched_state[v] for v in branched_ad._vars ], float ), self._equilibrium_detected_at )
                 except AdaptiveDynamicsException: #nope
                     #print 'exception!'

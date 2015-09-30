@@ -1,0 +1,1 @@
+a(u_i,u_j)=\frac{u_i-2u_j}{10}+\sin(u_i-2u_j)

@@ -1,0 +1,33 @@
+\begin{center}{\Large\bf }\end{center}
+\vspace{40mm}\[\begin{tikzpicture}
+%
+\useasboundingbox (0,0) rectangle (5.0cm,5.0cm);
+%
+\definecolor{cv0}{rgb}{0.0,0.0,0.0}
+\definecolor{cfv0}{rgb}{1.0,1.0,1.0}
+\definecolor{clv0}{rgb}{0.0,0.0,0.0}
+\definecolor{cv1}{rgb}{0.0,0.0,0.0}
+\definecolor{cfv1}{rgb}{1.0,1.0,1.0}
+\definecolor{clv1}{rgb}{0.0,0.0,0.0}
+\definecolor{cv2}{rgb}{0.0,0.0,0.0}
+\definecolor{cfv2}{rgb}{1.0,1.0,1.0}
+\definecolor{clv2}{rgb}{0.0,0.0,0.0}
+\definecolor{cv3}{rgb}{0.0,0.0,0.0}
+\definecolor{cfv3}{rgb}{1.0,1.0,1.0}
+\definecolor{clv3}{rgb}{0.0,0.0,0.0}
+\definecolor{cv0v1}{rgb}{0.0,0.0,0.0}
+\definecolor{cv0v2}{rgb}{0.0,0.0,0.0}
+\definecolor{cv3v1}{rgb}{0.0,0.0,0.0}
+\definecolor{cv3v2}{rgb}{0.0,0.0,0.0}
+%
+\Vertex[style={minimum size=1.0cm,draw=cv0,fill=cfv0,text=clv0,shape=circle},LabelOut=false,L=\hbox{$R_{0}$},x=0.0044cm,y=0.0cm]{v0}
+\Vertex[style={minimum size=1.0cm,draw=cv1,fill=cfv1,text=clv1,shape=circle},LabelOut=false,L=\hbox{$P_{1}$},x=0.0cm,y=5.0cm]{v1}
+\Vertex[style={minimum size=1.0cm,draw=cv2,fill=cfv2,text=clv2,shape=circle},LabelOut=false,L=\hbox{$P_{0}$},x=4.9905cm,y=5.0cm]{v2}
+\Vertex[style={minimum size=1.0cm,draw=cv3,fill=cfv3,text=clv3,shape=circle},LabelOut=false,L=\hbox{$R_{1}$},x=5.0cm,y=0.0cm]{v3}
+%
+\Edge[lw=0.1cm,style={post, bend right,color=cv0v1,},](v0)(v1)
+\Edge[lw=0.1cm,style={post, bend right,color=cv0v2,},](v0)(v2)
+\Edge[lw=0.1cm,style={post, bend right,color=cv3v1,},](v3)(v1)
+\Edge[lw=0.1cm,style={post, bend right,color=cv3v2,},](v3)(v2)
+%
+\end{tikzpicture}\]

@@ -1,12 +1,20 @@
-Thu Jun 18 22:09:58 2015
-/usr/bin/make -C /usr/local/src/jekyll-research/wmd_files/Selection_Gradients \
+Wed Sep 16 15:27:59 2015
+/usr/bin/make -C /usr/local/src/adaptive-dynamics-research/wmd_files/Selection_Gradients \
     a-careful.sage.out.html
 Including .mk files: sage.mk sage-inline.mk 
-Including .mk files from .step files: foodweb.py.mk foodweb.sage.mk foodweb.plot.sage.mk foodweb-2-2.sage.mk foodweb-2-2.plot.sage.mk maclev-1-1.sage.mk maclev-1-1-adap.sage.mk maclev-1-1-mc-adap-geom.sage.mk maclev-1-1-ak-adap-geom.sage.mk S-A-vector-field.sage.mk maclev-1-1-d1A-vector-field.sage.mk maclev-1-1-S-and-d1A-on-curve.sage.mk maclev-1-1-S-and-D-on-curve.sage.mk maclev_1_2_defs.py.mk maclev-1-2-popdyn.sage.mk maclev-1-2-adap.sage.mk maclev-1-2-p.sage.mk maclev-1-2-zngi.sage.mk maclev-1-2-geom.sage.mk maclev_unconstrained_c.py.mk maclev-2-2-c-popdyn.sage.mk maclev-2-2-c-adap.sage.mk maclev-2-2-c-p.sage.mk maclev-2-2-c-zngi.sage.mk maclev-2-2-c-geom.sage.mk maclev_2_2_defs.py.mk maclev-2-2-popdyn.sage.mk maclev-2-2-adap.sage.mk maclev-2-2-p.sage.mk maclev-2-2-zngi.sage.mk maclev-2-2-geom.sage.mk maclev_a_only_defs.py.mk maclev-a-only-popdyn.sage.mk maclev-a-only-adap.sage.mk maclev-a-only-p.sage.mk maclev-a-only-zngi.sage.mk maclev-a-only-geom.sage.mk maclev_a_c.py.mk maclev-2-2-a-c-popdyn.sage.mk maclev-2-2-a-c-adap.sage.mk maclev-2-2-a-c-p.sage.mk maclev-2-2-a-c-zngi.sage.mk maclev-2-2-a-c-geom.sage.mk maclevmodels.py.mk statmech.py.mk statmech-assemble.sage.mk statmech-assemble-plot.sage.mk statmech-evol.sage.mk statmech-evol-plot.sage.mk toc.sage.mk maclev-2-2-zngi-invasion.sage.mk lotkavolterra.py.mk
 Including .mk files from .sage-inline files: avec.sage.mk a-careful.sage.mk
 Including .tex.d files: foodweb-2-2.tikz.tex.d foodweb.tikz.tex.d
-make: Entering directory `/usr/local/src/jekyll-research/wmd_files/Selection_Gradients'
-make: `a-careful.sage.out.html' is up to date.
-make: Leaving directory `/usr/local/src/jekyll-research/wmd_files/Selection_Gradients'
-Make succeeded.
-Thu Jun 18 22:09:58 2015
+make: Entering directory `/usr/local/src/adaptive-dynamics-research/wmd_files/Selection_Gradients'
+make: Circular /proc/uptime <- /proc/uptime dependency dropped.
+/usr/bin/make --no-print-directory -C  usr/local/src/workingwiki-trunk/ProjectEngine/resources/makefile-after-html-output-format
+make: Entering an unknown directory
+make: *** usr/local/src/workingwiki-trunk/ProjectEngine/resources/makefile-after-html-output-format: No such file or directory.  Stop.
+make: Leaving an unknown directory
+/usr/bin/make --no-print-directory -C  usr/local/src/workingwiki-trunk/ProjectEngine/resources/makefile-after-latex
+make: Entering an unknown directory
+make: *** usr/local/src/workingwiki-trunk/ProjectEngine/resources/makefile-after-latex: No such file or directory.  Stop.
+make: Leaving an unknown directory
+make: *** [/usr/local/src/workingwiki-trunk/ProjectEngine/resources/makefile-after-latex] Error 2
+make: Leaving directory `/usr/local/src/adaptive-dynamics-research/wmd_files/Selection_Gradients'
+Make failed with exit code 2.
+Wed Sep 16 15:27:59 2015

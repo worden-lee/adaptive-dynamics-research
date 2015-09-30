@@ -1,0 +1,16 @@
+Wed Sep 16 15:28:05 2015
+/usr/bin/make -C /usr/local/src/adaptive-dynamics-research/wmd_files/R test auto.Rout
+Including .mk files:  
+Including .tex.d files: 
+make: Entering directory `/usr/local/src/adaptive-dynamics-research/wmd_files/R test'
+perl -f /usr/local/src/workingwiki-trunk/ProjectEngine/resources/site/Rprep.pl auto.Rout auto.R > auto.RR
+/bin/mv -f auto.RData auto.old.RData
+/bin/mv: cannot stat ‘auto.RData’: No such file or directory
+make: [auto.Rout] Error 1 (ignored)
+( (R --vanilla --args  < auto.RR > auto.dmp) 2> auto.Rlog && cat auto.Rlog ) || ! cat auto.Rlog
+Error in print(x) : object 'x' not found
+Execution halted
+make: *** [auto.Rout] Error 1
+make: Leaving directory `/usr/local/src/adaptive-dynamics-research/wmd_files/R test'
+Make failed with exit code 2.
+Wed Sep 16 15:28:06 2015

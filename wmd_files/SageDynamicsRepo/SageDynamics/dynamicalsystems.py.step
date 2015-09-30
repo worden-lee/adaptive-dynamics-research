@@ -15,24 +15,24 @@ class DynamicsException(Exception):
         self._latex_str = latex_str
         Exception.__init__( self, message )
 
-class EquilibriumDetectedException(DynamicsException):
-    def __init__(self):
-        Exception.__init__( self, 'Equilibrium detected' )
+class TrajectoryInterruptedException(DynamicsException):
+    # Exception meaning the integration of the dynamics
+    # has been interrupted. provides the partial trajectory.
+    # subclasses below are the ones that should be used, to
+    # explain what was the cause.
+    def __init__(self, trajectory, text):
+	Exception.__init__(self, text)
+	self._trajectory = trajectory
 
-class UnboundedDynamicsException(DynamicsException):
-    def __init__(self, message=None):
+class EquilibriumDetectedException(TrajectoryInterruptedException):
+    def __init__(self, trajectory=None):
+        TrajectoryInterruptedException.__init__( self, trajectory, 'Equilibrium detected' )
+
+class UnboundedDynamicsException(TrajectoryInterruptedException):
+    def __init__(self, trajectory, message=None):
         if message is None:
             message = 'Dynamics has become unbounded'
-        Exception.__init__( self, message )
-
-class TrajectoryInterruptedException(DynamicsException):
-    # this one is kind of meta. It says the integration of the dynamics
-    # has been interrupted, and provides the partial trajectory together
-    # with the reason why - and the reason why is another exception...
-    def __init__( self, trajectory, reason ):
-        self._trajectory = trajectory
-        self._reason = reason
-        Exception.__init__( self, 'Integration of dynamics interrupted' )
+        TrajectoryInterruptedException.__init__( self, trajectory, message )
 
 def hat(v):
     """little utility function to add a hat to a Sage variable, e.g.
@@ -50,7 +50,7 @@ def hat(v):
     latex_name = re.sub( r'^([^_]*)(.*?)$', r'\hat{\g<1>}\g<2>', latex(v) )
     return SR.symbol( name, latex_name=latex_name )
 
-class ODETrajectory(SageObject):
+class Trajectory(SageObject):
     """A trajectory of a system of ordinary differential equations.
 
     This class remembers the ODE that made it, and the symbolic variables
@@ -77,7 +77,7 @@ class ODETrajectory(SageObject):
 	    pass
         self._timeseries = timeseries
     def __repr__(self):
-        return 'ODETrajectory(' + repr(self._timeseries) + ')'
+        return 'Trajectory(' + repr(self._timeseries) + ')'
     def point_to_bindings( self, state ):
         try:
             #print 'is', state, 'a bindings?'
@@ -109,7 +109,7 @@ class ODETrajectory(SageObject):
 	# you can combine trajectories from different models, at your own risk
 	#if self._system is not other._system:
 	#    raise ValueError, "Can't concatenate incompatible trajectories"
-	return ODETrajectory( self._system, self._timeseries + other._timeseries )
+	return Trajectory( self._system, self._timeseries + other._timeseries )
     def make_points(self, xexpr, yexpr):
         # for branching stuff
         # list the evaluations of the expressions at the points,
@@ -150,7 +150,7 @@ class ODETrajectory(SageObject):
             P = None
 	    colors = rainbow( len( yexpr ) )
             for y in yexpr:
-                p = self.plot( xexpr, y, color=colors.pop(), legend_label=latex(y), **args )
+                p = self.plot( xexpr, y, color=colors.pop(), legend_label='$%s$'%latex(y), **args )
                 if P is None:
                     P = p
                 else:
@@ -193,6 +193,23 @@ class ODETrajectory(SageObject):
             for dic in self._timeseries:
                 csvwriter.writerow( [ c.substitute(dic) for c in colnames ] )
 
+class CompositeTrajectory( Trajectory ):
+    def __init__(self, *trajs):
+	self._series = trajs
+    def __repr__(self):
+	return 'CompositeTrajectory: ' + ', '.join( t.__repr__() for t in self._series )
+    def append(self, state):
+	self._series[-1].append(state)
+    def make_points(self, xexpr, yexpr):
+	return sum( (t.make_points( xexpr, yexpr ) for t in self._series), [] )
+    def __add__(self, other):
+	try:
+		return CompositeTrajectory( *(self._series + other._series) )
+	except AttributeError: # other isn't composite
+		return CompositeTrajectory( *(self._series + [other]) )
+    def write_csv(self, filename, *columns):
+	raise ValueError, 'Haven\'t worked out how to write composite trajectory to csv'
+
 class Bindings(dict):
     """Definitions for variables and functions.
 
@@ -228,7 +245,8 @@ class Bindings(dict):
             self[kk] = symbolic_expression(v)
         #print ' =>', self
     def __repr__(self):
-        frepr = repr(self._function_bindings)
+        try: frepr = repr(self._function_bindings)
+	except AttributeError: frepr = ''
         if frepr != '':
             frepr = ', ' + frepr
         return '{%s%s}' % (self.inner_repr(), frepr)
@@ -244,15 +262,19 @@ class Bindings(dict):
         return '%s%s' % ( ' \\\\\n'.join( '  %s &\\to %s' % (latex(key), latex(val)) for key, val in self.items() ), flx )
     def substitute(self, expr):
         """Apply the bindings to an expression"""
-        # if it's a Bindings or dict, apply ourself to all the values
+	## if it has a bind method, that'll work
+	try:
+	    return expr.bind( self )
+	except AttributeError: pass
+        ## if it's a Bindings or dict, apply ourself to all the values
         try:
             return expr.__class__( { k:self.substitute(v) for k,v in expr.items() } )
         except (AttributeError, ValueError): pass
-        # or if it's a vector or something, apply to all entries
+        ## or if it's a vector or something, apply to all entries
         try:
             return expr.apply_map( lambda x : self.substitute( x ) )
         except AttributeError: pass
-        # in case expr is a plain string
+        ## in case expr is a plain string
         expr = symbolic_expression(expr)
         expr = expr.substitute_expression(self)
         #print ' => ', expr
@@ -317,20 +339,27 @@ class FunctionBindings(Bindings):
             # http://trac.sagemath.org/ticket/17558
             # store as (function name, argument list): return value
             # i.e. with no function objects stored
-            try:
-                # if it's a FunctionBindings or other dict { (<name>,<args>): <expr> }
-                # it's tricky to exclude string-valued ks from this
-                def rterr(): raise TypeError
-                self.update( { (isinstance(k,tuple) and k or rterr()):v for k,v in a.items() } )
-            except (TypeError, ValueError):
-                try:
-                    # if it's a dict { <fn or name>: <fn or expr> }, including
-                    # the kind you would use with substitute_function(),
-                    # transform it to { (<name>,<args>):<expr> }
-                    self.update( { (str(k),v.arguments()):SR(v) for k,v in a.items() } )
-                except ValueError:
-                    print 'Unrecognized initializer for bindings:', a
-    def __repr__(self):
+	    for k,v in a.items():
+        	try:
+		    # if it's a FunctionBindings or other dict { (<name>,<args>): <expr> }
+		    # it's tricky to exclude string-valued ks from this
+		    print (k,v), 'as tuple:expr?'
+		    def rterr(): raise TypeError
+		    self.update( { (isinstance(k,tuple) and k or rterr()):v } )
+		    print {k:v}
+        	except (TypeError, ValueError):
+       		    try:
+                	# if it's a dict { <fn or name>: <fn or expr> }, including
+                	# the kind you would use with substitute_function(),
+                	# transform it to { (<name>,<args>):<expr> }
+			print (k,v), 'as expr:function?'
+                	#self.update( { (str(k),SR(v).arguments()):SR(v) } )
+			#print { (str(k),SR(v).arguments()):SR(v) }
+                	self.update( { (str(k),v.arguments()):v } )
+			print { (str(k),v.arguments()):v }
+		    except ValueError:
+                	print 'Unrecognized initializer for bindings:', { k:v }
+    def inner_repr(self):
         # would like to use unicode arrow u'\u2192' but causes output codec error
         return ', '.join( '%s(%s) %s %s' % (key[0], ','.join( str(k) for k in key[1] ), '->', str(val)) for key,val in self.items() )
     def latex_inner(self):
@@ -346,9 +375,12 @@ class FunctionBindings(Bindings):
             # and function('f'), since they get interchanged by
             # maxima and pickle operations
             # http://trac.sagemath.org/ticket/17503
-            expr = expr.substitute_function( function(k[0]), v.function( *k[1] ) )
-            expr = expr.substitute_function( function(k[0], nargs=len(k[1])), v.function( *k[1] ) )
-            expr = expr.substitute_function(k,v)
+	    try: expr = expr.substitute_function( function(k[0]), v.function( *k[1] ) )
+	    except AttributeError: pass
+            try: expr = expr.substitute_function( function(k[0], nargs=len(k[1])), v.function( *k[1] ) )
+	    except AttributeError: pass
+            expr = expr.substitute_function(function(k[0]),v)
+            expr = expr.substitute_function(function(k[0],nargs=len(k[1])),v)
             #print ' => ', expr
         return simplify_limits( expr )
     def __deepcopy__(self, _dict):
@@ -545,12 +577,15 @@ class ODESystem(SageObject):
           self._time_variable,
           end_time,
           step )
+	print "initial flow:", [ self._flow[x].subs( **( { str(k):v for k,v in zip([self._time_variable] + self._vars, [start_time] + initial_conditions ) } ) ) for x in self._vars ]
         soln = desolve_system_rk4(
           [self._flow[v] for v in self._vars],
           self._vars, [start_time] + initial_conditions,
           ivar=self._time_variable,
           end_points=end_time, step=step )
-        return ODETrajectory(self, soln)
+        #return Trajectory(self, soln)
+	# this seems to help when sympy is involved
+	return Trajectory(self, [ [N(z) for z in l] for l in soln ])
     def plot_vector_field(self, xlims, ylims, filename='', vf=None, xlabel=-1, ylabel=-1, **args):
         xlims = tuple( self._bindings.substitute( v ) for v in xlims )
         ylims = tuple( self._bindings.substitute( v ) for v in ylims )
@@ -684,38 +719,41 @@ class ODESystem(SageObject):
         if filename is not None:
             bp.save( filename )
         return bp
+    _gsl_module_cache = {}
     def gsl_system(self):
-        il = range(len(self._vars))
-        cython_code = (
-            "cimport sage.gsl.ode\n"
-            "import sage.gsl.ode\n"
-            "from sage.ext.interpreters.wrapper_rdf cimport Wrapper_rdf\n"
-            "include 'gsl.pxi'\n"
-            "cdef class gsl_ode_system(sage.gsl.ode.ode_system):\n"
-            + ''.join(
-            "    cdef Wrapper_rdf _flow%d\n"%i for i in il
-            ) +
-            "    def __init__( self, "
-            + ', '.join("Wrapper_rdf f%d"%i for i in il)
-            + " ):\n"
-            + ''.join(
-            "        self._flow%d = f%d\n"% (i,i) for i in il
-            ) +
-            "    cdef int c_f( self, double t, double *y, double *dydt ):\n"
-            #"        cdef double *result = [t]\n"
-            + (''.join(
-            "        self._flow%d.call_c( y, &dydt[%d] )\n"
-            #"        dydt[%d] = result[0]\n"
-                % (i,i) for i in il
-            )) +
-            "        return GSL_SUCCESS\n"
-            # need c_j() as well?
-        )
-        #print cython_code
-        module = sage.misc.cython.compile_and_load( cython_code )
+	n = len(self._vars)
+	if not n in self._gsl_module_cache:
+            il = range(len(self._vars))
+            cython_code = (
+                "cimport sage.gsl.ode\n"
+                "import sage.gsl.ode\n"
+                "from sage.ext.interpreters.wrapper_rdf cimport Wrapper_rdf\n"
+                "include 'gsl.pxi'\n"
+                "cdef class gsl_ode_system(sage.gsl.ode.ode_system):\n"
+                + ''.join(
+                "    cdef Wrapper_rdf _flow%d\n"%i for i in il
+                ) +
+                "    def __init__( self, "
+                + ', '.join("Wrapper_rdf f%d"%i for i in il)
+                + " ):\n"
+                + ''.join(
+                "        self._flow%d = f%d\n"% (i,i) for i in il
+                ) +
+                "    cdef int c_f( self, double t, double *y, double *dydt ):\n"
+                #"        cdef double *result = [t]\n"
+                + (''.join(
+                "        self._flow%d.call_c( y, &dydt[%d] )\n"
+                #"        dydt[%d] = result[0]\n"
+                    % (i,i) for i in il
+                )) +
+                "        return GSL_SUCCESS\n"
+                # need c_j() as well?
+            )
+            print cython_code
+            self._gsl_module_cache[n] = sage.misc.cython.compile_and_load( cython_code )
         T = ode_solver()
         #T.algorithm = 'bsimp'
-        T.function = module.gsl_ode_system( *(
+        T.function = self._gsl_module_cache[n].gsl_ode_system( *(
             fast_float( self._flow[v], *self._vars )
             for v in self._vars
         ) )
@@ -725,17 +763,18 @@ class ODESystem(SageObject):
             self._gsl_system
         except AttributeError:
             self._gsl_system = self.gsl_system()
+	print initial_conditions
         self._gsl_system.ode_solve(
             t_span=[start_time, end_time],
             num_points = (end_time - start_time) / step + 1,
             y_0 = initial_conditions
         )
-        return ODETrajectory( self, ( [ t ] + ys for t,ys in self._gsl_system.solution ) )
+        return Trajectory( self, ( [ t ] + ys for t,ys in self._gsl_system.solution ) )
         return self._gsl_system.solution
 
 # used by NumericalODESystem.solve()
-# unlike the standard odeint(), this fails when the du/dt function
-# raises and exception
+# unlike the standard odeint(), this stops when the du/dt function
+# raises an exception
 # http://www.pythoneye.com/212_16439560/
 import scipy.integrate, numpy
 def fake_odeint(system, y0, t, args=None, Dfun=None):
@@ -753,14 +792,12 @@ def fake_odeint(system, y0, t, args=None, Dfun=None):
         #    break
         try:
             y.append(ig.integrate(tt))
-        except (EquilibriumDetectedException,UnboundedDynamicsException) as ex:
-            raise TrajectoryInterruptedException(
-                ODETrajectory(
-                    system,
-                    [ [tt]+list(point) for tt,point in zip(t,y) ]
-                ),
-                ex
+        except TrajectoryInterruptedException, ex:
+	    ex._trajectory = Trajectory( 
+                system,
+                [ [tt]+list(point) for tt,point in zip(t,y) ]
             )
+	    raise
     return numpy.array(y)
 
 class NumericalODESystem( ODESystem ):
@@ -788,7 +825,7 @@ class NumericalODESystem( ODESystem ):
         timeseries = [ dict( (k,v) for k,v in
           zip([self._time_variable]+self._vars,[t]+list(point)) )
           for t, point in zip(times, soln) ]
-        return ODETrajectory(self, timeseries)
+        return Trajectory(self, timeseries)
     def compute_flow(self, y, t):
         # provide this in a subclass.  It needs to return a numpy array of
         # floats providing the dy/dt vector matching the y argument.
@@ -919,7 +956,12 @@ class PopulationDynamicsSystem(ODESystem):
     # don't set _population_indices directly, call this, to keep the flow in sync
     def set_population_indices(self, xi):
 	print 'set_population_indices:', xi
-        self._population_indices = xi
+	try: index_change = (xi != self._population_indices)
+	except AttributeError: index_change = True
+	if index_change:
+            self._population_indices = xi
+	    try: del(self._gsl_system)
+	    except AttributeError: pass
         self._vars = self._nonpop_vars + self.population_vars()
         self._flow = self.flow()
         #self._flow = dict( (k,self._bindings(v)) for k,v in self._flow.items() )

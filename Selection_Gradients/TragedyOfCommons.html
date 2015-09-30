@@ -154,49 +154,9 @@ save_session('toc')
 </pre></div></fieldset></p>
 
 <p>The model equations, according to Sage:
-<!-- toc.sage.out.html --><div class="latexml">
-
-<div class="ltx_page_main">
-<div class="ltx_page_content">
-<article class="ltx_document">
-<div id="p1" class="ltx_para">
-<p class="ltx_p">The ToC model:</p>
-<table id="S0.Ex1" class="ltx_equationgroup ltx_eqn_table">
-
-<tr id="S0.Ex1X" class="ltx_equation ltx_eqn_row ltx_align_baseline">
-<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
-<td class="ltx_td ltx_align_right ltx_eqn_cell">
-              <math xmlns="http://www.w3.org/1998/Math/MathML" id="S0.Ex1X.m2" class="ltx_Math" alttext="\displaystyle\frac{dX}{dt}" display="inline"><mstyle displaystyle="true"><mfrac><mrow><mi>d</mi><mo>⁢</mo><mi>X</mi></mrow><mrow><mi>d</mi><mo>⁢</mo><mi>t</mi></mrow></mfrac></mstyle></math>
-            </td>
-<td class="ltx_td ltx_align_left ltx_eqn_cell">
-              <math xmlns="http://www.w3.org/1998/Math/MathML" id="S0.Ex1X.m3" class="ltx_Math" alttext="\displaystyle=-{\left({\left(Xdh-q_{0}\right)}h+1\right)}X" display="inline"><mrow><mi></mi><mo>=</mo><mrow><mo>-</mo><mrow><mrow><mo>(</mo><mrow><mrow><mrow><mo>(</mo><mrow><mrow><mi>X</mi><mo>⁢</mo><mi>d</mi><mo>⁢</mo><mi>h</mi></mrow><mo>-</mo><msub><mi>q</mi><mn>0</mn></msub></mrow><mo>)</mo></mrow><mo>⁢</mo><mi>h</mi></mrow><mo>+</mo><mn>1</mn></mrow><mo>)</mo></mrow><mo>⁢</mo><mi>X</mi></mrow></mrow></mrow></math>
-            </td>
-<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
-</tr>
-</table>
-<p class="ltx_p">Whence the adaptive dynamics of <math xmlns="http://www.w3.org/1998/Math/MathML" id="p1.m1" class="ltx_Math" alttext="h" display="inline"><mi>h</mi></math> is</p>
-<table id="S0.EGx1" class="ltx_equationgroup ltx_eqn_align ltx_eqn_table">
-
-<tr id="S0.Ex2" class="ltx_equation ltx_eqn_row ltx_align_baseline">
-<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
-<td class="ltx_td ltx_align_right ltx_eqn_cell">
-              <math xmlns="http://www.w3.org/1998/Math/MathML" id="S0.Ex2.m1" class="ltx_Math" alttext="\displaystyle\left[\text{{{\char 92}frac{\char 123}dh{\char 125}{\char 123}dt{%
-\char 125}{ }{\char 38}{\char 92}propto{ }{-}{\char 92}hat{\char 123}X{\char 1%
-25}{ }d{ }h{ }+{ }q{\char 95}{\char 123}0{\char 125}}}\right]" display="inline"><mrow><mo>[</mo><mtext>                         <span class="ltx_text ltx_font_typewriter">\frac{dh}{dt} &amp;\propto -\hat{X} d h + q_{0}</span>                       </mtext><mo>]</mo></mrow></math>
-            </td>
-<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
-</tr>
-</table>
-</div>
-</article>
-</div>
-<footer class="ltx_page_footer">
-<div class="ltx_page_logo">Generated  on Thu Jun 18 22:35:44 2015 by <a href="http://dlmf.nist.gov/LaTeXML/">LaTeXML <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAsAAAAOCAYAAAD5YeaVAAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAALEwAACxMBAJqcGAAAAAd0SU1FB9wKExQZLWTEaOUAAAAddEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIFRoZSBHSU1Q72QlbgAAAdpJREFUKM9tkL+L2nAARz9fPZNCKFapUn8kyI0e4iRHSR1Kb8ng0lJw6FYHFwv2LwhOpcWxTjeUunYqOmqd6hEoRDhtDWdA8ApRYsSUCDHNt5ul13vz4w0vWCgUnnEc975arX6ORqN3VqtVZbfbTQC4uEHANM3jSqXymFI6yWazP2KxWAXAL9zCUa1Wy2tXVxheKA9YNoR8Pt+aTqe4FVVVvz05O6MBhqUIBGk8Hn8HAOVy+T+XLJfLS4ZhTiRJgqIoVBRFIoric47jPnmeB1mW/9rr9ZpSSn3Lsmir1fJZlqWlUonKsvwWwD8ymc/nXwVBeLjf7xEKhdBut9Hr9WgmkyGEkJwsy5eHG5vN5g0AKIoCAEgkEkin0wQAfN9/cXPdheu6P33fBwB4ngcAcByHJpPJl+fn54mD3Gg0NrquXxeLRQAAwzAYj8cwTZPwPH9/sVg8PXweDAauqqr2cDjEer1GJBLBZDJBs9mE4zjwfZ85lAGg2+06hmGgXq+j3+/DsixYlgVN03a9Xu8jgCNCyIegIAgx13Vfd7vdu+FweG8YRkjXdWy329+dTgeSJD3ieZ7RNO0VAXAPwDEAO5VKndi2fWrb9jWl9Esul6PZbDY9Go1OZ7PZ9z/lyuD3OozU2wAAAABJRU5ErkJggg==" alt="[LOGO]"></a>
-</div></footer>
-</div>
-
-</div>
-</p>
+<fieldset class="ww-messages"><legend>&lt;ww-messages-legend: &gt;</legend><p class='error'>Error: Project file not found: Selection_Gradients › toc.sage.out.html</p>
+</fieldset>
+<!-- toc.sage.out.html --></p>
 
 <p>And the big question is, of course, does evolution of the quadratic term here have a positive direct effect and negative indirect one?</p>
 
