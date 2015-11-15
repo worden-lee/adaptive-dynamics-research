@@ -1,0 +1,77 @@
+---
+layout: page
+title: Notes on Masel model
+author: Lee Worden
+bibliography: master.bib
+wmd_project: Selection_Gradients
+---
+
+Masel [@Masel2015] proposes a reorganization of the classic
+$$r-K$$ model of density-dependent selection into one with three
+conceptually independent quantities $$r$$, $$K$$, and additionally
+$$c$$ for competitive ability, separated from the concept of
+"parsimoniousness of resource use" $$K$$.  The population dynamics
+equation is
+<latex>\[
+ \frac{dN_i}{dt} = r_i N_i \left( 1 - \frac1{c_i}\sum_j \frac{c_j N_j}{K_j} \right).
+\]</latex>
+
+<source-file filename=masel_model.py.step display=none>
+from sage.all import *
+import os, sys
+sys.path.append( os.environ['SageDynamicsRepo'] )
+import dynamicalsystems
+
+class MaselModel(dynamicalsystems.PopulationDynamicsSystem):
+    def __init__( self, n ):
+	super(MaselModel,self).__init__( [], range(n), 
+	    dynamicalsystems.indexer('X')
+	)
+    def flow(self):
+	r = dynamicalsystems.indexer('r')
+	c = dynamicalsystems.indexer('c')
+	K = dynamicalsystems.indexer('K')
+	X = self._population_indexer
+	return { X[i]: r[i]*X[i]*(1 - sum( c[j]*X[j] / K[j] for j in self._population_indices ) / c[i]) for i in self._population_indices }
+</source-file>
+
+<source-file filename=masel.sage.step display=none>
+# requires: masel_model.py
+# produces: masel-model.tex
+# produces: masel-model.sobj
+from sage.all import *
+import os, sys
+sys.path.append( os.environ['SageDynamicsRepo'] )
+import masel_model
+from latex_output import latex_output
+
+masel = masel_model.MaselModel(1)
+
+ltx = latex_output( 'masel-model.tex' )
+ltx.write( masel )
+ltx.close()
+
+save_session('masel-model')
+</source-file>
+
+<source-file filename=masel-adap.sage.step display=none>
+# requires: masel_model.py
+# requires: masel-model.sobj
+# produces: masel-adap.tex
+from sage.all import *
+import os, sys
+sys.path.append( os.environ['SageDynamicsRepo'] )
+import masel_model
+from latex_output import latex_output
+import adaptivedynamics, dynamicalsystems
+
+load_session( 'masel-model' )
+
+masel_adap = adaptivedynamics.AdaptiveDynamicsModel( masel, [ dynamicalsystems.indexer('r'), dynamicalsystems.indexer('c'), dynamicalsystems.indexer('K') ] )
+
+ltx = latex_output( 'masel-adap.tex' )
+ltx.write( masel_adap )
+ltx.close()
+</source-file>
+
+<project-file filename=masel-adap.tex/>
