@@ -51,10 +51,14 @@ css/auto-generated-from-ww.css : $(WW_CSS_TO_USE)
 # and pandoc disagree on locations within the page text, with and without
 # the YAML header included).
 WW = /usr/local/src/workingwiki
-PROJECT = Selection_Gradients
-TITLE = "Evolution in a Food Web"
 _pandoc/%.md : %.md.wmd wmd_files/.workingwiki/.wmd.data
 	php $(WW)/wmd/wmd.php --pre --title=$(TITLE) --default-project-name=$(PROJECT) --cache-dir=wmd_files --data-store=.wmd.data --modification-time=`date +%Y%m%d%H%M%s` --process-inline-math=1 --output-format=tex < $< > $@
+
+PROJECT = Selection_Gradients
+TITLE = "Evolution in a Food Web"
+_pandoc/constraint.md : TITLE="Constraints"
+#_pandoc/AijModel.pdf : WMD_ARGS=--enable-make=0
+_pandoc/Masel.md _pandoc/Masel.tex: TITLE="'Notes on Masel Model'"
 
 _pandoc/%.md : Selection_Gradients/%.md.wmd wmd_files/.workingwiki/.wmd.data
 	php $(WW)/wmd/wmd.php --pre --title=$(TITLE) --default-project-name=$(PROJECT) --cache-dir=wmd_files --data-store=.wmd.data --modification-time=`date +%Y%m%d%H%M%s` --process-inline-math=1 --output-format=tex < $< > $@
@@ -63,7 +67,7 @@ _pandoc/%.intermediate.tex : _pandoc/%.md
 	pandoc -f markdown -t latex -s --listings --include-in-header=_assets/latex-header-additions.tex -S --filter pandoc-citeproc $< -o $@
 
 _pandoc/%.tex : _pandoc/%.intermediate.tex
-	php $(WW)/wmd/wmd.php --post --title=$(TITLE) --default-project-name=$(PROJECT) --cache-dir=wmd_files --data-store=.wmd.data --persistent-data-store --modification-time=`date +%Y%m%d%H%M%s` --output-format=tex < $< > $@
+	php $(WW)/wmd/wmd.php --post --title=$(TITLE) --default-project-name=$(PROJECT) --cache-dir=wmd_files --data-store=.wmd.data --persistent-data-store --modification-time=`date +%Y%m%d%H%M%s` --output-format=tex $(WMD_ARGS) < $< > $@
 
 _pandoc/%.pdf : _pandoc/%.tex
 	cd _pandoc && pdflatex $* && pdflatex $*

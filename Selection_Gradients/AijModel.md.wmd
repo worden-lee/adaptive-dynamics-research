@@ -2,6 +2,7 @@
 layout: page
 title: My original a_ij adaptive dynamics model
 wmd_project: Selection_Gradients
+wmd_enable_make: false
 ---
 This model investigation is hoped to reconstruct the behavior of my
 $$\Delta a_{ij}$$ model (in my dissertation).  
@@ -53,7 +54,7 @@ class NaiveAdaptiveDynamicsModel(adaptivedynamics.AdaptiveDynamicsModel):
 	    popstate = [ 1 for _ in self._popdyn._vars ]
 	t = start_time
 	trajectory = dynamicalsystems.Trajectory( self, [] )
-	self.append_to_trajectory( trajectory, t, None, state_bindings )
+	self.append_to_trajectory( trajectory, t, state_bindings )
 	while t < end_time:
 	    found_equil = False
 	    while found_equil is False:
@@ -68,6 +69,8 @@ class NaiveAdaptiveDynamicsModel(adaptivedynamics.AdaptiveDynamicsModel):
 	    persistent_indices = [ i for i in self._popdyn._population_indices if
 	        pop_end( self._popdyn._population_indexer[i] ) > 1e-5 ]
 	    print 'final state:', popstate, ', keep', persistent_indices
+	    for i in set(self._popdyn._population_indices) - set(persistent_indices):
+		self.record_extinction(trajectory, t, i, state_bindings)
 	    ## add a new variant
 	    import numpy.random
 	    pops = [ pop_end( self._popdyn._population_indexer[i] )
@@ -77,23 +80,28 @@ class NaiveAdaptiveDynamicsModel(adaptivedynamics.AdaptiveDynamicsModel):
 		[ p/total_pop for p in pops ] )
 	    mutant_parent = [ i for i,n in zip( persistent_indices, choose_parent ) if n == 1 ][0]
 	    self._popdyn = deepcopy( self._popdyn )
-	    mutant_index = self._popdyn.mutate( mutant_parent )
-	    self._popdyn.set_population_indices( persistent_indices + [ mutant_index ] )
+	    self._popdyn.set_population_indices( persistent_indices )
+	    mutant_index = self.mutate( self._popdyn, mutant_parent )
 	    mb = state_bindings( self.mutation_bindings( mutant_parent, mutant_index ) )
 	    self._popdyn.bind_in_place( mb )
 	    state_bindings += mb
 	    print "mutate from", mutant_parent, "to", mutant_index
+	    self.record_mutation( trajectory, t, mutant_parent, mutant_index, state_bindings )
+	    self.append_to_trajectory( trajectory, t, state_bindings )
 	    print self._popdyn
 	    popstate = [
 		pop_end( self._popdyn._population_indexer[i] ) -
 		    (1e-3 if i is mutant_parent else 0)
 		for i in persistent_indices
 	    ] + [ 1e-3 ]
-	    self.append_to_trajectory( trajectory, t, (mutant_parent,mutant_index), state_bindings )
 	return trajectory
     def mutation_bindings(self, parent, sport):
 	return dynamicalsystems.Bindings()
-    def append_to_trajectory( self, trajectory, t, mutation, state_bindings ):
+    def record_mutation(self, trajectory, t, mutant_parent, mutant_index, state_bindings):
+	pass
+    def record_extinction(self, trajectory, t, decedent, sb):
+	pass
+    def append_to_trajectory( self, trajectory, t, state_bindings ):
 	trajectory._timeseries.append( dict(
 	    [ (x,state_bindings(x)) for x in self._vars ] +
 	    [ (SR.symbol('t'),t) ]
@@ -134,31 +142,37 @@ class AijAdaptiveDynamics(NaiveAdaptiveDynamicsModel):
 	    ] + [
 		(rx[iprime], rx[i] + dr())
 	] ) )
-	print 'mutant bindings', i, '->', iprime, ':', mb
+	#print 'mutant bindings', i, '->', iprime, ':', mb
 	return mb
-    def append_to_trajectory( self, trajectory, t, mutation, state_bindings ):
-	super(AijAdaptiveDynamics,self).append_to_trajectory( trajectory, t, mutation, state_bindings )
-	try: trajectory._annotated_timeseries
-	except AttributeError:
-	    trajectory._annotated_timeseries = []
-	    trajectory._lineage = {}
+    def record_mutation(self, trajectory, t, parent, child, sb):
+	super(AijAdaptiveDynamics,self).record_mutation(trajectory,t,parent,child,sb)
 	ax = self._popdyn._indexers['a']
-	sa = SR.symbol( ax._f )
+	sa = ax._f #SR.symbol( ax._f ) # uniqueness problems pickling symbols?
 	rx = self._popdyn._indexers['r']
-	sr = SR.symbol( rx._f )
-	st = SR.symbol('t')
+	sr = rx._f #SR.symbol( rx._f )
+	st = 't' #SR.symbol('t')
 	il = self._popdyn._population_indices
-	alist = (
-	    [ ((sa,i,j),state_bindings(ax[i][j])) for i in il for j in il ] +
-	    [ ((sr,i),  state_bindings(rx[i])) for i in il ] +
-	    [ ((st,),   t) ]
-	)
-	#print alist
-	trajectory._annotated_timeseries.append( dict( alist ) )
-	if mutation is not None:
-	    parent,child = mutation
-	    trajectory._lineage[child] = (parent,t)
-
+	for i in il:
+	    if child != i:
+	        trajectory._tree[ (sa,i,child) ] = [ (t-1,sb(ax[i][parent])) ]
+		trajectory._tree[ (sa,child,i) ] = [ (t-1,sb(ax[parent][i])) ]
+	trajectory._tree[ (sa,child,child) ] = [ (t-1,sb(ax[parent][parent])) ]
+	trajectory._tree[ (sr,child) ] = [ (t-1,sb(rx[parent])) ]
+    def append_to_trajectory( self, trajectory, t, sb ):
+        ax = self._popdyn._indexers['a']
+        sa = ax._f
+        rx = self._popdyn._indexers['r']
+        sr = rx._f
+        st = 't'
+        il = self._popdyn._population_indices
+	try: trajectory._tree
+	except AttributeError:
+	    from collections import defaultdict
+	    trajectory._tree = defaultdict( list )
+        for i in il:
+	    for j in il:
+	        trajectory._tree[ (sa,i,j) ].append( (t,sb(ax[i][j])) )
+            trajectory._tree[ (sr,i) ].append( (t,sb(rx[i])) )
 </source-file>
 
 <source-file filename=aij-assemble.sage.step lang=sage texdisplay=none>
@@ -233,17 +247,19 @@ ad_init = dynamicalsystems.Bindings( { comm2._indexers['a'][i][j]:-1 for i in co
 #ad_init = dynamicalsystems.Bindings( { comm2._indexers['a'][i][j]:(-1 if i == j else -0.75 if i < j else -0.7) for i in comm2._population_indices for j in comm2._population_indices } ) + dynamicalsystems.Bindings( { comm2._indexers['r'][i]:1 for i in comm2._population_indices } )
 ad_init_state = [ ad_init(u) for u in adap._vars ]
 
-ad_traj = adap.solve( ad_init_state, end_time=20 )
+ad_traj = adap.solve( ad_init_state, end_time=10 )
 
 ltx.close()
-
 save_session('aij-evol')
+
 </source-file>
+
+<project-file filename=aij-evol.sobj display=none/>
 
 <source-file filename="aij-evol-plot.sage.step" texdisplay=none>
 # requires: aij-evol.sobj
 # produces: aij-evol-plot.sage.out.tex 
-# produces: aij-a-vs-t.svg aij-a-vs-a.svg
+# produces: aij-a-vs-t.svg aij-a-vs-t-0.svg aij-a-vs-a.svg
 from sage.all import *
 from sage.misc.latex import _latex_file_
 from sage.misc.latex import latex
@@ -289,59 +305,62 @@ ltx = latex_output.latex_output( 'aij-evol-plot.sage.out.tex' )
 #    matrix( [ [ ad_traj._timeseries[0]( diff( equil(x), u ) ) for u in symbolic_adap._vars ] for x in smr.equilibrium_vars() ] )
 #)
 
-print ad_traj._annotated_timeseries
-t = SR.symbol('t')
+print ad_traj._tree
 
-#atp = list_plot( [ (d[t],aij) for d in ad_traj._annotated_timeseries for ann,aij in d.iteritems() if str(ann[0]) == 'a' ], color='red' )
-#atp.axes_labels( [ '$t$', '$a$' ] )
-#atp.save( 'aij-a-vs-t-0.svg', figsize=(5,5) )
+#atp0 = list_plot( [ (t,aij) for k,l in ad_traj._tree.iteritems() for t,aij in l if str(k[0]) == 'a' ], color='red' )
+#atp0.axes_labels( [ '$t$', '$a$' ] )
+#atp0.save( 'aij-a-vs-t-0.svg', figsize=(5,5) )
 
-atp = Graphics()
-dprev = None
-for d in ad_traj._annotated_timeseries:
-    tval = d[(t,)]
-    for ann,aij in d.iteritems():
-	if dprev is None:
-	    dprev = d
-	    continue
-	dprev = d
-	if str(ann[0]) != 'a': continue
-	a,i,j = ann
-	if i in ad_traj._lineage and ad_traj._lineage[i][1] == tval:
-	    ipar = ad_traj._lineage[i][0]
-	else: ipar = i
-	if j in ad_traj._lineage and ad_traj._lineage[j][1] == tval:
-	    jpar = ad_traj._lineage[j][0]
-	else: jpar = j
-	atp += line( [(tval-1,dprev[(a,ipar,jpar)]),(tval,aij)],
-	    color = (i == j and 'black' or (1,0.7,0.7)) )
+atp0 = sum( ( line( l, color='black' if k[1]==k[2] else (1,0.7,0.7) ) for k,l in ad_traj._tree.iteritems() if str(k[0]) == 'a' ), Graphics() )
+atp0.axes_labels( [ '$t$', '$a$' ] )
+atp0.save( 'aij-a-vs-t-0.svg', figsize=(5,5) )
+
+atp = sum( ( line( l, color='black' if k[1]==k[2] else (1,0.7,0.7) ) for k,l in ad_traj._tree.iteritems() if str(k[0]) == 'a' and len(l) > 2 ), Graphics() )
 atp.axes_labels( [ '$t$', '$a$' ] )
 atp.save( 'aij-a-vs-t.svg', figsize=(5,5) )
 
-#aap = lotkavolterra.plot_aij_with_arrows( ad_traj, nlv, scale=0.05 )
+aap = sum( (
+	line( [ (l[1],l[1]) for l in ad_traj._tree[k] ], color='black' )
+	    if k[1]==k[2] else
+	line( [ (l[1],r[1]) for l,r in zip(ad_traj._tree[k],ad_traj._tree[(k[0],k[2],k[1])]) ], color=(1,0.7,0.7) )
+	for k in ad_traj._tree.iterkeys()
+	    if str(k[0]) == 'a' and len(ad_traj._tree[k]) > 2# and k[1] <= k[2]
+    ),
+    Graphics()
+)
+aap.axes_labels( [ '$a_{ij}$', '$a_{ji}$' ] )
+aap.save( 'aij-a-vs-a.svg', figsize=(5,5) )
 
+exit(0r)
+atp = Graphics()
 aap = Graphics()
-dprev = None
-for d in ad_traj._annotated_timeseries:
-    if dprev is not None:
-        tval = d[(t,)]
-        for ann,aij in d.iteritems():
-	    if str(ann[0]) != 'a': continue
-	    a,i,j = ann
-	    if i in ad_traj._lineage and ad_traj._lineage[i][1] == tval:
-	        ipar = ad_traj._lineage[i][0]
-		print 'time', tval, ipar, '->', i
-	    else: ipar = i
-	    if j in ad_traj._lineage and ad_traj._lineage[j][1] == tval:
-	        jpar = ad_traj._lineage[j][0]
-		print 'time', tval, jpar, '->', j
-	    else: jpar = j
-	    if i is ipar and j is jpar: continue
-	    print 'dprev', dprev
-	    print 'line', [(ipar,jpar),(i,j)], [(dprev[(a,jpar,ipar)],dprev[(a,ipar,jpar)]),(d[(a,j,i)],aij)]
-	    aap += line( [(dprev[(a,jpar,ipar)],dprev[(a,ipar,jpar)]),(d[(a,j,i)],aij)],
-	        color = (i == j and 'black' or (1,0.7,0.7)) )
-    dprev = d
+for k,ser in ad_traj._tree:
+    if str(ann[0]) != 'a': continue
+    a,i,j = ann
+    if ann in past:
+        pij = past[ann]
+    else:
+        if i in ad_traj._lineage and i >= j:
+            ipar = ad_traj._lineage[i]
+    	    print ipar, '->', i
+        else: ipar = i
+        if j in ad_traj._lineage and j >= i:
+            jpar = ad_traj._lineage[j]
+    	    print jpar, '->', j
+        else: jpar = j
+        print (ipar,jpar), '->', (i,j)
+        print past
+        if ('a',ipar,jpar) not in past: # case of initial strain
+    	    continue
+        pij = past[('a',ipar,jpar)]
+        pji = past[('a',jpar,ipar)]
+        aap += line( [(pij,pji),(aij,d[('a',j,i)])],
+            color = (i == j and 'black' or (1,0.7,0.7)) )
+    atp += line( [(tval-1,pij),(tval,aij)],
+        color = (i == j and 'black' or (1,0.7,0.7)) )
+atp.axes_labels( [ '$t$', '$a$' ] )
+atp.save( 'aij-a-vs-t.svg', figsize=(5,5) )
+#aap = lotkavolterra.plot_aij_with_arrows( ad_traj, nlv, scale=0.05 )
 aap.axes_labels( [ '$a_{ij}$', '$a_{ji}$' ] )
 aap.save( 'aij-a-vs-a.svg', figsize=(5,5) )
 
@@ -385,6 +404,8 @@ ltx.close()
 </source-file>
 
 <project-file filename=aij-evol-plot.sage.out.tex/>
+
+<project-file filename=aij-a-vs-t-0.svg/>
 
 <project-file filename=aij-a-vs-t.svg/>
 

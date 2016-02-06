@@ -39,11 +39,13 @@ Figure: results in that model.
 Something about questions this raises and how it motivates the following
 theory.  Relationship to temptation-to-defect theory of cooperation.
 
+Mention prisoner's dilemma paper.
+
 ## direct model
 
-<project-file filename=direct-a-vs-a.svg/>
+<project-file filename=aij-a-vs-t.svg/>
 
-# Coevolution of constrained characters
+# Sidebar: Coevolution of constrained characters
 
 When there are two or more phenotypic characters, or ecological
 characteristics of a population such as efficiency of resource uptake,
@@ -203,6 +205,12 @@ This research may help us to explain both mutualistic and
 antagonistic situations in nature and society, and may also help
 illuminate opportunities to transform antagonistic situations or
 social traps to opportunities for mutual benefit. 
+
+# Adaptive dynamics version of byproduct model
+
+<project-file filename=direct-a-vs-a.svg/>
+
+* To do: A-vs-a plot of similar model but with an initial branching?
 
 # Example: Resource competition
 
@@ -576,6 +584,8 @@ scalar phenotype $$u$$,
 In general, given some functions $$b, m, c_1$$ of a scalar $$u$$,
 
 # Constrasting example: competition for space
+
+* To do: rewrite, shorten by using Masel's paper
 
 The other classic ecological competition model is the one that gives
 rise to the traditional distinction between $$r$$-selected and
@@ -1053,13 +1063,14 @@ loss of generality that $$i$$ is the prey of $$j$$) is
     \right] \mathbf{S}(\mathbf{A}),
 \end{align*}</latex>
 
-# Example: Emergence and loss of mutualism
+# Externalities and the threat of "cheating" in evolution of mutualisms
 
 In the natural history of fig-fig wasp mutualisms, the coevolving tree and
 insect species have transitioned from parasitism to mutualism, and from
-mutualism to parasitism, a number of times.  A trade-off model captures this,
+mutualism to parasitism, a number of times.  
+<!-- A trade-off model captures this,
 and I reexamine it in terms of direct and indirect effects and the abstract
-selection gradient.
+selection gradient. -->
 
 [To come]
 

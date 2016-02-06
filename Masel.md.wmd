@@ -6,8 +6,8 @@ bibliography: master.bib
 wmd_project: Selection_Gradients
 ---
 
-Masel [@Masel2015] proposes a reorganization of the classic
-$$r-K$$ model of density-dependent selection into one with three
+Masel [-@Masel2014] proposes a reorganization of the classic
+$$r$$-$$K$$ model of density-dependent selection into one with three
 conceptually independent quantities $$r$$, $$K$$, and additionally
 $$c$$ for competitive ability, separated from the concept of
 "parsimoniousness of resource use" $$K$$.  The population dynamics
@@ -16,6 +16,8 @@ equation is
  \frac{dN_i}{dt} = r_i N_i \left( 1 - \frac1{c_i}\sum_j \frac{c_j N_j}{K_j} \right).
 \]</latex>
 
+This is the selection gradient for that model:
+
 <source-file filename=masel_model.py.step display=none>
 from sage.all import *
 import os, sys
@@ -23,21 +25,37 @@ sys.path.append( os.environ['SageDynamicsRepo'] )
 import dynamicalsystems
 
 class MaselModel(dynamicalsystems.PopulationDynamicsSystem):
-    def __init__( self, n ):
-	super(MaselModel,self).__init__( [], range(n), 
-	    dynamicalsystems.indexer('X')
-	)
+    def __init__( self, n,
+	r = dynamicalsystems.indexer('r'),
+	c = dynamicalsystems.indexer('c'),
+	K = dynamicalsystems.indexer('K'),
+	X = dynamicalsystems.indexer('X') ):
+	self._indexers = dict( r=r, c=c, K=K, X=X )
+	super(MaselModel,self).__init__( [], range(n), X )
     def flow(self):
-	r = dynamicalsystems.indexer('r')
-	c = dynamicalsystems.indexer('c')
-	K = dynamicalsystems.indexer('K')
-	X = self._population_indexer
-	return { X[i]: r[i]*X[i]*(1 - sum( c[j]*X[j] / K[j] for j in self._population_indices ) / c[i]) for i in self._population_indices }
+	def _flow( r, c, K, X ):
+	    return { X[i]: r[i]*X[i]*(1 - sum( c[j]*X[j] / K[j] for j in self._population_indices ) / c[i]) for i in self._population_indices }
+	return _flow( **self._indexers )
+
+class Masel2Model(dynamicalsystems.PopulationDynamicsSystem):
+    def __init__( self, n,
+	r = dynamicalsystems.indexer('r'),
+	s = dynamicalsystems.indexer('s'),
+	c = dynamicalsystems.indexer('c'),
+	K = dynamicalsystems.indexer('K'),
+	X = dynamicalsystems.indexer('X') ):
+	self._indexers = dict( r=r, s=s, c=c, K=K, X=X )
+	super(Masel2Model,self).__init__( [], range(n), X )
+    def flow(self):
+	def _flow( r, s, c, K, X ):
+	    return { X[i]: X[i]*(r[i] - s[i]*sum( c[j]*X[j] / K[j] for j in self._population_indices ) / c[i]) for i in self._population_indices }
+	return _flow( **self._indexers )
+
 </source-file>
 
 <source-file filename=masel.sage.step display=none>
 # requires: masel_model.py
-# produces: masel-model.tex
+# produces: masel-model.tex masel-2-model.tex
 # produces: masel-model.sobj
 from sage.all import *
 import os, sys
@@ -46,9 +64,14 @@ import masel_model
 from latex_output import latex_output
 
 masel = masel_model.MaselModel(1)
+masel2 = masel_model.Masel2Model(1)
 
 ltx = latex_output( 'masel-model.tex' )
 ltx.write( masel )
+ltx.close()
+
+ltx = latex_output( 'masel-2-model.tex' )
+ltx.write( masel2 )
 ltx.close()
 
 save_session('masel-model')
@@ -69,9 +92,87 @@ load_session( 'masel-model' )
 
 masel_adap = adaptivedynamics.AdaptiveDynamicsModel( masel, [ dynamicalsystems.indexer('r'), dynamicalsystems.indexer('c'), dynamicalsystems.indexer('K') ] )
 
+from latex_output import column_vector, wrap_latex
 ltx = latex_output( 'masel-adap.tex' )
-ltx.write( masel_adap )
+Sv = column_vector( [ masel_adap._S[x] for x in masel_adap._vars ] )
+ltx.write_equality( wrap_latex( 'S' + latex( column_vector( masel_adap._vars ) ) ), Sv, masel_adap._bindings( Sv ) )
 ltx.close()
 </source-file>
 
 <project-file filename=masel-adap.tex/>
+
+Separating the traditional $$K$$ into a "cooperation" trait $$K$$
+and a "competition" trait $$c$$, the classical result that selection
+focuses entirely on $$K$$ and ignores $$r$$ becomes a focus entirely
+on $$c$$ and none on either $$K$$ or $$r$$.
+
+I notice, though, that the neutrality of $$r$$ depends on the fact
+that the generally nontrivial selection on $$r$$ is neutralized
+by the density dependence exactly balancing out
+the density-independent growth.  Symbolically, this is because $$r$$
+is multiplied across both terms of the population dynamics.  If those
+two coefficients might be different, then selection on the two of them may
+not cancel out.  Here we break that into two values, $$r$$ and $$s$$:
+
+<source-file filename=masel-2-adap.sage.step display=none>
+# requires: masel_model.py
+# requires: masel-model.sobj
+# requires: $(SageDynamicsRepo)/adaptivedynamics.py
+# produces: masel-2-adap.tex
+from sage.all import *
+import os, sys
+sys.path.append( os.environ['SageDynamicsRepo'] )
+import masel_model
+from latex_output import latex_output
+import adaptivedynamics, dynamicalsystems
+
+load_session( 'masel-model' )
+
+masel2_adap = adaptivedynamics.AdaptiveDynamicsModel( masel2, [ dynamicalsystems.indexer('r'), dynamicalsystems.indexer('s'), dynamicalsystems.indexer('c'), dynamicalsystems.indexer('K') ] )
+
+from latex_output import column_vector, wrap_latex
+ltx = latex_output( 'masel-2-adap.tex' )
+Sv = column_vector( [ masel2_adap._S[x] for x in masel2_adap._vars ] )
+ltx.write_equality( wrap_latex( 'S' + latex( column_vector( masel2_adap._vars ) ) ), Sv, masel2_adap._bindings( Sv ) )
+ltx.close()
+
+from dynamicalsystems import indexer
+rf = SR('r(x)').operator()
+sf = SR('s(x)').operator()
+u = indexer('u')
+m2u = masel_model.Masel2Model( 1, r=indexer( lambda i:rf(u[i]) ), s=indexer( lambda i:sf(u[i]) ) )
+
+m2u_adap = adaptivedynamics.AdaptiveDynamicsModel( m2u, [ u, dynamicalsystems.indexer('c'), dynamicalsystems.indexer('K') ] )
+
+ltx = latex_output( 'm2u-adap.tex' )
+Sv = column_vector( [ m2u_adap._S[x] for x in m2u_adap._vars ] )
+ltx.write_equality( wrap_latex( 'S' + latex( column_vector( m2u_adap._vars ) ) ), Sv, column_vector( [ s.collect_common_factors() for s in m2u_adap._bindings( Sv ) ] ) )
+ltx.close()
+</source-file>
+
+<project-file filename=masel-2-model.tex/>
+<project-file filename=masel-2-adap.tex/>
+
+In this case, we confirm that selection favors increase in density-independent
+growth $$r$$, at constant intensity 1,
+ and decrease in the impact of density on growth, $$s$$, at intensity
+$$-r/s$$.  If we constrain $$s=r$$ then these two "pressures" or tropisms
+cancel out.
+
+If we constrain $$s$$ to $$r$$ in a more general way, by making both
+functions of a real-valued parameter $$u$$, we find a (slightly garbled)
+relationship:
+
+<project-file filename=m2u-adap.tex/>
+
+That is, the net selection on $$u$$ is $$(r'(u)s(u) - r(u)s'(u))/s(u)$$.
+
+Q:
+
+* What's the simplest way to model $$r$$ selection?  G functions with slow population dynamics?
+* Eq 4, Grimes: $$\frac{dN_i}{N_idt} = b_i (1 - D + \frac{c_i}{\bar{c}})(1-D) - \mu_i$$
+    * triangle of selected patterns: tolerators ($$\mu$$), high-density competitors ($$rc$$), low-density colonizers ($$r$$)
+    * project $$b,K,\mu$$ to $$r,K$$
+
+
+# Bibliography
