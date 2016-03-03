@@ -1,110 +1,134 @@
 ---
 layout: page
-title: "Tragedy of the Commons Model"
+title: "Symbiosis in the Sea"
 wmd_project: Selection_Gradients
 ---
-Here is a simple model based on Hardin's original narrative of the Tragedy of the Commons.
+This model for symbiotic guest-host interaction in the sea is based on
+Roughgarden's 1975 paper, which considers selection on the guest only.
 
-We consider a community of $$X$$ cattle ranchers, each grazing a herd of $$h$$ cattle on the common pasture.
-Let $$q$$ be the quality of the pasture, such that the utility of grazing $$h$$ cattle is $$hq$$.
-Since the pasture is degraded by grazing, we suppose that the quality is of the form
+Here we add fairly arbitrary functional forms to include the host dynamics
+in the model, which retaining the Lotka-Volterra form which lets us looks
+at adaptive motion in the plane of interaction coefficients.
 
-$$q=q_0-dhX$$,
+The guest dynamics:
 
-where $$q_0$$ is the quality of a pristine pasture and $$d$$ is the degradation per head of cattle.
+$$\frac{dN_g}{N_g dt} = r_g + a_{gH} N_H$$.
 
-As Hardin outlines, the utility to a single rancher who adds one more head to the common pasture is
+We assume no $$g$$-$$g$$ interaction.
 
-$$(h+1)(q_0-d(hX+1))$$
+The host strategy/phenotype is
 
-so that the rancher's utility gain is
+* $$X_c$$: investment for/against (+/-) colonization by guest
+* $$X_m$$: investment for/against exploitation by guest (given colonization).
 
-$$(h+1)(q_0-d(hX+1)) - hq = (h+1)(q - d) - hq = q - d(h+1)$$.
+$$\frac{dN_H}{N_H dt} = r_H + a_{Hg} N_g + a_{HH} N_H$$
 
-Assuming $$d$$ is small enough that $$q>0$$, it follows that this utility difference is positive.
+let $$a_{HH}$$ be constant, uninteresting to adaptation.
 
-This is sufficient to drive Hardin's conclusion, that (as long as they act to maximize this utility function) ranchers will increase their herds even though it leads to degradation of the pasture for all.
+Investment has cost so $$r_H$$ is at maximum at $$X_c=X_m=0$$.
 
-This quantitative model also works in a biological context, essentially verbatim: consider a population of $$X$$ grams of bacteria, say, whose metabolism produces a toxic byproduct $$h$$ that indirectly reduces their fecundity:
+I propose
 
-$$\frac{dX}{dt} = (hq - m)X$$,
+* $$p(x_c,X_c)$$: probability of colonization per pair of individuals
 
-where $$q=q_0-dhX$$.
+on host side:
 
-If variant populations $$X'$$ produce variant amounts of byproduct $$h'$$, then under adaptive dynamics assumptions $$h$$ will increase, and the population will create an increasingly toxic habitat for itself.
+* $$C_g(X_c)$$: general (density independent) cost of investment re colonization
+* $$C_c(X_c)$$: per-guest cost of investment re colonization
+* $$C_m(X_m)$$: cost of investment re exploitation
+* (and add density-independent investment re exploitation?)
+* $$B(x_m,X_m)$$: benefit (+/-) to host of the guest's exploitation
 
-<source-file filename=toc.sage.step lang=sage>
-# requires: $(SageDynamics)/dynamicalsystems.py
-# requires: $(SageAdaptiveDynamics)/adaptivedynamics.py
-# requires: $(SageUtils)/latex_output.py
-# produces: toc.sobj toc.sage.out.tex
+on guest side:
+
+* $$c_g(x_c)$$: search cost
+* $$c_c(x_c)$$: cost of colonization after host is found
+* $$c_m(x_m)$$: cost of investment in exploitation
+* $$b(x_m,X_m)$$: benefit to guest
+
+So we then have
+
+$$\frac{dN_g}{N_g dt} = r_0 - c_g(x_c) + (p(x_c,X_c) (b(x_m,X_M) - c_c(x_c)) - c_m(x_m)) N_H$$
+
+$$\frac{dN_H}{N_H dt} = R_0 - C_g(X_c) + (p(x_c,X_c) (B(x_m,X_m) - C_m(X_c)) - C_m(X_m)) N_g$$
+
+This is oddly symmetric - maybe I abstracted it too much.  But one asymmetry is that the benefit to the host can be positive or negative, while it's assumed positive for the guest.  Thus the host might want to invest in defense against guests, while guests will always want to colonize and exploit.
+
+<source-file filename=seamodel.py display=none>
 from sage.all import * 
-from sage.misc.latex import _latex_file_
-
-import os
-import sys
-sys.path.append( os.environ['SageUtils'] )
-sys.path.append( os.environ['SageDynamics'] )
-sys.path.append( os.environ['SageAdaptiveDynamics'] )
-import latex_output
 import dynamicalsystems
-import adaptivedynamics
 
-ltx = latex_output.latex_output( 'toc.sage.out.tex' )
+# Model organized as follows:
+#  population index is (type, number), with type either g or H
 
-class TragedyOfCommonsModel(dynamicalsystems.PopulationDynamicsSystem):
+type_H, type_g = 0, 1
+var('H g m c')
+class SeaSymbiosisModel(dynamicalsystems.PopulationDynamicsSystem):
     def __init__(
 	self,
 	x_indices=None,
-	X = dynamicalsystems.indexer('X'),
-	h = dynamicalsystems.indexer('h'),
-	m = dynamicalsystems.indexer('m'),
+	X = dynamicalsystems.indexer( lambda (t,i): dynamicalsystems.subscriptedsymbol( 'N', H if t == type_H else g, i ) ),
+	m_indexer = dynamicalsystems.indexer( lambda (t,i): dynamicalsystems.subscriptedsymbol( 'X' if t == type_H else 'x', m, i) ),
+	c_indexer = dynamicalsystems.indexer( lambda (t,i): dynamicalsystems.subscriptedsymbol( 'X' if t == type_H else 'x', c, i) ),
 	bindings=dynamicalsystems.Bindings()):
-	self._indexers = { 'm':m, 'h':h }
-	super(TragedyOfCommonsModel,self).__init__(
+	self._indexers = { 'X': X, 'um': m_indexer, 'uc': c_indexer }
+	print 'debug:', m_indexer[(type_H,0)], 'done'; sys.stdout.flush()
+	from sage.symbolic.function_factory import function
+	self._names = dict( 
+		[ (n, SR.symbol(n)) for n in ('r_0', 'R_0') ] +
+		[ (n, function(n)) for n in ('p', 'c_g', 'c_c', 'c_m', 'b', 'C_g', 'C_c', 'C_m', 'B') ] +
+		self._indexers.items()
+	)
+	super(SeaSymbiosisModel,self).__init__(
 	    [], x_indices, X, bindings=bindings
 	)
     def flow(self):
-	X = self._population_indexer
-	h = self._indexers['h']
-	m = self._indexers['m']
-	return {
-	    X[i] : (h[i]*(SR.symbol('q_0') - SR.symbol('d')*sum(h[j]*X[j] for j in self._population_indices)) - m[i]) * X[i]
-	    for i in self._population_indices
-	}
+	return self.make_flow( **self._names )
+    def make_flow(self, X, um, uc, r_0, R_0, p, c_g, c_c, c_m, b, C_g, C_c, C_m, B ):
+	return dict(
+	    [ (X[g], X[g]*(r_0 - c_g(uc[g]) +
+		sum( (p(uc[g],uc[h])*(b(um[g],um[h]) - c_c(uc[g])) - c_m(um[g]))*X[h]
+			for h in self._population_indices if h[0] == type_H ) )
+	      ) for g in self._population_indices if g[0] == type_g ] +
+	    [ (X[h], X[h]*(R_0 - C_g(uc[h]) +
+		sum( (p(uc[g],uc[h])*(B(um[g],um[h]) - C_c(uc[h])) - C_m(um[h]))*X[g]
+			for g in self._population_indices if g[0] == type_g ) )
+	      ) for h in self._population_indices if h[0] == type_H ]
+	)
+    def mutate(self, resident_index):
+	t,i = resident_index
+	mutant_index = ( t, 1 + max( j for tt,j in self._population_indices if tt == t ) )
+	self.set_population_indices( self._population_indices + [ mutant_index ] )
+	return mutant_index
+</source-file>
+
+<source-file filename=sea.sage.step display=none>
+# produces: sea.sobj sea.sage.out.tex
+from sage.all import * 
+from sage.misc.latex import _latex_file_
+import seamodel, dynamicalsystems
 
 # now that I've defined the general resource-competition model, let's
 # create a 1-resource, 1-population instantiation to work with
-toc = TragedyOfCommonsModel(
-    x_indices=[0],
-    X = dynamicalsystems.indexer( lambda i: i and 'X_%s'%i or 'X' ),
-    h = dynamicalsystems.indexer( lambda i: i and 'h_%s'%i or 'h' ),
-    m = dynamicalsystems.indexer( lambda i: 1 )
-);
-
-ltx.write( 'The ToC model:' )
-ltx.write_block( toc )
-
-toc_adap = adaptivedynamics.AdaptiveDynamicsModel( 
-    toc,
-    [ toc._indexers['h'] ]
+sea = seamodel.SeaSymbiosisModel(
+    x_indices=[(seamodel.type_H,0),(seamodel.type_g,0)]
 )
 
-ltx.write( 'Whence the adaptive dynamics of $h$ is' )
-ltx.write_environment( 'align*', [ r'\\\n  '.join( r'\frac{d%s}{dt} &\propto %s' % (latex(v), latex(toc_adap._S[v])) for v in toc_adap._vars ) ] )
+ltx = dynamicalsystems.latex_output( 'sea.sage.out.tex' )
+ltx.write( 'The dynamics:' )
+ltx.write( sea )
+
+sea_adap = dynamicalsystems.AdaptiveDynamicsModel( 
+    sea,
+    [ sea._indexers['uc'], sea._indexers['um'] ]
+)
+
+ltx.write( 'Whence the adaptive dynamics is' )
+ltx.write_environment( 'align*', '\\\\\n  '.join( r'\frac{d%s}{dt} &\propto %s' % (dynamicalsystems.latex_math(v), dynamicalsystems.latex_math(sea_adap._S[v])) for v in sea_adap._vars ) )
 
 ltx.close()
 
-save_session('toc')
+save_session('sea')
 </source-file>
 
-The model equations, according to Sage:
-<project-file filename=toc.sage.out.html/>
-
-And the big question is, of course, does evolution of the quadratic term here have a positive direct effect and negative indirect one?
-
-I suspect that actually both are negative, for the same reason as in the MacLev model, because this actually has the same form as the MacLev model.
-
-The gradient of selection on $$h$$ is $$q$$, and increasing even only the patient $$h$$ intensifies the competition term $$a_{ij} = -dh_ih_j$$.
-
-The main part of the selection gradient is $$\frac{\partial r}{\partial h}=q_0$$.
+<project-file filename=sea.sage.out.tex/>

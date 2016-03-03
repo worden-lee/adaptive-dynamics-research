@@ -20,8 +20,6 @@ This is the selection gradient for that model:
 
 <source-file filename=masel_model.py.step display=none>
 from sage.all import *
-import os, sys
-sys.path.append( os.environ['SageDynamicsRepo'] )
 import dynamicalsystems
 
 class MaselModel(dynamicalsystems.PopulationDynamicsSystem):
@@ -58,10 +56,8 @@ class Masel2Model(dynamicalsystems.PopulationDynamicsSystem):
 # produces: masel-model.tex masel-2-model.tex
 # produces: masel-model.sobj
 from sage.all import *
-import os, sys
-sys.path.append( os.environ['SageDynamicsRepo'] )
 import masel_model
-from latex_output import latex_output
+from dynamicalsystems import latex_output
 
 masel = masel_model.MaselModel(1)
 masel2 = masel_model.Masel2Model(1)
@@ -82,17 +78,14 @@ save_session('masel-model')
 # requires: masel-model.sobj
 # produces: masel-adap.tex
 from sage.all import *
-import os, sys
-sys.path.append( os.environ['SageDynamicsRepo'] )
 import masel_model
-from latex_output import latex_output
-import adaptivedynamics, dynamicalsystems
+import dynamicalsystems
 
 load_session( 'masel-model' )
 
-masel_adap = adaptivedynamics.AdaptiveDynamicsModel( masel, [ dynamicalsystems.indexer('r'), dynamicalsystems.indexer('c'), dynamicalsystems.indexer('K') ] )
+masel_adap = dynamicalsystems.AdaptiveDynamicsModel( masel, [ dynamicalsystems.indexer('r'), dynamicalsystems.indexer('c'), dynamicalsystems.indexer('K') ] )
 
-from latex_output import column_vector, wrap_latex
+from dynamicalsystems import latex_output, column_vector, wrap_latex
 ltx = latex_output( 'masel-adap.tex' )
 Sv = column_vector( [ masel_adap._S[x] for x in masel_adap._vars ] )
 ltx.write_equality( wrap_latex( 'S' + latex( column_vector( masel_adap._vars ) ) ), Sv, masel_adap._bindings( Sv ) )
@@ -117,20 +110,16 @@ not cancel out.  Here we break that into two values, $$r$$ and $$s$$:
 <source-file filename=masel-2-adap.sage.step display=none>
 # requires: masel_model.py
 # requires: masel-model.sobj
-# requires: $(SageDynamicsRepo)/adaptivedynamics.py
 # produces: masel-2-adap.tex
 from sage.all import *
-import os, sys
-sys.path.append( os.environ['SageDynamicsRepo'] )
 import masel_model
-from latex_output import latex_output
-import adaptivedynamics, dynamicalsystems
+import dynamicalsystems
 
 load_session( 'masel-model' )
 
-masel2_adap = adaptivedynamics.AdaptiveDynamicsModel( masel2, [ dynamicalsystems.indexer('r'), dynamicalsystems.indexer('s'), dynamicalsystems.indexer('c'), dynamicalsystems.indexer('K') ] )
+masel2_adap = dynamicalsystems.AdaptiveDynamicsModel( masel2, [ dynamicalsystems.indexer('r'), dynamicalsystems.indexer('s'), dynamicalsystems.indexer('c'), dynamicalsystems.indexer('K') ] )
 
-from latex_output import column_vector, wrap_latex
+from dynamicalsystems import latex_output, column_vector, wrap_latex
 ltx = latex_output( 'masel-2-adap.tex' )
 Sv = column_vector( [ masel2_adap._S[x] for x in masel2_adap._vars ] )
 ltx.write_equality( wrap_latex( 'S' + latex( column_vector( masel2_adap._vars ) ) ), Sv, masel2_adap._bindings( Sv ) )
@@ -142,7 +131,7 @@ sf = SR('s(x)').operator()
 u = indexer('u')
 m2u = masel_model.Masel2Model( 1, r=indexer( lambda i:rf(u[i]) ), s=indexer( lambda i:sf(u[i]) ) )
 
-m2u_adap = adaptivedynamics.AdaptiveDynamicsModel( m2u, [ u, dynamicalsystems.indexer('c'), dynamicalsystems.indexer('K') ] )
+m2u_adap = dynamicalsystems.AdaptiveDynamicsModel( m2u, [ u, dynamicalsystems.indexer('c'), dynamicalsystems.indexer('K') ] )
 
 ltx = latex_output( 'm2u-adap.tex' )
 Sv = column_vector( [ m2u_adap._S[x] for x in m2u_adap._vars ] )

@@ -62,9 +62,7 @@ ad_bindings = bmc_bindings + gamma_bindings
 </source-file>
 
 <source-file filename=maclev-a-only-popdyn.sage.step lang=sage display=link>
-# requires: maclev_a_only_defs.py
-# requires: $(SageDynamics)/dynamicalsystems.py maclevmodels.py
-# requires: $(SageAdaptiveDynamics)/adaptivedynamics.py
+# requires: maclev_a_only_defs.py maclevmodels.py
 # produces: maclev-a-only-popdyn.sage.out.tex maclev-a-only-popdyn.sobj
 # produces: maclev-a-only-popdyn.png maclev-a-only-r-zngis.png maclev-a-only-c-vs-u.png 
 from maclev_a_only_defs import *
@@ -119,8 +117,7 @@ community's two residents are marked on this plot as well.
 ## Adaptive dynamics of $$c$$
 
 <source-file filename=maclev-a-only-adap.sage.step lang=sage display=link>
-# requires: $(SageDynamics)/dynamicalsystems.py
-# requires: $(SageAdaptiveDynamics)/adaptivedynamics.py maclevmodels.py
+# requires: maclevmodels.py
 # requires: maclev-a-only-popdyn.sobj maclev_a_only_defs.py
 # produces: maclev-a-only-adap.sage.out.tex maclev-a-only-adap.sobj
 # produces: maclev-a-only-u-vs-t.png
@@ -192,8 +189,7 @@ With these parameters, what happens to the evolving traits $$u$$?
 ## Adaptive Geometry: Ecological quantities $$m$$, $$b$$, and particularly $$c$$
 
 <source-file filename=maclev-a-only-p.sage.step display=link>
-# requires: $(SageDynamics)/dynamicalsystems.py $(SageUtils)/latex_output.py
-# requires: $(SageAdaptiveDynamics)/adaptivedynamics.py maclevmodels.py
+# requires: maclevmodels.py
 # requires: maclev_a_only_defs.py maclev-a-only-adap.sobj
 # produces: maclev-a-only-p.sage.out.tex maclev-a-only-c-vs-t.png
 # produces: maclev-a-only-c-vs-c.png maclev-a-only-total-c-vs-u.png
@@ -497,9 +493,7 @@ Here is the time evolution of the resource concentrations $$(R_0, R_1)$$:
 ## Adaptive Geometry: Community-structure measures $$a$$ and $$k$$
 
 <source-file filename=maclev-a-only-geom.sage.step lang=sage display=link>
-# requires: $(SageDynamics)/dynamicalsystems.py $(SageUtils)/latex_output.py
-# requires: $(SageAdaptiveDynamics)/adaptivedynamics.py maclevmodels.py 
-# requires: lotkavolterra.py
+# requires: maclevmodels.py lotkavolterra.py
 # requires: maclev_a_only_defs.py maclev-a-only-adap.sobj
 # produces: maclev-a-only-geom.sage.out.tex
 # produces: maclev-a-only-k-vs-t.png maclev-a-only-a-vs-t.png

@@ -2,8 +2,6 @@
 layout: page
 title: Adaptive Geometry of Resource Competition
 wmd_project: Selection_Gradients
-wmd_prerequisite_projects:
-  SageDynamicsRepo: SageDynamicsRepo
 ---
 
 On these pages I am investigating the evolution of interactions in the MacArthur/Levins resource competition model.
@@ -162,16 +160,9 @@ Here are the Sage classes that do the work for the Mac-Lev models. above.  They 
 Now here's the MacArthur-Levins resource competition model.
 
 <source-file filename=maclevmodels.py.step lang=python>
-# requires: $(SageDynamics)/dynamicalsystems.py $(SageAdaptiveDynamics)/adaptivedynamics.py
 from sage.all import *
-import os
-import sys
  
-sys.path.append( os.environ['SageUtils'] )
-sys.path.append( os.environ['SageDynamics'] )
 from dynamicalsystems import *
-sys.path.append( os.environ['SageAdaptiveDynamics'] )
-from adaptivedynamics import *
 
 from sage.symbolic.relation import solve
 from sage.symbolic.function_factory import function

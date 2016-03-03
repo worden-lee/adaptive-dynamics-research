@@ -11,14 +11,7 @@ possible, in some sense.
 
 <source-file filename=direct.py.step lang=python texdisplay=none>
 from sage.all import * 
-import os
-import sys
-sys.path.append( os.environ['SageUtils'] )
-sys.path.append( os.environ['SageDynamics'] )
-sys.path.append( os.environ['SageAdaptiveDynamics'] )
-import latex_output
 import dynamicalsystems
-import adaptivedynamics
 
 class DirectModel(dynamicalsystems.PopulationDynamicsSystem):
     def __init__(
@@ -43,14 +36,11 @@ class DirectModel(dynamicalsystems.PopulationDynamicsSystem):
 
 <source-file filename=direct-assemble.sage.step lang=sage texdisplay=none>
 # requires: direct.py
-# requires: $(SageDynamics)/dynamicalsystems.py
-# requires: $(SageUtils)/latex_output.py
 # produces: direct-assemble.sobj
 from sage.all import *
 from sage.misc.latex import _latex_file_
 
 import direct
-import latex_output
 import dynamicalsystems
 
 set_random_seed(0)
@@ -64,20 +54,17 @@ save_session( 'direct-assemble' )
 
 <source-file filename=direct-assemble-plot.sage.step lang=sage texdisplay=none>
 # requires: direct.py
-# requires: $(SageDynamics)/dynamicalsystems.py
-# requires: $(SageUtils)/latex_output.py
 # requires: direct-assemble.sobj
 # produces: direct-assemble.sage.out.tex direct-assemble.svg
 from sage.all import *
 from sage.misc.latex import _latex_file_
 
 import direct
-import latex_output
 import dynamicalsystems
 
 load_session( 'direct-assemble' )
 
-ltx = latex_output.latex_output( 'direct-assemble.sage.out.tex' )
+ltx = dynamicalsystems.latex_output( 'direct-assemble.sage.out.tex' )
 
 ltx.write( comm2 )
 
@@ -90,9 +77,6 @@ ltx.close()
 
 <source-file filename=direct-evol.sage.step lang=sage texdisplay=none>
 # requires: direct.py
-# requires: $(SageUtils)/latex_output.py
-# requires: $(SageDynamics)/dynamicalsystems.py
-# requires: $(SageAdaptiveDynamics)/adaptivedynamics.py
 # requires: lotkavolterra.py
 # requires: direct-assemble.sobj
 # produces: direct-evol.sobj
@@ -100,14 +84,12 @@ from sage.all import *
 from sage.misc.latex import _latex_file_
 
 import direct
-import latex_output
 import dynamicalsystems
-import adaptivedynamics
 import lotkavolterra
 
 load_session( 'direct-assemble' )
 
-ltx = latex_output.latex_output( 'direct-evol.sage.out.tex' )
+ltx = dynamicalsystems.latex_output( 'direct-evol.sage.out.tex' )
 
 def lv_interior_equilibrium( popdyn ):
     import sympy
@@ -123,7 +105,7 @@ formal_equil = dynamicalsystems.Bindings( { v : dynamicalsystems.hat(v) for v in
 
 #u_init = dynamicalsystems.Bindings( { smr._u_indexer[i]:0 for i in smr._population_indices } )
 
-symbolic_adap = adaptivedynamics.AdaptiveDynamicsModel( 
+symbolic_adap = dynamicalsystems.AdaptiveDynamicsModel( 
     comm2,
     [ dynamicalsystems.indexer_2d_reverse('u')[i] for i in comm2._population_indices ],
     #early_bindings=fb,
@@ -132,7 +114,7 @@ symbolic_adap = adaptivedynamics.AdaptiveDynamicsModel(
 
 ltx.write( 'Adaptive dynamics of model:\n', symbolic_adap )
 
-num_adap = adaptivedynamics.AdaptiveDynamicsModel( 
+num_adap = dynamicalsystems.AdaptiveDynamicsModel( 
     comm2,
     [ dynamicalsystems.indexer_2d_reverse('u')[i] for i in comm2._population_indices ],
     equilibrium = int_equil
@@ -165,9 +147,7 @@ from sage.misc.latex import _latex_file_
 from sage.misc.latex import latex
 
 import direct
-import latex_output
 import dynamicalsystems
-import adaptivedynamics
 import lotkavolterra
 
 # create variables with custom latex names because load_session
@@ -178,7 +158,7 @@ for x in ('X_0', 'X_i', 'X_1'): dynamicalsystems.hat(SR.symbol(x))
 
 load_session("direct-evol")
 
-ltx = latex_output.latex_output( 'direct-evol-plot.sage.out.tex' )
+ltx = dynamicalsystems.latex_output( 'direct-evol-plot.sage.out.tex' )
 
 #ltx.write( 'sm\_traj t:', [ ts('t') for ts in ad_traj._timeseries ], '\n\n' )
 #ltx.write( 'starts with:' )
@@ -187,11 +167,11 @@ ltx = latex_output.latex_output( 'direct-evol-plot.sage.out.tex' )
 #    ltx.write_block( ad_traj._timeseries[1] )
 
 ltx.write( 'flow: $%s \mapsto %s$\n\n' % (
-	latex( latex_output.column_vector( symbolic_adap._vars ) ),
-	latex( latex_output.column_vector( [ symbolic_adap._flow[v] for v in symbolic_adap._vars ] ) ) ) )
+	latex( dynamicalsystems.column_vector( symbolic_adap._vars ) ),
+	latex( dynamicalsystems.column_vector( [ symbolic_adap._flow[v] for v in symbolic_adap._vars ] ) ) ) )
 
-#ltx.write( 'flow at ', '$%s$'%latex( latex_output.column_vector( ad_init_state ) ), ': ', 
-#    '$%s$'%latex( latex_output.column_vector( ad_init( symbolic_adap._flow[v] ) for v in symbolic_adap._vars ) ),
+#ltx.write( 'flow at ', '$%s$'%latex( dynamicalsystems.column_vector( ad_init_state ) ), ': ', 
+#    '$%s$'%latex( dynamicalsystems.column_vector( ad_init( symbolic_adap._flow[v] ) for v in symbolic_adap._vars ) ),
 #    '\n\n' )
 
 #ltx.write( 'a values:' )

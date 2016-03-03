@@ -105,17 +105,9 @@ Here is Sage code that works with the SageDynamics code to analyze the
 dynamics of Lotka-Volterra coefficients.
 
 <source-file filename="lotkavolterra.py.step">
-# requires: $(SageDynamics)/dynamicalsystems.py
-# requires: $(SageAdaptiveDynamics)/adaptivedynamics.py
 from sage.all import *
-import os
-import sys
  
-sys.path.append( os.environ['SageUtils'] )
-sys.path.append( os.environ['SageDynamics'] )
 from dynamicalsystems import *
-sys.path.append( os.environ['SageAdaptiveDynamics'] )
-from adaptivedynamics import *
 
 from sage.symbolic.relation import solve
 #from sage.symbolic.function_factory import function
@@ -556,34 +548,10 @@ def plot_aij_with_arrows( evol_trajectory, lvad, filename=None, scale=1, binding
 
 Here are makefiles that are used by all the code on the various pages in this project.
 
-<source-file filename="sage.mk">
-# Makefile to connect the Sage code here with the code in SageDynamics
-
-# the three upstream projects are all bundled into one git repo
-#export SageUtils            = $(realpath $(SageDynamicsRepo)/SageUtils)
-#export SageDynamics         = $(realpath $(SageDynamicsRepo)/SageDynamics)
-#export SageAdaptiveDynamics = $(realpath $(SageDynamicsRepo)/SageAdaptiveDynamics)
-export SageDynamics         = $(realpath $(SageDynamicsRepo))
- 
-# When we need something from the upstream projects, make it there
-$(SageDynamics)/% : /proc/uptime
-	$(MAKE) --no-print-directory -C $(SageDynamics) $*
- 
-#$(SageAdaptiveDynamics)/% : /proc/uptime
-#	$(MAKE) --no-print-directory -C $(SageAdaptiveDynamics) $*
- 
-# The good makefile stuff is upstream, just reuse it
--include $(SageDynamicsRepo)/sage.mk
--include $(SageDynamicsRepo)/step.mk
-</source-file>
-
 <source-file filename="sage-inline.mk">
 %.sage.step : %.sage-inline sage-inline.mk
 	echo '# produces: $*.sage.out.tex' > $@
-	echo 'import os' >> $@
-	echo 'import sys' >> $@
-	echo 'sys.path.append( os.environ["SageUtils"] )' >> $@
-	echo 'from latex_output import *' >> $@
+	echo 'from dynamicalsystems import latex_output' >> $@
 	echo 'ltx = latex_output( "$*.sage.out.tex" )' >> $@
 	cat $< >> $@
 	echo 'ltx.close()' >> $@

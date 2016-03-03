@@ -27,8 +27,7 @@ initial_conditions = Bindings( {
 </source-file>
 
 <source-file filename=maclev-2-2-a-c-popdyn.sage.step lang=sage display=link>
-# requires: maclev_a_c.py maclev_2_2_defs.py
-# requires: $(SageDynamics)/dynamicalsystems.py maclevmodels.py
+# requires: maclev_a_c.py maclev_2_2_defs.py maclevmodels.py
 # produces: maclev-2-2-a-c-popdyn.sage.out.tex maclev-2-2-a-c-popdyn.sobj
 # produces: maclev-2-2-a-c-popdyn.png maclev-2-2-a-c-r-zngis.png
 from maclev_a_c import *
@@ -83,8 +82,7 @@ ZNGI mutual invasion diagram.  Write more about this here.
 ## Adaptive dynamics of $$c$$
 
 <source-file filename=maclev-2-2-a-c-adap.sage.step lang=sage display=link>
-# requires: $(SageDynamics)/dynamicalsystems.py
-# requires: $(SageAdaptiveDynamics)/adaptivedynamics.py maclevmodels.py
+# requires: maclevmodels.py
 # requires: maclev-2-2-a-c-popdyn.sobj maclev_2_2_defs.py
 # produces: maclev-2-2-a-c-adap.sage.out.tex maclev-2-2-a-c-adap.sobj
 from maclev_a_c import *
@@ -152,8 +150,7 @@ Here we derive the adaptive dynamics equations when it is the uptake rates $$c_{
 <project-file filename=maclev-2-2-a-c-adap.sage.out.html/>
 
 <source-file filename=maclev-2-2-a-c-p.sage.step display=link>
-# requires: $(SageDynamics)/dynamicalsystems.py $(SageUtils)/latex_output.py
-# requires: $(SageAdaptiveDynamics)/adaptivedynamics.py maclevmodels.py
+# requires: maclevmodels.py
 # requires: maclev_2_2_defs.py maclev-2-2-a-c-adap.sobj
 # produces: maclev-2-2-a-c-p.sage.out.tex
 # produces: maclev-2-2-a-c-c-vs-t.sage.out.tex maclev-2-2-a-c-c-vs-c.png
@@ -286,9 +283,7 @@ resources $$(R_0, R_1)$$ in the white region above the line.
 ## Adaptive Geometry: Community-structure measures $$a$$ and $$k$$
 
 <source-file filename=maclev-2-2-a-c-geom.sage.step lang=sage display=link>
-# requires: $(SageDynamics)/dynamicalsystems.py $(SageUtils)/latex_output.py
-# requires: $(SageAdaptiveDynamics)/adaptivedynamics.py maclevmodels.py 
-# requires: lotkavolterra.py
+# requires: maclevmodels.py lotkavolterra.py
 # requires: maclev_2_2_defs.py maclev-2-2-a-c-adap.sobj
 # produces: maclev-2-2-a-c-geom.sage.out.tex
 # produces: maclev-2-2-a-c-k-vs-t.png

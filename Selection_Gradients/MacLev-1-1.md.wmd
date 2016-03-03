@@ -11,19 +11,13 @@ This page investigates the adaptive dynamics of [the Macarthur-Levins resource c
 Before we do evolution, we start by defining the basic population dynamics.  Here I'm just going to consider one population and one resource.  This configuration is well suited to visualizing in two-dimensional plots.  
 
 <source-file filename=maclev-1-1.sage.step lang=sage>
-# requires: maclevmodels.py $(SageDynamics)/dynamicalsystems.py
-# requires: $(SageAdaptiveDynamics)/adaptivedynamics.py
-# requires: $(SageUtils)/latex_output.py
+# requires: maclevmodels.py
 # produces: maclev-1-1.sobj maclev-1-1.sage.out.tex
 from sage.all import * 
 from sage.misc.latex import _latex_file_
 
-import os
-import sys
-sys.path.append( os.environ['SageUtils'] )
-sys.path.append( os.environ['SageDynamics'] )
 from maclevmodels import *
-from latex_output import *
+from dynamicalsystems import latex_output
 
 ltx = latex_output( 'maclev-1-1.sage.out.tex' )
 
@@ -53,8 +47,7 @@ The model equations, according to Sage:
 ## Adaptive dynamics of $$u$$
 
 <source-file filename=maclev-1-1-adap.sage.step lang=sage>
-# requires: maclevmodels.py $(SageAdaptiveDynamics)/adaptivedynamics.py maclev-1-1.sobj
-# requires: $(SageUtils)/latex_output.py
+# requires: maclevmodels.py maclev-1-1.sobj
 # produces: maclev-1-1-adap.sage.out.tex maclev-1-1-adap.sobj
 # produces: maclev-1-1-c.png maclev-1-1-X.png maclev-1-1-ak.png
 # produces: maclev-1-1-R.png maclev-1-1-a.png maclev-1-1-k.png
@@ -64,14 +57,8 @@ from sage.misc.latex import _latex_file_
 from sage.misc.latex import latex
 latex.add_to_preamble('\\usepackage{amsmath}')
 
-import os
-import sys
-sys.path.append( os.environ['SageUtils'] )
-sys.path.append( os.environ['SageDynamics'] )
-sys.path.append( os.environ['SageAdaptiveDynamics'] )
 from maclevmodels import *
-from adaptivedynamics import *
-from latex_output import *
+from dynamicalsystems import latex_output
 
 # create variables with custom latex names because load_session
 # creates them wrong
@@ -188,20 +175,12 @@ And the Lotka-Volterra coefficients $$k_0$$, $$a_{00}$$ both move away from zero
 ## Adaptive dynamics of $$c$$ and $$m$$
 
 <source-file filename=maclev-1-1-mc-adap-geom.sage.step lang=sage>
-# requires: maclevmodels.py $(SageAdaptiveDynamics)/adaptivedynamics.py maclev-1-1-adap.sobj
-# requires: $(SageUtils)/latex_output.py
+# requires: maclevmodels.py maclev-1-1-adap.sobj
 # produces: maclev-1-1-mc-adap-geom.sobj maclev-1-1-mc.png maclev-1-1-mc-adap-geom.sage.out.tex
 from sage.all import *
 
-import os
-import sys
-sys.path.append( os.environ['SageUtils'] )
-sys.path.append( os.environ['SageDynamics'] )
-sys.path.append( os.environ['SageAdaptiveDynamics'] )
-
 from maclevmodels import *
-from adaptivedynamics import *
-from latex_output import *
+from dynamicalsystems import latex_output
 
 from sage.symbolic.function_factory import function
 
@@ -370,22 +349,14 @@ The red arrow shows how $$\mathbf p$$ "would like to evolve" if all its componen
 
 <source-file filename=maclev-1-1-ak-adap-geom.sage.step lang=sage>
 # requires: maclevmodels.py maclev-1-1-mc-adap-geom.sobj
-# requires: $(SageUtils)/latex_output.py
 # produces: maclev-1-1-ak-adap-geom.png maclev-1-1-ak-adap-geom.sage.out.tex
 from sage.all import *
 from sage.misc.latex import _latex_file_
 from sage.misc.latex import latex
 
-import os
-import sys
-sys.path.append( os.environ['SageUtils'] )
-sys.path.append( os.environ['SageDynamics'] )
-sys.path.append( os.environ['SageAdaptiveDynamics'] )
-
 from maclevmodels import *
-from adaptivedynamics import *
 from lotkavolterra import *
-from latex_output import *
+from dynamicalsystems import latex_output
 
 # create variables with custom latex names because load_session
 # creates them wrong
@@ -833,13 +804,7 @@ For the fixed values of $$b$$, $$m$$, etc. that we've been using, the vector fie
 <source-file filename=maclev-1-1-d1A-vector-field.sage.step display=maclev-1-1-d1A-vector-field.png>
 # requires: maclevmodels.py maclev-1-1-mc-adap-geom.sobj
 # produces: maclev-1-1-d1A-vector-field.png
-import os
-import sys
-sys.path.append( os.environ['SageUtils'] )
-sys.path.append( os.environ['SageDynamics'] )
-sys.path.append( os.environ['SageAdaptiveDynamics'] )
 from dynamicalsystems import *
-from adaptivedynamics import *
 load_session( 'maclev-1-1-mc-adap-geom' )
 fixed_parameter_bindings = Bindings( 
   { SR.var('r_0'): 1, SR.var('w_0'): 1, SR.var('b_0'): 1, SR.var('m_0'): 1,
@@ -866,12 +831,7 @@ But actually those vectors are only meaningful at $$(a, k)$$ combinations that c
 <source-file filename=maclev-1-1-S-and-d1A-on-curve.sage.step display=none>
 # requires: maclevmodels.py maclev-1-1-mc-adap-geom.sobj
 # produces: maclev-1-1-S-and-d1A-on-curve.png
-import os, sys
-sys.path.append( os.environ['SageUtils'] )
-sys.path.append( os.environ['SageDynamics'] )
-sys.path.append( os.environ['SageAdaptiveDynamics'] )
 from dynamicalsystems import *
-from adaptivedynamics import *
 from plot_vector_field_along_curve import *
 load_session( 'maclev-1-1-mc-adap-geom' )
 var( 'b_0 c m_0 w_0 r_0 K_0 gamma' )
@@ -926,13 +886,7 @@ Here are $$S(A)$$ and $$D$$ on the $$c$$ curve:
 <source-file filename=maclev-1-1-S-and-D-on-curve.sage.step display=maclev-1-1-S-and-D-on-curve.png>
 # requires: maclevmodels.py maclev-1-1-mc-adap-geom.sobj
 # produces: maclev-1-1-S-and-D-on-curve.png
-import os
-import sys
-sys.path.append( os.environ['SageUtils'] )
-sys.path.append( os.environ['SageDynamics'] )
-sys.path.append( os.environ['SageAdaptiveDynamics'] )
 from dynamicalsystems import *
-from adaptivedynamics import *
 from plot_vector_field_along_curve import *
 load_session( 'maclev-1-1-mc-adap-geom' )
 var( 'b_0 c m_0 w_0 r_0 K_0 gamma' )

@@ -15,15 +15,8 @@ evolutionary dynamics of matrix entries.
 
 <source-file filename=aij.py.step lang=python texdisplay=none>
 from sage.all import * 
-import os
-import sys
-sys.path.append( os.environ['SageUtils'] )
-sys.path.append( os.environ['SageDynamics'] )
-sys.path.append( os.environ['SageAdaptiveDynamics'] )
-import latex_output
 import dynamicalsystems
 import lotkavolterra
-import adaptivedynamics
 
 class AijModel(lotkavolterra.GeneralizedLotkaVolterraModel):
     def __init__(
@@ -34,7 +27,7 @@ class AijModel(lotkavolterra.GeneralizedLotkaVolterraModel):
             range(n), bindings=bindings
         )
 
-class NaiveAdaptiveDynamicsModel(adaptivedynamics.AdaptiveDynamicsModel):
+class NaiveAdaptiveDynamicsModel(dynamicalsystems.AdaptiveDynamicsModel):
     def __init__(self, popdyn, phenotype_indexers,
 	early_bindings=dynamicalsystems.Bindings(), late_bindings=dynamicalsystems.Bindings()):
 	self._popdyn = early_bindings( popdyn )
@@ -64,6 +57,7 @@ class NaiveAdaptiveDynamicsModel(adaptivedynamics.AdaptiveDynamicsModel):
 	        speed = max( [ pop_end( self._popdyn._flow[x] ) for x in self._popdyn._vars ] )
 	        found_equil = (N(speed) < 1e-7)
 		popstate = [ pop_end(x) for x in self._popdyn._vars ]
+		del(self._popdyn._gsl_system)
 	    t += 1
 	    ## clear out any extinctions
 	    persistent_indices = [ i for i in self._popdyn._population_indices if
@@ -177,14 +171,11 @@ class AijAdaptiveDynamics(NaiveAdaptiveDynamicsModel):
 
 <source-file filename=aij-assemble.sage.step lang=sage texdisplay=none>
 # requires: aij.py
-# requires: $(SageDynamics)/dynamicalsystems.py
-# requires: $(SageUtils)/latex_output.py
 # produces: aij-assemble.sobj
 from sage.all import *
 from sage.misc.latex import _latex_file_
 
 import aij
-import latex_output
 import dynamicalsystems
 
 set_random_seed(0)
@@ -196,20 +187,17 @@ save_session( 'aij-assemble' )
 
 <source-file filename=aij-assemble-plot.sage.step lang=sage texdisplay=none>
 # requires: aij.py
-# requires: $(SageDynamics)/dynamicalsystems.py
-# requires: $(SageUtils)/latex_output.py
 # requires: aij-assemble.sobj
 # produces: aij-assemble.sage.out.tex aij-assemble.svg
 from sage.all import *
 from sage.misc.latex import _latex_file_
 
 import aij
-import latex_output
 import dynamicalsystems
 
 load_session( 'aij-assemble' )
 
-ltx = latex_output.latex_output( 'aij-assemble.sage.out.tex' )
+ltx = dynamicalsystems.latex_output( 'aij-assemble.sage.out.tex' )
 
 ltx.write( comm2 )
 
@@ -222,24 +210,20 @@ ltx.close()
 
 <source-file filename=aij-evol.sage.step lang=sage texdisplay=none>
 # requires: aij.py
-# requires: $(SageUtils)/latex_output.py
-# requires: $(SageDynamics)/dynamicalsystems.py
-# requires: $(SageAdaptiveDynamics)/adaptivedynamics.py
 # requires: lotkavolterra.py
 # requires: aij-assemble.sobj
 # produces: aij-evol.sobj
 from sage.all import *
 from sage.misc.latex import _latex_file_
+from sage.misc.latex import latex
 
 import aij
-import latex_output
 import dynamicalsystems
-import adaptivedynamics
 import lotkavolterra
 
 load_session( 'aij-assemble' )
 
-ltx = latex_output.latex_output( 'aij-evol.sage.out.tex' )
+ltx = dynamicalsystems.latex_output( 'aij-evol.sage.out.tex' )
 
 adap = aij.AijAdaptiveDynamics( comm2 )
 
@@ -247,7 +231,7 @@ ad_init = dynamicalsystems.Bindings( { comm2._indexers['a'][i][j]:-1 for i in co
 #ad_init = dynamicalsystems.Bindings( { comm2._indexers['a'][i][j]:(-1 if i == j else -0.75 if i < j else -0.7) for i in comm2._population_indices for j in comm2._population_indices } ) + dynamicalsystems.Bindings( { comm2._indexers['r'][i]:1 for i in comm2._population_indices } )
 ad_init_state = [ ad_init(u) for u in adap._vars ]
 
-ad_traj = adap.solve( ad_init_state, end_time=10 )
+ad_traj = adap.solve( ad_init_state, end_time=1 ) #10 )
 
 ltx.close()
 save_session('aij-evol')
@@ -265,9 +249,7 @@ from sage.misc.latex import _latex_file_
 from sage.misc.latex import latex
 
 import aij
-import latex_output
 import dynamicalsystems
-import adaptivedynamics
 import lotkavolterra
 
 # create variables with custom latex names because load_session
@@ -278,7 +260,7 @@ for x in ('X_0', 'X_i', 'X_1'): dynamicalsystems.hat(SR.symbol(x))
 
 load_session("aij-evol")
 
-ltx = latex_output.latex_output( 'aij-evol-plot.sage.out.tex' )
+ltx = dynamicalsystems.latex_output( 'aij-evol-plot.sage.out.tex' )
 
 #ltx.write( 'sm\_traj t:', [ ts('t') for ts in ad_traj._timeseries ], '\n\n' )
 #ltx.write( 'starts with:' )
@@ -287,11 +269,11 @@ ltx = latex_output.latex_output( 'aij-evol-plot.sage.out.tex' )
 #    ltx.write_block( ad_traj._timeseries[1] )
 
 #ltx.write( 'flow: $%s \mapsto %s$\n\n' % (
-#	latex( latex_output.column_vector( symbolic_adap._vars ) ),
-#	latex( latex_output.column_vector( [ symbolic_adap._flow[v] for v in symbolic_adap._vars ] ) ) ) )
+#	latex( dynamicalsystems.column_vector( symbolic_adap._vars ) ),
+#	latex( dynamicalsystems.column_vector( [ symbolic_adap._flow[v] for v in symbolic_adap._vars ] ) ) ) )
 
-#ltx.write( 'flow at ', '$%s$'%latex( latex_output.column_vector( ad_init_state ) ), ': ', 
-#    '$%s$'%latex( latex_output.column_vector( ad_init( symbolic_adap._flow[v] ) for v in symbolic_adap._vars ) ),
+#ltx.write( 'flow at ', '$%s$'%latex( dynamicalsystems.column_vector( ad_init_state ) ), ': ', 
+#    '$%s$'%latex( dynamicalsystems.column_vector( ad_init( symbolic_adap._flow[v] ) for v in symbolic_adap._vars ) ),
 #    '\n\n' )
 
 #ltx.write( 'a values:' )

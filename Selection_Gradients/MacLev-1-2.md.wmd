@@ -54,8 +54,6 @@ ad_bindings = bmc_bindings + gamma_bindings
 
 <source-file filename=maclev-1-2-popdyn.sage.step lang=sage display=link>
 # requires: maclev_1_2_defs.py
-# requires: $(SageDynamics)/dynamicalsystems.py maclevmodels.py
-# requires: $(SageAdaptiveDynamics)/adaptivedynamics.py
 # produces: maclev-1-2-popdyn.sage.out.tex maclev-1-2-popdyn.sobj
 # produces: maclev-1-2-popdyn.png maclev-1-2-r-zngis.png maclev-1-2-c-vs-u.png 
 from maclev_1_2_defs import *
@@ -110,8 +108,7 @@ community's two residents are marked on this plot as well.
 ## Adaptive dynamics of $$u$$
 
 <source-file filename=maclev-1-2-adap.sage.step lang=sage display=link>
-# requires: $(SageDynamics)/dynamicalsystems.py
-# requires: $(SageAdaptiveDynamics)/adaptivedynamics.py maclevmodels.py
+# requires: maclevmodels.py
 # requires: maclev-1-2-popdyn.sobj maclev_1_2_defs.py
 # produces: maclev-1-2-adap.sage.out.tex maclev-1-2-adap.sobj
 # produces: maclev-1-2-u-vs-t.png
@@ -209,8 +206,7 @@ With these parameters, what happens to the evolving traits $$u$$?
 ## Adaptive Geometry: Ecological quantities $$m$$, $$b$$, and particularly $$c$$
 
 <source-file filename=maclev-1-2-p.sage.step display=link>
-# requires: $(SageDynamics)/dynamicalsystems.py $(SageUtils)/latex_output.py
-# requires: $(SageAdaptiveDynamics)/adaptivedynamics.py maclevmodels.py
+# requires: maclevmodels.py
 # requires: maclev_1_2_defs.py maclev-1-2-adap.sobj
 # produces: maclev-1-2-p.sage.out.tex maclev-1-2-c-vs-t.png
 # produces: maclev-1-2-c-vs-c.png maclev-1-2-total-c-vs-u.png
@@ -519,8 +515,7 @@ Here is the time evolution of the resource concentrations $$(R_0, R_1)$$:
 ## Adaptive Geometry: Community-structure measures $$a$$ and $$k$$
 
 <source-file filename=maclev-1-2-geom.sage.step lang=sage display=link>
-# requires: $(SageDynamics)/dynamicalsystems.py $(SageUtils)/latex_output.py
-# requires: $(SageAdaptiveDynamics)/adaptivedynamics.py maclevmodels.py 
+# requires: maclevmodels.py 
 # requires: lotkavolterra.py
 # requires: maclev_1_2_defs.py maclev-1-2-adap.sobj
 # produces: maclev-1-2-geom.sage.out.tex
