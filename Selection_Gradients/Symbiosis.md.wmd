@@ -57,6 +57,7 @@ This is oddly symmetric - maybe I abstracted it too much.  But one asymmetry is 
 <source-file filename=seamodel.py display=none>
 from sage.all import * 
 import dynamicalsystems
+from dynamicalsystems import indexer, subscriptedsymbol, Bindings
 
 # Model organized as follows:
 #  population index is (type, number), with type either g or H
@@ -67,16 +68,24 @@ class SeaSymbiosisModel(dynamicalsystems.PopulationDynamicsSystem):
     def __init__(
 	self,
 	x_indices=None,
-	X = dynamicalsystems.indexer( lambda (t,i): dynamicalsystems.subscriptedsymbol( 'N', H if t == type_H else g, i ) ),
-	m_indexer = dynamicalsystems.indexer( lambda (t,i): dynamicalsystems.subscriptedsymbol( 'X' if t == type_H else 'x', m, i) ),
-	c_indexer = dynamicalsystems.indexer( lambda (t,i): dynamicalsystems.subscriptedsymbol( 'X' if t == type_H else 'x', c, i) ),
-	bindings=dynamicalsystems.Bindings()):
-	self._indexers = { 'X': X, 'um': m_indexer, 'uc': c_indexer }
-	print 'debug:', m_indexer[(type_H,0)], 'done'; sys.stdout.flush()
+	X = indexer( lambda (t,i): subscriptedsymbol( 'N', H if t == type_H else g, i ) ),
+	p_indexer = indexer( lambda (t,i): indexer( lambda (s,j):
+			subscriptedsymbol( 'p', i, j ) ) ),
+	b_indexer = indexer( lambda (t,i): indexer( lambda (s,j):
+			subscriptedsymbol( 'b', i, j ) ) ),
+	B_indexer = indexer( lambda (t,i): indexer( lambda (s,j):
+			subscriptedsymbol( 'B', i, j ) ) ),
+	cg_indexer = indexer( lambda (t,i): subscriptedsymbol( 'C' if t == type_H else 'c', g, i ) ),
+	cc_indexer = indexer( lambda (t,i): subscriptedsymbol( 'C' if t == type_H else 'c', c, i ) ),
+	cm_indexer = indexer( lambda (t,i): subscriptedsymbol( 'C' if t == type_H else 'c', m, i ) ),
+	bindings=Bindings()):
+	self._indexers = { 'X': X, 'p':p_indexer, 'b':b_indexer, 'B':B_indexer,
+		'c_g':cg_indexer, 'c_c':cc_indexer, 'c_m':cm_indexer }
+	#print 'debug:', m_indexer[(type_H,0)], 'done'; sys.stdout.flush()
 	from sage.symbolic.function_factory import function
 	self._names = dict( 
 		[ (n, SR.symbol(n)) for n in ('r_0', 'R_0') ] +
-		[ (n, function(n)) for n in ('p', 'c_g', 'c_c', 'c_m', 'b', 'C_g', 'C_c', 'C_m', 'B') ] +
+		#[ (n, function(n)) for n in ('p', 'c_g', 'c_c', 'c_m', 'b', 'C_g', 'C_c', 'C_m', 'B') ] +
 		self._indexers.items()
 	)
 	super(SeaSymbiosisModel,self).__init__(
@@ -84,7 +93,17 @@ class SeaSymbiosisModel(dynamicalsystems.PopulationDynamicsSystem):
 	)
     def flow(self):
 	return self.make_flow( **self._names )
-    def make_flow(self, X, um, uc, r_0, R_0, p, c_g, c_c, c_m, b, C_g, C_c, C_m, B ):
+    def make_flow(self, X, r_0, R_0, p, c_g, c_c, c_m, b, B ):
+	return dict(
+	    [ (X[g], X[g]*(r_0 - c_g[g] +
+		sum( (p[g][h] * (b[g][h] - c_c[g]) - c_m[g])*X[h]
+		    for h in self._population_indices if h[0] == type_H ) )
+	      ) for g in self._population_indices if g[0] == type_g ] +
+	    [ (X[h], X[h]*(R_0 - c_g[h] +
+		sum( (p[g][h]*(B[g][h] - c_c[h]) - c_m[h])*X[g]
+		    for g in self._population_indices if g[0] == type_g ) )
+	      ) for h in self._population_indices if h[0] == type_H ]
+	)
 	return dict(
 	    [ (X[g], X[g]*(r_0 - c_g(uc[g]) +
 		sum( (p(uc[g],uc[h])*(b(um[g],um[h]) - c_c(uc[g])) - c_m(um[g]))*X[h]
@@ -103,6 +122,7 @@ class SeaSymbiosisModel(dynamicalsystems.PopulationDynamicsSystem):
 </source-file>
 
 <source-file filename=sea.sage.step display=none>
+# requires: seamodel.py
 # produces: sea.sobj sea.sage.out.tex
 from sage.all import * 
 from sage.misc.latex import _latex_file_
@@ -118,17 +138,78 @@ ltx = dynamicalsystems.latex_output( 'sea.sage.out.tex' )
 ltx.write( 'The dynamics:' )
 ltx.write( sea )
 
-sea_adap = dynamicalsystems.AdaptiveDynamicsModel( 
-    sea,
-    [ sea._indexers['uc'], sea._indexers['um'] ]
-)
-
-ltx.write( 'Whence the adaptive dynamics is' )
-ltx.write_environment( 'align*', '\\\\\n  '.join( r'\frac{d%s}{dt} &\propto %s' % (dynamicalsystems.latex_math(v), dynamicalsystems.latex_math(sea_adap._S[v])) for v in sea_adap._vars ) )
-
 ltx.close()
-
-save_session('sea')
+save_session( 'sea' )
 </source-file>
 
 <project-file filename=sea.sage.out.tex/>
+
+<source-file filename=sea-adap.sage.step display=none>
+# requires: sea.sobj
+# produces: sea-adap.sobj sea-adap.sage.out.tex
+from sage.all import * 
+from sage.misc.latex import _latex_file_
+import dynamicalsystems
+from dynamicalsystems import indexer, subscriptedsymbol, Bindings
+from seamodel import *
+
+load_session( 'sea' )
+ltx = dynamicalsystems.latex_output( 'sea-adap.sage.out.tex' )
+sea = seamodel.SeaSymbiosisModel(
+    x_indices=[(seamodel.type_H,0),(seamodel.type_g,0)]
+)
+
+sea_adap_c = dynamicalsystems.AdaptiveDynamicsModel( 
+    sea,
+    [ sea._indexers[s] for s in ('c_g','c_c','c_m') ] +
+    [ indexer( lambda (t,i):
+	sea._indexers['B'][(seamodel.type_g,0)][(t,i)] if t == seamodel.type_H
+	else sea._indexers['b'][(t,i)][(seamodel.type_H,0)] ),
+      indexer( lambda (t,i):
+	sea._indexers['p'][(seamodel.type_g,0)][(t,i)] if t == seamodel.type_H
+	else sea._indexers['p'][(t,i)][(seamodel.type_H,0)] ) ]
+)
+
+ltx.write( 'Adaptive dynamics debug output:\n' )
+ltx.write( sea_adap_c._debug_output._output._str )
+
+
+ltx.write( 'Whence the selective pressure on the ecological quantities is' )
+ltx.write_environment( 'align*', '\\\\\n  '.join( r'\frac{d%s}{dt} &\propto %s' % (dynamicalsystems.latex_math(v), dynamicalsystems.latex_math(sea_adap_c._S[v])) for v in sea_adap_c._vars ) )
+
+## phenotype indexers for sea correlation
+
+m_indexer = indexer( lambda (t,i): subscriptedsymbol( 'X' if t == seamodel.type_H else 'x', m, i) )
+c_indexer = indexer( lambda (t,i): subscriptedsymbol( 'X' if t == seamodel.type_H else 'x', c, i) )
+
+from sage.symbolic.function_factory import function
+sea_f = seamodel.SeaSymbiosisModel(
+	x_indices=[(seamodel.type_H,0),(seamodel.type_g,0)],
+	cg_indexer=indexer( lambda ix: function('c_g')(c_indexer[ix]) ),
+	cc_indexer=indexer( lambda ix: function('c_c')(c_indexer[ix]) ),
+	cm_indexer=indexer( lambda ix: function('c_m')(m_indexer[ix]) ),
+	p_indexer =indexer( lambda ix: indexer( lambda jx:
+		function('p')(c_indexer[ix],c_indexer[jx]) ) ),
+	b_indexer =indexer( lambda ix: indexer( lambda jx:
+		function('b')(m_indexer[ix],m_indexer[jx]) ) ),
+	B_indexer =indexer( lambda ix: indexer( lambda jx:
+		function('B')(m_indexer[ix],m_indexer[jx]) ) )
+)
+
+ltx.write( 'Dynamics with constraints:' )
+ltx.write( sea_f )
+
+sea_adap_f = dynamicalsystems.AdaptiveDynamicsModel( 
+    sea_f,
+    [ c_indexer, m_indexer ]
+)
+
+ltx.write( 'And selective pressure on constraining characters is' )
+ltx.write_environment( 'align*', '\\\\\n  '.join( r'\frac{d%s}{dt} &\propto %s' % (dynamicalsystems.latex_math(v), dynamicalsystems.latex_math(sea_adap_f._S[v])) for v in sea_adap_f._vars ) )
+
+ltx.close()
+
+save_session('sea-adap')
+</source-file>
+
+<project-file filename=sea-adap.sage.out.tex/>
