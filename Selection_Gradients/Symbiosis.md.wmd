@@ -48,9 +48,9 @@ on guest side:
 
 So we then have
 
-$$\frac{dN_g}{N_g dt} = r_0 - c_g(x_c) + (p(x_c,X_c) (b(x_m,X_M) - c_c(x_c)) - c_m(x_m)) N_H$$
+$$\frac{dN_g}{N_g dt} = r_0 - c_g(x_c) + (p(x_c,X_c) (b(x_m,X_M) - c_m(x_m)) - c_c(x_c)) N_H$$
 
-$$\frac{dN_H}{N_H dt} = R_0 - C_g(X_c) + (p(x_c,X_c) (B(x_m,X_m) - C_m(X_c)) - C_m(X_m)) N_g$$
+$$\frac{dN_H}{N_H dt} = R_0 - C_g(X_c) + (p(x_c,X_c) (B(x_m,X_m) - C_m(X_m)) - C_c(X_c)) N_g$$
 
 This is oddly symmetric - maybe I abstracted it too much.  But one asymmetry is that the benefit to the host can be positive or negative, while it's assumed positive for the guest.  Thus the host might want to invest in defense against guests, while guests will always want to colonize and exploit.
 
@@ -69,6 +69,8 @@ class SeaSymbiosisModel(dynamicalsystems.PopulationDynamicsSystem):
 	self,
 	x_indices=None,
 	X = indexer( lambda (t,i): subscriptedsymbol( 'N', H if t == type_H else g, i ) ),
+	r_indexer = indexer( lambda (t,i):
+			subscriptedsymbol( 'R' if t == type_H else 'r', i ) ),
 	p_indexer = indexer( lambda (t,i): indexer( lambda (s,j):
 			subscriptedsymbol( 'p', i, j ) ) ),
 	b_indexer = indexer( lambda (t,i): indexer( lambda (s,j):
@@ -79,12 +81,13 @@ class SeaSymbiosisModel(dynamicalsystems.PopulationDynamicsSystem):
 	cc_indexer = indexer( lambda (t,i): subscriptedsymbol( 'C' if t == type_H else 'c', c, i ) ),
 	cm_indexer = indexer( lambda (t,i): subscriptedsymbol( 'C' if t == type_H else 'c', m, i ) ),
 	bindings=Bindings()):
-	self._indexers = { 'X': X, 'p':p_indexer, 'b':b_indexer, 'B':B_indexer,
+	self._indexers = { 'X': X,
+		'r':r_indexer, 'p':p_indexer, 'b':b_indexer, 'B':B_indexer,
 		'c_g':cg_indexer, 'c_c':cc_indexer, 'c_m':cm_indexer }
 	#print 'debug:', m_indexer[(type_H,0)], 'done'; sys.stdout.flush()
 	from sage.symbolic.function_factory import function
 	self._names = dict( 
-		[ (n, SR.symbol(n)) for n in ('r_0', 'R_0') ] +
+		#[ (n, SR.symbol(n)) for n in ('r_0', 'R_0') ] +
 		#[ (n, function(n)) for n in ('p', 'c_g', 'c_c', 'c_m', 'b', 'C_g', 'C_c', 'C_m', 'B') ] +
 		self._indexers.items()
 	)
@@ -93,25 +96,15 @@ class SeaSymbiosisModel(dynamicalsystems.PopulationDynamicsSystem):
 	)
     def flow(self):
 	return self.make_flow( **self._names )
-    def make_flow(self, X, r_0, R_0, p, c_g, c_c, c_m, b, B ):
+    def make_flow(self, X, r, p, c_g, c_c, c_m, b, B ):
 	return dict(
-	    [ (X[g], X[g]*(r_0 - c_g[g] +
-		sum( (p[g][h] * (b[g][h] - c_c[g]) - c_m[g])*X[h]
+	    [ (X[g], X[g]*(r[g] - c_g[g] +
+		sum( (p[g][h] * (b[g][h] - c_m[g]) - c_c[g])*X[h]
 		    for h in self._population_indices if h[0] == type_H ) )
 	      ) for g in self._population_indices if g[0] == type_g ] +
-	    [ (X[h], X[h]*(R_0 - c_g[h] +
-		sum( (p[g][h]*(B[g][h] - c_c[h]) - c_m[h])*X[g]
+	    [ (X[h], X[h]*(r[h] - c_g[h] +
+		sum( (p[g][h] * (B[g][h] - c_m[h]) - c_c[h])*X[g]
 		    for g in self._population_indices if g[0] == type_g ) )
-	      ) for h in self._population_indices if h[0] == type_H ]
-	)
-	return dict(
-	    [ (X[g], X[g]*(r_0 - c_g(uc[g]) +
-		sum( (p(uc[g],uc[h])*(b(um[g],um[h]) - c_c(uc[g])) - c_m(um[g]))*X[h]
-			for h in self._population_indices if h[0] == type_H ) )
-	      ) for g in self._population_indices if g[0] == type_g ] +
-	    [ (X[h], X[h]*(R_0 - C_g(uc[h]) +
-		sum( (p(uc[g],uc[h])*(B(um[g],um[h]) - C_c(uc[h])) - C_m(um[h]))*X[g]
-			for g in self._population_indices if g[0] == type_g ) )
 	      ) for h in self._population_indices if h[0] == type_H ]
 	)
     def mutate(self, resident_index):
@@ -161,7 +154,7 @@ sea = seamodel.SeaSymbiosisModel(
 
 sea_adap_c = dynamicalsystems.AdaptiveDynamicsModel( 
     sea,
-    [ sea._indexers[s] for s in ('c_g','c_c','c_m') ] +
+    [ sea._indexers[s] for s in ('r', 'c_g','c_c','c_m') ] +
     [ indexer( lambda (t,i):
 	sea._indexers['B'][(seamodel.type_g,0)][(t,i)] if t == seamodel.type_H
 	else sea._indexers['b'][(t,i)][(seamodel.type_H,0)] ),
@@ -169,10 +162,6 @@ sea_adap_c = dynamicalsystems.AdaptiveDynamicsModel(
 	sea._indexers['p'][(seamodel.type_g,0)][(t,i)] if t == seamodel.type_H
 	else sea._indexers['p'][(t,i)][(seamodel.type_H,0)] ) ]
 )
-
-ltx.write( 'Adaptive dynamics debug output:\n' )
-ltx.write( sea_adap_c._debug_output._output._str )
-
 
 ltx.write( 'Whence the selective pressure on the ecological quantities is' )
 ltx.write_environment( 'align*', '\\\\\n  '.join( r'\frac{d%s}{dt} &\propto %s' % (dynamicalsystems.latex_math(v), dynamicalsystems.latex_math(sea_adap_c._S[v])) for v in sea_adap_c._vars ) )
@@ -185,6 +174,7 @@ c_indexer = indexer( lambda (t,i): subscriptedsymbol( 'X' if t == seamodel.type_
 from sage.symbolic.function_factory import function
 sea_f = seamodel.SeaSymbiosisModel(
 	x_indices=[(seamodel.type_H,0),(seamodel.type_g,0)],
+	r_indexer =indexer( lambda (t,i): function('R' if t == seamodel.type_H else 'r')(c_indexer[(t,i)],m_indexer[(t,i)]) ),
 	cg_indexer=indexer( lambda ix: function('c_g')(c_indexer[ix]) ),
 	cc_indexer=indexer( lambda ix: function('c_c')(c_indexer[ix]) ),
 	cm_indexer=indexer( lambda ix: function('c_m')(m_indexer[ix]) ),
@@ -213,3 +203,86 @@ save_session('sea-adap')
 </source-file>
 
 <project-file filename=sea-adap.sage.out.tex/>
+
+<source-file filename=sea-down.sage.step display=none>
+# requires: sea.sobj
+# produces: sea-down.sobj sea-down.sage.out.tex
+from sage.all import * 
+from sage.misc.latex import _latex_file_
+import dynamicalsystems
+from dynamicalsystems import indexer, subscriptedsymbol, Bindings
+from seamodel import *
+
+load_session( 'sea' )
+ltx = dynamicalsystems.latex_output( 'sea-down.sage.out.tex' )
+
+m_indexer = indexer( lambda (t,i): subscriptedsymbol( 'X' if t == seamodel.type_H else 'x', m, i) )
+c_indexer = indexer( lambda (t,i): subscriptedsymbol( 'X' if t == seamodel.type_H else 'x', c, i) )
+
+## first make generic sea model, then bind the functions
+from sage.symbolic.function_factory import function
+sea_f = seamodel.SeaSymbiosisModel(
+	x_indices=[(seamodel.type_H,0),(seamodel.type_g,0)],
+	r_indexer =indexer( lambda (t,i): function('R' if t == seamodel.type_H else 'r')(c_indexer[(t,i)],m_indexer[(t,i)]) ),
+	cg_indexer=indexer( lambda ix: function('c_g')(c_indexer[ix]) ),
+	cc_indexer=indexer( lambda ix: function('c_c')(c_indexer[ix]) ),
+	cm_indexer=indexer( lambda ix: function('c_m')(m_indexer[ix]) ),
+	p_indexer =indexer( lambda ix: indexer( lambda jx:
+		function('p')(c_indexer[ix],c_indexer[jx]) ) ),
+	b_indexer =indexer( lambda ix: indexer( lambda jx:
+		function('b')(m_indexer[ix],m_indexer[jx]) ) ),
+	B_indexer =indexer( lambda ix: indexer( lambda jx:
+		function('B')(m_indexer[ix],m_indexer[jx]) ) )
+)
+
+sea_adap_f = dynamicalsystems.AdaptiveDynamicsModel( 
+    sea_f,
+    [ c_indexer, m_indexer ],
+    workaround_limits=True
+)
+
+#ltx.write( 'Adaptive dynamics debug output:\n' )
+#ltx.write( sea_adap_f._debug_output._output._str )
+
+## version of tradeoffs with excessive cost to guest of colonization,
+## leading to no symbiosis
+var('y')
+down_b = Bindings( dynamicalsystems.FunctionBindings(
+	## R_0 maximized at x_c == x_m == 0
+	R = SR(1).function(x,y),
+	r = SR(1).function(x,y),
+	## density independent cost re colonization
+	C_g = SR(0).function(x),
+	c_g = SR(0).function(x),
+	## cost re colonization per interaction
+	C_c = (x^2).function(x),
+	c_c = (x^2).function(x),
+	## cost re exploitation per interaction
+	C_m = (x^2).function(x),
+	c_m = (x^2).function(x),
+	## prob of colonization
+	p = exp(x+y-1).function(x,y),
+	## benefit to guest of exploitation
+	b = x.function(x,y),
+	## benefit to host of exploitation
+	B = y.function(x,y)
+) )
+
+#ltx.write( 'bindings', down_b )
+
+ltx.write( 'Dynamics with pessimistic functions:' )
+ltx.write( down_b(sea_f) )
+
+ltx.write( 'And pessimistic selective pressure is' )
+ltx.write_environment(
+	'align*', '\\\\\n  '.join( r'\frac{d%s}{dt} &\propto %s' % (
+		dynamicalsystems.latex_math(v),
+		dynamicalsystems.latex_math( down_b(sea_adap_f._S[v]).factor() )
+	) for v in sea_adap_f._vars ) )
+
+ltx.close()
+
+save_session('sea-down')
+</source-file>
+
+<project-file filename=sea-down.sage.out.tex/>
