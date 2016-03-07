@@ -1,5 +1,4 @@
-# requires: $(SageDynamics)/dynamicalsystems.py $(SageUtils)/latex_output.py
-# requires: $(SageAdaptiveDynamics)/adaptivedynamics.py maclevmodels.py 
+# requires: maclevmodels.py 
 # requires: lotkavolterra.py
 # requires: maclev_2_2_defs.py maclev-2-2-adap.sobj
 # produces: maclev-2-2-geom.sage.out.tex

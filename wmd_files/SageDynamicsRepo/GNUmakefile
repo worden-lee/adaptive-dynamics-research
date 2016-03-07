@@ -4,8 +4,8 @@ PREREQUISITE_PROJECTS =
 ifndef RESOURCES
   # ProjectEngine provides RESOURCES and the prerequisite project
   # locations.  If they aren't provided, we're in an exported directory.
-  export RESOURCES = /usr/local/src/adaptive-dynamics-research/wmd_files/.workingwiki/resources
-  export WW_OUTPUTFORMAT = html
+  export RESOURCES = /usr/local/src/workingwiki-trunk/ProjectEngine/resources
+  export WW_OUTPUTFORMAT = tex
 endif
 include $(RESOURCES)/makefile-before
 ifeq ($(filter makefile, $(wildcard makefile)),makefile)

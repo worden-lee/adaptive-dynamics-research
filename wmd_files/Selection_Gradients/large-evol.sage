@@ -1,7 +1,4 @@
 # requires: large.py
-# requires: $(SageUtils)/latex_output.py
-# requires: $(SageDynamics)/dynamicalsystems.py
-# requires: $(SageAdaptiveDynamics)/adaptivedynamics.py
 # requires: lotkavolterra.py
 # requires: large-assemble.sobj
 # produces: large-evol.sobj
@@ -9,14 +6,12 @@ from sage.all import *
 from sage.misc.latex import _latex_file_
 
 import large
-import latex_output
 import dynamicalsystems
-import adaptivedynamics
 import lotkavolterra
 
 load_session( 'large-assemble' )
 
-ltx = latex_output.latex_output( 'large-evol.sage.out.tex' )
+ltx = dynamicalsystems.latex_output( 'large-evol.sage.out.tex' )
 
 def lv_interior_equilibrium( popdyn ):
     import sympy
@@ -26,7 +21,7 @@ def lv_interior_equilibrium( popdyn ):
     eqs = sympy.solve( eqns, *popdyn.equilibrium_vars() )
     return dynamicalsystems.Bindings( { x: eqs[ sympy.sympify(x) ] for x in popdyn.equilibrium_vars() } )
 
-u_init = dynamicalsystems.Bindings( { smr._u_indexer[i]:0 for i in smr._population_indices } )
+u_init = dynamicalsystems.Bindings( { ui:0 for ii in smr._population_indices for ui in smr._u_indexers[ii] } )
 
 equil = lv_interior_equilibrium( smr )
 eq0 = dynamicalsystems.Bindings( equil )
@@ -34,7 +29,7 @@ eq0 = dynamicalsystems.Bindings( equil )
 print 'equil:', eq0
 print 'equil at u=0:', u_init( eq0 )
 
-sm_adap = adaptivedynamics.AdaptiveDynamicsModel( 
+sm_adap = dynamicalsystems.AdaptiveDynamicsModel( 
     smr,
     [ smr._u_indexer ],
     #early_bindings=fb,

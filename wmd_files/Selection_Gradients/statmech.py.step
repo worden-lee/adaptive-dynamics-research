@@ -1,12 +1,5 @@
 from sage.all import * 
-import os
-import sys
-sys.path.append( os.environ['SageUtils'] )
-sys.path.append( os.environ['SageDynamics'] )
-sys.path.append( os.environ['SageAdaptiveDynamics'] )
-import latex_output
 import dynamicalsystems
-import adaptivedynamics
 
 class vertex_indexer(dynamicalsystems.indexer):
     def init(self, x):

@@ -8,9 +8,7 @@ from sage.misc.latex import _latex_file_
 from sage.misc.latex import latex
 
 import direct
-import latex_output
 import dynamicalsystems
-import adaptivedynamics
 import lotkavolterra
 
 # create variables with custom latex names because load_session
@@ -21,7 +19,7 @@ for x in ('X_0', 'X_i', 'X_1'): dynamicalsystems.hat(SR.symbol(x))
 
 load_session("direct-evol")
 
-ltx = latex_output.latex_output( 'direct-evol-plot.sage.out.tex' )
+ltx = dynamicalsystems.latex_output( 'direct-evol-plot.sage.out.tex' )
 
 #ltx.write( 'sm\_traj t:', [ ts('t') for ts in ad_traj._timeseries ], '\n\n' )
 #ltx.write( 'starts with:' )
@@ -30,11 +28,11 @@ ltx = latex_output.latex_output( 'direct-evol-plot.sage.out.tex' )
 #    ltx.write_block( ad_traj._timeseries[1] )
 
 ltx.write( 'flow: $%s \mapsto %s$\n\n' % (
-	latex( latex_output.column_vector( symbolic_adap._vars ) ),
-	latex( latex_output.column_vector( [ symbolic_adap._flow[v] for v in symbolic_adap._vars ] ) ) ) )
+	latex( dynamicalsystems.column_vector( symbolic_adap._vars ) ),
+	latex( dynamicalsystems.column_vector( [ symbolic_adap._flow[v] for v in symbolic_adap._vars ] ) ) ) )
 
-#ltx.write( 'flow at ', '$%s$'%latex( latex_output.column_vector( ad_init_state ) ), ': ', 
-#    '$%s$'%latex( latex_output.column_vector( ad_init( symbolic_adap._flow[v] ) for v in symbolic_adap._vars ) ),
+#ltx.write( 'flow at ', '$%s$'%latex( dynamicalsystems.column_vector( ad_init_state ) ), ': ', 
+#    '$%s$'%latex( dynamicalsystems.column_vector( ad_init( symbolic_adap._flow[v] ) for v in symbolic_adap._vars ) ),
 #    '\n\n' )
 
 #ltx.write( 'a values:' )

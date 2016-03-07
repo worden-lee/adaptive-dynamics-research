@@ -1,15 +1,7 @@
-# requires: maclevmodels.py $(SageDynamics)/dynamicalsystems.py
+# requires: maclevmodels.py
 from sage.all import *
 from sage.misc.latex import _latex_file_
-
-import os
-import sys
-sys.path.append( os.environ['SageUtils'] )
-sys.path.append( os.environ['SageDynamics'] )
-sys.path.append( os.environ['SageAdaptiveDynamics'] )
 from dynamicalsystems import *
-from adaptivedynamics import *
-from latex_output import *
 from maclevmodels import *
 
 # Create the generic 2-species, 2-resources MacLev model, with parameters

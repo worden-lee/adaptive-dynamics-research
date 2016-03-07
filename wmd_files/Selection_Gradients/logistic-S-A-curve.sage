@@ -1,12 +1,6 @@
 # requires: S-A-vf.sobj
 # produces: logistic-S-A-curve.png
-import os, sys
-sys.path.append( os.environ['SageUtils'] )
-sys.path.append( os.environ['SageDynamics'] )
-sys.path.append( os.environ['SageAdaptiveDynamics'] )
 from dynamicalsystems import *
-from adaptivedynamics import *
-from plot_vector_field_along_curve import *
 from sage.symbolic.function_factory import function
 
 load_session( 'S-A-vf.sobj' )
@@ -34,3 +28,4 @@ verhulst_SA += plot_v_curve( FunctionBindings( r=1/u, K=u ), (u,1/sqrt(3),3) )
 # wouldn't want anything to happen to them
 verhulst_SA.axes_labels( [ '$k$', '$a$' ] );
 verhulst_SA.save( 'logistic-S-A-curve.png', figsize=(5,5) )
+

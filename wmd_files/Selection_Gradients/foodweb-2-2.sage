@@ -1,18 +1,13 @@
 # requires: foodweb.py
-# requires: $(SageDynamics)/dynamicalsystems.py
-# requires: $(SageAdaptiveDynamics)/adaptivedynamics.py
-# requires: $(SageUtils)/latex_output.py
 # produces: foodweb-2-2.sobj foodweb-2-2.sage.out.tex foodweb-2-2.tikz.tex
 from sage.all import * 
 from sage.misc.latex import _latex_file_
 
 import foodweb
-import latex_output
 import dynamicalsystems
-import adaptivedynamics
 import lotkavolterra
 
-ltx = latex_output.latex_output( 'foodweb-2-2.sage.out.tex' )
+ltx = dynamicalsystems.latex_output( 'foodweb-2-2.sage.out.tex' )
 
 # now that I've defined the general resource-competition model, let's
 # create a 1-resource, 1-population instantiation to work with
@@ -42,7 +37,7 @@ init_2_2 = dynamicalsystems.Bindings( { 'u_0_R_0':-0.1, 'u_0_R_1':0, 'u_0_P_0':-
 
 #print init_2_2( dynamicalsystems.Bindings( equil[0] ) )
 
-foodweb_adap = adaptivedynamics.AdaptiveDynamicsModel( 
+foodweb_adap = dynamicalsystems.AdaptiveDynamicsModel( 
     foodweb_2_2,
     [ foodweb_2_2._u_indexer ],
     equilibrium = dynamicalsystems.Bindings()
@@ -50,11 +45,10 @@ foodweb_adap = adaptivedynamics.AdaptiveDynamicsModel(
 ).bind( { 'gamma':1 } )
 
 ltx.write( 'Adaptive dynamics of model:\n', foodweb_adap )
-
 #ltx.write_environment( 'align*', [ '\\\\\n  '.join( r'\frac{d%s}{dt} &\propto %s' % (latex(v), latex(foodweb_adap._S[v])) for v in foodweb_adap._vars ) ] )
 
-#ltx.write( 'flow at ', '$%s$'%latex( latex_output.column_vector( [ init_2_2( v ) for v in foodweb_adap._vars ] ) ), ': ',
-#    '$%s$'%latex( latex_output.column_vector( init_2_2( foodweb_adap._flow[v] ) for v in foodweb_adap._vars ) ) )
+#ltx.write( 'flow at ', '$%s$'%latex( dynamicalsystems.column_vector( [ init_2_2( v ) for v in foodweb_adap._vars ] ) ), ': ',
+#    '$%s$'%latex( dynamicalsystems.column_vector( init_2_2( foodweb_adap._flow[v] ) for v in foodweb_adap._vars ) ) )
 
 fb_adap = foodweb_adap.bind( fb + dynamicalsystems.Bindings( equil[0] ) )
 

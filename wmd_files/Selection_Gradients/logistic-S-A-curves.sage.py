@@ -17,4 +17,5 @@ for k,a in sum( ( [ (s,_sage_const_0 ), (_sage_const_0 ,-s) ] for s in arange(_s
     SAvf += plot( (s, -sqrt(s**_sage_const_2 +C)), (s, _sage_const_0 , outer), parametric=True, color='gray', thickness=_sage_const_0p1 , ymin=-outer )
 SAvf.axes_labels( [ '$k$', '$a$' ] );
 SAvf.save( 'logistic-S-A-curves.png' );
+
 save_session( 'S-A-vf' )

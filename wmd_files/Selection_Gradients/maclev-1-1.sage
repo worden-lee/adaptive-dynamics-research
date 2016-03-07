@@ -1,16 +1,10 @@
-# requires: maclevmodels.py $(SageDynamics)/dynamicalsystems.py
-# requires: $(SageAdaptiveDynamics)/adaptivedynamics.py
-# requires: $(SageUtils)/latex_output.py
+# requires: maclevmodels.py
 # produces: maclev-1-1.sobj maclev-1-1.sage.out.tex
 from sage.all import * 
 from sage.misc.latex import _latex_file_
 
-import os
-import sys
-sys.path.append( os.environ['SageUtils'] )
-sys.path.append( os.environ['SageDynamics'] )
 from maclevmodels import *
-from latex_output import *
+from dynamicalsystems import latex_output
 
 ltx = latex_output( 'maclev-1-1.sage.out.tex' )
 

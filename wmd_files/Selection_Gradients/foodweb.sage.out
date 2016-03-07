@@ -1,5 +1,4 @@
-('f', (u, v) |--> 4/5*cos(u - v) + 2) as tuple:expr?
-('f', (u, v) |--> 4/5*cos(u - v) + 2) as expr:function?
-{('f', (u, v)): (u, v) |--> 4/5*cos(u - v) + 2}
+merge bindings: {k -> 9/10} , [('f', (u, v))] ,  {}
 set_population_indices: [(b, 0), (a, 0)]
 basal: [a]
+merge bindings: {m -> 1, r -> 1} , [k] ,  {}

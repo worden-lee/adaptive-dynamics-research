@@ -1,5 +1,4 @@
-# requires: $(SageDynamics)/dynamicalsystems.py $(SageUtils)/latex_output.py
-# requires: $(SageAdaptiveDynamics)/adaptivedynamics.py maclevmodels.py
+# requires: maclevmodels.py
 # requires: maclev_2_2_defs.py maclev-2-2-c-adap.sobj
 # produces: maclev-2-2-c-p.sage.out.tex maclev-2-2-c-c-vs-c.png
 # produces: maclev-2-2-c-c-vs-t.png maclev-2-2-c-R-vs-t.png

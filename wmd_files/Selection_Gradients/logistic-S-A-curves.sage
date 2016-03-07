@@ -15,4 +15,5 @@ for k,a in sum( ( [ (s,0), (0,-s) ] for s in arange(0.5,3,0.25) ), [ (0,0) ] ):
     SAvf += plot( (s, -sqrt(s^2+C)), (s, 0, outer), parametric=True, color='gray', thickness=0.1, ymin=-outer )
 SAvf.axes_labels( [ '$k$', '$a$' ] );
 SAvf.save( 'logistic-S-A-curves.png' );
+
 save_session( 'S-A-vf' )

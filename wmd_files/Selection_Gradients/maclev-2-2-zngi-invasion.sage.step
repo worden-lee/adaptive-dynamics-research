@@ -1,4 +1,4 @@
-# requires: maclev_2_2_defs.py maclev-2-2-adap.sobj $(SageUtils)/latex_output.py
+# requires: maclev_2_2_defs.py maclev-2-2-adap.sobj
 # produces: maclev-2-2-zngi-invasion.sage.out.tex maclev-2-2-zngi-invasion.png
 from maclev_2_2_defs import *
 

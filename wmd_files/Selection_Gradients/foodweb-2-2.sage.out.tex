@@ -57,21 +57,21 @@ The foodweb model:\iflatexml
 Adaptive dynamics of model:
 \iflatexml
 \begin{align*}
-\frac{du_{0P_{1}}}{dt} &= {\left(\hat{X}_{0R_{0}} k D[0]\left(f\right)\left(u_{0P_{1}}, u_{0R_{0}}\right) + \hat{X}_{0R_{1}} k D[0]\left(f\right)\left(u_{0P_{1}}, u_{0R_{1}}\right)\right)} \hat{X}_{0P_{1}}\\
-\frac{du_{0P_{0}}}{dt} &= {\left(\hat{X}_{0R_{0}} k D[0]\left(f\right)\left(u_{0P_{0}}, u_{0R_{0}}\right) + \hat{X}_{0R_{1}} k D[0]\left(f\right)\left(u_{0P_{0}}, u_{0R_{1}}\right)\right)} \hat{X}_{0P_{0}}\\
-\frac{du_{0R_{1}}}{dt} &= -{\left(\hat{X}_{0P_{0}} D[1]\left(f\right)\left(u_{0P_{0}}, u_{0R_{1}}\right) + \hat{X}_{0P_{1}} D[1]\left(f\right)\left(u_{0P_{1}}, u_{0R_{1}}\right)\right)} \hat{X}_{0R_{1}}\\
-\frac{du_{0R_{0}}}{dt} &= -{\left(\hat{X}_{0P_{0}} D[1]\left(f\right)\left(u_{0P_{0}}, u_{0R_{0}}\right) + \hat{X}_{0P_{1}} D[1]\left(f\right)\left(u_{0P_{1}}, u_{0R_{0}}\right)\right)} \hat{X}_{0R_{0}}
+\frac{du_{0R_{0}}}{dt} &= -{\left(\hat{X}_{0P_{0}} D[1]\left(f\right)\left(u_{0P_{0}}, u_{1R_{0}}\right) + \hat{X}_{0P_{1}} D[1]\left(f\right)\left(u_{0P_{1}}, u_{1R_{0}}\right)\right)} \hat{X}_{0R_{0}}\\
+\frac{du_{0P_{1}}}{dt} &= {\left(\hat{X}_{0R_{0}} k D[0]\left(f\right)\left(u_{1P_{1}}, u_{0R_{0}}\right) + \hat{X}_{0R_{1}} k D[0]\left(f\right)\left(u_{1P_{1}}, u_{0R_{1}}\right)\right)} \hat{X}_{0P_{1}}\\
+\frac{du_{0P_{0}}}{dt} &= {\left(\hat{X}_{0R_{0}} k D[0]\left(f\right)\left(u_{1P_{0}}, u_{0R_{0}}\right) + \hat{X}_{0R_{1}} k D[0]\left(f\right)\left(u_{1P_{0}}, u_{0R_{1}}\right)\right)} \hat{X}_{0P_{0}}\\
+\frac{du_{0R_{1}}}{dt} &= -{\left(\hat{X}_{0P_{0}} D[1]\left(f\right)\left(u_{0P_{0}}, u_{1R_{1}}\right) + \hat{X}_{0P_{1}} D[1]\left(f\right)\left(u_{0P_{1}}, u_{1R_{1}}\right)\right)} \hat{X}_{0R_{1}}
 \end{align*}
 \else
 \begin{dgroup*}
 \begin{dmath*}
-\frac{du_{0P_{1}}}{dt} = {\left(\hat{X}_{0R_{0}} k D[0]\left(f\right)\left(u_{0P_{1}}, u_{0R_{0}}\right) + \hat{X}_{0R_{1}} k D[0]\left(f\right)\left(u_{0P_{1}}, u_{0R_{1}}\right)\right)} \hat{X}_{0P_{1}}\end{dmath*}
+\frac{du_{0R_{0}}}{dt} = -{\left(\hat{X}_{0P_{0}} D[1]\left(f\right)\left(u_{0P_{0}}, u_{1R_{0}}\right) + \hat{X}_{0P_{1}} D[1]\left(f\right)\left(u_{0P_{1}}, u_{1R_{0}}\right)\right)} \hat{X}_{0R_{0}}\end{dmath*}
 \begin{dmath*}
-\frac{du_{0P_{0}}}{dt} = {\left(\hat{X}_{0R_{0}} k D[0]\left(f\right)\left(u_{0P_{0}}, u_{0R_{0}}\right) + \hat{X}_{0R_{1}} k D[0]\left(f\right)\left(u_{0P_{0}}, u_{0R_{1}}\right)\right)} \hat{X}_{0P_{0}}\end{dmath*}
+\frac{du_{0P_{1}}}{dt} = {\left(\hat{X}_{0R_{0}} k D[0]\left(f\right)\left(u_{1P_{1}}, u_{0R_{0}}\right) + \hat{X}_{0R_{1}} k D[0]\left(f\right)\left(u_{1P_{1}}, u_{0R_{1}}\right)\right)} \hat{X}_{0P_{1}}\end{dmath*}
 \begin{dmath*}
-\frac{du_{0R_{1}}}{dt} = -{\left(\hat{X}_{0P_{0}} D[1]\left(f\right)\left(u_{0P_{0}}, u_{0R_{1}}\right) + \hat{X}_{0P_{1}} D[1]\left(f\right)\left(u_{0P_{1}}, u_{0R_{1}}\right)\right)} \hat{X}_{0R_{1}}\end{dmath*}
+\frac{du_{0P_{0}}}{dt} = {\left(\hat{X}_{0R_{0}} k D[0]\left(f\right)\left(u_{1P_{0}}, u_{0R_{0}}\right) + \hat{X}_{0R_{1}} k D[0]\left(f\right)\left(u_{1P_{0}}, u_{0R_{1}}\right)\right)} \hat{X}_{0P_{0}}\end{dmath*}
 \begin{dmath*}
-\frac{du_{0R_{0}}}{dt} = -{\left(\hat{X}_{0P_{0}} D[1]\left(f\right)\left(u_{0P_{0}}, u_{0R_{0}}\right) + \hat{X}_{0P_{1}} D[1]\left(f\right)\left(u_{0P_{1}}, u_{0R_{0}}\right)\right)} \hat{X}_{0R_{0}}
+\frac{du_{0R_{1}}}{dt} = -{\left(\hat{X}_{0P_{0}} D[1]\left(f\right)\left(u_{0P_{0}}, u_{1R_{1}}\right) + \hat{X}_{0P_{1}} D[1]\left(f\right)\left(u_{0P_{1}}, u_{1R_{1}}\right)\right)} \hat{X}_{0R_{1}}
 \end{dmath*}
 \end{dgroup*}
 \fi

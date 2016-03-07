@@ -218,16 +218,9 @@ These different selection gradients are very different objects: they’re vector
 
 <p>Now here’s the MacArthur-Levins resource competition model.</p>
 
-<p><!-- maclevmodels.py.step --><fieldset class="ww-project-file-source ww-collapsible"><legend><span>maclevmodels.py.step</span></legend><div class="ww-collapsible-content"><pre># requires: $(SageDynamics)/dynamicalsystems.py $(SageAdaptiveDynamics)/adaptivedynamics.py
-from sage.all import *
-import os
-import sys
+<p><!-- maclevmodels.py.step --><fieldset class="ww-project-file-source ww-collapsible"><legend><span>maclevmodels.py.step</span></legend><div class="ww-collapsible-content"><pre>from sage.all import *
  
-sys.path.append( os.environ['SageUtils'] )
-sys.path.append( os.environ['SageDynamics'] )
 from dynamicalsystems import *
-sys.path.append( os.environ['SageAdaptiveDynamics'] )
-from adaptivedynamics import *
 
 from sage.symbolic.relation import solve
 from sage.symbolic.function_factory import function

@@ -1,15 +1,33 @@
-Tue Sep 29 15:17:00 2015
+Thu Mar  3 18:14:45 2016
 /usr/bin/make -C /usr/local/src/adaptive-dynamics-research/wmd_files/Selection_Gradients \
     direct-a-vs-a.svg
-Including .mk files: sage.mk sage-inline.mk 
-Including .mk files from .step files: direct.py.mk direct-assemble.sage.mk direct-assemble-plot.sage.mk direct-evol.sage.mk direct-evol-plot.sage.mk foodweb.py.mk foodweb.sage.mk foodweb-adap.sage.mk foodweb.plot.sage.mk foodweb-2-2.sage.mk foodweb-2-2.plot.sage.mk large.py.mk large-assemble.sage.mk large-assemble-plot.sage.mk large-evol.sage.mk large-evol-plot.sage.mk logistic-S-A-curves.sage.mk maclev-S-A-curve.sage.mk logistic-S-A-curve.sage.mk maclev-1-1.sage.mk maclev-1-1-adap.sage.mk maclev-1-1-mc-adap-geom.sage.mk maclev-1-1-ak-adap-geom.sage.mk S-A-vector-field.sage.mk maclev-1-1-d1A-vector-field.sage.mk maclev-1-1-S-and-d1A-on-curve.sage.mk maclev-1-1-S-and-D-on-curve.sage.mk maclev_1_2_defs.py.mk maclev-1-2-popdyn.sage.mk maclev-1-2-adap.sage.mk maclev-1-2-p.sage.mk maclev-1-2-zngi.sage.mk maclev-1-2-geom.sage.mk maclev_unconstrained_c.py.mk maclev-2-2-c-popdyn.sage.mk maclev-2-2-c-adap.sage.mk maclev-2-2-c-p.sage.mk maclev-2-2-c-zngi.sage.mk maclev-2-2-c-geom.sage.mk maclev_2_2_defs.py.mk maclev-2-2-popdyn.sage.mk maclev-2-2-adap.sage.mk maclev-2-2-p.sage.mk maclev-2-2-zngi.sage.mk maclev-2-2-geom.sage.mk maclev_a_only_defs.py.mk maclev-a-only-popdyn.sage.mk maclev-a-only-adap.sage.mk maclev-a-only-p.sage.mk maclev-a-only-zngi.sage.mk maclev-a-only-geom.sage.mk maclev_a_c.py.mk maclev-2-2-a-c-popdyn.sage.mk maclev-2-2-a-c-adap.sage.mk maclev-2-2-a-c-p.sage.mk maclev-2-2-a-c-zngi.sage.mk maclev-2-2-a-c-geom.sage.mk maclevmodels.py.mk statmech.py.mk statmech-assemble.sage.mk statmech-assemble-plot.sage.mk statmech-evol.sage.mk statmech-evol-plot.sage.mk toc.sage.mk maclev-2-2-zngi-invasion.sage.mk lotkavolterra.py.mk
+Including .mk files: sage-inline.mk 
 Including .mk files from .sage-inline files: avec.sage.mk a-careful.sage.mk
+Including .mk files from .step files: aij.py.mk aij-assemble.sage.mk aij-assemble-plot.sage.mk aij-evol.sage.mk aij-evol-plot.sage.mk direct.py.mk direct-assemble.sage.mk direct-assemble-plot.sage.mk direct-evol.sage.mk direct-evol-plot.sage.mk foodweb.py.mk foodweb.sage.mk foodweb-adap.sage.mk foodweb.plot.sage.mk foodweb-2-2.sage.mk foodweb-2-2.plot.sage.mk large.py.mk large-assemble.sage.mk large-assemble-plot.sage.mk large-evol.sage.mk large-evol-plot.sage.mk logistic-S-A-curves.sage.mk maclev-S-A-curve.sage.mk logistic-S-A-curve.sage.mk maclev-1-1.sage.mk maclev-1-1-adap.sage.mk maclev-1-1-mc-adap-geom.sage.mk maclev-1-1-ak-adap-geom.sage.mk S-A-vector-field.sage.mk maclev-1-1-d1A-vector-field.sage.mk maclev-1-1-S-and-d1A-on-curve.sage.mk maclev-1-1-S-and-D-on-curve.sage.mk maclev_1_2_defs.py.mk maclev-1-2-popdyn.sage.mk maclev-1-2-adap.sage.mk maclev-1-2-p.sage.mk maclev-1-2-zngi.sage.mk maclev-1-2-geom.sage.mk maclev_unconstrained_c.py.mk maclev-2-2-c-popdyn.sage.mk maclev-2-2-c-adap.sage.mk maclev-2-2-c-p.sage.mk maclev-2-2-c-zngi.sage.mk maclev-2-2-c-geom.sage.mk maclev_2_2_defs.py.mk maclev-2-2-popdyn.sage.mk maclev-2-2-adap.sage.mk maclev-2-2-p.sage.mk maclev-2-2-zngi.sage.mk maclev-2-2-geom.sage.mk maclev_a_only_defs.py.mk maclev-a-only-popdyn.sage.mk maclev-a-only-adap.sage.mk maclev-a-only-p.sage.mk maclev-a-only-zngi.sage.mk maclev-a-only-geom.sage.mk maclev_a_c.py.mk maclev-2-2-a-c-popdyn.sage.mk maclev-2-2-a-c-adap.sage.mk maclev-2-2-a-c-p.sage.mk maclev-2-2-a-c-zngi.sage.mk maclev-2-2-a-c-geom.sage.mk maclevmodels.py.mk masel_model.py.mk masel.sage.mk masel-adap.sage.mk masel-2-adap.sage.mk statmech.py.mk statmech-assemble.sage.mk statmech-assemble-plot.sage.mk statmech-evol.sage.mk statmech-evol-plot.sage.mk sea.sage.mk sea-adap.sage.mk toc.sage.mk maclev-2-2-zngi-invasion.sage.mk lotkavolterra.py.mk r_selection.py.mk r-selection.sage.mk
 Including .tex.d files: foodweb-2-2.tikz.tex.d foodweb.tikz.tex.d
-make[1]: Entering directory `/usr/local/src/adaptive-dynamics-research/wmd_files/Selection_Gradients'
-/usr/bin/make --no-print-directory -C /usr/local/src/adaptive-dynamics-research/wmd_files/SageDynamicsRepo/SageDynamics dynamicalsystems.py
-make[2]: Nothing to be done for `dynamicalsystems.py'.
-/usr/bin/make --no-print-directory -C /usr/local/src/adaptive-dynamics-research/wmd_files/SageDynamicsRepo/SageAdaptiveDynamics adaptivedynamics.py
-make[2]: Nothing to be done for `adaptivedynamics.py'.
-make[1]: Leaving directory `/usr/local/src/adaptive-dynamics-research/wmd_files/Selection_Gradients'
-Make succeeded.
-Tue Sep 29 15:17:00 2015
+make: Entering directory `/usr/local/src/adaptive-dynamics-research/wmd_files/Selection_Gradients'
+rm -f direct-evol-plot.sage.out direct-evol-plot.sage.status direct-evol-plot.sage.out.tex  direct-a-vs-t.svg direct-a-vs-a.svg
+(sage direct-evol-plot.sage && touch direct-evol-plot.sage.status) | tee direct-evol-plot.sage.dmp
+Signal received — terminating the make process
+Make failed with exit code -1.
+Thu Mar  3 18:14:49 2016
+Traceback (most recent call last):
+  File "direct-evol-plot.sage.py", line 10, in <module>
+    import direct
+  File "/usr/local/src/adaptive-dynamics-research/wmd_files/Selection_Gradients/direct.py", line 2, in <module>
+    import dynamicalsystems
+  File "/usr/local/src/SageDynamics/dynamicalsystems/__init__.py", line 2, in <module>
+    from dynamicalsystems import *
+  File "/usr/local/src/SageDynamics/dynamicalsystems/dynamicalsystems.py", line 299, in <module>
+    limop = limit( SR('f(x)'), x=0 ).operator()
+  File "/usr/local/src/sage/local/lib/python2.7/site-packages/sage/calculus/calculus.py", line 1216, in limit
+    l = maxima.sr_limit(ex, v, a)
+  File "sage/misc/lazy_import.pyx", line 351, in sage.misc.lazy_import.LazyImport.__getattr__ (build/cythonized/sage/misc/lazy_import.c:3316)
+  File "sage/misc/lazy_import.pyx", line 250, in sage.misc.lazy_import.LazyImport._get_object (build/cythonized/sage/misc/lazy_import.c:2150)
+  File "/usr/local/src/sage/local/lib/python2.7/site-packages/sage/interfaces/maxima_lib.py", line 154, in <module>
+    ecl_eval("#$%s$"%l)
+  File "sage/libs/ecl.pyx", line 1311, in sage.libs.ecl.ecl_eval (build/cythonized/sage/libs/ecl.c:9286)
+  File "sage/libs/ecl.pyx", line 1326, in sage.libs.ecl.ecl_eval (build/cythonized/sage/libs/ecl.c:9219)
+  File "sage/libs/ecl.pyx", line 339, in sage.libs.ecl.ecl_safe_eval (build/cythonized/sage/libs/ecl.c:4622)
+RuntimeError: ECL says: Console interrupt.
+make: *** [direct-evol-plot.sage.out] Interrupt

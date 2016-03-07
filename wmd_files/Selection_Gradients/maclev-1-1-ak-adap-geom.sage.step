@@ -1,20 +1,12 @@
 # requires: maclevmodels.py maclev-1-1-mc-adap-geom.sobj
-# requires: $(SageUtils)/latex_output.py
 # produces: maclev-1-1-ak-adap-geom.png maclev-1-1-ak-adap-geom.sage.out.tex
 from sage.all import *
 from sage.misc.latex import _latex_file_
 from sage.misc.latex import latex
 
-import os
-import sys
-sys.path.append( os.environ['SageUtils'] )
-sys.path.append( os.environ['SageDynamics'] )
-sys.path.append( os.environ['SageAdaptiveDynamics'] )
-
 from maclevmodels import *
-from adaptivedynamics import *
 from lotkavolterra import *
-from latex_output import *
+from dynamicalsystems import latex_output
 
 # create variables with custom latex names because load_session
 # creates them wrong

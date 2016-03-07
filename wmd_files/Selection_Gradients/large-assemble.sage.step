@@ -1,19 +1,16 @@
 # requires: large.py
-# requires: $(SageDynamics)/dynamicalsystems.py
-# requires: $(SageUtils)/latex_output.py
 # produces: large-assemble.sobj
 from sage.all import *
 from sage.misc.latex import _latex_file_
 
 import large
-import latex_output
 import dynamicalsystems
 
 set_random_seed(0)
 
 N_pop = 1#5
 
-smr = large.LargeNumbersPopulation( 0 )
+smr = large.LargeNumbersPopulation( n=0 )
 
 t = 0
 state = dynamicalsystems.Bindings()
@@ -21,7 +18,7 @@ soln = dynamicalsystems.Trajectory( smr, [] )
 while smr.n_populations() < N_pop:
     ni = smr.add_random_species()
     state[ smr._population_indexer[ni] ] = 1
-    smu = smr.bind( { smr._u_indexer[i]:0 for i in smr._population_indices } )
+    smu = smr.bind( { ui:0 for ii in smr._population_indices for ui in smr._u_indexer[ii] } )
     print 'go', t, 'to', t+100; sys.stdout.flush()
     ni_soln = smu.solve_gsl( [ state(x) for x in smu._vars ], start_time=t, end_time=t+100 )
     if any( abs(x)>1e+7 or math.isnan(x) for x in ni_soln._timeseries[-1].values() ):

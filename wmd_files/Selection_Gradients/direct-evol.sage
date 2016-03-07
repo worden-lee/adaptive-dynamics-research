@@ -1,7 +1,4 @@
 # requires: direct.py
-# requires: $(SageUtils)/latex_output.py
-# requires: $(SageDynamics)/dynamicalsystems.py
-# requires: $(SageAdaptiveDynamics)/adaptivedynamics.py
 # requires: lotkavolterra.py
 # requires: direct-assemble.sobj
 # produces: direct-evol.sobj
@@ -9,14 +6,12 @@ from sage.all import *
 from sage.misc.latex import _latex_file_
 
 import direct
-import latex_output
 import dynamicalsystems
-import adaptivedynamics
 import lotkavolterra
 
 load_session( 'direct-assemble' )
 
-ltx = latex_output.latex_output( 'direct-evol.sage.out.tex' )
+ltx = dynamicalsystems.latex_output( 'direct-evol.sage.out.tex' )
 
 def lv_interior_equilibrium( popdyn ):
     import sympy
@@ -32,7 +27,7 @@ formal_equil = dynamicalsystems.Bindings( { v : dynamicalsystems.hat(v) for v in
 
 #u_init = dynamicalsystems.Bindings( { smr._u_indexer[i]:0 for i in smr._population_indices } )
 
-symbolic_adap = adaptivedynamics.AdaptiveDynamicsModel( 
+symbolic_adap = dynamicalsystems.AdaptiveDynamicsModel( 
     comm2,
     [ dynamicalsystems.indexer_2d_reverse('u')[i] for i in comm2._population_indices ],
     #early_bindings=fb,
@@ -41,7 +36,7 @@ symbolic_adap = adaptivedynamics.AdaptiveDynamicsModel(
 
 ltx.write( 'Adaptive dynamics of model:\n', symbolic_adap )
 
-num_adap = adaptivedynamics.AdaptiveDynamicsModel( 
+num_adap = dynamicalsystems.AdaptiveDynamicsModel( 
     comm2,
     [ dynamicalsystems.indexer_2d_reverse('u')[i] for i in comm2._population_indices ],
     equilibrium = int_equil

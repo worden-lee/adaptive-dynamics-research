@@ -1,7 +1,5 @@
 # helper makefile automatically generated from maclev-2-2-a-c-geom.sage.step
-maclev-2-2-a-c-geom.sage maclev-2-2-a-c-geom.sage.out maclev-2-2-a-c-geom.sage.tried : $(SageDynamics)/dynamicalsystems.py $(SageUtils)/latex_output.py
-maclev-2-2-a-c-geom.sage maclev-2-2-a-c-geom.sage.out maclev-2-2-a-c-geom.sage.tried : $(SageAdaptiveDynamics)/adaptivedynamics.py maclevmodels.py 
-maclev-2-2-a-c-geom.sage maclev-2-2-a-c-geom.sage.out maclev-2-2-a-c-geom.sage.tried : lotkavolterra.py
+maclev-2-2-a-c-geom.sage maclev-2-2-a-c-geom.sage.out maclev-2-2-a-c-geom.sage.tried : maclevmodels.py lotkavolterra.py
 maclev-2-2-a-c-geom.sage maclev-2-2-a-c-geom.sage.out maclev-2-2-a-c-geom.sage.tried : maclev_2_2_defs.py maclev-2-2-a-c-adap.sobj
 maclev-2-2-a-c-geom.sage.out.tex : maclev-2-2-a-c-geom.sage.out ;
 maclev-2-2-a-c-k-vs-t.png : maclev-2-2-a-c-geom.sage.out ;

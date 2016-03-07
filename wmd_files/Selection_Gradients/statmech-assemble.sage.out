@@ -1,3 +1,4 @@
 set_population_indices: []
 set_population_indices: [(0, 0)]
+merge bindings: {} , [u_0_0] ,  {}
 go 0 to 100

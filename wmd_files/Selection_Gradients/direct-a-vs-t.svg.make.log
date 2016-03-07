@@ -1,15 +1,32 @@
-Tue Sep 29 15:17:00 2015
+Thu Mar  3 18:14:39 2016
 /usr/bin/make -C /usr/local/src/adaptive-dynamics-research/wmd_files/Selection_Gradients \
     direct-a-vs-t.svg
-Including .mk files: sage.mk sage-inline.mk 
-Including .mk files from .step files: direct.py.mk direct-assemble.sage.mk direct-assemble-plot.sage.mk direct-evol.sage.mk direct-evol-plot.sage.mk foodweb.py.mk foodweb.sage.mk foodweb-adap.sage.mk foodweb.plot.sage.mk foodweb-2-2.sage.mk foodweb-2-2.plot.sage.mk large.py.mk large-assemble.sage.mk large-assemble-plot.sage.mk large-evol.sage.mk large-evol-plot.sage.mk logistic-S-A-curves.sage.mk maclev-S-A-curve.sage.mk logistic-S-A-curve.sage.mk maclev-1-1.sage.mk maclev-1-1-adap.sage.mk maclev-1-1-mc-adap-geom.sage.mk maclev-1-1-ak-adap-geom.sage.mk S-A-vector-field.sage.mk maclev-1-1-d1A-vector-field.sage.mk maclev-1-1-S-and-d1A-on-curve.sage.mk maclev-1-1-S-and-D-on-curve.sage.mk maclev_1_2_defs.py.mk maclev-1-2-popdyn.sage.mk maclev-1-2-adap.sage.mk maclev-1-2-p.sage.mk maclev-1-2-zngi.sage.mk maclev-1-2-geom.sage.mk maclev_unconstrained_c.py.mk maclev-2-2-c-popdyn.sage.mk maclev-2-2-c-adap.sage.mk maclev-2-2-c-p.sage.mk maclev-2-2-c-zngi.sage.mk maclev-2-2-c-geom.sage.mk maclev_2_2_defs.py.mk maclev-2-2-popdyn.sage.mk maclev-2-2-adap.sage.mk maclev-2-2-p.sage.mk maclev-2-2-zngi.sage.mk maclev-2-2-geom.sage.mk maclev_a_only_defs.py.mk maclev-a-only-popdyn.sage.mk maclev-a-only-adap.sage.mk maclev-a-only-p.sage.mk maclev-a-only-zngi.sage.mk maclev-a-only-geom.sage.mk maclev_a_c.py.mk maclev-2-2-a-c-popdyn.sage.mk maclev-2-2-a-c-adap.sage.mk maclev-2-2-a-c-p.sage.mk maclev-2-2-a-c-zngi.sage.mk maclev-2-2-a-c-geom.sage.mk maclevmodels.py.mk statmech.py.mk statmech-assemble.sage.mk statmech-assemble-plot.sage.mk statmech-evol.sage.mk statmech-evol-plot.sage.mk toc.sage.mk maclev-2-2-zngi-invasion.sage.mk lotkavolterra.py.mk
+Including .mk files: sage-inline.mk 
 Including .mk files from .sage-inline files: avec.sage.mk a-careful.sage.mk
+Including .mk files from .step files: aij.py.mk aij-assemble.sage.mk aij-assemble-plot.sage.mk aij-evol.sage.mk aij-evol-plot.sage.mk direct.py.mk direct-assemble.sage.mk direct-assemble-plot.sage.mk direct-evol.sage.mk direct-evol-plot.sage.mk foodweb.py.mk foodweb.sage.mk foodweb-adap.sage.mk foodweb.plot.sage.mk foodweb-2-2.sage.mk foodweb-2-2.plot.sage.mk large.py.mk large-assemble.sage.mk large-assemble-plot.sage.mk large-evol.sage.mk large-evol-plot.sage.mk logistic-S-A-curves.sage.mk maclev-S-A-curve.sage.mk logistic-S-A-curve.sage.mk maclev-1-1.sage.mk maclev-1-1-adap.sage.mk maclev-1-1-mc-adap-geom.sage.mk maclev-1-1-ak-adap-geom.sage.mk S-A-vector-field.sage.mk maclev-1-1-d1A-vector-field.sage.mk maclev-1-1-S-and-d1A-on-curve.sage.mk maclev-1-1-S-and-D-on-curve.sage.mk maclev_1_2_defs.py.mk maclev-1-2-popdyn.sage.mk maclev-1-2-adap.sage.mk maclev-1-2-p.sage.mk maclev-1-2-zngi.sage.mk maclev-1-2-geom.sage.mk maclev_unconstrained_c.py.mk maclev-2-2-c-popdyn.sage.mk maclev-2-2-c-adap.sage.mk maclev-2-2-c-p.sage.mk maclev-2-2-c-zngi.sage.mk maclev-2-2-c-geom.sage.mk maclev_2_2_defs.py.mk maclev-2-2-popdyn.sage.mk maclev-2-2-adap.sage.mk maclev-2-2-p.sage.mk maclev-2-2-zngi.sage.mk maclev-2-2-geom.sage.mk maclev_a_only_defs.py.mk maclev-a-only-popdyn.sage.mk maclev-a-only-adap.sage.mk maclev-a-only-p.sage.mk maclev-a-only-zngi.sage.mk maclev-a-only-geom.sage.mk maclev_a_c.py.mk maclev-2-2-a-c-popdyn.sage.mk maclev-2-2-a-c-adap.sage.mk maclev-2-2-a-c-p.sage.mk maclev-2-2-a-c-zngi.sage.mk maclev-2-2-a-c-geom.sage.mk maclevmodels.py.mk masel_model.py.mk masel.sage.mk masel-adap.sage.mk masel-2-adap.sage.mk statmech.py.mk statmech-assemble.sage.mk statmech-assemble-plot.sage.mk statmech-evol.sage.mk statmech-evol-plot.sage.mk sea.sage.mk sea-adap.sage.mk toc.sage.mk maclev-2-2-zngi-invasion.sage.mk lotkavolterra.py.mk r_selection.py.mk r-selection.sage.mk
 Including .tex.d files: foodweb-2-2.tikz.tex.d foodweb.tikz.tex.d
-make[1]: Entering directory `/usr/local/src/adaptive-dynamics-research/wmd_files/Selection_Gradients'
-/usr/bin/make --no-print-directory -C /usr/local/src/adaptive-dynamics-research/wmd_files/SageDynamicsRepo/SageDynamics dynamicalsystems.py
-make[2]: Nothing to be done for `dynamicalsystems.py'.
-/usr/bin/make --no-print-directory -C /usr/local/src/adaptive-dynamics-research/wmd_files/SageDynamicsRepo/SageAdaptiveDynamics adaptivedynamics.py
-make[2]: Nothing to be done for `adaptivedynamics.py'.
-make[1]: Leaving directory `/usr/local/src/adaptive-dynamics-research/wmd_files/Selection_Gradients'
-Make succeeded.
-Tue Sep 29 15:17:00 2015
+make: Entering directory `/usr/local/src/adaptive-dynamics-research/wmd_files/Selection_Gradients'
+rm -f direct-evol-plot.sage.out direct-evol-plot.sage.status direct-evol-plot.sage.out.tex  direct-a-vs-t.svg direct-a-vs-a.svg
+(sage direct-evol-plot.sage && touch direct-evol-plot.sage.status) | tee direct-evol-plot.sage.dmp
+Traceback (most recent call last):
+  File "direct-evol-plot.sage.py", line 57, in <module>
+    aap = lotkavolterra.plot_aij_with_arrows( ad_traj, nlv, scale=_sage_const_0p05  )
+  File "/usr/local/src/adaptive-dynamics-research/wmd_files/Selection_Gradients/lotkavolterra.py", line 405, in plot_aij_with_arrows
+    aap += arrow( Aij, ( a+scale*s for a,s in zip(Aij, S) ), color='red' )
+  File "/usr/local/src/sage/local/lib/python2.7/site-packages/sage/plot/arrow.py", line 454, in arrow
+    return arrow2d(tailpoint, headpoint, **kwds)
+  File "/usr/local/src/sage/local/lib/python2.7/site-packages/sage/misc/decorators.py", line 705, in wrapper
+    return func(*args, **kwds)
+  File "/usr/local/src/sage/local/lib/python2.7/site-packages/sage/misc/decorators.py", line 550, in wrapper
+    return func(*args, **options)
+  File "/usr/local/src/sage/local/lib/python2.7/site-packages/sage/plot/arrow.py", line 563, in arrow2d
+    g.add_primitive(Arrow(xtail, ytail, xhead, yhead, options=options))
+  File "/usr/local/src/sage/local/lib/python2.7/site-packages/sage/plot/arrow.py", line 176, in __init__
+    self.xtail = float(xtail)
+  File "sage/symbolic/expression.pyx", line 1177, in sage.symbolic.expression.Expression.__float__ (build/cythonized/sage/symbolic/expression.cpp:8648)
+TypeError: unable to simplify to float approximation
+[ -e direct-evol-plot.sage.status ] && (rm -f direct-evol-plot.sage.status && mv direct-evol-plot.sage.dmp direct-evol-plot.sage.out) || exit 1
+make: *** [direct-evol-plot.sage.out] Error 1
+make: Leaving directory `/usr/local/src/adaptive-dynamics-research/wmd_files/Selection_Gradients'
+Make failed with exit code 2.
+Thu Mar  3 18:14:45 2016

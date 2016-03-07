@@ -1,6 +1,4 @@
 # requires: foodweb-adap.sobj
-# requires: $(SageDynamics)/dynamicalsystems.py $(SageAdaptiveDynamics)/adaptivedynamics.py
-# requires: $(SageUtils)/latex_output.py lotkavolterra.py
 # produces: foodweb.plot.sage.out.tex 
 # produces: foodweb-pred-prey-adap.png foodweb-pred-prey-adap.svg
 # produces: foodweb-pred-prey-adap-difference.png
@@ -11,9 +9,7 @@ from sage.misc.latex import _latex_file_
 from sage.misc.latex import latex
 
 import foodweb
-import latex_output
 import dynamicalsystems
-import adaptivedynamics
 import lotkavolterra
 
 # create variables with custom latex names because load_session
@@ -24,7 +20,7 @@ import lotkavolterra
 
 load_session("foodweb-adap")
 
-ltx = latex_output.latex_output( 'foodweb.plot.sage.out.tex' )
+ltx = dynamicalsystems.latex_output( 'foodweb.plot.sage.out.tex' )
 
 #foodweb_adap.bind_in_place( fb )
 

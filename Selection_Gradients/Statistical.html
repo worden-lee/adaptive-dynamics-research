@@ -64,14 +64,7 @@
 <p>Here we assign, for each <!-- 5270ae675fac24f97e172dcd9b18fa92.tex-math.latexml.html --><span class="latexml"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="(i,j)" display="inline"><mrow><mo stretchy="false">(</mo><mi>i</mi><mo>,</mo><mi>j</mi><mo stretchy="false">)</mo></mrow></math></span>,</p>
 
 <p><!-- statmech.py.step --><fieldset class="ww-project-file-source ww-collapsible"><legend><span>statmech.py.step</span></legend><div class="ww-collapsible-content"><pre>from sage.all import * 
-import os
-import sys
-sys.path.append( os.environ['SageUtils'] )
-sys.path.append( os.environ['SageDynamics'] )
-sys.path.append( os.environ['SageAdaptiveDynamics'] )
-import latex_output
 import dynamicalsystems
-import adaptivedynamics
 
 class vertex_indexer(dynamicalsystems.indexer):
     def init(self, x):
@@ -170,14 +163,11 @@ class StatMechPopulation(dynamicalsystems.PopulationDynamicsSystem):
 </pre></div></fieldset></p>
 
 <p><!-- statmech-assemble.sage.step --><fieldset class="ww-project-file-source ww-collapsible"><legend><span>statmech-assemble.sage.step</span></legend><div class="ww-collapsible-content"><pre># requires: statmech.py
-# requires: $(SageDynamics)/dynamicalsystems.py
-# requires: $(SageUtils)/latex_output.py
 # produces: statmech-assemble.sobj
 from sage.all import *
 from sage.misc.latex import _latex_file_
 
 import statmech
-import latex_output
 import dynamicalsystems
 
 set_random_seed(0)
@@ -214,20 +204,17 @@ save_session( 'statmech-assemble' )
 </pre></div></fieldset></p>
 
 <p><!-- statmech-assemble-plot.sage.step --><fieldset class="ww-project-file-source ww-collapsible"><legend><span>statmech-assemble-plot.sage.step</span></legend><div class="ww-collapsible-content"><pre># requires: statmech.py
-# requires: $(SageDynamics)/dynamicalsystems.py
-# requires: $(SageUtils)/latex_output.py
 # requires: statmech-assemble.sobj
 # produces: statmech-assemble.sage.out.tex statmech-assemble.svg
 from sage.all import *
 from sage.misc.latex import _latex_file_
 
 import statmech
-import latex_output
 import dynamicalsystems
 
 load_session( 'statmech-assemble' )
 
-ltx = latex_output.latex_output( 'statmech-assemble.sage.out.tex' )
+ltx = dynamicalsystems.latex_output( 'statmech-assemble.sage.out.tex' )
 
 ltx.write( smr )
 
@@ -269,9 +256,6 @@ soln.plot( 't', smr._vars, ylabel='$X$' ).save( filename='statmech-assemble.svg'
 <p><!-- statmech-assemble.svg --><object data="/adaptive-dynamics-research/wmd_files/Selection_Gradients/statmech-assemble.svg" type="image/svg+xml"><img src="/adaptive-dynamics-research/wmd_files/Selection_Gradients/statmech-assemble.png" alt="statmech-assemble.svg"/></object></p>
 
 <p><!-- statmech-evol.sage.step --><fieldset class="ww-project-file-source ww-collapsible"><legend><span>statmech-evol.sage.step</span></legend><div class="ww-collapsible-content"><pre># requires: statmech.py
-# requires: $(SageUtils)/latex_output.py
-# requires: $(SageDynamics)/dynamicalsystems.py
-# requires: $(SageAdaptiveDynamics)/adaptivedynamics.py
 # requires: lotkavolterra.py
 # requires: statmech-assemble.sobj
 # produces: statmech-evol.sobj
@@ -279,14 +263,12 @@ from sage.all import *
 from sage.misc.latex import _latex_file_
 
 import statmech
-import latex_output
 import dynamicalsystems
-import adaptivedynamics
 import lotkavolterra
 
 load_session( 'statmech-assemble' )
 
-ltx = latex_output.latex_output( 'statmech-evol.sage.out.tex' )
+ltx = dynamicalsystems.latex_output( 'statmech-evol.sage.out.tex' )
 
 def lv_interior_equilibrium( popdyn ):
     import sympy
@@ -304,7 +286,7 @@ eq0 = dynamicalsystems.Bindings( equil )
 print 'equil:', eq0
 print 'equil at u=0:', u_init( eq0 )
 
-sm_adap = adaptivedynamics.AdaptiveDynamicsModel( 
+sm_adap = dynamicalsystems.AdaptiveDynamicsModel( 
     smr,
     [ smr._u_indexer ],
     #early_bindings=fb,
@@ -335,9 +317,7 @@ from sage.misc.latex import _latex_file_
 from sage.misc.latex import latex
 
 import statmech
-import latex_output
 import dynamicalsystems
-import adaptivedynamics
 import lotkavolterra
 
 # create variables with custom latex names because load_session
@@ -348,7 +328,7 @@ import lotkavolterra
 
 load_session(&quot;statmech-evol&quot;)
 
-ltx = latex_output.latex_output( 'statmech-evol-plot.sage.out.tex' )
+ltx = dynamicalsystems.latex_output( 'statmech-evol-plot.sage.out.tex' )
 
 #ltx.write( 'sm\_traj t:', [ ts('t') for ts in sm_traj._timeseries ], '\n\n' )
 #ltx.write( 'starts with:' )
@@ -356,10 +336,10 @@ ltx = latex_output.latex_output( 'statmech-evol-plot.sage.out.tex' )
 #if 1 in sm_traj._timeseries:
 #    ltx.write_block( sm_traj._timeseries[1] )
 
-ltx.write( 'flow: $%s$\n\n' % latex( latex_output.column_vector( [ sm_adap._flow[v] for v in sm_adap._vars ] ) ) )
+ltx.write( 'flow: $%s$\n\n' % latex( dynamicalsystems.column_vector( [ sm_adap._flow[v] for v in sm_adap._vars ] ) ) )
 
-ltx.write( 'flow at ', '$%s$'%latex( latex_output.column_vector( ad_init_state ) ), ': ', 
-    '$%s$'%latex( latex_output.column_vector( ad_init( sm_adap._flow[v] ) for v in sm_adap._vars ) ),
+ltx.write( 'flow at ', '$%s$'%latex( dynamicalsystems.column_vector( ad_init_state ) ), ': ', 
+    '$%s$'%latex( dynamicalsystems.column_vector( ad_init( sm_adap._flow[v] ) for v in sm_adap._vars ) ),
     '\n\n' )
 
 ltx.write( 'a values:' )
@@ -490,7 +470,9 @@ ltx.close()
 
 <p><!-- statmech-a-vs-t.svg --><object data="/adaptive-dynamics-research/wmd_files/Selection_Gradients/statmech-a-vs-t.svg" type="image/svg+xml"><img src="/adaptive-dynamics-research/wmd_files/Selection_Gradients/statmech-a-vs-t.png" alt="statmech-a-vs-t.svg"/></object></p>
 
-<p><!-- statmech-a-vs-a.svg --><object data="/adaptive-dynamics-research/wmd_files/Selection_Gradients/statmech-a-vs-a.svg" type="image/svg+xml"><img src="/adaptive-dynamics-research/wmd_files/Selection_Gradients/statmech-a-vs-a.png" alt="statmech-a-vs-a.svg"/></object></p>
+<p><fieldset class="ww-messages"><legend>&lt;ww-messages-legend: &gt;</legend><p class='error'>Error: Project file not found: Selection_Gradients › statmech-a-vs-a.svg</p>
+</fieldset>
+<!-- statmech-a-vs-a.svg --></p>
 
   </article>
 

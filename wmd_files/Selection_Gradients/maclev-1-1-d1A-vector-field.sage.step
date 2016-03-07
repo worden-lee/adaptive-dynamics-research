@@ -1,12 +1,6 @@
 # requires: maclevmodels.py maclev-1-1-mc-adap-geom.sobj
 # produces: maclev-1-1-d1A-vector-field.png
-import os
-import sys
-sys.path.append( os.environ['SageUtils'] )
-sys.path.append( os.environ['SageDynamics'] )
-sys.path.append( os.environ['SageAdaptiveDynamics'] )
 from dynamicalsystems import *
-from adaptivedynamics import *
 load_session( 'maclev-1-1-mc-adap-geom' )
 fixed_parameter_bindings = Bindings( 
   { SR.var('r_0'): 1, SR.var('w_0'): 1, SR.var('b_0'): 1, SR.var('m_0'): 1,

@@ -1,5 +1,4 @@
-# requires: maclevmodels.py $(SageAdaptiveDynamics)/adaptivedynamics.py maclev-1-1.sobj
-# requires: $(SageUtils)/latex_output.py
+# requires: maclevmodels.py maclev-1-1.sobj
 # produces: maclev-1-1-adap.sage.out.tex maclev-1-1-adap.sobj
 # produces: maclev-1-1-c.png maclev-1-1-X.png maclev-1-1-ak.png
 # produces: maclev-1-1-R.png maclev-1-1-a.png maclev-1-1-k.png
@@ -9,14 +8,8 @@ from sage.misc.latex import _latex_file_
 from sage.misc.latex import latex
 latex.add_to_preamble('\\usepackage{amsmath}')
 
-import os
-import sys
-sys.path.append( os.environ['SageUtils'] )
-sys.path.append( os.environ['SageDynamics'] )
-sys.path.append( os.environ['SageAdaptiveDynamics'] )
 from maclevmodels import *
-from adaptivedynamics import *
-from latex_output import *
+from dynamicalsystems import latex_output
 
 # create variables with custom latex names because load_session
 # creates them wrong

@@ -154,17 +154,9 @@ by tradeoffs between the elements of <!-- 702c7ec36a2e8896018332ba9b37e8cb.tex-m
 <p>Here is Sage code that works with the SageDynamics code to analyze the
 dynamics of Lotka-Volterra coefficients.</p>
 
-<p><!-- lotkavolterra.py.step --><fieldset class="ww-project-file-source ww-collapsible"><legend><span>lotkavolterra.py.step</span></legend><div class="ww-collapsible-content"><pre># requires: $(SageDynamics)/dynamicalsystems.py
-# requires: $(SageAdaptiveDynamics)/adaptivedynamics.py
-from sage.all import *
-import os
-import sys
+<p><!-- lotkavolterra.py.step --><fieldset class="ww-project-file-source ww-collapsible"><legend><span>lotkavolterra.py.step</span></legend><div class="ww-collapsible-content"><pre>from sage.all import *
  
-sys.path.append( os.environ['SageUtils'] )
-sys.path.append( os.environ['SageDynamics'] )
 from dynamicalsystems import *
-sys.path.append( os.environ['SageAdaptiveDynamics'] )
-from adaptivedynamics import *
 
 from sage.symbolic.relation import solve
 #from sage.symbolic.function_factory import function
@@ -605,31 +597,9 @@ def plot_aij_with_arrows( evol_trajectory, lvad, filename=None, scale=1, binding
 
 <p>Here are makefiles that are used by all the code on the various pages in this project.</p>
 
-<p><!-- sage.mk --><fieldset class="ww-project-file-source ww-collapsible"><legend><span>sage.mk</span></legend><div class="ww-collapsible-content"><pre># Makefile to connect the Sage code here with the code in SageDynamics
-
-# the three upstream projects are all bundled into one git repo
-export SageUtils            = $(realpath $(SageDynamicsRepo)/SageUtils)
-export SageDynamics         = $(realpath $(SageDynamicsRepo)/SageDynamics)
-export SageAdaptiveDynamics = $(realpath $(SageDynamicsRepo)/SageAdaptiveDynamics)
- 
-# When we need something from the upstream projects, make it there
-$(SageDynamics)/% : <a href='/adaptive-dynamics-research/wmd_files/Selection_Gradients//proc/uptime'>/proc/uptime</a>
-	$(MAKE) --no-print-directory -C $(SageDynamics) $*
- 
-$(SageAdaptiveDynamics)/% : <a href='/adaptive-dynamics-research/wmd_files/Selection_Gradients//proc/uptime'>/proc/uptime</a>
-	$(MAKE) --no-print-directory -C $(SageAdaptiveDynamics) $*
- 
-# The good makefile stuff is upstream, just reuse it
-<a href='/adaptive-dynamics-research/wmd_files/Selection_Gradients/-include'>-include</a> $(SageUtils)/sage.mk
-<a href='/adaptive-dynamics-research/wmd_files/Selection_Gradients/-include'>-include</a> $(SageUtils)/step.mk
-</pre></div></fieldset></p>
-
 <p><!-- sage-inline.mk --><fieldset class="ww-project-file-source ww-collapsible"><legend><span>sage-inline.mk</span></legend><div class="ww-collapsible-content"><pre>%.sage.step : %.sage-inline <a href='/adaptive-dynamics-research/wmd_files/Selection_Gradients/sage-inline.mk'>sage-inline.mk</a>
 	echo '# produces: $*.sage.out.tex' > $@
-	echo 'import os' >> $@
-	echo 'import sys' >> $@
-	echo 'sys.path.append( os.environ["SageUtils"] )' >> $@
-	echo 'from latex_output import *' >> $@
+	echo 'from dynamicalsystems import latex_output' >> $@
 	echo 'ltx = latex_output( "$*.sage.out.tex" )' >> $@
 	cat $< >> $@
 	echo 'ltx.close()' >> $@

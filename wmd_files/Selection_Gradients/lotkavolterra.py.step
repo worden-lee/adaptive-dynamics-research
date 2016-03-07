@@ -1,14 +1,6 @@
-# requires: $(SageDynamics)/dynamicalsystems.py
-# requires: $(SageAdaptiveDynamics)/adaptivedynamics.py
 from sage.all import *
-import os
-import sys
  
-sys.path.append( os.environ['SageUtils'] )
-sys.path.append( os.environ['SageDynamics'] )
 from dynamicalsystems import *
-sys.path.append( os.environ['SageAdaptiveDynamics'] )
-from adaptivedynamics import *
 
 from sage.symbolic.relation import solve
 #from sage.symbolic.function_factory import function

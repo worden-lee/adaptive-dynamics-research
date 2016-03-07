@@ -1,17 +1,12 @@
 # requires: foodweb.py
-# requires: $(SageDynamics)/dynamicalsystems.py
-# requires: $(SageAdaptiveDynamics)/adaptivedynamics.py
-# requires: $(SageUtils)/latex_output.py
 # produces: foodweb.sobj foodweb.sage.out.tex foodweb.tikz.tex
 from sage.all import * 
 from sage.misc.latex import _latex_file_
 
 import foodweb
-import latex_output
 import dynamicalsystems
-import adaptivedynamics
 
-ltx = latex_output.latex_output( 'foodweb.sage.out.tex' )
+ltx = dynamicalsystems.latex_output( 'foodweb.sage.out.tex' )
 
 # now that I've defined the general resource-competition model, let's
 # create a 1-resource, 1-population instantiation to work with

@@ -2,13 +2,7 @@
 # requires: S-A-vf.sobj
 # produces: maclev-S-A-curve.png
 # produces: maclev-S-A-more-curve.png
-import os, sys
-sys.path.append( os.environ['SageUtils'] )
-sys.path.append( os.environ['SageDynamics'] )
-sys.path.append( os.environ['SageAdaptiveDynamics'] )
 from dynamicalsystems import *
-from adaptivedynamics import *
-from plot_vector_field_along_curve import *
 
 load_session( 'S-A-vf.sobj' )
 #load_session( 'maclev-1-1-mc-adap-geom' )
@@ -63,11 +57,9 @@ maclev_SA.save( 'maclev-S-A-curve.png', figsize=(5,5) )
 
 # again with some other functions
 maclev_SA = SAvf
-maclev_SA += plot_v_curve( FunctionBindings( { ('c',(u,)):SR(1), ('m',(u,)):u } ), (u,1.05,2) )
-maclev_SA += plot_v_curve( FunctionBindings( { ('c',(u,)):u, ('m',(u,)):1/u } ), (u,-2,2) )
-
+maclev_SA += plot_v_curve( FunctionBindings( { ('c',(u,)):SR(1), ('m',(u,)):u } ), (u,0.85,2) )
+maclev_SA += plot_v_curve( FunctionBindings( { ('c',(u,)):u, ('m',(u,)):1/u } ), (u,0.8,2) )
 # pity about the labels
 # wouldn't want anything to happen to them
 maclev_SA.axes_labels( [ '$k$', '$a$' ] );
 maclev_SA.save( 'maclev-S-A-more-curve.png', figsize=(5,5) )
-

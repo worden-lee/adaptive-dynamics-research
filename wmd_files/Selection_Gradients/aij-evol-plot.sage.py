@@ -2,15 +2,13 @@
 from sage.all_cmdline import *   # import sage library
 _sage_const_3 = Integer(3); _sage_const_2 = Integer(2); _sage_const_1 = Integer(1); _sage_const_0 = Integer(0); _sage_const_5 = Integer(5); _sage_const_100 = Integer(100); _sage_const_500 = Integer(500); _sage_const_0p7 = RealNumber('0.7'); _sage_const_3p2 = RealNumber('3.2')# requires: aij-evol.sobj
 # produces: aij-evol-plot.sage.out.tex 
-# produces: aij-a-vs-t.svg aij-a-vs-a.svg
+# produces: aij-a-vs-t.svg aij-a-vs-t-0.svg aij-a-vs-a.svg
 from sage.all import *
 from sage.misc.latex import _latex_file_
 from sage.misc.latex import latex
 
 import aij
-import latex_output
 import dynamicalsystems
-import adaptivedynamics
 import lotkavolterra
 
 # create variables with custom latex names because load_session
@@ -21,7 +19,7 @@ for x in ('X_0', 'X_i', 'X_1'): dynamicalsystems.hat(SR.symbol(x))
 
 load_session("aij-evol")
 
-ltx = latex_output.latex_output( 'aij-evol-plot.sage.out.tex' )
+ltx = dynamicalsystems.latex_output( 'aij-evol-plot.sage.out.tex' )
 
 #ltx.write( 'sm\_traj t:', [ ts('t') for ts in ad_traj._timeseries ], '\n\n' )
 #ltx.write( 'starts with:' )
@@ -30,11 +28,11 @@ ltx = latex_output.latex_output( 'aij-evol-plot.sage.out.tex' )
 #    ltx.write_block( ad_traj._timeseries[1] )
 
 #ltx.write( 'flow: $%s \mapsto %s$\n\n' % (
-#	latex( latex_output.column_vector( symbolic_adap._vars ) ),
-#	latex( latex_output.column_vector( [ symbolic_adap._flow[v] for v in symbolic_adap._vars ] ) ) ) )
+#	latex( dynamicalsystems.column_vector( symbolic_adap._vars ) ),
+#	latex( dynamicalsystems.column_vector( [ symbolic_adap._flow[v] for v in symbolic_adap._vars ] ) ) ) )
 
-#ltx.write( 'flow at ', '$%s$'%latex( latex_output.column_vector( ad_init_state ) ), ': ', 
-#    '$%s$'%latex( latex_output.column_vector( ad_init( symbolic_adap._flow[v] ) for v in symbolic_adap._vars ) ),
+#ltx.write( 'flow at ', '$%s$'%latex( dynamicalsystems.column_vector( ad_init_state ) ), ': ', 
+#    '$%s$'%latex( dynamicalsystems.column_vector( ad_init( symbolic_adap._flow[v] ) for v in symbolic_adap._vars ) ),
 #    '\n\n' )
 
 #ltx.write( 'a values:' )
@@ -48,59 +46,62 @@ ltx = latex_output.latex_output( 'aij-evol-plot.sage.out.tex' )
 #    matrix( [ [ ad_traj._timeseries[0]( diff( equil(x), u ) ) for u in symbolic_adap._vars ] for x in smr.equilibrium_vars() ] )
 #)
 
-print ad_traj._annotated_timeseries
-t = SR.symbol('t')
+print ad_traj._tree
 
-#atp = list_plot( [ (d[t],aij) for d in ad_traj._annotated_timeseries for ann,aij in d.iteritems() if str(ann[0]) == 'a' ], color='red' )
-#atp.axes_labels( [ '$t$', '$a$' ] )
-#atp.save( 'aij-a-vs-t-0.svg', figsize=(5,5) )
+#atp0 = list_plot( [ (t,aij) for k,l in ad_traj._tree.iteritems() for t,aij in l if str(k[0]) == 'a' ], color='red' )
+#atp0.axes_labels( [ '$t$', '$a$' ] )
+#atp0.save( 'aij-a-vs-t-0.svg', figsize=(5,5) )
 
-atp = Graphics()
-dprev = None
-for d in ad_traj._annotated_timeseries:
-    tval = d[(t,)]
-    for ann,aij in d.iteritems():
-	if dprev is None:
-	    dprev = d
-	    continue
-	dprev = d
-	if str(ann[_sage_const_0 ]) != 'a': continue
-	a,i,j = ann
-	if i in ad_traj._lineage and ad_traj._lineage[i][_sage_const_1 ] == tval:
-	    ipar = ad_traj._lineage[i][_sage_const_0 ]
-	else: ipar = i
-	if j in ad_traj._lineage and ad_traj._lineage[j][_sage_const_1 ] == tval:
-	    jpar = ad_traj._lineage[j][_sage_const_0 ]
-	else: jpar = j
-	atp += line( [(tval-_sage_const_1 ,dprev[(a,ipar,jpar)]),(tval,aij)],
-	    color = (i == j and 'black' or (_sage_const_1 ,_sage_const_0p7 ,_sage_const_0p7 )) )
+atp0 = sum( ( line( l, color='black' if k[_sage_const_1 ]==k[_sage_const_2 ] else (_sage_const_1 ,_sage_const_0p7 ,_sage_const_0p7 ) ) for k,l in ad_traj._tree.iteritems() if str(k[_sage_const_0 ]) == 'a' ), Graphics() )
+atp0.axes_labels( [ '$t$', '$a$' ] )
+atp0.save( 'aij-a-vs-t-0.svg', figsize=(_sage_const_5 ,_sage_const_5 ) )
+
+atp = sum( ( line( l, color='black' if k[_sage_const_1 ]==k[_sage_const_2 ] else (_sage_const_1 ,_sage_const_0p7 ,_sage_const_0p7 ) ) for k,l in ad_traj._tree.iteritems() if str(k[_sage_const_0 ]) == 'a' and len(l) > _sage_const_2  ), Graphics() )
 atp.axes_labels( [ '$t$', '$a$' ] )
 atp.save( 'aij-a-vs-t.svg', figsize=(_sage_const_5 ,_sage_const_5 ) )
 
-#aap = lotkavolterra.plot_aij_with_arrows( ad_traj, nlv, scale=0.05 )
+aap = sum( (
+	line( [ (l[_sage_const_1 ],l[_sage_const_1 ]) for l in ad_traj._tree[k] ], color='black' )
+	    if k[_sage_const_1 ]==k[_sage_const_2 ] else
+	line( [ (l[_sage_const_1 ],r[_sage_const_1 ]) for l,r in zip(ad_traj._tree[k],ad_traj._tree[(k[_sage_const_0 ],k[_sage_const_2 ],k[_sage_const_1 ])]) ], color=(_sage_const_1 ,_sage_const_0p7 ,_sage_const_0p7 ) )
+	for k in ad_traj._tree.iterkeys()
+	    if str(k[_sage_const_0 ]) == 'a' and len(ad_traj._tree[k]) > _sage_const_2 # and k[1] <= k[2]
+    ),
+    Graphics()
+)
+aap.axes_labels( [ '$a_{ij}$', '$a_{ji}$' ] )
+aap.save( 'aij-a-vs-a.svg', figsize=(_sage_const_5 ,_sage_const_5 ) )
 
+exit(0 )
+atp = Graphics()
 aap = Graphics()
-dprev = None
-for d in ad_traj._annotated_timeseries:
-    if dprev is not None:
-        tval = d[(t,)]
-        for ann,aij in d.iteritems():
-	    if str(ann[_sage_const_0 ]) != 'a': continue
-	    a,i,j = ann
-	    if i in ad_traj._lineage and ad_traj._lineage[i][_sage_const_1 ] == tval:
-	        ipar = ad_traj._lineage[i][_sage_const_0 ]
-		print 'time', tval, ipar, '->', i
-	    else: ipar = i
-	    if j in ad_traj._lineage and ad_traj._lineage[j][_sage_const_1 ] == tval:
-	        jpar = ad_traj._lineage[j][_sage_const_0 ]
-		print 'time', tval, jpar, '->', j
-	    else: jpar = j
-	    if i is ipar and j is jpar: continue
-	    print 'dprev', dprev
-	    print 'line', [(ipar,jpar),(i,j)], [(dprev[(a,jpar,ipar)],dprev[(a,ipar,jpar)]),(d[(a,j,i)],aij)]
-	    aap += line( [(dprev[(a,jpar,ipar)],dprev[(a,ipar,jpar)]),(d[(a,j,i)],aij)],
-	        color = (i == j and 'black' or (_sage_const_1 ,_sage_const_0p7 ,_sage_const_0p7 )) )
-    dprev = d
+for k,ser in ad_traj._tree:
+    if str(ann[_sage_const_0 ]) != 'a': continue
+    a,i,j = ann
+    if ann in past:
+        pij = past[ann]
+    else:
+        if i in ad_traj._lineage and i >= j:
+            ipar = ad_traj._lineage[i]
+    	    print ipar, '->', i
+        else: ipar = i
+        if j in ad_traj._lineage and j >= i:
+            jpar = ad_traj._lineage[j]
+    	    print jpar, '->', j
+        else: jpar = j
+        print (ipar,jpar), '->', (i,j)
+        print past
+        if ('a',ipar,jpar) not in past: # case of initial strain
+    	    continue
+        pij = past[('a',ipar,jpar)]
+        pji = past[('a',jpar,ipar)]
+        aap += line( [(pij,pji),(aij,d[('a',j,i)])],
+            color = (i == j and 'black' or (_sage_const_1 ,_sage_const_0p7 ,_sage_const_0p7 )) )
+    atp += line( [(tval-_sage_const_1 ,pij),(tval,aij)],
+        color = (i == j and 'black' or (_sage_const_1 ,_sage_const_0p7 ,_sage_const_0p7 )) )
+atp.axes_labels( [ '$t$', '$a$' ] )
+atp.save( 'aij-a-vs-t.svg', figsize=(_sage_const_5 ,_sage_const_5 ) )
+#aap = lotkavolterra.plot_aij_with_arrows( ad_traj, nlv, scale=0.05 )
 aap.axes_labels( [ '$a_{ij}$', '$a_{ji}$' ] )
 aap.save( 'aij-a-vs-a.svg', figsize=(_sage_const_5 ,_sage_const_5 ) )
 

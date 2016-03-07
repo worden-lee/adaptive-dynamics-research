@@ -1,6 +1,4 @@
-# requires: maclev_a_only_defs.py
-# requires: $(SageDynamics)/dynamicalsystems.py maclevmodels.py
-# requires: $(SageAdaptiveDynamics)/adaptivedynamics.py
+# requires: maclev_a_only_defs.py maclevmodels.py
 # produces: maclev-a-only-popdyn.sage.out.tex maclev-a-only-popdyn.sobj
 # produces: maclev-a-only-popdyn.png maclev-a-only-r-zngis.png maclev-a-only-c-vs-u.png 
 from maclev_a_only_defs import *

@@ -1,18 +1,15 @@
 # requires: aij.py
-# requires: $(SageDynamics)/dynamicalsystems.py
-# requires: $(SageUtils)/latex_output.py
 # requires: aij-assemble.sobj
 # produces: aij-assemble.sage.out.tex aij-assemble.svg
 from sage.all import *
 from sage.misc.latex import _latex_file_
 
 import aij
-import latex_output
 import dynamicalsystems
 
 load_session( 'aij-assemble' )
 
-ltx = latex_output.latex_output( 'aij-assemble.sage.out.tex' )
+ltx = dynamicalsystems.latex_output( 'aij-assemble.sage.out.tex' )
 
 ltx.write( comm2 )
 

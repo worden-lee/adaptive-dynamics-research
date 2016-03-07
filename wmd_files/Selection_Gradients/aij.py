@@ -1,13 +1,6 @@
 from sage.all import * 
-import os
-import sys
-sys.path.append( os.environ['SageUtils'] )
-sys.path.append( os.environ['SageDynamics'] )
-sys.path.append( os.environ['SageAdaptiveDynamics'] )
-import latex_output
 import dynamicalsystems
 import lotkavolterra
-import adaptivedynamics
 
 class AijModel(lotkavolterra.GeneralizedLotkaVolterraModel):
     def __init__(
@@ -18,7 +11,7 @@ class AijModel(lotkavolterra.GeneralizedLotkaVolterraModel):
             range(n), bindings=bindings
         )
 
-class NaiveAdaptiveDynamicsModel(adaptivedynamics.AdaptiveDynamicsModel):
+class NaiveAdaptiveDynamicsModel(dynamicalsystems.AdaptiveDynamicsModel):
     def __init__(self, popdyn, phenotype_indexers,
 	early_bindings=dynamicalsystems.Bindings(), late_bindings=dynamicalsystems.Bindings()):
 	self._popdyn = early_bindings( popdyn )
@@ -38,7 +31,7 @@ class NaiveAdaptiveDynamicsModel(adaptivedynamics.AdaptiveDynamicsModel):
 	    popstate = [ 1 for _ in self._popdyn._vars ]
 	t = start_time
 	trajectory = dynamicalsystems.Trajectory( self, [] )
-	self.append_to_trajectory( trajectory, t, None, state_bindings )
+	self.append_to_trajectory( trajectory, t, state_bindings )
 	while t < end_time:
 	    found_equil = False
 	    while found_equil is False:
@@ -48,11 +41,14 @@ class NaiveAdaptiveDynamicsModel(adaptivedynamics.AdaptiveDynamicsModel):
 	        speed = max( [ pop_end( self._popdyn._flow[x] ) for x in self._popdyn._vars ] )
 	        found_equil = (N(speed) < 1e-7)
 		popstate = [ pop_end(x) for x in self._popdyn._vars ]
+		del(self._popdyn._gsl_system)
 	    t += 1
 	    ## clear out any extinctions
 	    persistent_indices = [ i for i in self._popdyn._population_indices if
 	        pop_end( self._popdyn._population_indexer[i] ) > 1e-5 ]
 	    print 'final state:', popstate, ', keep', persistent_indices
+	    for i in set(self._popdyn._population_indices) - set(persistent_indices):
+		self.record_extinction(trajectory, t, i, state_bindings)
 	    ## add a new variant
 	    import numpy.random
 	    pops = [ pop_end( self._popdyn._population_indexer[i] )
@@ -62,23 +58,28 @@ class NaiveAdaptiveDynamicsModel(adaptivedynamics.AdaptiveDynamicsModel):
 		[ p/total_pop for p in pops ] )
 	    mutant_parent = [ i for i,n in zip( persistent_indices, choose_parent ) if n == 1 ][0]
 	    self._popdyn = deepcopy( self._popdyn )
-	    mutant_index = self._popdyn.mutate( mutant_parent )
-	    self._popdyn.set_population_indices( persistent_indices + [ mutant_index ] )
+	    self._popdyn.set_population_indices( persistent_indices )
+	    mutant_index = self.mutate( self._popdyn, mutant_parent )
 	    mb = state_bindings( self.mutation_bindings( mutant_parent, mutant_index ) )
 	    self._popdyn.bind_in_place( mb )
 	    state_bindings += mb
 	    print "mutate from", mutant_parent, "to", mutant_index
+	    self.record_mutation( trajectory, t, mutant_parent, mutant_index, state_bindings )
+	    self.append_to_trajectory( trajectory, t, state_bindings )
 	    print self._popdyn
 	    popstate = [
 		pop_end( self._popdyn._population_indexer[i] ) -
 		    (1e-3 if i is mutant_parent else 0)
 		for i in persistent_indices
 	    ] + [ 1e-3 ]
-	    self.append_to_trajectory( trajectory, t, (mutant_parent,mutant_index), state_bindings )
 	return trajectory
     def mutation_bindings(self, parent, sport):
 	return dynamicalsystems.Bindings()
-    def append_to_trajectory( self, trajectory, t, mutation, state_bindings ):
+    def record_mutation(self, trajectory, t, mutant_parent, mutant_index, state_bindings):
+	pass
+    def record_extinction(self, trajectory, t, decedent, sb):
+	pass
+    def append_to_trajectory( self, trajectory, t, state_bindings ):
 	trajectory._timeseries.append( dict(
 	    [ (x,state_bindings(x)) for x in self._vars ] +
 	    [ (SR.symbol('t'),t) ]
@@ -119,28 +120,34 @@ class AijAdaptiveDynamics(NaiveAdaptiveDynamicsModel):
 	    ] + [
 		(rx[iprime], rx[i] + dr())
 	] ) )
-	print 'mutant bindings', i, '->', iprime, ':', mb
+	#print 'mutant bindings', i, '->', iprime, ':', mb
 	return mb
-    def append_to_trajectory( self, trajectory, t, mutation, state_bindings ):
-	super(AijAdaptiveDynamics,self).append_to_trajectory( trajectory, t, mutation, state_bindings )
-	try: trajectory._annotated_timeseries
-	except AttributeError:
-	    trajectory._annotated_timeseries = []
-	    trajectory._lineage = {}
+    def record_mutation(self, trajectory, t, parent, child, sb):
+	super(AijAdaptiveDynamics,self).record_mutation(trajectory,t,parent,child,sb)
 	ax = self._popdyn._indexers['a']
-	sa = SR.symbol( ax._f )
+	sa = ax._f #SR.symbol( ax._f ) # uniqueness problems pickling symbols?
 	rx = self._popdyn._indexers['r']
-	sr = SR.symbol( rx._f )
-	st = SR.symbol('t')
+	sr = rx._f #SR.symbol( rx._f )
+	st = 't' #SR.symbol('t')
 	il = self._popdyn._population_indices
-	alist = (
-	    [ ((sa,i,j),state_bindings(ax[i][j])) for i in il for j in il ] +
-	    [ ((sr,i),  state_bindings(rx[i])) for i in il ] +
-	    [ ((st,),   t) ]
-	)
-	#print alist
-	trajectory._annotated_timeseries.append( dict( alist ) )
-	if mutation is not None:
-	    parent,child = mutation
-	    trajectory._lineage[child] = (parent,t)
-
+	for i in il:
+	    if child != i:
+	        trajectory._tree[ (sa,i,child) ] = [ (t-1,sb(ax[i][parent])) ]
+		trajectory._tree[ (sa,child,i) ] = [ (t-1,sb(ax[parent][i])) ]
+	trajectory._tree[ (sa,child,child) ] = [ (t-1,sb(ax[parent][parent])) ]
+	trajectory._tree[ (sr,child) ] = [ (t-1,sb(rx[parent])) ]
+    def append_to_trajectory( self, trajectory, t, sb ):
+        ax = self._popdyn._indexers['a']
+        sa = ax._f
+        rx = self._popdyn._indexers['r']
+        sr = rx._f
+        st = 't'
+        il = self._popdyn._population_indices
+	try: trajectory._tree
+	except AttributeError:
+	    from collections import defaultdict
+	    trajectory._tree = defaultdict( list )
+        for i in il:
+	    for j in il:
+	        trajectory._tree[ (sa,i,j) ].append( (t,sb(ax[i][j])) )
+            trajectory._tree[ (sr,i) ].append( (t,sb(rx[i])) )

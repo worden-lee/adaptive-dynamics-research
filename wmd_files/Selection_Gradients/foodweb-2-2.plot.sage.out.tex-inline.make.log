@@ -1,23 +1,16 @@
-Thu May 14 15:50:36 2015
-/usr/bin/make -C /usr/local/src/jekyll-research/wmd_files/Selection_Gradients \
+Sat Feb  6 15:24:10 2016
+/usr/bin/make -C /usr/local/src/adaptive-dynamics-research/wmd_files/Selection_Gradients \
     foodweb-2-2.plot.sage.out.tex-inline
-Including .mk files: sage.mk sage-inline.mk 
-Including .mk files from .step files: foodweb.py.mk foodweb.sage.mk foodweb.plot.sage.mk foodweb-2-2.sage.mk foodweb-2-2.plot.sage.mk maclev-1-1.sage.mk maclev-1-1-adap.sage.mk maclev-1-1-mc-adap-geom.sage.mk maclev-1-1-ak-adap-geom.sage.mk S-A-vector-field.sage.mk maclev-1-1-d1A-vector-field.sage.mk maclev-1-1-S-and-d1A-on-curve.sage.mk maclev-1-1-S-and-D-on-curve.sage.mk maclev_1_2_defs.py.mk maclev-1-2-popdyn.sage.mk maclev-1-2-adap.sage.mk maclev-1-2-p.sage.mk maclev-1-2-zngi.sage.mk maclev-1-2-geom.sage.mk maclev_unconstrained_c.py.mk maclev-2-2-c-popdyn.sage.mk maclev-2-2-c-adap.sage.mk maclev-2-2-c-p.sage.mk maclev-2-2-c-zngi.sage.mk maclev-2-2-c-geom.sage.mk maclev_2_2_defs.py.mk maclev-2-2-popdyn.sage.mk maclev-2-2-adap.sage.mk maclev-2-2-p.sage.mk maclev-2-2-zngi.sage.mk maclev-2-2-geom.sage.mk maclev_a_only_defs.py.mk maclev-a-only-popdyn.sage.mk maclev-a-only-adap.sage.mk maclev-a-only-p.sage.mk maclev-a-only-zngi.sage.mk maclev-a-only-geom.sage.mk maclev_a_c.py.mk maclev-2-2-a-c-popdyn.sage.mk maclev-2-2-a-c-adap.sage.mk maclev-2-2-a-c-p.sage.mk maclev-2-2-a-c-zngi.sage.mk maclev-2-2-a-c-geom.sage.mk maclevmodels.py.mk toc.sage.mk maclev-2-2-zngi-invasion.sage.mk lotkavolterra.py.mk
+Including .mk files: sage-inline.mk 
 Including .mk files from .sage-inline files: avec.sage.mk a-careful.sage.mk
+Including .mk files from .step files: aij.py.mk aij-assemble.sage.mk aij-assemble-plot.sage.mk aij-evol.sage.mk aij-evol-plot.sage.mk direct.py.mk direct-assemble.sage.mk direct-assemble-plot.sage.mk direct-evol.sage.mk direct-evol-plot.sage.mk foodweb.py.mk foodweb.sage.mk foodweb-adap.sage.mk foodweb.plot.sage.mk foodweb-2-2.sage.mk foodweb-2-2.plot.sage.mk large.py.mk large-assemble.sage.mk large-assemble-plot.sage.mk large-evol.sage.mk large-evol-plot.sage.mk logistic-S-A-curves.sage.mk maclev-S-A-curve.sage.mk logistic-S-A-curve.sage.mk maclev-1-1.sage.mk maclev-1-1-adap.sage.mk maclev-1-1-mc-adap-geom.sage.mk maclev-1-1-ak-adap-geom.sage.mk S-A-vector-field.sage.mk maclev-1-1-d1A-vector-field.sage.mk maclev-1-1-S-and-d1A-on-curve.sage.mk maclev-1-1-S-and-D-on-curve.sage.mk maclev_1_2_defs.py.mk maclev-1-2-popdyn.sage.mk maclev-1-2-adap.sage.mk maclev-1-2-p.sage.mk maclev-1-2-zngi.sage.mk maclev-1-2-geom.sage.mk maclev_unconstrained_c.py.mk maclev-2-2-c-popdyn.sage.mk maclev-2-2-c-adap.sage.mk maclev-2-2-c-p.sage.mk maclev-2-2-c-zngi.sage.mk maclev-2-2-c-geom.sage.mk maclev_2_2_defs.py.mk maclev-2-2-popdyn.sage.mk maclev-2-2-adap.sage.mk maclev-2-2-p.sage.mk maclev-2-2-zngi.sage.mk maclev-2-2-geom.sage.mk maclev_a_only_defs.py.mk maclev-a-only-popdyn.sage.mk maclev-a-only-adap.sage.mk maclev-a-only-p.sage.mk maclev-a-only-zngi.sage.mk maclev-a-only-geom.sage.mk maclev_a_c.py.mk maclev-2-2-a-c-popdyn.sage.mk maclev-2-2-a-c-adap.sage.mk maclev-2-2-a-c-p.sage.mk maclev-2-2-a-c-zngi.sage.mk maclev-2-2-a-c-geom.sage.mk maclevmodels.py.mk masel_model.py.mk masel.sage.mk masel-adap.sage.mk masel-2-adap.sage.mk statmech.py.mk statmech-assemble.sage.mk statmech-assemble-plot.sage.mk statmech-evol.sage.mk statmech-evol-plot.sage.mk sea.sage.mk toc.sage.mk maclev-2-2-zngi-invasion.sage.mk lotkavolterra.py.mk r_selection.py.mk r-selection.sage.mk
 Including .tex.d files: foodweb-2-2.tikz.tex.d foodweb.tikz.tex.d
-make[1]: Entering directory `/usr/local/src/jekyll-research/wmd_files/Selection_Gradients'
-/usr/bin/make --no-print-directory -C /usr/local/src/jekyll-research/wmd_files/SageDynamicsRepo/SageDynamics dynamicalsystems.py
-Including .mk files:  
-Including .tex.d files: 
-make[2]: Nothing to be done for `dynamicalsystems.py'.
-/usr/bin/make --no-print-directory -C /usr/local/src/jekyll-research/wmd_files/SageDynamicsRepo/SageAdaptiveDynamics adaptivedynamics.py
-Including .mk files:  
-Including .tex.d files: 
-make[2]: Nothing to be done for `adaptivedynamics.py'.
+make[1]: Entering directory `/usr/local/src/adaptive-dynamics-research/wmd_files/Selection_Gradients'
+perl -f /usr/local/src/workingwiki-trunk/ProjectEngine/resources/site/step.pl foodweb-2-2.plot.sage '#'
 rm -f foodweb-2-2.plot.sage.out foodweb-2-2.plot.sage.status foodweb-2-2.plot.sage.out.tex foodweb-2-2-adap.png foodweb-2-2-a-vs-a.png foodweb-2-2-a-vs-t.png foodweb-2-2-x-vs-t.png
 (sage foodweb-2-2.plot.sage && touch foodweb-2-2.plot.sage.status) | tee foodweb-2-2.plot.sage.dmp
-ad bindings: {gamma -> 1, r -> 1, m -> 1}
-model bindings: {r -> 1, m -> 1}
+ad bindings: {gamma -> 1, m -> 1, r -> 1}
+model bindings: {m -> 1, r -> 1}
 _early_bindings: {}
 _late_bindings: {}
 make LV model
@@ -41,7 +34,8 @@ a_0_R_1_0_R_0 : -1
 a_0_R_1_0_P_1 : -f(u_0_P_1, u_0_R_1)
 a_0_R_1_0_P_0 : -f(u_0_P_0, u_0_R_1)
 r_0_R_1 : 1
-aij_dict: {a_0_R_1_0_R_0: -1, a_0_P_1_0_P_0: 0, a_0_P_0_0_R_1: k*f(u_0_P_0, u_0_R_1), r_0_P_0: -1, a_0_P_1_0_P_1: 0, a_0_R_0_0_P_1: -f(u_0_P_1, u_0_R_0), a_0_P_1_0_R_1: k*f(u_0_P_1, u_0_R_1), a_0_P_0_0_R_0: k*f(u_0_P_0, u_0_R_0), a_0_R_0_0_P_0: -f(u_0_P_0, u_0_R_0), a_0_R_1_0_P_1: -f(u_0_P_1, u_0_R_1), r_0_P_1: -1, a_0_R_0_0_R_0: -1, a_0_R_1_0_R_1: -1, a_0_P_0_0_P_1: 0, a_0_R_0_0_R_1: -1, a_0_R_1_0_P_0: -f(u_0_P_0, u_0_R_1), a_0_P_0_0_P_0: 0, a_0_P_1_0_R_0: k*f(u_0_P_1, u_0_R_0), r_0_R_0: 1, r_0_R_1: 1}
+aij_dict: {a_0_R_0_0_P_1: -f(u_0_P_1, u_0_R_0), a_0_P_0_0_R_1: k*f(u_0_P_0, u_0_R_1), a_0_R_1_0_R_0: -1, a_0_P_1_0_P_0: 0, r_0_P_1: -1, a_0_R_1_0_P_0: -f(u_0_P_0, u_0_R_1), a_0_P_0_0_P_1: 0, a_0_R_0_0_R_1: -1, a_0_R_0_0_R_0: -1, a_0_P_1_0_P_1: 0, a_0_R_1_0_R_1: -1, a_0_P_0_0_R_0: k*f(u_0_P_0, u_0_R_0), a_0_R_0_0_P_0: -f(u_0_P_0, u_0_R_0), a_0_P_1_0_R_0: k*f(u_0_P_1, u_0_R_0), r_0_R_1: 1, a_0_P_1_0_R_1: k*f(u_0_P_1, u_0_R_1), r_0_P_0: -1, a_0_P_0_0_P_0: 0, r_0_R_0: 1, a_0_R_1_0_P_1: -f(u_0_P_1, u_0_R_1)}
+set_population_indices: [(R_0, 0), (P_1, 0), (P_0, 0), (R_1, 0)]
 Inferring LV coefficients from X_0_R_0 equation: -X_0_P_0*X_0_R_0*f(u_0_P_0, u_0_R_0) - X_0_P_1*X_0_R_0*f(u_0_P_1, u_0_R_0) - X_0_R_0^2 - X_0_R_0*X_0_R_1 + X_0_R_0
 a_0_R_0_0_P_1 : -f(u_0_P_1, u_0_R_0)
 a_0_R_0_0_P_0 : -f(u_0_P_0, u_0_R_0)
@@ -62,12 +56,14 @@ a_0_R_1_0_R_0 : -1
 a_0_R_1_0_P_1 : -f(u_0_P_1, u_0_R_1)
 a_0_R_1_0_P_0 : -f(u_0_P_0, u_0_R_1)
 r_0_R_1 : 1
-aij_dict: {a_0_R_1_0_R_0: -1, a_0_P_1_0_P_0: 0, a_0_P_0_0_R_1: k*f(u_0_P_0, u_0_R_1), r_0_P_0: -1, a_0_P_1_0_P_1: 0, a_0_R_0_0_P_1: -f(u_0_P_1, u_0_R_0), a_0_P_1_0_R_1: k*f(u_0_P_1, u_0_R_1), a_0_P_0_0_R_0: k*f(u_0_P_0, u_0_R_0), a_0_R_0_0_P_0: -f(u_0_P_0, u_0_R_0), a_0_R_1_0_P_1: -f(u_0_P_1, u_0_R_1), r_0_P_1: -1, a_0_R_0_0_R_0: -1, a_0_R_1_0_R_1: -1, a_0_P_0_0_P_1: 0, a_0_R_0_0_R_1: -1, a_0_R_1_0_P_0: -f(u_0_P_0, u_0_R_1), a_0_P_0_0_P_0: 0, a_0_P_1_0_R_0: k*f(u_0_P_1, u_0_R_0), r_0_R_0: 1, r_0_R_1: 1}
-_A_bindings: {a_0_R_1_0_R_0 -> -1, a_0_P_1_0_P_0 -> 0, a_0_R_0_0_P_1 -> -f(u_0_P_1, u_0_R_0), a_0_R_1_0_P_1 -> -f(u_0_P_1, u_0_R_1), r_0_P_1 -> -1, a_0_R_0_0_R_0 -> -1, a_0_P_0_0_P_1 -> 0, a_0_R_0_0_R_1 -> -1, a_0_P_1_0_R_0 -> k*f(u_0_P_1, u_0_R_0), r_0_R_1 -> 1, a_0_P_0_0_R_1 -> k*f(u_0_P_0, u_0_R_1), r_0_P_0 -> -1, a_0_P_1_0_P_1 -> 0, a_0_P_1_0_R_1 -> k*f(u_0_P_1, u_0_R_1), a_0_P_0_0_R_0 -> k*f(u_0_P_0, u_0_R_0), a_0_R_0_0_P_0 -> -f(u_0_P_0, u_0_R_0), a_0_R_1_0_R_1 -> -1, a_0_R_1_0_P_0 -> -f(u_0_P_0, u_0_R_1), a_0_P_0_0_P_0 -> 0, r_0_R_0 -> 1}
+aij_dict: {a_0_R_0_0_P_1: -f(u_0_P_1, u_0_R_0), a_0_P_0_0_R_1: k*f(u_0_P_0, u_0_R_1), a_0_R_1_0_R_0: -1, a_0_P_1_0_P_0: 0, r_0_P_1: -1, a_0_R_1_0_P_0: -f(u_0_P_0, u_0_R_1), a_0_P_0_0_P_1: 0, a_0_R_0_0_R_1: -1, a_0_R_0_0_R_0: -1, a_0_P_1_0_P_1: 0, a_0_R_1_0_R_1: -1, a_0_P_0_0_R_0: k*f(u_0_P_0, u_0_R_0), a_0_R_0_0_P_0: -f(u_0_P_0, u_0_R_0), a_0_P_1_0_R_0: k*f(u_0_P_1, u_0_R_0), r_0_R_1: 1, a_0_P_1_0_R_1: k*f(u_0_P_1, u_0_R_1), r_0_P_0: -1, a_0_P_0_0_P_0: 0, r_0_R_0: 1, a_0_R_1_0_P_1: -f(u_0_P_1, u_0_R_1)}
+_A_bindings: {a_0_R_0_0_P_1 -> -f(u_0_P_1, u_0_R_0), a_0_R_1_0_R_0 -> -1, a_0_P_1_0_P_0 -> 0, r_0_P_1 -> -1, a_0_R_0_0_R_1 -> -1, a_0_R_0_0_R_0 -> -1, a_0_P_1_0_R_1 -> k*f(u_0_P_1, u_0_R_1), a_0_R_1_0_R_1 -> -1, a_0_P_0_0_R_0 -> k*f(u_0_P_0, u_0_R_0), a_0_P_1_0_R_0 -> k*f(u_0_P_1, u_0_R_0), a_0_P_0_0_P_0 -> 0, r_0_R_0 -> 1, a_0_P_0_0_R_1 -> k*f(u_0_P_0, u_0_R_1), a_0_P_0_0_P_1 -> 0, a_0_P_1_0_P_1 -> 0, r_0_P_0 -> -1, a_0_R_1_0_P_1 -> -f(u_0_P_1, u_0_R_1), r_0_R_1 -> 1, a_0_R_1_0_P_0 -> -f(u_0_P_0, u_0_R_1), a_0_R_0_0_P_0 -> -f(u_0_P_0, u_0_R_0)}
 make LV adaptive dynamics
 population vars [X_0_R_0, X_0_P_1, X_0_P_0, X_0_R_1]
 population vars [X_0_R_0, X_0_P_1, X_0_P_0, X_0_R_1]
+set_population_indices: [(R_0, 0), (P_1, 0), (P_0, 0), (R_1, 0), (R_0, 1)]
 basal: [R_0, R_1]
+set_population_indices: [(R_0, 0), (P_1, 0), (P_0, 0), (R_1, 0), (R_0, 1)]
 Inferring LV coefficients from X_0_R_0 equation: -X_0_P_0*X_0_R_0*f(u_0_P_0, u_0_R_0) - X_0_P_1*X_0_R_0*f(u_0_P_1, u_0_R_0) - X_0_R_0^2 - X_0_R_0*X_0_R_1 - X_0_R_0*X_1_R_0 + X_0_R_0
 a_0_R_0_0_P_1 : -f(u_0_P_1, u_0_R_0)
 a_0_R_0_0_P_0 : -f(u_0_P_0, u_0_R_0)
@@ -98,20 +94,33 @@ a_1_R_0_0_P_1 : -f(u_0_P_1, u_1_R_0)
 a_1_R_0_0_P_0 : -f(u_0_P_0, u_1_R_0)
 a_1_R_0_0_R_1 : -1
 r_1_R_0 : 1
-aij_dict: {a_0_P_1_0_P_0: 0, a_1_R_0_0_P_1: -f(u_0_P_1, u_1_R_0), a_0_R_0_0_P_1: -f(u_0_P_1, u_0_R_0), a_1_R_0_0_R_1: -1, a_0_R_1_0_P_1: -f(u_0_P_1, u_0_R_1), a_0_R_0_0_R_0: -1, a_0_P_0_0_P_1: 0, a_1_R_0_0_R_0: -1, a_0_P_1_0_R_0: k*f(u_0_P_1, u_0_R_0), a_0_P_0_1_R_0: k*f(u_0_P_0, u_1_R_0), a_0_P_1_0_P_1: 0, a_0_P_0_0_R_0: k*f(u_0_P_0, u_0_R_0), a_0_R_1_0_R_1: -1, a_0_P_0_0_P_0: 0, r_0_R_0: 1, a_0_R_1_0_R_0: -1, r_1_R_0: 1, r_0_P_1: -1, a_0_R_0_0_R_1: -1, r_0_R_1: 1, a_0_P_0_0_R_1: k*f(u_0_P_0, u_0_R_1), r_0_P_0: -1, a_0_P_1_1_R_0: k*f(u_0_P_1, u_1_R_0), a_0_R_0_1_R_0: -1, a_1_R_0_0_P_0: -f(u_0_P_0, u_1_R_0), a_0_R_0_0_P_0: -f(u_0_P_0, u_0_R_0), a_0_P_1_0_R_1: k*f(u_0_P_1, u_0_R_1), a_1_R_0_1_R_0: -1, a_0_R_1_0_P_0: -f(u_0_P_0, u_0_R_1), a_0_R_1_1_R_0: -1}
+aij_dict: {a_0_P_1_0_P_0: 0, a_0_R_1_0_R_0: -1, a_1_R_0_0_R_0: -1, a_0_P_0_0_R_0: k*f(u_0_P_0, u_0_R_0), r_0_R_1: 1, a_1_R_0_1_R_0: -1, a_0_P_1_1_R_0: k*f(u_0_P_1, u_1_R_0), a_0_R_0_0_R_1: -1, a_0_R_0_0_R_0: -1, a_0_P_1_0_R_0: k*f(u_0_P_1, u_0_R_0), a_1_R_0_0_P_1: -f(u_0_P_1, u_1_R_0), a_0_P_0_1_R_0: k*f(u_0_P_0, u_1_R_0), a_0_R_1_1_R_0: -1, a_0_R_1_0_P_1: -f(u_0_P_1, u_0_R_1), a_0_R_1_0_P_0: -f(u_0_P_0, u_0_R_1), a_1_R_0_0_R_1: -1, a_0_R_0_1_R_0: -1, a_0_R_0_0_P_1: -f(u_0_P_1, u_0_R_0), r_0_P_1: -1, a_0_R_1_0_R_1: -1, a_0_P_0_0_P_0: 0, r_0_R_0: 1, a_0_P_0_0_R_1: k*f(u_0_P_0, u_0_R_1), a_1_R_0_0_P_0: -f(u_0_P_0, u_1_R_0), a_0_P_0_0_P_1: 0, r_1_R_0: 1, a_0_P_1_0_P_1: 0, r_0_P_0: -1, a_0_P_1_0_R_1: k*f(u_0_P_1, u_0_R_1), a_0_R_0_0_P_0: -f(u_0_P_0, u_0_R_0)}
+merge bindings: {} , [] ,  {}
 The invasion rate for mutant population is:
 \begin{align*}
   \mathscr I = \frac{1}{X_{1R_{0}}}\frac{dX_{1R_{0}}}{dt} &= X_{0P_{0}} a_{1R_{0}0P_{0}} + X_{0P_{1}} a_{1R_{0}0P_{1}} + X_{0R_{0}} a_{1R_{0}0R_{0}} + X_{0R_{1}} a_{1R_{0}0R_{1}} + X_{1R_{0}} a_{1R_{0}1R_{0}} + r_{1R_{0}} 
 \end{align*}
 
-limit as {a_1_R_0_0_R_0: a_0_R_0_0_R_0, r_1_R_0: r_0_R_0, a_1_R_0_0_P_0: a_0_R_0_0_P_0, a_1_R_0_0_R_1: a_0_R_0_0_R_1, a_1_R_0_0_P_1: a_0_R_0_0_P_1}
+limit as {a_1_R_0_0_P_0: a_0_R_0_0_P_0, a_1_R_0_0_R_1: a_0_R_0_0_R_1, a_1_R_0_0_P_1: a_0_R_0_0_P_1, a_1_R_0_0_R_0: a_0_R_0_0_R_0, r_1_R_0: r_0_R_0}
+simplify to 1
+simplify to X_0_R_0
+simplify to X_0_P_1
+simplify to X_0_P_0
+simplify to X_0_R_1
 after those limits:
    1
   X_0_R_0
   X_0_P_1
   X_0_P_0
   X_0_R_1
+simplify to 1
+simplify to X_0_R_0
+simplify to X_0_P_1
+simplify to X_0_P_0
+simplify to X_0_R_1
+set_population_indices: [(R_0, 0), (P_1, 0), (P_0, 0), (R_1, 0), (P_1, 1)]
 basal: [R_0, R_1]
+set_population_indices: [(R_0, 0), (P_1, 0), (P_0, 0), (R_1, 0), (P_1, 1)]
 Inferring LV coefficients from X_0_R_0 equation: -X_0_P_0*X_0_R_0*f(u_0_P_0, u_0_R_0) - X_0_P_1*X_0_R_0*f(u_0_P_1, u_0_R_0) - X_0_R_0*X_1_P_1*f(u_1_P_1, u_0_R_0) - X_0_R_0^2 - X_0_R_0*X_0_R_1 + X_0_R_0
 a_0_R_0_0_P_1 : -f(u_0_P_1, u_0_R_0)
 a_0_R_0_0_P_0 : -f(u_0_P_0, u_0_R_0)
@@ -142,20 +151,33 @@ a_1_P_1_0_P_1 : 0
 a_1_P_1_0_P_0 : 0
 a_1_P_1_0_R_1 : k*f(u_1_P_1, u_0_R_1)
 r_1_P_1 : -1
-aij_dict: {a_0_P_1_0_P_0: 0, a_1_P_1_1_P_1: 0, a_0_R_0_0_P_1: -f(u_0_P_1, u_0_R_0), a_0_R_1_0_P_1: -f(u_0_P_1, u_0_R_1), a_0_R_0_0_R_0: -1, a_0_R_1_1_P_1: -f(u_1_P_1, u_0_R_1), a_0_P_0_0_P_1: 0, a_0_P_1_0_R_0: k*f(u_0_P_1, u_0_R_0), r_1_P_1: -1, a_0_P_1_0_P_1: 0, a_0_R_0_1_P_1: -f(u_1_P_1, u_0_R_0), a_1_P_1_0_R_1: k*f(u_1_P_1, u_0_R_1), a_0_P_0_0_R_0: k*f(u_0_P_0, u_0_R_0), a_0_R_1_0_R_1: -1, a_1_P_1_0_R_0: k*f(u_1_P_1, u_0_R_0), a_0_P_0_0_P_0: 0, a_0_P_1_1_P_1: 0, r_0_R_0: 1, a_0_R_1_0_R_0: -1, a_1_P_1_0_P_0: 0, r_0_P_1: -1, a_0_R_0_0_R_1: -1, a_1_P_1_0_P_1: 0, r_0_R_1: 1, a_0_P_0_0_R_1: k*f(u_0_P_0, u_0_R_1), r_0_P_0: -1, a_0_P_1_0_R_1: k*f(u_0_P_1, u_0_R_1), a_0_R_0_0_P_0: -f(u_0_P_0, u_0_R_0), a_0_P_0_1_P_1: 0, a_0_R_1_0_P_0: -f(u_0_P_0, u_0_R_1)}
+aij_dict: {a_0_P_1_0_P_0: 0, a_1_P_1_0_R_0: k*f(u_1_P_1, u_0_R_0), a_0_R_1_0_R_0: -1, a_0_P_0_0_R_0: k*f(u_0_P_0, u_0_R_0), a_0_P_1_1_P_1: 0, a_0_R_0_0_R_1: -1, a_0_R_0_0_R_0: -1, a_1_P_1_0_P_1: 0, a_0_P_1_0_R_0: k*f(u_0_P_1, u_0_R_0), a_0_P_0_1_P_1: 0, a_0_R_1_1_P_1: -f(u_1_P_1, u_0_R_1), r_1_P_1: -1, a_1_P_1_1_P_1: 0, a_0_R_1_0_P_1: -f(u_0_P_1, u_0_R_1), a_1_P_1_0_R_1: k*f(u_1_P_1, u_0_R_1), r_0_R_1: 1, a_0_R_1_0_P_0: -f(u_0_P_0, u_0_R_1), a_0_R_0_1_P_1: -f(u_1_P_1, u_0_R_0), a_0_R_0_0_P_1: -f(u_0_P_1, u_0_R_0), r_0_P_1: -1, a_0_R_1_0_R_1: -1, a_0_P_0_0_P_0: 0, r_0_R_0: 1, a_0_P_0_0_R_1: k*f(u_0_P_0, u_0_R_1), a_1_P_1_0_P_0: 0, a_0_P_0_0_P_1: 0, a_0_P_1_0_P_1: 0, r_0_P_0: -1, a_0_P_1_0_R_1: k*f(u_0_P_1, u_0_R_1), a_0_R_0_0_P_0: -f(u_0_P_0, u_0_R_0)}
+merge bindings: {} , [] ,  {}
 The invasion rate for mutant population is:
 \begin{align*}
   \mathscr I = \frac{1}{X_{1P_{1}}}\frac{dX_{1P_{1}}}{dt} &= X_{0P_{0}} a_{1P_{1}0P_{0}} + X_{0P_{1}} a_{1P_{1}0P_{1}} + X_{0R_{0}} a_{1P_{1}0R_{0}} + X_{0R_{1}} a_{1P_{1}0R_{1}} + X_{1P_{1}} a_{1P_{1}1P_{1}} + r_{1P_{1}} 
 \end{align*}
 
-limit as {r_1_P_1: r_0_P_1, a_1_P_1_0_P_1: a_0_P_1_0_P_1, a_1_P_1_0_R_1: a_0_P_1_0_R_1, a_1_P_1_0_P_0: a_0_P_1_0_P_0, a_1_P_1_0_R_0: a_0_P_1_0_R_0}
+limit as {a_1_P_1_0_P_1: a_0_P_1_0_P_1, a_1_P_1_0_R_0: a_0_P_1_0_R_0, r_1_P_1: r_0_P_1, a_1_P_1_0_P_0: a_0_P_1_0_P_0, a_1_P_1_0_R_1: a_0_P_1_0_R_1}
+simplify to 1
+simplify to X_0_R_0
+simplify to X_0_P_1
+simplify to X_0_P_0
+simplify to X_0_R_1
 after those limits:
    1
   X_0_R_0
   X_0_P_1
   X_0_P_0
   X_0_R_1
+simplify to 1
+simplify to X_0_R_0
+simplify to X_0_P_1
+simplify to X_0_P_0
+simplify to X_0_R_1
+set_population_indices: [(R_0, 0), (P_1, 0), (P_0, 0), (R_1, 0), (P_0, 1)]
 basal: [R_0, R_1]
+set_population_indices: [(R_0, 0), (P_1, 0), (P_0, 0), (R_1, 0), (P_0, 1)]
 Inferring LV coefficients from X_0_R_0 equation: -X_0_P_0*X_0_R_0*f(u_0_P_0, u_0_R_0) - X_0_P_1*X_0_R_0*f(u_0_P_1, u_0_R_0) - X_0_R_0*X_1_P_0*f(u_1_P_0, u_0_R_0) - X_0_R_0^2 - X_0_R_0*X_0_R_1 + X_0_R_0
 a_0_R_0_0_P_1 : -f(u_0_P_1, u_0_R_0)
 a_0_R_0_0_P_0 : -f(u_0_P_0, u_0_R_0)
@@ -186,20 +208,33 @@ a_1_P_0_0_P_1 : 0
 a_1_P_0_0_P_0 : 0
 a_1_P_0_0_R_1 : k*f(u_1_P_0, u_0_R_1)
 r_1_P_0 : -1
-aij_dict: {a_0_P_1_0_P_0: 0, a_0_R_0_0_P_1: -f(u_0_P_1, u_0_R_0), a_0_R_1_0_P_1: -f(u_0_P_1, u_0_R_1), a_0_R_0_0_R_0: -1, a_0_P_0_0_P_1: 0, a_0_P_1_0_R_0: k*f(u_0_P_1, u_0_R_0), a_0_P_1_0_P_1: 0, a_0_P_0_0_R_0: k*f(u_0_P_0, u_0_R_0), a_0_R_1_1_P_0: -f(u_1_P_0, u_0_R_1), a_0_R_1_0_R_1: -1, a_0_P_0_0_P_0: 0, r_0_R_0: 1, a_0_R_1_0_R_0: -1, a_0_R_0_1_P_0: -f(u_1_P_0, u_0_R_0), r_1_P_0: -1, a_1_P_0_0_P_0: 0, r_0_P_1: -1, a_0_P_0_0_R_1: k*f(u_0_P_0, u_0_R_1), a_0_R_0_0_R_1: -1, a_1_P_0_0_P_1: 0, r_0_R_1: 1, a_0_P_1_1_P_0: 0, r_0_P_0: -1, a_1_P_0_1_P_0: 0, a_0_P_1_0_R_1: k*f(u_0_P_1, u_0_R_1), a_0_R_0_0_P_0: -f(u_0_P_0, u_0_R_0), a_1_P_0_0_R_1: k*f(u_1_P_0, u_0_R_1), a_1_P_0_0_R_0: k*f(u_1_P_0, u_0_R_0), a_0_R_1_0_P_0: -f(u_0_P_0, u_0_R_1), a_0_P_0_1_P_0: 0}
+aij_dict: {a_0_P_1_0_P_0: 0, a_0_R_1_0_R_0: -1, a_0_P_0_0_R_0: k*f(u_0_P_0, u_0_R_0), r_0_R_1: 1, a_1_P_0_0_R_1: k*f(u_1_P_0, u_0_R_1), a_0_R_0_0_R_1: -1, r_1_P_0: -1, a_0_R_0_0_R_0: -1, a_0_P_1_0_R_0: k*f(u_0_P_1, u_0_R_0), a_1_P_0_1_P_0: 0, r_0_R_0: 1, a_0_R_1_0_P_0: -f(u_0_P_0, u_0_R_1), a_1_P_0_0_P_0: 0, a_0_R_1_0_P_1: -f(u_0_P_1, u_0_R_1), a_0_R_0_0_P_1: -f(u_0_P_1, u_0_R_0), r_0_P_1: -1, a_0_R_0_1_P_0: -f(u_1_P_0, u_0_R_0), a_0_R_1_0_R_1: -1, a_1_P_0_0_R_0: k*f(u_1_P_0, u_0_R_0), a_0_P_0_0_P_0: 0, a_0_P_1_1_P_0: 0, a_0_P_0_0_R_1: k*f(u_0_P_0, u_0_R_1), a_0_P_0_0_P_1: 0, a_0_P_0_1_P_0: 0, a_0_P_1_0_P_1: 0, r_0_P_0: -1, a_1_P_0_0_P_1: 0, a_0_P_1_0_R_1: k*f(u_0_P_1, u_0_R_1), a_0_R_1_1_P_0: -f(u_1_P_0, u_0_R_1), a_0_R_0_0_P_0: -f(u_0_P_0, u_0_R_0)}
+merge bindings: {} , [] ,  {}
 The invasion rate for mutant population is:
 \begin{align*}
   \mathscr I = \frac{1}{X_{1P_{0}}}\frac{dX_{1P_{0}}}{dt} &= X_{0P_{0}} a_{1P_{0}0P_{0}} + X_{0P_{1}} a_{1P_{0}0P_{1}} + X_{0R_{0}} a_{1P_{0}0R_{0}} + X_{0R_{1}} a_{1P_{0}0R_{1}} + X_{1P_{0}} a_{1P_{0}1P_{0}} + r_{1P_{0}} 
 \end{align*}
 
-limit as {a_1_P_0_0_P_1: a_0_P_0_0_P_1, a_1_P_0_0_R_1: a_0_P_0_0_R_1, a_1_P_0_0_R_0: a_0_P_0_0_R_0, r_1_P_0: r_0_P_0, a_1_P_0_0_P_0: a_0_P_0_0_P_0}
+limit as {a_1_P_0_0_R_0: a_0_P_0_0_R_0, r_1_P_0: r_0_P_0, a_1_P_0_0_P_0: a_0_P_0_0_P_0, a_1_P_0_0_R_1: a_0_P_0_0_R_1, a_1_P_0_0_P_1: a_0_P_0_0_P_1}
+simplify to 1
+simplify to X_0_R_0
+simplify to X_0_P_1
+simplify to X_0_P_0
+simplify to X_0_R_1
 after those limits:
    1
   X_0_R_0
   X_0_P_1
   X_0_P_0
   X_0_R_1
+simplify to 1
+simplify to X_0_R_0
+simplify to X_0_P_1
+simplify to X_0_P_0
+simplify to X_0_R_1
+set_population_indices: [(R_0, 0), (P_1, 0), (P_0, 0), (R_1, 0), (R_1, 1)]
 basal: [R_0, R_1]
+set_population_indices: [(R_0, 0), (P_1, 0), (P_0, 0), (R_1, 0), (R_1, 1)]
 Inferring LV coefficients from X_0_R_0 equation: -X_0_P_0*X_0_R_0*f(u_0_P_0, u_0_R_0) - X_0_P_1*X_0_R_0*f(u_0_P_1, u_0_R_0) - X_0_R_0^2 - X_0_R_0*X_0_R_1 - X_0_R_0*X_1_R_1 + X_0_R_0
 a_0_R_0_0_P_1 : -f(u_0_P_1, u_0_R_0)
 a_0_R_0_0_P_0 : -f(u_0_P_0, u_0_R_0)
@@ -230,251 +265,674 @@ a_1_R_1_0_P_1 : -f(u_0_P_1, u_1_R_1)
 a_1_R_1_0_P_0 : -f(u_0_P_0, u_1_R_1)
 a_1_R_1_0_R_1 : -1
 r_1_R_1 : 1
-aij_dict: {a_0_P_1_0_P_0: 0, a_1_R_1_0_P_0: -f(u_0_P_0, u_1_R_1), a_0_R_0_0_P_1: -f(u_0_P_1, u_0_R_0), a_0_R_1_0_P_1: -f(u_0_P_1, u_0_R_1), a_0_R_0_0_R_0: -1, a_0_P_0_0_P_1: 0, a_1_R_1_0_R_1: -1, a_0_P_1_1_R_1: k*f(u_0_P_1, u_1_R_1), a_0_P_1_0_R_0: k*f(u_0_P_1, u_0_R_0), a_1_R_1_0_P_1: -f(u_0_P_1, u_1_R_1), a_0_P_1_0_P_1: 0, a_0_P_0_0_R_0: k*f(u_0_P_0, u_0_R_0), a_0_R_1_0_R_1: -1, a_0_R_1_1_R_1: -1, a_0_P_0_1_R_1: k*f(u_0_P_0, u_1_R_1), r_0_R_0: 1, a_0_R_1_0_R_0: -1, a_0_R_0_1_R_1: -1, r_0_P_1: -1, a_0_R_0_0_R_1: -1, a_1_R_1_1_R_1: -1, r_1_R_1: 1, r_0_R_1: 1, a_0_P_0_0_R_1: k*f(u_0_P_0, u_0_R_1), r_0_P_0: -1, a_0_P_1_0_R_1: k*f(u_0_P_1, u_0_R_1), a_0_R_0_0_P_0: -f(u_0_P_0, u_0_R_0), a_0_R_1_0_P_0: -f(u_0_P_0, u_0_R_1), a_0_P_0_0_P_0: 0, a_1_R_1_0_R_0: -1}
+aij_dict: {a_0_P_1_0_P_0: 0, a_0_R_1_0_R_0: -1, a_0_P_0_0_R_0: k*f(u_0_P_0, u_0_R_0), r_0_R_1: 1, a_0_R_0_0_R_1: -1, a_0_R_0_0_R_0: -1, a_1_R_1_0_P_1: -f(u_0_P_1, u_1_R_1), a_0_P_1_0_R_0: k*f(u_0_P_1, u_0_R_0), r_1_R_1: 1, a_0_R_1_0_P_1: -f(u_0_P_1, u_0_R_1), a_0_R_1_0_P_0: -f(u_0_P_0, u_0_R_1), a_1_R_1_0_R_1: -1, a_0_R_0_0_P_1: -f(u_0_P_1, u_0_R_0), a_1_R_1_1_R_1: -1, a_0_P_1_1_R_1: k*f(u_0_P_1, u_1_R_1), r_0_P_1: -1, a_1_R_1_0_R_0: -1, a_1_R_1_0_P_0: -f(u_0_P_0, u_1_R_1), a_0_R_0_1_R_1: -1, a_0_R_1_0_R_1: -1, a_0_P_0_1_R_1: k*f(u_0_P_0, u_1_R_1), a_0_P_0_0_P_0: 0, r_0_R_0: 1, a_0_P_0_0_R_1: k*f(u_0_P_0, u_0_R_1), a_0_R_1_1_R_1: -1, a_0_P_0_0_P_1: 0, a_0_P_1_0_P_1: 0, r_0_P_0: -1, a_0_P_1_0_R_1: k*f(u_0_P_1, u_0_R_1), a_0_R_0_0_P_0: -f(u_0_P_0, u_0_R_0)}
+merge bindings: {} , [] ,  {}
 The invasion rate for mutant population is:
 \begin{align*}
   \mathscr I = \frac{1}{X_{1R_{1}}}\frac{dX_{1R_{1}}}{dt} &= X_{0P_{0}} a_{1R_{1}0P_{0}} + X_{0P_{1}} a_{1R_{1}0P_{1}} + X_{0R_{0}} a_{1R_{1}0R_{0}} + X_{0R_{1}} a_{1R_{1}0R_{1}} + X_{1R_{1}} a_{1R_{1}1R_{1}} + r_{1R_{1}} 
 \end{align*}
 
-limit as {a_1_R_1_0_P_1: a_0_R_1_0_P_1, a_1_R_1_0_R_0: a_0_R_1_0_R_0, r_1_R_1: r_0_R_1, a_1_R_1_0_P_0: a_0_R_1_0_P_0, a_1_R_1_0_R_1: a_0_R_1_0_R_1}
+limit as {a_1_R_1_0_R_0: a_0_R_1_0_R_0, r_1_R_1: r_0_R_1, a_1_R_1_0_P_0: a_0_R_1_0_P_0, a_1_R_1_0_R_1: a_0_R_1_0_R_1, a_1_R_1_0_P_1: a_0_R_1_0_P_1}
+simplify to 1
+simplify to X_0_R_0
+simplify to X_0_P_1
+simplify to X_0_P_0
+simplify to X_0_R_1
 after those limits:
    1
   X_0_R_0
   X_0_P_1
   X_0_P_0
   X_0_R_1
-Original pop-dyn system: 
-\[\begin{align*}
-\frac{dX_{0R_{0}}}{dt} &= {\left(X_{0P_{0}} a_{0R_{0}0P_{0}} + X_{0P_{1}} a_{0R_{0}0P_{1}} + X_{0R_{0}} a_{0R_{0}0R_{0}} + X_{0R_{1}} a_{0R_{0}0R_{1}} + r_{0R_{0}}\right)} X_{0R_{0}}\\
-\frac{dX_{0P_{1}}}{dt} &= {\left(X_{0P_{0}} a_{0P_{1}0P_{0}} + X_{0P_{1}} a_{0P_{1}0P_{1}} + X_{0R_{0}} a_{0P_{1}0R_{0}} + X_{0R_{1}} a_{0P_{1}0R_{1}} + r_{0P_{1}}\right)} X_{0P_{1}}\\
-\frac{dX_{0P_{0}}}{dt} &= {\left(X_{0P_{0}} a_{0P_{0}0P_{0}} + X_{0P_{1}} a_{0P_{0}0P_{1}} + X_{0R_{0}} a_{0P_{0}0R_{0}} + X_{0R_{1}} a_{0P_{0}0R_{1}} + r_{0P_{0}}\right)} X_{0P_{0}}\\
-\frac{dX_{0R_{1}}}{dt} &= {\left(X_{0P_{0}} a_{0R_{1}0P_{0}} + X_{0P_{1}} a_{0R_{1}0P_{1}} + X_{0R_{0}} a_{0R_{1}0R_{0}} + X_{0R_{1}} a_{0R_{1}0R_{1}} + r_{0R_{1}}\right)} X_{0R_{1}}
-\end{align*}
-\]
-Extended pop-dyn system: 
-\[\begin{align*}
-\frac{dX_{0R_{0}}}{dt} &= {\left(X_{0P_{0}} a_{0R_{0}0P_{0}} + X_{0P_{1}} a_{0R_{0}0P_{1}} + X_{0R_{0}} a_{0R_{0}0R_{0}} + X_{0R_{1}} a_{0R_{0}0R_{1}} + X_{1R_{0}} a_{0R_{0}1R_{0}} + r_{0R_{0}}\right)} X_{0R_{0}}\\
-\frac{dX_{0P_{1}}}{dt} &= {\left(X_{0P_{0}} a_{0P_{1}0P_{0}} + X_{0P_{1}} a_{0P_{1}0P_{1}} + X_{0R_{0}} a_{0P_{1}0R_{0}} + X_{0R_{1}} a_{0P_{1}0R_{1}} + X_{1R_{0}} a_{0P_{1}1R_{0}} + r_{0P_{1}}\right)} X_{0P_{1}}\\
-\frac{dX_{0P_{0}}}{dt} &= {\left(X_{0P_{0}} a_{0P_{0}0P_{0}} + X_{0P_{1}} a_{0P_{0}0P_{1}} + X_{0R_{0}} a_{0P_{0}0R_{0}} + X_{0R_{1}} a_{0P_{0}0R_{1}} + X_{1R_{0}} a_{0P_{0}1R_{0}} + r_{0P_{0}}\right)} X_{0P_{0}}\\
-\frac{dX_{0R_{1}}}{dt} &= {\left(X_{0P_{0}} a_{0R_{1}0P_{0}} + X_{0P_{1}} a_{0R_{1}0P_{1}} + X_{0R_{0}} a_{0R_{1}0R_{0}} + X_{0R_{1}} a_{0R_{1}0R_{1}} + X_{1R_{0}} a_{0R_{1}1R_{0}} + r_{0R_{1}}\right)} X_{0R_{1}}\\
-\frac{dX_{1R_{0}}}{dt} &= {\left(X_{0P_{0}} a_{1R_{0}0P_{0}} + X_{0P_{1}} a_{1R_{0}0P_{1}} + X_{0R_{0}} a_{1R_{0}0R_{0}} + X_{0R_{1}} a_{1R_{0}0R_{1}} + X_{1R_{0}} a_{1R_{0}1R_{0}} + r_{1R_{0}}\right)} X_{1R_{0}}
-\end{align*}
-\]
- The invasion rate for mutant population is:
+simplify to 1
+simplify to X_0_R_0
+simplify to X_0_P_1
+simplify to X_0_P_0
+simplify to X_0_R_1
+merge bindings: {} , [] ,  {}
+merge bindings: {} , [] ,  {}
+merge bindings: {} , [X_0_R_0, X_0_P_0, X_0_P_1, X_0_R_1] ,  {}
+make LV evolution bindings
+merge bindings: {a_0_R_0_0_P_1 -> -f(u_0_P_1, u_0_R_0), a_0_R_1_0_R_0 -> -1, a_0_P_1_0_P_0 -> 0, r_0_P_1 -> -1, a_0_R_0_0_R_1 -> -1, a_0_R_0_0_R_0 -> -1, a_0_R_1_0_P_0 -> -f(u_0_P_0, u_0_R_1), a_0_R_1_0_R_1 -> -1, a_0_P_0_0_R_0 -> k*f(u_0_P_0, u_0_R_0), a_0_P_1_0_R_0 -> k*f(u_0_P_1, u_0_R_0), a_0_P_0_0_P_0 -> 0, r_0_R_0 -> 1, a_0_P_0_0_R_1 -> k*f(u_0_P_0, u_0_R_1), a_0_P_0_0_P_1 -> 0, a_0_P_1_0_P_1 -> 0, r_0_P_0 -> -1, a_0_R_1_0_P_1 -> -f(u_0_P_1, u_0_R_1), r_0_R_1 -> 1, a_0_P_1_0_R_1 -> k*f(u_0_P_1, u_0_R_1), a_0_R_0_0_P_0 -> -f(u_0_P_0, u_0_R_0)} , [gamma, m, r] ,  {}
+merge bindings: {a_0_R_0_0_P_1 -> -f(u_0_P_1, u_0_R_0), a_0_R_1_0_R_0 -> -1, a_0_P_1_0_P_0 -> 0, r_0_P_1 -> -1, m -> 1, a_0_R_0_0_R_1 -> -1, a_0_R_0_0_R_0 -> -1, a_0_P_1_0_R_1 -> k*f(u_0_P_1, u_0_R_1), a_0_R_1_0_R_1 -> -1, a_0_P_0_0_R_0 -> k*f(u_0_P_0, u_0_R_0), a_0_P_1_0_R_0 -> k*f(u_0_P_1, u_0_R_0), gamma -> 1, a_0_P_0_0_P_0 -> 0, r_0_R_0 -> 1, a_0_R_0_0_P_0 -> -f(u_0_P_0, u_0_R_0), a_0_P_0_0_R_1 -> k*f(u_0_P_0, u_0_R_1), a_0_P_0_0_P_1 -> 0, a_0_P_1_0_P_1 -> 0, r_0_P_0 -> -1, a_0_R_1_0_P_1 -> -f(u_0_P_1, u_0_R_1), r_0_R_1 -> 1, a_0_R_1_0_P_0 -> -f(u_0_P_0, u_0_R_1), r -> 1} , [] ,  {}
+{u_0_P_0 -> -0.0700000000000000, u_0_R_0 -> -0.100000000000000, u_0_P_1 -> 0.0200000000000000, t -> 0.000000000000000, u_0_R_1 -> 0.000000000000000} : (0.000000000000000, -0.100000000000000)
+{u_0_P_0 -> -0.0700000000000000, u_0_R_0 -> -0.100000000000000, u_0_P_1 -> 0.0200000000000000, t -> 0.000000000000000, u_0_R_1 -> 0.000000000000000} : (0.000000000000000, 0.0200000000000000)
+{u_0_P_0 -> -0.0700000000000000, u_0_R_0 -> -0.100000000000000, u_0_P_1 -> 0.0200000000000000, t -> 0.000000000000000, u_0_R_1 -> 0.000000000000000} : (0.000000000000000, -0.0700000000000000)
+{u_0_P_0 -> -0.0700000000000000, u_0_R_0 -> -0.100000000000000, u_0_P_1 -> 0.0200000000000000, t -> 0.000000000000000, u_0_R_1 -> 0.000000000000000} : (0.000000000000000, 0.000000000000000)
+{u_0_P_0 -> -0.0700000000000000, u_0_R_0 -> -0.100000000000000, u_0_P_1 -> 0.0200000000000000, t -> 0.000000000000000, u_0_R_1 -> 0.000000000000000} : (0.000000000000000, 0.139111289632135)
+{u_0_P_0 -> -0.0700000000000000, u_0_R_0 -> -0.100000000000000, u_0_P_1 -> 0.0200000000000000, t -> 0.000000000000000, u_0_R_1 -> 0.000000000000000} : (0.000000000000000, 0.0493994257769413)
+{u_0_P_0 -> -0.0700000000000000, u_0_R_0 -> -0.100000000000000, u_0_P_1 -> 0.0200000000000000, t -> 0.000000000000000, u_0_R_1 -> 0.000000000000000} : (0.000000000000000, 0.172768342440173)
+{u_0_P_0 -> -0.0700000000000000, u_0_R_0 -> -0.100000000000000, u_0_P_1 -> 0.0200000000000000, t -> 0.000000000000000, u_0_R_1 -> 0.000000000000000} : (0.000000000000000, 0.416986163120091)
+ad bindings: {Xhat_0_P_1 -> 1/9*((9*cos(-u_0_P_1 + u_0_R_0) - 1)*cos(-u_0_P_0 + u_0_R_1)^2 - cos(-u_0_P_0 + u_0_R_0)^2 - ((9*cos(-u_0_P_0 + u_0_R_0) + 1)*cos(-u_0_P_1 + u_0_R_0) - 2*cos(-u_0_P_0 + u_0_R_0))*cos(-u_0_P_0 + u_0_R_1) + cos(-u_0_P_0 + u_0_R_0)*cos(-u_0_P_1 + u_0_R_0) + (9*cos(-u_0_P_0 + u_0_R_0)^2 - (9*cos(-u_0_P_0 + u_0_R_0) - 1)*cos(-u_0_P_0 + u_0_R_1) - cos(-u_0_P_0 + u_0_R_0))*cos(-u_0_P_1 + u_0_R_1))/((cos(-u_0_P_1 + u_0_R_0)^2 + 2*cos(-u_0_P_1 + u_0_R_0) + 1)*cos(-u_0_P_0 + u_0_R_1)^2 + (cos(-u_0_P_0 + u_0_R_0)^2 + 2*cos(-u_0_P_0 + u_0_R_0) + 1)*cos(-u_0_P_1 + u_0_R_1)^2 + cos(-u_0_P_0 + u_0_R_0)^2 - 2*((cos(-u_0_P_0 + u_0_R_0) - 1)*cos(-u_0_P_1 + u_0_R_0) - cos(-u_0_P_1 + u_0_R_0)^2 + cos(-u_0_P_0 + u_0_R_0))*cos(-u_0_P_0 + u_0_R_1) - 2*cos(-u_0_P_0 + u_0_R_0)*cos(-u_0_P_1 + u_0_R_0) + cos(-u_0_P_1 + u_0_R_0)^2 + 2*(cos(-u_0_P_0 + u_0_R_0)^2 - ((cos(-u_0_P_0 + u_0_R_0) + 1)*cos(-u_0_P_1 + u_0_R_0) + cos(-u_0_P_0 + u_0_R_0) + 1)*cos(-u_0_P_0 + u_0_R_1) - (cos(-u_0_P_0 + u_0_R_0) + 1)*cos(-u_0_P_1 + u_0_R_0) + cos(-u_0_P_0 + u_0_R_0))*cos(-u_0_P_1 + u_0_R_1)), m -> 1, Xhat_0_R_1 -> -10/9*(cos(-u_0_P_0 + u_0_R_0) - cos(-u_0_P_1 + u_0_R_0))/((cos(-u_0_P_1 + u_0_R_0) + 1)*cos(-u_0_P_0 + u_0_R_1) - (cos(-u_0_P_0 + u_0_R_0) + 1)*cos(-u_0_P_1 + u_0_R_1) - cos(-u_0_P_0 + u_0_R_0) + cos(-u_0_P_1 + u_0_R_0)), Xhat_0_R_0 -> 10/9*(cos(-u_0_P_0 + u_0_R_1) - cos(-u_0_P_1 + u_0_R_1))/((cos(-u_0_P_1 + u_0_R_0) + 1)*cos(-u_0_P_0 + u_0_R_1) - (cos(-u_0_P_0 + u_0_R_0) + 1)*cos(-u_0_P_1 + u_0_R_1) - cos(-u_0_P_0 + u_0_R_0) + cos(-u_0_P_1 + u_0_R_0)), gamma -> 1, Xhat_0_P_0 -> 1/9*((9*cos(-u_0_P_0 + u_0_R_0) - 1)*cos(-u_0_P_1 + u_0_R_1)^2 + (9*cos(-u_0_P_1 + u_0_R_0)^2 - cos(-u_0_P_1 + u_0_R_0))*cos(-u_0_P_0 + u_0_R_1) + cos(-u_0_P_0 + u_0_R_0)*cos(-u_0_P_1 + u_0_R_0) - cos(-u_0_P_1 + u_0_R_0)^2 - ((9*cos(-u_0_P_1 + u_0_R_0) - 1)*cos(-u_0_P_0 + u_0_R_1) + (9*cos(-u_0_P_0 + u_0_R_0) - 2)*cos(-u_0_P_1 + u_0_R_0) + cos(-u_0_P_0 + u_0_R_0))*cos(-u_0_P_1 + u_0_R_1))/((cos(-u_0_P_1 + u_0_R_0)^2 + 2*cos(-u_0_P_1 + u_0_R_0) + 1)*cos(-u_0_P_0 + u_0_R_1)^2 + (cos(-u_0_P_0 + u_0_R_0)^2 + 2*cos(-u_0_P_0 + u_0_R_0) + 1)*cos(-u_0_P_1 + u_0_R_1)^2 + cos(-u_0_P_0 + u_0_R_0)^2 - 2*((cos(-u_0_P_0 + u_0_R_0) - 1)*cos(-u_0_P_1 + u_0_R_0) - cos(-u_0_P_1 + u_0_R_0)^2 + cos(-u_0_P_0 + u_0_R_0))*cos(-u_0_P_0 + u_0_R_1) - 2*cos(-u_0_P_0 + u_0_R_0)*cos(-u_0_P_1 + u_0_R_0) + cos(-u_0_P_1 + u_0_R_0)^2 + 2*(cos(-u_0_P_0 + u_0_R_0)^2 - ((cos(-u_0_P_0 + u_0_R_0) + 1)*cos(-u_0_P_1 + u_0_R_0) + cos(-u_0_P_0 + u_0_R_0) + 1)*cos(-u_0_P_0 + u_0_R_1) - (cos(-u_0_P_0 + u_0_R_0) + 1)*cos(-u_0_P_1 + u_0_R_0) + cos(-u_0_P_0 + u_0_R_0))*cos(-u_0_P_1 + u_0_R_1)), k -> 9/10, r -> 1, f(u,v) -> cos(u - v) + 1}
+model bindings: {m -> 1, r -> 1}
+_early_bindings: {}
+_late_bindings: {}
+make LV model
+Inferring LV coefficients from X_0_R_0 equation: -X_0_P_0*X_0_R_0*f(u_0_P_0, u_0_R_0) - X_0_P_1*X_0_R_0*f(u_0_P_1, u_0_R_0) - X_0_R_0^2 - X_0_R_0*X_0_R_1 + X_0_R_0
+a_0_R_0_0_P_1 : -f(u_0_P_1, u_0_R_0)
+a_0_R_0_0_P_0 : -f(u_0_P_0, u_0_R_0)
+a_0_R_0_0_R_1 : -1
+r_0_R_0 : 1
+Inferring LV coefficients from X_0_P_1 equation: X_0_P_1*X_0_R_0*k*f(u_0_P_1, u_0_R_0) + X_0_P_1*X_0_R_1*k*f(u_0_P_1, u_0_R_1) - X_0_P_1
+a_0_P_1_0_R_0 : k*f(u_0_P_1, u_0_R_0)
+a_0_P_1_0_P_0 : 0
+a_0_P_1_0_R_1 : k*f(u_0_P_1, u_0_R_1)
+r_0_P_1 : -1
+Inferring LV coefficients from X_0_P_0 equation: X_0_P_0*X_0_R_0*k*f(u_0_P_0, u_0_R_0) + X_0_P_0*X_0_R_1*k*f(u_0_P_0, u_0_R_1) - X_0_P_0
+a_0_P_0_0_R_0 : k*f(u_0_P_0, u_0_R_0)
+a_0_P_0_0_P_1 : 0
+a_0_P_0_0_R_1 : k*f(u_0_P_0, u_0_R_1)
+r_0_P_0 : -1
+Inferring LV coefficients from X_0_R_1 equation: -X_0_P_0*X_0_R_1*f(u_0_P_0, u_0_R_1) - X_0_P_1*X_0_R_1*f(u_0_P_1, u_0_R_1) - X_0_R_0*X_0_R_1 - X_0_R_1^2 + X_0_R_1
+a_0_R_1_0_R_0 : -1
+a_0_R_1_0_P_1 : -f(u_0_P_1, u_0_R_1)
+a_0_R_1_0_P_0 : -f(u_0_P_0, u_0_R_1)
+r_0_R_1 : 1
+aij_dict: {a_0_R_0_0_P_1: -f(u_0_P_1, u_0_R_0), a_0_P_0_0_R_1: k*f(u_0_P_0, u_0_R_1), a_0_R_1_0_R_0: -1, a_0_P_1_0_P_0: 0, r_0_P_1: -1, a_0_R_1_0_P_0: -f(u_0_P_0, u_0_R_1), a_0_P_0_0_P_1: 0, a_0_R_0_0_R_1: -1, a_0_R_0_0_R_0: -1, a_0_P_1_0_P_1: 0, a_0_R_1_0_R_1: -1, a_0_P_0_0_R_0: k*f(u_0_P_0, u_0_R_0), a_0_R_0_0_P_0: -f(u_0_P_0, u_0_R_0), a_0_P_1_0_R_0: k*f(u_0_P_1, u_0_R_0), r_0_R_1: 1, a_0_P_1_0_R_1: k*f(u_0_P_1, u_0_R_1), r_0_P_0: -1, a_0_P_0_0_P_0: 0, r_0_R_0: 1, a_0_R_1_0_P_1: -f(u_0_P_1, u_0_R_1)}
+set_population_indices: [(R_0, 0), (P_1, 0), (P_0, 0), (R_1, 0)]
+Inferring LV coefficients from X_0_R_0 equation: -X_0_P_0*X_0_R_0*f(u_0_P_0, u_0_R_0) - X_0_P_1*X_0_R_0*f(u_0_P_1, u_0_R_0) - X_0_R_0^2 - X_0_R_0*X_0_R_1 + X_0_R_0
+a_0_R_0_0_P_1 : -f(u_0_P_1, u_0_R_0)
+a_0_R_0_0_P_0 : -f(u_0_P_0, u_0_R_0)
+a_0_R_0_0_R_1 : -1
+r_0_R_0 : 1
+Inferring LV coefficients from X_0_P_1 equation: X_0_P_1*X_0_R_0*k*f(u_0_P_1, u_0_R_0) + X_0_P_1*X_0_R_1*k*f(u_0_P_1, u_0_R_1) - X_0_P_1
+a_0_P_1_0_R_0 : k*f(u_0_P_1, u_0_R_0)
+a_0_P_1_0_P_0 : 0
+a_0_P_1_0_R_1 : k*f(u_0_P_1, u_0_R_1)
+r_0_P_1 : -1
+Inferring LV coefficients from X_0_P_0 equation: X_0_P_0*X_0_R_0*k*f(u_0_P_0, u_0_R_0) + X_0_P_0*X_0_R_1*k*f(u_0_P_0, u_0_R_1) - X_0_P_0
+a_0_P_0_0_R_0 : k*f(u_0_P_0, u_0_R_0)
+a_0_P_0_0_P_1 : 0
+a_0_P_0_0_R_1 : k*f(u_0_P_0, u_0_R_1)
+r_0_P_0 : -1
+Inferring LV coefficients from X_0_R_1 equation: -X_0_P_0*X_0_R_1*f(u_0_P_0, u_0_R_1) - X_0_P_1*X_0_R_1*f(u_0_P_1, u_0_R_1) - X_0_R_0*X_0_R_1 - X_0_R_1^2 + X_0_R_1
+a_0_R_1_0_R_0 : -1
+a_0_R_1_0_P_1 : -f(u_0_P_1, u_0_R_1)
+a_0_R_1_0_P_0 : -f(u_0_P_0, u_0_R_1)
+r_0_R_1 : 1
+aij_dict: {a_0_R_0_0_P_1: -f(u_0_P_1, u_0_R_0), a_0_P_0_0_R_1: k*f(u_0_P_0, u_0_R_1), a_0_R_1_0_R_0: -1, a_0_P_1_0_P_0: 0, r_0_P_1: -1, a_0_R_1_0_P_0: -f(u_0_P_0, u_0_R_1), a_0_P_0_0_P_1: 0, a_0_R_0_0_R_1: -1, a_0_R_0_0_R_0: -1, a_0_P_1_0_P_1: 0, a_0_R_1_0_R_1: -1, a_0_P_0_0_R_0: k*f(u_0_P_0, u_0_R_0), a_0_R_0_0_P_0: -f(u_0_P_0, u_0_R_0), a_0_P_1_0_R_0: k*f(u_0_P_1, u_0_R_0), r_0_R_1: 1, a_0_P_1_0_R_1: k*f(u_0_P_1, u_0_R_1), r_0_P_0: -1, a_0_P_0_0_P_0: 0, r_0_R_0: 1, a_0_R_1_0_P_1: -f(u_0_P_1, u_0_R_1)}
+_A_bindings: {a_0_R_0_0_P_1 -> -f(u_0_P_1, u_0_R_0), a_0_R_1_0_R_0 -> -1, a_0_P_1_0_P_0 -> 0, r_0_P_1 -> -1, a_0_R_0_0_R_1 -> -1, a_0_R_0_0_R_0 -> -1, a_0_P_1_0_R_1 -> k*f(u_0_P_1, u_0_R_1), a_0_R_1_0_R_1 -> -1, a_0_P_0_0_R_0 -> k*f(u_0_P_0, u_0_R_0), a_0_P_1_0_R_0 -> k*f(u_0_P_1, u_0_R_0), a_0_P_0_0_P_0 -> 0, r_0_R_0 -> 1, a_0_P_0_0_R_1 -> k*f(u_0_P_0, u_0_R_1), a_0_P_0_0_P_1 -> 0, a_0_P_1_0_P_1 -> 0, r_0_P_0 -> -1, a_0_R_1_0_P_1 -> -f(u_0_P_1, u_0_R_1), r_0_R_1 -> 1, a_0_R_1_0_P_0 -> -f(u_0_P_0, u_0_R_1), a_0_R_0_0_P_0 -> -f(u_0_P_0, u_0_R_0)}
+make LV adaptive dynamics
+population vars [X_0_R_0, X_0_P_1, X_0_P_0, X_0_R_1]
+population vars [X_0_R_0, X_0_P_1, X_0_P_0, X_0_R_1]
+set_population_indices: [(R_0, 0), (P_1, 0), (P_0, 0), (R_1, 0), (R_0, 1)]
+basal: [R_0, R_1]
+set_population_indices: [(R_0, 0), (P_1, 0), (P_0, 0), (R_1, 0), (R_0, 1)]
+Inferring LV coefficients from X_0_R_0 equation: -X_0_P_0*X_0_R_0*f(u_0_P_0, u_0_R_0) - X_0_P_1*X_0_R_0*f(u_0_P_1, u_0_R_0) - X_0_R_0^2 - X_0_R_0*X_0_R_1 - X_0_R_0*X_1_R_0 + X_0_R_0
+a_0_R_0_0_P_1 : -f(u_0_P_1, u_0_R_0)
+a_0_R_0_0_P_0 : -f(u_0_P_0, u_0_R_0)
+a_0_R_0_0_R_1 : -1
+a_0_R_0_1_R_0 : -1
+r_0_R_0 : 1
+Inferring LV coefficients from X_0_P_1 equation: X_0_P_1*X_0_R_0*k*f(u_0_P_1, u_0_R_0) + X_0_P_1*X_0_R_1*k*f(u_0_P_1, u_0_R_1) + X_0_P_1*X_1_R_0*k*f(u_0_P_1, u_1_R_0) - X_0_P_1
+a_0_P_1_0_R_0 : k*f(u_0_P_1, u_0_R_0)
+a_0_P_1_0_P_0 : 0
+a_0_P_1_0_R_1 : k*f(u_0_P_1, u_0_R_1)
+a_0_P_1_1_R_0 : k*f(u_0_P_1, u_1_R_0)
+r_0_P_1 : -1
+Inferring LV coefficients from X_0_P_0 equation: X_0_P_0*X_0_R_0*k*f(u_0_P_0, u_0_R_0) + X_0_P_0*X_0_R_1*k*f(u_0_P_0, u_0_R_1) + X_0_P_0*X_1_R_0*k*f(u_0_P_0, u_1_R_0) - X_0_P_0
+a_0_P_0_0_R_0 : k*f(u_0_P_0, u_0_R_0)
+a_0_P_0_0_P_1 : 0
+a_0_P_0_0_R_1 : k*f(u_0_P_0, u_0_R_1)
+a_0_P_0_1_R_0 : k*f(u_0_P_0, u_1_R_0)
+r_0_P_0 : -1
+Inferring LV coefficients from X_0_R_1 equation: -X_0_P_0*X_0_R_1*f(u_0_P_0, u_0_R_1) - X_0_P_1*X_0_R_1*f(u_0_P_1, u_0_R_1) - X_0_R_0*X_0_R_1 - X_0_R_1^2 - X_0_R_1*X_1_R_0 + X_0_R_1
+a_0_R_1_0_R_0 : -1
+a_0_R_1_0_P_1 : -f(u_0_P_1, u_0_R_1)
+a_0_R_1_0_P_0 : -f(u_0_P_0, u_0_R_1)
+a_0_R_1_1_R_0 : -1
+r_0_R_1 : 1
+Inferring LV coefficients from X_1_R_0 equation: -X_0_P_0*X_1_R_0*f(u_0_P_0, u_1_R_0) - X_0_P_1*X_1_R_0*f(u_0_P_1, u_1_R_0) - X_0_R_0*X_1_R_0 - X_0_R_1*X_1_R_0 - X_1_R_0^2 + X_1_R_0
+a_1_R_0_0_R_0 : -1
+a_1_R_0_0_P_1 : -f(u_0_P_1, u_1_R_0)
+a_1_R_0_0_P_0 : -f(u_0_P_0, u_1_R_0)
+a_1_R_0_0_R_1 : -1
+r_1_R_0 : 1
+aij_dict: {a_0_P_1_0_P_0: 0, a_0_R_1_0_R_0: -1, a_1_R_0_0_R_0: -1, a_0_P_0_0_R_0: k*f(u_0_P_0, u_0_R_0), r_0_R_1: 1, a_1_R_0_1_R_0: -1, a_0_P_1_1_R_0: k*f(u_0_P_1, u_1_R_0), a_0_R_0_0_R_1: -1, a_0_R_0_0_R_0: -1, a_0_P_1_0_R_0: k*f(u_0_P_1, u_0_R_0), a_1_R_0_0_P_1: -f(u_0_P_1, u_1_R_0), a_0_P_0_1_R_0: k*f(u_0_P_0, u_1_R_0), a_0_R_1_1_R_0: -1, a_0_R_1_0_P_1: -f(u_0_P_1, u_0_R_1), a_0_R_1_0_P_0: -f(u_0_P_0, u_0_R_1), a_1_R_0_0_R_1: -1, a_0_R_0_1_R_0: -1, a_0_R_0_0_P_1: -f(u_0_P_1, u_0_R_0), r_0_P_1: -1, a_0_R_1_0_R_1: -1, a_0_P_0_0_P_0: 0, r_0_R_0: 1, a_0_P_0_0_R_1: k*f(u_0_P_0, u_0_R_1), a_1_R_0_0_P_0: -f(u_0_P_0, u_1_R_0), a_0_P_0_0_P_1: 0, r_1_R_0: 1, a_0_P_1_0_P_1: 0, r_0_P_0: -1, a_0_P_1_0_R_1: k*f(u_0_P_1, u_0_R_1), a_0_R_0_0_P_0: -f(u_0_P_0, u_0_R_0)}
+merge bindings: {} , [] ,  {}
+The invasion rate for mutant population is:
 \begin{align*}
   \mathscr I = \frac{1}{X_{1R_{0}}}\frac{dX_{1R_{0}}}{dt} &= X_{0P_{0}} a_{1R_{0}0P_{0}} + X_{0P_{1}} a_{1R_{0}0P_{1}} + X_{0R_{0}} a_{1R_{0}0R_{0}} + X_{0R_{1}} a_{1R_{0}0R_{1}} + X_{1R_{0}} a_{1R_{0}1R_{0}} + r_{1R_{0}} 
 \end{align*}
- And the invasion exponent is
-\begin{align*}
-  \frac{\partial\mathscr I}{\partial r_{0R_{0}}} = \lim_{r_{1R_{0}}\to r_{0R_{0}},a_{1R_{0}0R_{0}}\to a_{0R_{0}0R_{0}},a_{1R_{0}0P_{1}}\to a_{0R_{0}0P_{1}},a_{1R_{0}0P_{0}}\to a_{0R_{0}0P_{0}},a_{1R_{0}0R_{1}}\to a_{0R_{0}0R_{1}},X_{1R_{0}}\to0}1\\
-  \frac{\partial\mathscr I}{\partial a_{0R_{0}0R_{0}}} = \lim_{r_{1R_{0}}\to r_{0R_{0}},a_{1R_{0}0R_{0}}\to a_{0R_{0}0R_{0}},a_{1R_{0}0P_{1}}\to a_{0R_{0}0P_{1}},a_{1R_{0}0P_{0}}\to a_{0R_{0}0P_{0}},a_{1R_{0}0R_{1}}\to a_{0R_{0}0R_{1}},X_{1R_{0}}\to0}X_{0R_{0}}\\
-  \frac{\partial\mathscr I}{\partial a_{0R_{0}0P_{1}}} = \lim_{r_{1R_{0}}\to r_{0R_{0}},a_{1R_{0}0R_{0}}\to a_{0R_{0}0R_{0}},a_{1R_{0}0P_{1}}\to a_{0R_{0}0P_{1}},a_{1R_{0}0P_{0}}\to a_{0R_{0}0P_{0}},a_{1R_{0}0R_{1}}\to a_{0R_{0}0R_{1}},X_{1R_{0}}\to0}X_{0P_{1}}\\
-  \frac{\partial\mathscr I}{\partial a_{0R_{0}0P_{0}}} = \lim_{r_{1R_{0}}\to r_{0R_{0}},a_{1R_{0}0R_{0}}\to a_{0R_{0}0R_{0}},a_{1R_{0}0P_{1}}\to a_{0R_{0}0P_{1}},a_{1R_{0}0P_{0}}\to a_{0R_{0}0P_{0}},a_{1R_{0}0R_{1}}\to a_{0R_{0}0R_{1}},X_{1R_{0}}\to0}X_{0P_{0}}\\
-  \frac{\partial\mathscr I}{\partial a_{0R_{0}0R_{1}}} = \lim_{r_{1R_{0}}\to r_{0R_{0}},a_{1R_{0}0R_{0}}\to a_{0R_{0}0R_{0}},a_{1R_{0}0P_{1}}\to a_{0R_{0}0P_{1}},a_{1R_{0}0P_{0}}\to a_{0R_{0}0P_{0}},a_{1R_{0}0R_{1}}\to a_{0R_{0}0R_{1}},X_{1R_{0}}\to0}X_{0R_{1}} .
-\end{align*}
- Which comes out to
-\begin{align*}
-  \frac{\partial\mathscr I}{\partial r_{0R_{0}}} = 1\\
-  \frac{\partial\mathscr I}{\partial a_{0R_{0}0R_{0}}} = X_{0R_{0}}\\
-  \frac{\partial\mathscr I}{\partial a_{0R_{0}0P_{1}}} = X_{0P_{1}}\\
-  \frac{\partial\mathscr I}{\partial a_{0R_{0}0P_{0}}} = X_{0P_{0}}\\
-  \frac{\partial\mathscr I}{\partial a_{0R_{0}0R_{1}}} = X_{0R_{1}} .
-\end{align*}
- Original pop-dyn system: 
-\[ \begin{align*}
-\frac{dX_{0R_{0}}}{dt} &= {\left(X_{0P_{0}} a_{0R_{0}0P_{0}} + X_{0P_{1}} a_{0R_{0}0P_{1}} + X_{0R_{0}} a_{0R_{0}0R_{0}} + X_{0R_{1}} a_{0R_{0}0R_{1}} + r_{0R_{0}}\right)} X_{0R_{0}}\\
-\frac{dX_{0P_{1}}}{dt} &= {\left(X_{0P_{0}} a_{0P_{1}0P_{0}} + X_{0P_{1}} a_{0P_{1}0P_{1}} + X_{0R_{0}} a_{0P_{1}0R_{0}} + X_{0R_{1}} a_{0P_{1}0R_{1}} + r_{0P_{1}}\right)} X_{0P_{1}}\\
-\frac{dX_{0P_{0}}}{dt} &= {\left(X_{0P_{0}} a_{0P_{0}0P_{0}} + X_{0P_{1}} a_{0P_{0}0P_{1}} + X_{0R_{0}} a_{0P_{0}0R_{0}} + X_{0R_{1}} a_{0P_{0}0R_{1}} + r_{0P_{0}}\right)} X_{0P_{0}}\\
-\frac{dX_{0R_{1}}}{dt} &= {\left(X_{0P_{0}} a_{0R_{1}0P_{0}} + X_{0P_{1}} a_{0R_{1}0P_{1}} + X_{0R_{0}} a_{0R_{1}0R_{0}} + X_{0R_{1}} a_{0R_{1}0R_{1}} + r_{0R_{1}}\right)} X_{0R_{1}}
-\end{align*}
- \]
- Extended pop-dyn system: 
-\[ \begin{align*}
-\frac{dX_{0R_{0}}}{dt} &= {\left(X_{0P_{0}} a_{0R_{0}0P_{0}} + X_{0P_{1}} a_{0R_{0}0P_{1}} + X_{0R_{0}} a_{0R_{0}0R_{0}} + X_{0R_{1}} a_{0R_{0}0R_{1}} + X_{1P_{1}} a_{0R_{0}1P_{1}} + r_{0R_{0}}\right)} X_{0R_{0}}\\
-\frac{dX_{0P_{1}}}{dt} &= {\left(X_{0P_{0}} a_{0P_{1}0P_{0}} + X_{0P_{1}} a_{0P_{1}0P_{1}} + X_{0R_{0}} a_{0P_{1}0R_{0}} + X_{0R_{1}} a_{0P_{1}0R_{1}} + X_{1P_{1}} a_{0P_{1}1P_{1}} + r_{0P_{1}}\right)} X_{0P_{1}}\\
-\frac{dX_{0P_{0}}}{dt} &= {\left(X_{0P_{0}} a_{0P_{0}0P_{0}} + X_{0P_{1}} a_{0P_{0}0P_{1}} + X_{0R_{0}} a_{0P_{0}0R_{0}} + X_{0R_{1}} a_{0P_{0}0R_{1}} + X_{1P_{1}} a_{0P_{0}1P_{1}} + r_{0P_{0}}\right)} X_{0P_{0}}\\
-\frac{dX_{0R_{1}}}{dt} &= {\left(X_{0P_{0}} a_{0R_{1}0P_{0}} + X_{0P_{1}} a_{0R_{1}0P_{1}} + X_{0R_{0}} a_{0R_{1}0R_{0}} + X_{0R_{1}} a_{0R_{1}0R_{1}} + X_{1P_{1}} a_{0R_{1}1P_{1}} + r_{0R_{1}}\right)} X_{0R_{1}}\\
-\frac{dX_{1P_{1}}}{dt} &= {\left(X_{0P_{0}} a_{1P_{1}0P_{0}} + X_{0P_{1}} a_{1P_{1}0P_{1}} + X_{0R_{0}} a_{1P_{1}0R_{0}} + X_{0R_{1}} a_{1P_{1}0R_{1}} + X_{1P_{1}} a_{1P_{1}1P_{1}} + r_{1P_{1}}\right)} X_{1P_{1}}
-\end{align*}
- \]
- The invasion rate for mutant population is:
+
+limit as {a_1_R_0_0_P_0: a_0_R_0_0_P_0, a_1_R_0_0_R_1: a_0_R_0_0_R_1, a_1_R_0_0_P_1: a_0_R_0_0_P_1, a_1_R_0_0_R_0: a_0_R_0_0_R_0, r_1_R_0: r_0_R_0}
+simplify to 1
+simplify to X_0_R_0
+simplify to X_0_P_1
+simplify to X_0_P_0
+simplify to X_0_R_1
+after those limits:
+   1
+  X_0_R_0
+  X_0_P_1
+  X_0_P_0
+  X_0_R_1
+simplify to 1
+simplify to X_0_R_0
+simplify to X_0_P_1
+simplify to X_0_P_0
+simplify to X_0_R_1
+set_population_indices: [(R_0, 0), (P_1, 0), (P_0, 0), (R_1, 0), (P_1, 1)]
+basal: [R_0, R_1]
+set_population_indices: [(R_0, 0), (P_1, 0), (P_0, 0), (R_1, 0), (P_1, 1)]
+Inferring LV coefficients from X_0_R_0 equation: -X_0_P_0*X_0_R_0*f(u_0_P_0, u_0_R_0) - X_0_P_1*X_0_R_0*f(u_0_P_1, u_0_R_0) - X_0_R_0*X_1_P_1*f(u_1_P_1, u_0_R_0) - X_0_R_0^2 - X_0_R_0*X_0_R_1 + X_0_R_0
+a_0_R_0_0_P_1 : -f(u_0_P_1, u_0_R_0)
+a_0_R_0_0_P_0 : -f(u_0_P_0, u_0_R_0)
+a_0_R_0_0_R_1 : -1
+a_0_R_0_1_P_1 : -f(u_1_P_1, u_0_R_0)
+r_0_R_0 : 1
+Inferring LV coefficients from X_0_P_1 equation: X_0_P_1*X_0_R_0*k*f(u_0_P_1, u_0_R_0) + X_0_P_1*X_0_R_1*k*f(u_0_P_1, u_0_R_1) - X_0_P_1
+a_0_P_1_0_R_0 : k*f(u_0_P_1, u_0_R_0)
+a_0_P_1_0_P_0 : 0
+a_0_P_1_0_R_1 : k*f(u_0_P_1, u_0_R_1)
+a_0_P_1_1_P_1 : 0
+r_0_P_1 : -1
+Inferring LV coefficients from X_0_P_0 equation: X_0_P_0*X_0_R_0*k*f(u_0_P_0, u_0_R_0) + X_0_P_0*X_0_R_1*k*f(u_0_P_0, u_0_R_1) - X_0_P_0
+a_0_P_0_0_R_0 : k*f(u_0_P_0, u_0_R_0)
+a_0_P_0_0_P_1 : 0
+a_0_P_0_0_R_1 : k*f(u_0_P_0, u_0_R_1)
+a_0_P_0_1_P_1 : 0
+r_0_P_0 : -1
+Inferring LV coefficients from X_0_R_1 equation: -X_0_P_0*X_0_R_1*f(u_0_P_0, u_0_R_1) - X_0_P_1*X_0_R_1*f(u_0_P_1, u_0_R_1) - X_0_R_1*X_1_P_1*f(u_1_P_1, u_0_R_1) - X_0_R_0*X_0_R_1 - X_0_R_1^2 + X_0_R_1
+a_0_R_1_0_R_0 : -1
+a_0_R_1_0_P_1 : -f(u_0_P_1, u_0_R_1)
+a_0_R_1_0_P_0 : -f(u_0_P_0, u_0_R_1)
+a_0_R_1_1_P_1 : -f(u_1_P_1, u_0_R_1)
+r_0_R_1 : 1
+Inferring LV coefficients from X_1_P_1 equation: X_0_R_0*X_1_P_1*k*f(u_1_P_1, u_0_R_0) + X_0_R_1*X_1_P_1*k*f(u_1_P_1, u_0_R_1) - X_1_P_1
+a_1_P_1_0_R_0 : k*f(u_1_P_1, u_0_R_0)
+a_1_P_1_0_P_1 : 0
+a_1_P_1_0_P_0 : 0
+a_1_P_1_0_R_1 : k*f(u_1_P_1, u_0_R_1)
+r_1_P_1 : -1
+aij_dict: {a_0_P_1_0_P_0: 0, a_1_P_1_0_R_0: k*f(u_1_P_1, u_0_R_0), a_0_R_1_0_R_0: -1, a_0_P_0_0_R_0: k*f(u_0_P_0, u_0_R_0), a_0_P_1_1_P_1: 0, a_0_R_0_0_R_1: -1, a_0_R_0_0_R_0: -1, a_1_P_1_0_P_1: 0, a_0_P_1_0_R_0: k*f(u_0_P_1, u_0_R_0), a_0_P_0_1_P_1: 0, a_0_R_1_1_P_1: -f(u_1_P_1, u_0_R_1), r_1_P_1: -1, a_1_P_1_1_P_1: 0, a_0_R_1_0_P_1: -f(u_0_P_1, u_0_R_1), a_1_P_1_0_R_1: k*f(u_1_P_1, u_0_R_1), r_0_R_1: 1, a_0_R_1_0_P_0: -f(u_0_P_0, u_0_R_1), a_0_R_0_1_P_1: -f(u_1_P_1, u_0_R_0), a_0_R_0_0_P_1: -f(u_0_P_1, u_0_R_0), r_0_P_1: -1, a_0_R_1_0_R_1: -1, a_0_P_0_0_P_0: 0, r_0_R_0: 1, a_0_P_0_0_R_1: k*f(u_0_P_0, u_0_R_1), a_1_P_1_0_P_0: 0, a_0_P_0_0_P_1: 0, a_0_P_1_0_P_1: 0, r_0_P_0: -1, a_0_P_1_0_R_1: k*f(u_0_P_1, u_0_R_1), a_0_R_0_0_P_0: -f(u_0_P_0, u_0_R_0)}
+merge bindings: {} , [] ,  {}
+The invasion rate for mutant population is:
 \begin{align*}
   \mathscr I = \frac{1}{X_{1P_{1}}}\frac{dX_{1P_{1}}}{dt} &= X_{0P_{0}} a_{1P_{1}0P_{0}} + X_{0P_{1}} a_{1P_{1}0P_{1}} + X_{0R_{0}} a_{1P_{1}0R_{0}} + X_{0R_{1}} a_{1P_{1}0R_{1}} + X_{1P_{1}} a_{1P_{1}1P_{1}} + r_{1P_{1}} 
 \end{align*}
- And the invasion exponent is
-\begin{align*}
-  \frac{\partial\mathscr I}{\partial r_{0P_{1}}} = \lim_{r_{1P_{1}}\to r_{0P_{1}},a_{1P_{1}0R_{0}}\to a_{0P_{1}0R_{0}},a_{1P_{1}0P_{1}}\to a_{0P_{1}0P_{1}},a_{1P_{1}0P_{0}}\to a_{0P_{1}0P_{0}},a_{1P_{1}0R_{1}}\to a_{0P_{1}0R_{1}},X_{1P_{1}}\to0}1\\
-  \frac{\partial\mathscr I}{\partial a_{0P_{1}0R_{0}}} = \lim_{r_{1P_{1}}\to r_{0P_{1}},a_{1P_{1}0R_{0}}\to a_{0P_{1}0R_{0}},a_{1P_{1}0P_{1}}\to a_{0P_{1}0P_{1}},a_{1P_{1}0P_{0}}\to a_{0P_{1}0P_{0}},a_{1P_{1}0R_{1}}\to a_{0P_{1}0R_{1}},X_{1P_{1}}\to0}X_{0R_{0}}\\
-  \frac{\partial\mathscr I}{\partial a_{0P_{1}0P_{1}}} = \lim_{r_{1P_{1}}\to r_{0P_{1}},a_{1P_{1}0R_{0}}\to a_{0P_{1}0R_{0}},a_{1P_{1}0P_{1}}\to a_{0P_{1}0P_{1}},a_{1P_{1}0P_{0}}\to a_{0P_{1}0P_{0}},a_{1P_{1}0R_{1}}\to a_{0P_{1}0R_{1}},X_{1P_{1}}\to0}X_{0P_{1}}\\
-  \frac{\partial\mathscr I}{\partial a_{0P_{1}0P_{0}}} = \lim_{r_{1P_{1}}\to r_{0P_{1}},a_{1P_{1}0R_{0}}\to a_{0P_{1}0R_{0}},a_{1P_{1}0P_{1}}\to a_{0P_{1}0P_{1}},a_{1P_{1}0P_{0}}\to a_{0P_{1}0P_{0}},a_{1P_{1}0R_{1}}\to a_{0P_{1}0R_{1}},X_{1P_{1}}\to0}X_{0P_{0}}\\
-  \frac{\partial\mathscr I}{\partial a_{0P_{1}0R_{1}}} = \lim_{r_{1P_{1}}\to r_{0P_{1}},a_{1P_{1}0R_{0}}\to a_{0P_{1}0R_{0}},a_{1P_{1}0P_{1}}\to a_{0P_{1}0P_{1}},a_{1P_{1}0P_{0}}\to a_{0P_{1}0P_{0}},a_{1P_{1}0R_{1}}\to a_{0P_{1}0R_{1}},X_{1P_{1}}\to0}X_{0R_{1}} .
-\end{align*}
- Which comes out to
-\begin{align*}
-  \frac{\partial\mathscr I}{\partial r_{0P_{1}}} = 1\\
-  \frac{\partial\mathscr I}{\partial a_{0P_{1}0R_{0}}} = X_{0R_{0}}\\
-  \frac{\partial\mathscr I}{\partial a_{0P_{1}0P_{1}}} = X_{0P_{1}}\\
-  \frac{\partial\mathscr I}{\partial a_{0P_{1}0P_{0}}} = X_{0P_{0}}\\
-  \frac{\partial\mathscr I}{\partial a_{0P_{1}0R_{1}}} = X_{0R_{1}} .
-\end{align*}
- Original pop-dyn system: 
-\[ \begin{align*}
-\frac{dX_{0R_{0}}}{dt} &= {\left(X_{0P_{0}} a_{0R_{0}0P_{0}} + X_{0P_{1}} a_{0R_{0}0P_{1}} + X_{0R_{0}} a_{0R_{0}0R_{0}} + X_{0R_{1}} a_{0R_{0}0R_{1}} + r_{0R_{0}}\right)} X_{0R_{0}}\\
-\frac{dX_{0P_{1}}}{dt} &= {\left(X_{0P_{0}} a_{0P_{1}0P_{0}} + X_{0P_{1}} a_{0P_{1}0P_{1}} + X_{0R_{0}} a_{0P_{1}0R_{0}} + X_{0R_{1}} a_{0P_{1}0R_{1}} + r_{0P_{1}}\right)} X_{0P_{1}}\\
-\frac{dX_{0P_{0}}}{dt} &= {\left(X_{0P_{0}} a_{0P_{0}0P_{0}} + X_{0P_{1}} a_{0P_{0}0P_{1}} + X_{0R_{0}} a_{0P_{0}0R_{0}} + X_{0R_{1}} a_{0P_{0}0R_{1}} + r_{0P_{0}}\right)} X_{0P_{0}}\\
-\frac{dX_{0R_{1}}}{dt} &= {\left(X_{0P_{0}} a_{0R_{1}0P_{0}} + X_{0P_{1}} a_{0R_{1}0P_{1}} + X_{0R_{0}} a_{0R_{1}0R_{0}} + X_{0R_{1}} a_{0R_{1}0R_{1}} + r_{0R_{1}}\right)} X_{0R_{1}}
-\end{align*}
- \]
- Extended pop-dyn system: 
-\[ \begin{align*}
-\frac{dX_{0R_{0}}}{dt} &= {\left(X_{0P_{0}} a_{0R_{0}0P_{0}} + X_{0P_{1}} a_{0R_{0}0P_{1}} + X_{0R_{0}} a_{0R_{0}0R_{0}} + X_{0R_{1}} a_{0R_{0}0R_{1}} + X_{1P_{0}} a_{0R_{0}1P_{0}} + r_{0R_{0}}\right)} X_{0R_{0}}\\
-\frac{dX_{0P_{1}}}{dt} &= {\left(X_{0P_{0}} a_{0P_{1}0P_{0}} + X_{0P_{1}} a_{0P_{1}0P_{1}} + X_{0R_{0}} a_{0P_{1}0R_{0}} + X_{0R_{1}} a_{0P_{1}0R_{1}} + X_{1P_{0}} a_{0P_{1}1P_{0}} + r_{0P_{1}}\right)} X_{0P_{1}}\\
-\frac{dX_{0P_{0}}}{dt} &= {\left(X_{0P_{0}} a_{0P_{0}0P_{0}} + X_{0P_{1}} a_{0P_{0}0P_{1}} + X_{0R_{0}} a_{0P_{0}0R_{0}} + X_{0R_{1}} a_{0P_{0}0R_{1}} + X_{1P_{0}} a_{0P_{0}1P_{0}} + r_{0P_{0}}\right)} X_{0P_{0}}\\
-\frac{dX_{0R_{1}}}{dt} &= {\left(X_{0P_{0}} a_{0R_{1}0P_{0}} + X_{0P_{1}} a_{0R_{1}0P_{1}} + X_{0R_{0}} a_{0R_{1}0R_{0}} + X_{0R_{1}} a_{0R_{1}0R_{1}} + X_{1P_{0}} a_{0R_{1}1P_{0}} + r_{0R_{1}}\right)} X_{0R_{1}}\\
-\frac{dX_{1P_{0}}}{dt} &= {\left(X_{0P_{0}} a_{1P_{0}0P_{0}} + X_{0P_{1}} a_{1P_{0}0P_{1}} + X_{0R_{0}} a_{1P_{0}0R_{0}} + X_{0R_{1}} a_{1P_{0}0R_{1}} + X_{1P_{0}} a_{1P_{0}1P_{0}} + r_{1P_{0}}\right)} X_{1P_{0}}
-\end{align*}
- \]
- The invasion rate for mutant population is:
+
+limit as {a_1_P_1_0_P_1: a_0_P_1_0_P_1, a_1_P_1_0_R_0: a_0_P_1_0_R_0, r_1_P_1: r_0_P_1, a_1_P_1_0_P_0: a_0_P_1_0_P_0, a_1_P_1_0_R_1: a_0_P_1_0_R_1}
+simplify to 1
+simplify to X_0_R_0
+simplify to X_0_P_1
+simplify to X_0_P_0
+simplify to X_0_R_1
+after those limits:
+   1
+  X_0_R_0
+  X_0_P_1
+  X_0_P_0
+  X_0_R_1
+simplify to 1
+simplify to X_0_R_0
+simplify to X_0_P_1
+simplify to X_0_P_0
+simplify to X_0_R_1
+set_population_indices: [(R_0, 0), (P_1, 0), (P_0, 0), (R_1, 0), (P_0, 1)]
+basal: [R_0, R_1]
+set_population_indices: [(R_0, 0), (P_1, 0), (P_0, 0), (R_1, 0), (P_0, 1)]
+Inferring LV coefficients from X_0_R_0 equation: -X_0_P_0*X_0_R_0*f(u_0_P_0, u_0_R_0) - X_0_P_1*X_0_R_0*f(u_0_P_1, u_0_R_0) - X_0_R_0*X_1_P_0*f(u_1_P_0, u_0_R_0) - X_0_R_0^2 - X_0_R_0*X_0_R_1 + X_0_R_0
+a_0_R_0_0_P_1 : -f(u_0_P_1, u_0_R_0)
+a_0_R_0_0_P_0 : -f(u_0_P_0, u_0_R_0)
+a_0_R_0_0_R_1 : -1
+a_0_R_0_1_P_0 : -f(u_1_P_0, u_0_R_0)
+r_0_R_0 : 1
+Inferring LV coefficients from X_0_P_1 equation: X_0_P_1*X_0_R_0*k*f(u_0_P_1, u_0_R_0) + X_0_P_1*X_0_R_1*k*f(u_0_P_1, u_0_R_1) - X_0_P_1
+a_0_P_1_0_R_0 : k*f(u_0_P_1, u_0_R_0)
+a_0_P_1_0_P_0 : 0
+a_0_P_1_0_R_1 : k*f(u_0_P_1, u_0_R_1)
+a_0_P_1_1_P_0 : 0
+r_0_P_1 : -1
+Inferring LV coefficients from X_0_P_0 equation: X_0_P_0*X_0_R_0*k*f(u_0_P_0, u_0_R_0) + X_0_P_0*X_0_R_1*k*f(u_0_P_0, u_0_R_1) - X_0_P_0
+a_0_P_0_0_R_0 : k*f(u_0_P_0, u_0_R_0)
+a_0_P_0_0_P_1 : 0
+a_0_P_0_0_R_1 : k*f(u_0_P_0, u_0_R_1)
+a_0_P_0_1_P_0 : 0
+r_0_P_0 : -1
+Inferring LV coefficients from X_0_R_1 equation: -X_0_P_0*X_0_R_1*f(u_0_P_0, u_0_R_1) - X_0_P_1*X_0_R_1*f(u_0_P_1, u_0_R_1) - X_0_R_1*X_1_P_0*f(u_1_P_0, u_0_R_1) - X_0_R_0*X_0_R_1 - X_0_R_1^2 + X_0_R_1
+a_0_R_1_0_R_0 : -1
+a_0_R_1_0_P_1 : -f(u_0_P_1, u_0_R_1)
+a_0_R_1_0_P_0 : -f(u_0_P_0, u_0_R_1)
+a_0_R_1_1_P_0 : -f(u_1_P_0, u_0_R_1)
+r_0_R_1 : 1
+Inferring LV coefficients from X_1_P_0 equation: X_0_R_0*X_1_P_0*k*f(u_1_P_0, u_0_R_0) + X_0_R_1*X_1_P_0*k*f(u_1_P_0, u_0_R_1) - X_1_P_0
+a_1_P_0_0_R_0 : k*f(u_1_P_0, u_0_R_0)
+a_1_P_0_0_P_1 : 0
+a_1_P_0_0_P_0 : 0
+a_1_P_0_0_R_1 : k*f(u_1_P_0, u_0_R_1)
+r_1_P_0 : -1
+aij_dict: {a_0_P_1_0_P_0: 0, a_0_R_1_0_R_0: -1, a_0_P_0_0_R_0: k*f(u_0_P_0, u_0_R_0), r_0_R_1: 1, a_1_P_0_0_R_1: k*f(u_1_P_0, u_0_R_1), a_0_R_0_0_R_1: -1, r_1_P_0: -1, a_0_R_0_0_R_0: -1, a_0_P_1_0_R_0: k*f(u_0_P_1, u_0_R_0), a_1_P_0_1_P_0: 0, r_0_R_0: 1, a_0_R_1_0_P_0: -f(u_0_P_0, u_0_R_1), a_1_P_0_0_P_0: 0, a_0_R_1_0_P_1: -f(u_0_P_1, u_0_R_1), a_0_R_0_0_P_1: -f(u_0_P_1, u_0_R_0), r_0_P_1: -1, a_0_R_0_1_P_0: -f(u_1_P_0, u_0_R_0), a_0_R_1_0_R_1: -1, a_1_P_0_0_R_0: k*f(u_1_P_0, u_0_R_0), a_0_P_0_0_P_0: 0, a_0_P_1_1_P_0: 0, a_0_P_0_0_R_1: k*f(u_0_P_0, u_0_R_1), a_0_P_0_0_P_1: 0, a_0_P_0_1_P_0: 0, a_0_P_1_0_P_1: 0, r_0_P_0: -1, a_1_P_0_0_P_1: 0, a_0_P_1_0_R_1: k*f(u_0_P_1, u_0_R_1), a_0_R_1_1_P_0: -f(u_1_P_0, u_0_R_1), a_0_R_0_0_P_0: -f(u_0_P_0, u_0_R_0)}
+merge bindings: {} , [] ,  {}
+The invasion rate for mutant population is:
 \begin{align*}
   \mathscr I = \frac{1}{X_{1P_{0}}}\frac{dX_{1P_{0}}}{dt} &= X_{0P_{0}} a_{1P_{0}0P_{0}} + X_{0P_{1}} a_{1P_{0}0P_{1}} + X_{0R_{0}} a_{1P_{0}0R_{0}} + X_{0R_{1}} a_{1P_{0}0R_{1}} + X_{1P_{0}} a_{1P_{0}1P_{0}} + r_{1P_{0}} 
 \end{align*}
- And the invasion exponent is
-\begin{align*}
-  \frac{\partial\mathscr I}{\partial r_{0P_{0}}} = \lim_{r_{1P_{0}}\to r_{0P_{0}},a_{1P_{0}0R_{0}}\to a_{0P_{0}0R_{0}},a_{1P_{0}0P_{1}}\to a_{0P_{0}0P_{1}},a_{1P_{0}0P_{0}}\to a_{0P_{0}0P_{0}},a_{1P_{0}0R_{1}}\to a_{0P_{0}0R_{1}},X_{1P_{0}}\to0}1\\
-  \frac{\partial\mathscr I}{\partial a_{0P_{0}0R_{0}}} = \lim_{r_{1P_{0}}\to r_{0P_{0}},a_{1P_{0}0R_{0}}\to a_{0P_{0}0R_{0}},a_{1P_{0}0P_{1}}\to a_{0P_{0}0P_{1}},a_{1P_{0}0P_{0}}\to a_{0P_{0}0P_{0}},a_{1P_{0}0R_{1}}\to a_{0P_{0}0R_{1}},X_{1P_{0}}\to0}X_{0R_{0}}\\
-  \frac{\partial\mathscr I}{\partial a_{0P_{0}0P_{1}}} = \lim_{r_{1P_{0}}\to r_{0P_{0}},a_{1P_{0}0R_{0}}\to a_{0P_{0}0R_{0}},a_{1P_{0}0P_{1}}\to a_{0P_{0}0P_{1}},a_{1P_{0}0P_{0}}\to a_{0P_{0}0P_{0}},a_{1P_{0}0R_{1}}\to a_{0P_{0}0R_{1}},X_{1P_{0}}\to0}X_{0P_{1}}\\
-  \frac{\partial\mathscr I}{\partial a_{0P_{0}0P_{0}}} = \lim_{r_{1P_{0}}\to r_{0P_{0}},a_{1P_{0}0R_{0}}\to a_{0P_{0}0R_{0}},a_{1P_{0}0P_{1}}\to a_{0P_{0}0P_{1}},a_{1P_{0}0P_{0}}\to a_{0P_{0}0P_{0}},a_{1P_{0}0R_{1}}\to a_{0P_{0}0R_{1}},X_{1P_{0}}\to0}X_{0P_{0}}\\
-  \frac{\partial\mathscr I}{\partial a_{0P_{0}0R_{1}}} = \lim_{r_{1P_{0}}\to r_{0P_{0}},a_{1P_{0}0R_{0}}\to a_{0P_{0}0R_{0}},a_{1P_{0}0P_{1}}\to a_{0P_{0}0P_{1}},a_{1P_{0}0P_{0}}\to a_{0P_{0}0P_{0}},a_{1P_{0}0R_{1}}\to a_{0P_{0}0R_{1}},X_{1P_{0}}\to0}X_{0R_{1}} .
-\end{align*}
- Which comes out to
-\begin{align*}
-  \frac{\partial\mathscr I}{\partial r_{0P_{0}}} = 1\\
-  \frac{\partial\mathscr I}{\partial a_{0P_{0}0R_{0}}} = X_{0R_{0}}\\
-  \frac{\partial\mathscr I}{\partial a_{0P_{0}0P_{1}}} = X_{0P_{1}}\\
-  \frac{\partial\mathscr I}{\partial a_{0P_{0}0P_{0}}} = X_{0P_{0}}\\
-  \frac{\partial\mathscr I}{\partial a_{0P_{0}0R_{1}}} = X_{0R_{1}} .
-\end{align*}
- Original pop-dyn system: 
-\[ \begin{align*}
-\frac{dX_{0R_{0}}}{dt} &= {\left(X_{0P_{0}} a_{0R_{0}0P_{0}} + X_{0P_{1}} a_{0R_{0}0P_{1}} + X_{0R_{0}} a_{0R_{0}0R_{0}} + X_{0R_{1}} a_{0R_{0}0R_{1}} + r_{0R_{0}}\right)} X_{0R_{0}}\\
-\frac{dX_{0P_{1}}}{dt} &= {\left(X_{0P_{0}} a_{0P_{1}0P_{0}} + X_{0P_{1}} a_{0P_{1}0P_{1}} + X_{0R_{0}} a_{0P_{1}0R_{0}} + X_{0R_{1}} a_{0P_{1}0R_{1}} + r_{0P_{1}}\right)} X_{0P_{1}}\\
-\frac{dX_{0P_{0}}}{dt} &= {\left(X_{0P_{0}} a_{0P_{0}0P_{0}} + X_{0P_{1}} a_{0P_{0}0P_{1}} + X_{0R_{0}} a_{0P_{0}0R_{0}} + X_{0R_{1}} a_{0P_{0}0R_{1}} + r_{0P_{0}}\right)} X_{0P_{0}}\\
-\frac{dX_{0R_{1}}}{dt} &= {\left(X_{0P_{0}} a_{0R_{1}0P_{0}} + X_{0P_{1}} a_{0R_{1}0P_{1}} + X_{0R_{0}} a_{0R_{1}0R_{0}} + X_{0R_{1}} a_{0R_{1}0R_{1}} + r_{0R_{1}}\right)} X_{0R_{1}}
-\end{align*}
- \]
- Extended pop-dyn system: 
-\[ \begin{align*}
-\frac{dX_{0R_{0}}}{dt} &= {\left(X_{0P_{0}} a_{0R_{0}0P_{0}} + X_{0P_{1}} a_{0R_{0}0P_{1}} + X_{0R_{0}} a_{0R_{0}0R_{0}} + X_{0R_{1}} a_{0R_{0}0R_{1}} + X_{1R_{1}} a_{0R_{0}1R_{1}} + r_{0R_{0}}\right)} X_{0R_{0}}\\
-\frac{dX_{0P_{1}}}{dt} &= {\left(X_{0P_{0}} a_{0P_{1}0P_{0}} + X_{0P_{1}} a_{0P_{1}0P_{1}} + X_{0R_{0}} a_{0P_{1}0R_{0}} + X_{0R_{1}} a_{0P_{1}0R_{1}} + X_{1R_{1}} a_{0P_{1}1R_{1}} + r_{0P_{1}}\right)} X_{0P_{1}}\\
-\frac{dX_{0P_{0}}}{dt} &= {\left(X_{0P_{0}} a_{0P_{0}0P_{0}} + X_{0P_{1}} a_{0P_{0}0P_{1}} + X_{0R_{0}} a_{0P_{0}0R_{0}} + X_{0R_{1}} a_{0P_{0}0R_{1}} + X_{1R_{1}} a_{0P_{0}1R_{1}} + r_{0P_{0}}\right)} X_{0P_{0}}\\
-\frac{dX_{0R_{1}}}{dt} &= {\left(X_{0P_{0}} a_{0R_{1}0P_{0}} + X_{0P_{1}} a_{0R_{1}0P_{1}} + X_{0R_{0}} a_{0R_{1}0R_{0}} + X_{0R_{1}} a_{0R_{1}0R_{1}} + X_{1R_{1}} a_{0R_{1}1R_{1}} + r_{0R_{1}}\right)} X_{0R_{1}}\\
-\frac{dX_{1R_{1}}}{dt} &= {\left(X_{0P_{0}} a_{1R_{1}0P_{0}} + X_{0P_{1}} a_{1R_{1}0P_{1}} + X_{0R_{0}} a_{1R_{1}0R_{0}} + X_{0R_{1}} a_{1R_{1}0R_{1}} + X_{1R_{1}} a_{1R_{1}1R_{1}} + r_{1R_{1}}\right)} X_{1R_{1}}
-\end{align*}
- \]
- The invasion rate for mutant population is:
+
+limit as {a_1_P_0_0_R_0: a_0_P_0_0_R_0, r_1_P_0: r_0_P_0, a_1_P_0_0_P_0: a_0_P_0_0_P_0, a_1_P_0_0_R_1: a_0_P_0_0_R_1, a_1_P_0_0_P_1: a_0_P_0_0_P_1}
+simplify to 1
+simplify to X_0_R_0
+simplify to X_0_P_1
+simplify to X_0_P_0
+simplify to X_0_R_1
+after those limits:
+   1
+  X_0_R_0
+  X_0_P_1
+  X_0_P_0
+  X_0_R_1
+simplify to 1
+simplify to X_0_R_0
+simplify to X_0_P_1
+simplify to X_0_P_0
+simplify to X_0_R_1
+set_population_indices: [(R_0, 0), (P_1, 0), (P_0, 0), (R_1, 0), (R_1, 1)]
+basal: [R_0, R_1]
+set_population_indices: [(R_0, 0), (P_1, 0), (P_0, 0), (R_1, 0), (R_1, 1)]
+Inferring LV coefficients from X_0_R_0 equation: -X_0_P_0*X_0_R_0*f(u_0_P_0, u_0_R_0) - X_0_P_1*X_0_R_0*f(u_0_P_1, u_0_R_0) - X_0_R_0^2 - X_0_R_0*X_0_R_1 - X_0_R_0*X_1_R_1 + X_0_R_0
+a_0_R_0_0_P_1 : -f(u_0_P_1, u_0_R_0)
+a_0_R_0_0_P_0 : -f(u_0_P_0, u_0_R_0)
+a_0_R_0_0_R_1 : -1
+a_0_R_0_1_R_1 : -1
+r_0_R_0 : 1
+Inferring LV coefficients from X_0_P_1 equation: X_0_P_1*X_0_R_0*k*f(u_0_P_1, u_0_R_0) + X_0_P_1*X_0_R_1*k*f(u_0_P_1, u_0_R_1) + X_0_P_1*X_1_R_1*k*f(u_0_P_1, u_1_R_1) - X_0_P_1
+a_0_P_1_0_R_0 : k*f(u_0_P_1, u_0_R_0)
+a_0_P_1_0_P_0 : 0
+a_0_P_1_0_R_1 : k*f(u_0_P_1, u_0_R_1)
+a_0_P_1_1_R_1 : k*f(u_0_P_1, u_1_R_1)
+r_0_P_1 : -1
+Inferring LV coefficients from X_0_P_0 equation: X_0_P_0*X_0_R_0*k*f(u_0_P_0, u_0_R_0) + X_0_P_0*X_0_R_1*k*f(u_0_P_0, u_0_R_1) + X_0_P_0*X_1_R_1*k*f(u_0_P_0, u_1_R_1) - X_0_P_0
+a_0_P_0_0_R_0 : k*f(u_0_P_0, u_0_R_0)
+a_0_P_0_0_P_1 : 0
+a_0_P_0_0_R_1 : k*f(u_0_P_0, u_0_R_1)
+a_0_P_0_1_R_1 : k*f(u_0_P_0, u_1_R_1)
+r_0_P_0 : -1
+Inferring LV coefficients from X_0_R_1 equation: -X_0_P_0*X_0_R_1*f(u_0_P_0, u_0_R_1) - X_0_P_1*X_0_R_1*f(u_0_P_1, u_0_R_1) - X_0_R_0*X_0_R_1 - X_0_R_1^2 - X_0_R_1*X_1_R_1 + X_0_R_1
+a_0_R_1_0_R_0 : -1
+a_0_R_1_0_P_1 : -f(u_0_P_1, u_0_R_1)
+a_0_R_1_0_P_0 : -f(u_0_P_0, u_0_R_1)
+a_0_R_1_1_R_1 : -1
+r_0_R_1 : 1
+Inferring LV coefficients from X_1_R_1 equation: -X_0_P_0*X_1_R_1*f(u_0_P_0, u_1_R_1) - X_0_P_1*X_1_R_1*f(u_0_P_1, u_1_R_1) - X_0_R_0*X_1_R_1 - X_0_R_1*X_1_R_1 - X_1_R_1^2 + X_1_R_1
+a_1_R_1_0_R_0 : -1
+a_1_R_1_0_P_1 : -f(u_0_P_1, u_1_R_1)
+a_1_R_1_0_P_0 : -f(u_0_P_0, u_1_R_1)
+a_1_R_1_0_R_1 : -1
+r_1_R_1 : 1
+aij_dict: {a_0_P_1_0_P_0: 0, a_0_R_1_0_R_0: -1, a_0_P_0_0_R_0: k*f(u_0_P_0, u_0_R_0), r_0_R_1: 1, a_0_R_0_0_R_1: -1, a_0_R_0_0_R_0: -1, a_1_R_1_0_P_1: -f(u_0_P_1, u_1_R_1), a_0_P_1_0_R_0: k*f(u_0_P_1, u_0_R_0), r_1_R_1: 1, a_0_R_1_0_P_1: -f(u_0_P_1, u_0_R_1), a_0_R_1_0_P_0: -f(u_0_P_0, u_0_R_1), a_1_R_1_0_R_1: -1, a_0_R_0_0_P_1: -f(u_0_P_1, u_0_R_0), a_1_R_1_1_R_1: -1, a_0_P_1_1_R_1: k*f(u_0_P_1, u_1_R_1), r_0_P_1: -1, a_1_R_1_0_R_0: -1, a_1_R_1_0_P_0: -f(u_0_P_0, u_1_R_1), a_0_R_0_1_R_1: -1, a_0_R_1_0_R_1: -1, a_0_P_0_1_R_1: k*f(u_0_P_0, u_1_R_1), a_0_P_0_0_P_0: 0, r_0_R_0: 1, a_0_P_0_0_R_1: k*f(u_0_P_0, u_0_R_1), a_0_R_1_1_R_1: -1, a_0_P_0_0_P_1: 0, a_0_P_1_0_P_1: 0, r_0_P_0: -1, a_0_P_1_0_R_1: k*f(u_0_P_1, u_0_R_1), a_0_R_0_0_P_0: -f(u_0_P_0, u_0_R_0)}
+merge bindings: {} , [] ,  {}
+The invasion rate for mutant population is:
 \begin{align*}
   \mathscr I = \frac{1}{X_{1R_{1}}}\frac{dX_{1R_{1}}}{dt} &= X_{0P_{0}} a_{1R_{1}0P_{0}} + X_{0P_{1}} a_{1R_{1}0P_{1}} + X_{0R_{0}} a_{1R_{1}0R_{0}} + X_{0R_{1}} a_{1R_{1}0R_{1}} + X_{1R_{1}} a_{1R_{1}1R_{1}} + r_{1R_{1}} 
 \end{align*}
- And the invasion exponent is
-\begin{align*}
-  \frac{\partial\mathscr I}{\partial r_{0R_{1}}} = \lim_{r_{1R_{1}}\to r_{0R_{1}},a_{1R_{1}0R_{0}}\to a_{0R_{1}0R_{0}},a_{1R_{1}0P_{1}}\to a_{0R_{1}0P_{1}},a_{1R_{1}0P_{0}}\to a_{0R_{1}0P_{0}},a_{1R_{1}0R_{1}}\to a_{0R_{1}0R_{1}},X_{1R_{1}}\to0}1\\
-  \frac{\partial\mathscr I}{\partial a_{0R_{1}0R_{0}}} = \lim_{r_{1R_{1}}\to r_{0R_{1}},a_{1R_{1}0R_{0}}\to a_{0R_{1}0R_{0}},a_{1R_{1}0P_{1}}\to a_{0R_{1}0P_{1}},a_{1R_{1}0P_{0}}\to a_{0R_{1}0P_{0}},a_{1R_{1}0R_{1}}\to a_{0R_{1}0R_{1}},X_{1R_{1}}\to0}X_{0R_{0}}\\
-  \frac{\partial\mathscr I}{\partial a_{0R_{1}0P_{1}}} = \lim_{r_{1R_{1}}\to r_{0R_{1}},a_{1R_{1}0R_{0}}\to a_{0R_{1}0R_{0}},a_{1R_{1}0P_{1}}\to a_{0R_{1}0P_{1}},a_{1R_{1}0P_{0}}\to a_{0R_{1}0P_{0}},a_{1R_{1}0R_{1}}\to a_{0R_{1}0R_{1}},X_{1R_{1}}\to0}X_{0P_{1}}\\
-  \frac{\partial\mathscr I}{\partial a_{0R_{1}0P_{0}}} = \lim_{r_{1R_{1}}\to r_{0R_{1}},a_{1R_{1}0R_{0}}\to a_{0R_{1}0R_{0}},a_{1R_{1}0P_{1}}\to a_{0R_{1}0P_{1}},a_{1R_{1}0P_{0}}\to a_{0R_{1}0P_{0}},a_{1R_{1}0R_{1}}\to a_{0R_{1}0R_{1}},X_{1R_{1}}\to0}X_{0P_{0}}\\
-  \frac{\partial\mathscr I}{\partial a_{0R_{1}0R_{1}}} = \lim_{r_{1R_{1}}\to r_{0R_{1}},a_{1R_{1}0R_{0}}\to a_{0R_{1}0R_{0}},a_{1R_{1}0P_{1}}\to a_{0R_{1}0P_{1}},a_{1R_{1}0P_{0}}\to a_{0R_{1}0P_{0}},a_{1R_{1}0R_{1}}\to a_{0R_{1}0R_{1}},X_{1R_{1}}\to0}X_{0R_{1}} .
-\end{align*}
- Which comes out to
-\begin{align*}
-  \frac{\partial\mathscr I}{\partial r_{0R_{1}}} = 1\\
-  \frac{\partial\mathscr I}{\partial a_{0R_{1}0R_{0}}} = X_{0R_{0}}\\
-  \frac{\partial\mathscr I}{\partial a_{0R_{1}0P_{1}}} = X_{0P_{1}}\\
-  \frac{\partial\mathscr I}{\partial a_{0R_{1}0P_{0}}} = X_{0P_{0}}\\
-  \frac{\partial\mathscr I}{\partial a_{0R_{1}0R_{1}}} = X_{0R_{1}} .
-\end{align*}
- \[ \mathbf S \left(\begin{array}{c}
-  a_{0R_{1}0R_{0}}\\
-  a_{0P_{1}0P_{0}}\\
-  a_{0P_{0}0R_{1}}\\
-  r_{0P_{0}}\\
-  a_{0P_{1}0P_{1}}\\
-  a_{0R_{0}0P_{1}}\\
-  a_{0P_{1}0R_{1}}\\
-  a_{0P_{0}0R_{0}}\\
-  a_{0R_{0}0P_{0}}\\
-  a_{0R_{1}0P_{1}}\\
-  r_{0P_{1}}\\
-  a_{0R_{0}0R_{0}}\\
-  a_{0R_{1}0R_{1}}\\
-  a_{0P_{0}0P_{1}}\\
-  a_{0R_{0}0R_{1}}\\
-  a_{0R_{1}0P_{0}}\\
-  a_{0P_{0}0P_{0}}\\
-  a_{0P_{1}0R_{0}}\\
-  r_{0R_{0}}\\
-  r_{0R_{1}}
-\end{array}\right) = \left(\begin{array}{c}
-  \hat{X}_{0R_{0}}\\
-  \hat{X}_{0P_{0}}\\
-  \hat{X}_{0R_{1}}\\
-  1\\
-  \hat{X}_{0P_{1}}\\
-  \hat{X}_{0P_{1}}\\
-  \hat{X}_{0R_{1}}\\
-  \hat{X}_{0R_{0}}\\
-  \hat{X}_{0P_{0}}\\
-  \hat{X}_{0P_{1}}\\
-  1\\
-  \hat{X}_{0R_{0}}\\
-  \hat{X}_{0R_{1}}\\
-  \hat{X}_{0P_{1}}\\
-  \hat{X}_{0R_{1}}\\
-  \hat{X}_{0P_{0}}\\
-  \hat{X}_{0P_{0}}\\
-  \hat{X}_{0R_{0}}\\
-  1\\
-  1
-\end{array}\right) \]
- Equilibrium of the population dynamics: 
-\[ \begin{align*}
-  X_{0R_{0}} &\to \hat{X}_{0R_{0}} \\
-  X_{0P_{0}} &\to \hat{X}_{0P_{0}} \\
-  X_{0P_{1}} &\to \hat{X}_{0P_{1}} \\
-  X_{0R_{1}} &\to \hat{X}_{0R_{1}}
-\end{align*} \]
- The adaptive dynamics comes out to 
-\[ \begin{align*}
-\frac{da_{0R_{1}0R_{0}}}{dt} &= \hat{X}_{0R_{0}} \hat{X}_{0R_{1}} \gamma\\
-\frac{da_{0P_{1}0P_{0}}}{dt} &= \hat{X}_{0P_{0}} \hat{X}_{0P_{1}} \gamma\\
-\frac{da_{0P_{0}0R_{1}}}{dt} &= \hat{X}_{0P_{0}} \hat{X}_{0R_{1}} \gamma\\
-\frac{dr_{0P_{0}}}{dt} &= \hat{X}_{0P_{0}} \gamma\\
-\frac{da_{0P_{1}0P_{1}}}{dt} &= \hat{X}_{0P_{1}}^{2} \gamma\\
-\frac{da_{0R_{0}0P_{1}}}{dt} &= \hat{X}_{0P_{1}} \hat{X}_{0R_{0}} \gamma\\
-\frac{da_{0P_{1}0R_{1}}}{dt} &= \hat{X}_{0P_{1}} \hat{X}_{0R_{1}} \gamma\\
-\frac{da_{0P_{0}0R_{0}}}{dt} &= \hat{X}_{0P_{0}} \hat{X}_{0R_{0}} \gamma\\
-\frac{da_{0R_{0}0P_{0}}}{dt} &= \hat{X}_{0P_{0}} \hat{X}_{0R_{0}} \gamma\\
-\frac{da_{0R_{1}0P_{1}}}{dt} &= \hat{X}_{0P_{1}} \hat{X}_{0R_{1}} \gamma\\
-\frac{dr_{0P_{1}}}{dt} &= \hat{X}_{0P_{1}} \gamma\\
-\frac{da_{0R_{0}0R_{0}}}{dt} &= \hat{X}_{0R_{0}}^{2} \gamma\\
-\frac{da_{0R_{1}0R_{1}}}{dt} &= \hat{X}_{0R_{1}}^{2} \gamma\\
-\frac{da_{0P_{0}0P_{1}}}{dt} &= \hat{X}_{0P_{0}} \hat{X}_{0P_{1}} \gamma\\
-\frac{da_{0R_{0}0R_{1}}}{dt} &= \hat{X}_{0R_{0}} \hat{X}_{0R_{1}} \gamma\\
-\frac{da_{0R_{1}0P_{0}}}{dt} &= \hat{X}_{0P_{0}} \hat{X}_{0R_{1}} \gamma\\
-\frac{da_{0P_{0}0P_{0}}}{dt} &= \hat{X}_{0P_{0}}^{2} \gamma\\
-\frac{da_{0P_{1}0R_{0}}}{dt} &= \hat{X}_{0P_{1}} \hat{X}_{0R_{0}} \gamma\\
-\frac{dr_{0R_{0}}}{dt} &= \hat{X}_{0R_{0}} \gamma\\
-\frac{dr_{0R_{1}}}{dt} &= \hat{X}_{0R_{1}} \gamma
-\end{align*}
- \]
 
+limit as {a_1_R_1_0_R_0: a_0_R_1_0_R_0, r_1_R_1: r_0_R_1, a_1_R_1_0_P_0: a_0_R_1_0_P_0, a_1_R_1_0_R_1: a_0_R_1_0_R_1, a_1_R_1_0_P_1: a_0_R_1_0_P_1}
+simplify to 1
+simplify to X_0_R_0
+simplify to X_0_P_1
+simplify to X_0_P_0
+simplify to X_0_R_1
+after those limits:
+   1
+  X_0_R_0
+  X_0_P_1
+  X_0_P_0
+  X_0_R_1
+simplify to 1
+simplify to X_0_R_0
+simplify to X_0_P_1
+simplify to X_0_P_0
+simplify to X_0_R_1
+merge bindings: {} , [] ,  {}
+merge bindings: {} , [] ,  {}
+merge bindings: {} , [X_0_R_0, X_0_P_0, X_0_P_1, X_0_R_1] ,  {}
 make LV evolution bindings
-Traceback (most recent call last):
-  File "foodweb-2-2.plot.sage.py", line 39, in <module>
-    sym_lv.dudt_bindings()( sym_lv.A_pair( i0, i1 ) )
-  File "/usr/local/src/jekyll-research/wmd_files/SageDynamicsRepo/SageUtils/latex_output.py", line 67, in write_equality_aligned
-    self.latex(a[0]) + ' &= ' + '\\\\\n    &= '.join( self.latex(a) for a in args[1:] ) );
-NameError: global name 'a' is not defined
+merge bindings: {a_0_R_0_0_P_1 -> -f(u_0_P_1, u_0_R_0), a_0_R_1_0_R_0 -> -1, a_0_P_1_0_P_0 -> 0, r_0_P_1 -> -1, a_0_R_0_0_R_1 -> -1, a_0_R_0_0_R_0 -> -1, a_0_R_1_0_P_0 -> -f(u_0_P_0, u_0_R_1), a_0_R_1_0_R_1 -> -1, a_0_P_0_0_R_0 -> k*f(u_0_P_0, u_0_R_0), a_0_P_1_0_R_0 -> k*f(u_0_P_1, u_0_R_0), a_0_P_0_0_P_0 -> 0, r_0_R_0 -> 1, a_0_P_0_0_R_1 -> k*f(u_0_P_0, u_0_R_1), a_0_P_0_0_P_1 -> 0, a_0_P_1_0_P_1 -> 0, r_0_P_0 -> -1, a_0_R_1_0_P_1 -> -f(u_0_P_1, u_0_R_1), r_0_R_1 -> 1, a_0_P_1_0_R_1 -> k*f(u_0_P_1, u_0_R_1), a_0_R_0_0_P_0 -> -f(u_0_P_0, u_0_R_0)} , [Xhat_0_P_1, m, Xhat_0_R_1, Xhat_0_R_0, gamma, Xhat_0_P_0, k, r] ,  {}
+merge bindings: {a_0_R_0_0_P_1 -> -cos(u_0_P_1 - u_0_R_0) - 1, a_0_R_1_0_R_0 -> -1, a_0_P_1_0_P_0 -> 0, r_0_P_1 -> -1, m -> 1, a_0_R_0_0_R_1 -> -1, Xhat_0_R_0 -> 10/9*(cos(-u_0_P_0 + u_0_R_1) - cos(-u_0_P_1 + u_0_R_1))/((cos(-u_0_P_1 + u_0_R_0) + 1)*cos(-u_0_P_0 + u_0_R_1) - (cos(-u_0_P_0 + u_0_R_0) + 1)*cos(-u_0_P_1 + u_0_R_1) - cos(-u_0_P_0 + u_0_R_0) + cos(-u_0_P_1 + u_0_R_0)), a_0_R_0_0_R_0 -> -1, a_0_P_1_0_R_1 -> 9/10*cos(u_0_P_1 - u_0_R_1) + 9/10, a_0_R_1_0_R_1 -> -1, a_0_P_0_0_R_0 -> 9/10*cos(u_0_P_0 - u_0_R_0) + 9/10, a_0_P_1_0_R_0 -> 9/10*cos(u_0_P_1 - u_0_R_0) + 9/10, gamma -> 1, a_0_P_0_0_P_0 -> 0, k -> 9/10, r_0_R_0 -> 1, Xhat_0_R_1 -> -10/9*(cos(-u_0_P_0 + u_0_R_0) - cos(-u_0_P_1 + u_0_R_0))/((cos(-u_0_P_1 + u_0_R_0) + 1)*cos(-u_0_P_0 + u_0_R_1) - (cos(-u_0_P_0 + u_0_R_0) + 1)*cos(-u_0_P_1 + u_0_R_1) - cos(-u_0_P_0 + u_0_R_0) + cos(-u_0_P_1 + u_0_R_0)), a_0_P_0_0_R_1 -> 9/10*cos(u_0_P_0 - u_0_R_1) + 9/10, Xhat_0_P_1 -> 1/9*((9*cos(-u_0_P_1 + u_0_R_0) - 1)*cos(-u_0_P_0 + u_0_R_1)^2 - cos(-u_0_P_0 + u_0_R_0)^2 - ((9*cos(-u_0_P_0 + u_0_R_0) + 1)*cos(-u_0_P_1 + u_0_R_0) - 2*cos(-u_0_P_0 + u_0_R_0))*cos(-u_0_P_0 + u_0_R_1) + cos(-u_0_P_0 + u_0_R_0)*cos(-u_0_P_1 + u_0_R_0) + (9*cos(-u_0_P_0 + u_0_R_0)^2 - (9*cos(-u_0_P_0 + u_0_R_0) - 1)*cos(-u_0_P_0 + u_0_R_1) - cos(-u_0_P_0 + u_0_R_0))*cos(-u_0_P_1 + u_0_R_1))/((cos(-u_0_P_1 + u_0_R_0)^2 + 2*cos(-u_0_P_1 + u_0_R_0) + 1)*cos(-u_0_P_0 + u_0_R_1)^2 + (cos(-u_0_P_0 + u_0_R_0)^2 + 2*cos(-u_0_P_0 + u_0_R_0) + 1)*cos(-u_0_P_1 + u_0_R_1)^2 + cos(-u_0_P_0 + u_0_R_0)^2 - 2*((cos(-u_0_P_0 + u_0_R_0) - 1)*cos(-u_0_P_1 + u_0_R_0) - cos(-u_0_P_1 + u_0_R_0)^2 + cos(-u_0_P_0 + u_0_R_0))*cos(-u_0_P_0 + u_0_R_1) - 2*cos(-u_0_P_0 + u_0_R_0)*cos(-u_0_P_1 + u_0_R_0) + cos(-u_0_P_1 + u_0_R_0)^2 + 2*(cos(-u_0_P_0 + u_0_R_0)^2 - ((cos(-u_0_P_0 + u_0_R_0) + 1)*cos(-u_0_P_1 + u_0_R_0) + cos(-u_0_P_0 + u_0_R_0) + 1)*cos(-u_0_P_0 + u_0_R_1) - (cos(-u_0_P_0 + u_0_R_0) + 1)*cos(-u_0_P_1 + u_0_R_0) + cos(-u_0_P_0 + u_0_R_0))*cos(-u_0_P_1 + u_0_R_1)), a_0_R_0_0_P_0 -> -cos(u_0_P_0 - u_0_R_0) - 1, a_0_P_0_0_P_1 -> 0, a_0_P_1_0_P_1 -> 0, r_0_P_0 -> -1, a_0_R_1_0_P_1 -> -cos(u_0_P_1 - u_0_R_1) - 1, r_0_R_1 -> 1, a_0_R_1_0_P_0 -> -cos(u_0_P_0 - u_0_R_1) - 1, Xhat_0_P_0 -> 1/9*((9*cos(-u_0_P_0 + u_0_R_0) - 1)*cos(-u_0_P_1 + u_0_R_1)^2 + (9*cos(-u_0_P_1 + u_0_R_0)^2 - cos(-u_0_P_1 + u_0_R_0))*cos(-u_0_P_0 + u_0_R_1) + cos(-u_0_P_0 + u_0_R_0)*cos(-u_0_P_1 + u_0_R_0) - cos(-u_0_P_1 + u_0_R_0)^2 - ((9*cos(-u_0_P_1 + u_0_R_0) - 1)*cos(-u_0_P_0 + u_0_R_1) + (9*cos(-u_0_P_0 + u_0_R_0) - 2)*cos(-u_0_P_1 + u_0_R_0) + cos(-u_0_P_0 + u_0_R_0))*cos(-u_0_P_1 + u_0_R_1))/((cos(-u_0_P_1 + u_0_R_0)^2 + 2*cos(-u_0_P_1 + u_0_R_0) + 1)*cos(-u_0_P_0 + u_0_R_1)^2 + (cos(-u_0_P_0 + u_0_R_0)^2 + 2*cos(-u_0_P_0 + u_0_R_0) + 1)*cos(-u_0_P_1 + u_0_R_1)^2 + cos(-u_0_P_0 + u_0_R_0)^2 - 2*((cos(-u_0_P_0 + u_0_R_0) - 1)*cos(-u_0_P_1 + u_0_R_0) - cos(-u_0_P_1 + u_0_R_0)^2 + cos(-u_0_P_0 + u_0_R_0))*cos(-u_0_P_0 + u_0_R_1) - 2*cos(-u_0_P_0 + u_0_R_0)*cos(-u_0_P_1 + u_0_R_0) + cos(-u_0_P_1 + u_0_R_0)^2 + 2*(cos(-u_0_P_0 + u_0_R_0)^2 - ((cos(-u_0_P_0 + u_0_R_0) + 1)*cos(-u_0_P_1 + u_0_R_0) + cos(-u_0_P_0 + u_0_R_0) + 1)*cos(-u_0_P_0 + u_0_R_1) - (cos(-u_0_P_0 + u_0_R_0) + 1)*cos(-u_0_P_1 + u_0_R_0) + cos(-u_0_P_0 + u_0_R_0))*cos(-u_0_P_1 + u_0_R_1)), r -> 1, f(u,v) -> cos(u - v) + 1} , [] ,  {}
+{u_0_P_0 -> -0.0700000000000000, u_0_R_0 -> -0.100000000000000, u_0_P_1 -> 0.0200000000000000, t -> 0.000000000000000, u_0_R_1 -> 0.000000000000000} : (0.000000000000000, -1.00000000000000)
+{u_0_P_0 -> -0.0700000000000000, u_0_R_0 -> -0.100000000000000, u_0_P_1 -> 0.0200000000000000, t -> 0.000000000000000, u_0_R_1 -> 0.000000000000000} : (0.000000000000000, -1.99280863585387)
+{u_0_P_0 -> -0.0700000000000000, u_0_R_0 -> -0.100000000000000, u_0_P_1 -> 0.0200000000000000, t -> 0.000000000000000, u_0_R_1 -> 0.000000000000000} : (0.000000000000000, -1.99955003374899)
+{u_0_P_0 -> -0.0700000000000000, u_0_R_0 -> -0.100000000000000, u_0_P_1 -> 0.0200000000000000, t -> 0.000000000000000, u_0_R_1 -> 0.000000000000000} : (0.000000000000000, -1.00000000000000)
+{u_0_P_0 -> -0.0700000000000000, u_0_R_0 -> -0.100000000000000, u_0_P_1 -> 0.0200000000000000, t -> 0.000000000000000, u_0_R_1 -> 0.000000000000000} : (0.000000000000000, 1.79352777226848)
+{u_0_P_0 -> -0.0700000000000000, u_0_R_0 -> -0.100000000000000, u_0_P_1 -> 0.0200000000000000, t -> 0.000000000000000, u_0_R_1 -> 0.000000000000000} : (0.000000000000000, 0.000000000000000)
+{u_0_P_0 -> -0.0700000000000000, u_0_R_0 -> -0.100000000000000, u_0_P_1 -> 0.0200000000000000, t -> 0.000000000000000, u_0_R_1 -> 0.000000000000000} : (0.000000000000000, 0.000000000000000)
+{u_0_P_0 -> -0.0700000000000000, u_0_R_0 -> -0.100000000000000, u_0_P_1 -> 0.0200000000000000, t -> 0.000000000000000, u_0_R_1 -> 0.000000000000000} : (0.000000000000000, 1.79982000599992)
+{u_0_P_0 -> -0.0700000000000000, u_0_R_0 -> -0.100000000000000, u_0_P_1 -> 0.0200000000000000, t -> 0.000000000000000, u_0_R_1 -> 0.000000000000000} : (0.000000000000000, 1.79959503037409)
+{u_0_P_0 -> -0.0700000000000000, u_0_R_0 -> -0.100000000000000, u_0_P_1 -> 0.0200000000000000, t -> 0.000000000000000, u_0_R_1 -> 0.000000000000000} : (0.000000000000000, 0.000000000000000)
+{u_0_P_0 -> -0.0700000000000000, u_0_R_0 -> -0.100000000000000, u_0_P_1 -> 0.0200000000000000, t -> 0.000000000000000, u_0_R_1 -> 0.000000000000000} : (0.000000000000000, 0.000000000000000)
+{u_0_P_0 -> -0.0700000000000000, u_0_R_0 -> -0.100000000000000, u_0_P_1 -> 0.0200000000000000, t -> 0.000000000000000, u_0_R_1 -> 0.000000000000000} : (0.000000000000000, 1.79779590022795)
+{u_0_P_0 -> -0.0700000000000000, u_0_R_0 -> -0.100000000000000, u_0_P_1 -> 0.0200000000000000, t -> 0.000000000000000, u_0_R_1 -> 0.000000000000000} : (0.000000000000000, -1.00000000000000)
+{u_0_P_0 -> -0.0700000000000000, u_0_R_0 -> -0.100000000000000, u_0_P_1 -> 0.0200000000000000, t -> 0.000000000000000, u_0_R_1 -> 0.000000000000000} : (0.000000000000000, -1.99980000666658)
+{u_0_P_0 -> -0.0700000000000000, u_0_R_0 -> -0.100000000000000, u_0_P_1 -> 0.0200000000000000, t -> 0.000000000000000, u_0_R_1 -> 0.000000000000000} : (0.000000000000000, -1.99755100025328)
+{u_0_P_0 -> -0.0700000000000000, u_0_R_0 -> -0.100000000000000, u_0_P_1 -> 0.0200000000000000, t -> 0.000000000000000, u_0_R_1 -> 0.000000000000000} : (0.000000000000000, -1.00000000000000)
+merge bindings: {a_0_R_0_0_P_1 -> a_0_R_0_0_P_1(u_0_R_0, u_0_P_1), a_0_R_1_0_R_0 -> a_0_R_1_0_R_0(u_0_R_1, u_0_R_0), a_0_P_1_0_P_0 -> a_0_P_1_0_P_0(u_0_P_1, u_0_P_0), r_0_P_1 -> r_0_P_1(u_0_P_1), a_0_R_0_0_R_1 -> a_0_R_0_0_R_1(u_0_R_0, u_0_R_1), a_0_R_0_0_R_0 -> a_0_R_0_0_R_0(u_0_R_0, u_0_R_0), a_0_R_1_0_P_0 -> a_0_R_1_0_P_0(u_0_R_1, u_0_P_0), a_0_R_1_0_R_1 -> a_0_R_1_0_R_1(u_0_R_1, u_0_R_1), a_0_P_0_0_R_0 -> a_0_P_0_0_R_0(u_0_P_0, u_0_R_0), a_0_P_1_0_R_0 -> a_0_P_1_0_R_0(u_0_P_1, u_0_R_0), a_0_P_0_0_P_0 -> a_0_P_0_0_P_0(u_0_P_0, u_0_P_0), r_0_R_0 -> r_0_R_0(u_0_R_0), a_0_P_0_0_R_1 -> a_0_P_0_0_R_1(u_0_P_0, u_0_R_1), a_0_P_0_0_P_1 -> a_0_P_0_0_P_1(u_0_P_0, u_0_P_1), a_0_P_1_0_P_1 -> a_0_P_1_0_P_1(u_0_P_1, u_0_P_1), r_0_P_0 -> r_0_P_0(u_0_P_0), a_0_R_1_0_P_1 -> a_0_R_1_0_P_1(u_0_R_1, u_0_P_1), r_0_R_1 -> r_0_R_1(u_0_R_1), a_0_P_1_0_R_1 -> a_0_P_1_0_R_1(u_0_P_1, u_0_R_1), a_0_R_0_0_P_0 -> a_0_R_0_0_P_0(u_0_R_0, u_0_P_0)} , [] ,  {}
+merge bindings: {a_0_R_0_0_P_1 -> -cos(-u_0_P_1 + u_0_R_0) - 1, a_0_R_1_0_R_0 -> -1, a_0_P_1_0_P_0 -> 0, r_0_P_1 -> -1, a_0_R_0_0_R_1 -> -1, a_0_R_0_0_R_0 -> -1, a_0_P_1_0_R_1 -> 9/10*cos(u_0_P_1 - u_0_R_1) + 9/10, a_0_R_1_0_R_1 -> -1, a_0_P_0_0_R_0 -> 9/10*cos(u_0_P_0 - u_0_R_0) + 9/10, a_0_P_1_0_R_0 -> 9/10*cos(u_0_P_1 - u_0_R_0) + 9/10, a_0_P_0_0_P_0 -> 0, r_0_R_0 -> 1, a_0_P_0_0_R_1 -> 9/10*cos(u_0_P_0 - u_0_R_1) + 9/10, a_0_P_0_0_P_1 -> 0, a_0_P_1_0_P_1 -> 0, r_0_P_0 -> -1, a_0_R_1_0_P_1 -> -cos(-u_0_P_1 + u_0_R_1) - 1, r_0_R_1 -> 1, a_0_R_1_0_P_0 -> -cos(-u_0_P_0 + u_0_R_1) - 1, a_0_R_0_0_P_0 -> -cos(-u_0_P_0 + u_0_R_0) - 1, a_0_R_1_0_R_1() -> -1, a_0_P_0_0_R_1(u_0_P_0,u_0_R_1) -> 9/10*cos(u_0_P_0 - u_0_R_1) + 9/10, a_0_P_0_0_P_0() -> 0, a_0_R_0_0_P_1(u_0_P_1,u_0_R_0) -> -cos(u_0_P_1 - u_0_R_0) - 1, a_0_R_0_0_R_0() -> -1, a_0_R_1_0_R_0() -> -1, a_0_P_1_0_P_1() -> 0, a_0_R_1_0_P_1(u_0_P_1,u_0_R_1) -> -cos(u_0_P_1 - u_0_R_1) - 1, a_0_R_0_0_P_0(u_0_P_0,u_0_R_0) -> -cos(u_0_P_0 - u_0_R_0) - 1, a_0_R_0_0_R_1() -> -1, r_0_R_1() -> 1, r_0_P_0() -> -1, a_0_P_1_0_P_0() -> 0, a_0_R_1_0_P_0(u_0_P_0,u_0_R_1) -> -cos(u_0_P_0 - u_0_R_1) - 1, r_0_R_0() -> 1, r_0_P_1() -> -1, a_0_P_1_0_R_1(u_0_P_1,u_0_R_1) -> 9/10*cos(u_0_P_1 - u_0_R_1) + 9/10, a_0_P_1_0_R_0(u_0_P_1,u_0_R_0) -> 9/10*cos(u_0_P_1 - u_0_R_0) + 9/10, a_0_P_0_0_R_0(u_0_P_0,u_0_R_0) -> 9/10*cos(u_0_P_0 - u_0_R_0) + 9/10, a_0_P_0_0_P_1() -> 0} , [D[0](u_0_R_0)(t), D[0](u_0_R_1)(t), D[0](u_0_P_0)(t), D[0](u_0_P_1)(t)] ,  {}
+merge bindings: {a_0_R_0_0_P_1 -> -cos(-u_0_P_1 + u_0_R_0) - 1, a_0_R_1_0_R_0 -> -1, a_0_P_1_0_P_0 -> 0, r_0_P_1 -> -1, r_0_R_1 -> 1, a_0_R_0_0_R_1 -> -1, a_0_R_0_0_R_0 -> -1, a_0_R_1_0_P_0 -> -cos(-u_0_P_0 + u_0_R_1) - 1, a_0_R_1_0_R_1 -> -1, a_0_P_0_0_R_0 -> 9/10*cos(u_0_P_0 - u_0_R_0) + 9/10, a_0_P_1_0_R_0 -> 9/10*cos(u_0_P_1 - u_0_R_0) + 9/10, a_0_P_0_0_P_0 -> 0, r_0_R_0 -> 1, a_0_P_0_0_R_1 -> 9/10*cos(u_0_P_0 - u_0_R_1) + 9/10, D[0](u_0_P_1)(t) -> -9/10*Xhat_0_P_1*Xhat_0_R_0*gamma*sin(u_0_P_1 - u_0_R_0) - 9/10*Xhat_0_P_1*Xhat_0_R_1*gamma*sin(u_0_P_1 - u_0_R_1), D[0](u_0_P_0)(t) -> -9/10*Xhat_0_P_0*Xhat_0_R_0*gamma*sin(u_0_P_0 - u_0_R_0) - 9/10*Xhat_0_P_0*Xhat_0_R_1*gamma*sin(u_0_P_0 - u_0_R_1), a_0_P_0_0_P_1 -> 0, a_0_P_1_0_P_1 -> 0, r_0_P_0 -> -1, a_0_R_1_0_P_1 -> -cos(-u_0_P_1 + u_0_R_1) - 1, D[0](u_0_R_0)(t) -> Xhat_0_P_0*Xhat_0_R_0*gamma*sin(-u_0_P_0 + u_0_R_0) + Xhat_0_P_1*Xhat_0_R_0*gamma*sin(-u_0_P_1 + u_0_R_0), a_0_P_1_0_R_1 -> 9/10*cos(u_0_P_1 - u_0_R_1) + 9/10, D[0](u_0_R_1)(t) -> Xhat_0_P_0*Xhat_0_R_1*gamma*sin(-u_0_P_0 + u_0_R_1) + Xhat_0_P_1*Xhat_0_R_1*gamma*sin(-u_0_P_1 + u_0_R_1), a_0_R_0_0_P_0 -> -cos(-u_0_P_0 + u_0_R_0) - 1, a_0_R_1_0_R_1() -> -1, a_0_P_0_0_R_1(u_0_P_0,u_0_R_1) -> 9/10*cos(u_0_P_0 - u_0_R_1) + 9/10, r_0_P_0() -> -1, a_0_R_0_0_P_1(u_0_P_1,u_0_R_0) -> -cos(u_0_P_1 - u_0_R_0) - 1, a_0_R_0_0_R_0() -> -1, a_0_R_1_0_R_0() -> -1, a_0_P_1_0_P_1() -> 0, a_0_R_1_0_P_1(u_0_P_1,u_0_R_1) -> -cos(u_0_P_1 - u_0_R_1) - 1, a_0_R_0_0_P_0(u_0_P_0,u_0_R_0) -> -cos(u_0_P_0 - u_0_R_0) - 1, a_0_R_0_0_R_1() -> -1, r_0_R_1() -> 1, a_0_P_0_0_P_0() -> 0, a_0_P_1_0_P_0() -> 0, a_0_R_1_0_P_0(u_0_P_0,u_0_R_1) -> -cos(u_0_P_0 - u_0_R_1) - 1, r_0_R_0() -> 1, a_0_P_0_0_P_1() -> 0, a_0_P_1_0_R_1(u_0_P_1,u_0_R_1) -> 9/10*cos(u_0_P_1 - u_0_R_1) + 9/10, a_0_P_1_0_R_0(u_0_P_1,u_0_R_0) -> 9/10*cos(u_0_P_1 - u_0_R_0) + 9/10, a_0_P_0_0_R_0(u_0_P_0,u_0_R_0) -> 9/10*cos(u_0_P_0 - u_0_R_0) + 9/10, r_0_P_1() -> -1} , [u_0_R_0(t), u_0_R_1(t), u_0_P_0(t), u_0_P_1(t)] ,  {}
+{u_0_P_0 -> -0.0700000000000000, u_0_R_0 -> -0.100000000000000, u_0_P_1 -> 0.0200000000000000, t -> 0.000000000000000, u_0_R_1 -> 0.000000000000000} : (-1.00000000000000, -1.00000000000000)
+merge bindings: {t -> 0.000000000000000, u_0_R_0 -> -0.100000000000000, u_0_P_1 -> 0.0200000000000000, u_0_P_0 -> -0.0700000000000000, u_0_R_1 -> 0.000000000000000} , [] ,  {}
+merge bindings: {u_0_P_0 -> -0.0700000000000000, u_0_R_0 -> -0.100000000000000, u_0_P_1 -> 0.0200000000000000, t -> 0.000000000000000, u_0_R_1 -> 0.000000000000000} , [Xhat_0_P_1, m, Xhat_0_R_1, Xhat_0_R_0, gamma, Xhat_0_P_0, k, r] ,  {}
+A: (-1, -1)
+S: (0.139111289632135, 0.139111289632135)
+D: (0, 0)
+D: (0, 0)
+I: (0, 0)
+I: (0, 0)
+dAdt: (0, 0)
+{u_0_P_0 -> -0.0700000000000000, u_0_R_0 -> -0.100000000000000, u_0_P_1 -> 0.0200000000000000, t -> 0.000000000000000, u_0_R_1 -> 0.000000000000000} : (-1.99280863585387, 1.79352777226848)
+merge bindings: {t -> 0.000000000000000, u_0_R_0 -> -0.100000000000000, u_0_P_1 -> 0.0200000000000000, u_0_P_0 -> -0.0700000000000000, u_0_R_1 -> 0.000000000000000} , [] ,  {}
+merge bindings: {u_0_P_0 -> -0.0700000000000000, u_0_R_0 -> -0.100000000000000, u_0_P_1 -> 0.0200000000000000, t -> 0.000000000000000, u_0_R_1 -> 0.000000000000000} , [Xhat_0_P_1, m, Xhat_0_R_1, Xhat_0_R_0, gamma, Xhat_0_P_0, k, r] ,  {}
+A: (-1.99280863585387, 1.79352777226848)
+S: (0.0493994257769413, 0.139111289632135)
+D: ((Xhat_0_P_0*Xhat_0_R_0*gamma*sin(-u_0_P_0 + u_0_R_0) + Xhat_0_P_1*Xhat_0_R_0*gamma*sin(-u_0_P_1 + u_0_R_0))*sin(-u_0_P_1 + u_0_R_0), 81/100*(Xhat_0_P_1*Xhat_0_R_0*gamma*sin(u_0_P_1 - u_0_R_0) + Xhat_0_P_1*Xhat_0_R_1*gamma*sin(u_0_P_1 - u_0_R_1))*sin(u_0_P_1 - u_0_R_0))
+D: (0.000184785019615004, 0.000119716725658456)
+I: (9/10*(Xhat_0_P_1*Xhat_0_R_0*gamma*sin(u_0_P_1 - u_0_R_0) + Xhat_0_P_1*Xhat_0_R_1*gamma*sin(u_0_P_1 - u_0_R_1))*sin(-u_0_P_1 + u_0_R_0), 9/10*(Xhat_0_P_0*Xhat_0_R_0*gamma*sin(-u_0_P_0 + u_0_R_0) + Xhat_0_P_1*Xhat_0_R_0*gamma*sin(-u_0_P_1 + u_0_R_0))*sin(u_0_P_1 - u_0_R_0))
+I: (-0.000133018584064951, -0.000166306517653504)
+dAdt: (0.0000517664355500532, -0.0000465897919950479)
+{u_0_P_0 -> -0.0700000000000000, u_0_R_0 -> -0.100000000000000, u_0_P_1 -> 0.0200000000000000, t -> 0.000000000000000, u_0_R_1 -> 0.000000000000000} : (-1.99955003374899, 1.79959503037409)
+merge bindings: {t -> 0.000000000000000, u_0_R_0 -> -0.100000000000000, u_0_P_1 -> 0.0200000000000000, u_0_P_0 -> -0.0700000000000000, u_0_R_1 -> 0.000000000000000} , [] ,  {}
+merge bindings: {u_0_P_0 -> -0.0700000000000000, u_0_R_0 -> -0.100000000000000, u_0_P_1 -> 0.0200000000000000, t -> 0.000000000000000, u_0_R_1 -> 0.000000000000000} , [Xhat_0_P_1, m, Xhat_0_R_1, Xhat_0_R_0, gamma, Xhat_0_P_0, k, r] ,  {}
+A: (-1.99955003374899, 1.79959503037409)
+S: (0.172768342440173, 0.139111289632135)
+D: ((Xhat_0_P_0*Xhat_0_R_0*gamma*sin(-u_0_P_0 + u_0_R_0) + Xhat_0_P_1*Xhat_0_R_0*gamma*sin(-u_0_P_1 + u_0_R_0))*sin(-u_0_P_0 + u_0_R_0), 81/100*(Xhat_0_P_0*Xhat_0_R_0*gamma*sin(u_0_P_0 - u_0_R_0) + Xhat_0_P_0*Xhat_0_R_1*gamma*sin(u_0_P_0 - u_0_R_1))*sin(u_0_P_0 - u_0_R_0))
+D: (0.0000463003666777520, -0.000104909487646233)
+I: (9/10*(Xhat_0_P_0*Xhat_0_R_0*gamma*sin(u_0_P_0 - u_0_R_0) + Xhat_0_P_0*Xhat_0_R_1*gamma*sin(u_0_P_0 - u_0_R_1))*sin(-u_0_P_0 + u_0_R_0), 9/10*(Xhat_0_P_0*Xhat_0_R_0*gamma*sin(-u_0_P_0 + u_0_R_0) + Xhat_0_P_1*Xhat_0_R_0*gamma*sin(-u_0_P_1 + u_0_R_0))*sin(u_0_P_0 - u_0_R_0))
+I: (0.000116566097384704, -0.0000416703300099768)
+dAdt: (0.000162866464062456, -0.000146579817656210)
+{u_0_P_0 -> -0.0700000000000000, u_0_R_0 -> -0.100000000000000, u_0_P_1 -> 0.0200000000000000, t -> 0.000000000000000, u_0_R_1 -> 0.000000000000000} : (-1.00000000000000, -1.00000000000000)
+merge bindings: {t -> 0.000000000000000, u_0_R_0 -> -0.100000000000000, u_0_P_1 -> 0.0200000000000000, u_0_P_0 -> -0.0700000000000000, u_0_R_1 -> 0.000000000000000} , [] ,  {}
+merge bindings: {u_0_P_0 -> -0.0700000000000000, u_0_R_0 -> -0.100000000000000, u_0_P_1 -> 0.0200000000000000, t -> 0.000000000000000, u_0_R_1 -> 0.000000000000000} , [Xhat_0_P_1, m, Xhat_0_R_1, Xhat_0_R_0, gamma, Xhat_0_P_0, k, r] ,  {}
+A: (-1, -1)
+S: (0.416986163120091, 0.139111289632135)
+D: (0, 0)
+D: (0, 0)
+I: (0, 0)
+I: (0, 0)
+dAdt: (0, 0)
+{u_0_P_0 -> -0.0700000000000000, u_0_R_0 -> -0.100000000000000, u_0_P_1 -> 0.0200000000000000, t -> 0.000000000000000, u_0_R_1 -> 0.000000000000000} : (1.79352777226848, -1.99280863585387)
+merge bindings: {t -> 0.000000000000000, u_0_R_0 -> -0.100000000000000, u_0_P_1 -> 0.0200000000000000, u_0_P_0 -> -0.0700000000000000, u_0_R_1 -> 0.000000000000000} , [] ,  {}
+merge bindings: {u_0_P_0 -> -0.0700000000000000, u_0_R_0 -> -0.100000000000000, u_0_P_1 -> 0.0200000000000000, t -> 0.000000000000000, u_0_R_1 -> 0.000000000000000} , [Xhat_0_P_1, m, Xhat_0_R_1, Xhat_0_R_0, gamma, Xhat_0_P_0, k, r] ,  {}
+A: (1.79352777226848, -1.99280863585387)
+S: (0.139111289632135, 0.0493994257769413)
+D: (81/100*(Xhat_0_P_1*Xhat_0_R_0*gamma*sin(u_0_P_1 - u_0_R_0) + Xhat_0_P_1*Xhat_0_R_1*gamma*sin(u_0_P_1 - u_0_R_1))*sin(u_0_P_1 - u_0_R_0), (Xhat_0_P_0*Xhat_0_R_0*gamma*sin(-u_0_P_0 + u_0_R_0) + Xhat_0_P_1*Xhat_0_R_0*gamma*sin(-u_0_P_1 + u_0_R_0))*sin(-u_0_P_1 + u_0_R_0))
+D: (0.000119716725658456, 0.000184785019615004)
+I: (9/10*(Xhat_0_P_0*Xhat_0_R_0*gamma*sin(-u_0_P_0 + u_0_R_0) + Xhat_0_P_1*Xhat_0_R_0*gamma*sin(-u_0_P_1 + u_0_R_0))*sin(u_0_P_1 - u_0_R_0), 9/10*(Xhat_0_P_1*Xhat_0_R_0*gamma*sin(u_0_P_1 - u_0_R_0) + Xhat_0_P_1*Xhat_0_R_1*gamma*sin(u_0_P_1 - u_0_R_1))*sin(-u_0_P_1 + u_0_R_0))
+I: (-0.000166306517653504, -0.000133018584064951)
+dAdt: (-0.0000465897919950479, 0.0000517664355500532)
+{u_0_P_0 -> -0.0700000000000000, u_0_R_0 -> -0.100000000000000, u_0_P_1 -> 0.0200000000000000, t -> 0.000000000000000, u_0_R_1 -> 0.000000000000000} : (0.000000000000000, 0.000000000000000)
+merge bindings: {t -> 0.000000000000000, u_0_R_0 -> -0.100000000000000, u_0_P_1 -> 0.0200000000000000, u_0_P_0 -> -0.0700000000000000, u_0_R_1 -> 0.000000000000000} , [] ,  {}
+merge bindings: {u_0_P_0 -> -0.0700000000000000, u_0_R_0 -> -0.100000000000000, u_0_P_1 -> 0.0200000000000000, t -> 0.000000000000000, u_0_R_1 -> 0.000000000000000} , [Xhat_0_P_1, m, Xhat_0_R_1, Xhat_0_R_0, gamma, Xhat_0_P_0, k, r] ,  {}
+A: (0, 0)
+S: (0.0493994257769413, 0.0493994257769413)
+D: (0, 0)
+D: (0, 0)
+I: (0, 0)
+I: (0, 0)
+dAdt: (0, 0)
+{u_0_P_0 -> -0.0700000000000000, u_0_R_0 -> -0.100000000000000, u_0_P_1 -> 0.0200000000000000, t -> 0.000000000000000, u_0_R_1 -> 0.000000000000000} : (0.000000000000000, 0.000000000000000)
+merge bindings: {t -> 0.000000000000000, u_0_R_0 -> -0.100000000000000, u_0_P_1 -> 0.0200000000000000, u_0_P_0 -> -0.0700000000000000, u_0_R_1 -> 0.000000000000000} , [] ,  {}
+merge bindings: {u_0_P_0 -> -0.0700000000000000, u_0_R_0 -> -0.100000000000000, u_0_P_1 -> 0.0200000000000000, t -> 0.000000000000000, u_0_R_1 -> 0.000000000000000} , [Xhat_0_P_1, m, Xhat_0_R_1, Xhat_0_R_0, gamma, Xhat_0_P_0, k, r] ,  {}
+A: (0, 0)
+S: (0.172768342440173, 0.0493994257769413)
+D: (0, 0)
+D: (0, 0)
+I: (0, 0)
+I: (0, 0)
+dAdt: (0, 0)
+{u_0_P_0 -> -0.0700000000000000, u_0_R_0 -> -0.100000000000000, u_0_P_1 -> 0.0200000000000000, t -> 0.000000000000000, u_0_R_1 -> 0.000000000000000} : (1.79982000599992, -1.99980000666658)
+merge bindings: {t -> 0.000000000000000, u_0_R_0 -> -0.100000000000000, u_0_P_1 -> 0.0200000000000000, u_0_P_0 -> -0.0700000000000000, u_0_R_1 -> 0.000000000000000} , [] ,  {}
+merge bindings: {u_0_P_0 -> -0.0700000000000000, u_0_R_0 -> -0.100000000000000, u_0_P_1 -> 0.0200000000000000, t -> 0.000000000000000, u_0_R_1 -> 0.000000000000000} , [Xhat_0_P_1, m, Xhat_0_R_1, Xhat_0_R_0, gamma, Xhat_0_P_0, k, r] ,  {}
+A: (1.79982000599992, -1.99980000666658)
+S: (0.416986163120091, 0.0493994257769413)
+D: (81/100*(Xhat_0_P_1*Xhat_0_R_0*gamma*sin(u_0_P_1 - u_0_R_0) + Xhat_0_P_1*Xhat_0_R_1*gamma*sin(u_0_P_1 - u_0_R_1))*sin(u_0_P_1 - u_0_R_1), (Xhat_0_P_0*Xhat_0_R_1*gamma*sin(-u_0_P_0 + u_0_R_1) + Xhat_0_P_1*Xhat_0_R_1*gamma*sin(-u_0_P_1 + u_0_R_1))*sin(-u_0_P_1 + u_0_R_1))
+D: (0.0000199994215149875, -0.0000925312931058710)
+I: (9/10*(Xhat_0_P_0*Xhat_0_R_1*gamma*sin(-u_0_P_0 + u_0_R_1) + Xhat_0_P_1*Xhat_0_R_1*gamma*sin(-u_0_P_1 + u_0_R_1))*sin(u_0_P_1 - u_0_R_1), 9/10*(Xhat_0_P_1*Xhat_0_R_0*gamma*sin(u_0_P_1 - u_0_R_0) + Xhat_0_P_1*Xhat_0_R_1*gamma*sin(u_0_P_1 - u_0_R_1))*sin(-u_0_P_1 + u_0_R_1))
+I: (0.0000832781637952839, -0.0000222215794610972)
+dAdt: (0.000103277585310271, -0.000114752872566968)
+{u_0_P_0 -> -0.0700000000000000, u_0_R_0 -> -0.100000000000000, u_0_P_1 -> 0.0200000000000000, t -> 0.000000000000000, u_0_R_1 -> 0.000000000000000} : (1.79959503037409, -1.99955003374899)
+merge bindings: {t -> 0.000000000000000, u_0_R_0 -> -0.100000000000000, u_0_P_1 -> 0.0200000000000000, u_0_P_0 -> -0.0700000000000000, u_0_R_1 -> 0.000000000000000} , [] ,  {}
+merge bindings: {u_0_P_0 -> -0.0700000000000000, u_0_R_0 -> -0.100000000000000, u_0_P_1 -> 0.0200000000000000, t -> 0.000000000000000, u_0_R_1 -> 0.000000000000000} , [Xhat_0_P_1, m, Xhat_0_R_1, Xhat_0_R_0, gamma, Xhat_0_P_0, k, r] ,  {}
+A: (1.79959503037409, -1.99955003374899)
+S: (0.139111289632135, 0.172768342440173)
+D: (81/100*(Xhat_0_P_0*Xhat_0_R_0*gamma*sin(u_0_P_0 - u_0_R_0) + Xhat_0_P_0*Xhat_0_R_1*gamma*sin(u_0_P_0 - u_0_R_1))*sin(u_0_P_0 - u_0_R_0), (Xhat_0_P_0*Xhat_0_R_0*gamma*sin(-u_0_P_0 + u_0_R_0) + Xhat_0_P_1*Xhat_0_R_0*gamma*sin(-u_0_P_1 + u_0_R_0))*sin(-u_0_P_0 + u_0_R_0))
+D: (-0.000104909487646233, 0.0000463003666777520)
+I: (9/10*(Xhat_0_P_0*Xhat_0_R_0*gamma*sin(-u_0_P_0 + u_0_R_0) + Xhat_0_P_1*Xhat_0_R_0*gamma*sin(-u_0_P_1 + u_0_R_0))*sin(u_0_P_0 - u_0_R_0), 9/10*(Xhat_0_P_0*Xhat_0_R_0*gamma*sin(u_0_P_0 - u_0_R_0) + Xhat_0_P_0*Xhat_0_R_1*gamma*sin(u_0_P_0 - u_0_R_1))*sin(-u_0_P_0 + u_0_R_0))
+I: (-0.0000416703300099768, 0.000116566097384704)
+dAdt: (-0.000146579817656210, 0.000162866464062456)
+{u_0_P_0 -> -0.0700000000000000, u_0_R_0 -> -0.100000000000000, u_0_P_1 -> 0.0200000000000000, t -> 0.000000000000000, u_0_R_1 -> 0.000000000000000} : (0.000000000000000, 0.000000000000000)
+merge bindings: {t -> 0.000000000000000, u_0_R_0 -> -0.100000000000000, u_0_P_1 -> 0.0200000000000000, u_0_P_0 -> -0.0700000000000000, u_0_R_1 -> 0.000000000000000} , [] ,  {}
+merge bindings: {u_0_P_0 -> -0.0700000000000000, u_0_R_0 -> -0.100000000000000, u_0_P_1 -> 0.0200000000000000, t -> 0.000000000000000, u_0_R_1 -> 0.000000000000000} , [Xhat_0_P_1, m, Xhat_0_R_1, Xhat_0_R_0, gamma, Xhat_0_P_0, k, r] ,  {}
+A: (0, 0)
+S: (0.0493994257769413, 0.172768342440173)
+D: (0, 0)
+D: (0, 0)
+I: (0, 0)
+I: (0, 0)
+dAdt: (0, 0)
+{u_0_P_0 -> -0.0700000000000000, u_0_R_0 -> -0.100000000000000, u_0_P_1 -> 0.0200000000000000, t -> 0.000000000000000, u_0_R_1 -> 0.000000000000000} : (0.000000000000000, 0.000000000000000)
+merge bindings: {t -> 0.000000000000000, u_0_R_0 -> -0.100000000000000, u_0_P_1 -> 0.0200000000000000, u_0_P_0 -> -0.0700000000000000, u_0_R_1 -> 0.000000000000000} , [] ,  {}
+merge bindings: {u_0_P_0 -> -0.0700000000000000, u_0_R_0 -> -0.100000000000000, u_0_P_1 -> 0.0200000000000000, t -> 0.000000000000000, u_0_R_1 -> 0.000000000000000} , [Xhat_0_P_1, m, Xhat_0_R_1, Xhat_0_R_0, gamma, Xhat_0_P_0, k, r] ,  {}
+A: (0, 0)
+S: (0.172768342440173, 0.172768342440173)
+D: (0, 0)
+D: (0, 0)
+I: (0, 0)
+I: (0, 0)
+dAdt: (0, 0)
+{u_0_P_0 -> -0.0700000000000000, u_0_R_0 -> -0.100000000000000, u_0_P_1 -> 0.0200000000000000, t -> 0.000000000000000, u_0_R_1 -> 0.000000000000000} : (1.79779590022795, -1.99755100025328)
+merge bindings: {t -> 0.000000000000000, u_0_R_0 -> -0.100000000000000, u_0_P_1 -> 0.0200000000000000, u_0_P_0 -> -0.0700000000000000, u_0_R_1 -> 0.000000000000000} , [] ,  {}
+merge bindings: {u_0_P_0 -> -0.0700000000000000, u_0_R_0 -> -0.100000000000000, u_0_P_1 -> 0.0200000000000000, t -> 0.000000000000000, u_0_R_1 -> 0.000000000000000} , [Xhat_0_P_1, m, Xhat_0_R_1, Xhat_0_R_0, gamma, Xhat_0_P_0, k, r] ,  {}
+A: (1.79779590022795, -1.99755100025328)
+S: (0.416986163120091, 0.172768342440173)
+D: (81/100*(Xhat_0_P_0*Xhat_0_R_0*gamma*sin(u_0_P_0 - u_0_R_0) + Xhat_0_P_0*Xhat_0_R_1*gamma*sin(u_0_P_0 - u_0_R_1))*sin(u_0_P_0 - u_0_R_1), (Xhat_0_P_0*Xhat_0_R_1*gamma*sin(-u_0_P_0 + u_0_R_1) + Xhat_0_P_1*Xhat_0_R_1*gamma*sin(-u_0_P_1 + u_0_R_1))*sin(-u_0_P_0 + u_0_R_1))
+D: (0.000244625634817345, 0.000323616679396230)
+I: (9/10*(Xhat_0_P_0*Xhat_0_R_1*gamma*sin(-u_0_P_0 + u_0_R_1) + Xhat_0_P_1*Xhat_0_R_1*gamma*sin(-u_0_P_1 + u_0_R_1))*sin(u_0_P_0 - u_0_R_1), 9/10*(Xhat_0_P_0*Xhat_0_R_0*gamma*sin(u_0_P_0 - u_0_R_0) + Xhat_0_P_0*Xhat_0_R_1*gamma*sin(u_0_P_0 - u_0_R_1))*sin(-u_0_P_0 + u_0_R_1))
+I: (-0.000291255011456607, -0.000271806260908161)
+dAdt: (-0.0000466293766392623, 0.0000518104184880691)
+{u_0_P_0 -> -0.0700000000000000, u_0_R_0 -> -0.100000000000000, u_0_P_1 -> 0.0200000000000000, t -> 0.000000000000000, u_0_R_1 -> 0.000000000000000} : (-1.00000000000000, -1.00000000000000)
+merge bindings: {t -> 0.000000000000000, u_0_R_0 -> -0.100000000000000, u_0_P_1 -> 0.0200000000000000, u_0_P_0 -> -0.0700000000000000, u_0_R_1 -> 0.000000000000000} , [] ,  {}
+merge bindings: {u_0_P_0 -> -0.0700000000000000, u_0_R_0 -> -0.100000000000000, u_0_P_1 -> 0.0200000000000000, t -> 0.000000000000000, u_0_R_1 -> 0.000000000000000} , [Xhat_0_P_1, m, Xhat_0_R_1, Xhat_0_R_0, gamma, Xhat_0_P_0, k, r] ,  {}
+A: (-1, -1)
+S: (0.139111289632135, 0.416986163120091)
+D: (0, 0)
+D: (0, 0)
+I: (0, 0)
+I: (0, 0)
+dAdt: (0, 0)
+{u_0_P_0 -> -0.0700000000000000, u_0_R_0 -> -0.100000000000000, u_0_P_1 -> 0.0200000000000000, t -> 0.000000000000000, u_0_R_1 -> 0.000000000000000} : (-1.99980000666658, 1.79982000599992)
+merge bindings: {t -> 0.000000000000000, u_0_R_0 -> -0.100000000000000, u_0_P_1 -> 0.0200000000000000, u_0_P_0 -> -0.0700000000000000, u_0_R_1 -> 0.000000000000000} , [] ,  {}
+merge bindings: {u_0_P_0 -> -0.0700000000000000, u_0_R_0 -> -0.100000000000000, u_0_P_1 -> 0.0200000000000000, t -> 0.000000000000000, u_0_R_1 -> 0.000000000000000} , [Xhat_0_P_1, m, Xhat_0_R_1, Xhat_0_R_0, gamma, Xhat_0_P_0, k, r] ,  {}
+A: (-1.99980000666658, 1.79982000599992)
+S: (0.0493994257769413, 0.416986163120091)
+D: ((Xhat_0_P_0*Xhat_0_R_1*gamma*sin(-u_0_P_0 + u_0_R_1) + Xhat_0_P_1*Xhat_0_R_1*gamma*sin(-u_0_P_1 + u_0_R_1))*sin(-u_0_P_1 + u_0_R_1), 81/100*(Xhat_0_P_1*Xhat_0_R_0*gamma*sin(u_0_P_1 - u_0_R_0) + Xhat_0_P_1*Xhat_0_R_1*gamma*sin(u_0_P_1 - u_0_R_1))*sin(u_0_P_1 - u_0_R_1))
+D: (-0.0000925312931058710, 0.0000199994215149875)
+I: (9/10*(Xhat_0_P_1*Xhat_0_R_0*gamma*sin(u_0_P_1 - u_0_R_0) + Xhat_0_P_1*Xhat_0_R_1*gamma*sin(u_0_P_1 - u_0_R_1))*sin(-u_0_P_1 + u_0_R_1), 9/10*(Xhat_0_P_0*Xhat_0_R_1*gamma*sin(-u_0_P_0 + u_0_R_1) + Xhat_0_P_1*Xhat_0_R_1*gamma*sin(-u_0_P_1 + u_0_R_1))*sin(u_0_P_1 - u_0_R_1))
+I: (-0.0000222215794610972, 0.0000832781637952839)
+dAdt: (-0.000114752872566968, 0.000103277585310271)
+{u_0_P_0 -> -0.0700000000000000, u_0_R_0 -> -0.100000000000000, u_0_P_1 -> 0.0200000000000000, t -> 0.000000000000000, u_0_R_1 -> 0.000000000000000} : (-1.99755100025328, 1.79779590022795)
+merge bindings: {t -> 0.000000000000000, u_0_R_0 -> -0.100000000000000, u_0_P_1 -> 0.0200000000000000, u_0_P_0 -> -0.0700000000000000, u_0_R_1 -> 0.000000000000000} , [] ,  {}
+merge bindings: {u_0_P_0 -> -0.0700000000000000, u_0_R_0 -> -0.100000000000000, u_0_P_1 -> 0.0200000000000000, t -> 0.000000000000000, u_0_R_1 -> 0.000000000000000} , [Xhat_0_P_1, m, Xhat_0_R_1, Xhat_0_R_0, gamma, Xhat_0_P_0, k, r] ,  {}
+A: (-1.99755100025328, 1.79779590022795)
+S: (0.172768342440173, 0.416986163120091)
+D: ((Xhat_0_P_0*Xhat_0_R_1*gamma*sin(-u_0_P_0 + u_0_R_1) + Xhat_0_P_1*Xhat_0_R_1*gamma*sin(-u_0_P_1 + u_0_R_1))*sin(-u_0_P_0 + u_0_R_1), 81/100*(Xhat_0_P_0*Xhat_0_R_0*gamma*sin(u_0_P_0 - u_0_R_0) + Xhat_0_P_0*Xhat_0_R_1*gamma*sin(u_0_P_0 - u_0_R_1))*sin(u_0_P_0 - u_0_R_1))
+D: (0.000323616679396230, 0.000244625634817345)
+I: (9/10*(Xhat_0_P_0*Xhat_0_R_0*gamma*sin(u_0_P_0 - u_0_R_0) + Xhat_0_P_0*Xhat_0_R_1*gamma*sin(u_0_P_0 - u_0_R_1))*sin(-u_0_P_0 + u_0_R_1), 9/10*(Xhat_0_P_0*Xhat_0_R_1*gamma*sin(-u_0_P_0 + u_0_R_1) + Xhat_0_P_1*Xhat_0_R_1*gamma*sin(-u_0_P_1 + u_0_R_1))*sin(u_0_P_0 - u_0_R_1))
+I: (-0.000271806260908161, -0.000291255011456607)
+dAdt: (0.0000518104184880691, -0.0000466293766392623)
+{u_0_P_0 -> -0.0700000000000000, u_0_R_0 -> -0.100000000000000, u_0_P_1 -> 0.0200000000000000, t -> 0.000000000000000, u_0_R_1 -> 0.000000000000000} : (-1.00000000000000, -1.00000000000000)
+merge bindings: {t -> 0.000000000000000, u_0_R_0 -> -0.100000000000000, u_0_P_1 -> 0.0200000000000000, u_0_P_0 -> -0.0700000000000000, u_0_R_1 -> 0.000000000000000} , [] ,  {}
+merge bindings: {u_0_P_0 -> -0.0700000000000000, u_0_R_0 -> -0.100000000000000, u_0_P_1 -> 0.0200000000000000, t -> 0.000000000000000, u_0_R_1 -> 0.000000000000000} , [Xhat_0_P_1, m, Xhat_0_R_1, Xhat_0_R_0, gamma, Xhat_0_P_0, k, r] ,  {}
+A: (-1, -1)
+S: (0.416986163120091, 0.416986163120091)
+D: (0, 0)
+D: (0, 0)
+I: (0, 0)
+I: (0, 0)
+dAdt: (0, 0)
+merge bindings: {a_0_R_0_0_P_1 -> a_0_R_0_0_P_1(u_0_R_0, u_0_P_1), a_0_R_1_0_R_0 -> a_0_R_1_0_R_0(u_0_R_1, u_0_R_0), a_0_P_1_0_P_0 -> a_0_P_1_0_P_0(u_0_P_1, u_0_P_0), r_0_P_1 -> r_0_P_1(u_0_P_1), a_0_R_0_0_R_1 -> a_0_R_0_0_R_1(u_0_R_0, u_0_R_1), a_0_R_0_0_R_0 -> a_0_R_0_0_R_0(u_0_R_0, u_0_R_0), a_0_R_1_0_P_0 -> a_0_R_1_0_P_0(u_0_R_1, u_0_P_0), a_0_R_1_0_R_1 -> a_0_R_1_0_R_1(u_0_R_1, u_0_R_1), a_0_P_0_0_R_0 -> a_0_P_0_0_R_0(u_0_P_0, u_0_R_0), a_0_P_1_0_R_0 -> a_0_P_1_0_R_0(u_0_P_1, u_0_R_0), a_0_P_0_0_P_0 -> a_0_P_0_0_P_0(u_0_P_0, u_0_P_0), r_0_R_0 -> r_0_R_0(u_0_R_0), a_0_P_0_0_R_1 -> a_0_P_0_0_R_1(u_0_P_0, u_0_R_1), a_0_P_0_0_P_1 -> a_0_P_0_0_P_1(u_0_P_0, u_0_P_1), a_0_P_1_0_P_1 -> a_0_P_1_0_P_1(u_0_P_1, u_0_P_1), r_0_P_0 -> r_0_P_0(u_0_P_0), a_0_R_1_0_P_1 -> a_0_R_1_0_P_1(u_0_R_1, u_0_P_1), r_0_R_1 -> r_0_R_1(u_0_R_1), a_0_P_1_0_R_1 -> a_0_P_1_0_R_1(u_0_P_1, u_0_R_1), a_0_R_0_0_P_0 -> a_0_R_0_0_P_0(u_0_R_0, u_0_P_0)} , [] ,  {}
+merge bindings: {a_0_R_0_0_P_1 -> -cos(-u_0_P_1 + u_0_R_0) - 1, a_0_R_1_0_R_0 -> -1, a_0_P_1_0_P_0 -> 0, r_0_P_1 -> -1, a_0_R_0_0_R_1 -> -1, a_0_R_0_0_R_0 -> -1, a_0_P_1_0_R_1 -> 9/10*cos(u_0_P_1 - u_0_R_1) + 9/10, a_0_R_1_0_R_1 -> -1, a_0_P_0_0_R_0 -> 9/10*cos(u_0_P_0 - u_0_R_0) + 9/10, a_0_P_1_0_R_0 -> 9/10*cos(u_0_P_1 - u_0_R_0) + 9/10, a_0_P_0_0_P_0 -> 0, r_0_R_0 -> 1, a_0_P_0_0_R_1 -> 9/10*cos(u_0_P_0 - u_0_R_1) + 9/10, a_0_P_0_0_P_1 -> 0, a_0_P_1_0_P_1 -> 0, r_0_P_0 -> -1, a_0_R_1_0_P_1 -> -cos(-u_0_P_1 + u_0_R_1) - 1, r_0_R_1 -> 1, a_0_R_1_0_P_0 -> -cos(-u_0_P_0 + u_0_R_1) - 1, a_0_R_0_0_P_0 -> -cos(-u_0_P_0 + u_0_R_0) - 1, a_0_R_1_0_R_1() -> -1, a_0_P_0_0_R_1(u_0_P_0,u_0_R_1) -> 9/10*cos(u_0_P_0 - u_0_R_1) + 9/10, a_0_P_0_0_P_0() -> 0, a_0_R_0_0_P_1(u_0_P_1,u_0_R_0) -> -cos(u_0_P_1 - u_0_R_0) - 1, a_0_R_0_0_R_0() -> -1, a_0_R_1_0_R_0() -> -1, a_0_P_1_0_P_1() -> 0, a_0_R_1_0_P_1(u_0_P_1,u_0_R_1) -> -cos(u_0_P_1 - u_0_R_1) - 1, a_0_R_0_0_P_0(u_0_P_0,u_0_R_0) -> -cos(u_0_P_0 - u_0_R_0) - 1, a_0_R_0_0_R_1() -> -1, r_0_R_1() -> 1, r_0_P_0() -> -1, a_0_P_1_0_P_0() -> 0, a_0_R_1_0_P_0(u_0_P_0,u_0_R_1) -> -cos(u_0_P_0 - u_0_R_1) - 1, r_0_R_0() -> 1, r_0_P_1() -> -1, a_0_P_1_0_R_1(u_0_P_1,u_0_R_1) -> 9/10*cos(u_0_P_1 - u_0_R_1) + 9/10, a_0_P_1_0_R_0(u_0_P_1,u_0_R_0) -> 9/10*cos(u_0_P_1 - u_0_R_0) + 9/10, a_0_P_0_0_R_0(u_0_P_0,u_0_R_0) -> 9/10*cos(u_0_P_0 - u_0_R_0) + 9/10, a_0_P_0_0_P_1() -> 0} , [D[0](u_0_R_0)(t), D[0](u_0_R_1)(t), D[0](u_0_P_0)(t), D[0](u_0_P_1)(t)] ,  {}
+merge bindings: {a_0_R_0_0_P_1 -> -cos(-u_0_P_1 + u_0_R_0) - 1, a_0_R_1_0_R_0 -> -1, a_0_P_1_0_P_0 -> 0, r_0_P_1 -> -1, r_0_R_1 -> 1, a_0_R_0_0_R_1 -> -1, a_0_R_0_0_R_0 -> -1, a_0_R_1_0_P_0 -> -cos(-u_0_P_0 + u_0_R_1) - 1, a_0_R_1_0_R_1 -> -1, a_0_P_0_0_R_0 -> 9/10*cos(u_0_P_0 - u_0_R_0) + 9/10, a_0_P_1_0_R_0 -> 9/10*cos(u_0_P_1 - u_0_R_0) + 9/10, a_0_P_0_0_P_0 -> 0, r_0_R_0 -> 1, a_0_P_0_0_R_1 -> 9/10*cos(u_0_P_0 - u_0_R_1) + 9/10, D[0](u_0_P_1)(t) -> -9/10*Xhat_0_P_1*Xhat_0_R_0*gamma*sin(u_0_P_1 - u_0_R_0) - 9/10*Xhat_0_P_1*Xhat_0_R_1*gamma*sin(u_0_P_1 - u_0_R_1), D[0](u_0_P_0)(t) -> -9/10*Xhat_0_P_0*Xhat_0_R_0*gamma*sin(u_0_P_0 - u_0_R_0) - 9/10*Xhat_0_P_0*Xhat_0_R_1*gamma*sin(u_0_P_0 - u_0_R_1), a_0_P_0_0_P_1 -> 0, a_0_P_1_0_P_1 -> 0, r_0_P_0 -> -1, a_0_R_1_0_P_1 -> -cos(-u_0_P_1 + u_0_R_1) - 1, D[0](u_0_R_0)(t) -> Xhat_0_P_0*Xhat_0_R_0*gamma*sin(-u_0_P_0 + u_0_R_0) + Xhat_0_P_1*Xhat_0_R_0*gamma*sin(-u_0_P_1 + u_0_R_0), a_0_P_1_0_R_1 -> 9/10*cos(u_0_P_1 - u_0_R_1) + 9/10, D[0](u_0_R_1)(t) -> Xhat_0_P_0*Xhat_0_R_1*gamma*sin(-u_0_P_0 + u_0_R_1) + Xhat_0_P_1*Xhat_0_R_1*gamma*sin(-u_0_P_1 + u_0_R_1), a_0_R_0_0_P_0 -> -cos(-u_0_P_0 + u_0_R_0) - 1, a_0_R_1_0_R_1() -> -1, a_0_P_0_0_R_1(u_0_P_0,u_0_R_1) -> 9/10*cos(u_0_P_0 - u_0_R_1) + 9/10, r_0_P_0() -> -1, a_0_R_0_0_P_1(u_0_P_1,u_0_R_0) -> -cos(u_0_P_1 - u_0_R_0) - 1, a_0_R_0_0_R_0() -> -1, a_0_R_1_0_R_0() -> -1, a_0_P_1_0_P_1() -> 0, a_0_R_1_0_P_1(u_0_P_1,u_0_R_1) -> -cos(u_0_P_1 - u_0_R_1) - 1, a_0_R_0_0_P_0(u_0_P_0,u_0_R_0) -> -cos(u_0_P_0 - u_0_R_0) - 1, a_0_R_0_0_R_1() -> -1, r_0_R_1() -> 1, a_0_P_0_0_P_0() -> 0, a_0_P_1_0_P_0() -> 0, a_0_R_1_0_P_0(u_0_P_0,u_0_R_1) -> -cos(u_0_P_0 - u_0_R_1) - 1, r_0_R_0() -> 1, a_0_P_0_0_P_1() -> 0, a_0_P_1_0_R_1(u_0_P_1,u_0_R_1) -> 9/10*cos(u_0_P_1 - u_0_R_1) + 9/10, a_0_P_1_0_R_0(u_0_P_1,u_0_R_0) -> 9/10*cos(u_0_P_1 - u_0_R_0) + 9/10, a_0_P_0_0_R_0(u_0_P_0,u_0_R_0) -> 9/10*cos(u_0_P_0 - u_0_R_0) + 9/10, r_0_P_1() -> -1} , [u_0_R_0(t), u_0_R_1(t), u_0_P_0(t), u_0_P_1(t)] ,  {}
+{u_0_P_0 -> -0.0700000000000000, u_0_R_0 -> -0.100000000000000, u_0_P_1 -> 0.0200000000000000, t -> 0.000000000000000, u_0_R_1 -> 0.000000000000000} : (-1.00000000000000, -1.00000000000000)
+merge bindings: {t -> 0.000000000000000, u_0_R_0 -> -0.100000000000000, u_0_P_1 -> 0.0200000000000000, u_0_P_0 -> -0.0700000000000000, u_0_R_1 -> 0.000000000000000} , [] ,  {}
+merge bindings: {u_0_P_0 -> -0.0700000000000000, u_0_R_0 -> -0.100000000000000, u_0_P_1 -> 0.0200000000000000, t -> 0.000000000000000, u_0_R_1 -> 0.000000000000000} , [Xhat_0_P_1, m, Xhat_0_R_1, Xhat_0_R_0, gamma, Xhat_0_P_0, k, r] ,  {}
+A: (-1, -1)
+S: (0.139111289632135, 0.139111289632135)
+D: (0, 0)
+D: (0, 0)
+I: (0, 0)
+I: (0, 0)
+dAdt: (0, 0)
+{u_0_P_0 -> -0.0700000000000000, u_0_R_0 -> -0.100000000000000, u_0_P_1 -> 0.0200000000000000, t -> 0.000000000000000, u_0_R_1 -> 0.000000000000000} : (-1.99280863585387, 1.79352777226848)
+merge bindings: {t -> 0.000000000000000, u_0_R_0 -> -0.100000000000000, u_0_P_1 -> 0.0200000000000000, u_0_P_0 -> -0.0700000000000000, u_0_R_1 -> 0.000000000000000} , [] ,  {}
+merge bindings: {u_0_P_0 -> -0.0700000000000000, u_0_R_0 -> -0.100000000000000, u_0_P_1 -> 0.0200000000000000, t -> 0.000000000000000, u_0_R_1 -> 0.000000000000000} , [Xhat_0_P_1, m, Xhat_0_R_1, Xhat_0_R_0, gamma, Xhat_0_P_0, k, r] ,  {}
+A: (-1.99280863585387, 1.79352777226848)
+S: (0.0493994257769413, 0.139111289632135)
+D: ((Xhat_0_P_0*Xhat_0_R_0*gamma*sin(-u_0_P_0 + u_0_R_0) + Xhat_0_P_1*Xhat_0_R_0*gamma*sin(-u_0_P_1 + u_0_R_0))*sin(-u_0_P_1 + u_0_R_0), 81/100*(Xhat_0_P_1*Xhat_0_R_0*gamma*sin(u_0_P_1 - u_0_R_0) + Xhat_0_P_1*Xhat_0_R_1*gamma*sin(u_0_P_1 - u_0_R_1))*sin(u_0_P_1 - u_0_R_0))
+D: (0.000184785019615004, 0.000119716725658456)
+I: (9/10*(Xhat_0_P_1*Xhat_0_R_0*gamma*sin(u_0_P_1 - u_0_R_0) + Xhat_0_P_1*Xhat_0_R_1*gamma*sin(u_0_P_1 - u_0_R_1))*sin(-u_0_P_1 + u_0_R_0), 9/10*(Xhat_0_P_0*Xhat_0_R_0*gamma*sin(-u_0_P_0 + u_0_R_0) + Xhat_0_P_1*Xhat_0_R_0*gamma*sin(-u_0_P_1 + u_0_R_0))*sin(u_0_P_1 - u_0_R_0))
+I: (-0.000133018584064951, -0.000166306517653504)
+dAdt: (0.0000517664355500532, -0.0000465897919950479)
+{u_0_P_0 -> -0.0700000000000000, u_0_R_0 -> -0.100000000000000, u_0_P_1 -> 0.0200000000000000, t -> 0.000000000000000, u_0_R_1 -> 0.000000000000000} : (-1.99955003374899, 1.79959503037409)
+merge bindings: {t -> 0.000000000000000, u_0_R_0 -> -0.100000000000000, u_0_P_1 -> 0.0200000000000000, u_0_P_0 -> -0.0700000000000000, u_0_R_1 -> 0.000000000000000} , [] ,  {}
+merge bindings: {u_0_P_0 -> -0.0700000000000000, u_0_R_0 -> -0.100000000000000, u_0_P_1 -> 0.0200000000000000, t -> 0.000000000000000, u_0_R_1 -> 0.000000000000000} , [Xhat_0_P_1, m, Xhat_0_R_1, Xhat_0_R_0, gamma, Xhat_0_P_0, k, r] ,  {}
+A: (-1.99955003374899, 1.79959503037409)
+S: (0.172768342440173, 0.139111289632135)
+D: ((Xhat_0_P_0*Xhat_0_R_0*gamma*sin(-u_0_P_0 + u_0_R_0) + Xhat_0_P_1*Xhat_0_R_0*gamma*sin(-u_0_P_1 + u_0_R_0))*sin(-u_0_P_0 + u_0_R_0), 81/100*(Xhat_0_P_0*Xhat_0_R_0*gamma*sin(u_0_P_0 - u_0_R_0) + Xhat_0_P_0*Xhat_0_R_1*gamma*sin(u_0_P_0 - u_0_R_1))*sin(u_0_P_0 - u_0_R_0))
+D: (0.0000463003666777520, -0.000104909487646233)
+I: (9/10*(Xhat_0_P_0*Xhat_0_R_0*gamma*sin(u_0_P_0 - u_0_R_0) + Xhat_0_P_0*Xhat_0_R_1*gamma*sin(u_0_P_0 - u_0_R_1))*sin(-u_0_P_0 + u_0_R_0), 9/10*(Xhat_0_P_0*Xhat_0_R_0*gamma*sin(-u_0_P_0 + u_0_R_0) + Xhat_0_P_1*Xhat_0_R_0*gamma*sin(-u_0_P_1 + u_0_R_0))*sin(u_0_P_0 - u_0_R_0))
+I: (0.000116566097384704, -0.0000416703300099768)
+dAdt: (0.000162866464062456, -0.000146579817656210)
+{u_0_P_0 -> -0.0700000000000000, u_0_R_0 -> -0.100000000000000, u_0_P_1 -> 0.0200000000000000, t -> 0.000000000000000, u_0_R_1 -> 0.000000000000000} : (-1.00000000000000, -1.00000000000000)
+merge bindings: {t -> 0.000000000000000, u_0_R_0 -> -0.100000000000000, u_0_P_1 -> 0.0200000000000000, u_0_P_0 -> -0.0700000000000000, u_0_R_1 -> 0.000000000000000} , [] ,  {}
+merge bindings: {u_0_P_0 -> -0.0700000000000000, u_0_R_0 -> -0.100000000000000, u_0_P_1 -> 0.0200000000000000, t -> 0.000000000000000, u_0_R_1 -> 0.000000000000000} , [Xhat_0_P_1, m, Xhat_0_R_1, Xhat_0_R_0, gamma, Xhat_0_P_0, k, r] ,  {}
+A: (-1, -1)
+S: (0.416986163120091, 0.139111289632135)
+D: (0, 0)
+D: (0, 0)
+I: (0, 0)
+I: (0, 0)
+dAdt: (0, 0)
+{u_0_P_0 -> -0.0700000000000000, u_0_R_0 -> -0.100000000000000, u_0_P_1 -> 0.0200000000000000, t -> 0.000000000000000, u_0_R_1 -> 0.000000000000000} : (1.79352777226848, -1.99280863585387)
+merge bindings: {t -> 0.000000000000000, u_0_R_0 -> -0.100000000000000, u_0_P_1 -> 0.0200000000000000, u_0_P_0 -> -0.0700000000000000, u_0_R_1 -> 0.000000000000000} , [] ,  {}
+merge bindings: {u_0_P_0 -> -0.0700000000000000, u_0_R_0 -> -0.100000000000000, u_0_P_1 -> 0.0200000000000000, t -> 0.000000000000000, u_0_R_1 -> 0.000000000000000} , [Xhat_0_P_1, m, Xhat_0_R_1, Xhat_0_R_0, gamma, Xhat_0_P_0, k, r] ,  {}
+A: (1.79352777226848, -1.99280863585387)
+S: (0.139111289632135, 0.0493994257769413)
+D: (81/100*(Xhat_0_P_1*Xhat_0_R_0*gamma*sin(u_0_P_1 - u_0_R_0) + Xhat_0_P_1*Xhat_0_R_1*gamma*sin(u_0_P_1 - u_0_R_1))*sin(u_0_P_1 - u_0_R_0), (Xhat_0_P_0*Xhat_0_R_0*gamma*sin(-u_0_P_0 + u_0_R_0) + Xhat_0_P_1*Xhat_0_R_0*gamma*sin(-u_0_P_1 + u_0_R_0))*sin(-u_0_P_1 + u_0_R_0))
+D: (0.000119716725658456, 0.000184785019615004)
+I: (9/10*(Xhat_0_P_0*Xhat_0_R_0*gamma*sin(-u_0_P_0 + u_0_R_0) + Xhat_0_P_1*Xhat_0_R_0*gamma*sin(-u_0_P_1 + u_0_R_0))*sin(u_0_P_1 - u_0_R_0), 9/10*(Xhat_0_P_1*Xhat_0_R_0*gamma*sin(u_0_P_1 - u_0_R_0) + Xhat_0_P_1*Xhat_0_R_1*gamma*sin(u_0_P_1 - u_0_R_1))*sin(-u_0_P_1 + u_0_R_0))
+I: (-0.000166306517653504, -0.000133018584064951)
+dAdt: (-0.0000465897919950479, 0.0000517664355500532)
+{u_0_P_0 -> -0.0700000000000000, u_0_R_0 -> -0.100000000000000, u_0_P_1 -> 0.0200000000000000, t -> 0.000000000000000, u_0_R_1 -> 0.000000000000000} : (0.000000000000000, 0.000000000000000)
+merge bindings: {t -> 0.000000000000000, u_0_R_0 -> -0.100000000000000, u_0_P_1 -> 0.0200000000000000, u_0_P_0 -> -0.0700000000000000, u_0_R_1 -> 0.000000000000000} , [] ,  {}
+merge bindings: {u_0_P_0 -> -0.0700000000000000, u_0_R_0 -> -0.100000000000000, u_0_P_1 -> 0.0200000000000000, t -> 0.000000000000000, u_0_R_1 -> 0.000000000000000} , [Xhat_0_P_1, m, Xhat_0_R_1, Xhat_0_R_0, gamma, Xhat_0_P_0, k, r] ,  {}
+A: (0, 0)
+S: (0.0493994257769413, 0.0493994257769413)
+D: (0, 0)
+D: (0, 0)
+I: (0, 0)
+I: (0, 0)
+dAdt: (0, 0)
+{u_0_P_0 -> -0.0700000000000000, u_0_R_0 -> -0.100000000000000, u_0_P_1 -> 0.0200000000000000, t -> 0.000000000000000, u_0_R_1 -> 0.000000000000000} : (0.000000000000000, 0.000000000000000)
+merge bindings: {t -> 0.000000000000000, u_0_R_0 -> -0.100000000000000, u_0_P_1 -> 0.0200000000000000, u_0_P_0 -> -0.0700000000000000, u_0_R_1 -> 0.000000000000000} , [] ,  {}
+merge bindings: {u_0_P_0 -> -0.0700000000000000, u_0_R_0 -> -0.100000000000000, u_0_P_1 -> 0.0200000000000000, t -> 0.000000000000000, u_0_R_1 -> 0.000000000000000} , [Xhat_0_P_1, m, Xhat_0_R_1, Xhat_0_R_0, gamma, Xhat_0_P_0, k, r] ,  {}
+A: (0, 0)
+S: (0.172768342440173, 0.0493994257769413)
+D: (0, 0)
+D: (0, 0)
+I: (0, 0)
+I: (0, 0)
+dAdt: (0, 0)
+{u_0_P_0 -> -0.0700000000000000, u_0_R_0 -> -0.100000000000000, u_0_P_1 -> 0.0200000000000000, t -> 0.000000000000000, u_0_R_1 -> 0.000000000000000} : (1.79982000599992, -1.99980000666658)
+merge bindings: {t -> 0.000000000000000, u_0_R_0 -> -0.100000000000000, u_0_P_1 -> 0.0200000000000000, u_0_P_0 -> -0.0700000000000000, u_0_R_1 -> 0.000000000000000} , [] ,  {}
+merge bindings: {u_0_P_0 -> -0.0700000000000000, u_0_R_0 -> -0.100000000000000, u_0_P_1 -> 0.0200000000000000, t -> 0.000000000000000, u_0_R_1 -> 0.000000000000000} , [Xhat_0_P_1, m, Xhat_0_R_1, Xhat_0_R_0, gamma, Xhat_0_P_0, k, r] ,  {}
+A: (1.79982000599992, -1.99980000666658)
+S: (0.416986163120091, 0.0493994257769413)
+D: (81/100*(Xhat_0_P_1*Xhat_0_R_0*gamma*sin(u_0_P_1 - u_0_R_0) + Xhat_0_P_1*Xhat_0_R_1*gamma*sin(u_0_P_1 - u_0_R_1))*sin(u_0_P_1 - u_0_R_1), (Xhat_0_P_0*Xhat_0_R_1*gamma*sin(-u_0_P_0 + u_0_R_1) + Xhat_0_P_1*Xhat_0_R_1*gamma*sin(-u_0_P_1 + u_0_R_1))*sin(-u_0_P_1 + u_0_R_1))
+D: (0.0000199994215149875, -0.0000925312931058710)
+I: (9/10*(Xhat_0_P_0*Xhat_0_R_1*gamma*sin(-u_0_P_0 + u_0_R_1) + Xhat_0_P_1*Xhat_0_R_1*gamma*sin(-u_0_P_1 + u_0_R_1))*sin(u_0_P_1 - u_0_R_1), 9/10*(Xhat_0_P_1*Xhat_0_R_0*gamma*sin(u_0_P_1 - u_0_R_0) + Xhat_0_P_1*Xhat_0_R_1*gamma*sin(u_0_P_1 - u_0_R_1))*sin(-u_0_P_1 + u_0_R_1))
+I: (0.0000832781637952839, -0.0000222215794610972)
+dAdt: (0.000103277585310271, -0.000114752872566968)
+{u_0_P_0 -> -0.0700000000000000, u_0_R_0 -> -0.100000000000000, u_0_P_1 -> 0.0200000000000000, t -> 0.000000000000000, u_0_R_1 -> 0.000000000000000} : (1.79959503037409, -1.99955003374899)
+merge bindings: {t -> 0.000000000000000, u_0_R_0 -> -0.100000000000000, u_0_P_1 -> 0.0200000000000000, u_0_P_0 -> -0.0700000000000000, u_0_R_1 -> 0.000000000000000} , [] ,  {}
+merge bindings: {u_0_P_0 -> -0.0700000000000000, u_0_R_0 -> -0.100000000000000, u_0_P_1 -> 0.0200000000000000, t -> 0.000000000000000, u_0_R_1 -> 0.000000000000000} , [Xhat_0_P_1, m, Xhat_0_R_1, Xhat_0_R_0, gamma, Xhat_0_P_0, k, r] ,  {}
+A: (1.79959503037409, -1.99955003374899)
+S: (0.139111289632135, 0.172768342440173)
+D: (81/100*(Xhat_0_P_0*Xhat_0_R_0*gamma*sin(u_0_P_0 - u_0_R_0) + Xhat_0_P_0*Xhat_0_R_1*gamma*sin(u_0_P_0 - u_0_R_1))*sin(u_0_P_0 - u_0_R_0), (Xhat_0_P_0*Xhat_0_R_0*gamma*sin(-u_0_P_0 + u_0_R_0) + Xhat_0_P_1*Xhat_0_R_0*gamma*sin(-u_0_P_1 + u_0_R_0))*sin(-u_0_P_0 + u_0_R_0))
+D: (-0.000104909487646233, 0.0000463003666777520)
+I: (9/10*(Xhat_0_P_0*Xhat_0_R_0*gamma*sin(-u_0_P_0 + u_0_R_0) + Xhat_0_P_1*Xhat_0_R_0*gamma*sin(-u_0_P_1 + u_0_R_0))*sin(u_0_P_0 - u_0_R_0), 9/10*(Xhat_0_P_0*Xhat_0_R_0*gamma*sin(u_0_P_0 - u_0_R_0) + Xhat_0_P_0*Xhat_0_R_1*gamma*sin(u_0_P_0 - u_0_R_1))*sin(-u_0_P_0 + u_0_R_0))
+I: (-0.0000416703300099768, 0.000116566097384704)
+dAdt: (-0.000146579817656210, 0.000162866464062456)
+{u_0_P_0 -> -0.0700000000000000, u_0_R_0 -> -0.100000000000000, u_0_P_1 -> 0.0200000000000000, t -> 0.000000000000000, u_0_R_1 -> 0.000000000000000} : (0.000000000000000, 0.000000000000000)
+merge bindings: {t -> 0.000000000000000, u_0_R_0 -> -0.100000000000000, u_0_P_1 -> 0.0200000000000000, u_0_P_0 -> -0.0700000000000000, u_0_R_1 -> 0.000000000000000} , [] ,  {}
+merge bindings: {u_0_P_0 -> -0.0700000000000000, u_0_R_0 -> -0.100000000000000, u_0_P_1 -> 0.0200000000000000, t -> 0.000000000000000, u_0_R_1 -> 0.000000000000000} , [Xhat_0_P_1, m, Xhat_0_R_1, Xhat_0_R_0, gamma, Xhat_0_P_0, k, r] ,  {}
+A: (0, 0)
+S: (0.0493994257769413, 0.172768342440173)
+D: (0, 0)
+D: (0, 0)
+I: (0, 0)
+I: (0, 0)
+dAdt: (0, 0)
+{u_0_P_0 -> -0.0700000000000000, u_0_R_0 -> -0.100000000000000, u_0_P_1 -> 0.0200000000000000, t -> 0.000000000000000, u_0_R_1 -> 0.000000000000000} : (0.000000000000000, 0.000000000000000)
+merge bindings: {t -> 0.000000000000000, u_0_R_0 -> -0.100000000000000, u_0_P_1 -> 0.0200000000000000, u_0_P_0 -> -0.0700000000000000, u_0_R_1 -> 0.000000000000000} , [] ,  {}
+merge bindings: {u_0_P_0 -> -0.0700000000000000, u_0_R_0 -> -0.100000000000000, u_0_P_1 -> 0.0200000000000000, t -> 0.000000000000000, u_0_R_1 -> 0.000000000000000} , [Xhat_0_P_1, m, Xhat_0_R_1, Xhat_0_R_0, gamma, Xhat_0_P_0, k, r] ,  {}
+A: (0, 0)
+S: (0.172768342440173, 0.172768342440173)
+D: (0, 0)
+D: (0, 0)
+I: (0, 0)
+I: (0, 0)
+dAdt: (0, 0)
+{u_0_P_0 -> -0.0700000000000000, u_0_R_0 -> -0.100000000000000, u_0_P_1 -> 0.0200000000000000, t -> 0.000000000000000, u_0_R_1 -> 0.000000000000000} : (1.79779590022795, -1.99755100025328)
+merge bindings: {t -> 0.000000000000000, u_0_R_0 -> -0.100000000000000, u_0_P_1 -> 0.0200000000000000, u_0_P_0 -> -0.0700000000000000, u_0_R_1 -> 0.000000000000000} , [] ,  {}
+merge bindings: {u_0_P_0 -> -0.0700000000000000, u_0_R_0 -> -0.100000000000000, u_0_P_1 -> 0.0200000000000000, t -> 0.000000000000000, u_0_R_1 -> 0.000000000000000} , [Xhat_0_P_1, m, Xhat_0_R_1, Xhat_0_R_0, gamma, Xhat_0_P_0, k, r] ,  {}
+A: (1.79779590022795, -1.99755100025328)
+S: (0.416986163120091, 0.172768342440173)
+D: (81/100*(Xhat_0_P_0*Xhat_0_R_0*gamma*sin(u_0_P_0 - u_0_R_0) + Xhat_0_P_0*Xhat_0_R_1*gamma*sin(u_0_P_0 - u_0_R_1))*sin(u_0_P_0 - u_0_R_1), (Xhat_0_P_0*Xhat_0_R_1*gamma*sin(-u_0_P_0 + u_0_R_1) + Xhat_0_P_1*Xhat_0_R_1*gamma*sin(-u_0_P_1 + u_0_R_1))*sin(-u_0_P_0 + u_0_R_1))
+D: (0.000244625634817345, 0.000323616679396230)
+I: (9/10*(Xhat_0_P_0*Xhat_0_R_1*gamma*sin(-u_0_P_0 + u_0_R_1) + Xhat_0_P_1*Xhat_0_R_1*gamma*sin(-u_0_P_1 + u_0_R_1))*sin(u_0_P_0 - u_0_R_1), 9/10*(Xhat_0_P_0*Xhat_0_R_0*gamma*sin(u_0_P_0 - u_0_R_0) + Xhat_0_P_0*Xhat_0_R_1*gamma*sin(u_0_P_0 - u_0_R_1))*sin(-u_0_P_0 + u_0_R_1))
+I: (-0.000291255011456607, -0.000271806260908161)
+dAdt: (-0.0000466293766392623, 0.0000518104184880691)
+{u_0_P_0 -> -0.0700000000000000, u_0_R_0 -> -0.100000000000000, u_0_P_1 -> 0.0200000000000000, t -> 0.000000000000000, u_0_R_1 -> 0.000000000000000} : (-1.00000000000000, -1.00000000000000)
+merge bindings: {t -> 0.000000000000000, u_0_R_0 -> -0.100000000000000, u_0_P_1 -> 0.0200000000000000, u_0_P_0 -> -0.0700000000000000, u_0_R_1 -> 0.000000000000000} , [] ,  {}
+merge bindings: {u_0_P_0 -> -0.0700000000000000, u_0_R_0 -> -0.100000000000000, u_0_P_1 -> 0.0200000000000000, t -> 0.000000000000000, u_0_R_1 -> 0.000000000000000} , [Xhat_0_P_1, m, Xhat_0_R_1, Xhat_0_R_0, gamma, Xhat_0_P_0, k, r] ,  {}
+A: (-1, -1)
+S: (0.139111289632135, 0.416986163120091)
+D: (0, 0)
+D: (0, 0)
+I: (0, 0)
+I: (0, 0)
+dAdt: (0, 0)
+{u_0_P_0 -> -0.0700000000000000, u_0_R_0 -> -0.100000000000000, u_0_P_1 -> 0.0200000000000000, t -> 0.000000000000000, u_0_R_1 -> 0.000000000000000} : (-1.99980000666658, 1.79982000599992)
+merge bindings: {t -> 0.000000000000000, u_0_R_0 -> -0.100000000000000, u_0_P_1 -> 0.0200000000000000, u_0_P_0 -> -0.0700000000000000, u_0_R_1 -> 0.000000000000000} , [] ,  {}
+merge bindings: {u_0_P_0 -> -0.0700000000000000, u_0_R_0 -> -0.100000000000000, u_0_P_1 -> 0.0200000000000000, t -> 0.000000000000000, u_0_R_1 -> 0.000000000000000} , [Xhat_0_P_1, m, Xhat_0_R_1, Xhat_0_R_0, gamma, Xhat_0_P_0, k, r] ,  {}
+A: (-1.99980000666658, 1.79982000599992)
+S: (0.0493994257769413, 0.416986163120091)
+D: ((Xhat_0_P_0*Xhat_0_R_1*gamma*sin(-u_0_P_0 + u_0_R_1) + Xhat_0_P_1*Xhat_0_R_1*gamma*sin(-u_0_P_1 + u_0_R_1))*sin(-u_0_P_1 + u_0_R_1), 81/100*(Xhat_0_P_1*Xhat_0_R_0*gamma*sin(u_0_P_1 - u_0_R_0) + Xhat_0_P_1*Xhat_0_R_1*gamma*sin(u_0_P_1 - u_0_R_1))*sin(u_0_P_1 - u_0_R_1))
+D: (-0.0000925312931058710, 0.0000199994215149875)
+I: (9/10*(Xhat_0_P_1*Xhat_0_R_0*gamma*sin(u_0_P_1 - u_0_R_0) + Xhat_0_P_1*Xhat_0_R_1*gamma*sin(u_0_P_1 - u_0_R_1))*sin(-u_0_P_1 + u_0_R_1), 9/10*(Xhat_0_P_0*Xhat_0_R_1*gamma*sin(-u_0_P_0 + u_0_R_1) + Xhat_0_P_1*Xhat_0_R_1*gamma*sin(-u_0_P_1 + u_0_R_1))*sin(u_0_P_1 - u_0_R_1))
+I: (-0.0000222215794610972, 0.0000832781637952839)
+dAdt: (-0.000114752872566968, 0.000103277585310271)
+{u_0_P_0 -> -0.0700000000000000, u_0_R_0 -> -0.100000000000000, u_0_P_1 -> 0.0200000000000000, t -> 0.000000000000000, u_0_R_1 -> 0.000000000000000} : (-1.99755100025328, 1.79779590022795)
+merge bindings: {t -> 0.000000000000000, u_0_R_0 -> -0.100000000000000, u_0_P_1 -> 0.0200000000000000, u_0_P_0 -> -0.0700000000000000, u_0_R_1 -> 0.000000000000000} , [] ,  {}
+merge bindings: {u_0_P_0 -> -0.0700000000000000, u_0_R_0 -> -0.100000000000000, u_0_P_1 -> 0.0200000000000000, t -> 0.000000000000000, u_0_R_1 -> 0.000000000000000} , [Xhat_0_P_1, m, Xhat_0_R_1, Xhat_0_R_0, gamma, Xhat_0_P_0, k, r] ,  {}
+A: (-1.99755100025328, 1.79779590022795)
+S: (0.172768342440173, 0.416986163120091)
+D: ((Xhat_0_P_0*Xhat_0_R_1*gamma*sin(-u_0_P_0 + u_0_R_1) + Xhat_0_P_1*Xhat_0_R_1*gamma*sin(-u_0_P_1 + u_0_R_1))*sin(-u_0_P_0 + u_0_R_1), 81/100*(Xhat_0_P_0*Xhat_0_R_0*gamma*sin(u_0_P_0 - u_0_R_0) + Xhat_0_P_0*Xhat_0_R_1*gamma*sin(u_0_P_0 - u_0_R_1))*sin(u_0_P_0 - u_0_R_1))
+D: (0.000323616679396230, 0.000244625634817345)
+I: (9/10*(Xhat_0_P_0*Xhat_0_R_0*gamma*sin(u_0_P_0 - u_0_R_0) + Xhat_0_P_0*Xhat_0_R_1*gamma*sin(u_0_P_0 - u_0_R_1))*sin(-u_0_P_0 + u_0_R_1), 9/10*(Xhat_0_P_0*Xhat_0_R_1*gamma*sin(-u_0_P_0 + u_0_R_1) + Xhat_0_P_1*Xhat_0_R_1*gamma*sin(-u_0_P_1 + u_0_R_1))*sin(u_0_P_0 - u_0_R_1))
+I: (-0.000271806260908161, -0.000291255011456607)
+dAdt: (0.0000518104184880691, -0.0000466293766392623)
+{u_0_P_0 -> -0.0700000000000000, u_0_R_0 -> -0.100000000000000, u_0_P_1 -> 0.0200000000000000, t -> 0.000000000000000, u_0_R_1 -> 0.000000000000000} : (-1.00000000000000, -1.00000000000000)
+merge bindings: {t -> 0.000000000000000, u_0_R_0 -> -0.100000000000000, u_0_P_1 -> 0.0200000000000000, u_0_P_0 -> -0.0700000000000000, u_0_R_1 -> 0.000000000000000} , [] ,  {}
+merge bindings: {u_0_P_0 -> -0.0700000000000000, u_0_R_0 -> -0.100000000000000, u_0_P_1 -> 0.0200000000000000, t -> 0.000000000000000, u_0_R_1 -> 0.000000000000000} , [Xhat_0_P_1, m, Xhat_0_R_1, Xhat_0_R_0, gamma, Xhat_0_P_0, k, r] ,  {}
+A: (-1, -1)
+S: (0.416986163120091, 0.416986163120091)
+D: (0, 0)
+D: (0, 0)
+I: (0, 0)
+I: (0, 0)
+dAdt: (0, 0)
 [ -e foodweb-2-2.plot.sage.status ] && (rm -f foodweb-2-2.plot.sage.status && mv foodweb-2-2.plot.sage.dmp foodweb-2-2.plot.sage.out) || exit 1
-make[1]: *** [foodweb-2-2.plot.sage.out] Error 1
-make[1]: Leaving directory `/usr/local/src/jekyll-research/wmd_files/Selection_Gradients'
-Make failed with exit code 2.
-Thu May 14 15:51:15 2015
+(grep -q '\\begin{document}' foodweb-2-2.plot.sage.out.tex && sed -e '1,/\\begin{document}/d' -e '/\\end{document}/,$d' || cat) < foodweb-2-2.plot.sage.out.tex > foodweb-2-2.plot.sage.out.tex-inline
+make[1]: Leaving directory `/usr/local/src/adaptive-dynamics-research/wmd_files/Selection_Gradients'
+Make succeeded.
+Sat Feb  6 15:26:13 2016

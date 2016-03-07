@@ -1,20 +1,12 @@
-Thu May 14 15:48:02 2015
-/usr/bin/make -C /usr/local/src/jekyll-research/wmd_files/Selection_Gradients \
+Sat Feb  6 15:21:26 2016
+/usr/bin/make -C /usr/local/src/adaptive-dynamics-research/wmd_files/Selection_Gradients \
     foodweb.sage.out.tex-inline
-Including .mk files: sage.mk sage-inline.mk 
-Including .mk files from .step files: foodweb.py.mk foodweb.sage.mk foodweb.plot.sage.mk foodweb-2-2.sage.mk foodweb-2-2.plot.sage.mk maclev-1-1.sage.mk maclev-1-1-adap.sage.mk maclev-1-1-mc-adap-geom.sage.mk maclev-1-1-ak-adap-geom.sage.mk S-A-vector-field.sage.mk maclev-1-1-d1A-vector-field.sage.mk maclev-1-1-S-and-d1A-on-curve.sage.mk maclev-1-1-S-and-D-on-curve.sage.mk maclev_1_2_defs.py.mk maclev-1-2-popdyn.sage.mk maclev-1-2-adap.sage.mk maclev-1-2-p.sage.mk maclev-1-2-zngi.sage.mk maclev-1-2-geom.sage.mk maclev_unconstrained_c.py.mk maclev-2-2-c-popdyn.sage.mk maclev-2-2-c-adap.sage.mk maclev-2-2-c-p.sage.mk maclev-2-2-c-zngi.sage.mk maclev-2-2-c-geom.sage.mk maclev_2_2_defs.py.mk maclev-2-2-popdyn.sage.mk maclev-2-2-adap.sage.mk maclev-2-2-p.sage.mk maclev-2-2-zngi.sage.mk maclev-2-2-geom.sage.mk maclev_a_only_defs.py.mk maclev-a-only-popdyn.sage.mk maclev-a-only-adap.sage.mk maclev-a-only-p.sage.mk maclev-a-only-zngi.sage.mk maclev-a-only-geom.sage.mk maclev_a_c.py.mk maclev-2-2-a-c-popdyn.sage.mk maclev-2-2-a-c-adap.sage.mk maclev-2-2-a-c-p.sage.mk maclev-2-2-a-c-zngi.sage.mk maclev-2-2-a-c-geom.sage.mk maclevmodels.py.mk toc.sage.mk maclev-2-2-zngi-invasion.sage.mk lotkavolterra.py.mk
+Including .mk files: sage-inline.mk 
 Including .mk files from .sage-inline files: avec.sage.mk a-careful.sage.mk
+Including .mk files from .step files: aij.py.mk aij-assemble.sage.mk aij-assemble-plot.sage.mk aij-evol.sage.mk aij-evol-plot.sage.mk direct.py.mk direct-assemble.sage.mk direct-assemble-plot.sage.mk direct-evol.sage.mk direct-evol-plot.sage.mk foodweb.py.mk foodweb.sage.mk foodweb-adap.sage.mk foodweb.plot.sage.mk foodweb-2-2.sage.mk foodweb-2-2.plot.sage.mk large.py.mk large-assemble.sage.mk large-assemble-plot.sage.mk large-evol.sage.mk large-evol-plot.sage.mk logistic-S-A-curves.sage.mk maclev-S-A-curve.sage.mk logistic-S-A-curve.sage.mk maclev-1-1.sage.mk maclev-1-1-adap.sage.mk maclev-1-1-mc-adap-geom.sage.mk maclev-1-1-ak-adap-geom.sage.mk S-A-vector-field.sage.mk maclev-1-1-d1A-vector-field.sage.mk maclev-1-1-S-and-d1A-on-curve.sage.mk maclev-1-1-S-and-D-on-curve.sage.mk maclev_1_2_defs.py.mk maclev-1-2-popdyn.sage.mk maclev-1-2-adap.sage.mk maclev-1-2-p.sage.mk maclev-1-2-zngi.sage.mk maclev-1-2-geom.sage.mk maclev_unconstrained_c.py.mk maclev-2-2-c-popdyn.sage.mk maclev-2-2-c-adap.sage.mk maclev-2-2-c-p.sage.mk maclev-2-2-c-zngi.sage.mk maclev-2-2-c-geom.sage.mk maclev_2_2_defs.py.mk maclev-2-2-popdyn.sage.mk maclev-2-2-adap.sage.mk maclev-2-2-p.sage.mk maclev-2-2-zngi.sage.mk maclev-2-2-geom.sage.mk maclev_a_only_defs.py.mk maclev-a-only-popdyn.sage.mk maclev-a-only-adap.sage.mk maclev-a-only-p.sage.mk maclev-a-only-zngi.sage.mk maclev-a-only-geom.sage.mk maclev_a_c.py.mk maclev-2-2-a-c-popdyn.sage.mk maclev-2-2-a-c-adap.sage.mk maclev-2-2-a-c-p.sage.mk maclev-2-2-a-c-zngi.sage.mk maclev-2-2-a-c-geom.sage.mk maclevmodels.py.mk masel_model.py.mk masel.sage.mk masel-adap.sage.mk masel-2-adap.sage.mk statmech.py.mk statmech-assemble.sage.mk statmech-assemble-plot.sage.mk statmech-evol.sage.mk statmech-evol-plot.sage.mk sea.sage.mk toc.sage.mk maclev-2-2-zngi-invasion.sage.mk lotkavolterra.py.mk r_selection.py.mk r-selection.sage.mk
 Including .tex.d files: foodweb-2-2.tikz.tex.d foodweb.tikz.tex.d
-make[1]: Entering directory `/usr/local/src/jekyll-research/wmd_files/Selection_Gradients'
-/usr/bin/make --no-print-directory -C /usr/local/src/jekyll-research/wmd_files/SageDynamicsRepo/SageDynamics dynamicalsystems.py
-Including .mk files:  
-Including .tex.d files: 
-make[2]: Nothing to be done for `dynamicalsystems.py'.
-/usr/bin/make --no-print-directory -C /usr/local/src/jekyll-research/wmd_files/SageDynamicsRepo/SageAdaptiveDynamics adaptivedynamics.py
-Including .mk files:  
-Including .tex.d files: 
-make[2]: Nothing to be done for `adaptivedynamics.py'.
-(grep -q '\\begin{document}' foodweb.sage.out.tex && sed -e '1,/\\begin{document}/d' -e '/\\end{document}/,$d' || cat) < foodweb.sage.out.tex > foodweb.sage.out.tex-inline
-make[1]: Leaving directory `/usr/local/src/jekyll-research/wmd_files/Selection_Gradients'
+make[1]: Entering directory `/usr/local/src/adaptive-dynamics-research/wmd_files/Selection_Gradients'
+make[1]: `foodweb.sage.out.tex-inline' is up to date.
+make[1]: Leaving directory `/usr/local/src/adaptive-dynamics-research/wmd_files/Selection_Gradients'
 Make succeeded.
-Thu May 14 15:48:02 2015
+Sat Feb  6 15:21:26 2016

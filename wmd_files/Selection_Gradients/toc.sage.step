@@ -1,20 +1,10 @@
-# requires: $(SageDynamics)/dynamicalsystems.py
-# requires: $(SageAdaptiveDynamics)/adaptivedynamics.py
-# requires: $(SageUtils)/latex_output.py
 # produces: toc.sobj toc.sage.out.tex
 from sage.all import * 
 from sage.misc.latex import _latex_file_
 
-import os
-import sys
-sys.path.append( os.environ['SageUtils'] )
-sys.path.append( os.environ['SageDynamics'] )
-sys.path.append( os.environ['SageAdaptiveDynamics'] )
-import latex_output
 import dynamicalsystems
-import adaptivedynamics
 
-ltx = latex_output.latex_output( 'toc.sage.out.tex' )
+ltx = dynamicalsystems.latex_output( 'toc.sage.out.tex' )
 
 class TragedyOfCommonsModel(dynamicalsystems.PopulationDynamicsSystem):
     def __init__(
@@ -49,7 +39,7 @@ toc = TragedyOfCommonsModel(
 ltx.write( 'The ToC model:' )
 ltx.write_block( toc )
 
-toc_adap = adaptivedynamics.AdaptiveDynamicsModel( 
+toc_adap = dynamicalsystems.AdaptiveDynamicsModel( 
     toc,
     [ toc._indexers['h'] ]
 )

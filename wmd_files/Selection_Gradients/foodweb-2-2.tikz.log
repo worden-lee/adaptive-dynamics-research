@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=latex 2015.4.21)  15 SEP 2015 16:07
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=latex 2015.4.21)  6 FEB 2016 15:24
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -734,11 +734,11 @@ File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
 (.//foodweb-2-2.tikz.aux) ) 
 Here is how much of TeX's memory you used:
  13231 strings out of 495029
- 257629 string characters out of 6181523
+ 257626 string characters out of 6181523
  348583 words of memory out of 5000000
  16170 multiletter control sequences out of 15000+600000
  8140 words of font info for 28 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  56i,6n,63p,428b,750s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on .//foodweb-2-2.tikz.dvi (1 page, 11264 bytes).
+Output written on .//foodweb-2-2.tikz.dvi (1 page, 11260 bytes).

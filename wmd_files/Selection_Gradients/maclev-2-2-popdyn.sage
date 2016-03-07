@@ -1,5 +1,5 @@
 # requires: maclev_2_2_defs.py
-# requires: $(SageDynamics)/dynamicalsystems.py maclevmodels.py
+# requires: maclevmodels.py
 # produces: maclev-2-2-popdyn.sage.out.tex maclev-2-2-popdyn.sobj
 # produces: maclev-2-2-popdyn.png maclev-2-2-r-zngis.png maclev-2-2-c-vs-u.png
 from maclev_2_2_defs import *

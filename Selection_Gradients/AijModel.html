@@ -69,15 +69,8 @@ dynamics, rather than by deriving a differential equation for the
 evolutionary dynamics of matrix entries.</p>
 
 <p><!-- aij.py.step --><fieldset class="ww-project-file-source ww-collapsible"><legend><span>aij.py.step</span></legend><div class="ww-collapsible-content"><pre>from sage.all import * 
-import os
-import sys
-sys.path.append( os.environ['SageUtils'] )
-sys.path.append( os.environ['SageDynamics'] )
-sys.path.append( os.environ['SageAdaptiveDynamics'] )
-import latex_output
 import dynamicalsystems
 import lotkavolterra
-import adaptivedynamics
 
 class AijModel(lotkavolterra.GeneralizedLotkaVolterraModel):
     def __init__(
@@ -88,7 +81,7 @@ class AijModel(lotkavolterra.GeneralizedLotkaVolterraModel):
             range(n), bindings=bindings
         )
 
-class NaiveAdaptiveDynamicsModel(adaptivedynamics.AdaptiveDynamicsModel):
+class NaiveAdaptiveDynamicsModel(dynamicalsystems.AdaptiveDynamicsModel):
     def __init__(self, popdyn, phenotype_indexers,
 	early_bindings=dynamicalsystems.Bindings(), late_bindings=dynamicalsystems.Bindings()):
 	self._popdyn = early_bindings( popdyn )
@@ -108,7 +101,7 @@ class NaiveAdaptiveDynamicsModel(adaptivedynamics.AdaptiveDynamicsModel):
 	    popstate = [ 1 for _ in self._popdyn._vars ]
 	t = start_time
 	trajectory = dynamicalsystems.Trajectory( self, [] )
-	self.append_to_trajectory( trajectory, t, None, state_bindings )
+	self.append_to_trajectory( trajectory, t, state_bindings )
 	while t &lt; end_time:
 	    found_equil = False
 	    while found_equil is False:
@@ -118,11 +111,14 @@ class NaiveAdaptiveDynamicsModel(adaptivedynamics.AdaptiveDynamicsModel):
 	        speed = max( [ pop_end( self._popdyn._flow[x] ) for x in self._popdyn._vars ] )
 	        found_equil = (N(speed) &lt; 1e-7)
 		popstate = [ pop_end(x) for x in self._popdyn._vars ]
+		del(self._popdyn._gsl_system)
 	    t += 1
 	    ## clear out any extinctions
 	    persistent_indices = [ i for i in self._popdyn._population_indices if
 	        pop_end( self._popdyn._population_indexer[i] ) &gt; 1e-5 ]
 	    print 'final state:', popstate, ', keep', persistent_indices
+	    for i in set(self._popdyn._population_indices) - set(persistent_indices):
+		self.record_extinction(trajectory, t, i, state_bindings)
 	    ## add a new variant
 	    import numpy.random
 	    pops = [ pop_end( self._popdyn._population_indexer[i] )
@@ -132,23 +128,28 @@ class NaiveAdaptiveDynamicsModel(adaptivedynamics.AdaptiveDynamicsModel):
 		[ p/total_pop for p in pops ] )
 	    mutant_parent = [ i for i,n in zip( persistent_indices, choose_parent ) if n == 1 ][0]
 	    self._popdyn = deepcopy( self._popdyn )
-	    mutant_index = self._popdyn.mutate( mutant_parent )
-	    self._popdyn.set_population_indices( persistent_indices + [ mutant_index ] )
+	    self._popdyn.set_population_indices( persistent_indices )
+	    mutant_index = self.mutate( self._popdyn, mutant_parent )
 	    mb = state_bindings( self.mutation_bindings( mutant_parent, mutant_index ) )
 	    self._popdyn.bind_in_place( mb )
 	    state_bindings += mb
 	    print &quot;mutate from&quot;, mutant_parent, &quot;to&quot;, mutant_index
+	    self.record_mutation( trajectory, t, mutant_parent, mutant_index, state_bindings )
+	    self.append_to_trajectory( trajectory, t, state_bindings )
 	    print self._popdyn
 	    popstate = [
 		pop_end( self._popdyn._population_indexer[i] ) -
 		    (1e-3 if i is mutant_parent else 0)
 		for i in persistent_indices
 	    ] + [ 1e-3 ]
-	    self.append_to_trajectory( trajectory, t, (mutant_parent,mutant_index), state_bindings )
 	return trajectory
     def mutation_bindings(self, parent, sport):
 	return dynamicalsystems.Bindings()
-    def append_to_trajectory( self, trajectory, t, mutation, state_bindings ):
+    def record_mutation(self, trajectory, t, mutant_parent, mutant_index, state_bindings):
+	pass
+    def record_extinction(self, trajectory, t, decedent, sb):
+	pass
+    def append_to_trajectory( self, trajectory, t, state_bindings ):
 	trajectory._timeseries.append( dict(
 	    [ (x,state_bindings(x)) for x in self._vars ] +
 	    [ (SR.symbol('t'),t) ]
@@ -189,42 +190,45 @@ class AijAdaptiveDynamics(NaiveAdaptiveDynamicsModel):
 	    ] + [
 		(rx[iprime], rx[i] + dr())
 	] ) )
-	print 'mutant bindings', i, '-&gt;', iprime, ':', mb
+	#print 'mutant bindings', i, '-&gt;', iprime, ':', mb
 	return mb
-    def append_to_trajectory( self, trajectory, t, mutation, state_bindings ):
-	super(AijAdaptiveDynamics,self).append_to_trajectory( trajectory, t, mutation, state_bindings )
-	try: trajectory._annotated_timeseries
-	except AttributeError:
-	    trajectory._annotated_timeseries = []
-	    trajectory._lineage = {}
+    def record_mutation(self, trajectory, t, parent, child, sb):
+	super(AijAdaptiveDynamics,self).record_mutation(trajectory,t,parent,child,sb)
 	ax = self._popdyn._indexers['a']
-	sa = SR.symbol( ax._f )
+	sa = ax._f #SR.symbol( ax._f ) # uniqueness problems pickling symbols?
 	rx = self._popdyn._indexers['r']
-	sr = SR.symbol( rx._f )
-	st = SR.symbol('t')
+	sr = rx._f #SR.symbol( rx._f )
+	st = 't' #SR.symbol('t')
 	il = self._popdyn._population_indices
-	alist = (
-	    [ ((sa,i,j),state_bindings(ax[i][j])) for i in il for j in il ] +
-	    [ ((sr,i),  state_bindings(rx[i])) for i in il ] +
-	    [ ((st,),   t) ]
-	)
-	#print alist
-	trajectory._annotated_timeseries.append( dict( alist ) )
-	if mutation is not None:
-	    parent,child = mutation
-	    trajectory._lineage[child] = (parent,t)
-
+	for i in il:
+	    if child != i:
+	        trajectory._tree[ (sa,i,child) ] = [ (t-1,sb(ax[i][parent])) ]
+		trajectory._tree[ (sa,child,i) ] = [ (t-1,sb(ax[parent][i])) ]
+	trajectory._tree[ (sa,child,child) ] = [ (t-1,sb(ax[parent][parent])) ]
+	trajectory._tree[ (sr,child) ] = [ (t-1,sb(rx[parent])) ]
+    def append_to_trajectory( self, trajectory, t, sb ):
+        ax = self._popdyn._indexers['a']
+        sa = ax._f
+        rx = self._popdyn._indexers['r']
+        sr = rx._f
+        st = 't'
+        il = self._popdyn._population_indices
+	try: trajectory._tree
+	except AttributeError:
+	    from collections import defaultdict
+	    trajectory._tree = defaultdict( list )
+        for i in il:
+	    for j in il:
+	        trajectory._tree[ (sa,i,j) ].append( (t,sb(ax[i][j])) )
+            trajectory._tree[ (sr,i) ].append( (t,sb(rx[i])) )
 </pre></div></fieldset></p>
 
 <p><!-- aij-assemble.sage.step --><fieldset class="ww-project-file-source ww-collapsible"><legend><span>aij-assemble.sage.step</span></legend><div class="ww-collapsible-content"><pre># requires: aij.py
-# requires: $(SageDynamics)/dynamicalsystems.py
-# requires: $(SageUtils)/latex_output.py
 # produces: aij-assemble.sobj
 from sage.all import *
 from sage.misc.latex import _latex_file_
 
 import aij
-import latex_output
 import dynamicalsystems
 
 set_random_seed(0)
@@ -235,20 +239,17 @@ save_session( 'aij-assemble' )
 </pre></div></fieldset></p>
 
 <p><!-- aij-assemble-plot.sage.step --><fieldset class="ww-project-file-source ww-collapsible"><legend><span>aij-assemble-plot.sage.step</span></legend><div class="ww-collapsible-content"><pre># requires: aij.py
-# requires: $(SageDynamics)/dynamicalsystems.py
-# requires: $(SageUtils)/latex_output.py
 # requires: aij-assemble.sobj
 # produces: aij-assemble.sage.out.tex aij-assemble.svg
 from sage.all import *
 from sage.misc.latex import _latex_file_
 
 import aij
-import latex_output
 import dynamicalsystems
 
 load_session( 'aij-assemble' )
 
-ltx = latex_output.latex_output( 'aij-assemble.sage.out.tex' )
+ltx = dynamicalsystems.latex_output( 'aij-assemble.sage.out.tex' )
 
 ltx.write( comm2 )
 
@@ -280,7 +281,7 @@ ltx.close()
 </article>
 </div>
 <footer class="ltx_page_footer">
-<div class="ltx_page_logo">Generated  on Wed Sep 30 14:54:42 2015 by <a href="http://dlmf.nist.gov/LaTeXML/">LaTeXML <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAsAAAAOCAYAAAD5YeaVAAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAALEwAACxMBAJqcGAAAAAd0SU1FB9wKExQZLWTEaOUAAAAddEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIFRoZSBHSU1Q72QlbgAAAdpJREFUKM9tkL+L2nAARz9fPZNCKFapUn8kyI0e4iRHSR1Kb8ng0lJw6FYHFwv2LwhOpcWxTjeUunYqOmqd6hEoRDhtDWdA8ApRYsSUCDHNt5ul13vz4w0vWCgUnnEc975arX6ORqN3VqtVZbfbTQC4uEHANM3jSqXymFI6yWazP2KxWAXAL9zCUa1Wy2tXVxheKA9YNoR8Pt+aTqe4FVVVvz05O6MBhqUIBGk8Hn8HAOVy+T+XLJfLS4ZhTiRJgqIoVBRFIoric47jPnmeB1mW/9rr9ZpSSn3Lsmir1fJZlqWlUonKsvwWwD8ymc/nXwVBeLjf7xEKhdBut9Hr9WgmkyGEkJwsy5eHG5vN5g0AKIoCAEgkEkin0wQAfN9/cXPdheu6P33fBwB4ngcAcByHJpPJl+fn54mD3Gg0NrquXxeLRQAAwzAYj8cwTZPwPH9/sVg8PXweDAauqqr2cDjEer1GJBLBZDJBs9mE4zjwfZ85lAGg2+06hmGgXq+j3+/DsixYlgVN03a9Xu8jgCNCyIegIAgx13Vfd7vdu+FweG8YRkjXdWy329+dTgeSJD3ieZ7RNO0VAXAPwDEAO5VKndi2fWrb9jWl9Esul6PZbDY9Go1OZ7PZ9z/lyuD3OozU2wAAAABJRU5ErkJggg==" alt="[LOGO]"></a>
+<div class="ltx_page_logo">Generated  on Thu Oct  8 19:03:47 2015 by <a href="http://dlmf.nist.gov/LaTeXML/">LaTeXML <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAsAAAAOCAYAAAD5YeaVAAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAALEwAACxMBAJqcGAAAAAd0SU1FB9wKExQZLWTEaOUAAAAddEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIFRoZSBHSU1Q72QlbgAAAdpJREFUKM9tkL+L2nAARz9fPZNCKFapUn8kyI0e4iRHSR1Kb8ng0lJw6FYHFwv2LwhOpcWxTjeUunYqOmqd6hEoRDhtDWdA8ApRYsSUCDHNt5ul13vz4w0vWCgUnnEc975arX6ORqN3VqtVZbfbTQC4uEHANM3jSqXymFI6yWazP2KxWAXAL9zCUa1Wy2tXVxheKA9YNoR8Pt+aTqe4FVVVvz05O6MBhqUIBGk8Hn8HAOVy+T+XLJfLS4ZhTiRJgqIoVBRFIoric47jPnmeB1mW/9rr9ZpSSn3Lsmir1fJZlqWlUonKsvwWwD8ymc/nXwVBeLjf7xEKhdBut9Hr9WgmkyGEkJwsy5eHG5vN5g0AKIoCAEgkEkin0wQAfN9/cXPdheu6P33fBwB4ngcAcByHJpPJl+fn54mD3Gg0NrquXxeLRQAAwzAYj8cwTZPwPH9/sVg8PXweDAauqqr2cDjEer1GJBLBZDJBs9mE4zjwfZ85lAGg2+06hmGgXq+j3+/DsixYlgVN03a9Xu8jgCNCyIegIAgx13Vfd7vdu+FweG8YRkjXdWy329+dTgeSJD3ieZ7RNO0VAXAPwDEAO5VKndi2fWrb9jWl9Esul6PZbDY9Go1OZ7PZ9z/lyuD3OozU2wAAAABJRU5ErkJggg==" alt="[LOGO]"></a>
 </div></footer>
 </div>
 
@@ -288,24 +289,20 @@ ltx.close()
 </p>
 
 <p><!-- aij-evol.sage.step --><fieldset class="ww-project-file-source ww-collapsible"><legend><span>aij-evol.sage.step</span></legend><div class="ww-collapsible-content"><pre># requires: aij.py
-# requires: $(SageUtils)/latex_output.py
-# requires: $(SageDynamics)/dynamicalsystems.py
-# requires: $(SageAdaptiveDynamics)/adaptivedynamics.py
 # requires: lotkavolterra.py
 # requires: aij-assemble.sobj
 # produces: aij-evol.sobj
 from sage.all import *
 from sage.misc.latex import _latex_file_
+from sage.misc.latex import latex
 
 import aij
-import latex_output
 import dynamicalsystems
-import adaptivedynamics
 import lotkavolterra
 
 load_session( 'aij-assemble' )
 
-ltx = latex_output.latex_output( 'aij-evol.sage.out.tex' )
+ltx = dynamicalsystems.latex_output( 'aij-evol.sage.out.tex' )
 
 adap = aij.AijAdaptiveDynamics( comm2 )
 
@@ -313,24 +310,24 @@ ad_init = dynamicalsystems.Bindings( { comm2._indexers['a'][i][j]:-1 for i in co
 #ad_init = dynamicalsystems.Bindings( { comm2._indexers['a'][i][j]:(-1 if i == j else -0.75 if i &lt; j else -0.7) for i in comm2._population_indices for j in comm2._population_indices } ) + dynamicalsystems.Bindings( { comm2._indexers['r'][i]:1 for i in comm2._population_indices } )
 ad_init_state = [ ad_init(u) for u in adap._vars ]
 
-ad_traj = adap.solve( ad_init_state, end_time=20 )
+ad_traj = adap.solve( ad_init_state, end_time=1 ) #10 )
 
 ltx.close()
-
 save_session('aij-evol')
+
 </pre></div></fieldset></p>
+
+<p></p>
 
 <p><!-- aij-evol-plot.sage.step --><fieldset class="ww-project-file-source ww-collapsible"><legend><span>aij-evol-plot.sage.step</span></legend><div class="ww-collapsible-content"><pre># requires: aij-evol.sobj
 # produces: aij-evol-plot.sage.out.tex 
-# produces: aij-a-vs-t.svg aij-a-vs-a.svg
+# produces: aij-a-vs-t.svg aij-a-vs-t-0.svg aij-a-vs-a.svg
 from sage.all import *
 from sage.misc.latex import _latex_file_
 from sage.misc.latex import latex
 
 import aij
-import latex_output
 import dynamicalsystems
-import adaptivedynamics
 import lotkavolterra
 
 # create variables with custom latex names because load_session
@@ -341,7 +338,7 @@ for x in ('X_0', 'X_i', 'X_1'): dynamicalsystems.hat(SR.symbol(x))
 
 load_session(&quot;aij-evol&quot;)
 
-ltx = latex_output.latex_output( 'aij-evol-plot.sage.out.tex' )
+ltx = dynamicalsystems.latex_output( 'aij-evol-plot.sage.out.tex' )
 
 #ltx.write( 'sm\_traj t:', [ ts('t') for ts in ad_traj._timeseries ], '\n\n' )
 #ltx.write( 'starts with:' )
@@ -350,11 +347,11 @@ ltx = latex_output.latex_output( 'aij-evol-plot.sage.out.tex' )
 #    ltx.write_block( ad_traj._timeseries[1] )
 
 #ltx.write( 'flow: $%s \mapsto %s$\n\n' % (
-#	latex( latex_output.column_vector( symbolic_adap._vars ) ),
-#	latex( latex_output.column_vector( [ symbolic_adap._flow[v] for v in symbolic_adap._vars ] ) ) ) )
+#	latex( dynamicalsystems.column_vector( symbolic_adap._vars ) ),
+#	latex( dynamicalsystems.column_vector( [ symbolic_adap._flow[v] for v in symbolic_adap._vars ] ) ) ) )
 
-#ltx.write( 'flow at ', '$%s$'%latex( latex_output.column_vector( ad_init_state ) ), ': ', 
-#    '$%s$'%latex( latex_output.column_vector( ad_init( symbolic_adap._flow[v] ) for v in symbolic_adap._vars ) ),
+#ltx.write( 'flow at ', '$%s$'%latex( dynamicalsystems.column_vector( ad_init_state ) ), ': ', 
+#    '$%s$'%latex( dynamicalsystems.column_vector( ad_init( symbolic_adap._flow[v] ) for v in symbolic_adap._vars ) ),
 #    '\n\n' )
 
 #ltx.write( 'a values:' )
@@ -368,59 +365,62 @@ ltx = latex_output.latex_output( 'aij-evol-plot.sage.out.tex' )
 #    matrix( [ [ ad_traj._timeseries[0]( diff( equil(x), u ) ) for u in symbolic_adap._vars ] for x in smr.equilibrium_vars() ] )
 #)
 
-print ad_traj._annotated_timeseries
-t = SR.symbol('t')
+print ad_traj._tree
 
-#atp = list_plot( [ (d[t],aij) for d in ad_traj._annotated_timeseries for ann,aij in d.iteritems() if str(ann[0]) == 'a' ], color='red' )
-#atp.axes_labels( [ '$t$', '$a$' ] )
-#atp.save( 'aij-a-vs-t-0.svg', figsize=(5,5) )
+#atp0 = list_plot( [ (t,aij) for k,l in ad_traj._tree.iteritems() for t,aij in l if str(k[0]) == 'a' ], color='red' )
+#atp0.axes_labels( [ '$t$', '$a$' ] )
+#atp0.save( 'aij-a-vs-t-0.svg', figsize=(5,5) )
 
-atp = Graphics()
-dprev = None
-for d in ad_traj._annotated_timeseries:
-    tval = d[(t,)]
-    for ann,aij in d.iteritems():
-	if dprev is None:
-	    dprev = d
-	    continue
-	dprev = d
-	if str(ann[0]) != 'a': continue
-	a,i,j = ann
-	if i in ad_traj._lineage and ad_traj._lineage[i][1] == tval:
-	    ipar = ad_traj._lineage[i][0]
-	else: ipar = i
-	if j in ad_traj._lineage and ad_traj._lineage[j][1] == tval:
-	    jpar = ad_traj._lineage[j][0]
-	else: jpar = j
-	atp += line( [(tval-1,dprev[(a,ipar,jpar)]),(tval,aij)],
-	    color = (i == j and 'black' or (1,0.7,0.7)) )
+atp0 = sum( ( line( l, color='black' if k[1]==k[2] else (1,0.7,0.7) ) for k,l in ad_traj._tree.iteritems() if str(k[0]) == 'a' ), Graphics() )
+atp0.axes_labels( [ '$t$', '$a$' ] )
+atp0.save( 'aij-a-vs-t-0.svg', figsize=(5,5) )
+
+atp = sum( ( line( l, color='black' if k[1]==k[2] else (1,0.7,0.7) ) for k,l in ad_traj._tree.iteritems() if str(k[0]) == 'a' and len(l) &gt; 2 ), Graphics() )
 atp.axes_labels( [ '$t$', '$a$' ] )
 atp.save( 'aij-a-vs-t.svg', figsize=(5,5) )
 
-#aap = lotkavolterra.plot_aij_with_arrows( ad_traj, nlv, scale=0.05 )
+aap = sum( (
+	line( [ (l[1],l[1]) for l in ad_traj._tree[k] ], color='black' )
+	    if k[1]==k[2] else
+	line( [ (l[1],r[1]) for l,r in zip(ad_traj._tree[k],ad_traj._tree[(k[0],k[2],k[1])]) ], color=(1,0.7,0.7) )
+	for k in ad_traj._tree.iterkeys()
+	    if str(k[0]) == 'a' and len(ad_traj._tree[k]) &gt; 2# and k[1] &lt;= k[2]
+    ),
+    Graphics()
+)
+aap.axes_labels( [ '$a_{ij}$', '$a_{ji}$' ] )
+aap.save( 'aij-a-vs-a.svg', figsize=(5,5) )
 
+exit(0r)
+atp = Graphics()
 aap = Graphics()
-dprev = None
-for d in ad_traj._annotated_timeseries:
-    if dprev is not None:
-        tval = d[(t,)]
-        for ann,aij in d.iteritems():
-	    if str(ann[0]) != 'a': continue
-	    a,i,j = ann
-	    if i in ad_traj._lineage and ad_traj._lineage[i][1] == tval:
-	        ipar = ad_traj._lineage[i][0]
-		print 'time', tval, ipar, '-&gt;', i
-	    else: ipar = i
-	    if j in ad_traj._lineage and ad_traj._lineage[j][1] == tval:
-	        jpar = ad_traj._lineage[j][0]
-		print 'time', tval, jpar, '-&gt;', j
-	    else: jpar = j
-	    if i is ipar and j is jpar: continue
-	    print 'dprev', dprev
-	    print 'line', [(ipar,jpar),(i,j)], [(dprev[(a,jpar,ipar)],dprev[(a,ipar,jpar)]),(d[(a,j,i)],aij)]
-	    aap += line( [(dprev[(a,jpar,ipar)],dprev[(a,ipar,jpar)]),(d[(a,j,i)],aij)],
-	        color = (i == j and 'black' or (1,0.7,0.7)) )
-    dprev = d
+for k,ser in ad_traj._tree:
+    if str(ann[0]) != 'a': continue
+    a,i,j = ann
+    if ann in past:
+        pij = past[ann]
+    else:
+        if i in ad_traj._lineage and i &gt;= j:
+            ipar = ad_traj._lineage[i]
+    	    print ipar, '-&gt;', i
+        else: ipar = i
+        if j in ad_traj._lineage and j &gt;= i:
+            jpar = ad_traj._lineage[j]
+    	    print jpar, '-&gt;', j
+        else: jpar = j
+        print (ipar,jpar), '-&gt;', (i,j)
+        print past
+        if ('a',ipar,jpar) not in past: # case of initial strain
+    	    continue
+        pij = past[('a',ipar,jpar)]
+        pji = past[('a',jpar,ipar)]
+        aap += line( [(pij,pji),(aij,d[('a',j,i)])],
+            color = (i == j and 'black' or (1,0.7,0.7)) )
+    atp += line( [(tval-1,pij),(tval,aij)],
+        color = (i == j and 'black' or (1,0.7,0.7)) )
+atp.axes_labels( [ '$t$', '$a$' ] )
+atp.save( 'aij-a-vs-t.svg', figsize=(5,5) )
+#aap = lotkavolterra.plot_aij_with_arrows( ad_traj, nlv, scale=0.05 )
 aap.axes_labels( [ '$a_{ij}$', '$a_{ji}$' ] )
 aap.save( 'aij-a-vs-a.svg', figsize=(5,5) )
 
@@ -471,12 +471,14 @@ ltx.close()
 </article>
 </div>
 <footer class="ltx_page_footer">
-<div class="ltx_page_logo">Generated  on Wed Sep 30 15:08:00 2015 by <a href="http://dlmf.nist.gov/LaTeXML/">LaTeXML <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAsAAAAOCAYAAAD5YeaVAAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAALEwAACxMBAJqcGAAAAAd0SU1FB9wKExQZLWTEaOUAAAAddEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIFRoZSBHSU1Q72QlbgAAAdpJREFUKM9tkL+L2nAARz9fPZNCKFapUn8kyI0e4iRHSR1Kb8ng0lJw6FYHFwv2LwhOpcWxTjeUunYqOmqd6hEoRDhtDWdA8ApRYsSUCDHNt5ul13vz4w0vWCgUnnEc975arX6ORqN3VqtVZbfbTQC4uEHANM3jSqXymFI6yWazP2KxWAXAL9zCUa1Wy2tXVxheKA9YNoR8Pt+aTqe4FVVVvz05O6MBhqUIBGk8Hn8HAOVy+T+XLJfLS4ZhTiRJgqIoVBRFIoric47jPnmeB1mW/9rr9ZpSSn3Lsmir1fJZlqWlUonKsvwWwD8ymc/nXwVBeLjf7xEKhdBut9Hr9WgmkyGEkJwsy5eHG5vN5g0AKIoCAEgkEkin0wQAfN9/cXPdheu6P33fBwB4ngcAcByHJpPJl+fn54mD3Gg0NrquXxeLRQAAwzAYj8cwTZPwPH9/sVg8PXweDAauqqr2cDjEer1GJBLBZDJBs9mE4zjwfZ85lAGg2+06hmGgXq+j3+/DsixYlgVN03a9Xu8jgCNCyIegIAgx13Vfd7vdu+FweG8YRkjXdWy329+dTgeSJD3ieZ7RNO0VAXAPwDEAO5VKndi2fWrb9jWl9Esul6PZbDY9Go1OZ7PZ9z/lyuD3OozU2wAAAABJRU5ErkJggg==" alt="[LOGO]"></a>
+<div class="ltx_page_logo">Generated  on Thu Oct  8 19:34:06 2015 by <a href="http://dlmf.nist.gov/LaTeXML/">LaTeXML <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAsAAAAOCAYAAAD5YeaVAAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAALEwAACxMBAJqcGAAAAAd0SU1FB9wKExQZLWTEaOUAAAAddEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIFRoZSBHSU1Q72QlbgAAAdpJREFUKM9tkL+L2nAARz9fPZNCKFapUn8kyI0e4iRHSR1Kb8ng0lJw6FYHFwv2LwhOpcWxTjeUunYqOmqd6hEoRDhtDWdA8ApRYsSUCDHNt5ul13vz4w0vWCgUnnEc975arX6ORqN3VqtVZbfbTQC4uEHANM3jSqXymFI6yWazP2KxWAXAL9zCUa1Wy2tXVxheKA9YNoR8Pt+aTqe4FVVVvz05O6MBhqUIBGk8Hn8HAOVy+T+XLJfLS4ZhTiRJgqIoVBRFIoric47jPnmeB1mW/9rr9ZpSSn3Lsmir1fJZlqWlUonKsvwWwD8ymc/nXwVBeLjf7xEKhdBut9Hr9WgmkyGEkJwsy5eHG5vN5g0AKIoCAEgkEkin0wQAfN9/cXPdheu6P33fBwB4ngcAcByHJpPJl+fn54mD3Gg0NrquXxeLRQAAwzAYj8cwTZPwPH9/sVg8PXweDAauqqr2cDjEer1GJBLBZDJBs9mE4zjwfZ85lAGg2+06hmGgXq+j3+/DsixYlgVN03a9Xu8jgCNCyIegIAgx13Vfd7vdu+FweG8YRkjXdWy329+dTgeSJD3ieZ7RNO0VAXAPwDEAO5VKndi2fWrb9jWl9Esul6PZbDY9Go1OZ7PZ9z/lyuD3OozU2wAAAABJRU5ErkJggg==" alt="[LOGO]"></a>
 </div></footer>
 </div>
 
 </div>
 </p>
+
+<p><!-- aij-a-vs-t-0.svg --><object data="/adaptive-dynamics-research/wmd_files/Selection_Gradients/aij-a-vs-t-0.svg" type="image/svg+xml"><img src="/adaptive-dynamics-research/wmd_files/Selection_Gradients/aij-a-vs-t-0.png" alt="aij-a-vs-t-0.svg"/></object></p>
 
 <p><!-- aij-a-vs-t.svg --><object data="/adaptive-dynamics-research/wmd_files/Selection_Gradients/aij-a-vs-t.svg" type="image/svg+xml"><img src="/adaptive-dynamics-research/wmd_files/Selection_Gradients/aij-a-vs-t.png" alt="aij-a-vs-t.svg"/></object></p>
 

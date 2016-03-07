@@ -78,14 +78,7 @@
 <p>This will induce the usual dynamics of apparent competition, and adaptive dynamics of all the <!-- eb00a04135562ae6f74786f084f54327.tex-math.latexml.html --><span class="latexml"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="u_{i}" display="inline"><msub><mi>u</mi><mi>i</mi></msub></math></span> follows.</p>
 
 <p><!-- foodweb.py.step --><fieldset class="ww-project-file-source ww-collapsible"><legend><span>foodweb.py.step</span></legend><div class="ww-collapsible-content"><pre>from sage.all import * 
-import os
-import sys
-sys.path.append( os.environ['SageUtils'] )
-sys.path.append( os.environ['SageDynamics'] )
-sys.path.append( os.environ['SageAdaptiveDynamics'] )
-import latex_output
 import dynamicalsystems
-import adaptivedynamics
 
 class vertex_indexer(dynamicalsystems.indexer):
     def init(self, x):
@@ -172,19 +165,14 @@ class FoodWebModel(dynamicalsystems.PopulationDynamicsSystem):
 </pre></div></fieldset></p>
 
 <p><!-- foodweb.sage.step --><fieldset class="ww-project-file-source ww-collapsible"><legend><span>foodweb.sage.step</span></legend><div class="ww-collapsible-content"><pre># requires: foodweb.py
-# requires: $(SageDynamics)/dynamicalsystems.py
-# requires: $(SageAdaptiveDynamics)/adaptivedynamics.py
-# requires: $(SageUtils)/latex_output.py
 # produces: foodweb.sobj foodweb.sage.out.tex foodweb.tikz.tex
 from sage.all import * 
 from sage.misc.latex import _latex_file_
 
 import foodweb
-import latex_output
 import dynamicalsystems
-import adaptivedynamics
 
-ltx = latex_output.latex_output( 'foodweb.sage.out.tex' )
+ltx = dynamicalsystems.latex_output( 'foodweb.sage.out.tex' )
 
 # now that I've defined the general resource-competition model, let's
 # create a 1-resource, 1-population instantiation to work with
@@ -210,26 +198,21 @@ save_session('foodweb')
 </pre></div></fieldset></p>
 
 <p><!-- foodweb-adap.sage.step --><fieldset class="ww-project-file-source ww-collapsible"><legend><span>foodweb-adap.sage.step</span></legend><div class="ww-collapsible-content"><pre># requires: foodweb.py foodweb.sobj
-# requires: $(SageDynamics)/dynamicalsystems.py
-# requires: $(SageAdaptiveDynamics)/adaptivedynamics.py
-# requires: $(SageUtils)/latex_output.py
 # produces: foodweb-adap.sage.out.tex foodweb-adap.sobj
 from sage.all import * 
 from sage.misc.latex import _latex_file_
 
 import foodweb
-import latex_output
 import dynamicalsystems
-import adaptivedynamics
 
 load_session(&quot;foodweb&quot;)
 
-ltx = latex_output.latex_output( 'foodweb-adap.sage.out.tex' )
+ltx = dynamicalsystems.latex_output( 'foodweb-adap.sage.out.tex' )
 
 equil = foodweb_pred_prey.interior_equilibria()
 print equil
 
-foodweb_adap = adaptivedynamics.AdaptiveDynamicsModel( 
+foodweb_adap = dynamicalsystems.AdaptiveDynamicsModel( 
     foodweb_pred_prey,
     [ foodweb_pred_prey._u_indexer ],
     early_bindings=fb,
@@ -241,8 +224,8 @@ ltx.write( 'Adaptive dynamics of model:\n', foodweb_adap )
 
 pred_prey_init = dynamicalsystems.Bindings( { 'u_0_a':0.1, 'u_0_b':0 } )
 
-ltx.write( 'flow at ', '$%s$'%latex( latex_output.column_vector( [ pred_prey_init( v ) for v in foodweb_adap._vars ] ) ), ': ', 
-    '$%s$'%latex( latex_output.column_vector( pred_prey_init( foodweb_adap._flow[v] ) for v in foodweb_adap._vars ) ) )
+ltx.write( 'flow at ', '$%s$'%latex( dynamicalsystems.column_vector( [ pred_prey_init( v ) for v in foodweb_adap._vars ] ) ), ': ', 
+    '$%s$'%latex( dynamicalsystems.column_vector( pred_prey_init( foodweb_adap._flow[v] ) for v in foodweb_adap._vars ) ) )
 
 pred_prey_traj = foodweb_adap.bind( fb ).solve( [ pred_prey_init( v ) for v in foodweb_adap._vars ], end_time=1000 ) #, step=0.003 )
 
@@ -260,8 +243,6 @@ save_session('foodweb-adap')
 <!-- foodweb.sage.out.latexml.html --></p>
 
 <p><!-- foodweb.plot.sage.step --><fieldset class="ww-project-file-source ww-collapsible"><legend><span>foodweb.plot.sage.step</span></legend><div class="ww-collapsible-content"><pre># requires: foodweb-adap.sobj
-# requires: $(SageDynamics)/dynamicalsystems.py $(SageAdaptiveDynamics)/adaptivedynamics.py
-# requires: $(SageUtils)/latex_output.py lotkavolterra.py
 # produces: foodweb.plot.sage.out.tex 
 # produces: foodweb-pred-prey-adap.png foodweb-pred-prey-adap.svg
 # produces: foodweb-pred-prey-adap-difference.png
@@ -272,9 +253,7 @@ from sage.misc.latex import _latex_file_
 from sage.misc.latex import latex
 
 import foodweb
-import latex_output
 import dynamicalsystems
-import adaptivedynamics
 import lotkavolterra
 
 # create variables with custom latex names because load_session
@@ -285,7 +264,7 @@ import lotkavolterra
 
 load_session(&quot;foodweb-adap&quot;)
 
-ltx = latex_output.latex_output( 'foodweb.plot.sage.out.tex' )
+ltx = dynamicalsystems.latex_output( 'foodweb.plot.sage.out.tex' )
 
 #foodweb_adap.bind_in_place( fb )
 
@@ -351,20 +330,15 @@ ltx.close()
 <p><!-- foodweb-pred-prey-a-vs-a-detail.png --><img src="/adaptive-dynamics-research/wmd_files/Selection_Gradients/foodweb-pred-prey-a-vs-a-detail.png" alt="(foodweb-pred-prey-a-vs-a-detail.png)"/></p>
 
 <p><!-- foodweb-2-2.sage.step --><fieldset class="ww-project-file-source ww-collapsible"><legend><span>foodweb-2-2.sage.step</span></legend><div class="ww-collapsible-content"><pre># requires: foodweb.py
-# requires: $(SageDynamics)/dynamicalsystems.py
-# requires: $(SageAdaptiveDynamics)/adaptivedynamics.py
-# requires: $(SageUtils)/latex_output.py
 # produces: foodweb-2-2.sobj foodweb-2-2.sage.out.tex foodweb-2-2.tikz.tex
 from sage.all import * 
 from sage.misc.latex import _latex_file_
 
 import foodweb
-import latex_output
 import dynamicalsystems
-import adaptivedynamics
 import lotkavolterra
 
-ltx = latex_output.latex_output( 'foodweb-2-2.sage.out.tex' )
+ltx = dynamicalsystems.latex_output( 'foodweb-2-2.sage.out.tex' )
 
 # now that I've defined the general resource-competition model, let's
 # create a 1-resource, 1-population instantiation to work with
@@ -394,7 +368,7 @@ init_2_2 = dynamicalsystems.Bindings( { 'u_0_R_0':-0.1, 'u_0_R_1':0, 'u_0_P_0':-
 
 #print init_2_2( dynamicalsystems.Bindings( equil[0] ) )
 
-foodweb_adap = adaptivedynamics.AdaptiveDynamicsModel( 
+foodweb_adap = dynamicalsystems.AdaptiveDynamicsModel( 
     foodweb_2_2,
     [ foodweb_2_2._u_indexer ],
     equilibrium = dynamicalsystems.Bindings()
@@ -402,11 +376,10 @@ foodweb_adap = adaptivedynamics.AdaptiveDynamicsModel(
 ).bind( { 'gamma':1 } )
 
 ltx.write( 'Adaptive dynamics of model:\n', foodweb_adap )
-
 #ltx.write_environment( 'align*', [ '\\\\\n  '.join( r'\frac{d%s}{dt} &amp;\propto %s' % (latex(v), latex(foodweb_adap._S[v])) for v in foodweb_adap._vars ) ] )
 
-#ltx.write( 'flow at ', '$%s$'%latex( latex_output.column_vector( [ init_2_2( v ) for v in foodweb_adap._vars ] ) ), ': ',
-#    '$%s$'%latex( latex_output.column_vector( init_2_2( foodweb_adap._flow[v] ) for v in foodweb_adap._vars ) ) )
+#ltx.write( 'flow at ', '$%s$'%latex( dynamicalsystems.column_vector( [ init_2_2( v ) for v in foodweb_adap._vars ] ) ), ': ',
+#    '$%s$'%latex( dynamicalsystems.column_vector( init_2_2( foodweb_adap._flow[v] ) for v in foodweb_adap._vars ) ) )
 
 fb_adap = foodweb_adap.bind( fb + dynamicalsystems.Bindings( equil[0] ) )
 
@@ -430,8 +403,6 @@ save_session('foodweb-2-2')
 <!-- foodweb-2-2.sage.out.latexml.html --></p>
 
 <p><!-- foodweb-2-2.plot.sage.step --><fieldset class="ww-project-file-source ww-collapsible"><legend><span>foodweb-2-2.plot.sage.step</span></legend><div class="ww-collapsible-content"><pre># requires: foodweb-2-2.sobj
-# requires: $(SageDynamics)/dynamicalsystems.py $(SageAdaptiveDynamics)/adaptivedynamics.py
-# requires: $(SageUtils)/latex_output.py lotkavolterra.py
 # produces: foodweb-2-2.plot.sage.out.tex foodweb-2-2-adap.png
 # produces: foodweb-2-2-a-vs-a.png foodweb-2-2-a-vs-t.png
 # produces: foodweb-2-2-x-vs-t.png
@@ -440,14 +411,12 @@ from sage.misc.latex import _latex_file_
 from sage.misc.latex import latex
 
 import foodweb
-import latex_output
 import dynamicalsystems
-import adaptivedynamics
 import lotkavolterra
 
 load_session(&quot;foodweb-2-2&quot;)
 
-ltx = latex_output.latex_output( 'foodweb-2-2.plot.sage.out.tex' )
+ltx = dynamicalsystems.latex_output( 'foodweb-2-2.plot.sage.out.tex' )
 
 # doesn't pickle?
 sym_lv = lotkavolterra.LotkaVolterraAdaptiveDynamics( foodweb_adap,

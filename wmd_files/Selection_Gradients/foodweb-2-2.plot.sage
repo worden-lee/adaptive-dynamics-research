@@ -1,6 +1,4 @@
 # requires: foodweb-2-2.sobj
-# requires: $(SageDynamics)/dynamicalsystems.py $(SageAdaptiveDynamics)/adaptivedynamics.py
-# requires: $(SageUtils)/latex_output.py lotkavolterra.py
 # produces: foodweb-2-2.plot.sage.out.tex foodweb-2-2-adap.png
 # produces: foodweb-2-2-a-vs-a.png foodweb-2-2-a-vs-t.png
 # produces: foodweb-2-2-x-vs-t.png
@@ -9,14 +7,12 @@ from sage.misc.latex import _latex_file_
 from sage.misc.latex import latex
 
 import foodweb
-import latex_output
 import dynamicalsystems
-import adaptivedynamics
 import lotkavolterra
 
 load_session("foodweb-2-2")
 
-ltx = latex_output.latex_output( 'foodweb-2-2.plot.sage.out.tex' )
+ltx = dynamicalsystems.latex_output( 'foodweb-2-2.plot.sage.out.tex' )
 
 # doesn't pickle?
 sym_lv = lotkavolterra.LotkaVolterraAdaptiveDynamics( foodweb_adap,

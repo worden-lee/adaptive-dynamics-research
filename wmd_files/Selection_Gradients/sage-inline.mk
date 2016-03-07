@@ -1,9 +1,6 @@
 %.sage.step : %.sage-inline sage-inline.mk
 	echo '# produces: $*.sage.out.tex' > $@
-	echo 'import os' >> $@
-	echo 'import sys' >> $@
-	echo 'sys.path.append( os.environ["SageUtils"] )' >> $@
-	echo 'from latex_output import *' >> $@
+	echo 'from dynamicalsystems import latex_output' >> $@
 	echo 'ltx = latex_output( "$*.sage.out.tex" )' >> $@
 	cat $< >> $@
 	echo 'ltx.close()' >> $@

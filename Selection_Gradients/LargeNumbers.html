@@ -89,30 +89,52 @@ might converge to a space where these things become correlated, but I’ll
 believe it when I see it.</p>
 
 <p><!-- large.py.step --><fieldset class="ww-project-file-source ww-collapsible"><legend><span>large.py.step</span></legend><div class="ww-collapsible-content"><pre>from sage.all import * 
-import os
-import sys
-sys.path.append( os.environ['SageUtils'] )
-sys.path.append( os.environ['SageDynamics'] )
-sys.path.append( os.environ['SageAdaptiveDynamics'] )
-import latex_output
 import dynamicalsystems
-import adaptivedynamics
 
-def LargeNumbersPopulation( k ):
+def LargeNumbersPopulation( n=0, k=2 ):
     M = random_matrix( RDF, k )
+    ## notes on how this business is indexed.
+    ##  k is a fixed number of dimensions for the phenotypes.
+    ##  a population index is a 2-tuple (n,i) where
+    ##    n is a lineage and i is which mutation within that lineage.
+    ##  the phenotype of a population is a k-vector u_ni, so
+    ##    u_nij is a number.
+    ##  the interaction coefficient a(i1,i2) (where i* are 2-tuples)
+    ##    is the inner product of their u vectors defined by the vector M.
+    ## Therefore we need:
+    ##  a population indexer that makes 2-tuples into X variables
+    ##  a phenotype indexer that makes 2-tuples into vectors
+    ##    of u_ variables
+    ##  an a indexer that makes a pair of 2-tuples into an a value that's
+    ##    an inner product of vectors
+    class X_indexer(dynamicalsystems.indexer):
+	def __init__(self): pass
+	def __getitem__(self,i):
+	    ## i a population index, i.e. a 2-tuple of numbers
+	    return dynamicalsystems.subscriptedsymbol( 'X', *i )
+    class u_indexer(dynamicalsystems.indexer):
+	def __init__(self): pass
+	def __getitem__(self,i):
+	    ## i is a population index
+	    ## a population index is a 2-tuple of numbers
+	    ## we wish to return a vector of phenotypic values
+	    import sys
+	    print( &quot;u indexer for &quot;, i ); sys.stdout.flush()
+	    return vector( [ dynamicalsystems.subscriptedsymbol( 'u', i[0], i[1], j ) for j in range(k) ] )
     class a_indexer(dynamicalsystems.indexer):
         def __init__(self, model):
             self._model = model
         def __getitem__(self, i):
+	    ## i and then j are population indices
             class a_indexer_inner(dynamicalsystems.indexer):
                 def __init__(self, model, i):
             	    self._model = model
             	    self._i = i
                 def __getitem__(self, j):
 		    return (
-			vector( [ self._model._u_indexer[a][i] for a in range(k) ] ) *
+			self._model._u_indexer[i] *
 			M *
-			vector( [ self._model._u_indexer[a][j] for a in range(k) ] )
+			self._model._u_indexer[j]
 		    )
             return a_indexer_inner( self._model, i )
     class LargeNumbersPopulationClass(dynamicalsystems.PopulationDynamicsSystem):
@@ -123,12 +145,11 @@ def LargeNumbersPopulation( k ):
             # our u is a vector of population indexers
 	    # it would be better if it was just vector-valued,
 	    # if AdaptiveDynamicsModel could differentiate wrt a vector
-	    vu = dynamicalsystems.indexer_2d('u')
-            self._u_indexers = [ vu[i] for i in range(k) ]
+            self._u_indexer = u_indexer()
             self._r_indexer = dynamicalsystems.const_indexer(1)
             self._a_indexer = a_indexer(self)
-            super(LargeNumbersPopulation,self).__init__(
-                [], [], vertex_indexer('X'), bindings=bindings
+            super(LargeNumbersPopulationClass,self).__init__(
+                [], [], X_indexer(), bindings=bindings
             )
             self.generate_random_community(n)
         def flow(self):
@@ -148,45 +169,32 @@ def LargeNumbersPopulation( k ):
                 n = 1 + max( i[0] for i in self._population_indices )
             except ValueError: # empty sequence
                 n = 0
-            import numpy
-            self._a_lookup[n] = { n: (-1,0,0) }
-            for i in self._population_indices:
-                bin = RDF(numpy.random.normal(0,1))
-                bni = RDF(numpy.random.normal(0,1))
-                c = 1
-                d = 1
-                theta = RDF(numpy.random.uniform(0,2*pi))
-                rho = RDF(numpy.random.uniform(0,2*pi))
-                self._a_lookup[i[0]][n] = (bin, c*cos(theta), d*cos(rho))
-                self._a_lookup[n][i[0]] = (bni, c*sin(theta), d*sin(rho))
             ni = (n,0)
             self.set_population_indices( self._population_indices + [ni] )
             return ni
         def mutate(self, index):
-            sport = index + 1
+	    sport = (index[0], 1 + max( i for m,i in self._population_indices if m==index[0] ))
             self.set_population_indices( self._population_indices + [ sport ] )
             return sport
         def fake_population_index(self):
-            return 'Fake'
+            return ('Fake',0)
+    return LargeNumbersPopulationClass(n)
 
 </pre></div></fieldset></p>
 
 <p><!-- large-assemble.sage.step --><fieldset class="ww-project-file-source ww-collapsible"><legend><span>large-assemble.sage.step</span></legend><div class="ww-collapsible-content"><pre># requires: large.py
-# requires: $(SageDynamics)/dynamicalsystems.py
-# requires: $(SageUtils)/latex_output.py
 # produces: large-assemble.sobj
 from sage.all import *
 from sage.misc.latex import _latex_file_
 
 import large
-import latex_output
 import dynamicalsystems
 
 set_random_seed(0)
 
 N_pop = 1#5
 
-smr = large.LargeNumbersPopulation( 0 )
+smr = large.LargeNumbersPopulation( n=0 )
 
 t = 0
 state = dynamicalsystems.Bindings()
@@ -194,7 +202,7 @@ soln = dynamicalsystems.Trajectory( smr, [] )
 while smr.n_populations() &lt; N_pop:
     ni = smr.add_random_species()
     state[ smr._population_indexer[ni] ] = 1
-    smu = smr.bind( { smr._u_indexer[i]:0 for i in smr._population_indices } )
+    smu = smr.bind( { ui:0 for ii in smr._population_indices for ui in smr._u_indexer[ii] } )
     print 'go', t, 'to', t+100; sys.stdout.flush()
     ni_soln = smu.solve_gsl( [ state(x) for x in smu._vars ], start_time=t, end_time=t+100 )
     if any( abs(x)&gt;1e+7 or math.isnan(x) for x in ni_soln._timeseries[-1].values() ):
@@ -216,20 +224,17 @@ save_session( 'large-assemble' )
 </pre></div></fieldset></p>
 
 <p><!-- large-assemble-plot.sage.step --><fieldset class="ww-project-file-source ww-collapsible"><legend><span>large-assemble-plot.sage.step</span></legend><div class="ww-collapsible-content"><pre># requires: large.py
-# requires: $(SageDynamics)/dynamicalsystems.py
-# requires: $(SageUtils)/latex_output.py
 # requires: large-assemble.sobj
 # produces: large-assemble.sage.out.tex large-assemble.svg
 from sage.all import *
 from sage.misc.latex import _latex_file_
 
 import large
-import latex_output
 import dynamicalsystems
 
 load_session( 'large-assemble' )
 
-ltx = latex_output.latex_output( 'large-assemble.sage.out.tex' )
+ltx = dynamicalsystems.latex_output( 'large-assemble.sage.out.tex' )
 
 ltx.write( smr )
 
@@ -271,9 +276,6 @@ soln.plot( 't', smr._vars, ylabel='$X$' ).save( filename='large-assemble.svg' )
 <p><!-- large-assemble.svg --><object data="/adaptive-dynamics-research/wmd_files/Selection_Gradients/large-assemble.svg" type="image/svg+xml"><img src="/adaptive-dynamics-research/wmd_files/Selection_Gradients/large-assemble.png" alt="large-assemble.svg"/></object></p>
 
 <p><!-- large-evol.sage.step --><fieldset class="ww-project-file-source ww-collapsible"><legend><span>large-evol.sage.step</span></legend><div class="ww-collapsible-content"><pre># requires: large.py
-# requires: $(SageUtils)/latex_output.py
-# requires: $(SageDynamics)/dynamicalsystems.py
-# requires: $(SageAdaptiveDynamics)/adaptivedynamics.py
 # requires: lotkavolterra.py
 # requires: large-assemble.sobj
 # produces: large-evol.sobj
@@ -281,14 +283,12 @@ from sage.all import *
 from sage.misc.latex import _latex_file_
 
 import large
-import latex_output
 import dynamicalsystems
-import adaptivedynamics
 import lotkavolterra
 
 load_session( 'large-assemble' )
 
-ltx = latex_output.latex_output( 'large-evol.sage.out.tex' )
+ltx = dynamicalsystems.latex_output( 'large-evol.sage.out.tex' )
 
 def lv_interior_equilibrium( popdyn ):
     import sympy
@@ -298,7 +298,7 @@ def lv_interior_equilibrium( popdyn ):
     eqs = sympy.solve( eqns, *popdyn.equilibrium_vars() )
     return dynamicalsystems.Bindings( { x: eqs[ sympy.sympify(x) ] for x in popdyn.equilibrium_vars() } )
 
-u_init = dynamicalsystems.Bindings( { smr._u_indexer[i]:0 for i in smr._population_indices } )
+u_init = dynamicalsystems.Bindings( { ui:0 for ii in smr._population_indices for ui in smr._u_indexers[ii] } )
 
 equil = lv_interior_equilibrium( smr )
 eq0 = dynamicalsystems.Bindings( equil )
@@ -306,7 +306,7 @@ eq0 = dynamicalsystems.Bindings( equil )
 print 'equil:', eq0
 print 'equil at u=0:', u_init( eq0 )
 
-sm_adap = adaptivedynamics.AdaptiveDynamicsModel( 
+sm_adap = dynamicalsystems.AdaptiveDynamicsModel( 
     smr,
     [ smr._u_indexer ],
     #early_bindings=fb,
@@ -337,9 +337,7 @@ from sage.misc.latex import _latex_file_
 from sage.misc.latex import latex
 
 import large
-import latex_output
 import dynamicalsystems
-import adaptivedynamics
 import lotkavolterra
 
 # create variables with custom latex names because load_session
@@ -350,7 +348,7 @@ import lotkavolterra
 
 load_session(&quot;large-evol&quot;)
 
-ltx = latex_output.latex_output( 'large-evol-plot.sage.out.tex' )
+ltx = dynamicalsystems.latex_output( 'large-evol-plot.sage.out.tex' )
 
 #ltx.write( 'sm\_traj t:', [ ts('t') for ts in sm_traj._timeseries ], '\n\n' )
 #ltx.write( 'starts with:' )
@@ -358,10 +356,10 @@ ltx = latex_output.latex_output( 'large-evol-plot.sage.out.tex' )
 #if 1 in sm_traj._timeseries:
 #    ltx.write_block( sm_traj._timeseries[1] )
 
-ltx.write( 'flow: $%s$\n\n' % latex( latex_output.column_vector( [ sm_adap._flow[v] for v in sm_adap._vars ] ) ) )
+ltx.write( 'flow: $%s$\n\n' % latex( dynamicalsystems.column_vector( [ sm_adap._flow[v] for v in sm_adap._vars ] ) ) )
 
-ltx.write( 'flow at ', '$%s$'%latex( latex_output.column_vector( ad_init_state ) ), ': ', 
-    '$%s$'%latex( latex_output.column_vector( ad_init( sm_adap._flow[v] ) for v in sm_adap._vars ) ),
+ltx.write( 'flow at ', '$%s$'%latex( dynamicalsystems.column_vector( ad_init_state ) ), ': ', 
+    '$%s$'%latex( dynamicalsystems.column_vector( ad_init( sm_adap._flow[v] ) for v in sm_adap._vars ) ),
     '\n\n' )
 
 ltx.write( 'a values:' )

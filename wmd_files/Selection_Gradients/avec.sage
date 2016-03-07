@@ -1,8 +1,5 @@
 # produces: avec.sage.out.tex
-import os
-import sys
-sys.path.append( os.environ["SageUtils"] )
-from latex_output import *
+from dynamicalsystems import latex_output
 ltx = latex_output( "avec.sage.out.tex" )
 from maclevmodels import *
 def cvector( *args ):

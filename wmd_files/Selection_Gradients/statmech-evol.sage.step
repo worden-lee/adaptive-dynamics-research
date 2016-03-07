@@ -1,7 +1,4 @@
 # requires: statmech.py
-# requires: $(SageUtils)/latex_output.py
-# requires: $(SageDynamics)/dynamicalsystems.py
-# requires: $(SageAdaptiveDynamics)/adaptivedynamics.py
 # requires: lotkavolterra.py
 # requires: statmech-assemble.sobj
 # produces: statmech-evol.sobj
@@ -9,14 +6,12 @@ from sage.all import *
 from sage.misc.latex import _latex_file_
 
 import statmech
-import latex_output
 import dynamicalsystems
-import adaptivedynamics
 import lotkavolterra
 
 load_session( 'statmech-assemble' )
 
-ltx = latex_output.latex_output( 'statmech-evol.sage.out.tex' )
+ltx = dynamicalsystems.latex_output( 'statmech-evol.sage.out.tex' )
 
 def lv_interior_equilibrium( popdyn ):
     import sympy
@@ -34,7 +29,7 @@ eq0 = dynamicalsystems.Bindings( equil )
 print 'equil:', eq0
 print 'equil at u=0:', u_init( eq0 )
 
-sm_adap = adaptivedynamics.AdaptiveDynamicsModel( 
+sm_adap = dynamicalsystems.AdaptiveDynamicsModel( 
     smr,
     [ smr._u_indexer ],
     #early_bindings=fb,

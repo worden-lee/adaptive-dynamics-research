@@ -1,17 +1,9 @@
-# requires: maclevmodels.py $(SageAdaptiveDynamics)/adaptivedynamics.py maclev-1-1-adap.sobj
-# requires: $(SageUtils)/latex_output.py
+# requires: maclevmodels.py maclev-1-1-adap.sobj
 # produces: maclev-1-1-mc-adap-geom.sobj maclev-1-1-mc.png maclev-1-1-mc-adap-geom.sage.out.tex
 from sage.all import *
 
-import os
-import sys
-sys.path.append( os.environ['SageUtils'] )
-sys.path.append( os.environ['SageDynamics'] )
-sys.path.append( os.environ['SageAdaptiveDynamics'] )
-
 from maclevmodels import *
-from adaptivedynamics import *
-from latex_output import *
+from dynamicalsystems import latex_output
 
 from sage.symbolic.function_factory import function
 

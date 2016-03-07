@@ -89,23 +89,13 @@ Since the pasture is degraded by grazing, we suppose that the quality is of the 
 
 <p>If variant populations <!-- c164e630313c7e71508c5c046f83c6f5.tex-math.latexml.html --><span class="latexml"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="X^{\prime}" display="inline"><msup><mi>X</mi><mo>′</mo></msup></math></span> produce variant amounts of byproduct <!-- b86b0594d40397704d608adb70701c37.tex-math.latexml.html --><span class="latexml"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="h^{\prime}" display="inline"><msup><mi>h</mi><mo>′</mo></msup></math></span>, then under adaptive dynamics assumptions <!-- 2510c39011c5be704182423e3a695e91.tex-math.latexml.html --><span class="latexml"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="h" display="inline"><mi>h</mi></math></span> will increase, and the population will create an increasingly toxic habitat for itself.</p>
 
-<p><!-- toc.sage.step --><fieldset class="ww-project-file-source ww-collapsible"><legend><span>toc.sage.step</span></legend><div class="ww-collapsible-content"><pre># requires: $(SageDynamics)/dynamicalsystems.py
-# requires: $(SageAdaptiveDynamics)/adaptivedynamics.py
-# requires: $(SageUtils)/latex_output.py
-# produces: toc.sobj toc.sage.out.tex
+<p><!-- toc.sage.step --><fieldset class="ww-project-file-source ww-collapsible"><legend><span>toc.sage.step</span></legend><div class="ww-collapsible-content"><pre># produces: toc.sobj toc.sage.out.tex
 from sage.all import * 
 from sage.misc.latex import _latex_file_
 
-import os
-import sys
-sys.path.append( os.environ['SageUtils'] )
-sys.path.append( os.environ['SageDynamics'] )
-sys.path.append( os.environ['SageAdaptiveDynamics'] )
-import latex_output
 import dynamicalsystems
-import adaptivedynamics
 
-ltx = latex_output.latex_output( 'toc.sage.out.tex' )
+ltx = dynamicalsystems.latex_output( 'toc.sage.out.tex' )
 
 class TragedyOfCommonsModel(dynamicalsystems.PopulationDynamicsSystem):
     def __init__(
@@ -140,7 +130,7 @@ toc = TragedyOfCommonsModel(
 ltx.write( 'The ToC model:' )
 ltx.write_block( toc )
 
-toc_adap = adaptivedynamics.AdaptiveDynamicsModel( 
+toc_adap = dynamicalsystems.AdaptiveDynamicsModel( 
     toc,
     [ toc._indexers['h'] ]
 )

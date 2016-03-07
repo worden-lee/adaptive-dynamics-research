@@ -1,7 +1,5 @@
 # helper makefile automatically generated from foodweb.plot.sage.step
 foodweb.plot.sage foodweb.plot.sage.out foodweb.plot.sage.tried : foodweb-adap.sobj
-foodweb.plot.sage foodweb.plot.sage.out foodweb.plot.sage.tried : $(SageDynamics)/dynamicalsystems.py $(SageAdaptiveDynamics)/adaptivedynamics.py
-foodweb.plot.sage foodweb.plot.sage.out foodweb.plot.sage.tried : $(SageUtils)/latex_output.py lotkavolterra.py
 foodweb.plot.sage.out.tex  : foodweb.plot.sage.out ;
 foodweb-pred-prey-adap.png foodweb-pred-prey-adap.svg : foodweb.plot.sage.out ;
 foodweb-pred-prey-adap-difference.png : foodweb.plot.sage.out ;
