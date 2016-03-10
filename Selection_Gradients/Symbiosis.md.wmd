@@ -83,7 +83,7 @@ def ccfn( (t,i) ):
 def cmfn( (t,i) ):
 	return subscriptedsymbol( 'C' if t == type_H else 'c', m, i )
 def Kfn( (t,i) ):
-	return subscriptedsymbol( 'K', H, i )
+	return subscriptedsymbol( 'K' if t == type_H else 'k', i )
 
 class SeaSymbiosisModel(dynamicalsystems.PopulationDynamicsSystem):
     def __init__(
@@ -119,7 +119,9 @@ class SeaSymbiosisModel(dynamicalsystems.PopulationDynamicsSystem):
 	return dict(
 	    [ (X[g], X[g]*(r[g] - c_g[g] +
 		sum( (p[g][h] * (b[g][h] - c_m[g]) - c_c[g])*X[h]
-		    for h in self._population_indices if h[0] == type_H ) )
+		    for h in self._population_indices if h[0] == type_H ) +
+		sum( - K[g1] * X[g1]
+		    for g1 in self._population_indices if g1[0] == type_g ) )
 	      ) for g in self._population_indices if g[0] == type_g ] +
 	    [ (X[h], X[h]*(r[h] - c_g[h] +
 		sum( (p[g][h] * (B[g][h] - c_m[h]) - c_c[h])*X[g]
@@ -163,8 +165,8 @@ def bffn( ix ):
 	return indexer( lambda jx: function('b')(m_indexer[ix],m_indexer[jx]) )
 def Bffn( ix ):
 	return indexer( lambda jx: function('B')(m_indexer[ix],m_indexer[jx]) )
-def Kffn( ix ):
-	return SR.symbol( 'K_H' )
+def Kffn( (t,i) ):
+	return SR.symbol( 'K' if t == type_H else 'k' )
 def varfix( vartex ):
 	for st,lx in vartex.iteritems():
 		var( st, latex_name=lx )
@@ -247,13 +249,15 @@ ltx.close()
 
 _save_symbols = { sv:lv for sv,lv in ( (str(v), latex(v)) for v in sage.symbolic.ring.pynac_symbol_registry.values() ) if sv != lv }
 save_session('sea-adap')
+
 </source-file>
 
 <project-file filename=sea-adap.sage.out.tex/>
 
 <source-file filename=sea-down.sage.step display=none>
-# requires: sea.sobj
+# requires: sea-adap.sobj
 # produces: sea-down.sobj sea-down.sage.out.tex
+# produces: sea-down-test.svg
 from sage.all import * 
 from sage.misc.latex import _latex_file_
 import dynamicalsystems
@@ -284,40 +288,53 @@ down_b = Bindings(
 	## prob of colonization
 	p = exp(x+y-1).function(x,y),
 	## benefit to guest of exploitation
-	b = x.function(x,y),
+	b = SR(1).function(x,y), #x.function(x,y),
 	## benefit to host of exploitation
-	B = y.function(x,y),
+	B = SR(-1).function(x,y), #y.function(x,y),
     ),
-    K_H = 1,
-    gamma=1
+    K = 1, k=1, gamma=1
 )
 
-#ltx.write( 'bindings', down_b )
+ltx.write( 'Here are some pessimistic bindings:', down_b )
+sea_down = down_b(sea_f)
 
 ltx.write( 'Dynamics with pessimistic functions:' )
-ltx.write( down_b(sea_f) )
+ltx.write( sea_down )
+
+starting_comm = Bindings( **{ x:0 for x in ('x_c_0', 'x_m_0', 'X_c_0','X_m_0') } )
+starting_pop = Bindings( N_H_0=0.1, N_g_0=0.2 )
+#test_dyn = starting_comm( sea_down ).solve( starting_pop )
+#test_dyn.plot( 't', sea_down._vars ).save( filename='sea-down-test.svg', figsize=(4,3) )
 
 sea_adap_down = down_b(sea_adap_f)
-ltx.write( 'And pessimistic selective pressure is' )
-ltx.write_environment(
-	'align*', '\\\\\n  '.join( r'\frac{d%s}{dt} &\propto %s' % (
-		dynamicalsystems.latex_math(v),
-		dynamicalsystems.latex_math( sea_adap_down._S[v].factor() )
-	) for v in sea_adap_down._vars ) )
+ltx.write( 'And pessimistic adaptive dynamics is' )
+ltx.write( sea_adap_down )
+
+sea_adap_down.bind_in_place( sea_down.interior_equilibria()[0] )
+#ltx.write( 'With equilibrium populations is', sea_adap_down )
+ltx.write( 'And at starting point $(0,0)$ is', starting_comm(sea_adap_down) )
+
+adap_traj = sea_adap_down.solve( starting_comm )
+adap_traj.plot( 't', sea_adap_down._vars ).save( filename='sea-down-test.svg', figsize=(4,3) )
+
+sdx = sea_adap_down.limit( X_c_0=0, X_m_0=0 )
+ltx.write( sdx )
+vfp = sdx.plot_vector_field( (SR('x_c_0'),-1,1), (SR('x_m_0'),-1,1) )
+vfp.save( filename='sea-vf-x.svg', figsize=(4,4) )
+
+sdx = sea_adap_down.limit( x_c_0=0, x_m_0=0 )
+ltx.write( sdx )
+vfp = sdx.plot_vector_field( (SR('X_c_0'),-1,1), (SR('X_m_0'),-1,1) )
+vfp.save( filename='sea-vf-X.svg', figsize=(4,4) )
 
 ltx.close()
 save_session('sea-down')
 exit(0r)
-
-sdx = sea_adap_down.limit( X_c_0=0, X_m_0=0 )
-sdx._flow = { k:v.substitute_function( sage.calculus.calculus._limit, maxima_calculus.sr_limit ) for k,v in sdx._flow.iteritems() }
-vfp = sdx.plot_vector_field( (SR('x_c_0'),-1,1), (SR('x_m_0'),-1,1) )
-vfp.save( filename='sea-vf-x.svg' )
-
-sea_adap_down.limit( x_c_0=0, x_m_0=0 ).plot_vector_field( (SR('X_c_0'),-1,1), (SR('X_m_0'),-1,1), filename='sea-vf-X.svg' )
 </source-file>
 
 <project-file filename=sea-down.sage.out.tex/>
+
+<project-file filename=sea-down-test.svg/>
 
 <project-file filename=sea-vf-x.svg/>
 
