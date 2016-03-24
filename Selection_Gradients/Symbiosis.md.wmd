@@ -12,47 +12,45 @@ at adaptive motion in the plane of interaction coefficients.
 
 The guest dynamics:
 
-$$\frac{dN_g}{N_g dt} = r_g + a_{gH} N_H$$.
-
-We assume no $$g$$-$$g$$ interaction.
+$$\frac{dN_g}{N_g dt} = r_g + a_{gH} N_H + a_{gg} N_g$$.
 
 The host strategy/phenotype is
 
-* $$X_c$$: investment for/against (+/-) colonization by guest
-* $$X_m$$: investment for/against exploitation by guest (given colonization).
+* $$X_a$$: investment for/against ($$+/-$$) association ("colonization" in the original) by guest
+* $$X_t$$: investment for/against transfer of resources ("exploitation") by guest (given association).
 
 $$\frac{dN_H}{N_H dt} = r_H + a_{Hg} N_g + a_{HH} N_H$$
 
-let $$a_{HH}$$ be constant, uninteresting to adaptation.
+let $$a_{gg}$$ and $$a_{HH}$$ be constant, uninteresting to adaptation.
 
-Investment has cost so $$r_H$$ is at maximum at $$X_c=X_m=0$$.
+Investment has cost so $$r_H$$ is at maximum at $$X_a=X_t=0$$.
 
 I propose
 
-* $$p(x_c,X_c)$$: probability of colonization per pair of individuals
+* $$p(x_a,X_a)$$: probability of association per pair of individuals
 
 on host side:
 
-* $$C_g(X_c)$$: general (density independent) cost of investment re colonization
-* $$C_c(X_c)$$: per-guest cost of investment re colonization
-* $$C_m(X_m)$$: cost of investment re exploitation
-* (and add density-independent investment re exploitation?)
-* $$B(x_m,X_m)$$: benefit (+/-) to host of the guest's exploitation
+* $$C_g(X_a)$$: general (density independent) cost of investment re association
+* $$C_a(X_a)$$: per-guest cost of investment re association
+* $$C_t(X_t)$$: cost of investment re transfer
+* (and add density-independent investment re transfer?)
+* $$B(x_t,X_t)$$: benefit ($$+/-$$) to individual host of transfer with individual guest. Not including $$C_t$$.
 
 on guest side:
 
-* $$c_g(x_c)$$: search cost
-* $$c_c(x_c)$$: cost of colonization after host is found
-* $$c_m(x_m)$$: cost of investment in exploitation
-* $$b(x_m,X_m)$$: benefit to guest
+* $$c_g(x_a)$$: search cost
+* $$c_a(x_a)$$: cost of association after host is found
+* $$c_t(x_t)$$: cost of investment in transfer
+* $$b(x_t,X_t)$$: benefit to guest of transfer
 
 So we then have
 
-$$\frac{dN_g}{N_g dt} = r_0 - c_g(x_c) + (p(x_c,X_c) (b(x_m,X_M) - c_m(x_m)) - c_c(x_c)) N_H$$
+$$\frac{dN_g}{N_g dt} = r_0 - c_g(x_a) + (p(x_a,X_a) (b(x_t,X_t) - c_t(x_t)) - c_a(x_a)) N_H$$
 
-$$\frac{dN_H}{N_H dt} = R_0 - C_g(X_c) + (p(x_c,X_c) (B(x_m,X_m) - C_m(X_m)) - C_c(X_c)) N_g$$
+$$\frac{dN_H}{N_H dt} = R_0 - C_g(X_a) + (p(x_a,X_a) (B(x_t,X_t) - C_t(X_t)) - C_a(X_a)) N_g$$
 
-This is oddly symmetric - maybe I abstracted it too much.  But one asymmetry is that the benefit to the host can be positive or negative, while it's assumed positive for the guest.  Thus the host might want to invest in defense against guests, while guests will always want to colonize and exploit.
+This is oddly symmetric - maybe I abstracted it too much.  But one asymmetry is that the benefit to the host can be positive or negative, while it's assumed positive for the guest.  Thus the host might want to invest in defense against guests, while guests will always want to associate and transfer.
 
 <source-file filename=seamodel.py display=none>
 from sage.all import * 
@@ -63,11 +61,11 @@ from dynamicalsystems import indexer, subscriptedsymbol, Bindings
 #  population index is (type, number), with type either g or H
 
 type_H, type_g = 0, 1
-var('H g m c')
+var('H g a t')
 
 ## indexing functions for sea model
 def Xfn( (t,i) ):
-	return subscriptedsymbol( 'N', H if t == type_H else g, i )
+	return subscriptedsymbol( 'N' if t == type_H else 'n', i )
 def Rfn( (t,i) ):
 	return subscriptedsymbol( 'R' if t == type_H else 'r', i )
 def pfn( (t,i) ):
@@ -78,10 +76,10 @@ def Bfn( (t,i) ):
 	return indexer( lambda (s,j): subscriptedsymbol( 'B', i, j ) )
 def cgfn( (t,i) ):
 	return subscriptedsymbol( 'C' if t == type_H else 'c', g, i )
-def ccfn( (t,i) ):
-	return subscriptedsymbol( 'C' if t == type_H else 'c', c, i )
-def cmfn( (t,i) ):
-	return subscriptedsymbol( 'C' if t == type_H else 'c', m, i )
+def cafn( (t,i) ):
+	return subscriptedsymbol( 'C' if t == type_H else 'c', a, i )
+def ctfn( (s,i) ):
+	return subscriptedsymbol( 'C' if s == type_H else 'c', t, i )
 def Kfn( (t,i) ):
 	return subscriptedsymbol( 'K' if t == type_H else 'k', i )
 
@@ -95,19 +93,20 @@ class SeaSymbiosisModel(dynamicalsystems.PopulationDynamicsSystem):
 	b_indexer = indexer( bfn ),
 	B_indexer = indexer( Bfn ),
 	cg_indexer = indexer( cgfn ),
-	cc_indexer = indexer( ccfn ),
-	cm_indexer = indexer( cmfn ),
+	ca_indexer = indexer( cafn ),
+	ct_indexer = indexer( ctfn ),
 	K_indexer = indexer( Kfn ),
 	bindings=Bindings()):
 	self._indexers = { 'X': X,
 		'r':r_indexer, 'p':p_indexer, 'b':b_indexer, 'B':B_indexer,
-		'c_g':cg_indexer, 'c_c':cc_indexer, 'c_m':cm_indexer,
+		'c_g':cg_indexer, 'c_a':ca_indexer, 'c_t':ct_indexer,
+		'c_g':cg_indexer, 'c_a':ca_indexer, 'c_t':ct_indexer,
 		'K':K_indexer }
-	#print 'debug:', m_indexer[(type_H,0)], 'done'; sys.stdout.flush()
+	#print 'debug:', t_indexer[(type_H,0)], 'done'; sys.stdout.flush()
 	from sage.symbolic.function_factory import function
 	self._names = dict( 
 		#[ (n, SR.symbol(n)) for n in ('r_0', 'R_0') ] +
-		#[ (n, function(n)) for n in ('p', 'c_g', 'c_c', 'c_m', 'b', 'C_g', 'C_c', 'C_m', 'B') ] +
+		#[ (n, function(n)) for n in ('p', 'c_g', 'c_a', 'c_t', 'b', 'C_g', 'C_a', 'C_t', 'B') ] +
 		self._indexers.items()
 	)
 	super(SeaSymbiosisModel,self).__init__(
@@ -115,16 +114,16 @@ class SeaSymbiosisModel(dynamicalsystems.PopulationDynamicsSystem):
 	)
     def flow(self):
 	return self.make_flow( **self._names )
-    def make_flow(self, X, r, p, c_g, c_c, c_m, b, B, K ):
+    def make_flow(self, X, r, p, c_g, c_a, c_t, b, B, K ):
 	return dict(
 	    [ (X[g], X[g]*(r[g] - c_g[g] +
-		sum( (p[g][h] * (b[g][h] - c_m[g]) - c_c[g])*X[h]
+		sum( (p[g][h] * (b[g][h] - c_t[g]) - c_a[g])*X[h]
 		    for h in self._population_indices if h[0] == type_H ) +
 		sum( - K[g1] * X[g1]
 		    for g1 in self._population_indices if g1[0] == type_g ) )
 	      ) for g in self._population_indices if g[0] == type_g ] +
 	    [ (X[h], X[h]*(r[h] - c_g[h] +
-		sum( (p[g][h] * (B[g][h] - c_m[h]) - c_c[h])*X[g]
+		sum( (p[g][h] * (B[g][h] - c_t[h]) - c_a[h])*X[g]
 		    for g in self._population_indices if g[0] == type_g ) +
 		sum( - K[h1] * X[h1]
 		    for h1 in self._population_indices if h1[0] == type_H ) )
@@ -144,27 +143,27 @@ def pcfn( (t,i) ):
 	return ( pfn( (type_g,0) )[(t,i)] if t == type_H
 		else pfn( (t,i) )[(type_H,0)] )
 
-def xmfn( (t,i) ):
-	return subscriptedsymbol( 'X' if t == type_H else 'x', m, i)
-def xcfn( (t,i) ):
-	return subscriptedsymbol( 'X' if t == type_H else 'x', c, i)
-m_indexer = indexer( xmfn )
-c_indexer = indexer( xcfn )
+def xmfn( (s,i) ):
+	return subscriptedsymbol( 'X' if s == type_H else 'x', t, i)
+def xafn( (t,i) ):
+	return subscriptedsymbol( 'X' if t == type_H else 'x', a, i)
+t_indexer = indexer( xmfn )
+a_indexer = indexer( xafn )
 
 def rffn( (t,i) ):
-	return function('R' if t == type_H else 'r')(c_indexer[(t,i)],m_indexer[(t,i)])
-def cgffn( ix ):
-	return function('c_g')(c_indexer[ix])
-def ccffn( ix ):
-	return function('c_c')(c_indexer[ix])
-def cmffn( ix ):
-	return function('c_m')(c_indexer[ix])
+	return function('R' if t == type_H else 'r')(a_indexer[(t,i)],t_indexer[(t,i)])
+def cgffn( (t,i) ):
+	return function('C_g' if t == type_H else 'c_g')(a_indexer[(t,i)])
+def caffn( (t,i) ):
+	return function('C_a' if t == type_H else 'c_a')(a_indexer[(t,i)])
+def ctffn( (t,i) ):
+	return function('C_t' if t == type_H else 'c_t')(t_indexer[(t,i)])
 def pffn( ix ):
-	return indexer( lambda jx: function('p')(c_indexer[ix],c_indexer[jx]) )
+	return indexer( lambda jx: function('p')(a_indexer[ix],a_indexer[jx]) )
 def bffn( ix ):
-	return indexer( lambda jx: function('b')(m_indexer[ix],m_indexer[jx]) )
+	return indexer( lambda jx: function('b')(t_indexer[ix],t_indexer[jx]) )
 def Bffn( ix ):
-	return indexer( lambda jx: function('B')(m_indexer[ix],m_indexer[jx]) )
+	return indexer( lambda jx: function('B')(t_indexer[ix],t_indexer[jx]) )
 def Kffn( (t,i) ):
 	return SR.symbol( 'K' if t == type_H else 'k' )
 def varfix( vartex ):
@@ -209,13 +208,14 @@ ltx = dynamicalsystems.latex_output( 'sea-adap.sage.out.tex' )
 
 sea_adap_c = dynamicalsystems.AdaptiveDynamicsModel( 
     sea,
-    [ sea._indexers[s] for s in ('r', 'c_g','c_c','c_m') ] +
+    [ sea._indexers[s] for s in ('r', 'c_g','c_a','c_t') ] +
     [ indexer( bcfn ), indexer( pcfn ) ],
     equilibrium=sea.symbolic_equilibria()
 )
 
 ltx.write( 'Whence the selective pressure on the ecological quantities is' )
-ltx.write_environment( 'align*', '\\\\\n  '.join( r'\frac{d%s}{dt} &\propto %s' % (dynamicalsystems.latex_math(v), dynamicalsystems.latex_math(sea_adap_c._S[v])) for v in sea_adap_c._vars ) )
+ltx.write( dynamicalsystems.dgroup( [ [ v, sea_adap_c._S[v] ] for v in sea_adap_c._vars ], op=r'\to' ) )
+#ltx.write_environment( 'align*', '\\\\\n  '.join( r'\frac{d%s}{dt} &\propto %s' % (dynamicalsystems.latex_math(v), dynamicalsystems.latex_math(sea_adap_c._S[v])) for v in sea_adap_c._vars ) )
 
 ## phenotype indexers for sea correlation
 
@@ -224,8 +224,8 @@ sea_f = SeaSymbiosisModel(
 	x_indices=[(type_H,0),(type_g,0)],
 	r_indexer =indexer( rffn ),
 	cg_indexer=indexer( cgffn ),
-	cc_indexer=indexer( ccffn ),
-	cm_indexer=indexer( cmffn ),
+	ca_indexer=indexer( caffn ),
+	ct_indexer=indexer( ctffn ),
 	p_indexer =indexer( pffn ),
 	b_indexer =indexer( bffn ),
 	B_indexer =indexer( Bffn ),
@@ -237,18 +237,16 @@ ltx.write( sea_f )
 
 sea_adap_f = dynamicalsystems.AdaptiveDynamicsModel( 
     sea_f,
-    [ c_indexer, m_indexer ],
+    [ a_indexer, t_indexer ],
     equilibrium=sea_f.symbolic_equilibria(),
-    workaround_limits=True
+    workaround_limits=True,
+    late_bindings = Bindings( gamma=1 )
 )
 
+seaquil = sea_f.interior_equilibria()
+
 ltx.write( 'And selective pressure on constraining characters is' )
-ltx.write( dynamicalsystems.dgroup(
-    [ [ dynamicalsystems.wrap_latex( r'\frac{d%s}{dt}' % dynamicalsystems.latex_math(v) ),
-	sea_adap_f._S[v]
-      ] for v in sea_adap_f._vars
-    ], op=r'\propto' ) )
-#ltx.write_environment( 'align*', '\\\\\n  '.join( r'\frac{d%s}{dt} &\propto %s' % (dynamicalsystems.latex_math(v), dynamicalsystems.latex_math(sea_adap_f._S[v])) for v in sea_adap_f._vars ) )
+ltx.write( dynamicalsystems.dgroup( [ [ v, sea_adap_f._S[v] ] for v in sea_adap_f._vars ], op=r'\propto' ) )
 
 ltx.close()
 
@@ -262,8 +260,6 @@ save_session('sea-adap')
 <source-file filename=sea-down.sage.step display=none>
 # requires: sea-adap.sobj
 # produces: sea-down.sobj sea-down.sage.out.tex
-# produces: sea-down-test.svg
-# produces: sea-vf-c.svg sea-vf-m.svg
 from sage.all import * 
 from sage.misc.latex import _latex_file_
 import dynamicalsystems
@@ -274,32 +270,102 @@ load_session( 'sea-adap' )
 for k,l in _save_symbols.iteritems(): SR.symbol( k, latex_name=l ) 
 ltx = dynamicalsystems.latex_output( 'sea-down.sage.out.tex' )
 
-## version of tradeoffs with excessive cost to guest of colonization,
-## leading to no symbiosis
+## baseline bindings for selection on investments x_a, x_t, X_a, X_t
 var('y')
-down_b = Bindings(
+base_b = Bindings(
     dynamicalsystems.FunctionBindings(
-	## R_0 maximized at x_c == x_m == 0
+	## R_0 maximized at x_a == x_t == 0
 	R = SR(1).function(x,y),
 	r = SR(1).function(x,y),
-	## density independent cost re colonization
+    ),
+    K = 1, k=1
+)
+
+## bindings for no ability to invest in association
+zero_ass_b = Bindings(
+    dynamicalsystems.FunctionBindings(
+	## prob of association
+	p = SR(0).function(x,y),
+	## density independent investment in association
 	C_g = SR(0).function(x),
 	c_g = SR(0).function(x),
-	## cost re colonization per interaction
-	C_c = (x^2).function(x),
-	c_c = (x^2).function(x),
-	## cost re exploitation per interaction
-	C_m = (x^2).function(x),
-	c_m = (x^2).function(x),
-	## prob of colonization
-	p = exp(x+y-1).function(x,y),
-	## benefit to guest of exploitation
-	b = SR(1).function(x,y), #x.function(x,y),
-	## benefit to host of exploitation
-	B = SR(-1).function(x,y), #y.function(x,y),
-    ),
-    K = 1, k=1, gamma=1
+	## investment in association per interaction
+	C_a = SR(0).function(x),
+	c_a = SR(0).function(x),
+    )
 )
+
+## fixed association
+fixed_ass_b = Bindings(
+    dynamicalsystems.FunctionBindings(
+	## prob of association
+	p = SR('p').function(x,y),
+	## density independent investment in association
+	C_g = SR(0).function(x),
+	c_g = SR(0).function(x),
+	## investment in association per interaction
+	C_a = SR(0).function(x),
+	c_a = SR(0).function(x),
+    )
+)
+
+## variable investment in association
+ass_b = Bindings(
+    dynamicalsystems.FunctionBindings(
+	## prob of association
+	#p = (1 / (1 + exp(-(x**2+y)))).function(x,y),
+	p = (1 / (1 + exp(-(x+y)))).function(x,y),
+	## cost re association per interaction
+	C_a = (x^2).function(x),
+	c_a = (x^2).function(x),
+	## density independent investment in association
+	C_g = SR(0).function(x),
+	c_g = SR(0).function(x),
+    )
+)
+
+## bindings for no ability to invest in transfer
+zero_tran_b = Bindings(
+    dynamicalsystems.FunctionBindings(
+	## benefit to guest of transfer
+	b = SR(0).function(x,y),
+	## benefit to host of transfer
+	B = SR(0).function(x,y),
+	## investment in transfer per interaction
+	C_t = SR(0).function(x),
+	c_t = SR(0).function(x)
+    )
+)
+
+## for fixed nonzero transfer
+fixed_tran_b = Bindings(
+    dynamicalsystems.FunctionBindings(
+	## benefit to guest of transfer
+	b = SR(1).function(x,y),
+	## benefit to host of transfer
+	B = SR(1).function(x,y),
+	## investment in transfer per interaction
+	C_t = SR(0).function(x),
+	c_t = SR(0).function(x)
+    )
+)
+
+## variable investment in transfer
+tran_b = Bindings(
+    dynamicalsystems.FunctionBindings(
+	## cost re transfer per interaction
+	C_t = (x^2).function(x),
+	c_t = (x^2).function(x),
+	## benefit to guest of transfer
+	b = (x+y).function(x,y), #x.function(x,y),
+	## benefit to host of transfer
+	B = (-(x+y)).function(x,y), #y.function(x,y)
+    )
+)
+
+## down_b was once intended to be a setting where investments go down.
+## name persists.
+down_b = base_b + ass_b + tran_b
 
 ltx.write( 'Here are some pessimistic bindings:', down_b )
 sea_down = down_b(sea_f)
@@ -307,46 +373,363 @@ sea_down = down_b(sea_f)
 ltx.write( 'Dynamics with pessimistic functions:' )
 ltx.write( sea_down )
 
-starting_comm = Bindings( **{ x:0 for x in ('x_c_0', 'x_m_0', 'X_c_0','X_m_0') } )
-starting_pop = Bindings( N_H_0=0.1, N_g_0=0.2 )
-#test_dyn = starting_comm( sea_down ).solve( starting_pop )
-#test_dyn.plot( 't', sea_down._vars ).save( filename='sea-down-test.svg', figsize=(4,3) )
+starting_comm = Bindings( **{ x:0 for x in ('x_a_0', 'x_t_0', 'X_a_0','X_t_0') } )
+starting_comm.bind_in_place( x_a_0=0.01, X_t_0=-0.008 )
+
+starting_pop = Bindings( N_0=0.1r, n_0=0.2r )
 
 sea_adap_down = down_b(sea_adap_f)
 ltx.write( 'And pessimistic adaptive dynamics is' )
 ltx.write( sea_adap_down )
 
-sea_adap_down.bind_in_place( sea_down.interior_equilibria()[0] )
+sea_adap_down.bind_in_place( seaquil[0] )
 #ltx.write( 'With equilibrium populations is', sea_adap_down )
-ltx.write( 'And at starting point $(0,0)$ is', starting_comm(sea_adap_down) )
-
-adap_traj = sea_adap_down.solve( starting_comm )
-adap_traj.plot( 't', sea_adap_down._vars ).save( filename='sea-down-test.svg', figsize=(4,3) )
-
-sdx = sea_adap_down.limit( x_m_0=0, X_m_0=0 )
-#ltx.write( sdx )
-vfp = sdx.plot_vector_field( (SR('x_c_0'),-1,0.8), (SR('X_c_0'),-1,0.8) )
-vfp.save( filename='sea-vf-c.svg', figsize=(4,4) )
-
-sdx = sea_adap_down.limit( x_c_0=0, x_m_0=0 )
-#ltx.write( sdx )
-vfp = sdx.plot_vector_field( (SR('X_c_0'),-1,1), (SR('X_m_0'),-1,1) )
-vfp.save( filename='sea-vf-X.svg', figsize=(4,4) )
+ltx.write( 'And at starting point ', vector( [ starting_comm(v) for v in sea_adap_down._vars ] ), ' is', starting_comm(sea_adap_down) )
 
 ltx.close()
 save_session('sea-down')
-exit(0r)
 </source-file>
 
-<project-file filename=sea-down.sage.out.tex/>
+<source-file filename=sea-down-test.sage.step display=none>
+# requires: sea-down.sobj
+# produces: sea-down-test.svg
+from sage.all import * 
+from sage.misc.latex import _latex_file_
+import dynamicalsystems
+from dynamicalsystems import indexer, subscriptedsymbol, Bindings
+from seamodel import *
 
-<project-file filename=sea-down-test.svg/>
+load_session( 'sea-down' )
 
-At the initial community $$X_{*0}=0$$, $$x_{m0}$$ and $$X_{m0}$$
-are stationary.  Here's the dynamics of $$(x_{c0},X_{c0})$$ on that initial
-zero subspace.
+#test_dyn = starting_comm( sea_down ).solve( starting_pop )
+#test_dyn.plot( 't', sea_down._vars ).save( filename='sea-down-test.svg', figsize=(4,3) )
 
-<project-file filename=sea-vf-c.svg/>
+adap_traj = sea_adap_down.solve( starting_comm )
 
-It looks like when the $$B$$ and $$R$$ functions are constant,
-there is no selection on the $$m$$ investments, only on the $$c$$ ones.
+adap_traj.plot( 't', sea_adap_down._vars ).save( filename='sea-down-test.svg', figsize=(4,3) )
+</source-file>
+
+<source-file filename=sea-vf.sage.step display=none>
+# requires: sea-down.sobj
+# produces: sea-vf-X.svg sea-vf-x.svg sea-vf-c.svg sea-vf-m.svg
+from sage.all import * 
+from sage.misc.latex import _latex_file_
+import dynamicalsystems
+from dynamicalsystems import indexer, subscriptedsymbol, Bindings
+from seamodel import *
+
+xydiu
+
+load_session( 'sea-down' )
+
+sdx = sea_adap_down.limit( X_a_0=0, X_t_0=0 )
+vfp = sdx.plot_vector_field( (SR('x_a_0'),-1,1), (SR('x_t_0'),-1,1) )
+#vfp += sdx.plot_isoclines( (SR('x_a_0'),-1,1), (SR('x_t_0'),-1,1) )
+vfp.save( filename='sea-vf-x.svg', figsize=(4,4) )
+
+sdx = sea_adap_down.limit( x_a_0=0, x_t_0=0 )
+vfp = sdx.plot_vector_field( (SR('X_a_0'),-1,1), (SR('X_t_0'),-1,1) )
+vfp.save( filename='sea-vf-X.svg', figsize=(4,4) )
+
+sdx = sea_adap_down.limit( X_t_0=0, x_t_0=0 )
+vfp = sdx.plot_vector_field( (SR('x_a_0'),-1,0.9), (SR('X_a_0'),-1,0.9) )
+vfp.save( filename='sea-vf-c.svg', figsize=(4,4) )
+</source-file>
+
+# The base model without symbiosis dynamics
+
+<source-file filename=sea-zero.sage.step display=none>
+# requires: sea-down.sobj
+# produces: sea-zero.sage.out.tex sea-zero.sobj
+from sage.misc.latex import _latex_file_
+import dynamicalsystems
+from dynamicalsystems import indexer, subscriptedsymbol, Bindings
+from seamodel import *
+
+load_session( 'sea-down' )
+for k,l in _save_symbols.iteritems(): SR.symbol( k, latex_name=l ) 
+
+ltx = dynamicalsystems.latex_output( 'sea-zero.sage.out.tex' )
+
+sea_zero = sea_f.bind( base_b, zero_ass_b, fixed_tran_b )
+
+ltx.write( 'For the base dynamics without symbiosis, we set', base_b, zero_ass_b )
+ltx.write( 'Dynamics with no symbiosis:' )
+ltx.write( sea_zero )
+
+sea_adap_zero = sea_adap_f.bind( base_b, zero_ass_b, fixed_tran_b )
+ltx.write( 'And its adaptive dynamics is' )
+ltx.write( sea_adap_zero )
+
+sea_adap_zero.bind_in_place( seaquil[0] )
+#ltx.write( 'With equilibrium populations is', sea_adap_down )
+#ltx.write( 'And at starting point ', vector( [ starting_comm(v) for v in sea_adap_zero._vars ] ), ' is', starting_comm(sea_adap_zero) )
+
+adap_traj = sea_adap_zero.solve( starting_comm )
+adap_traj.plot( 't', sea_adap_zero._vars ).save( filename='sea-zero-ts.svg', figsize=(4,3) )
+
+ltx.close()
+save_session('sea-zero')
+</source-file>
+
+<project-file filename=sea-zero.sage.out.tex/>
+
+<project-file filename=sea-zero-ts.svg/>
+
+Since here we've declared that there is no association, and hence no
+transfer, and no cost or benefit whatsoever to investment in either,
+investment remains fixed at its initial value of zero.
+
+# Evolution of association investment
+
+<source-file filename=sea-ass.sage.step display=none>
+# requires: sea-down.sobj
+# produces: sea-ass.sage.out.tex
+# produces: sea-ass-ts.svg sea-ass-sel.tex
+from sage.all import * 
+from sage.misc.latex import _latex_file_
+import dynamicalsystems
+from dynamicalsystems import indexer, subscriptedsymbol, Bindings
+from seamodel import *
+
+load_session( 'sea-down' )
+for k,l in _save_symbols.iteritems(): SR.symbol( k, latex_name=l ) 
+
+ltx = dynamicalsystems.latex_output( 'sea-ass.sage.out.tex' )
+
+sea_ass = sea_f.bind( base_b, ass_b, fixed_tran_b )
+
+ltx.write( 'To study the incentive structure for association, we set', ass_b )
+
+ltx.write( 'Dynamics with association only:', sea_f.bind( base_b, fixed_tran_b ) )
+ltx.write( 'Or', sea_ass )
+
+sea_adap_ass_formal = sea_adap_f.bind( base_b, fixed_tran_b )
+sea_adap_ass = sea_adap_ass_formal.bind( ass_b )
+ltx.write( 'And its adaptive dynamics is' )
+ltx.write( sea_adap_ass_formal, 'Or ', sea_adap_ass )
+
+sea_adap_ass.bind_in_place( seaquil[0] )
+#ltx.write( 'With equilibrium populations is', sea_adap_ass )
+#ltx.write( 'And at starting point ', vector( [ starting_comm(v) for v in sea_adap_ass._vars ] ), ' is', starting_comm(sea_adap_ass) )
+
+adap_traj = sea_adap_ass.solve( starting_comm )
+adap_traj.plot( 't', [ a_indexer[i] for i in sea_adap_ass._popdyn_model._population_indices ] ).save( filename='sea-ass-ts.svg', figsize=(4,3) )
+
+ltx.close()
+
+ltx = dynamicalsystems.latex_output( 'sea-ass-sel.tex' )
+
+ltx.write( 'The selective pressures on investment are' )
+ltx.write( dynamicalsystems.dgroup( [ [ a_indexer[i], sea_adap_ass_formal._S[a_indexer[i]] ] for i in sea_adap_ass._popdyn_model._population_indices ], op=r'\to' ) )
+
+ltx.write( 'So the condition for increase in guest investment is' )
+ltx.write_block( sea_adap_ass_formal._S[a_indexer[(seamodel.type_g,0)]] > 0 )
+
+ltx.write( 'And for increase in host investment' )
+ltx.write_block( sea_adap_ass_formal._S[a_indexer[(seamodel.type_H,0)]] > 0 )
+
+ltx.close()
+save_session('sea-ass')
+</source-file>
+
+<project-file filename=sea-ass.sage.out.tex/>
+
+<project-file filename=sea-ass-ts.svg/>
+
+So here we see that both invest positively in association.
+
+<project-file filename=sea-ass-sel.tex/>
+
+_I.e._ marginal increase in benefit exceeds marginal increase in cost.
+Marginal because cost and benefit are balanced at each population equilibrium.
+Due to the factor of $$\hat{N}$$ or $$\hat{n}$$, I wonder if the net balance of cost/benefit could decrease rather than increase.
+
+So either investment in association will rise provided benefit rises faster than
+cost, and stop when the derivatives become equal.
+
+We have assumed functional forms such that benefit increases more quickly
+than cost near zero investment, so investment rises from zero until the
+marginal benefit no longer exceeds marginal cost.
+
+# Evolution of transfer
+
+Maybe transfer, when association is held fixed, will behave similarly.
+
+<source-file filename=sea-tran.sage.step display=none>
+# requires: sea-down.sobj
+# produces: sea-tran.sage.out.tex
+# produces: sea-tran-ts.svg sea-tran-sel.tex
+from sage.all import * 
+from sage.misc.latex import _latex_file_
+import dynamicalsystems
+from dynamicalsystems import indexer, subscriptedsymbol, Bindings
+from seamodel import *
+
+load_session( 'sea-down' )
+for k,l in _save_symbols.iteritems(): SR.symbol( k, latex_name=l ) 
+
+ltx = dynamicalsystems.latex_output( 'sea-tran.sage.out.tex' )
+
+sea_tran = sea_f.bind( base_b, fixed_ass_b, tran_b )
+
+ltx.write( 'To study the incentive structure for transfer, we set', tran_b, fixed_ass_b )
+
+ltx.write( 'Dynamics with transfer only:', sea_f.bind( base_b, fixed_ass_b ) )
+ltx.write( 'Or', sea_tran )
+
+sea_adap_tran_formal = sea_adap_f.bind( base_b, fixed_ass_b )
+sea_adap_tran = sea_adap_tran_formal.bind( tran_b )
+ltx.write( 'And its adaptive dynamics is' )
+ltx.write( sea_adap_tran_formal, 'Or ', sea_adap_tran )
+
+sea_adap_tran.bind_in_place( seaquil[0], p=1 )
+#ltx.write( 'With equilibrium populations is', sea_adap_tran )
+#ltx.write( 'And at starting point ', vector( [ starting_comm(v) for v in sea_adap_tran._vars ] ), ' is', starting_comm(sea_adap_tran) )
+
+adap_traj = sea_adap_tran.solve( starting_comm )
+adap_traj.plot( 't', [ t_indexer[i] for i in sea_adap_tran._popdyn_model._population_indices ] ).save( filename='sea-tran-ts.svg', figsize=(4,3) )
+
+ltx.close()
+
+ltx = dynamicalsystems.latex_output( 'sea-tran-sel.tex' )
+
+ltx.write( 'The selective pressures on investment are' )
+ltx.write( dynamicalsystems.dgroup( [ [ t_indexer[i], sea_adap_tran_formal._S[t_indexer[i]] ] for i in sea_adap_tran._popdyn_model._population_indices ], op=r'\to' ) )
+
+ltx.write( 'So the condition for increase in guest investment is' )
+ltx.write_block( sea_adap_tran_formal._S[t_indexer[(seamodel.type_g,0)]] > 0 )
+
+ltx.write( 'And for increase in host investment' )
+ltx.write_block( sea_adap_tran_formal._S[t_indexer[(seamodel.type_H,0)]] > 0 )
+
+ltx.close()
+save_session('sea-tran')
+</source-file>
+
+<project-file filename=sea-tran.sage.out.tex/>
+
+To evaluate the dynamics we use $$p=1$$.
+
+<project-file filename=sea-tran-ts.svg/>
+
+<project-file filename=sea-tran-sel.tex/>
+
+So yes, it's very similar. Investment in transfer increases when the
+marginal increase in benefit exceeds the marginal increase in cost.
+
+The functions we chose have benefit changing more rapidly than
+cost near zero, so both players respond by shifting
+away from zero investment.  Since we've made transfer benefit guests
+at the expense of hosts, guest invest in it and hosts invest in
+stopping it.  The race quits when the cost of investment becomes
+equally marginally significant.
+
+# Adaptation in the full model
+
+And when both association and transfer are up for adaptation?
+
+<source-file filename=sea-all.sage.step display=none>
+# requires: sea-down.sobj
+# produces: sea-all.sage.out.tex sea-all-sel.tex
+# produces: sea-all-ts.svg sea-all-values.svg
+# produces: sea-all-ts2.svg sea-all-values2.svg
+from sage.all import * 
+from sage.misc.latex import _latex_file_
+import dynamicalsystems
+from dynamicalsystems import indexer, subscriptedsymbol, Bindings
+from seamodel import *
+
+load_session( 'sea-down' )
+for k,l in _save_symbols.iteritems(): SR.symbol( k, latex_name=l ) 
+
+ltx = dynamicalsystems.latex_output( 'sea-all.sage.out.tex' )
+
+sea_all = sea_f.bind( base_b, ass_b, tran_b )
+
+ltx.write( 'To study the incentive structure for transfer, we set', ass_b, tran_b )
+
+ltx.write( 'Dynamics:', sea_f.bind( base_b ) )
+ltx.write( 'Or', sea_all )
+
+sea_adap_all_formal = sea_adap_f.bind( base_b )
+sea_adap_all = sea_adap_all_formal.bind( ass_b, tran_b )
+ltx.write( 'And its adaptive dynamics is' )
+ltx.write( sea_adap_all_formal, 'Or ', sea_adap_all )
+
+sea_adap_all.bind_in_place( p=1 )
+sea_adap_all_n = sea_adap_all.bind( seaquil[0] )
+
+adap_traj = sea_adap_all_n.solve( starting_comm )
+adap_traj.plot( 't', sea_adap_all_n._vars ).save( filename='sea-all-ts.svg', figsize=(4,3) )
+
+adap_traj.plot( 't',
+	[ SR('p(x_a_0,X_a_0)'), SR('b(x_t_0,X_t_0)'), SR('B(x_t_0,X_t_0)'),
+	  SR('c_t(x_t_0)'), SR('c_a(x_a_0)'), SR('C_t(X_t_0)'), SR('C_a(X_a_0)'),
+	]
+).save( filename='sea-all-values.svg', figsize=(4,3) )
+
+scomm2 = starting_comm.bind( X_t_0=0.008 )
+adap_traj = sea_adap_all_n.solve( scomm2 )
+adap_traj.plot( 't', sea_adap_all_n._vars ).save( filename='sea-all-ts2.svg', figsize=(4,3) )
+
+adap_traj.plot( 't',
+	[ SR('p(x_a_0,X_a_0)'), SR('b(x_t_0,X_t_0)'), SR('B(x_t_0,X_t_0)'),
+	  SR('c_t(x_t_0)'), SR('c_a(x_a_0)'), SR('C_t(X_t_0)'), SR('C_a(X_a_0)'),
+	]
+).save( filename='sea-all-values2.svg', figsize=(4,3) )
+
+scomm3 = dynamicalsystems.Bindings( x_a_0=0, x_t_0=0, X_a_0=0.001, X_t_0=0.001 )
+adap_traj = sea_adap_all_n.solve( scomm3 )
+adap_traj.plot( 't', sea_adap_all_n._vars ).save( filename='sea-all-ts3.svg', figsize=(4,3) )
+
+adap_traj.plot( 't',
+	[ SR('p(x_a_0,X_a_0)'), SR('b(x_t_0,X_t_0)'), SR('B(x_t_0,X_t_0)'),
+	  SR('c_t(x_t_0)'), SR('c_a(x_a_0)'), SR('C_t(X_t_0)'), SR('C_a(X_a_0)'),
+	  diff( SR('p(x_a_0,X_a_0)'), SR('x_a_0') ),
+	  diff( SR('c_a(x_a_0)'), SR('x_a_0') )
+	]
+).save( filename='sea-all-values3.svg', legend_loc='right', figsize=(4,3) )
+
+ltx.close()
+save_session('sea-all')
+</source-file>
+
+<project-file filename=sea-all.sage.out.tex/>
+
+This is as above, except that in investment in association, the impact of
+the probability of association is modulated by the consequences of transfer,
+which can be positive or negative.  Previously that consequence was fixed
+at a constant positive value.
+
+<project-file filename=sea-all-ts.svg/>
+
+So here both guest and host become anti-association, while their contributions
+to transfer diverge to strong opposite values.  Why is that?
+
+<project-file filename=sea-all-values.svg/>
+
+Could it be bistable, and the guest, who is getting hurt initially by the
+transfer, drives the polarization?
+
+Let's try different initial conditions
+
+<project-file filename=sea-all-ts2.svg/>
+
+<project-file filename=sea-all-values2.svg/>
+
+I am puzzled why $$x_{a_0}$$ goes downward.  Given that it's
+
+$$\dot{x}_{a0} = \left[ \hat{N}_0 ( b(x_{t0},X_{t0}) - c_t(x_{t0}) ) \partial_1 p(x_{a0},X_{a0}) - \hat{N}_0 \partial_1 c_a(x_{a0}) - \partial_1 c_g(x_{a0}) \right] \hat{n}_0$$
+
+with $$b-c_t = 0.008 >0$$, $$\partial_1 p = 0.25 > 0$$, $$\partial_1 c_a = 0.02$$,
+and $$\partial_1 c_g = 0$$,
+it looks like the situation is that the $$p$$ part is being dominated by
+the cost $$c_a$$.
+
+So how about this:
+
+<project-file filename=sea-all-ts3.svg/>
+
+<project-file filename=sea-all-values3.svg/>
+
