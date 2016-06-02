@@ -310,17 +310,34 @@ fixed_ass_b = Bindings(
 )
 
 ## variable investment in association
-ass_b = Bindings(
+base_ass_b = Bindings(
     dynamicalsystems.FunctionBindings(
-	## prob of association
-	#p = (1 / (1 + exp(-(x**2+y)))).function(x,y),
-	p = (1 / (1 + exp(-(x+y)))).function(x,y),
 	## cost re association per interaction
 	C_a = (x^2).function(x),
 	c_a = (x^2).function(x),
 	## density independent investment in association
 	C_g = SR(0).function(x),
 	c_g = SR(0).function(x),
+	## prob of association
+	# not defined here in base bindings
+    )
+)
+
+## variable association, with logistic-shaped p function
+exp_ass_b = Bindings( base_ass_b,
+    dynamicalsystems.FunctionBindings(
+	## prob of association
+	#p = (1 / (1 + exp(-(x**2+y)))).function(x,y),
+	p = (1 / (1 + exp(-(x+y)))).function(x,y),
+    )
+)
+
+## variable association, with linear p function
+## requires x_a, X_a stay in [-1,1]
+linear_ass_b = Bindings( base_ass_b,
+    dynamicalsystems.FunctionBindings(
+	## prob of association
+	p = (1/2 + (x+y)/4).function(x,y)
     )
 )
 
@@ -351,11 +368,17 @@ fixed_tran_b = Bindings(
 )
 
 ## variable investment in transfer
-tran_b = Bindings(
+base_tran_b = Bindings(
     dynamicalsystems.FunctionBindings(
 	## cost re transfer per interaction
 	C_t = (x^2).function(x),
 	c_t = (x^2).function(x),
+    )
+)
+
+## variable transfer, with equal and opposite benefits
+diag_tran_b = Bindings( base_tran_b,
+    dynamicalsystems.FunctionBindings(
 	## benefit to guest of transfer
 	b = (x+y).function(x,y), #x.function(x,y),
 	## benefit to host of transfer
@@ -363,9 +386,20 @@ tran_b = Bindings(
     )
 )
 
+## variable transfer, with generic linear benefit functions
+linear_tran_b = Bindings( base_tran_b,
+    dynamicalsystems.FunctionBindings(
+	## benefit to guest of transfer
+	b = SR('v*x+w*y').function(x,y),
+	## benefit to host of transfer
+	B = SR('V*x+W*y').function(x,y),
+	## bind v,w,V,W yourself
+    )
+)
+
 ## down_b was once intended to be a setting where investments go down.
 ## name persists.
-down_b = base_b + ass_b + tran_b
+down_b = base_b + exp_ass_b + diag_tran_b
 
 ltx.write( 'Here are some pessimistic bindings:', down_b )
 sea_down = down_b(sea_f)
@@ -387,6 +421,7 @@ sea_adap_down.bind_in_place( seaquil[0] )
 ltx.write( 'And at starting point ', vector( [ starting_comm(v) for v in sea_adap_down._vars ] ), ' is', starting_comm(sea_adap_down) )
 
 ltx.close()
+_save_symbols = { sv:lv for sv,lv in ( (str(v), latex(v)) for v in sage.symbolic.ring.pynac_symbol_registry.values() ) if sv != lv }
 save_session('sea-down')
 </source-file>
 
@@ -497,15 +532,15 @@ for k,l in _save_symbols.iteritems(): SR.symbol( k, latex_name=l )
 
 ltx = dynamicalsystems.latex_output( 'sea-ass.sage.out.tex' )
 
-sea_ass = sea_f.bind( base_b, ass_b, fixed_tran_b )
+sea_ass = sea_f.bind( base_b, exp_ass_b, fixed_tran_b )
 
-ltx.write( 'To study the incentive structure for association, we set', ass_b )
+ltx.write( 'To study the incentive structure for association, we set', exp_ass_b )
 
 ltx.write( 'Dynamics with association only:', sea_f.bind( base_b, fixed_tran_b ) )
 ltx.write( 'Or', sea_ass )
 
 sea_adap_ass_formal = sea_adap_f.bind( base_b, fixed_tran_b )
-sea_adap_ass = sea_adap_ass_formal.bind( ass_b )
+sea_adap_ass = sea_adap_ass_formal.bind( exp_ass_b )
 ltx.write( 'And its adaptive dynamics is' )
 ltx.write( sea_adap_ass_formal, 'Or ', sea_adap_ass )
 
@@ -571,15 +606,15 @@ for k,l in _save_symbols.iteritems(): SR.symbol( k, latex_name=l )
 
 ltx = dynamicalsystems.latex_output( 'sea-tran.sage.out.tex' )
 
-sea_tran = sea_f.bind( base_b, fixed_ass_b, tran_b )
+sea_tran = sea_f.bind( base_b, fixed_ass_b, diag_tran_b )
 
-ltx.write( 'To study the incentive structure for transfer, we set', tran_b, fixed_ass_b )
+ltx.write( 'To study the incentive structure for transfer, we set', diag_tran_b, fixed_ass_b )
 
 ltx.write( 'Dynamics with transfer only:', sea_f.bind( base_b, fixed_ass_b ) )
 ltx.write( 'Or', sea_tran )
 
 sea_adap_tran_formal = sea_adap_f.bind( base_b, fixed_ass_b )
-sea_adap_tran = sea_adap_tran_formal.bind( tran_b )
+sea_adap_tran = sea_adap_tran_formal.bind( diag_tran_b )
 ltx.write( 'And its adaptive dynamics is' )
 ltx.write( sea_adap_tran_formal, 'Or ', sea_adap_tran )
 
@@ -645,15 +680,15 @@ for k,l in _save_symbols.iteritems(): SR.symbol( k, latex_name=l )
 
 ltx = dynamicalsystems.latex_output( 'sea-all.sage.out.tex' )
 
-sea_all = sea_f.bind( base_b, ass_b, tran_b )
+sea_all = sea_f.bind( base_b, exp_ass_b, diag_tran_b )
 
-ltx.write( 'To study the incentive structure for transfer, we set', ass_b, tran_b )
+ltx.write( 'To study the incentive structure for transfer, we set', exp_ass_b, diag_tran_b )
 
 ltx.write( 'Dynamics:', sea_f.bind( base_b ) )
 ltx.write( 'Or', sea_all )
 
 sea_adap_all_formal = sea_adap_f.bind( base_b )
-sea_adap_all = sea_adap_all_formal.bind( ass_b, tran_b )
+sea_adap_all = sea_adap_all_formal.bind( exp_ass_b, diag_tran_b )
 ltx.write( 'And its adaptive dynamics is' )
 ltx.write( sea_adap_all_formal, 'Or ', sea_adap_all )
 
@@ -733,3 +768,90 @@ So how about this:
 
 <project-file filename=sea-all-values3.svg/>
 
+# A cooperative example?
+
+How to make this model select for mutualism.
+
+<source-file filename=sea-up.sage.step display=none>
+# requires: sea-down.sobj
+# produces: sea-up.sage.out.tex sea-up-sel.tex
+# produces: sea-up-ts.svg sea-up-values.svg
+from sage.all import * 
+from sage.misc.latex import _latex_file_
+import dynamicalsystems
+from dynamicalsystems import indexer, subscriptedsymbol, Bindings
+from seamodel import *
+
+load_session( 'sea-down' )
+for k,l in _save_symbols.iteritems():
+	#print k,l
+	SR.symbol( k, latex_name=l ) 
+
+ltx = dynamicalsystems.latex_output( 'sea-up.sage.out.tex' )
+
+heavy_k_b = Bindings( k=20, K=20 )
+vw_up_b = Bindings( V=15/2, W=1, v=1, w=15/2 )
+
+sea_lin = sea_f.bind( heavy_k_b ).bind( base_b, linear_ass_b )
+sea_vw = sea_lin.bind( linear_tran_b )
+sea_up = sea_vw.bind( vw_up_b )
+
+sea_adap_up_formal = sea_adap_f.bind( heavy_k_b ).bind( base_b )
+sea_adap_lin = sea_adap_up_formal.bind( linear_ass_b )
+sea_adap_vw = sea_adap_lin.bind( linear_tran_b )
+
+ltx.write( 'To study the incentive structure for transfer, we set', heavy_k_b, linear_ass_b, linear_tran_b, sea_adap_vw )
+
+from dynamicalsystems import dgroup
+ltx.write( 'Equilibrium conditions are\n',
+  dgroup( [ [ SR(x) for x in l ] for l in
+      [ [ 'W', '2X_t' ],
+	[ 'Vx_t', 'X_t^2 - WX_t + 8X_a', '8X_a - X_t^2' ],
+	[ 'v', '2x_t' ],
+	[ 'wX_t', 'x_t^2 - vx_t + 8x_a', '8x_a - x_t^2' ]
+      ]
+  ], '=' ),
+  'So to have all $x$ values equal to $1/2$, we set\n',
+  vw_up_b
+)
+
+sea_adap_up = sea_adap_vw.bind( vw_up_b )
+ltx.write( 'for ', sea_adap_up )
+
+sea_adap_up_n = sea_adap_up.bind( seaquil[0] )
+a_g_H = SR.symbol('a_g_H',latex_name='a_{gH}' )
+a_H_g = SR.symbol('a_H_g',latex_name='a_{Hg}' )
+sea_adap_up_n.bind(
+    a_g_H = SR('(B(x_t_0,X_t_0)-C_t(X_t_0))*p(x_a_0,X_a_0) - C_a(X_a_0)'),
+    a_H_g = SR('(b(x_t_0,X_t_0)-c_t(x_t_0))*p(x_a_0,X_a_0) - c_a(x_a_0)')
+)
+
+adap_traj = sea_adap_up_n.solve( starting_comm, step=0.002 )
+adap_traj.plot( 't', sea_adap_up_n._vars ).save( filename='sea-up-ts.svg', figsize=(4,3) )
+
+adap_traj.plot( 't',
+	[ SR('p(x_a_0,X_a_0)'), SR('b(x_t_0,X_t_0)'), SR('B(x_t_0,X_t_0)'),
+	  'a_g_H', 'a_H_g'
+	] + sea_adap_up._popdyn_model.equilibrium_vars()
+).save( filename='sea-up-values.svg', figsize=(4,3) )
+
+adap_traj.plot( 't',
+	[ SR('c_t(x_t_0)'), SR('c_a(x_a_0)'), SR('C_t(X_t_0)'), SR('C_a(X_a_0)'),
+	]
+).save( filename='sea-up-c-values.svg', figsize=(4,3) )
+
+ltx.close()
+save_session('sea-up')
+</source-file>
+
+<project-file filename=sea-up.sage.out.tex/>
+
+<project-file filename=sea-up-ts.svg/>
+
+<project-file filename=sea-up-values.svg/>
+
+<project-file filename=sea-up-c-values.svg/>
+
+Why does it stop??  Because the population equilibrium stops being viable,
+it looks like. Basically a nonlinear version of loss of $$B$$-stability.
+Must look into.
