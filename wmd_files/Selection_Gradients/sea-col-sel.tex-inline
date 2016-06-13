@@ -1,0 +1,8 @@
+The selective pressures on investment are\begin{align*}
+  {X}_{{c}{0}} &\to -\hat{{n}}_{0} D[0]\left(C_{c}\right)\left({X}_{{c}{0}}\right) + \hat{{n}}_{0} D[1]\left(p\right)\left({x}_{{c}{0}}, {X}_{{c}{0}}\right) - D[0]\left(C_{g}\right)\left({X}_{{c}{0}}\right) \\
+  {x}_{{c}{0}} &\to -\hat{{N}}_{0} D[0]\left(c_{c}\right)\left({x}_{{c}{0}}\right) + \hat{{N}}_{0} D[0]\left(p\right)\left({x}_{{c}{0}}, {X}_{{c}{0}}\right) - D[0]\left(c_{g}\right)\left({x}_{{c}{0}}\right)
+\end{align*}So the condition for increase in guest investment is
+\[-\hat{{N}}_{0} D[0]\left(c_{c}\right)\left({x}_{{c}{0}}\right) + \hat{{N}}_{0} D[0]\left(p\right)\left({x}_{{c}{0}}, {X}_{{c}{0}}\right) - D[0]\left(c_{g}\right)\left({x}_{{c}{0}}\right) > 0\]
+And for increase in host investment
+\[-\hat{{n}}_{0} D[0]\left(C_{c}\right)\left({X}_{{c}{0}}\right) + \hat{{n}}_{0} D[1]\left(p\right)\left({x}_{{c}{0}}, {X}_{{c}{0}}\right) - D[0]\left(C_{g}\right)\left({X}_{{c}{0}}\right) > 0\]
+

@@ -1,0 +1,31 @@
+\begin{lstlisting}[language=Python]
+# produces: sea.sobj sea.sage.out.tex
+from sage.all import * 
+from sage.misc.latex import _latex_file_
+import seamodel, dynamicalsystems
+
+# now that I've defined the general resource-competition model, let's
+# create a 1-resource, 1-population instantiation to work with
+sea = SeaSymbiosisModel(
+    x_indices=[0]
+)
+
+ltx = dynamicalsystems.latex_output( 'sea.sage.out.tex' )
+ltx.write( 'The model:' )
+ltx.write_block( sea )
+
+ltx.close()
+exit(0r)
+
+sea_adap = dynamicalsystems.AdaptiveDynamicsModel( 
+    sea,
+    [ sea._indexers['h'] ]
+)
+
+ltx.write( 'Whence the adaptive dynamics of $h$ is' )
+ltx.write_environment( 'align*', [ r'\\\n  '.join( r'\frac{d%s}{dt} &\propto %s' % (latex(v), latex(sea_adap._S[v])) for v in sea_adap._vars ) ] )
+
+ltx.close()
+
+save_session('sea')
+\end{lstlisting}

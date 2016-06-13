@@ -1,0 +1,12 @@
+\iflatexml
+\begin{align*}
+\frac{dX_{0}}{dt} &= {\left(X_{0} a_{0_{0}} + r_{0}\right)} X_{0}
+\end{align*}
+\else
+\begin{dgroup*}
+\begin{dmath*}
+\frac{dX_{0}}{dt} = {\left(X_{0} a_{0_{0}} + r_{0}\right)} X_{0}
+\end{dmath*}
+\end{dgroup*}
+\fi
+

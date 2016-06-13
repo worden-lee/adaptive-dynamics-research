@@ -1,0 +1,96 @@
+Walter Nicholson, Christopher M. Snyder
+Microeconomic Theory: Basic Principles and Extensions.
+
+Chapter 3: Preferences and Utility
+
+see part 8 below for externalities.
+
+Axioms of Rational Choice
+preference relation has properties:
+* Completeness: it's total, either a >= b or b >= a or both
+* Transitivity
+* Continuity: if a > b then things sufficiently close to a also > b
+
+Preference ordering can be modeled by an imputed utility function U(x)?
+But it's based on relative ordering.
+
+Compare two things using ceteris paribus assumption (though it matters in what
+context).
+
+indifference curve, marginal rate of substitution = -dy/dx, negative slope of curve
+curve often taken to be concave up (convex), meaning people prefer things in the middle of a straight line
+
+
+===
+Part 8: Market Failures
+
+Chapter 18: Asymmetric information
+
+The two important classes of asymmetric information problems studied in this chapter include moral hazard problems, in which one party’s actions during the term of the contract are unobservable to the other, and adverse selection problems, in which a party obtains asymmetric information about market conditions before signing the contract.
+
+Chapter 19: Externalities
+
+An externality occurs whenever the activities of one economic actor affect the activities
+of another in ways that are not reflected in market transactions.
+
+existence of externalities and public goods may "distort" the allocation of resources
+
+unless these costs or benefits can be internalized into the decision process, resources will be misallocated
+
+Note: there are also "pecuniary externalities" that are reflected in the market: for example buying decisions affect prices, affecting other people's well being.  The above definition intentionally includes only "technological externalities", the ones that cause market failure (?).
+
+1. activity of x affects production function of y (could be harmful or beneficial)
+2. activities of x affect utility of y
+3. public goods, characterized by nonexclusion. Benefits can't be confined to the producers of the good. "Market signals will be inaccurate."
+
+## 1. activity of x affects production function of y
+
+production function for good y: y = f(...; x)
+sign of \partial y/\partial x ==> positive vs negative externality
+
+## 2. activities of x affect utility of y
+
+One special type of utility externality that is relevant to the analysis of social choices arises when one individual’s utility depends directly on the utility of someone else.
+(sign of partial derivative => altruism vs envy)
+
+Externalities lead to inefficient allocations of resources because market prices do not
+accurately reflect the additional costs imposed on or benefits provided to third parties. (By definition, see above)
+
+efficiency fails because producer disregards the externality.
+
+Incentive-based solutions to the externality problem: taxes/incentives to correct for the external thing.
+
+## 3. public goods
+
+"Pollution rights": clearly fucked up.  Maybe the whole theory including externalities needs to be avoided.
+
+Exclusion. Good that people can be excluded from benefiting from.
+
+Nonrivalry. Good that consumption of additional units involves no social marginal costs of production.
+
+Natl defense, mosquito control = both nonexclusive and nonrival.
+Fishing = nonexclusive but rival
+Use of toll bridge (off-peak) = nonrival but can be excluded.
+Nonexclusive goods often produced by gov'ts because they can do it via taxation.
+Nonrival but exclusive, can be done privately.
+Public good = nonrival, nonexclusive.
+
+Nonexclusivity: contribution of x to each person's utility is independent of their contribution to its production.
+Nonrivalry: each person's consumption of x = total amount produced, i.e. independent of anyone's consumption
+
+Optimality condition for public goods, from Samuelson, adapts efficiency condition of chapter 13. The MRS in consumption must reflect the amount of y that *all* consumers would be willing to give up to get one more x, because all will get the x.
+
+"Hence, for public goods, the demand curve must be derived by a vertical summation rather than the horizontal summation used in the case of private goods." -- ???
+--> vertical = price, horizontal = quantity
+--> summation: total price all would pay per unit of x
+
+Nash equilibrium - found using best responses - vs. efficient allocation - found using MRSs
+
+### MRS
+
+Marginal rate of substitution
+
+negative slope of indifference curve: contour of quantity y vs quantity x showing locus of equally preferred combinations.  MRS = -dy/dx along indifference curve.
+
+.:. MRS of y vs x is # of dy that the person will take in exchange for dx.
+

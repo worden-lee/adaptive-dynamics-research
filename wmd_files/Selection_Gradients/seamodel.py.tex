@@ -1,0 +1,39 @@
+\begin{lstlisting}[language=Python]
+from sage.all import * 
+import dynamicalsystems
+
+# Model organized as follows:
+#  population index is (type, number), with type either g or H
+
+class SeaSymbiosisModel(dynamicalsystems.PopulationDynamicsSystem):
+    type_H, type_g = 0, 1
+    def __init__(
+	self,
+	x_indices=None,
+	X = dynamicalsystems.indexer( lambda t,i: dynamicalsystems.subscriptedsymbol( 'N', t, i ),
+	m_indexer = dynamicalsystems.indexer( lambda t,i: dynamicalsystems.subcriptedsymbol( t == type_H ? 'X':'x', 'm', i) ),
+	c_indexer = dynamicalsystems.indexer( lambda t,i: dynamicalsystems.subcriptedsymbol( t == type_H ? 'X':'x', 'c', i) ),
+	bindings=dynamicalsystems.Bindings()):
+	self.indexers = { 'X': X, 'u': u_indexer, 'U': U_indexer }
+	from sage.symbolic.function_factory import function
+	self.names = dict( 
+		[ n: SR.symbol(n) for in in ('r_0', 'R_0') ] +
+		[ n: function(n) for n in ('p', 'c_g', 'c_c', 'c_m', 'b', 'C_g', 'C_c', 'C_m', 'B') ]
+	)
+	super(SeaSymbiosisModel,self).__init__(
+	    [], x_indices, X, bindings=bindings
+	)
+    def flow(self):
+	return self._flow( **self.indexers, **self.names )
+    def _flow(self, X, um, uc, r_0, R_0, p, c_g, c_c, c_m, b, C_g, C_c, C_m, B ):
+	return dict(
+	    [ (X[g], X[g]*(r_0 - c_g(uc[g]) +
+		sum( (p(uc[g],uc[h])*(b(um[g],um[h]) - c_c(uc[g])) - c_m(um[g]))*X[h]
+			for h in self._population_indices if h[0] == type_H ) )
+	      ) for g in self._population_indices if g[0] == type_g ] +
+	    [ (X[h], X[h]*(R_0 - C_g(uc[h]) +
+		sum( (p(uc[g],uc[h])*(B(um[g],um[h]) - C_c(uc[h])) - C_m(um[h]))*X[g]
+			for g in self._population_indices if g[0] == type_g ) )
+	      ) for h in self._population_indices if h[0] == type_H ]
+	)
+\end{lstlisting}

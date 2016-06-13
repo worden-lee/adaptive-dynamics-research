@@ -1,0 +1,20 @@
+
+\[
+  S \left(\begin{array}{c}
+  r_{0}\\
+  s_{0}\\
+  c_{0}\\
+  K_{0}
+\end{array}\right) = \left(\begin{array}{c}
+  1\\
+  -\frac{\hat{X}_{0}}{K_{0}}\\
+  \frac{\hat{X}_{0} s_{0}}{K_{0} c_{0}}\\
+  0
+\end{array}\right) = \left(\begin{array}{c}
+  1\\
+  -\frac{r_{0}}{s_{0}}\\
+  \frac{r_{0}}{c_{0}}\\
+  0
+\end{array}\right)
+\]
+

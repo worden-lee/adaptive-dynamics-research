@@ -1,0 +1,199 @@
+<html><head>
+<meta http-equiv="content-Type" content="text/html; charset=UTF-8">
+<meta name="citation_journal_title" content="Evolutionary Ecology Research">
+<meta name="citation_journal_abbrev" content="Evol Ecol Res">
+<meta name="citation_publisher" content="Evolutionary Ecology, Ltd.">
+<meta name="citation_pdf_url" content="http://www.Evolutionary-Ecology.com/issues/v01n08/eear1133.pdf">
+<meta name="citation_volume" content="1">
+<meta name="citation_issue" content="8">
+<meta name="citation_publication_date" content="1999">
+<meta name="citation_firstpage" content="923">
+<meta name="citation_lastpage" content="942">
+<meta name="citation_issn" content="1522–0613">
+<meta name="citation_language" content="English">
+<meta name="citation_title" content="A G-function approach to fitness minima, fitness maxima, evolutionarily stable strategies and adaptive landscapes">
+<meta name="citation_author" content="Y. Cohen">
+<meta name="citation_author" content=" T.L. Vincent">
+<meta name="citation_author" content="J.S. Brown">
+<meta name="citation_keywords" content="adaptive landscapes; evolutionarily stable strategy; fitness; frequency-dependent selection; G-function; game theory; speciation; strategy dynamics">
+<style>
+p
+{	margin-top: 10px;
+	margin-bottom: 1px
+}
+
+body {line-height: 1.4em; font-family: Trebuchet, Helvetica, Arial, sans-serif; font-size: 24px; font-weight: normal;font-style: normal}
+
+p.body:first-letter {font-size:180%; font-weight:bold; color:#064281;}
+
+p.caption {text-align:center; color:#843100; font-size: 16px; font-style:oblique; font-weight:bold; line-height: 1.0em;}
+H4 {font-size:13px; font-style:oblique; font-weight:bold; line-height: 1.3em;}
+H2 {color:#466810;}
+H1 {color:#064281;}
+Li {font-size:11px}
+</style>
+<link type="text/css" rel="stylesheet" href="Cohen%20Vincent-G-function_files/style.css">
+
+<script type="text/x-mathjax-config">MathJax.Hub.Register.StartupHook("NativeMML Jax Ready", function () {MathJax.OutputJax.NativeMML.Augment({preTranslate: function (state) {
+  var scripts = state.jax[this.id];
+  for (var i = 0; i < scripts.length; i++) {
+    var script = scripts[i]; if (!script.parentNode) continue;
+    // Remove any existing output
+    var prev = script.previousSibling;
+    if (prev && prev.className === "MathJax_MathML")
+      prev.parentNode.removeChild(prev);
+    // Add the MathJax span
+    var jax = script.MathJax.elementJax; if (!jax) continue;
+    var math = jax.root; jax.NativeMML = {};
+    var type = (math.Get("display") === "block" ? "div" : "span");
+    var span = MathJax.HTML.Element(type,{
+      className: "MathJax_MathML", id:jax.inputID+"-Frame"
+    },[["span",{
+      className:"MathJax_MathContainer", isMathJax: true, jaxID:this.id,
+    },[["span",{isMathJax:true}]]
+    ]]);
+    script.parentNode.insertBefore(span,script);
+  }
+}});MathJax.OutputJax.NativeMML.ffTableWidthBug = false;MathJax.OutputJax.NativeMML.forceReflow = false;MathJax.OutputJax.NativeMML.widthBug = false;MathJax.OutputJax.NativeMML.spaceWidthBug = false;MathJax.OutputJax.NativeMML.mtdWidthBug = false;});MathJax.Hub.Register.StartupHook("End Extensions", function () {if (MathJax.Extension.mml2jax) {  for (var i=0,m=MathJax.Hub.preProcessors.hooks.length; i < m; i++) {    if (MathJax.Hub.preProcessors.hooks[i].hook ===        MathJax.Extension.mml2jax.PreProcess)      { MathJax.Hub.preProcessors.hooks.splice(i,1); i--; m--; }  }}});</script></head>
+
+<body bgcolor="oldlace">
+
+
+
+<center><img src="Cohen%20Vincent-G-function_files/EERmastheadsm.jpg" nosave="" width="600" border="1">
+
+
+
+<div class="animatedtabs">
+
+<ul>
+
+<li><a href="http://www.evolutionary-ecology.com/" title="HOME"><span>Home</span></a></li>
+
+<li><a href="http://www.evolutionary-ecology.com/v1.html" title="Final Editions"><span>Final Editions</span></a></li>
+
+<li><a href="http://www.evolutionary-ecology.com/forthcoming.html" title="Early Editions"><span>Early Editions</span></a></li>
+
+<li><a href="http://www.evolutionary-ecology.com/search.php" title="Search"><span><font face="arial,verdana,sanserif" color="red"><b>SEARCH</b></font></span></a></li>
+
+<li><a href="http://www.evolutionary-ecology.com/advice/AdviceFrames.html" title="Advice for Authors"><span>ms Preparation</span></a></li>
+
+<li><a href="http://www.evolutionary-ecology.com/editors.html" title="List of Editors"><span>Editors</span></a></li>
+
+<li><a href="http://www.evolutionary-ecology.com/Specials.html" title="Special issues"><span>SPECIAL ISSUES</span></a></li>
+
+<li><a href="http://www.evolutionary-ecology.com/subscriptions.html" title="Subscriptions"><span>Subscribe</span></a></li>
+
+</ul>
+
+</div>
+
+
+
+<p style="line-height: 0.05in">&nbsp;</p>
+
+
+
+<p style="text-align: center; font-size: 14pt; font-family: " times="" new="" roman",="" serif;="" line-height:="" 0.2in"=""><i>Evol Ecol Res</i> <b>1</b>:&nbsp;923-943 (1999)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font size="-1" face="tahoma,arial,Helvetica,sanserif" color="#840000"><a href="http://www.evolutionary-ecology.com/issues/v01n08/eear1133.pdf">Full <b>PDF</b> </a>if your library subscribes.</font></p>
+
+<blockquote>
+
+
+
+<p style="text-align: center; font-size: 16pt; font-family: Arial, Tahoma, Trebuchet; sans-serif; line-height: 0.28in; font-weight: bold">
+
+
+
+</p><p style="text-align: center; font-size: 16pt; font-family: Arial, Tahoma, Trebuchet; sans-serif; line-height: 0.28in; font-weight: bold">A <b><i>G</i></b>-function approach to fitness minima, fitness maxima, evolutionarily stable strategies and adaptive landscapes</p>
+
+<p style="text-align: center; font-size: 14pt; font-family: 'Times New Roman', serif; line-height: 0.25in">Y. Cohen,<sup>1</sup><nref i="rfn" num="1"> T.L. Vincent<sup>2</sup> and J.S. Brown<sup>3</sup></nref></p>
+
+<p style="text-align: center;line-height: 0.312502in; margin-bottom: 0.0416667in; font-family: 'Times New Roman', serif; font-size: 12pt"><sup>1</sup>Department of Fisheries and Wildlife, University of Minnesota, St. Paul, MN 55108, <sup>2</sup>Department of Aerospace and Mechanical Engineering, University of Arizona, Tucson, AZ 85721 and <sup>3</sup>Department of Biological Sciences, University of Illinois, Chicago, IL 60607, USA</p>
+
+<p style="line-height: 0.312502in; margin-bottom: 0.0416667in"><span style="font-family: 'Times New Roman', serif"><span style="font-size: 12pt">Author to whom all correspondence should be addressed. <br>e-mail: yc@turtle.gis.umn.edu</span></span></p>
+<p style="text-align: center; line-height: 0.312502in; margin-bottom: 0.0416667in; font-family: 'Times New Roman', serif; font-size: 14pt; font-weight: bold">ABSTRACT</p>
+
+<p style="text-align: left; line-height: 0.312502in; text-indent: 0.5in; margin-bottom: 0.0416667in; font-family: 'Times New Roman', serif; font-size: 14pt">We use a fitness-generating function (<i>G</i>-function) approach to evolutionary games. The <i>G</i>-function
+ allows for simultaneous consideration of strategy dynamics and 
+population dynamics. In contrast to approaches using a separate fitness 
+function for each strategy, the <i>G</i>-function automatically expands 
+and contracts the dimensionality of the evolutionary game as the number 
+of extant strategies increases or decreases. In this way, the number of 
+strategies is not fixed but emerges as part of the evolutionary process.
+ We use the <i>G</i>-function to derive conditions for a strategy’s (or a
+ set of strategies) resistance to invasion and convergence stability. In
+ hopes of relating the proliferation of ESS-related terminology, we 
+define an ESS as a set of strategies that is both resistant to invasion 
+and convergent-stable. With our definition of ESS, we show the 
+following: (1) Evolutionarily unstable maxima and minima are not 
+achievable from adaptive dynamics. (2) Evolutionarily stable minima are 
+achievable from adaptive dynamics and allow for adaptive speciation and 
+divergence by additional strategies – in this sense, these minima 
+provide transition points during an adaptive radiation and are therefore
+ unstable when subject to small mutations. (3) Evolutionarily stable 
+maxima are both invasion-resistant and convergent-stable. When global 
+maxima on the adaptive landscape are at zero fitness, these combinations
+ of strategies make up the ESS. We demonstrate how the number of 
+co-existing strategies (coalition) emerges when seeking an ESS solution.
+ The Lotka-Volterra competition model and Monod model of competition are
+ used to illustrate combinations of invasion resistance and convergence 
+stability, adaptive speciation and evolutionarily ‘stable’ minima, and 
+the diversity of co-existing strategies that can emerge as the ESS.</p>
+
+<p style="text-align: center; line-height: 0.312502in; margin-bottom: 0.0416667in; font-size: 12pt; font-family: 'Times New Roman', serif"><i>Keywords</i>: adaptive landscapes, evolutionarily stable strategy, fitness, frequency-dependent selection, <i>G</i>-function, game theory, speciation, strategy dynamics.</p>
+
+<p style="text-align: center; line-height: 0.312502in; margin-bottom: 0.0416667in"><span style="font-family: " times="" new="" roman",="" serif"=""><span style="font-size: 12pt"><span style="color: #5588aa"><span style="font-weight: bold"> <a href="http://www.evolutionary-ecology.com/issues/v01n08/eear1133.pdf" style="text-decoration: none" target="_blank">DOWNLOAD</a> A FREE, FULL PDF COPY 
+
+<br>IF you are connected using the IP of a subscribing institution (library, laboratory, etc.)<br>or through its VPN.</span></span></span></span></p>
+
+<p style="margin-bottom: 0.0416667in; line-height: 0.312502in; margin-bottom: 0.0416667in">&nbsp;</p>
+
+
+
+<p style="text-align: left; line-height: 0.208334in; margin-bottom: 0.0416667in"><span style="color: #000000"><span style="font-family: " times="" new="" roman",="" serif"=""><span style="font-size: 8pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+
+© 1999 Y. Cohen. 
+
+
+
+All <i>EER</i> articles are copyrighted by their authors. All authors 
+endorse, permit and license Evolutionary
+
+Ecology Ltd. to grant its subscribing institutions/libraries the copying
+ privileges specified below without additional consideration or payment 
+to them or to Evolutionary Ecology, Ltd. These endorsements, in writing,
+ are on file in the office of Evolutionary Ecology, Ltd. Consult authors
+ for permission to use any portion of their work in derivative works, 
+compilations or to distribute their work in any commercial manner. </span></span></span></p>
+
+
+
+<p style="text-align: justify; line-height: 0.208334in; margin-bottom: 0.0416667in"><span style="color: #000000"><span style="font-family: " times="" new="" roman",="" serif"=""><span style="font-size: 8pt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>Subscribing institutions/libraries may grant individuals the privilege of making a single copy of an <i>EER</i>
+ article for non-commercial educational or non-commercial research 
+purposes. Subscribing institutions/libraries may also use articles for 
+non-commercial educational purposes by making any number of copies for 
+course packs or course reserve collections. Subscribing 
+institutions/libraries may also loan single copies of articles to 
+non-commercial libraries for educational purposes. </span></span></span></p>
+
+
+
+<p style="text-align: justify; line-height: 0.208334in; margin-bottom: 0.0416667in"><span style="color: #000000"><span style="font-family: " times="" new="" roman",="" serif"=""><span style="font-size: 8pt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>All copies of abstracts and articles must preserve their copyright notice without modification.</span></span></span></p>
+
+
+
+</blockquote>
+
+
+
+<p style="margin-bottom: 0.0416667in; line-height: 0.312502in; margin-bottom: 0.0416667in">&nbsp;</p>
+
+
+
+
+
+
+
+</center></body></html>

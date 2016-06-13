@@ -1,0 +1,12 @@
+\iflatexml
+\begin{align*}
+\frac{dX_{0}}{dt} &= X_{0} {\left(r_{0} - \frac{X_{0} s_{0}}{K_{0}}\right)}
+\end{align*}
+\else
+\begin{dgroup*}
+\begin{dmath*}
+\frac{dX_{0}}{dt} = X_{0} {\left(r_{0} - \frac{X_{0} s_{0}}{K_{0}}\right)}
+\end{dmath*}
+\end{dgroup*}
+\fi
+

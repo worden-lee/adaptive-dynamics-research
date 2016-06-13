@@ -1,0 +1,69 @@
+Here are some pessimistic bindings:\begin{align*}
+  k &\to 1 \\
+  K &\to 1\\
+  C_c(x) &\to x^{2}\\
+  C_g(x) &\to 0\\
+  c_g(x) &\to 0\\
+  B(x,y) &\to -x - y\\
+  R(x,y) &\to 1\\
+  r(x,y) &\to 1\\
+  c_m(x) &\to x^{2}\\
+  c_c(x) &\to x^{2}\\
+  C_m(x) &\to x^{2}\\
+  p(x,y) &\to \frac{1}{e^{\left(-x^{2} - y\right)} + 1}\\
+  b(x,y) &\to x + y
+\end{align*}Dynamics with pessimistic functions:\iflatexml
+\begin{align*}
+\frac{d{N}_{{H}{0}}}{dt} &= -{\left({\left({X}_{{c}{0}}^{2} + \frac{{X}_{{m}{0}}^{2} + {X}_{{m}{0}} + {x}_{{m}{0}}}{e^{\left(-{x}_{{c}{0}}^{2} - {X}_{{c}{0}}\right)} + 1}\right)} {N}_{{g}{0}} + {N}_{{H}{0}} - 1\right)} {N}_{{H}{0}}\\
+\frac{d{N}_{{g}{0}}}{dt} &= -{\left({\left({x}_{{c}{0}}^{2} + \frac{{x}_{{m}{0}}^{2} - {X}_{{m}{0}} - {x}_{{m}{0}}}{e^{\left(-{x}_{{c}{0}}^{2} - {X}_{{c}{0}}\right)} + 1}\right)} {N}_{{H}{0}} + {N}_{{g}{0}} - 1\right)} {N}_{{g}{0}}
+\end{align*}
+\else
+\begin{dgroup*}
+\begin{dmath*}
+\frac{d{N}_{{H}{0}}}{dt} = -{\left({\left({X}_{{c}{0}}^{2} + \frac{{X}_{{m}{0}}^{2} + {X}_{{m}{0}} + {x}_{{m}{0}}}{e^{\left(-{x}_{{c}{0}}^{2} - {X}_{{c}{0}}\right)} + 1}\right)} {N}_{{g}{0}} + {N}_{{H}{0}} - 1\right)} {N}_{{H}{0}}\end{dmath*}
+\begin{dmath*}
+\frac{d{N}_{{g}{0}}}{dt} = -{\left({\left({x}_{{c}{0}}^{2} + \frac{{x}_{{m}{0}}^{2} - {X}_{{m}{0}} - {x}_{{m}{0}}}{e^{\left(-{x}_{{c}{0}}^{2} - {X}_{{c}{0}}\right)} + 1}\right)} {N}_{{H}{0}} + {N}_{{g}{0}} - 1\right)} {N}_{{g}{0}}
+\end{dmath*}
+\end{dgroup*}
+\fi
+And pessimistic adaptive dynamics is\iflatexml
+\begin{align*}
+\frac{d{X}_{{c}{0}}}{dt} &= -{\left(2 \, \hat{{N}}_{{g}{0}} {X}_{{c}{0}} + \frac{\hat{{N}}_{{g}{0}} {X}_{{m}{0}}^{2} e^{\left(-{x}_{{c}{0}}^{2} - {X}_{{c}{0}}\right)}}{{\left(e^{\left(-{x}_{{c}{0}}^{2} - {X}_{{c}{0}}\right)} + 1\right)}^{2}} + \frac{\hat{{N}}_{{g}{0}} {\left({X}_{{m}{0}} + {x}_{{m}{0}}\right)} e^{\left(-{x}_{{c}{0}}^{2} - {X}_{{c}{0}}\right)}}{{\left(e^{\left(-{x}_{{c}{0}}^{2} - {X}_{{c}{0}}\right)} + 1\right)}^{2}}\right)} \hat{{N}}_{{H}{0}}\\
+\frac{d{X}_{{m}{0}}}{dt} &= -\hat{{N}}_{{H}{0}} {\left(\frac{2 \, \hat{{N}}_{{g}{0}} {X}_{{m}{0}}}{e^{\left(-{x}_{{c}{0}}^{2} - {X}_{{c}{0}}\right)} + 1} + \frac{\hat{{N}}_{{g}{0}}}{e^{\left(-{x}_{{c}{0}}^{2} - {X}_{{c}{0}}\right)} + 1}\right)}\\
+\frac{d{x}_{{c}{0}}}{dt} &= -2 \, {\left(\frac{\hat{{N}}_{{H}{0}} {x}_{{c}{0}} {x}_{{m}{0}}^{2} e^{\left(-{x}_{{c}{0}}^{2} - {X}_{{c}{0}}\right)}}{{\left(e^{\left(-{x}_{{c}{0}}^{2} - {X}_{{c}{0}}\right)} + 1\right)}^{2}} + \hat{{N}}_{{H}{0}} {x}_{{c}{0}} - \frac{\hat{{N}}_{{H}{0}} {\left({X}_{{m}{0}} + {x}_{{m}{0}}\right)} {x}_{{c}{0}} e^{\left(-{x}_{{c}{0}}^{2} - {X}_{{c}{0}}\right)}}{{\left(e^{\left(-{x}_{{c}{0}}^{2} - {X}_{{c}{0}}\right)} + 1\right)}^{2}}\right)} \hat{{N}}_{{g}{0}}\\
+\frac{d{x}_{{m}{0}}}{dt} &= -\hat{{N}}_{{g}{0}} {\left(\frac{2 \, \hat{{N}}_{{H}{0}} {x}_{{m}{0}}}{e^{\left(-{x}_{{c}{0}}^{2} - {X}_{{c}{0}}\right)} + 1} - \frac{\hat{{N}}_{{H}{0}}}{e^{\left(-{x}_{{c}{0}}^{2} - {X}_{{c}{0}}\right)} + 1}\right)}
+\end{align*}
+\else
+\begin{dgroup*}
+\begin{dmath*}
+\frac{d{X}_{{c}{0}}}{dt} = -{\left(2 \, \hat{{N}}_{{g}{0}} {X}_{{c}{0}} + \frac{\hat{{N}}_{{g}{0}} {X}_{{m}{0}}^{2} e^{\left(-{x}_{{c}{0}}^{2} - {X}_{{c}{0}}\right)}}{{\left(e^{\left(-{x}_{{c}{0}}^{2} - {X}_{{c}{0}}\right)} + 1\right)}^{2}} + \frac{\hat{{N}}_{{g}{0}} {\left({X}_{{m}{0}} + {x}_{{m}{0}}\right)} e^{\left(-{x}_{{c}{0}}^{2} - {X}_{{c}{0}}\right)}}{{\left(e^{\left(-{x}_{{c}{0}}^{2} - {X}_{{c}{0}}\right)} + 1\right)}^{2}}\right)} \hat{{N}}_{{H}{0}}\end{dmath*}
+\begin{dmath*}
+\frac{d{X}_{{m}{0}}}{dt} = -\hat{{N}}_{{H}{0}} {\left(\frac{2 \, \hat{{N}}_{{g}{0}} {X}_{{m}{0}}}{e^{\left(-{x}_{{c}{0}}^{2} - {X}_{{c}{0}}\right)} + 1} + \frac{\hat{{N}}_{{g}{0}}}{e^{\left(-{x}_{{c}{0}}^{2} - {X}_{{c}{0}}\right)} + 1}\right)}\end{dmath*}
+\begin{dmath*}
+\frac{d{x}_{{c}{0}}}{dt} = -2 \, {\left(\frac{\hat{{N}}_{{H}{0}} {x}_{{c}{0}} {x}_{{m}{0}}^{2} e^{\left(-{x}_{{c}{0}}^{2} - {X}_{{c}{0}}\right)}}{{\left(e^{\left(-{x}_{{c}{0}}^{2} - {X}_{{c}{0}}\right)} + 1\right)}^{2}} + \hat{{N}}_{{H}{0}} {x}_{{c}{0}} - \frac{\hat{{N}}_{{H}{0}} {\left({X}_{{m}{0}} + {x}_{{m}{0}}\right)} {x}_{{c}{0}} e^{\left(-{x}_{{c}{0}}^{2} - {X}_{{c}{0}}\right)}}{{\left(e^{\left(-{x}_{{c}{0}}^{2} - {X}_{{c}{0}}\right)} + 1\right)}^{2}}\right)} \hat{{N}}_{{g}{0}}\end{dmath*}
+\begin{dmath*}
+\frac{d{x}_{{m}{0}}}{dt} = -\hat{{N}}_{{g}{0}} {\left(\frac{2 \, \hat{{N}}_{{H}{0}} {x}_{{m}{0}}}{e^{\left(-{x}_{{c}{0}}^{2} - {X}_{{c}{0}}\right)} + 1} - \frac{\hat{{N}}_{{H}{0}}}{e^{\left(-{x}_{{c}{0}}^{2} - {X}_{{c}{0}}\right)} + 1}\right)}
+\end{dmath*}
+\end{dgroup*}
+\fi
+And at starting point $ \left(0,\,0,\,0.100000000000000,\,0\right) $ is\iflatexml
+\begin{align*}
+\frac{d{X}_{{c}{0}}}{dt} &= 0\\
+\frac{d{X}_{{m}{0}}}{dt} &= -0.497474979375206\\
+\frac{d{x}_{{c}{0}}}{dt} &= -0.198000000000000\\
+\frac{d{x}_{{m}{0}}}{dt} &= 0.497474979375206
+\end{align*}
+\else
+\begin{dgroup*}
+\begin{dmath*}
+\frac{d{X}_{{c}{0}}}{dt} = 0\end{dmath*}
+\begin{dmath*}
+\frac{d{X}_{{m}{0}}}{dt} = -0.497474979375206\end{dmath*}
+\begin{dmath*}
+\frac{d{x}_{{c}{0}}}{dt} = -0.198000000000000\end{dmath*}
+\begin{dmath*}
+\frac{d{x}_{{m}{0}}}{dt} = 0.497474979375206
+\end{dmath*}
+\end{dgroup*}
+\fi
+

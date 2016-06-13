@@ -1,0 +1,12 @@
+\iflatexml
+\begin{align*}
+\frac{dX_{0_{0}}}{dt} &= -X_{0_{0}}^{2} + X_{0_{0}}
+\end{align*}
+\else
+\begin{dgroup*}
+\begin{dmath*}
+\frac{dX_{0_{0}}}{dt} = -X_{0_{0}}^{2} + X_{0_{0}}
+\end{dmath*}
+\end{dgroup*}
+\fi
+

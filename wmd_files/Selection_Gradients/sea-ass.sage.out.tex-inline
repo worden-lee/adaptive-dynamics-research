@@ -1,0 +1,75 @@
+To study the incentive structure for association, we set\begin{align*}
+  c_a(x) &\to x^{2}\\
+  p(x,y) &\to \frac{1}{e^{\left(-x - y\right)} + 1}\\
+  C_a(x) &\to x^{2}\\
+  c_g(x) &\to 0\\
+  C_g(x) &\to 0
+\end{align*}Dynamics with association only:\iflatexml
+\begin{align*}
+\frac{d{N}_{0}}{dt} &= -{\left({n}_{0} {\left(C_{a}\left({X}_{{a}{0}}\right) - p\left({x}_{{a}{0}}, {X}_{{a}{0}}\right)\right)} + {N}_{0} + C_{g}\left({X}_{{a}{0}}\right) - 1\right)} {N}_{0}\\
+\frac{d{n}_{0}}{dt} &= -{\left({N}_{0} {\left(c_{a}\left({x}_{{a}{0}}\right) - p\left({x}_{{a}{0}}, {X}_{{a}{0}}\right)\right)} + {n}_{0} + c_{g}\left({x}_{{a}{0}}\right) - 1\right)} {n}_{0}
+\end{align*}
+\else
+\begin{dgroup*}
+\begin{dmath*}
+\frac{d{N}_{0}}{dt} = -{\left({n}_{0} {\left(C_{a}\left({X}_{{a}{0}}\right) - p\left({x}_{{a}{0}}, {X}_{{a}{0}}\right)\right)} + {N}_{0} + C_{g}\left({X}_{{a}{0}}\right) - 1\right)} {N}_{0}\end{dmath*}
+\begin{dmath*}
+\frac{d{n}_{0}}{dt} = -{\left({N}_{0} {\left(c_{a}\left({x}_{{a}{0}}\right) - p\left({x}_{{a}{0}}, {X}_{{a}{0}}\right)\right)} + {n}_{0} + c_{g}\left({x}_{{a}{0}}\right) - 1\right)} {n}_{0}
+\end{dmath*}
+\end{dgroup*}
+\fi
+Or\iflatexml
+\begin{align*}
+\frac{d{N}_{0}}{dt} &= -{\left({\left({X}_{{a}{0}}^{2} - \frac{1}{e^{\left(-{X}_{{a}{0}} - {x}_{{a}{0}}\right)} + 1}\right)} {n}_{0} + {N}_{0} - 1\right)} {N}_{0}\\
+\frac{d{n}_{0}}{dt} &= -{\left({\left({x}_{{a}{0}}^{2} - \frac{1}{e^{\left(-{X}_{{a}{0}} - {x}_{{a}{0}}\right)} + 1}\right)} {N}_{0} + {n}_{0} - 1\right)} {n}_{0}
+\end{align*}
+\else
+\begin{dgroup*}
+\begin{dmath*}
+\frac{d{N}_{0}}{dt} = -{\left({\left({X}_{{a}{0}}^{2} - \frac{1}{e^{\left(-{X}_{{a}{0}} - {x}_{{a}{0}}\right)} + 1}\right)} {n}_{0} + {N}_{0} - 1\right)} {N}_{0}\end{dmath*}
+\begin{dmath*}
+\frac{d{n}_{0}}{dt} = -{\left({\left({x}_{{a}{0}}^{2} - \frac{1}{e^{\left(-{X}_{{a}{0}} - {x}_{{a}{0}}\right)} + 1}\right)} {N}_{0} + {n}_{0} - 1\right)} {n}_{0}
+\end{dmath*}
+\end{dgroup*}
+\fi
+And its adaptive dynamics is\iflatexml
+\begin{align*}
+\frac{d{X}_{{a}{0}}}{dt} &= -{\left(\hat{{n}}_{0} D[0]\left(C_{a}\right)\left({X}_{{a}{0}}\right) - \hat{{n}}_{0} D[1]\left(p\right)\left({x}_{{a}{0}}, {X}_{{a}{0}}\right) + D[0]\left(C_{g}\right)\left({X}_{{a}{0}}\right)\right)} \hat{{N}}_{0}\\
+\frac{d{X}_{{t}{0}}}{dt} &= 0\\
+\frac{d{x}_{{a}{0}}}{dt} &= -{\left(\hat{{N}}_{0} D[0]\left(c_{a}\right)\left({x}_{{a}{0}}\right) - \hat{{N}}_{0} D[0]\left(p\right)\left({x}_{{a}{0}}, {X}_{{a}{0}}\right) + D[0]\left(c_{g}\right)\left({x}_{{a}{0}}\right)\right)} \hat{{n}}_{0}\\
+\frac{d{x}_{{t}{0}}}{dt} &= 0
+\end{align*}
+\else
+\begin{dgroup*}
+\begin{dmath*}
+\frac{d{X}_{{a}{0}}}{dt} = -{\left(\hat{{n}}_{0} D[0]\left(C_{a}\right)\left({X}_{{a}{0}}\right) - \hat{{n}}_{0} D[1]\left(p\right)\left({x}_{{a}{0}}, {X}_{{a}{0}}\right) + D[0]\left(C_{g}\right)\left({X}_{{a}{0}}\right)\right)} \hat{{N}}_{0}\end{dmath*}
+\begin{dmath*}
+\frac{d{X}_{{t}{0}}}{dt} = 0\end{dmath*}
+\begin{dmath*}
+\frac{d{x}_{{a}{0}}}{dt} = -{\left(\hat{{N}}_{0} D[0]\left(c_{a}\right)\left({x}_{{a}{0}}\right) - \hat{{N}}_{0} D[0]\left(p\right)\left({x}_{{a}{0}}, {X}_{{a}{0}}\right) + D[0]\left(c_{g}\right)\left({x}_{{a}{0}}\right)\right)} \hat{{n}}_{0}\end{dmath*}
+\begin{dmath*}
+\frac{d{x}_{{t}{0}}}{dt} = 0
+\end{dmath*}
+\end{dgroup*}
+\fi
+Or \iflatexml
+\begin{align*}
+\frac{d{X}_{{a}{0}}}{dt} &= -{\left(2 \, {X}_{{a}{0}} \hat{{n}}_{0} - \frac{\hat{{n}}_{0} e^{\left(-{X}_{{a}{0}} - {x}_{{a}{0}}\right)}}{{\left(e^{\left(-{X}_{{a}{0}} - {x}_{{a}{0}}\right)} + 1\right)}^{2}}\right)} \hat{{N}}_{0}\\
+\frac{d{X}_{{t}{0}}}{dt} &= 0\\
+\frac{d{x}_{{a}{0}}}{dt} &= -{\left(2 \, \hat{{N}}_{0} {x}_{{a}{0}} - \frac{\hat{{N}}_{0} e^{\left(-{X}_{{a}{0}} - {x}_{{a}{0}}\right)}}{{\left(e^{\left(-{X}_{{a}{0}} - {x}_{{a}{0}}\right)} + 1\right)}^{2}}\right)} \hat{{n}}_{0}\\
+\frac{d{x}_{{t}{0}}}{dt} &= 0
+\end{align*}
+\else
+\begin{dgroup*}
+\begin{dmath*}
+\frac{d{X}_{{a}{0}}}{dt} = -{\left(2 \, {X}_{{a}{0}} \hat{{n}}_{0} - \frac{\hat{{n}}_{0} e^{\left(-{X}_{{a}{0}} - {x}_{{a}{0}}\right)}}{{\left(e^{\left(-{X}_{{a}{0}} - {x}_{{a}{0}}\right)} + 1\right)}^{2}}\right)} \hat{{N}}_{0}\end{dmath*}
+\begin{dmath*}
+\frac{d{X}_{{t}{0}}}{dt} = 0\end{dmath*}
+\begin{dmath*}
+\frac{d{x}_{{a}{0}}}{dt} = -{\left(2 \, \hat{{N}}_{0} {x}_{{a}{0}} - \frac{\hat{{N}}_{0} e^{\left(-{X}_{{a}{0}} - {x}_{{a}{0}}\right)}}{{\left(e^{\left(-{X}_{{a}{0}} - {x}_{{a}{0}}\right)} + 1\right)}^{2}}\right)} \hat{{n}}_{0}\end{dmath*}
+\begin{dmath*}
+\frac{d{x}_{{t}{0}}}{dt} = 0
+\end{dmath*}
+\end{dgroup*}
+\fi
+

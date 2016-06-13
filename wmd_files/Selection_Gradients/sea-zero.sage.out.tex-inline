@@ -1,0 +1,46 @@
+For the base dynamics without symbiosis, we set\begin{align*}
+  k &\to 1 \\
+  K &\to 1\\
+  r(x,y) &\to 1\\
+  R(x,y) &\to 1
+\end{align*}\begin{align*}
+  C_a(x) &\to 0\\
+  p(x,y) &\to 0\\
+  c_a(x) &\to 0\\
+  C_g(x) &\to 0\\
+  c_g(x) &\to 0
+\end{align*}Dynamics with no symbiosis:\iflatexml
+\begin{align*}
+\frac{d{N}_{0}}{dt} &= -{\left({N}_{0} - 1\right)} {N}_{0}\\
+\frac{d{n}_{0}}{dt} &= -{\left({n}_{0} - 1\right)} {n}_{0}
+\end{align*}
+\else
+\begin{dgroup*}
+\begin{dmath*}
+\frac{d{N}_{0}}{dt} = -{\left({N}_{0} - 1\right)} {N}_{0}\end{dmath*}
+\begin{dmath*}
+\frac{d{n}_{0}}{dt} = -{\left({n}_{0} - 1\right)} {n}_{0}
+\end{dmath*}
+\end{dgroup*}
+\fi
+And its adaptive dynamics is\iflatexml
+\begin{align*}
+\frac{d{X}_{{a}{0}}}{dt} &= 0\\
+\frac{d{X}_{{t}{0}}}{dt} &= 0\\
+\frac{d{x}_{{a}{0}}}{dt} &= 0\\
+\frac{d{x}_{{t}{0}}}{dt} &= 0
+\end{align*}
+\else
+\begin{dgroup*}
+\begin{dmath*}
+\frac{d{X}_{{a}{0}}}{dt} = 0\end{dmath*}
+\begin{dmath*}
+\frac{d{X}_{{t}{0}}}{dt} = 0\end{dmath*}
+\begin{dmath*}
+\frac{d{x}_{{a}{0}}}{dt} = 0\end{dmath*}
+\begin{dmath*}
+\frac{d{x}_{{t}{0}}}{dt} = 0
+\end{dmath*}
+\end{dgroup*}
+\fi
+

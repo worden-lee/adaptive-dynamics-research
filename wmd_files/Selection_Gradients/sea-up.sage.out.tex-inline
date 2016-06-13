@@ -1,0 +1,95 @@
+To study the incentive structure for transfer, we set\begin{align*}
+  k &\to 20 \\
+  K &\to 20
+\end{align*}\begin{align*}
+  c_a(x) &\to x^{2}\\
+  p(x,y) &\to \frac{1}{4} \, x + \frac{1}{4} \, y + \frac{1}{2}\\
+  C_a(x) &\to x^{2}\\
+  c_g(x) &\to 0\\
+  C_g(x) &\to 0
+\end{align*}\begin{align*}
+  c_t(x) &\to x^{2}\\
+  b(x,y) &\to v x + w y\\
+  C_t(x) &\to x^{2}\\
+  B(x,y) &\to V x + W y
+\end{align*}\iflatexml
+\begin{align*}
+\frac{d{X}_{{a}{0}}}{dt} &= -\frac{1}{4} \, {\left({X}_{{t}{0}}^{2} \hat{{n}}_{0} - {\left(W {X}_{{t}{0}} + V {x}_{{t}{0}}\right)} \hat{{n}}_{0} + 8 \, {X}_{{a}{0}} \hat{{n}}_{0}\right)} \hat{{N}}_{0}\\
+\frac{d{X}_{{t}{0}}}{dt} &= \frac{1}{4} \, {\left(W {\left({X}_{{a}{0}} + {x}_{{a}{0}} + 2\right)} \hat{{n}}_{0} - 2 \, {\left({X}_{{a}{0}} + {x}_{{a}{0}} + 2\right)} {X}_{{t}{0}} \hat{{n}}_{0}\right)} \hat{{N}}_{0}\\
+\frac{d{x}_{{a}{0}}}{dt} &= -\frac{1}{4} \, {\left(\hat{{N}}_{0} {x}_{{t}{0}}^{2} - {\left({X}_{{t}{0}} w + v {x}_{{t}{0}}\right)} \hat{{N}}_{0} + 8 \, \hat{{N}}_{0} {x}_{{a}{0}}\right)} \hat{{n}}_{0}\\
+\frac{d{x}_{{t}{0}}}{dt} &= \frac{1}{4} \, {\left(\hat{{N}}_{0} {\left({X}_{{a}{0}} + {x}_{{a}{0}} + 2\right)} v - 2 \, \hat{{N}}_{0} {\left({X}_{{a}{0}} + {x}_{{a}{0}} + 2\right)} {x}_{{t}{0}}\right)} \hat{{n}}_{0}
+\end{align*}
+\else
+\begin{dgroup*}
+\begin{dmath*}
+\frac{d{X}_{{a}{0}}}{dt} = -\frac{1}{4} \, {\left({X}_{{t}{0}}^{2} \hat{{n}}_{0} - {\left(W {X}_{{t}{0}} + V {x}_{{t}{0}}\right)} \hat{{n}}_{0} + 8 \, {X}_{{a}{0}} \hat{{n}}_{0}\right)} \hat{{N}}_{0}\end{dmath*}
+\begin{dmath*}
+\frac{d{X}_{{t}{0}}}{dt} = \frac{1}{4} \, {\left(W {\left({X}_{{a}{0}} + {x}_{{a}{0}} + 2\right)} \hat{{n}}_{0} - 2 \, {\left({X}_{{a}{0}} + {x}_{{a}{0}} + 2\right)} {X}_{{t}{0}} \hat{{n}}_{0}\right)} \hat{{N}}_{0}\end{dmath*}
+\begin{dmath*}
+\frac{d{x}_{{a}{0}}}{dt} = -\frac{1}{4} \, {\left(\hat{{N}}_{0} {x}_{{t}{0}}^{2} - {\left({X}_{{t}{0}} w + v {x}_{{t}{0}}\right)} \hat{{N}}_{0} + 8 \, \hat{{N}}_{0} {x}_{{a}{0}}\right)} \hat{{n}}_{0}\end{dmath*}
+\begin{dmath*}
+\frac{d{x}_{{t}{0}}}{dt} = \frac{1}{4} \, {\left(\hat{{N}}_{0} {\left({X}_{{a}{0}} + {x}_{{a}{0}} + 2\right)} v - 2 \, \hat{{N}}_{0} {\left({X}_{{a}{0}} + {x}_{{a}{0}} + 2\right)} {x}_{{t}{0}}\right)} \hat{{n}}_{0}
+\end{dmath*}
+\end{dgroup*}
+\fi
+Equilibrium conditions are
+\iflatexml
+
+\begin{align*}
+  W = 2 \, X_{t}\\
+  \mathit{Vx}_{t} = X_{t}^{2} - \mathit{WX}_{t} + 8 \, X_{a}\\
+  &= -X_{t}^{2} + 8 \, X_{a}\\
+  v = 2 \, x_{t}\\
+  \mathit{wX}_{t} = x_{t}^{2} - \mathit{vx}_{t} + 8 \, x_{a}\\
+  &= -x_{t}^{2} + 8 \, x_{a}
+\end{align*}
+\else
+\begin{dgroup*}
+  
+\begin{dmath*}
+  W = 2 \, X_{t}
+\end{dmath*}
+
+\begin{dmath*}
+  \mathit{Vx}_{t} = X_{t}^{2} - \mathit{WX}_{t} + 8 \, X_{a}\\
+  = -X_{t}^{2} + 8 \, X_{a}
+\end{dmath*}
+
+\begin{dmath*}
+  v = 2 \, x_{t}
+\end{dmath*}
+
+\begin{dmath*}
+  \mathit{wX}_{t} = x_{t}^{2} - \mathit{vx}_{t} + 8 \, x_{a}\\
+  = -x_{t}^{2} + 8 \, x_{a}
+\end{dmath*}
+
+\end{dgroup*}
+\fi
+So to have all $x$ values equal to $1/2$, we set
+\begin{align*}
+  V &\to \frac{15}{2} \\
+  w &\to \frac{15}{2} \\
+  v &\to 1 \\
+  W &\to 1
+\end{align*}for \iflatexml
+\begin{align*}
+\frac{d{X}_{{a}{0}}}{dt} &= -\frac{1}{8} \, {\left(2 \, {X}_{{t}{0}}^{2} \hat{{n}}_{0} + 16 \, {X}_{{a}{0}} \hat{{n}}_{0} - {\left(2 \, {X}_{{t}{0}} + 15 \, {x}_{{t}{0}}\right)} \hat{{n}}_{0}\right)} \hat{{N}}_{0}\\
+\frac{d{X}_{{t}{0}}}{dt} &= -\frac{1}{4} \, {\left(2 \, {\left({X}_{{a}{0}} + {x}_{{a}{0}} + 2\right)} {X}_{{t}{0}} \hat{{n}}_{0} - {\left({X}_{{a}{0}} + {x}_{{a}{0}} + 2\right)} \hat{{n}}_{0}\right)} \hat{{N}}_{0}\\
+\frac{d{x}_{{a}{0}}}{dt} &= -\frac{1}{8} \, {\left(2 \, \hat{{N}}_{0} {x}_{{t}{0}}^{2} - \hat{{N}}_{0} {\left(15 \, {X}_{{t}{0}} + 2 \, {x}_{{t}{0}}\right)} + 16 \, \hat{{N}}_{0} {x}_{{a}{0}}\right)} \hat{{n}}_{0}\\
+\frac{d{x}_{{t}{0}}}{dt} &= -\frac{1}{4} \, {\left(2 \, \hat{{N}}_{0} {\left({X}_{{a}{0}} + {x}_{{a}{0}} + 2\right)} {x}_{{t}{0}} - \hat{{N}}_{0} {\left({X}_{{a}{0}} + {x}_{{a}{0}} + 2\right)}\right)} \hat{{n}}_{0}
+\end{align*}
+\else
+\begin{dgroup*}
+\begin{dmath*}
+\frac{d{X}_{{a}{0}}}{dt} = -\frac{1}{8} \, {\left(2 \, {X}_{{t}{0}}^{2} \hat{{n}}_{0} + 16 \, {X}_{{a}{0}} \hat{{n}}_{0} - {\left(2 \, {X}_{{t}{0}} + 15 \, {x}_{{t}{0}}\right)} \hat{{n}}_{0}\right)} \hat{{N}}_{0}\end{dmath*}
+\begin{dmath*}
+\frac{d{X}_{{t}{0}}}{dt} = -\frac{1}{4} \, {\left(2 \, {\left({X}_{{a}{0}} + {x}_{{a}{0}} + 2\right)} {X}_{{t}{0}} \hat{{n}}_{0} - {\left({X}_{{a}{0}} + {x}_{{a}{0}} + 2\right)} \hat{{n}}_{0}\right)} \hat{{N}}_{0}\end{dmath*}
+\begin{dmath*}
+\frac{d{x}_{{a}{0}}}{dt} = -\frac{1}{8} \, {\left(2 \, \hat{{N}}_{0} {x}_{{t}{0}}^{2} - \hat{{N}}_{0} {\left(15 \, {X}_{{t}{0}} + 2 \, {x}_{{t}{0}}\right)} + 16 \, \hat{{N}}_{0} {x}_{{a}{0}}\right)} \hat{{n}}_{0}\end{dmath*}
+\begin{dmath*}
+\frac{d{x}_{{t}{0}}}{dt} = -\frac{1}{4} \, {\left(2 \, \hat{{N}}_{0} {\left({X}_{{a}{0}} + {x}_{{a}{0}} + 2\right)} {x}_{{t}{0}} - \hat{{N}}_{0} {\left({X}_{{a}{0}} + {x}_{{a}{0}} + 2\right)}\right)} \hat{{n}}_{0}
+\end{dmath*}
+\end{dgroup*}
+\fi
+

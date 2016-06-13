@@ -1,0 +1,17 @@
+
+\[
+  S \left(\begin{array}{c}
+  r_{0}\\
+  c_{0}\\
+  K_{0}
+\end{array}\right) = \left(\begin{array}{c}
+  \frac{K_{0} - \hat{X}_{0}}{K_{0}}\\
+  \frac{\hat{X}_{0} r_{0}}{K_{0} c_{0}}\\
+  0
+\end{array}\right) = \left(\begin{array}{c}
+  0\\
+  \frac{r_{0}}{c_{0}}\\
+  0
+\end{array}\right)
+\]
+

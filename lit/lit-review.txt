@@ -1,0 +1,402 @@
+Frank: D'Alembert
+
+D'A in physics: partition causes of dynamics into direct forces and changes in frame of reference
+In evolution: direct force of natural selection and changing environmental frame of reference
+
+===
+Masel: Eco-evolutionary “fitness” in 3 dimensions: absolute growth, 
+absolute efficiency, and relative competitiveness
+http://arxiv.org/pdf/1407.1024v4.pdf
+
+r-K model, but separate K into parsimonious cooperative resource use and c, competitive ability
+
+The flourishing field of eco-evolutionary dynamics studies how ecologically meaningful
+traits evolve (Kokko and López-Sepulcre, 2007; Pelletier et al., 2009; Reznick and Ghalambor,
+2001; Schoener, 2011; Thompson, 1998)
+
+"I propose a new model for the fitness of a genotype." !
+
+"Phenomenological" vs "mechanistic" for my "ecological" vs "phenotypic" traits
+
+different mechanisms can give rise to the same phenomenological model, in a manner that changes the interpretation of the phenomenological parameters (Geritz and Kisdi, 2012).
+
+Innovation in resource partitioning might or might not be common in ecological speciation. However, there are reasons to believe that it is rare in adaptation. Its appearance in Lenski’s experiments (Blount et al., 2008), involving the ability to exploit citrate as a result of gene duplication and associated promoter capture leading to altered regulation of the new ortholog (Blount et al., 2012), was a spectacular and newsworthy occurrence, rather than a “garden-variety” adaptation.
+
+A territorial interpretation conforms to the original intent of the “logistique” equation; it
+described the availability of farmland or “logements” for human cultivation (Verhulst, 1845)
+
+My Eq. 2 can be seen as a special case of Eq. 5 that is obtained by setting α ij =K i /K j
+
+cites G-functions (Cohen et al., 1999; Vincent et al., 1993), not A.D.?
+
+if competitive relative fitness comes with an absolute fitness cost, then “evolutionary suicide”, as a special case of the tragedy of the commons, can sometimes occur (Ferrière, 2000; Haldane, 1932; Matsuda and Abrams, 1994; Parvinen and Dieckmann, 2013; Rankin et al., 2011; Rankin and López-Sepulcre, 2005)
+
+One version of this hypothesis can be seen as isomorphic with Grime’s (1977) universal
+adaptive strategy theory
+
+a number of empirical studies, in direct contradiction to MacArthur’s
+hypothesis of an r-K tradeoff, have found that r and K are positively correlated
+
+"rotation" vs analysis of correlations/tradeoffs. I will add geometric fitness gradient analysis.  I should consider her model as well as the one I used.  Also add discussion of indirect effects in her model.  Also consider suggesting her to review.	
+
+not only phenotype, but fitness itself is a multi-dimensional construct: both relative and absolute competition
+
+see appendix reviewing eco-evolutionary dynamics/fitness
+
+===
+Adaptive walks on changing landscapes: Levins’ approach extended
+C. Rueffler, T.J.M. Van Dooren, and J.A.J. Metz
+
+extend Levins's paper to include density/frequency dependence
+
+optimization is generally impossible in the presence of frequency dependence (Fisher, 1930)
+
+see also appendix of de Mazancourt et al. (2001).
+
+each time the seashore changes such that all types of the new coalition
+reside again on the shoreline (Marrow et al., 1992)
+
+CSS, mutual invasibility, garden of eden, repellor, etc
+
+Pairwise-invasion plots and sort of analogous plots in constrained 2-d space
+
+examples from other papers = useful
+
+"models which include any type of density dependence and thereby give rise to frequency-dependent selection"? - clarify
+
+shape of trade-off curve + shape/curvature of invasion boundary
+invasion boundary similar to Levins's contours but frequency dependent.
+
+citations for shape of tradeoff curve in life-history theory
+
+Looks like no invasion fitness gradient.
+
+question of more than 2 trait dimensions not dealt with
+"it remains open how the presented results can be extended using more elaborate differential geometry."
+
+Do they have the covariance matrix Gamma?  No
+
+===
+The geometric theory of adaptive evolution: trade-off and invasion plots
+Bowers et al 2005
+
+TIP: trade-off and invasion plot
+
+See Gatto 1993 for specific paper with lots of tradeoff analysis in it
+
+At a given (resident) point of the TO curve, draw invasion boundary when variant varies,
+and when resident varies.
+
+It needs coloring or something to show which side of each curve is which
+
+Lee Worden doesn't care about classification of singular points
+
+No fitness gradient
+
+===
+Evolutionary Behaviour, Trade-Offs and Cyclic and Chaotic Population Dynamics
+Hoyle et al 2010
+
+In fixed-point population dynamics, it's concave vs convex tradeoff curve for adaptive dynamics.
+
+When pop dyn has a 2-cycle there's an intermediate range that has branching
+
+===
+Evolutionary behaviour in ecological systems with trade-offs and non-equilibrium population dynamics
+White, Greenman, Benton, Boots
+
+trade-offs with accelerating costs -> CSS, decelerating costs -> repellor. True also when population oscillations are small.
+
+===
+The influence of trade-off shape on evolutionary behaviour in classical
+ecological scenarios
+Hoyle et al 2007
+
+TIPs for standard models
+
+See life-history theory for WHY traits are traded off in cost-benefit relationship
+
+single species, two stages
+birth rate vs juvenile m OR adult m OR competition parameter; or birth rate vs maturation rate
+
+multispecies, single class
+competition OR mutualism OR pred.prey.
+using LV form
+details need more reading here
+
+multispecies, multiple classes
+SI host/parasite
+(parasite modeled implicitly in I class)
+analyze only adaptation of host?
+
+What is Bulmer 1994?
+
+There are 4 distinct fundamental TIPs
+
+interesting discussion of criteria on interactions for branching
+
+see White, A., Bowers, R.G., 2005. Adaptive dynamics of Lotka–Volterra
+systems with trade-offs: the role of intraspecific parameter dependence
+in branching. Math. Bios. 197, 101–117.
+
+===
+Can possible evolutionary outcomes be determined directly from the
+population dynamics?
+Hoyle and Bowers 2008
+
+geometric approaches to AD: Rueffler et al., 2004; De Mazancourt and Dieckmann,
+2004; Bowers et al., 2005; Geritz et al. (2007), Hoyle and Bowers (2007)
+
+TIPs again.
+
+===
+Trade-Off Geometries and Frequency-Dependent Selection
+Mazancourt, Dieckmann, 2004
+
+trade-off curve vs. invasion fitness contours + selection gradients
+
+"A-boundary" (thin line) = boundary of region attainable by invasion+replacement steps
+"I-boundary" (dashed line) = boundary of region that can invade
+
+interchangeable except to distinguish CSS/repellor/branching point by comparing curvature of these things.
+
+only for one-dimensional constraint curve
+
+===
+Evolutionary branching and long-term coexistence of cycling predators:
+Critical function analysis
+Geritz, Kisdi, Yan, 2007
+
+Coexistence of two predators on single prey, via fluctuations.  Enabled by some
+shapes of trade-off curve.
+
+"critical function analysis": if tradeoff curve ("gamma") is tangent to c.f., it's at a singular point.
+
+There is a critical slope for gamma at every point.  Critical function is chosen to have
+that slope at every point.
+
+"The critical functions give a quick visual way to identify
+evolutionarily singular strategies and their convergence
+stability once a trade-off function g(h) is given."
+
+===
+Adaptive Responses to Environmental Threats: Evolutionary Suicide, Insurance, and Rescue
+Ferrière, 2000
+
+evolution can cause dissolution of relationship (extinction of predator) or self-extinction of both (?) - can cause self-extinction.
+
+"Natural selection has molded this kind of mutualistic interaction to resist dissolution or extinction potentially caused by 'cheaters' that reap the mutualistic commodities without providing much benefit in return"
+
+"Suicide" vs "Rescue" (odd terms).  AD can drive population to no dispersal or all dispersal.  When environment changes, all dispersal becomes evolutionary trap, extinction.
+
+===
+Joint evolution of altruistic cooperation and dispersal in a
+metapopulation of small local populations
+Kalle Parvinen, 2013
+
+joint evolution of public goods cooperation and dispersal
+
+4 outcomes, good and bad, depending on parameters
+
+===
+Eight personal rules for doing science: Commentary
+Metz
+
+The picture emerging from
+constructional morphology and evo-devo is one of very
+high dimensional trait spaces and very ridgy fitness
+landscapes. Because of the high dimension of the trait
+space, the top of the ridges may be higher dimensional,
+although relatively low dimensional compared with the
+off-ridge directions. The slopes at the top of the ridges are
+the domain of ecology and thus of AD, whereas their
+overall location is largely ecology independent. The
+combination of this picture with an argument in the
+spirit of Fisher’s argument on curvature effects in high
+dimensional spaces (Fisher, 1930; revived and extended
+by Rice, 1990), suggests that the parameter regions
+where the limit procedures favoured by AD work well,
+should contain their fair share of real cases, as by far the
+most mutations, and in particular those with large effect,
+end up in the fitness abyss.
+
+Wright’s gradient dynamics
+(Wright, 1937a,b) is defined on a space of gene frequen-
+cies as opposed to phenotypes. Russ Lande’s gradient
+dynamics (Lande, 1976, 1982) deals with biologically
+similar problems but rests on a mathematically different
+foundation, as it considers a different limiting regime.
+
+===
+THE ADAPTIVE DYNAMICS OF ALTRUISM IN SPATIALLY
+HETEROGENEOUS POPULATIONS
+Galliard 2003
+
+abstraction of altruism: cost-benefit curve.  evolution on blank landscape.
+
+finds three different selective processes controlling the
+evolution of altruism: the direct physiological cost, the indirect genetic benefits of cooperative interactions, and the indirect genetic costs of competition for space
+
+correlating altruism with mobility can -> selection-driven self-extinction
+
+===
+On Mutualists and Exploiters: Plant+insect Coevolution in Pollinating
+Seed+parasite Systems
+Law et al 2001
+
+selection on time of flowering, time of pollinator emergence
+late emergence = more predation, less pollination
+
+insect population can branch
+later-emerging insects are more exploitative
+
+3-level dynamics (pollination season modeled within discrete-time population dynamics), so probably not reducible to LV.  But maybe can be modeled by a LV approximation.
+
+===
+Evolutionary dynamics of altruism and cheating
+among social amoebas
+Brännström, 2005
+
+Cheater strategies in the slime molds?!
+
+evolutionary branching to coexisting stalked and stalkless fruiting bodies
+
+also pretty nonlinear model, needs some deciphering
+
+note use of "selection gradient"
+
+S_r(m) [= I(m|r)] = lim_{a_m\to 0+} a'_m(a^*_r,a_m) / a_m
+
+S_r'(r) = mu D'(r)/D(r) - 1/(1-r)
+
+mu = a certain expectation over p_k values
+
+p_k = whatever, just make assumptions about mean mu and sd sigma
+
+D(r) = a fixed nonlinear fn of r
+
+Branching, via S_r'', depends on sigma as well as mu.
+
+Interestingly, no population dynamics eqns?
+
+==
+Resource allocation: a conflict in the fig/fig wasp mutualism?
+Anstett, Bronstein, Hossaert-McKey, 1996
+
+No model.
+
+Tree must balance seed production with pollinator offspring production.  Wasps don't care about seed production, at least not directly.
+
+Experimental data on production of seeds, wasps given various conditions.
+
+Hypothesized mechanisms for tree strategy, discussion of evolutionary consequences.
+
+If figs limit wasp production -> arms race with wasps
+If a wasp trait limits it -> wasps aren't selected to take all flowers, production not limited by fig traits
+
+...
+
+long-styled flowers may be protected against oviposition
+
+Offspring fitness vs number of offspring
+
+Could be a CSS strategy for wasps trading off egg laying with cost of long ovipositor
+===
+The Costs of Mutualism
+Bronstein, 
+
+===
+Population Dynamics and Mutualism: Functional Responses of Benefits and Costs
+J. Nathaniel Holland, Donald L. DeAngelis, and Judith L. Bronstein, 2002
+
+cactus/pollinating moth is case study here
+
+nice collection of citations
+
+type 2 response = LV dynamics: Roughgarden 1983; Wolin 1985; DeAngelis et al. 1986
+
+===
+Constraints on the Evolution of Mutualisms
+Henry Howe, 1984
+
+Verbal reasoning on when pairwise coevolution of mutualisms ought to work in communities.
+1. diversity diffuses selection, making pairwise coevolution harder
+2. selective regimes change over evolutionary time
+3. heterogeneity -> general rather than specific relationships
+4. hard to match rates of adaptation between the 2 species
+
+===
+A Simple Model of Mutualism
+Dean, 1983
+
+population dynamics model with stable carrying capacity (though maybe not always when
+mutualism is obligate)
+===
+Evolution of Marine Symbiosis - A simple cost-benefit model
+Roughgarden, 1975
+
+incentives from the guest's point of view: when to do; facultative vs obligatory for guest; guest activity; how much activity
+
+literally balancing costs C and benefits to get a net fitness <=> 1
+
+Could redo i.t.o. fns of phenotypes, more visual, might be interesting
+===
+Seek more Bronstein papers
+Take Noe-Hammerstein notes
+
+== 
+The Ecology of Mutualism
+Boucher 1982
+
+"an interaction between species that is beneficial to both"
+
+"We make the normal apologies concerning forcing continuous variation and diverse
+interactions into simple dichotomous classifications"
+
+"how to define 'benefit to the species'"
+* + relative fitness of individual organisms
+* population-level effect over balance of + and - fitness effects
+
+direct and indirect; symbiotic and non-symbiotic
+
+name possibly comes from mutualite societes
+
+cases of symbiotic mutualisms, including some discussion of tradeoffs
+evolution: proximity -> s.m.
+sometimes from parasitism
+or ingestion
+
+nonsymbiotic; pollination etc
+dispersal; protection; foraging help; sort of helpful "apparent predation"
+
+theories of emergence of mutualism:
+individual cost-benefit selection; pop. dyn. models + stability; shift from mutualism to pred or comp; "keystone mutualist"
+review of models in detail, including much useful stuff
+Boucher graphical model of seed consumption, mut vs pred
+
+distribution of mutualisms across regions, communities
+
+Wilson on "classic group selection problem"
+
+so many references!
+
+mutualisms can be formed without evolution
+
+"indirect mutualism" via mutual antagonist, and such things
+
+===
+Negotiation of Mutualism: Rhizobia and Legumes
+Akcay + Roughgarden, 2007
+
+From bargaining theory
+Growth rates as payoffs; collective bargaining between firm and workers' union
+Nash bargaining solution: max product of payoffs
+
+===
+Our current understanding of mutualism
+Bronstein, 1994
+
+===
+Mutualism (book)
+Bronstein, 2015
+

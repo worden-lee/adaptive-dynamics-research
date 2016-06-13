@@ -1,0 +1,15 @@
+\iflatexml
+\begin{align*}
+\frac{dX_{0}}{dt} &= -{\left(X_{0} r_{0} + X_{1} r_{1}\right)} X_{0} + X_{0} r_{0}\\
+\frac{dX_{1}}{dt} &= -{\left(X_{0} r_{0} + X_{1} r_{1}\right)} X_{1} + X_{1} r_{1}
+\end{align*}
+\else
+\begin{dgroup*}
+\begin{dmath*}
+\frac{dX_{0}}{dt} = -{\left(X_{0} r_{0} + X_{1} r_{1}\right)} X_{0} + X_{0} r_{0}\end{dmath*}
+\begin{dmath*}
+\frac{dX_{1}}{dt} = -{\left(X_{0} r_{0} + X_{1} r_{1}\right)} X_{1} + X_{1} r_{1}
+\end{dmath*}
+\end{dgroup*}
+\fi
+

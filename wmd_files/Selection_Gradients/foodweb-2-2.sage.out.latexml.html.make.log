@@ -1,0 +1,71 @@
+Tue Mar 22 18:05:33 2016
+/usr/bin/make -C /usr/local/src/adaptive-dynamics-research/wmd_files/Selection_Gradients \
+    foodweb-2-2.sage.out.latexml.html
+Including .mk files: sage-inline.mk 
+Including .mk files from .sage-inline files: avec.sage.mk a-careful.sage.mk
+Including .mk files from .step files: aij.py.mk aij-assemble.sage.mk aij-assemble-plot.sage.mk aij-evol.sage.mk aij-evol-plot.sage.mk direct.py.mk direct-assemble.sage.mk direct-assemble-plot.sage.mk direct-evol.sage.mk direct-evol-plot.sage.mk foodweb.py.mk foodweb.sage.mk foodweb-adap.sage.mk foodweb.plot.sage.mk foodweb-2-2.sage.mk foodweb-2-2.plot.sage.mk large.py.mk large-assemble.sage.mk large-assemble-plot.sage.mk large-evol.sage.mk large-evol-plot.sage.mk logistic-S-A-curves.sage.mk maclev-S-A-curve.sage.mk logistic-S-A-curve.sage.mk maclev-1-1.sage.mk maclev-1-1-adap.sage.mk maclev-1-1-mc-adap-geom.sage.mk maclev-1-1-ak-adap-geom.sage.mk S-A-vector-field.sage.mk maclev-1-1-d1A-vector-field.sage.mk maclev-1-1-S-and-d1A-on-curve.sage.mk maclev-1-1-S-and-D-on-curve.sage.mk maclev_1_2_defs.py.mk maclev-1-2-popdyn.sage.mk maclev-1-2-adap.sage.mk maclev-1-2-p.sage.mk maclev-1-2-zngi.sage.mk maclev-1-2-geom.sage.mk maclev_unconstrained_c.py.mk maclev-2-2-c-popdyn.sage.mk maclev-2-2-c-adap.sage.mk maclev-2-2-c-p.sage.mk maclev-2-2-c-zngi.sage.mk maclev-2-2-c-geom.sage.mk maclev_2_2_defs.py.mk maclev-2-2-popdyn.sage.mk maclev-2-2-adap.sage.mk maclev-2-2-p.sage.mk maclev-2-2-zngi.sage.mk maclev-2-2-geom.sage.mk maclev_a_only_defs.py.mk maclev-a-only-popdyn.sage.mk maclev-a-only-adap.sage.mk maclev-a-only-p.sage.mk maclev-a-only-zngi.sage.mk maclev-a-only-geom.sage.mk maclev_a_c.py.mk maclev-2-2-a-c-popdyn.sage.mk maclev-2-2-a-c-adap.sage.mk maclev-2-2-a-c-p.sage.mk maclev-2-2-a-c-zngi.sage.mk maclev-2-2-a-c-geom.sage.mk maclevmodels.py.mk masel_model.py.mk masel.sage.mk masel-adap.sage.mk masel-2-adap.sage.mk statmech.py.mk statmech-assemble.sage.mk statmech-assemble-plot.sage.mk statmech-evol.sage.mk statmech-evol-plot.sage.mk sea.sage.mk sea-adap.sage.mk sea-down.sage.mk sea-down-test.sage.mk sea-vf.sage.mk sea-zero.sage.mk sea-ass.sage.mk sea-tran.sage.mk sea-all.sage.mk toc.sage.mk maclev-2-2-zngi-invasion.sage.mk lotkavolterra.py.mk r_selection.py.mk r-selection.sage.mk
+Including .tex.d files: foodweb-2-2.tikz.tex.d foodweb.tikz.tex.d
+make: Entering directory `/usr/local/src/adaptive-dynamics-research/wmd_files/Selection_Gradients'
+latexml  --destination=foodweb-2-2.sage.out.latexml.xml foodweb-2-2.sage.out.tex
+latexml (LaTeXML version 0.8.1; revision 9e4814e)
+processing started Tue Mar 22 18:05:34 2016
+
+(Digesting TeX foodweb-2-2.sage.out...
+(Loading /usr/local/share/perl/5.18.2/LaTeXML/Package/TeX.pool.ltxml...
+(Loading /usr/local/share/perl/5.18.2/LaTeXML/Package/eTeX.pool.ltxml... 0.00 sec)
+(Loading /usr/local/share/perl/5.18.2/LaTeXML/Package/pdfTeX.pool.ltxml... 0.01 sec) 0.29 sec)
+(Processing content /usr/local/src/adaptive-dynamics-research/wmd_files/Selection_Gradients/foodweb-2-2.sage.out.tex...
+(Loading /usr/local/share/perl/5.18.2/LaTeXML/Package/LaTeX.pool.ltxml... 0.30 sec)
+(Loading /usr/local/share/perl/5.18.2/LaTeXML/Package/article.cls.ltxml... 0.03 sec)
+(Loading /usr/local/share/perl/5.18.2/LaTeXML/Package/amsmath.sty.ltxml...
+(Loading /usr/local/share/perl/5.18.2/LaTeXML/Package/amsbsy.sty.ltxml... 0.00 sec)
+(Loading /usr/local/share/perl/5.18.2/LaTeXML/Package/amstext.sty.ltxml... 0.00 sec)
+(Loading /usr/local/share/perl/5.18.2/LaTeXML/Package/amsopn.sty.ltxml... 0.00 sec) 0.05 sec)
+(Loading /usr/local/share/perl/5.18.2/LaTeXML/Package/amssymb.sty.ltxml...
+(Loading /usr/local/share/perl/5.18.2/LaTeXML/Package/amsfonts.sty.ltxml... 0.00 sec) 0.04 sec)
+(Loading /usr/local/share/perl/5.18.2/LaTeXML/Package/graphicx.sty.ltxml...
+(Loading /usr/local/share/perl/5.18.2/LaTeXML/Package/graphics.sty.ltxml... 0.00 sec) 0.03 sec)
+(Loading /usr/local/share/perl/5.18.2/LaTeXML/Package/inputenc.sty.ltxml...
+(Loading /usr/local/share/perl/5.18.2/LaTeXML/Package/utf8.def.ltxml... 0.00 sec) 0.05 sec)
+(Loading /usr/local/share/perl/5.18.2/LaTeXML/Package/fontenc.sty.ltxml...
+(Loading /usr/local/share/perl/5.18.2/LaTeXML/Package/t1enc.def.ltxml...
+(Processing definitions /usr/share/texlive/texmf-dist/tex/latex/base/t1enc.def...
+(Loading /usr/local/share/perl/5.18.2/LaTeXML/Package/t1.fontmap.ltxml... 0.00 sec) 0.13 sec) 0.17 sec) 0.18 sec)
+(Loading /usr/local/share/perl/5.18.2/LaTeXML/Package/latexml.sty.ltxml... 0.01 sec) 1.15 sec) 1.50 sec)
+(Building...
+(Loading compiled schema /usr/local/share/perl/5.18.2/LaTeXML/resources/RelaxNG/LaTeXML.model... 0.01 sec)......................................... 1.47 sec)
+(Rewriting... 0.08 sec)
+(Math Parsing...24 formulae ...[1][2][3][4][5][6][7][8][9][10][11][12][13][14][15][16][17][18][19][20][21][22][23][24]
+Math parsing succeeded:
+   ltx:XMath: 24/24
+   ltx:XMArg: 388/388
+Symbols assumed as simple identifiers (with # of occurences):
+   'D{italic}' (16), 'P{italic}' (72), 'R{italic}' (84), 'X{italic}' (60), 'd{italic}' (32), 'f{italic}' (16), 'k{italic}' (8), 't{italic}' (16), 'u{italic}' (72)
+Possibly used as functions?
+  'D{italic}' (8/16 usages)
+ 6.07 sec)
+(Finalizing... 0.54 sec)
+Conversion complete: No obvious problems.
+processing finished Tue Mar 22 18:05:44 2016
+Updating .workingwiki/foodweb-2-2.sage.out.latexml.xml
+rm -f foodweb-2-2.sage.out.latexml.html5
+bibxmls=`perl -ne '($_)=/^[^%]*\\\bibliography\{([^\\\\#]*?)\}/;@_=split /,/;foreach $b (@_) { $b =~ s/\.bib$//; print "$b.bib.xml "}' foodweb-2-2.sage.out.latexml.xml`; bibxargs=`perl -ne '($_)=/^[^%]*\\\bibliography\{([^\\\\#]*?)\}/;@_=split /,/;foreach $b (@_) { $b =~ s/\.bib$//; print "--bibliography=$b.bib.xml "}' foodweb-2-2.sage.out.latexml.xml` && \
+	(test -z "$bibxmls" || /usr/bin/make -f /usr/local/src/workingwiki-trunk/ProjectEngine/resources/makefile $bibxmls) && \
+	lxpost="latexmlpost  --novalidate --destination=foodweb-2-2.sage.out.intermediate.latexml.html5 --format=html5 $bibxargs foodweb-2-2.sage.out.latexml.xml" && echo $lxpost && $lxpost
+latexmlpost --novalidate --destination=foodweb-2-2.sage.out.intermediate.latexml.html5 --format=html5 foodweb-2-2.sage.out.latexml.xml
+latexmlpost (LaTeXML version 0.8.1; revision 9e4814e)
+processing started Tue Mar 22 18:05:45 2016
+(foodweb-2-2.sage.out.intermediate.latexml.html5 post-processing...
+(Scan foodweb-2-2.sage.out.intermediate.latexml.html5 processing... 0.12 sec)
+(CrossRef foodweb-2-2.sage.out.intermediate.latexml.html5 processing... 0.03 sec)
+(MathML::Presentation foodweb-2-2.sage.out.intermediate.latexml.html5 24 to process... 0.54 sec)
+(XSLT[using LaTeXML-html5.xsl] foodweb-2-2.sage.out.intermediate.latexml.html5 processing... 0.04 sec)
+(Writer foodweb-2-2.sage.out.intermediate.latexml.html5 processing... 0.05 sec) 0.79 sec)
+Postprocessing complete: No obvious problems
+processing finished Tue Mar 22 18:05:46 2016
+/usr/local/src/workingwiki-trunk/ProjectEngine/resources/wiki-inclusion.latexml.pl foodweb-2-2.sage.out.intermediate.latexml.html5 >foodweb-2-2.sage.out.latexml.html5
+ln -f foodweb-2-2.sage.out.latexml.html5 foodweb-2-2.sage.out.latexml.html
+rm foodweb-2-2.sage.out.latexml.html5 foodweb-2-2.sage.out.latexml.xml
+make: Leaving directory `/usr/local/src/adaptive-dynamics-research/wmd_files/Selection_Gradients'
+Make succeeded.
+Tue Mar 22 18:05:46 2016

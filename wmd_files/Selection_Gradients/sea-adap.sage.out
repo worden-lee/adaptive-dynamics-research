@@ -1,0 +1,81 @@
+set_population_indices: [(0, 0), (1, 0), (0, 1)]
+The invasion rate for mutant population is:
+\begin{align*}
+  \mathscr I = \frac{1}{{N}_{1}}\frac{d{N}_{1}}{dt} &= -{K}_{0} {N}_{0} - {K}_{1} {N}_{1} + {\left({\left({B}_{{0}{1}} - {C}_{{t}{1}}\right)} {p}_{{0}{1}} - {C}_{{a}{1}}\right)} {n}_{0} - {C}_{{g}{1}} + {R}_{1} 
+\end{align*}
+
+limit as {R_1: R_0, p_0_1: p_0_0, C_t_1: C_t_0, C_g_1: C_g_0, B_0_1: B_0_0, C_a_1: C_a_0}
+simplify to 1
+simplify to -1
+simplify to -n_0
+simplify to -n_0*p_0_0
+simplify to n_0*p_0_0
+simplify to B_0_0*n_0 - C_t_0*n_0
+after those limits:
+   1
+  -1
+  -n_0
+  -n_0*p_0_0
+  n_0*p_0_0
+  B_0_0*n_0 - C_t_0*n_0
+simplify to 1
+simplify to -1
+simplify to -n_0
+simplify to -n_0*p_0_0
+simplify to n_0*p_0_0
+simplify to B_0_0*n_0 - C_t_0*n_0
+set_population_indices: [(0, 0), (1, 0), (1, 1)]
+The invasion rate for mutant population is:
+\begin{align*}
+  \mathscr I = \frac{1}{{n}_{1}}\frac{d{n}_{1}}{dt} &= {\left({\left({b}_{{1}{0}} - {c}_{{t}{1}}\right)} {p}_{{1}{0}} - {c}_{{a}{1}}\right)} {N}_{0} - {k}_{0} {n}_{0} - {k}_{1} {n}_{1} - {c}_{{g}{1}} + {r}_{1} 
+\end{align*}
+
+limit as {b_1_0: b_0_0, c_a_1: c_a_0, r_1: r_0, p_1_0: p_0_0, c_t_1: c_t_0, c_g_1: c_g_0}
+simplify to 1
+simplify to -1
+simplify to -N_0
+simplify to -N_0*p_0_0
+simplify to N_0*p_0_0
+simplify to N_0*b_0_0 - N_0*c_t_0
+after those limits:
+   1
+  -1
+  -N_0
+  -N_0*p_0_0
+  N_0*p_0_0
+  N_0*b_0_0 - N_0*c_t_0
+simplify to 1
+simplify to -1
+simplify to -N_0
+simplify to -N_0*p_0_0
+simplify to N_0*p_0_0
+simplify to N_0*b_0_0 - N_0*c_t_0
+set_population_indices: [(0, 0), (1, 0)]
+set_population_indices: [(0, 0), (1, 0), (0, 1)]
+The invasion rate for mutant population is:
+\begin{align*}
+  \mathscr I = \frac{1}{{N}_{1}}\frac{d{N}_{1}}{dt} &= -K {N}_{0} - K {N}_{1} + {\left({\left(B\left({x}_{{t}{0}}, {X}_{{t}{1}}\right) - C_{t}\left({X}_{{t}{1}}\right)\right)} p\left({x}_{{a}{0}}, {X}_{{a}{1}}\right) - C_{a}\left({X}_{{a}{1}}\right)\right)} {n}_{0} - C_{g}\left({X}_{{a}{1}}\right) + R\left({X}_{{a}{1}}, {X}_{{t}{1}}\right) 
+\end{align*}
+
+limit as {X_t_1: X_t_0, X_a_1: X_a_0}
+simplify to limit(limit(((B(x_t_0, X_t_1) - C_t(X_t_1))*D[1](p)(x_a_0, X_a_1) - D[0](C_a)(X_a_1))*n_0 - D[0](C_g)(X_a_1) + D[0](R)(X_a_1, X_t_1), X_t_1, X_t_0), X_a_1, X_a_0)
+simplify to limit(limit(n_0*(D[1](B)(x_t_0, X_t_1) - D[0](C_t)(X_t_1))*p(x_a_0, X_a_1) + D[1](R)(X_a_1, X_t_1), X_t_1, X_t_0), X_a_1, X_a_0)
+after those limits:
+   ((B(x_t_0, X_t_0) - C_t(X_t_0))*D[1](p)(x_a_0, X_a_0) - D[0](C_a)(X_a_0))*n_0 - D[0](C_g)(X_a_0) + D[0](R)(X_a_0, X_t_0)
+  n_0*(D[1](B)(x_t_0, X_t_0) - D[0](C_t)(X_t_0))*p(x_a_0, X_a_0) + D[1](R)(X_a_0, X_t_0)
+simplify to n_0*B(x_t_0, X_t_0)*D[1](p)(x_a_0, X_a_0) - n_0*C_t(X_t_0)*D[1](p)(x_a_0, X_a_0) - n_0*D[0](C_a)(X_a_0) - D[0](C_g)(X_a_0) + D[0](R)(X_a_0, X_t_0)
+simplify to n_0*p(x_a_0, X_a_0)*D[1](B)(x_t_0, X_t_0) - n_0*p(x_a_0, X_a_0)*D[0](C_t)(X_t_0) + D[1](R)(X_a_0, X_t_0)
+set_population_indices: [(0, 0), (1, 0), (1, 1)]
+The invasion rate for mutant population is:
+\begin{align*}
+  \mathscr I = \frac{1}{{n}_{1}}\frac{d{n}_{1}}{dt} &= {\left({\left(b\left({x}_{{t}{1}}, {X}_{{t}{0}}\right) - c_{t}\left({x}_{{t}{1}}\right)\right)} p\left({x}_{{a}{1}}, {X}_{{a}{0}}\right) - c_{a}\left({x}_{{a}{1}}\right)\right)} {N}_{0} - k {n}_{0} - k {n}_{1} - c_{g}\left({x}_{{a}{1}}\right) + r\left({x}_{{a}{1}}, {x}_{{t}{1}}\right) 
+\end{align*}
+
+limit as {x_a_1: x_a_0, x_t_1: x_t_0}
+simplify to limit(limit(((b(x_t_1, X_t_0) - c_t(x_t_1))*D[0](p)(x_a_1, X_a_0) - D[0](c_a)(x_a_1))*N_0 - D[0](c_g)(x_a_1) + D[0](r)(x_a_1, x_t_1), x_a_1, x_a_0), x_t_1, x_t_0)
+simplify to limit(limit(N_0*(D[0](b)(x_t_1, X_t_0) - D[0](c_t)(x_t_1))*p(x_a_1, X_a_0) + D[1](r)(x_a_1, x_t_1), x_a_1, x_a_0), x_t_1, x_t_0)
+after those limits:
+   ((b(x_t_0, X_t_0) - c_t(x_t_0))*D[0](p)(x_a_0, X_a_0) - D[0](c_a)(x_a_0))*N_0 - D[0](c_g)(x_a_0) + D[0](r)(x_a_0, x_t_0)
+  N_0*(D[0](b)(x_t_0, X_t_0) - D[0](c_t)(x_t_0))*p(x_a_0, X_a_0) + D[1](r)(x_a_0, x_t_0)
+simplify to N_0*b(x_t_0, X_t_0)*D[0](p)(x_a_0, X_a_0) - N_0*c_t(x_t_0)*D[0](p)(x_a_0, X_a_0) - N_0*D[0](c_a)(x_a_0) - D[0](c_g)(x_a_0) + D[0](r)(x_a_0, x_t_0)
+simplify to N_0*p(x_a_0, X_a_0)*D[0](b)(x_t_0, X_t_0) - N_0*p(x_a_0, X_a_0)*D[0](c_t)(x_t_0) + D[1](r)(x_a_0, x_t_0)

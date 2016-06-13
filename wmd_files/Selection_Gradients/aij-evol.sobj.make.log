@@ -1,0 +1,30 @@
+Sat Feb  6 14:34:45 2016
+/usr/bin/make -C /usr/local/src/adaptive-dynamics-research/wmd_files/Selection_Gradients \
+    aij-evol.sobj
+Including .mk files: sage-inline.mk 
+Including .mk files from .sage-inline files: avec.sage.mk a-careful.sage.mk
+Including .mk files from .step files: aij.py.mk aij-assemble.sage.mk aij-assemble-plot.sage.mk aij-evol.sage.mk aij-evol-plot.sage.mk direct.py.mk direct-assemble.sage.mk direct-assemble-plot.sage.mk direct-evol.sage.mk direct-evol-plot.sage.mk foodweb.py.mk foodweb.sage.mk foodweb-adap.sage.mk foodweb.plot.sage.mk foodweb-2-2.sage.mk foodweb-2-2.plot.sage.mk large.py.mk large-assemble.sage.mk large-assemble-plot.sage.mk large-evol.sage.mk large-evol-plot.sage.mk logistic-S-A-curves.sage.mk maclev-S-A-curve.sage.mk logistic-S-A-curve.sage.mk maclev-1-1.sage.mk maclev-1-1-adap.sage.mk maclev-1-1-mc-adap-geom.sage.mk maclev-1-1-ak-adap-geom.sage.mk S-A-vector-field.sage.mk maclev-1-1-d1A-vector-field.sage.mk maclev-1-1-S-and-d1A-on-curve.sage.mk maclev-1-1-S-and-D-on-curve.sage.mk maclev_1_2_defs.py.mk maclev-1-2-popdyn.sage.mk maclev-1-2-adap.sage.mk maclev-1-2-p.sage.mk maclev-1-2-zngi.sage.mk maclev-1-2-geom.sage.mk maclev_unconstrained_c.py.mk maclev-2-2-c-popdyn.sage.mk maclev-2-2-c-adap.sage.mk maclev-2-2-c-p.sage.mk maclev-2-2-c-zngi.sage.mk maclev-2-2-c-geom.sage.mk maclev_2_2_defs.py.mk maclev-2-2-popdyn.sage.mk maclev-2-2-adap.sage.mk maclev-2-2-p.sage.mk maclev-2-2-zngi.sage.mk maclev-2-2-geom.sage.mk maclev_a_only_defs.py.mk maclev-a-only-popdyn.sage.mk maclev-a-only-adap.sage.mk maclev-a-only-p.sage.mk maclev-a-only-zngi.sage.mk maclev-a-only-geom.sage.mk maclev_a_c.py.mk maclev-2-2-a-c-popdyn.sage.mk maclev-2-2-a-c-adap.sage.mk maclev-2-2-a-c-p.sage.mk maclev-2-2-a-c-zngi.sage.mk maclev-2-2-a-c-geom.sage.mk maclevmodels.py.mk masel_model.py.mk masel.sage.mk masel-adap.sage.mk masel-2-adap.sage.mk statmech.py.mk statmech-assemble.sage.mk statmech-assemble-plot.sage.mk statmech-evol.sage.mk statmech-evol-plot.sage.mk sea.sage.mk toc.sage.mk maclev-2-2-zngi-invasion.sage.mk lotkavolterra.py.mk r_selection.py.mk r-selection.sage.mk
+Including .tex.d files: foodweb-2-2.tikz.tex.d foodweb.tikz.tex.d
+make[1]: Entering directory `/usr/local/src/adaptive-dynamics-research/wmd_files/Selection_Gradients'
+perl -f /usr/local/src/workingwiki-trunk/ProjectEngine/resources/site/step.pl aij-evol.sage '#'
+rm -f aij-evol.sage.out aij-evol.sage.status aij-evol.sobj
+(sage aij-evol.sage && touch aij-evol.sage.status) | tee aij-evol.sage.dmp
+merge bindings: {} , [] ,  {}
+merge bindings: {a_0_0 -> -1} , [r_0] ,  {}
+state_bindings: {r_0 -> 1, a_0_0 -> -1}
+merge bindings: {} , [r_0, a_0_0] ,  {}
+init popdyn: X_0 -> -(X_0 - 1)*X_0
+integrate 2500 from [1]
+final state: [1.0] , keep [0]
+set_population_indices: [0]
+set_population_indices: [0, 1]
+merge bindings: {a_1_1 -> a_0_0 - 0.011721497969978635, a_1_0 -> a_0_0 + 0.01009185848396129, r_1 -> r_0, a_0_1 -> a_0_0 + 0.021953308801789168} , [r_0, a_0_0] ,  {}
+merge bindings: {r_0 -> 1, a_0_0 -> -1} , [a_1_1, r_1, a_1_0, r_0, a_0_1, a_0_0] ,  {}
+merge bindings: {r_0 -> 1, a_0_0 -> -1} , [a_1_1, r_1, r_0, a_1_0, a_0_1, a_0_0] ,  {}
+mutate from 0 to 1
+X_0 -> -(X_0 + 0.9780466911982109*X_1 - 1)*X_0
+X_1 -> (-0.9899081415160387*X_0 - 1.0117214979699787*X_1 + 1)*X_1
+[ -e aij-evol.sage.status ] && (rm -f aij-evol.sage.status && mv aij-evol.sage.dmp aij-evol.sage.out) || exit 1
+make[1]: Leaving directory `/usr/local/src/adaptive-dynamics-research/wmd_files/Selection_Gradients'
+Make succeeded.
+Sat Feb  6 14:35:37 2016

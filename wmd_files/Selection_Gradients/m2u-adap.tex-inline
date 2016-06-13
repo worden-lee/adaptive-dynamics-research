@@ -1,0 +1,17 @@
+
+\[
+  S \left(\begin{array}{c}
+  u_{0}\\
+  c_{0}\\
+  K_{0}
+\end{array}\right) = \left(\begin{array}{c}
+  \frac{K_{0} D[0]\left(r\right)\left(u_{1}\right) - \hat{X}_{0} D[0]\left(s\right)\left(u_{1}\right)}{K_{0}}\\
+  \frac{\hat{X}_{0} \lim_{u_{1} \to u_{0}}\, s\left(u_{1}\right)}{K_{0} c_{0}}\\
+  0
+\end{array}\right) = \left(\begin{array}{c}
+  -\frac{r\left(u_{0}\right) D[0]\left(s\right)\left(u_{1}\right)}{s\left(u_{0}\right)} + D[0]\left(r\right)\left(u_{1}\right)\\
+  \frac{\lim_{u_{1} \to u_{0}}\, s\left(u_{1}\right) r\left(u_{0}\right)}{c_{0} s\left(u_{0}\right)}\\
+  0
+\end{array}\right)
+\]
+

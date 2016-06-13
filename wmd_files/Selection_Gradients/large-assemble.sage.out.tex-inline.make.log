@@ -1,0 +1,1982 @@
+Sat Feb  6 18:56:18 2016
+/usr/bin/make -C /usr/local/src/adaptive-dynamics-research/wmd_files/Selection_Gradients \
+    large-assemble.sage.out.tex-inline
+Including .mk files: sage-inline.mk 
+Including .mk files from .sage-inline files: avec.sage.mk a-careful.sage.mk
+Including .mk files from .step files: aij.py.mk aij-assemble.sage.mk aij-assemble-plot.sage.mk aij-evol.sage.mk aij-evol-plot.sage.mk direct.py.mk direct-assemble.sage.mk direct-assemble-plot.sage.mk direct-evol.sage.mk direct-evol-plot.sage.mk foodweb.py.mk foodweb.sage.mk foodweb-adap.sage.mk foodweb.plot.sage.mk foodweb-2-2.sage.mk foodweb-2-2.plot.sage.mk large.py.mk large-assemble.sage.mk large-assemble-plot.sage.mk large-evol.sage.mk large-evol-plot.sage.mk logistic-S-A-curves.sage.mk maclev-S-A-curve.sage.mk logistic-S-A-curve.sage.mk maclev-1-1.sage.mk maclev-1-1-adap.sage.mk maclev-1-1-mc-adap-geom.sage.mk maclev-1-1-ak-adap-geom.sage.mk S-A-vector-field.sage.mk maclev-1-1-d1A-vector-field.sage.mk maclev-1-1-S-and-d1A-on-curve.sage.mk maclev-1-1-S-and-D-on-curve.sage.mk maclev_1_2_defs.py.mk maclev-1-2-popdyn.sage.mk maclev-1-2-adap.sage.mk maclev-1-2-p.sage.mk maclev-1-2-zngi.sage.mk maclev-1-2-geom.sage.mk maclev_unconstrained_c.py.mk maclev-2-2-c-popdyn.sage.mk maclev-2-2-c-adap.sage.mk maclev-2-2-c-p.sage.mk maclev-2-2-c-zngi.sage.mk maclev-2-2-c-geom.sage.mk maclev_2_2_defs.py.mk maclev-2-2-popdyn.sage.mk maclev-2-2-adap.sage.mk maclev-2-2-p.sage.mk maclev-2-2-zngi.sage.mk maclev-2-2-geom.sage.mk maclev_a_only_defs.py.mk maclev-a-only-popdyn.sage.mk maclev-a-only-adap.sage.mk maclev-a-only-p.sage.mk maclev-a-only-zngi.sage.mk maclev-a-only-geom.sage.mk maclev_a_c.py.mk maclev-2-2-a-c-popdyn.sage.mk maclev-2-2-a-c-adap.sage.mk maclev-2-2-a-c-p.sage.mk maclev-2-2-a-c-zngi.sage.mk maclev-2-2-a-c-geom.sage.mk maclevmodels.py.mk masel_model.py.mk masel.sage.mk masel-adap.sage.mk masel-2-adap.sage.mk statmech.py.mk statmech-assemble.sage.mk statmech-assemble-plot.sage.mk statmech-evol.sage.mk statmech-evol-plot.sage.mk sea.sage.mk toc.sage.mk maclev-2-2-zngi-invasion.sage.mk lotkavolterra.py.mk r_selection.py.mk r-selection.sage.mk
+Including .tex.d files: foodweb-2-2.tikz.tex.d foodweb.tikz.tex.d
+make[1]: Entering directory `/usr/local/src/adaptive-dynamics-research/wmd_files/Selection_Gradients'
+perl -f /usr/local/src/workingwiki-trunk/ProjectEngine/resources/site/step.pl large.py '#'
+make[1]: Leaving directory `/usr/local/src/adaptive-dynamics-research/wmd_files/Selection_Gradients'
+Including .mk files: sage-inline.mk 
+Including .mk files from .sage-inline files: avec.sage.mk a-careful.sage.mk
+Including .mk files from .step files: aij.py.mk aij-assemble.sage.mk aij-assemble-plot.sage.mk aij-evol.sage.mk aij-evol-plot.sage.mk direct.py.mk direct-assemble.sage.mk direct-assemble-plot.sage.mk direct-evol.sage.mk direct-evol-plot.sage.mk foodweb.py.mk foodweb.sage.mk foodweb-adap.sage.mk foodweb.plot.sage.mk foodweb-2-2.sage.mk foodweb-2-2.plot.sage.mk large.py.mk large-assemble.sage.mk large-assemble-plot.sage.mk large-evol.sage.mk large-evol-plot.sage.mk logistic-S-A-curves.sage.mk maclev-S-A-curve.sage.mk logistic-S-A-curve.sage.mk maclev-1-1.sage.mk maclev-1-1-adap.sage.mk maclev-1-1-mc-adap-geom.sage.mk maclev-1-1-ak-adap-geom.sage.mk S-A-vector-field.sage.mk maclev-1-1-d1A-vector-field.sage.mk maclev-1-1-S-and-d1A-on-curve.sage.mk maclev-1-1-S-and-D-on-curve.sage.mk maclev_1_2_defs.py.mk maclev-1-2-popdyn.sage.mk maclev-1-2-adap.sage.mk maclev-1-2-p.sage.mk maclev-1-2-zngi.sage.mk maclev-1-2-geom.sage.mk maclev_unconstrained_c.py.mk maclev-2-2-c-popdyn.sage.mk maclev-2-2-c-adap.sage.mk maclev-2-2-c-p.sage.mk maclev-2-2-c-zngi.sage.mk maclev-2-2-c-geom.sage.mk maclev_2_2_defs.py.mk maclev-2-2-popdyn.sage.mk maclev-2-2-adap.sage.mk maclev-2-2-p.sage.mk maclev-2-2-zngi.sage.mk maclev-2-2-geom.sage.mk maclev_a_only_defs.py.mk maclev-a-only-popdyn.sage.mk maclev-a-only-adap.sage.mk maclev-a-only-p.sage.mk maclev-a-only-zngi.sage.mk maclev-a-only-geom.sage.mk maclev_a_c.py.mk maclev-2-2-a-c-popdyn.sage.mk maclev-2-2-a-c-adap.sage.mk maclev-2-2-a-c-p.sage.mk maclev-2-2-a-c-zngi.sage.mk maclev-2-2-a-c-geom.sage.mk maclevmodels.py.mk masel_model.py.mk masel.sage.mk masel-adap.sage.mk masel-2-adap.sage.mk statmech.py.mk statmech-assemble.sage.mk statmech-assemble-plot.sage.mk statmech-evol.sage.mk statmech-evol-plot.sage.mk sea.sage.mk toc.sage.mk maclev-2-2-zngi-invasion.sage.mk lotkavolterra.py.mk r_selection.py.mk r-selection.sage.mk
+Including .tex.d files: foodweb-2-2.tikz.tex.d foodweb.tikz.tex.d
+make[1]: Entering directory `/usr/local/src/adaptive-dynamics-research/wmd_files/Selection_Gradients'
+perl -f /usr/local/src/workingwiki-trunk/ProjectEngine/resources/site/step.pl large-assemble.sage '#'
+rm -f large-assemble.sage.out large-assemble.sage.status large-assemble.sobj
+(sage large-assemble.sage && touch large-assemble.sage.status) | tee large-assemble.sage.dmp
+set_population_indices: []
+set_population_indices: [(0, 0)]
+X sub (0, 0) super ()
+X sub (0, 0) super ()
+X sub (0, 0) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+X sub (0, 0) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+merge bindings: {} , [u_0_0_0, u_0_0_1] ,  {}
+go 0 to 100
+(0, 0) caused an explosion
+set_population_indices: []
+set_population_indices: [(0, 0)]
+X sub (0, 0) super ()
+X sub (0, 0) super ()
+X sub (0, 0) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+X sub (0, 0) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+merge bindings: {} , [u_0_0_0, u_0_0_1] ,  {}
+go 0 to 100
+(0, 0) caused an explosion
+set_population_indices: []
+set_population_indices: [(0, 0)]
+X sub (0, 0) super ()
+X sub (0, 0) super ()
+X sub (0, 0) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+X sub (0, 0) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+merge bindings: {} , [u_0_0_0, u_0_0_1] ,  {}
+go 0 to 100
+(0, 0) caused an explosion
+set_population_indices: []
+set_population_indices: [(0, 0)]
+X sub (0, 0) super ()
+X sub (0, 0) super ()
+X sub (0, 0) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+X sub (0, 0) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+merge bindings: {} , [u_0_0_0, u_0_0_1] ,  {}
+go 0 to 100
+(0, 0) caused an explosion
+set_population_indices: []
+set_population_indices: [(0, 0)]
+X sub (0, 0) super ()
+X sub (0, 0) super ()
+X sub (0, 0) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+X sub (0, 0) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+merge bindings: {} , [u_0_0_0, u_0_0_1] ,  {}
+go 0 to 100
+(0, 0) caused an explosion
+set_population_indices: []
+set_population_indices: [(0, 0)]
+X sub (0, 0) super ()
+X sub (0, 0) super ()
+X sub (0, 0) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+X sub (0, 0) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+merge bindings: {} , [u_0_0_0, u_0_0_1] ,  {}
+go 0 to 100
+(0, 0) caused an explosion
+set_population_indices: []
+set_population_indices: [(0, 0)]
+X sub (0, 0) super ()
+X sub (0, 0) super ()
+X sub (0, 0) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+X sub (0, 0) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+merge bindings: {} , [u_0_0_0, u_0_0_1] ,  {}
+go 0 to 100
+(0, 0) caused an explosion
+set_population_indices: []
+set_population_indices: [(0, 0)]
+X sub (0, 0) super ()
+X sub (0, 0) super ()
+X sub (0, 0) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+X sub (0, 0) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+merge bindings: {} , [u_0_0_0, u_0_0_1] ,  {}
+go 0 to 100
+(0, 0) caused an explosion
+set_population_indices: []
+set_population_indices: [(0, 0)]
+X sub (0, 0) super ()
+X sub (0, 0) super ()
+X sub (0, 0) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+X sub (0, 0) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+merge bindings: {} , [u_0_0_0, u_0_0_1] ,  {}
+go 0 to 100
+(0, 0) caused an explosion
+set_population_indices: []
+set_population_indices: [(0, 0)]
+X sub (0, 0) super ()
+X sub (0, 0) super ()
+X sub (0, 0) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+X sub (0, 0) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+merge bindings: {} , [u_0_0_0, u_0_0_1] ,  {}
+go 0 to 100
+(0, 0) caused an explosion
+set_population_indices: []
+set_population_indices: [(0, 0)]
+X sub (0, 0) super ()
+X sub (0, 0) super ()
+X sub (0, 0) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+X sub (0, 0) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+merge bindings: {} , [u_0_0_0, u_0_0_1] ,  {}
+go 0 to 100
+(0, 0) caused an explosion
+set_population_indices: []
+set_population_indices: [(0, 0)]
+X sub (0, 0) super ()
+X sub (0, 0) super ()
+X sub (0, 0) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+X sub (0, 0) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+merge bindings: {} , [u_0_0_0, u_0_0_1] ,  {}
+go 0 to 100
+(0, 0) caused an explosion
+set_population_indices: []
+set_population_indices: [(0, 0)]
+X sub (0, 0) super ()
+X sub (0, 0) super ()
+X sub (0, 0) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+X sub (0, 0) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+merge bindings: {} , [u_0_0_0, u_0_0_1] ,  {}
+go 0 to 100
+(0, 0) caused an explosion
+set_population_indices: []
+set_population_indices: [(0, 0)]
+X sub (0, 0) super ()
+X sub (0, 0) super ()
+X sub (0, 0) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+X sub (0, 0) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+merge bindings: {} , [u_0_0_0, u_0_0_1] ,  {}
+go 0 to 100
+(0, 0) caused an explosion
+set_population_indices: []
+set_population_indices: [(0, 0)]
+X sub (0, 0) super ()
+X sub (0, 0) super ()
+X sub (0, 0) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+X sub (0, 0) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+merge bindings: {} , [u_0_0_0, u_0_0_1] ,  {}
+go 0 to 100
+(0, 0) caused an explosion
+set_population_indices: []
+set_population_indices: [(0, 0)]
+X sub (0, 0) super ()
+X sub (0, 0) super ()
+X sub (0, 0) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+X sub (0, 0) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+merge bindings: {} , [u_0_0_0, u_0_0_1] ,  {}
+go 0 to 100
+(0, 0) caused an explosion
+set_population_indices: []
+set_population_indices: [(0, 0)]
+X sub (0, 0) super ()
+X sub (0, 0) super ()
+X sub (0, 0) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+X sub (0, 0) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+merge bindings: {} , [u_0_0_0, u_0_0_1] ,  {}
+go 0 to 100
+(0, 0) caused an explosion
+set_population_indices: []
+set_population_indices: [(0, 0)]
+X sub (0, 0) super ()
+X sub (0, 0) super ()
+X sub (0, 0) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+X sub (0, 0) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+merge bindings: {} , [u_0_0_0, u_0_0_1] ,  {}
+go 0 to 100
+(0, 0) caused an explosion
+set_population_indices: []
+set_population_indices: [(0, 0)]
+X sub (0, 0) super ()
+X sub (0, 0) super ()
+X sub (0, 0) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+X sub (0, 0) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+merge bindings: {} , [u_0_0_0, u_0_0_1] ,  {}
+go 0 to 100
+(0, 0) caused an explosion
+set_population_indices: []
+set_population_indices: [(0, 0)]
+X sub (0, 0) super ()
+X sub (0, 0) super ()
+X sub (0, 0) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+X sub (0, 0) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+merge bindings: {} , [u_0_0_0, u_0_0_1] ,  {}
+go 0 to 100
+(0, 0) caused an explosion
+set_population_indices: []
+set_population_indices: [(0, 0)]
+X sub (0, 0) super ()
+X sub (0, 0) super ()
+X sub (0, 0) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+X sub (0, 0) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+merge bindings: {} , [u_0_0_0, u_0_0_1] ,  {}
+go 0 to 100
+(0, 0) caused an explosion
+set_population_indices: []
+set_population_indices: [(0, 0)]
+X sub (0, 0) super ()
+X sub (0, 0) super ()
+X sub (0, 0) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+X sub (0, 0) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+merge bindings: {} , [u_0_0_0, u_0_0_1] ,  {}
+go 0 to 100
+(0, 0) caused an explosion
+set_population_indices: []
+set_population_indices: [(0, 0)]
+X sub (0, 0) super ()
+X sub (0, 0) super ()
+X sub (0, 0) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+X sub (0, 0) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+merge bindings: {} , [u_0_0_0, u_0_0_1] ,  {}
+go 0 to 100
+(0, 0) caused an explosion
+set_population_indices: []
+set_population_indices: [(0, 0)]
+X sub (0, 0) super ()
+X sub (0, 0) super ()
+X sub (0, 0) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+X sub (0, 0) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+merge bindings: {} , [u_0_0_0, u_0_0_1] ,  {}
+go 0 to 100
+(0, 0) caused an explosion
+set_population_indices: []
+set_population_indices: [(0, 0)]
+X sub (0, 0) super ()
+X sub (0, 0) super ()
+X sub (0, 0) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+X sub (0, 0) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+merge bindings: {} , [u_0_0_0, u_0_0_1] ,  {}
+go 0 to 100
+(0, 0) caused an explosion
+set_population_indices: []
+set_population_indices: [(0, 0)]
+X sub (0, 0) super ()
+X sub (0, 0) super ()
+X sub (0, 0) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+X sub (0, 0) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+merge bindings: {} , [u_0_0_0, u_0_0_1] ,  {}
+go 0 to 100
+(0, 0) caused an explosion
+set_population_indices: []
+set_population_indices: [(0, 0)]
+X sub (0, 0) super ()
+X sub (0, 0) super ()
+X sub (0, 0) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+X sub (0, 0) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+merge bindings: {} , [u_0_0_0, u_0_0_1] ,  {}
+go 0 to 100
+(0, 0) caused an explosion
+set_population_indices: []
+set_population_indices: [(0, 0)]
+X sub (0, 0) super ()
+X sub (0, 0) super ()
+X sub (0, 0) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+X sub (0, 0) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+merge bindings: {} , [u_0_0_0, u_0_0_1] ,  {}
+go 0 to 100
+(0, 0) caused an explosion
+set_population_indices: []
+set_population_indices: [(0, 0)]
+X sub (0, 0) super ()
+X sub (0, 0) super ()
+X sub (0, 0) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+X sub (0, 0) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+merge bindings: {} , [u_0_0_0, u_0_0_1] ,  {}
+go 0 to 100
+(0, 0) caused an explosion
+set_population_indices: []
+set_population_indices: [(0, 0)]
+X sub (0, 0) super ()
+X sub (0, 0) super ()
+X sub (0, 0) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+X sub (0, 0) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+merge bindings: {} , [u_0_0_0, u_0_0_1] ,  {}
+go 0 to 100
+(0, 0) caused an explosion
+set_population_indices: []
+set_population_indices: [(0, 0)]
+X sub (0, 0) super ()
+X sub (0, 0) super ()
+X sub (0, 0) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+X sub (0, 0) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+merge bindings: {} , [u_0_0_0, u_0_0_1] ,  {}
+go 0 to 100
+(0, 0) caused an explosion
+set_population_indices: []
+set_population_indices: [(0, 0)]
+X sub (0, 0) super ()
+X sub (0, 0) super ()
+X sub (0, 0) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+X sub (0, 0) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+merge bindings: {} , [u_0_0_0, u_0_0_1] ,  {}
+go 0 to 100
+(0, 0) caused an explosion
+set_population_indices: []
+set_population_indices: [(0, 0)]
+X sub (0, 0) super ()
+X sub (0, 0) super ()
+X sub (0, 0) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+X sub (0, 0) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+merge bindings: {} , [u_0_0_0, u_0_0_1] ,  {}
+go 0 to 100
+(0, 0) caused an explosion
+set_population_indices: []
+set_population_indices: [(0, 0)]
+X sub (0, 0) super ()
+X sub (0, 0) super ()
+X sub (0, 0) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+X sub (0, 0) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+merge bindings: {} , [u_0_0_0, u_0_0_1] ,  {}
+go 0 to 100
+(0, 0) caused an explosion
+set_population_indices: []
+set_population_indices: [(0, 0)]
+X sub (0, 0) super ()
+X sub (0, 0) super ()
+X sub (0, 0) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+X sub (0, 0) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+merge bindings: {} , [u_0_0_0, u_0_0_1] ,  {}
+go 0 to 100
+(0, 0) caused an explosion
+set_population_indices: []
+set_population_indices: [(0, 0)]
+X sub (0, 0) super ()
+X sub (0, 0) super ()
+X sub (0, 0) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+X sub (0, 0) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+merge bindings: {} , [u_0_0_0, u_0_0_1] ,  {}
+go 0 to 100
+(0, 0) caused an explosion
+set_population_indices: []
+set_population_indices: [(0, 0)]
+X sub (0, 0) super ()
+X sub (0, 0) super ()
+X sub (0, 0) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+X sub (0, 0) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+merge bindings: {} , [u_0_0_0, u_0_0_1] ,  {}
+go 0 to 100
+(0, 0) caused an explosion
+set_population_indices: []
+set_population_indices: [(0, 0)]
+X sub (0, 0) super ()
+X sub (0, 0) super ()
+X sub (0, 0) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+X sub (0, 0) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+merge bindings: {} , [u_0_0_0, u_0_0_1] ,  {}
+go 0 to 100
+(0, 0) caused an explosion
+set_population_indices: []
+set_population_indices: [(0, 0)]
+X sub (0, 0) super ()
+X sub (0, 0) super ()
+X sub (0, 0) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+X sub (0, 0) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+merge bindings: {} , [u_0_0_0, u_0_0_1] ,  {}
+go 0 to 100
+(0, 0) caused an explosion
+set_population_indices: []
+set_population_indices: [(0, 0)]
+X sub (0, 0) super ()
+X sub (0, 0) super ()
+X sub (0, 0) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+X sub (0, 0) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+merge bindings: {} , [u_0_0_0, u_0_0_1] ,  {}
+go 0 to 100
+(0, 0) caused an explosion
+set_population_indices: []
+set_population_indices: [(0, 0)]
+X sub (0, 0) super ()
+X sub (0, 0) super ()
+X sub (0, 0) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+X sub (0, 0) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+merge bindings: {} , [u_0_0_0, u_0_0_1] ,  {}
+go 0 to 100
+(0, 0) caused an explosion
+set_population_indices: []
+set_population_indices: [(0, 0)]
+X sub (0, 0) super ()
+X sub (0, 0) super ()
+X sub (0, 0) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+X sub (0, 0) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+merge bindings: {} , [u_0_0_0, u_0_0_1] ,  {}
+go 0 to 100
+(0, 0) caused an explosion
+set_population_indices: []
+set_population_indices: [(0, 0)]
+X sub (0, 0) super ()
+X sub (0, 0) super ()
+X sub (0, 0) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+X sub (0, 0) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+merge bindings: {} , [u_0_0_0, u_0_0_1] ,  {}
+go 0 to 100
+(0, 0) caused an explosion
+set_population_indices: []
+set_population_indices: [(0, 0)]
+X sub (0, 0) super ()
+X sub (0, 0) super ()
+X sub (0, 0) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+X sub (0, 0) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+merge bindings: {} , [u_0_0_0, u_0_0_1] ,  {}
+go 0 to 100
+(0, 0) caused an explosion
+set_population_indices: []
+set_population_indices: [(0, 0)]
+X sub (0, 0) super ()
+X sub (0, 0) super ()
+X sub (0, 0) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+X sub (0, 0) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+merge bindings: {} , [u_0_0_0, u_0_0_1] ,  {}
+go 0 to 100
+(0, 0) caused an explosion
+set_population_indices: []
+set_population_indices: [(0, 0)]
+X sub (0, 0) super ()
+X sub (0, 0) super ()
+X sub (0, 0) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+X sub (0, 0) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+merge bindings: {} , [u_0_0_0, u_0_0_1] ,  {}
+go 0 to 100
+(0, 0) caused an explosion
+set_population_indices: []
+set_population_indices: [(0, 0)]
+X sub (0, 0) super ()
+X sub (0, 0) super ()
+X sub (0, 0) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+X sub (0, 0) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+merge bindings: {} , [u_0_0_0, u_0_0_1] ,  {}
+go 0 to 100
+(0, 0) caused an explosion
+set_population_indices: []
+set_population_indices: [(0, 0)]
+X sub (0, 0) super ()
+X sub (0, 0) super ()
+X sub (0, 0) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+X sub (0, 0) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+merge bindings: {} , [u_0_0_0, u_0_0_1] ,  {}
+go 0 to 100
+(0, 0) caused an explosion
+set_population_indices: []
+set_population_indices: [(0, 0)]
+X sub (0, 0) super ()
+X sub (0, 0) super ()
+X sub (0, 0) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+X sub (0, 0) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+merge bindings: {} , [u_0_0_0, u_0_0_1] ,  {}
+go 0 to 100
+(0, 0) caused an explosion
+set_population_indices: []
+set_population_indices: [(0, 0)]
+X sub (0, 0) super ()
+X sub (0, 0) super ()
+X sub (0, 0) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+X sub (0, 0) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+merge bindings: {} , [u_0_0_0, u_0_0_1] ,  {}
+go 0 to 100
+(0, 0) caused an explosion
+set_population_indices: []
+set_population_indices: [(0, 0)]
+X sub (0, 0) super ()
+X sub (0, 0) super ()
+X sub (0, 0) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+X sub (0, 0) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+merge bindings: {} , [u_0_0_0, u_0_0_1] ,  {}
+go 0 to 100
+(0, 0) caused an explosion
+set_population_indices: []
+set_population_indices: [(0, 0)]
+X sub (0, 0) super ()
+X sub (0, 0) super ()
+X sub (0, 0) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+X sub (0, 0) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+merge bindings: {} , [u_0_0_0, u_0_0_1] ,  {}
+go 0 to 100
+(0, 0) caused an explosion
+set_population_indices: []
+set_population_indices: [(0, 0)]
+X sub (0, 0) super ()
+X sub (0, 0) super ()
+X sub (0, 0) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+X sub (0, 0) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+merge bindings: {} , [u_0_0_0, u_0_0_1] ,  {}
+go 0 to 100
+(0, 0) caused an explosion
+set_population_indices: []
+set_population_indices: [(0, 0)]
+X sub (0, 0) super ()
+X sub (0, 0) super ()
+X sub (0, 0) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+X sub (0, 0) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+merge bindings: {} , [u_0_0_0, u_0_0_1] ,  {}
+go 0 to 100
+(0, 0) caused an explosion
+set_population_indices: []
+set_population_indices: [(0, 0)]
+X sub (0, 0) super ()
+X sub (0, 0) super ()
+X sub (0, 0) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+X sub (0, 0) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+merge bindings: {} , [u_0_0_0, u_0_0_1] ,  {}
+go 0 to 100
+(0, 0) caused an explosion
+set_population_indices: []
+set_population_indices: [(0, 0)]
+X sub (0, 0) super ()
+X sub (0, 0) super ()
+X sub (0, 0) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+X sub (0, 0) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+merge bindings: {} , [u_0_0_0, u_0_0_1] ,  {}
+go 0 to 100
+(0, 0) caused an explosion
+set_population_indices: []
+set_population_indices: [(0, 0)]
+X sub (0, 0) super ()
+X sub (0, 0) super ()
+X sub (0, 0) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+X sub (0, 0) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+merge bindings: {} , [u_0_0_0, u_0_0_1] ,  {}
+go 0 to 100
+(0, 0) caused an explosion
+set_population_indices: []
+set_population_indices: [(0, 0)]
+X sub (0, 0) super ()
+X sub (0, 0) super ()
+X sub (0, 0) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+X sub (0, 0) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+merge bindings: {} , [u_0_0_0, u_0_0_1] ,  {}
+go 0 to 100
+(0, 0) caused an explosion
+set_population_indices: []
+set_population_indices: [(0, 0)]
+X sub (0, 0) super ()
+X sub (0, 0) super ()
+X sub (0, 0) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+X sub (0, 0) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+merge bindings: {} , [u_0_0_0, u_0_0_1] ,  {}
+go 0 to 100
+(0, 0) caused an explosion
+set_population_indices: []
+set_population_indices: [(0, 0)]
+X sub (0, 0) super ()
+X sub (0, 0) super ()
+X sub (0, 0) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+X sub (0, 0) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+merge bindings: {} , [u_0_0_0, u_0_0_1] ,  {}
+go 0 to 100
+(0, 0) caused an explosion
+set_population_indices: []
+set_population_indices: [(0, 0)]
+X sub (0, 0) super ()
+X sub (0, 0) super ()
+X sub (0, 0) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+X sub (0, 0) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+merge bindings: {} , [u_0_0_0, u_0_0_1] ,  {}
+go 0 to 100
+(0, 0) caused an explosion
+set_population_indices: []
+set_population_indices: [(0, 0)]
+X sub (0, 0) super ()
+X sub (0, 0) super ()
+X sub (0, 0) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+X sub (0, 0) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+merge bindings: {} , [u_0_0_0, u_0_0_1] ,  {}
+go 0 to 100
+(0, 0) caused an explosion
+set_population_indices: []
+set_population_indices: [(0, 0)]
+X sub (0, 0) super ()
+X sub (0, 0) super ()
+X sub (0, 0) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+X sub (0, 0) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+merge bindings: {} , [u_0_0_0, u_0_0_1] ,  {}
+go 0 to 100
+(0, 0) caused an explosion
+set_population_indices: []
+set_population_indices: [(0, 0)]
+X sub (0, 0) super ()
+X sub (0, 0) super ()
+X sub (0, 0) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+X sub (0, 0) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+merge bindings: {} , [u_0_0_0, u_0_0_1] ,  {}
+go 0 to 100
+(0, 0) caused an explosion
+set_population_indices: []
+set_population_indices: [(0, 0)]
+X sub (0, 0) super ()
+X sub (0, 0) super ()
+X sub (0, 0) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+X sub (0, 0) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+merge bindings: {} , [u_0_0_0, u_0_0_1] ,  {}
+go 0 to 100
+(0, 0) caused an explosion
+set_population_indices: []
+set_population_indices: [(0, 0)]
+X sub (0, 0) super ()
+X sub (0, 0) super ()
+X sub (0, 0) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+X sub (0, 0) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+merge bindings: {} , [u_0_0_0, u_0_0_1] ,  {}
+go 0 to 100
+(0, 0) caused an explosion
+set_population_indices: []
+set_population_indices: [(0, 0)]
+X sub (0, 0) super ()
+X sub (0, 0) super ()
+X sub (0, 0) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+X sub (0, 0) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+merge bindings: {} , [u_0_0_0, u_0_0_1] ,  {}
+go 0 to 100
+(0, 0) caused an explosion
+set_population_indices: []
+set_population_indices: [(0, 0)]
+X sub (0, 0) super ()
+X sub (0, 0) super ()
+X sub (0, 0) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+X sub (0, 0) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+merge bindings: {} , [u_0_0_0, u_0_0_1] ,  {}
+go 0 to 100
+(0, 0) caused an explosion
+set_population_indices: []
+set_population_indices: [(0, 0)]
+X sub (0, 0) super ()
+X sub (0, 0) super ()
+X sub (0, 0) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+X sub (0, 0) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+merge bindings: {} , [u_0_0_0, u_0_0_1] ,  {}
+go 0 to 100
+(0, 0) caused an explosion
+set_population_indices: []
+set_population_indices: [(0, 0)]
+X sub (0, 0) super ()
+X sub (0, 0) super ()
+X sub (0, 0) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+X sub (0, 0) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+merge bindings: {} , [u_0_0_0, u_0_0_1] ,  {}
+go 0 to 100
+(0, 0) caused an explosion
+set_population_indices: []
+set_population_indices: [(0, 0)]
+X sub (0, 0) super ()
+X sub (0, 0) super ()
+X sub (0, 0) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+X sub (0, 0) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+merge bindings: {} , [u_0_0_0, u_0_0_1] ,  {}
+go 0 to 100
+(0, 0) caused an explosion
+set_population_indices: []
+set_population_indices: [(0, 0)]
+X sub (0, 0) super ()
+X sub (0, 0) super ()
+X sub (0, 0) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+X sub (0, 0) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+merge bindings: {} , [u_0_0_0, u_0_0_1] ,  {}
+go 0 to 100
+(0, 0) caused an explosion
+set_population_indices: []
+set_population_indices: [(0, 0)]
+X sub (0, 0) super ()
+X sub (0, 0) super ()
+X sub (0, 0) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+X sub (0, 0) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+merge bindings: {} , [u_0_0_0, u_0_0_1] ,  {}
+go 0 to 100
+(0, 0) caused an explosion
+set_population_indices: []
+set_population_indices: [(0, 0)]
+X sub (0, 0) super ()
+X sub (0, 0) super ()
+X sub (0, 0) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+X sub (0, 0) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+merge bindings: {} , [u_0_0_0, u_0_0_1] ,  {}
+go 0 to 100
+(0, 0) caused an explosion
+set_population_indices: []
+set_population_indices: [(0, 0)]
+X sub (0, 0) super ()
+X sub (0, 0) super ()
+X sub (0, 0) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+X sub (0, 0) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+merge bindings: {} , [u_0_0_0, u_0_0_1] ,  {}
+go 0 to 100
+(0, 0) caused an explosion
+set_population_indices: []
+set_population_indices: [(0, 0)]
+X sub (0, 0) super ()
+X sub (0, 0) super ()
+X sub (0, 0) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+X sub (0, 0) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+merge bindings: {} , [u_0_0_0, u_0_0_1] ,  {}
+go 0 to 100
+(0, 0) caused an explosion
+set_population_indices: []
+set_population_indices: [(0, 0)]
+X sub (0, 0) super ()
+X sub (0, 0) super ()
+X sub (0, 0) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+X sub (0, 0) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+merge bindings: {} , [u_0_0_0, u_0_0_1] ,  {}
+go 0 to 100
+(0, 0) caused an explosion
+set_population_indices: []
+set_population_indices: [(0, 0)]
+X sub (0, 0) super ()
+X sub (0, 0) super ()
+X sub (0, 0) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+X sub (0, 0) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+merge bindings: {} , [u_0_0_0, u_0_0_1] ,  {}
+go 0 to 100
+(0, 0) caused an explosion
+set_population_indices: []
+set_population_indices: [(0, 0)]
+X sub (0, 0) super ()
+X sub (0, 0) super ()
+X sub (0, 0) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+X sub (0, 0) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+merge bindings: {} , [u_0_0_0, u_0_0_1] ,  {}
+go 0 to 100
+(0, 0) caused an explosion
+set_population_indices: []
+set_population_indices: [(0, 0)]
+X sub (0, 0) super ()
+X sub (0, 0) super ()
+X sub (0, 0) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+X sub (0, 0) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+merge bindings: {} , [u_0_0_0, u_0_0_1] ,  {}
+go 0 to 100
+(0, 0) caused an explosion
+set_population_indices: []
+set_population_indices: [(0, 0)]
+X sub (0, 0) super ()
+X sub (0, 0) super ()
+X sub (0, 0) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+X sub (0, 0) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+merge bindings: {} , [u_0_0_0, u_0_0_1] ,  {}
+go 0 to 100
+(0, 0) caused an explosion
+set_population_indices: []
+set_population_indices: [(0, 0)]
+X sub (0, 0) super ()
+X sub (0, 0) super ()
+X sub (0, 0) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+X sub (0, 0) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+merge bindings: {} , [u_0_0_0, u_0_0_1] ,  {}
+go 0 to 100
+(0, 0) caused an explosion
+set_population_indices: []
+set_population_indices: [(0, 0)]
+X sub (0, 0) super ()
+X sub (0, 0) super ()
+X sub (0, 0) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+X sub (0, 0) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+merge bindings: {} , [u_0_0_0, u_0_0_1] ,  {}
+go 0 to 100
+(0, 0) caused an explosion
+set_population_indices: []
+set_population_indices: [(0, 0)]
+X sub (0, 0) super ()
+X sub (0, 0) super ()
+X sub (0, 0) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+X sub (0, 0) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+merge bindings: {} , [u_0_0_0, u_0_0_1] ,  {}
+go 0 to 100
+(0, 0) caused an explosion
+set_population_indices: []
+set_population_indices: [(0, 0)]
+X sub (0, 0) super ()
+X sub (0, 0) super ()
+X sub (0, 0) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+X sub (0, 0) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+merge bindings: {} , [u_0_0_0, u_0_0_1] ,  {}
+go 0 to 100
+(0, 0) caused an explosion
+set_population_indices: []
+set_population_indices: [(0, 0)]
+X sub (0, 0) super ()
+X sub (0, 0) super ()
+X sub (0, 0) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+X sub (0, 0) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+merge bindings: {} , [u_0_0_0, u_0_0_1] ,  {}
+go 0 to 100
+(0, 0) caused an explosion
+set_population_indices: []
+set_population_indices: [(0, 0)]
+X sub (0, 0) super ()
+X sub (0, 0) super ()
+X sub (0, 0) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+X sub (0, 0) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+merge bindings: {} , [u_0_0_0, u_0_0_1] ,  {}
+go 0 to 100
+(0, 0) caused an explosion
+set_population_indices: []
+set_population_indices: [(0, 0)]
+X sub (0, 0) super ()
+X sub (0, 0) super ()
+X sub (0, 0) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+X sub (0, 0) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+merge bindings: {} , [u_0_0_0, u_0_0_1] ,  {}
+go 0 to 100
+(0, 0) caused an explosion
+set_population_indices: []
+set_population_indices: [(0, 0)]
+X sub (0, 0) super ()
+X sub (0, 0) super ()
+X sub (0, 0) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+X sub (0, 0) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+merge bindings: {} , [u_0_0_0, u_0_0_1] ,  {}
+go 0 to 100
+(0, 0) caused an explosion
+set_population_indices: []
+set_population_indices: [(0, 0)]
+X sub (0, 0) super ()
+X sub (0, 0) super ()
+X sub (0, 0) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+X sub (0, 0) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+merge bindings: {} , [u_0_0_0, u_0_0_1] ,  {}
+go 0 to 100
+(0, 0) caused an explosion
+set_population_indices: []
+set_population_indices: [(0, 0)]
+X sub (0, 0) super ()
+X sub (0, 0) super ()
+X sub (0, 0) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+X sub (0, 0) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+merge bindings: {} , [u_0_0_0, u_0_0_1] ,  {}
+go 0 to 100
+(0, 0) caused an explosion
+set_population_indices: []
+set_population_indices: [(0, 0)]
+X sub (0, 0) super ()
+X sub (0, 0) super ()
+X sub (0, 0) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+X sub (0, 0) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+merge bindings: {} , [u_0_0_0, u_0_0_1] ,  {}
+go 0 to 100
+(0, 0) caused an explosion
+set_population_indices: []
+set_population_indices: [(0, 0)]
+X sub (0, 0) super ()
+X sub (0, 0) super ()
+X sub (0, 0) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+X sub (0, 0) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+merge bindings: {} , [u_0_0_0, u_0_0_1] ,  {}
+go 0 to 100
+(0, 0) caused an explosion
+set_population_indices: []
+set_population_indices: [(0, 0)]
+X sub (0, 0) super ()
+X sub (0, 0) super ()
+X sub (0, 0) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+X sub (0, 0) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+merge bindings: {} , [u_0_0_0, u_0_0_1] ,  {}
+go 0 to 100
+(0, 0) caused an explosion
+set_population_indices: []
+set_population_indices: [(0, 0)]
+X sub (0, 0) super ()
+X sub (0, 0) super ()
+X sub (0, 0) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+X sub (0, 0) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+merge bindings: {} , [u_0_0_0, u_0_0_1] ,  {}
+go 0 to 100
+(0, 0) caused an explosion
+set_population_indices: []
+set_population_indices: [(0, 0)]
+X sub (0, 0) super ()
+X sub (0, 0) super ()
+X sub (0, 0) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+X sub (0, 0) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+merge bindings: {} , [u_0_0_0, u_0_0_1] ,  {}
+go 0 to 100
+(0, 0) caused an explosion
+set_population_indices: []
+set_population_indices: [(0, 0)]
+X sub (0, 0) super ()
+X sub (0, 0) super ()
+X sub (0, 0) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+X sub (0, 0) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+merge bindings: {} , [u_0_0_0, u_0_0_1] ,  {}
+go 0 to 100
+(0, 0) caused an explosion
+set_population_indices: []
+set_population_indices: [(0, 0)]
+X sub (0, 0) super ()
+X sub (0, 0) super ()
+X sub (0, 0) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+X sub (0, 0) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+merge bindings: {} , [u_0_0_0, u_0_0_1] ,  {}
+go 0 to 100
+(0, 0) caused an explosion
+set_population_indices: []
+set_population_indices: [(0, 0)]
+X sub (0, 0) super ()
+X sub (0, 0) super ()
+X sub (0, 0) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+X sub (0, 0) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+merge bindings: {} , [u_0_0_0, u_0_0_1] ,  {}
+go 0 to 100
+(0, 0) caused an explosion
+set_population_indices: []
+set_population_indices: [(0, 0)]
+X sub (0, 0) super ()
+X sub (0, 0) super ()
+X sub (0, 0) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+X sub (0, 0) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+merge bindings: {} , [u_0_0_0, u_0_0_1] ,  {}
+go 0 to 100
+(0, 0) caused an explosion
+set_population_indices: []
+set_population_indices: [(0, 0)]
+X sub (0, 0) super ()
+X sub (0, 0) super ()
+X sub (0, 0) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+X sub (0, 0) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+merge bindings: {} , [u_0_0_0, u_0_0_1] ,  {}
+go 0 to 100
+(0, 0) caused an explosion
+set_population_indices: []
+set_population_indices: [(0, 0)]
+X sub (0, 0) super ()
+X sub (0, 0) super ()
+X sub (0, 0) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+X sub (0, 0) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+merge bindings: {} , [u_0_0_0, u_0_0_1] ,  {}
+go 0 to 100
+(0, 0) caused an explosion
+set_population_indices: []
+set_population_indices: [(0, 0)]
+X sub (0, 0) super ()
+X sub (0, 0) super ()
+X sub (0, 0) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+X sub (0, 0) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+merge bindings: {} , [u_0_0_0, u_0_0_1] ,  {}
+go 0 to 100
+(0, 0) caused an explosion
+set_population_indices: []
+set_population_indices: [(0, 0)]
+X sub (0, 0) super ()
+X sub (0, 0) super ()
+X sub (0, 0) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+X sub (0, 0) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+merge bindings: {} , [u_0_0_0, u_0_0_1] ,  {}
+go 0 to 100
+(0, 0) caused an explosion
+set_population_indices: []
+set_population_indices: [(0, 0)]
+X sub (0, 0) super ()
+X sub (0, 0) super ()
+X sub (0, 0) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+X sub (0, 0) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+merge bindings: {} , [u_0_0_0, u_0_0_1] ,  {}
+go 0 to 100
+(0, 0) caused an explosion
+set_population_indices: []
+set_population_indices: [(0, 0)]
+X sub (0, 0) super ()
+X sub (0, 0) super ()
+X sub (0, 0) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+X sub (0, 0) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+merge bindings: {} , [u_0_0_0, u_0_0_1] ,  {}
+go 0 to 100
+(0, 0) caused an explosion
+set_population_indices: []
+set_population_indices: [(0, 0)]
+X sub (0, 0) super ()
+X sub (0, 0) super ()
+X sub (0, 0) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+X sub (0, 0) super ()
+('u indexer for ', (0, 0))
+u sub (0, 0, 0) super ()
+u sub (0, 0, 1) super ()
+merge bindings: {} , [u_0_0_0, u_0_0_1] ,  {}
+go 0 to 100
+Signal received — terminating the make process
+Make failed with exit code -1.
+Sat Feb  6 19:06:25 2016
+Traceback (most recent call last):
+  File "large-assemble.sage.py", line 25, in <module>
+    ni_soln = smu.solve_gsl( [ state(x) for x in smu._vars ], start_time=t, end_time=t+_sage_const_100  )
+  File "/usr/local/src/SageDynamics/dynamicalsystems/dynamicalsystems.py", line 772, in solve_gsl
+    self._gsl_system = self.gsl_system()
+  File "/usr/local/src/SageDynamics/dynamicalsystems/dynamicalsystems.py", line 760, in gsl_system
+    module = sage.misc.cython.compile_and_load( cython_code )
+  File "/usr/local/src/sage/local/lib/python2.7/site-packages/sage/misc/cython.py", line 767, in compile_and_load
+    return cython_import(file, create_local_c_file=False)
+  File "/usr/local/src/sage/local/lib/python2.7/site-packages/sage/server/support.py", line 62, in cython_import
+    **kwds)
+  File "/usr/local/src/sage/local/lib/python2.7/site-packages/sage/misc/cython.py", line 493, in cython
+    raise RuntimeError("Error converting {} to C:\n{}\n{}".format(filename, log, err))
+RuntimeError: Error converting /home/wonder/.sage/temp/caribou/4891/tmp_3KCdmr.pyx to C:
+
+Traceback (most recent call last):
+  File "/usr/local/src/sage/local/bin/cython", line 5, in <module>
+    from pkg_resources import load_entry_point
+  File "build/bdist.linux-x86_64/egg/pkg_resources/__init__.py", line 37, in <module>
+  File "/usr/local/src/sage/local/lib/python/email/parser.py", line 12, in <module>
+    from email.feedparser import FeedParser
+  File "/usr/local/src/sage/local/lib/python/email/feedparser.py", line 27, in <module>
+    from email import message
+  File "/usr/local/src/sage/local/lib/python/email/message.py", line 16, in <module>
+    import email.charset
+  File "/usr/local/src/sage/local/lib/python/email/charset.py", line 13, in <module>
+    import email.base64mime
+  File "/usr/local/src/sage/local/lib/python/email/base64mime.py", line 40, in <module>
+    from email.utils import fix_eols
+  File "/usr/local/src/sage/local/lib/python/email/utils.py", line 29, in <module>
+    import urllib
+  File "/usr/local/src/sage/local/lib/python/urllib.py", line 1248, in <module>
+    _safe_map[c] = c if (i < 128 and c in always_safe) else '%{:02X}'.format(i)
+KeyboardInterrupt
+
+make[1]: *** [large-assemble.sage.out] Interrupt

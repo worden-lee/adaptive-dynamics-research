@@ -1,0 +1,36 @@
+For $a_{Gh}$,
+\iflatexml
+
+\begin{align*}
+  A = \left({a}_{{g}{0}{H}{0}},\,{a}_{{H}{0}{g}{0}}\right)\\
+  S = \left(\hat{{N}}_{0},\,\hat{{n}}_{0}\right)\\
+  D = \left(-\frac{1}{8} \, {\left(2 \, {x}_{{t}{0}}\left(t\right)^{2} - 15 \, {X}_{{t}{0}}\left(t\right) + 16 \, {x}_{{a}{0}}\left(t\right) - 2 \, {x}_{{t}{0}}\left(t\right)\right)} D[0]\left({x}_{{a}{0}}\right)\left(t\right) - \frac{1}{4} \, {\left(2 \, {X}_{{a}{0}}\left(t\right) {x}_{{t}{0}}\left(t\right) + 2 \, {x}_{{a}{0}}\left(t\right) {x}_{{t}{0}}\left(t\right) - {X}_{{a}{0}}\left(t\right) - {x}_{{a}{0}}\left(t\right) + 4 \, {x}_{{t}{0}}\left(t\right) - 2\right)} D[0]\left({x}_{{t}{0}}\right)\left(t\right),\,-\frac{1}{8} \, {\left(2 \, {X}_{{t}{0}}\left(t\right)^{2} + 16 \, {X}_{{a}{0}}\left(t\right) - 2 \, {X}_{{t}{0}}\left(t\right) - 15 \, {x}_{{t}{0}}\left(t\right)\right)} D[0]\left({X}_{{a}{0}}\right)\left(t\right) - \frac{1}{4} \, {\left(2 \, {X}_{{a}{0}}\left(t\right) {X}_{{t}{0}}\left(t\right) + 2 \, {X}_{{t}{0}}\left(t\right) {x}_{{a}{0}}\left(t\right) - {X}_{{a}{0}}\left(t\right) + 4 \, {X}_{{t}{0}}\left(t\right) - {x}_{{a}{0}}\left(t\right) - 2\right)} D[0]\left({X}_{{t}{0}}\right)\left(t\right)\right)\\
+  i = \left(-\frac{1}{8} \, {\left(2 \, {x}_{{t}{0}}\left(t\right)^{2} - 15 \, {X}_{{t}{0}}\left(t\right) - 2 \, {x}_{{t}{0}}\left(t\right)\right)} D[0]\left({X}_{{a}{0}}\right)\left(t\right) + \frac{15}{8} \, {\left({X}_{{a}{0}}\left(t\right) + {x}_{{a}{0}}\left(t\right) + 2\right)} D[0]\left({X}_{{t}{0}}\right)\left(t\right),\,-\frac{1}{8} \, {\left(2 \, {X}_{{t}{0}}\left(t\right)^{2} - 2 \, {X}_{{t}{0}}\left(t\right) - 15 \, {x}_{{t}{0}}\left(t\right)\right)} D[0]\left({x}_{{a}{0}}\right)\left(t\right) + \frac{15}{8} \, {\left({X}_{{a}{0}}\left(t\right) + {x}_{{a}{0}}\left(t\right) + 2\right)} D[0]\left({x}_{{t}{0}}\right)\left(t\right)\right)\\
+  \frac{\mathit{dA}}{\mathit{dt}} = \left(-\frac{1}{8} \, {\left(2 \, {x}_{{t}{0}}\left(t\right)^{2} - 15 \, {X}_{{t}{0}}\left(t\right) - 2 \, {x}_{{t}{0}}\left(t\right)\right)} D[0]\left({X}_{{a}{0}}\right)\left(t\right) + \frac{15}{8} \, {\left({X}_{{a}{0}}\left(t\right) + {x}_{{a}{0}}\left(t\right) + 2\right)} D[0]\left({X}_{{t}{0}}\right)\left(t\right) - \frac{1}{8} \, {\left(2 \, {x}_{{t}{0}}\left(t\right)^{2} - 15 \, {X}_{{t}{0}}\left(t\right) + 16 \, {x}_{{a}{0}}\left(t\right) - 2 \, {x}_{{t}{0}}\left(t\right)\right)} D[0]\left({x}_{{a}{0}}\right)\left(t\right) - \frac{1}{4} \, {\left(2 \, {X}_{{a}{0}}\left(t\right) {x}_{{t}{0}}\left(t\right) + 2 \, {x}_{{a}{0}}\left(t\right) {x}_{{t}{0}}\left(t\right) - {X}_{{a}{0}}\left(t\right) - {x}_{{a}{0}}\left(t\right) + 4 \, {x}_{{t}{0}}\left(t\right) - 2\right)} D[0]\left({x}_{{t}{0}}\right)\left(t\right),\,-\frac{1}{8} \, {\left(2 \, {X}_{{t}{0}}\left(t\right)^{2} + 16 \, {X}_{{a}{0}}\left(t\right) - 2 \, {X}_{{t}{0}}\left(t\right) - 15 \, {x}_{{t}{0}}\left(t\right)\right)} D[0]\left({X}_{{a}{0}}\right)\left(t\right) - \frac{1}{4} \, {\left(2 \, {X}_{{a}{0}}\left(t\right) {X}_{{t}{0}}\left(t\right) + 2 \, {X}_{{t}{0}}\left(t\right) {x}_{{a}{0}}\left(t\right) - {X}_{{a}{0}}\left(t\right) + 4 \, {X}_{{t}{0}}\left(t\right) - {x}_{{a}{0}}\left(t\right) - 2\right)} D[0]\left({X}_{{t}{0}}\right)\left(t\right) - \frac{1}{8} \, {\left(2 \, {X}_{{t}{0}}\left(t\right)^{2} - 2 \, {X}_{{t}{0}}\left(t\right) - 15 \, {x}_{{t}{0}}\left(t\right)\right)} D[0]\left({x}_{{a}{0}}\right)\left(t\right) + \frac{15}{8} \, {\left({X}_{{a}{0}}\left(t\right) + {x}_{{a}{0}}\left(t\right) + 2\right)} D[0]\left({x}_{{t}{0}}\right)\left(t\right)\right)
+\end{align*}
+\else
+\begin{dgroup*}
+  
+\begin{dmath*}
+  A = \left({a}_{{g}{0}{H}{0}},\,{a}_{{H}{0}{g}{0}}\right)
+\end{dmath*}
+
+\begin{dmath*}
+  S = \left(\hat{{N}}_{0},\,\hat{{n}}_{0}\right)
+\end{dmath*}
+
+\begin{dmath*}
+  D = \left(-\frac{1}{8} \, {\left(2 \, {x}_{{t}{0}}\left(t\right)^{2} - 15 \, {X}_{{t}{0}}\left(t\right) + 16 \, {x}_{{a}{0}}\left(t\right) - 2 \, {x}_{{t}{0}}\left(t\right)\right)} D[0]\left({x}_{{a}{0}}\right)\left(t\right) - \frac{1}{4} \, {\left(2 \, {X}_{{a}{0}}\left(t\right) {x}_{{t}{0}}\left(t\right) + 2 \, {x}_{{a}{0}}\left(t\right) {x}_{{t}{0}}\left(t\right) - {X}_{{a}{0}}\left(t\right) - {x}_{{a}{0}}\left(t\right) + 4 \, {x}_{{t}{0}}\left(t\right) - 2\right)} D[0]\left({x}_{{t}{0}}\right)\left(t\right),\,-\frac{1}{8} \, {\left(2 \, {X}_{{t}{0}}\left(t\right)^{2} + 16 \, {X}_{{a}{0}}\left(t\right) - 2 \, {X}_{{t}{0}}\left(t\right) - 15 \, {x}_{{t}{0}}\left(t\right)\right)} D[0]\left({X}_{{a}{0}}\right)\left(t\right) - \frac{1}{4} \, {\left(2 \, {X}_{{a}{0}}\left(t\right) {X}_{{t}{0}}\left(t\right) + 2 \, {X}_{{t}{0}}\left(t\right) {x}_{{a}{0}}\left(t\right) - {X}_{{a}{0}}\left(t\right) + 4 \, {X}_{{t}{0}}\left(t\right) - {x}_{{a}{0}}\left(t\right) - 2\right)} D[0]\left({X}_{{t}{0}}\right)\left(t\right)\right)
+\end{dmath*}
+
+\begin{dmath*}
+  i = \left(-\frac{1}{8} \, {\left(2 \, {x}_{{t}{0}}\left(t\right)^{2} - 15 \, {X}_{{t}{0}}\left(t\right) - 2 \, {x}_{{t}{0}}\left(t\right)\right)} D[0]\left({X}_{{a}{0}}\right)\left(t\right) + \frac{15}{8} \, {\left({X}_{{a}{0}}\left(t\right) + {x}_{{a}{0}}\left(t\right) + 2\right)} D[0]\left({X}_{{t}{0}}\right)\left(t\right),\,-\frac{1}{8} \, {\left(2 \, {X}_{{t}{0}}\left(t\right)^{2} - 2 \, {X}_{{t}{0}}\left(t\right) - 15 \, {x}_{{t}{0}}\left(t\right)\right)} D[0]\left({x}_{{a}{0}}\right)\left(t\right) + \frac{15}{8} \, {\left({X}_{{a}{0}}\left(t\right) + {x}_{{a}{0}}\left(t\right) + 2\right)} D[0]\left({x}_{{t}{0}}\right)\left(t\right)\right)
+\end{dmath*}
+
+\begin{dmath*}
+  \frac{\mathit{dA}}{\mathit{dt}} = \left(-\frac{1}{8} \, {\left(2 \, {x}_{{t}{0}}\left(t\right)^{2} - 15 \, {X}_{{t}{0}}\left(t\right) - 2 \, {x}_{{t}{0}}\left(t\right)\right)} D[0]\left({X}_{{a}{0}}\right)\left(t\right) + \frac{15}{8} \, {\left({X}_{{a}{0}}\left(t\right) + {x}_{{a}{0}}\left(t\right) + 2\right)} D[0]\left({X}_{{t}{0}}\right)\left(t\right) - \frac{1}{8} \, {\left(2 \, {x}_{{t}{0}}\left(t\right)^{2} - 15 \, {X}_{{t}{0}}\left(t\right) + 16 \, {x}_{{a}{0}}\left(t\right) - 2 \, {x}_{{t}{0}}\left(t\right)\right)} D[0]\left({x}_{{a}{0}}\right)\left(t\right) - \frac{1}{4} \, {\left(2 \, {X}_{{a}{0}}\left(t\right) {x}_{{t}{0}}\left(t\right) + 2 \, {x}_{{a}{0}}\left(t\right) {x}_{{t}{0}}\left(t\right) - {X}_{{a}{0}}\left(t\right) - {x}_{{a}{0}}\left(t\right) + 4 \, {x}_{{t}{0}}\left(t\right) - 2\right)} D[0]\left({x}_{{t}{0}}\right)\left(t\right),\,-\frac{1}{8} \, {\left(2 \, {X}_{{t}{0}}\left(t\right)^{2} + 16 \, {X}_{{a}{0}}\left(t\right) - 2 \, {X}_{{t}{0}}\left(t\right) - 15 \, {x}_{{t}{0}}\left(t\right)\right)} D[0]\left({X}_{{a}{0}}\right)\left(t\right) - \frac{1}{4} \, {\left(2 \, {X}_{{a}{0}}\left(t\right) {X}_{{t}{0}}\left(t\right) + 2 \, {X}_{{t}{0}}\left(t\right) {x}_{{a}{0}}\left(t\right) - {X}_{{a}{0}}\left(t\right) + 4 \, {X}_{{t}{0}}\left(t\right) - {x}_{{a}{0}}\left(t\right) - 2\right)} D[0]\left({X}_{{t}{0}}\right)\left(t\right) - \frac{1}{8} \, {\left(2 \, {X}_{{t}{0}}\left(t\right)^{2} - 2 \, {X}_{{t}{0}}\left(t\right) - 15 \, {x}_{{t}{0}}\left(t\right)\right)} D[0]\left({x}_{{a}{0}}\right)\left(t\right) + \frac{15}{8} \, {\left({X}_{{a}{0}}\left(t\right) + {x}_{{a}{0}}\left(t\right) + 2\right)} D[0]\left({x}_{{t}{0}}\right)\left(t\right)\right)
+\end{dmath*}
+
+\end{dgroup*}
+\fi
+
