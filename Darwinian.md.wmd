@@ -1,0 +1,60 @@
+---
+layout: page
+title: Darwinian Operator
+wmd_project: Darwinian
+---
+
+Is it helpful to think of adaptive dynamics (and population genetics,
+microeconomics, some other things) in terms of a selection operator?
+
+It would be defined very similar to the selection gradient, and ideally
+could unify pop gen, adaptive dynamics, and some other formulations.
+It's very tempting to call it a Darwinian, by analogy to the
+Lagrangian and Hamiltonian of physics, and consider how it behaves
+under changes of parametrization and constraints, very much like the
+Lagrangian.  It should generalize to non-Darwinian adaptation situations,
+though, but maybe I'll give in to temptation anyway.
+
+So the basic AD situation is an ecological dynamics 
+\[* \frac{\dot{X}(\mathbf{u}|\mathbf{E})}{X(\mathbf{u}|\mathbf{E})}
+  = f(X;\mathbf{u}|\mathbf{E}) \]
+that has an invasion
+exponent
+\[* \mathscr{I}(\mathbf{u}|\mathbf{E}) = \lim_{X\to0} f(X;\mathbf{u}|\mathbf{E}). \]
+The adaptive dynamics of $$\mathbf{u}$$ basically follows:
+\[* \dot{\mathbf{u}} = \gamma \hat{X}(\mathbf{u}|\mathbf{E}) \partial_1\mathscr{I}(\mathbf{u}|\mathbf{E}). \]
+
+For this we may want to write
+\[* \dot{\mathbf{u}} = \gamma \hat{X}(\mathbf{u}|\mathbf{E}) \mathscr{D}[f,\mathbf{E}](\mathbf{u}) \]
+by defining
+\[* \mathscr{D}[f,\mathbf{E}](\mathbf{u})
+      = \frac{\partial}{\partial\mathbf{u}} \lim_{X\to0} f(X;\mathbf{u}|\mathbf{E}) \]
+??
+
+As we know, the invasion rate is 0 when $$\mathbf{u}$$ is one of the
+resident strains denoted in $$\mathbf{E}$$, so that the gradient
+$$\mathscr{D}[f,\mathbf{E}](\mathbf{u})$$ is the direction of
+positive invasion exponent.
+
+That's the selection gradient $$\mathbf{S}$$ that I've written about
+aplenty.  Do we gain anything by considering the $$\mathscr{D}$$
+operator that generates it?
+
+What do we have when there's a change of variables?
+
+Say we have a parametrization $$\mathbf{p}(\mathbf{u})$$: this
+may be a nonsingular change of parameters, or it could be
+a constraint in the sense of a projection of $$\mathbf{u}$$ into
+a more-dimensional space.
+Either way there's a Jacobian matrix
+$$\partial\mathbf{p}/\partial\mathbf{u}$$, and
+\[* \mathscr{D}[f,\mathbf{E}](\mathbf{u}) =
+    \frac{\partial\mathbf{p}}{\partial\mathbf{u}}
+    \mathscr{D}[f,\mathbf{E}](\mathbf{p}).
+\]
+The $$\mathscr{D}$$ on the right side is a different operator, on
+a different domain; it's a different $$f$$ that it's operating
+on, and it yields an operator on the $$\mathbf{p}$$ vectors rather
+than $$\mathbf{u}$$.
+
+The Jacobian may or not be invertible and movable to the other side.

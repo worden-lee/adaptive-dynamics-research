@@ -314,16 +314,23 @@ fixed_ass_b = Bindings(
 )
 
 ## variable investment in association
-base_ass_b = Bindings(
+ass_only_b = Bindings(
+    dynamicalsystems.FunctionBindings(
+	## density independent investment in association
+	C_g = SR(0).function(x),
+	c_g = SR(0).function(x),
+	## investment in association
+	# not defined here in base bindings
+	## prob of association
+	# not defined here in base bindings
+    )
+)
+
+base_ass_b = Bindings( ass_only_b,
     dynamicalsystems.FunctionBindings(
 	## cost re association per interaction
 	C_a = (x^2).function(x),
 	c_a = (x^2).function(x),
-	## density independent investment in association
-	C_g = SR(0).function(x),
-	c_g = SR(0).function(x),
-	## prob of association
-	# not defined here in base bindings
     )
 )
 
@@ -412,7 +419,7 @@ ltx.write( 'Dynamics with pessimistic functions:' )
 ltx.write( sea_down )
 
 starting_comm = Bindings( **{ x:0 for x in ('x_a_0', 'x_t_0', 'X_a_0','X_t_0') } )
-starting_comm.bind_in_place( x_a_0=0.01, X_t_0=-0.008 )
+starting_comm.bind_in_place( x_a_0=0.04, X_t_0=-0.08 )
 
 starting_pop = Bindings( N_0=0.1r, n_0=0.2r )
 
@@ -540,10 +547,10 @@ sea_ass = sea_f.bind( base_b, exp_ass_b, fixed_tran_b )
 
 ltx.write( 'To study the incentive structure for association, we set', exp_ass_b )
 
-ltx.write( 'Dynamics with association only:', sea_f.bind( base_b, fixed_tran_b ) )
+ltx.write( 'Dynamics with association only:', sea_f.bind( base_b, fixed_tran_b, ass_only_b ) )
 ltx.write( 'Or', sea_ass )
 
-sea_adap_ass_formal = sea_adap_f.bind( base_b, fixed_tran_b )
+sea_adap_ass_formal = sea_adap_f.bind( base_b, fixed_tran_b, ass_only_b )
 sea_adap_ass = sea_adap_ass_formal.bind( exp_ass_b )
 ltx.write( 'And its adaptive dynamics is' )
 ltx.write( sea_adap_ass_formal, 'Or ', sea_adap_ass )
@@ -864,35 +871,39 @@ increase in mutualism is enough for my purposes.
 
 # The interactions
 
+<source-file filename=sealv.py display=none>
+from sage.all import * 
+from sage.misc.latex import _latex_file_
+import dynamicalsystems, seamodel
+
+type_letters = [ 0, 0 ]
+type_letters[seamodel.type_H] = SR.symbol('H')
+type_letters[seamodel.type_g] = SR.symbol('g')
+class sea_a_indexer(dynamicalsystems.indexer_2d_inner):
+    def __getitem__(self, j):
+    	return dynamicalsystems.subscriptedsymbol(self._f, type_letters[self._i[0]], self._i[1], type_letters[j[0]], j[1])
+
+class sea_r_indexer(dynamicalsystems.indexer):
+    def __getitem__(self, i):
+    	return dynamicalsystems.subscriptedsymbol(self._f, type_letters[i[0]], i[1])
+</source-file>
+
 <source-file filename=sea-up-a.sage.step display=none>
+# requires: sealv.py
 # requires: sea-up.sobj
 # produces: sea-up-a.sage.out.tex
 # produces: sea-up-a.svg
-from sage.all import * 
-from sage.misc.latex import _latex_file_
-import dynamicalsystems, lotkavolterra
-from dynamicalsystems import indexer, subscriptedsymbol, Bindings
+from sealv import *
 from seamodel import *
+import dynamicalsystems, lotkavolterra
 
 load_session( 'sea-up' )
 for k,l in _save_symbols.iteritems():
-	#print k,l
 	SR.symbol( k, latex_name=l ) 
 
 ltx = dynamicalsystems.latex_output( 'sea-up-a.sage.out.tex' )
 
-type_letters = [ 0, 0 ]
-type_letters[seamodel.type_H] = H
-type_letters[seamodel.type_g] = g
-class sea_a_indexer(dynamicalsystems.indexer_2d_inner):
-	def __getitem__(self, j):
-		return subscriptedsymbol(self._f, type_letters[self._i[0]], self._i[1], type_letters[j[0]], j[1])
-
-class sea_r_indexer(dynamicalsystems.indexer):
-	def __getitem__(self, i):
-		return subscriptedsymbol(self._f, type_letters[i[0]], i[1])
-
-uplv = lotkavolterra.LotkaVolterraAdaptiveDynamics( sea_adap_up,
+uplv = lotkavolterra.LotkaVolterraAdaptiveDynamics( sea_adap_c,
 	a_name_indexer=dynamicalsystems.indexer_2d( 'a', inner_class=sea_a_indexer ),
 	r_name_indexer=sea_r_indexer('r')
 )
@@ -904,22 +915,113 @@ uplv_n = lotkavolterra.LotkaVolterraAdaptiveDynamics( sea_adap_up_n,
 
 ltx.write( 'For $a_{gH}$,\n' )
 ltx.write( dynamicalsystems.dgroup(
-      [ [ SR('A'), uplv.A_pair( (seamodel.type_g,0), (seamodel.type_H,0) ) ],
-	[ SR('S'), uplv.S_pair( (seamodel.type_g,0), (seamodel.type_H,0) ) ],
-	[ SR('D'), uplv.D_pair( (seamodel.type_g,0), (seamodel.type_H,0) ) ],
-	[ SR.symbol('I'), uplv.I_pair( (seamodel.type_g,0), (seamodel.type_H,0) ) ],
-	[ SR('dA/dt'), uplv.dAdt_pair( (seamodel.type_g,0), (seamodel.type_H,0) ) ],
+      [ [ SR('A'),
+	  uplv.A_pair( (seamodel.type_g,0), (seamodel.type_H,0) )
+	],
+	[ SR('S'),
+	  uplv.S_pair( (seamodel.type_g,0), (seamodel.type_H,0) )
+	],
+	[ SR('D'),
+	  uplv.D_pair( (seamodel.type_g,0), (seamodel.type_H,0) ).apply_map( dynamicalsystems.latex_partials_representation() ),
+	  uplv_n.D_pair( (seamodel.type_g,0), (seamodel.type_H,0) ).apply_map( dynamicalsystems.latex_partials_representation() )
+	],
+	[ SR.symbol('I'),
+	  uplv.I_pair( (seamodel.type_g,0), (seamodel.type_H,0) ).apply_map( dynamicalsystems.latex_partials_representation() ),
+	  uplv_n.I_pair( (seamodel.type_g,0), (seamodel.type_H,0) ).apply_map( dynamicalsystems.latex_partials_representation() )
+	],
+	[ SR('dA/dt'),
+	  uplv.dAdt_pair( (seamodel.type_g,0), (seamodel.type_H,0) ).apply_map( dynamicalsystems.latex_partials_representation() ),
+	  uplv_n.dAdt_pair( (seamodel.type_g,0), (seamodel.type_H,0) ).apply_map( dynamicalsystems.latex_partials_representation() )
+	],
       ], '='
 ) )
 
 ltx.close()
 
-aap = lotkavolterra.plot_aij_with_arrows( adap_traj, uplv_n )
-aap.axes_labels( [ '$a_{ij}$', '$a_{ji}$' ] )
-aap.save( 'sea-up-a.svg', figsize=(5,5) )
+aap = lotkavolterra.plot_aij_with_arrows( adap_traj, uplv_n, filename='sea-up-a.svg' )
 </source-file>
+
+<project-file filename=sea-up-a.svg/>
 
 <project-file filename=sea-up-a.sage.out.tex/>
 
-<project-file filename=sea-up-a.svg/>
+# Association-only interactions
+
+That is complicated, so let's back off to study only changes in association,
+not in transfer.
+
+In this case, for $$a_{gH}$$,
+
+<source-file filename=sea-ass-a.sage.step display=none>
+# requires: sealv.py
+# requires: sea-ass.sobj
+# produces: sea-ass-a.sage.out.tex
+# produces: sea-ass-a.svg
+from sealv import *
+from seamodel import *
+from dynamicalsystems import *
+import lotkavolterra
+
+load_session( 'sea-ass' )
+for k,l in _save_symbols.iteritems():
+	SR.symbol( k, latex_name=l ) 
+
+ltx = latex_output( 'sea-ass-a.sage.out.tex' )
+
+lv_ass = lotkavolterra.LotkaVolterraAdaptiveDynamics( sea_adap_ass_formal,
+	a_name_indexer=indexer_2d( 'a', inner_class=sea_a_indexer ),
+	r_name_indexer=sea_r_indexer('r')
+)
+
+lv_ass_n = lotkavolterra.LotkaVolterraAdaptiveDynamics( sea_adap_ass,
+	a_name_indexer=indexer_2d( 'a', inner_class=sea_a_indexer ),
+	r_name_indexer=sea_r_indexer('r')
+)
+
+#uplv_n = lotkavolterra.LotkaVolterraAdaptiveDynamics( sea_adap_up_n,
+#	a_name_indexer=indexer_2d( 'a', inner_class=sea_a_indexer ),
+#	r_name_indexer=sea_r_indexer('r')
+#)
+
+ltx.write( dgroup(
+      [ [ SR('A'),
+	  lv_ass.A_pair( (seamodel.type_g,0), (seamodel.type_H,0) )
+	],
+	[ SR('S'),
+	  lv_ass.S_pair( (seamodel.type_g,0), (seamodel.type_H,0) )
+	],
+	[ SR('D'),
+	  lv_ass.D_pair( (seamodel.type_g,0), (seamodel.type_H,0) ).apply_map( latex_partials_representation() ),
+	  lv_ass_n.D_pair( (seamodel.type_g,0), (seamodel.type_H,0) ).apply_map( latex_partials_representation() )
+	],
+	[ SR.symbol('I'),
+	  lv_ass.I_pair( (seamodel.type_g,0), (seamodel.type_H,0) ).apply_map( latex_partials_representation() ),
+	  lv_ass_n.I_pair( (seamodel.type_g,0), (seamodel.type_H,0) ).apply_map( latex_partials_representation() )
+	],
+	[ SR('dA/dt'),
+	  lv_ass.dAdt_pair( (seamodel.type_g,0), (seamodel.type_H,0) ).apply_map( latex_partials_representation() ),
+	  lv_ass_n.dAdt_pair( (seamodel.type_g,0), (seamodel.type_H,0) ).apply_map( latex_partials_representation() )
+	],
+      ], '='
+) )
+
+ltx.write( "The dynamics of the character variables are\n" )
+ltx.write( dgroup(
+      [ [ latex_partials_representation()( diff( lv_ass._phenotypes_to_fn_bindings(x), t ) ),
+	  latex_partials_representation()( lv_ass._adaptivedynamics._flow[x] )
+	]  for x in lv_ass._adaptivedynamics._vars ], '='
+) )
+ltx.close()
+ 
+lotkavolterra.plot_single_aij_pair(
+	(seamodel.type_g,0), (seamodel.type_H,0), 
+	adap_traj._timeseries[0],
+	lv_ass_n,
+	filename='sea-ass-a.svg'
+)
+</source-file>
+
+<project-file filename=sea-ass-a.sage.out.tex/>
+
+<project-file filename=sea-ass-a.svg/>
 

@@ -17,9 +17,8 @@ Child pages use this theory and code to investigate specific cases of the models
 
 We start with a population-resource model:
 
-$$\[\frac{dX_i}{dt} = b_iX_i(\sum_\ell c_{i\ell}w_\ell R_\ell - m_i)\]$$
-
-$$\frac{dR_\ell}{dt} = r_\ell(K_\ell - R_\ell) - \sum_ic_{i\ell}X_i$$
+\[* \frac{dX_i}{dt} = b_iX_i(\sum_\ell c_{i\ell}w_\ell R_\ell - m_i) \\
+ \frac{dR_\ell}{dt} = r_\ell(K_\ell - R_\ell) - \sum_ic_{i\ell}X_i \]
 
 where $$X_i$$ is the density of population $$i$$, $$R_\ell$$ is the abundance of resource $$\ell$$ and the parameters are $$b_i$$, an intrinsic population growth rate, $$m_i$$, mortality rate, $$c_{i\ell}$$, the rate at which population $$i$$ captures resource $$\ell$$, $$w_\ell$$, the amount a unit of resource $$\ell$$ contributes to population growth, $$r_\ell$$, the resupply rate of resource $$\ell$$, and $$K_\ell$$ its maximum possible abundance.
 
@@ -27,29 +26,28 @@ This is a fine model on its own, but I am interested in Lotka-Volterra models, w
 
 In the above model the populations $$i$$ interact indirectly by taking resources from each other, but we can make the interactions direct by making simplifying assumptions, and this is what MacArthur and Levins did.  
 
-We do this by assuming that the resources come to equilibrium very quickly compared to the populations.  Under this assumption, we can hold the population sizes $$X_i$$ fixed and solve the second equation above for $$R_\ell$$ when $$\frac{dR_\ell}{dt}=0$$:
+We do this by assuming that the resources come to equilibrium very quickly compared to the populations.  Under this assumption, we can hold the population sizes $$X_i$$ fixed and solve the second equation above for $$R_\ell$$ when $${dR_\ell}/{dt}=0$$:
 
-$$\hat{R}_\ell = K_\ell - \frac1{r_\ell}\sum_ic_{i\ell}X_i$$.
+\[* \hat{R}_\ell = K_\ell - \frac1{r_\ell}\sum_ic_{i\ell}X_i. \]
 
 Then we simply use that value of $$R_\ell$$ in the first equation, and we have a system of population sizes only:
 
-$$\frac{dX_i}{dt} = b_iX_i(\sum_\ell c_{i\ell}w_\ell(K_\ell - \frac1{r_\ell}\sum_jc_{j\ell}X_j) - m_i)$$.
+\[* \frac{dX_i}{dt} = b_iX_i\left(\sum_\ell c_{i\ell}w_\ell\left(K_\ell - \frac1{r_\ell}\sum_jc_{j\ell}X_j\right) - m_i\right). \]
 
 We can rearrange the terms of this to have the standard Lotka-Volterra form:
 
-$$\frac{dX_i}{dt} = k_iX_i + \sum_j a_{ij}X_i X_j$$,
+\[* \frac{dX_i}{dt} = k_iX_i + \sum_j a_{ij}X_i X_j, \]
 
 where
 
-$$k_i = b_i (\sum_\ell c_{i\ell}w_\ell K_\ell - m_1)$$ (ordinarily I'd call this $$r_i$$, but the name is already in use),
-
-$$a_{ij} = - b_i \sum_\ell \sum_j \frac{c_{i\ell}c_{j\ell}w_\ell}{r_\ell}$$.
+\[* k_i &= b_i \left(\sum_\ell c_{i\ell}w_\ell K_\ell - m_1\right)\ \text{(ordinarily I'd call this $r_i$, but the name is already in use),} \\
+ a_{ij} &= - b_i \sum_\ell \sum_j \frac{c_{i\ell}c_{j\ell}w_\ell}{r_\ell}. \]
 
 I'll be interested in how the interaction terms $$a_{ij}$$ change as the populations coevolve, because this expresses whether competition becomes stronger or weaker.  When two coevolving populations compete for resources, we expect them to differentiate from each other and lessen the competition, but I'd like to look at both that and other cases, and do some detailed analysis about when it lessens and when it greatens.
 
 ## Adaptive dynamics in the Macarthur-Levins model
 
-And now here's where we look at how that single population ''evolves'' in the Mac-Lev model.  I won't review the details of how [adaptive dynamics](http://en.wikipedia.org/w/Evolutionary_invation_analysis) is done, but in summary: suppose that certain aspects of the population dynamics depend on the characteristics of the population, and those characteristics are able to mutate.  Then over time, mutants will arise, and if they are better able to thrive in the environment they encounter than their forefathers, they will gradually replace them, and the characteristics of the population will slowly change.
+And now here's where we look at how that single population "evolves" in the Mac-Lev model.  I won't review the details of how [adaptive dynamics](http://en.wikipedia.org/w/Evolutionary_invation_analysis) is done, but in summary: suppose that certain aspects of the population dynamics depend on the characteristics of the population, and those characteristics are able to mutate.  Then over time, mutants will arise, and if they are better able to thrive in the environment they encounter than their forefathers, they will gradually replace them, and the characteristics of the population will slowly change.
 
 In this model, it's $$b_i$$, $$c_{i\ell}$$, and $$m_i$$ that have to do with the populations, so we introduce a ''phenotype'' variable $$u_i$$ representing the characteristics of the population and suppose that $$b_i$$, $$c_{i\ell}$$ and $$m_i$$ are determined by the value of $$u$$.  Then we can find out how $$u$$ changes in time in response to the conditions created by the population dynamics, and also how the other values such as $$X_i$$, $$R_\ell$$, $$a_{ij}$$, $$k_i$$, change as $$u$$ evolves.
 
@@ -57,11 +55,11 @@ The change in $$u$$, to make a long story short, is driven by how the population
 
 To be precise:
 
-$$\mathcal I(u_i|E) = \lim_{X_i\to0} \frac1{X_i}\frac{dX_i}{dt}$$
+\[* \mathcal I(u_i|E) = \lim_{X_i\to0} \frac1{X_i}\frac{dX_i}{dt} \]
 
 defines the invasion speed (where $$E$$ is the environment that an individual population $$i$$ experiences, including the rest of population $$i$$ and all other populations), and then
 
-$$\frac{du_i}{dt} = \left.\gamma \hat X_i \frac{\partial\mathcal I(v|u_1,\ldots,u_n)}{\partial v}\right|_{v=u_i}$$,
+\[* \frac{du_i}{dt} = \left.\gamma \hat X_i \frac{\partial\mathcal I(v|u_1,\ldots,u_n)}{\partial v}\right|_{v=u_i}, \]
 
 where $$\gamma$$ is a coefficient accounting for the frequency and size of available mutations.  In simple cases, it's a constant, while when available mutations are not quite so simple and uniform, it may not be (as we will see).
 
@@ -75,16 +73,16 @@ Now let's go deeper into what happens in that evolutionary change.  We're consid
 
 These are vectors that are functions of one another.  Using a suitable vector notation in our calculus, we can write the adaptive dynamics of $$\mathbf u$$ directly, ignoring the intermediate variables $$\mathbf p$$ and $$\mathbf A$$ for the moment:
 
-$$\frac{d\mathbf u_i}{dt} = \left. \gamma \hat{X}_i \frac{\partial\mathcal I(\mathbf v|\mathbf u_1,\ldots,\mathbf u_n)}{\partial \mathbf v}\right|_{\mathbf v=\mathbf u_i} = \gamma \hat{X}_i \partial_1\mathcal I(\mathbf u_i)^T$$.
+\[* \frac{d\mathbf u_i}{dt} = \left. \gamma \hat{X}_i \frac{\partial\mathcal I(\mathbf v|\mathbf u_1,\ldots,\mathbf u_n)}{\partial \mathbf v}\right|_{\mathbf v=\mathbf u_i} = \gamma \hat{X}_i \partial_1\mathcal I(\mathbf u_i)^T. \]
 
 The $$T$$ sign is for vector or matrix transposition: with the notation I'm using, $$\mathbf u_i$$ is a column vector - a point in a vector space of values - and $$\frac{\partial\mathcal I}{\partial\mathbf u_i}$$ is a row vector - a thing that operates on points.  Since $$\frac{d\mathbf u_i}{dt}$$ is a column, we need to transpose the derivative of $$\mathcal I$$ to make it match.  The $$\partial_1$$ sign is for the partial derivative with respect to the first argument.
 
 Now we can use the chain rule to see how $$\mathbf p$$ changes:
 
-$$\frac{d\mathbf p(\mathbf u_i)}{dt} = \frac{\partial\mathbf p}{\partial \mathbf u_i}\frac{d\mathbf u_i}{dt}$$
-$$= \gamma \hat{X}_i \frac{\partial\mathbf p}{\partial \mathbf u_i} \partial_1\mathcal I(\mathbf u_i)^T$$
-$$= \gamma \hat{X}_i \frac{\partial\mathbf p}{\partial \mathbf u_i}(\partial_1\mathcal I(\mathbf p(\mathbf u_i))\frac{d\mathbf p}{d\mathbf u_i})^T$$
-$$= \gamma \hat{X}_i \frac{\partial\mathbf p}{\partial \mathbf u_i} \frac{\partial\mathbf p}{\partial \mathbf u_i}^T\partial_1\mathcal I(\mathbf p(\mathbf u_i))^T$$.
+\[* \frac{d\mathbf p(\mathbf u_i)}{dt} = \frac{\partial\mathbf p}{\partial \mathbf u_i}\frac{d\mathbf u_i}{dt}
+ = \gamma \hat{X}_i \frac{\partial\mathbf p}{\partial \mathbf u_i} \partial_1\mathcal I(\mathbf u_i)^T
+= \gamma \hat{X}_i \frac{\partial\mathbf p}{\partial \mathbf u_i}(\partial_1\mathcal I(\mathbf p(\mathbf u_i))\frac{d\mathbf p}{d\mathbf u_i})^T
+= \gamma \hat{X}_i \frac{\partial\mathbf p}{\partial \mathbf u_i} \frac{\partial\mathbf p}{\partial \mathbf u_i}^T\partial_1\mathcal I(\mathbf p(\mathbf u_i))^T. \]
 
 Here we see the usefulness of this row-and-column-vector notation, because it lets us use the chain rule in a natural way: when we write $$\frac{d\mathbf p(\mathbf u_i)}{dt} = \frac{\partial\mathbf p}{\partial \mathbf u_i}\frac{d\mathbf u_i}{dt}$$, we're multiplying a matrix by a column vector to get another column vector, in just the way we want.
 
@@ -93,13 +91,12 @@ I like to write $$S(\mathbf u) = \partial_1\mathcal I(\mathbf u)^T$$ for the "se
 {$S(\mathbf p(\mathbf u_i)) = \left(\begin{array}{c} \frac{\partial\mathcal I(\mathbf v|\mathbf u_1,\ldots,\mathbf u_n)}{\partial b(\mathbf v)}\\
 \vdots \\
 \frac{\partial\mathcal I(\mathbf v|\mathbf u_1,\ldots,\mathbf u_n)}{\partial c_{im}(\mathbf v)} \end{array}\right)_{\mathbf v=\mathbf u_i}$}.
-These different selection gradients are very different objects: they're vectors expressing the direction of selection in different spaces -- here, the space of $$\mathbf u$$ values ''vs.'' the space of $$\mathbf p$$ values.  Soon enough we'll also be looking at the selection gradient in $$\mathbf A$$ space.
+These different selection gradients are very different objects: they're vectors expressing the direction of selection in different spaces -- here, the space of $$\mathbf u$$ values "vs." the space of $$\mathbf p$$ values.  Soon enough we'll also be looking at the selection gradient in $$\mathbf A$$ space.
 
 Using the above chain rule manipulations, we can write
 
-$$\frac{d\mathbf u_i}{dt} = \gamma \hat{X}_i S(\mathbf u_i)$$
-
-$$\frac{d\mathbf p(\mathbf u_i)}{dt} = \gamma \hat{X}_i \frac{\partial\mathbf p}{\partial \mathbf u} \frac{\partial\mathbf p}{\partial \mathbf u}^T S(\mathbf p)$$.
+\[* \frac{d\mathbf u_i}{dt} = \gamma \hat{X}_i S(\mathbf u_i) \\
+\frac{d\mathbf p(\mathbf u_i)}{dt} = \gamma \hat{X}_i \frac{\partial\mathbf p}{\partial \mathbf u} \frac{\partial\mathbf p}{\partial \mathbf u}^T S(\mathbf p). \]
 
 Like $$\mathbf u$$ or whatever other vector, $$\mathbf p$$ would evolve in the direction of $$S(\mathbf p)$$ if it were to mutate in all directions equally.  However, it doesn't do that: since $$\mathbf p$$ is a function of $$\mathbf u$$, it only mutates in directions given by mutations in $$\mathbf u$$.  The matrix multiplying $$S(\mathbf p)$$ in the dynamics of $$\mathbf p$$ is a projection matrix, restricting the motion of $$\mathbf p$$ to directions allowed by the mapping between $$\mathbf u$$ and $$\mathbf p$$.  (To be precise, $$\frac{\partial\mathbf p}{\partial \mathbf u} \frac{\partial\mathbf p}{\partial \mathbf u}^T S(\mathbf p)$$ is not precisely the projection of $$S(\mathbf p)$$ onto the subspace parametrized by $$\mathbf u$$ unless the columns of $$\frac{\partial\mathbf p}{\partial \mathbf u}$$ are unit-length; otherwise there's some scaling by positive numbers involved.  But it definitely transforms the vector into a direction allowed by the restriction to points parametrized by $$\mathbf u$$.)
 
@@ -115,43 +112,41 @@ Expanding out the dynamics of the $$\mathbf A$$ vector has more involved than do
 
 So to be clear, we'll work with the notation
 
-$$\mathbf A_i = \left.\mathbf A(\mathbf v, \mathbf u_1, \ldots, \mathbf u_n)\right|_{\mathbf v=\mathbf u_i}$$ $$= \left(\begin{array}{c}\mathbf a(\mathbf v, \mathbf u_1) \\ \vdots \\ \mathbf a(\mathbf v, \mathbf u_n) \\ k(\mathbf v) \end{array}\right)_{\mathbf v=\mathbf u_i}$$, 
+<latex>\[ \mathbf A_i = \left.\mathbf A(\mathbf v, \mathbf u_1, \ldots, \mathbf u_n)\right|_{\mathbf v=\mathbf u_i} 
+= \left(\begin{array}{c}\mathbf a(\mathbf v, \mathbf u_1) \\ \vdots \\ \mathbf a(\mathbf v, \mathbf u_n) \\ k(\mathbf v) \end{array}\right)_{\mathbf v=\mathbf u_i},
+\]</latex>
 
-to distinguish the two different roles of $$\mathbf u_i$$ (suppressing the intermediate variable $$\mathbf p$$), and we'll refer to the two different partial derivatives that relate to $$\mathbf u_i$$ as $$\partial_1\mathbf A_i(\mathbf u_i) = \left.\frac{\partial\mathbf A_i}{\partial \mathbf v}\right|_{\mathbf v=\mathbf u_i}$$ and $$\partial_2 \mathbf A_i(\mathbf u_i) = \left.\frac{\partial \mathbf A_i}{\partial \mathbf u_i}\right|_{\mathbf v=\mathbf u_i}$$.
+to distinguish the two different roles of $$\mathbf u_i$$ (suppressing the intermediate variable $$\mathbf p$$), and we'll refer to the two different partial derivatives that relate to $$\mathbf u_i$$ as $$\partial_1\mathbf A_i(\mathbf u_i) = \left.{\partial\mathbf A_i}/{\partial \mathbf v}\right|_{\mathbf v=\mathbf u_i}$$ and $$\partial_2 \mathbf A_i(\mathbf u_i) = \left.{\partial \mathbf A_i}/{\partial \mathbf u_i}\right|_{\mathbf v=\mathbf u_i}$$.
 
 So first of all, if we use $$\mathbf A_i$$ as an intermediate variable, the dynamics of $$\mathbf u_i$$ is
 
-$$\frac{d\mathbf u_i}{dt} = \gamma \hat{X}_i \partial_1\mathscr I(\mathbf u_i)^T$$
-
-$$ = \gamma \hat{X}_i (\partial_1\mathscr I(\mathbf A_i)\partial_1\mathbf A_i(\mathbf u_i))^T$$
-
-$$ = \gamma \hat{X}_i \partial_1\mathbf A_i(\mathbf u_i)^T\partial_1\mathscr I(\mathbf A_i)^T$$.
+\[* \frac{d\mathbf u_i}{dt} &= \gamma \hat{X}_i \partial_1\mathscr I(\mathbf u_i)^T \\
+ &= \gamma \hat{X}_i (\partial_1\mathscr I(\mathbf A_i)\partial_1\mathbf A_i(\mathbf u_i))^T \\
+ &= \gamma \hat{X}_i \partial_1\mathbf A_i(\mathbf u_i)^T\partial_1\mathscr I(\mathbf A_i)^T. \]
 
 Then
 
-$$\frac{d\mathbf A_i}{dt} = \partial_1\mathbf A_i(\mathbf u_i)\frac{d\mathbf u_i}{dt} + \sum_{j=1}^n\partial_2\mathbf A_i(\mathbf u_j)\frac{d\mathbf u_j}{dt}$$
-
-$$= \gamma \hat{X}_i \partial_1\mathbf A_i(\mathbf u_i)\partial_1\mathbf A_i(\mathbf u_i)^T\partial_1\mathcal I(\mathbf A_i)^T + \sum_{j=1}^n \gamma \hat{X}_j \partial_2\mathbf A_i(\mathbf u_j)\partial_1\mathbf A_j(\mathbf u_j)^T\partial_1\mathcal I(\mathbf A_j)^T$$
-
-$$= \gamma \hat{X}_i \partial_1\mathbf A_i(\mathbf u_i)\partial_1\mathbf A_i(\mathbf u_i)^T S(\mathbf A_i) + \sum_{j=1}^n \gamma \hat{X}_j \partial_2\mathbf A_i(\mathbf u_j)\partial_1\mathbf A_j(\mathbf u_j)^T S(\mathbf A_j)$$.
+\[* \frac{d\mathbf A_i}{dt} = \partial_1\mathbf A_i(\mathbf u_i)\frac{d\mathbf u_i}{dt} + \sum_{j=1}^n\partial_2\mathbf A_i(\mathbf u_j)\frac{d\mathbf u_j}{dt}
+= \gamma \hat{X}_i \partial_1\mathbf A_i(\mathbf u_i)\partial_1\mathbf A_i(\mathbf u_i)^T\partial_1\mathcal I(\mathbf A_i)^T + \sum_{j=1}^n \gamma \hat{X}_j \partial_2\mathbf A_i(\mathbf u_j)\partial_1\mathbf A_j(\mathbf u_j)^T\partial_1\mathcal I(\mathbf A_j)^T
+= \gamma \hat{X}_i \partial_1\mathbf A_i(\mathbf u_i)\partial_1\mathbf A_i(\mathbf u_i)^T S(\mathbf A_i) + \sum_{j=1}^n \gamma \hat{X}_j \partial_2\mathbf A_i(\mathbf u_j)\partial_1\mathbf A_j(\mathbf u_j)^T S(\mathbf A_j). \]
 
 This expression is made up of two somewhat complex terms.  The first term, the $$S(\mathbf A_i)$$ term, expresses the change in the interactions experienced by population $$i$$ due to change in population $$i$$ in its patient role.  I refer to this as the __direct effect__ of selection on population $$i$$.  The second term, the sum of $$S(\mathbf A_j)$$ vectors, expresses the change in population $$i$$'s interactions due to change in all the different agents it encounters, including population $$i$$ itself in its agent role.  I refer to this as an __indirect effect__ of selection on the various populations.
 
 What would happen if there were no constraints on $$\mathbf A_i$$?  That is, if all the terms just mutate independently without being constrained by dependence on $$\mathbf u$$ variables.  In this case, we would simply have
 
-$$\frac{d\mathbf A_i}{dt} = \gamma \hat{X}_i S(\mathbf A_i)$$.
+\[* \frac{d\mathbf A_i}{dt} = \gamma \hat{X}_i S(\mathbf A_i). \]
 
 In the constrained case, as with $$\mathbf p$$, the motion due to $$S(\mathbf A_i)$$ is modified by a transformation matrix.  Here, though, there's also another term dealing with the effect of changing $$\mathbf u$$ values as the second argument to $$a(\mathbf u_i, \mathbf u_j)$$.  Let's expand that out one step further:
 
-$$\usepackage[usenames,dvipsnames,svgnames,table]{xcolor}{\color{blue}\frac{d\mathbf A_i}{dt}} = {\color{green!70!black}\gamma \hat{X}_i \partial_1\mathbf A_i(\mathbf u_i) \partial_1\mathbf A_i(\mathbf u_i)^T S(\mathbf A_i) + {\color{violet}\sum_{j=1}^n \gamma \hat{X}_j \partial_2\mathbf A_i(\mathbf u_j) \partial_1\mathbf A_j(\mathbf u_j)^T S(\mathbf A_j)}$$
-
-$$\usepackage[usenames,dvipsnames,svgnames,table]{xcolor} = {\color{green!70!black}D(\mathbf u_i)} + {\color{violet}I(\mathbf u_i|\mathbf u_1,\ldots,\mathbf u_n)}$$.
+\[* {\color{blue}\frac{d\mathbf A_i}{dt}} &= {\color{green!70!black}\gamma \hat{X}_i \partial_1\mathbf A_i(\mathbf u_i) \partial_1\mathbf A_i(\mathbf u_i)^T S(\mathbf A_i)} + {\color{violet}\sum_{j=1}^n \gamma \hat{X}_j \partial_2\mathbf A_i(\mathbf u_j) \partial_1\mathbf A_j(\mathbf u_j)^T S(\mathbf A_j)} \\
+ &= {\color{green!70!black}D(\mathbf u_i)} + {\color{violet}I(\mathbf u_i|\mathbf u_1,\ldots,\mathbf u_n)}.
+\]
 
 Here I'm using colors to distinguish three different vector quantities, which I'll soon plot in the same colors:
 
-* <span style="color:blue">$$\frac{d\mathbf A_i}{dt}$$, the resultant change in $$\mathbf A_i$$</span>, blue.
-* <span style="color:green">$$D(\mathbf u_i)$$, the direct effect of change in $$\mathbf u_i$$ as patient</span>, green.
-* <span style="color:purple">$$I(\mathbf u_i|\mathbf u_1,\ldots,\mathbf u_n)$$, the indirect effect of change in all agents $$\mathbf u_j$$ including $$\mathbf u_i$$</span>, purple.
+* $${\color{blue}\frac{d\mathbf A_i}{dt}}$$, the resultant change in $$\mathbf A_i$$, blue.
+* $${\color{green}D(\mathbf u_i)}$$, the direct effect of change in $$\mathbf u_i$$ as patient, green.
+* $${\color{violet}I(\mathbf u_i|\mathbf u_1,\ldots,\mathbf u_n)}$$, the indirect effect of change in all agents $$\mathbf u_j$$ including $$\mathbf u_i$$, purple.
 
 ## Supplementary materials
 
