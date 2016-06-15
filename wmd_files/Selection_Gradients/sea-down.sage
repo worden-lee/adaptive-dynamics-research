@@ -50,16 +50,23 @@ fixed_ass_b = Bindings(
 )
 
 ## variable investment in association
-base_ass_b = Bindings(
+ass_only_b = Bindings(
+    dynamicalsystems.FunctionBindings(
+	## density independent investment in association
+	C_g = SR(0).function(x),
+	c_g = SR(0).function(x),
+	## investment in association
+	# not defined here in base bindings
+	## prob of association
+	# not defined here in base bindings
+    )
+)
+
+base_ass_b = Bindings( ass_only_b,
     dynamicalsystems.FunctionBindings(
 	## cost re association per interaction
 	C_a = (x^2).function(x),
 	c_a = (x^2).function(x),
-	## density independent investment in association
-	C_g = SR(0).function(x),
-	c_g = SR(0).function(x),
-	## prob of association
-	# not defined here in base bindings
     )
 )
 
@@ -148,7 +155,7 @@ ltx.write( 'Dynamics with pessimistic functions:' )
 ltx.write( sea_down )
 
 starting_comm = Bindings( **{ x:0 for x in ('x_a_0', 'x_t_0', 'X_a_0','X_t_0') } )
-starting_comm.bind_in_place( x_a_0=0.01, X_t_0=-0.008 )
+starting_comm.bind_in_place( x_a_0=0.04, X_t_0=-0.08 )
 
 starting_pop = Bindings( N_0=0.1r, n_0=0.2r )
 

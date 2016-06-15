@@ -1,0 +1,1 @@
+\partial_1\mathbf A_i(\mathbf u_i) = \left.\frac{\partial\mathbf A_i}{\partial \mathbf v}\right|_{\mathbf v=\mathbf u_i}

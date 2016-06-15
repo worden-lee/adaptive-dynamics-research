@@ -1,24 +1,24 @@
 The selective pressures on investment are\iflatexml
 
 \begin{align*}
-  {X}_{{a}{0}} \to -\hat{{n}}_{0} D[0]\left(C_{a}\right)\left({X}_{{a}{0}}\right) + \hat{{n}}_{0} D[1]\left(p\right)\left({x}_{{a}{0}}, {X}_{{a}{0}}\right) - D[0]\left(C_{g}\right)\left({X}_{{a}{0}}\right)\\
-  {x}_{{a}{0}} \to -\hat{{N}}_{0} D[0]\left(c_{a}\right)\left({x}_{{a}{0}}\right) + \hat{{N}}_{0} D[0]\left(p\right)\left({x}_{{a}{0}}, {X}_{{a}{0}}\right) - D[0]\left(c_{g}\right)\left({x}_{{a}{0}}\right)
+  {X}_{{a}{0}} \to -\hat{{n}}_{0} D[0]\left(C_{a}\right)\left({X}_{{a}{0}}\right) + \hat{{n}}_{0} D[1]\left(p\right)\left({x}_{{a}{0}}, {X}_{{a}{0}}\right)\\
+  {x}_{{a}{0}} \to -\hat{{N}}_{0} D[0]\left(c_{a}\right)\left({x}_{{a}{0}}\right) + \hat{{N}}_{0} D[0]\left(p\right)\left({x}_{{a}{0}}, {X}_{{a}{0}}\right)
 \end{align*}
 \else
 \begin{dgroup*}
   
 \begin{dmath*}
-  {X}_{{a}{0}} \to -\hat{{n}}_{0} D[0]\left(C_{a}\right)\left({X}_{{a}{0}}\right) + \hat{{n}}_{0} D[1]\left(p\right)\left({x}_{{a}{0}}, {X}_{{a}{0}}\right) - D[0]\left(C_{g}\right)\left({X}_{{a}{0}}\right)
+  {X}_{{a}{0}} \to -\hat{{n}}_{0} D[0]\left(C_{a}\right)\left({X}_{{a}{0}}\right) + \hat{{n}}_{0} D[1]\left(p\right)\left({x}_{{a}{0}}, {X}_{{a}{0}}\right)
 \end{dmath*}
 
 \begin{dmath*}
-  {x}_{{a}{0}} \to -\hat{{N}}_{0} D[0]\left(c_{a}\right)\left({x}_{{a}{0}}\right) + \hat{{N}}_{0} D[0]\left(p\right)\left({x}_{{a}{0}}, {X}_{{a}{0}}\right) - D[0]\left(c_{g}\right)\left({x}_{{a}{0}}\right)
+  {x}_{{a}{0}} \to -\hat{{N}}_{0} D[0]\left(c_{a}\right)\left({x}_{{a}{0}}\right) + \hat{{N}}_{0} D[0]\left(p\right)\left({x}_{{a}{0}}, {X}_{{a}{0}}\right)
 \end{dmath*}
 
 \end{dgroup*}
 \fi
 So the condition for increase in guest investment is
-\[-\hat{{N}}_{0} D[0]\left(c_{a}\right)\left({x}_{{a}{0}}\right) + \hat{{N}}_{0} D[0]\left(p\right)\left({x}_{{a}{0}}, {X}_{{a}{0}}\right) - D[0]\left(c_{g}\right)\left({x}_{{a}{0}}\right) > 0\]
+\[-\hat{{N}}_{0} D[0]\left(c_{a}\right)\left({x}_{{a}{0}}\right) + \hat{{N}}_{0} D[0]\left(p\right)\left({x}_{{a}{0}}, {X}_{{a}{0}}\right) > 0\]
 And for increase in host investment
-\[-\hat{{n}}_{0} D[0]\left(C_{a}\right)\left({X}_{{a}{0}}\right) + \hat{{n}}_{0} D[1]\left(p\right)\left({x}_{{a}{0}}, {X}_{{a}{0}}\right) - D[0]\left(C_{g}\right)\left({X}_{{a}{0}}\right) > 0\]
+\[-\hat{{n}}_{0} D[0]\left(C_{a}\right)\left({X}_{{a}{0}}\right) + \hat{{n}}_{0} D[1]\left(p\right)\left({x}_{{a}{0}}, {X}_{{a}{0}}\right) > 0\]
 

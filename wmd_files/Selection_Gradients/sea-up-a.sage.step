@@ -1,31 +1,18 @@
+# requires: sealv.py
 # requires: sea-up.sobj
 # produces: sea-up-a.sage.out.tex
 # produces: sea-up-a.svg
-from sage.all import * 
-from sage.misc.latex import _latex_file_
-import dynamicalsystems, lotkavolterra
-from dynamicalsystems import indexer, subscriptedsymbol, Bindings
+from sealv import *
 from seamodel import *
+import dynamicalsystems, lotkavolterra
 
 load_session( 'sea-up' )
 for k,l in _save_symbols.iteritems():
-	#print k,l
 	SR.symbol( k, latex_name=l ) 
 
 ltx = dynamicalsystems.latex_output( 'sea-up-a.sage.out.tex' )
 
-type_letters = [ 0, 0 ]
-type_letters[seamodel.type_H] = H
-type_letters[seamodel.type_g] = g
-class sea_a_indexer(dynamicalsystems.indexer_2d_inner):
-	def __getitem__(self, j):
-		return subscriptedsymbol(self._f, type_letters[self._i[0]], self._i[1], type_letters[j[0]], j[1])
-
-class sea_r_indexer(dynamicalsystems.indexer):
-	def __getitem__(self, i):
-		return subscriptedsymbol(self._f, type_letters[i[0]], i[1])
-
-uplv = lotkavolterra.LotkaVolterraAdaptiveDynamics( sea_adap_up,
+uplv = lotkavolterra.LotkaVolterraAdaptiveDynamics( sea_adap_c,
 	a_name_indexer=dynamicalsystems.indexer_2d( 'a', inner_class=sea_a_indexer ),
 	r_name_indexer=sea_r_indexer('r')
 )
@@ -35,18 +22,29 @@ uplv_n = lotkavolterra.LotkaVolterraAdaptiveDynamics( sea_adap_up_n,
 	r_name_indexer=sea_r_indexer('r')
 )
 
-ltx.write( 'For $a_{Gh}$,\n' )
+ltx.write( 'For $a_{gH}$,\n' )
 ltx.write( dynamicalsystems.dgroup(
-      [ [ SR('A'), uplv.A_pair( (seamodel.type_g,0), (seamodel.type_H,0) ) ],
-	[ SR('S'), uplv.S_pair( (seamodel.type_g,0), (seamodel.type_H,0) ) ],
-	[ SR('D'), uplv.D_pair( (seamodel.type_g,0), (seamodel.type_H,0) ) ],
-	[ SR('I'), uplv.I_pair( (seamodel.type_g,0), (seamodel.type_H,0) ) ],
-	[ SR('dA/dt'), uplv.dAdt_pair( (seamodel.type_g,0), (seamodel.type_H,0) ) ],
+      [ [ SR('A'),
+	  uplv.A_pair( (seamodel.type_g,0), (seamodel.type_H,0) )
+	],
+	[ SR('S'),
+	  uplv.S_pair( (seamodel.type_g,0), (seamodel.type_H,0) )
+	],
+	[ SR('D'),
+	  uplv.D_pair( (seamodel.type_g,0), (seamodel.type_H,0) ).apply_map( dynamicalsystems.latex_partials_representation() ),
+	  uplv_n.D_pair( (seamodel.type_g,0), (seamodel.type_H,0) ).apply_map( dynamicalsystems.latex_partials_representation() )
+	],
+	[ SR.symbol('I'),
+	  uplv.I_pair( (seamodel.type_g,0), (seamodel.type_H,0) ).apply_map( dynamicalsystems.latex_partials_representation() ),
+	  uplv_n.I_pair( (seamodel.type_g,0), (seamodel.type_H,0) ).apply_map( dynamicalsystems.latex_partials_representation() )
+	],
+	[ SR('dA/dt'),
+	  uplv.dAdt_pair( (seamodel.type_g,0), (seamodel.type_H,0) ).apply_map( dynamicalsystems.latex_partials_representation() ),
+	  uplv_n.dAdt_pair( (seamodel.type_g,0), (seamodel.type_H,0) ).apply_map( dynamicalsystems.latex_partials_representation() )
+	],
       ], '='
 ) )
 
 ltx.close()
 
-aap = lotkavolterra.plot_aij_with_arrows( adap_traj, uplv_n )
-aap.axes_labels( [ '$a_{ij}$', '$a_{ji}$' ] )
-aap.save( 'sea-up-a.svg', figsize=(5,5) )
+aap = lotkavolterra.plot_aij_with_arrows( adap_traj, uplv_n, filename='sea-up-a.svg' )

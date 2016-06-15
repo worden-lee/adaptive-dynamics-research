@@ -16,10 +16,10 @@ sea_ass = sea_f.bind( base_b, exp_ass_b, fixed_tran_b )
 
 ltx.write( 'To study the incentive structure for association, we set', exp_ass_b )
 
-ltx.write( 'Dynamics with association only:', sea_f.bind( base_b, fixed_tran_b ) )
+ltx.write( 'Dynamics with association only:', sea_f.bind( base_b, fixed_tran_b, ass_only_b ) )
 ltx.write( 'Or', sea_ass )
 
-sea_adap_ass_formal = sea_adap_f.bind( base_b, fixed_tran_b )
+sea_adap_ass_formal = sea_adap_f.bind( base_b, fixed_tran_b, ass_only_b )
 sea_adap_ass = sea_adap_ass_formal.bind( exp_ass_b )
 ltx.write( 'And its adaptive dynamics is' )
 ltx.write( sea_adap_ass_formal, 'Or ', sea_adap_ass )

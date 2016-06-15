@@ -1,0 +1,71 @@
+\iflatexml
+
+\begin{align*}
+  A = \left({a}_{{g}{0}{H}{0}},\,{a}_{{H}{0}{g}{0}}\right)\\
+  S = \left(\hat{{N}}_{0},\,\hat{{n}}_{0}\right)\\
+  D = \left(-{\left({c_a}'({x}_{{a}{0}}\left(t\right)) - \partial_{0}p({x}_{{a}{0}}\left(t\right), {X}_{{a}{0}}\left(t\right))\right)} {{x}_{{a}{0}}}'(t),\,-{\left({C_a}'({X}_{{a}{0}}\left(t\right)) - \partial_{1}p({x}_{{a}{0}}\left(t\right), {X}_{{a}{0}}\left(t\right))\right)} {{X}_{{a}{0}}}'(t)\right)\\
+  &= \left({{x}_{{a}{0}}}'(t) {\left(\frac{e^{\left(-{X}_{{a}{0}}\left(t\right) - {x}_{{a}{0}}\left(t\right)\right)}}{{\left(e^{\left(-{X}_{{a}{0}}\left(t\right) - {x}_{{a}{0}}\left(t\right)\right)} + 1\right)}^{2}} - 2 \, {x}_{{a}{0}}\left(t\right)\right)},\,{{X}_{{a}{0}}}'(t) {\left(\frac{e^{\left(-{X}_{{a}{0}}\left(t\right) - {x}_{{a}{0}}\left(t\right)\right)}}{{\left(e^{\left(-{X}_{{a}{0}}\left(t\right) - {x}_{{a}{0}}\left(t\right)\right)} + 1\right)}^{2}} - 2 \, {X}_{{a}{0}}\left(t\right)\right)}\right)\\
+  I = \left({{X}_{{a}{0}}}'(t) \partial_{1}p({x}_{{a}{0}}\left(t\right), {X}_{{a}{0}}\left(t\right)),\,\partial_{0}p({x}_{{a}{0}}\left(t\right), {X}_{{a}{0}}\left(t\right)) {{x}_{{a}{0}}}'(t)\right)\\
+  &= \left(\frac{{{X}_{{a}{0}}}'(t) e^{\left(-{X}_{{a}{0}}\left(t\right) - {x}_{{a}{0}}\left(t\right)\right)}}{{\left(e^{\left(-{X}_{{a}{0}}\left(t\right) - {x}_{{a}{0}}\left(t\right)\right)} + 1\right)}^{2}},\,\frac{{{x}_{{a}{0}}}'(t) e^{\left(-{X}_{{a}{0}}\left(t\right) - {x}_{{a}{0}}\left(t\right)\right)}}{{\left(e^{\left(-{X}_{{a}{0}}\left(t\right) - {x}_{{a}{0}}\left(t\right)\right)} + 1\right)}^{2}}\right)\\
+  \frac{\mathit{dA}}{\mathit{dt}} = \left({{X}_{{a}{0}}}'(t) \partial_{1}p({x}_{{a}{0}}\left(t\right), {X}_{{a}{0}}\left(t\right)) - {\left({c_a}'({x}_{{a}{0}}\left(t\right)) - \partial_{0}p({x}_{{a}{0}}\left(t\right), {X}_{{a}{0}}\left(t\right))\right)} {{x}_{{a}{0}}}'(t),\,-{\left({C_a}'({X}_{{a}{0}}\left(t\right)) - \partial_{1}p({x}_{{a}{0}}\left(t\right), {X}_{{a}{0}}\left(t\right))\right)} {{X}_{{a}{0}}}'(t) + \partial_{0}p({x}_{{a}{0}}\left(t\right), {X}_{{a}{0}}\left(t\right)) {{x}_{{a}{0}}}'(t)\right)\\
+  &= \left({{x}_{{a}{0}}}'(t) {\left(\frac{e^{\left(-{X}_{{a}{0}}\left(t\right) - {x}_{{a}{0}}\left(t\right)\right)}}{{\left(e^{\left(-{X}_{{a}{0}}\left(t\right) - {x}_{{a}{0}}\left(t\right)\right)} + 1\right)}^{2}} - 2 \, {x}_{{a}{0}}\left(t\right)\right)} + \frac{{{X}_{{a}{0}}}'(t) e^{\left(-{X}_{{a}{0}}\left(t\right) - {x}_{{a}{0}}\left(t\right)\right)}}{{\left(e^{\left(-{X}_{{a}{0}}\left(t\right) - {x}_{{a}{0}}\left(t\right)\right)} + 1\right)}^{2}},\,{{X}_{{a}{0}}}'(t) {\left(\frac{e^{\left(-{X}_{{a}{0}}\left(t\right) - {x}_{{a}{0}}\left(t\right)\right)}}{{\left(e^{\left(-{X}_{{a}{0}}\left(t\right) - {x}_{{a}{0}}\left(t\right)\right)} + 1\right)}^{2}} - 2 \, {X}_{{a}{0}}\left(t\right)\right)} + \frac{{{x}_{{a}{0}}}'(t) e^{\left(-{X}_{{a}{0}}\left(t\right) - {x}_{{a}{0}}\left(t\right)\right)}}{{\left(e^{\left(-{X}_{{a}{0}}\left(t\right) - {x}_{{a}{0}}\left(t\right)\right)} + 1\right)}^{2}}\right)
+\end{align*}
+\else
+\begin{dgroup*}
+  
+\begin{dmath*}
+  A = \left({a}_{{g}{0}{H}{0}},\,{a}_{{H}{0}{g}{0}}\right)
+\end{dmath*}
+
+\begin{dmath*}
+  S = \left(\hat{{N}}_{0},\,\hat{{n}}_{0}\right)
+\end{dmath*}
+
+\begin{dmath*}
+  D = \left(-{\left({c_a}'({x}_{{a}{0}}\left(t\right)) - \partial_{0}p({x}_{{a}{0}}\left(t\right), {X}_{{a}{0}}\left(t\right))\right)} {{x}_{{a}{0}}}'(t),\,-{\left({C_a}'({X}_{{a}{0}}\left(t\right)) - \partial_{1}p({x}_{{a}{0}}\left(t\right), {X}_{{a}{0}}\left(t\right))\right)} {{X}_{{a}{0}}}'(t)\right)\\
+  = \left({{x}_{{a}{0}}}'(t) {\left(\frac{e^{\left(-{X}_{{a}{0}}\left(t\right) - {x}_{{a}{0}}\left(t\right)\right)}}{{\left(e^{\left(-{X}_{{a}{0}}\left(t\right) - {x}_{{a}{0}}\left(t\right)\right)} + 1\right)}^{2}} - 2 \, {x}_{{a}{0}}\left(t\right)\right)},\,{{X}_{{a}{0}}}'(t) {\left(\frac{e^{\left(-{X}_{{a}{0}}\left(t\right) - {x}_{{a}{0}}\left(t\right)\right)}}{{\left(e^{\left(-{X}_{{a}{0}}\left(t\right) - {x}_{{a}{0}}\left(t\right)\right)} + 1\right)}^{2}} - 2 \, {X}_{{a}{0}}\left(t\right)\right)}\right)
+\end{dmath*}
+
+\begin{dmath*}
+  I = \left({{X}_{{a}{0}}}'(t) \partial_{1}p({x}_{{a}{0}}\left(t\right), {X}_{{a}{0}}\left(t\right)),\,\partial_{0}p({x}_{{a}{0}}\left(t\right), {X}_{{a}{0}}\left(t\right)) {{x}_{{a}{0}}}'(t)\right)\\
+  = \left(\frac{{{X}_{{a}{0}}}'(t) e^{\left(-{X}_{{a}{0}}\left(t\right) - {x}_{{a}{0}}\left(t\right)\right)}}{{\left(e^{\left(-{X}_{{a}{0}}\left(t\right) - {x}_{{a}{0}}\left(t\right)\right)} + 1\right)}^{2}},\,\frac{{{x}_{{a}{0}}}'(t) e^{\left(-{X}_{{a}{0}}\left(t\right) - {x}_{{a}{0}}\left(t\right)\right)}}{{\left(e^{\left(-{X}_{{a}{0}}\left(t\right) - {x}_{{a}{0}}\left(t\right)\right)} + 1\right)}^{2}}\right)
+\end{dmath*}
+
+\begin{dmath*}
+  \frac{\mathit{dA}}{\mathit{dt}} = \left({{X}_{{a}{0}}}'(t) \partial_{1}p({x}_{{a}{0}}\left(t\right), {X}_{{a}{0}}\left(t\right)) - {\left({c_a}'({x}_{{a}{0}}\left(t\right)) - \partial_{0}p({x}_{{a}{0}}\left(t\right), {X}_{{a}{0}}\left(t\right))\right)} {{x}_{{a}{0}}}'(t),\,-{\left({C_a}'({X}_{{a}{0}}\left(t\right)) - \partial_{1}p({x}_{{a}{0}}\left(t\right), {X}_{{a}{0}}\left(t\right))\right)} {{X}_{{a}{0}}}'(t) + \partial_{0}p({x}_{{a}{0}}\left(t\right), {X}_{{a}{0}}\left(t\right)) {{x}_{{a}{0}}}'(t)\right)\\
+  = \left({{x}_{{a}{0}}}'(t) {\left(\frac{e^{\left(-{X}_{{a}{0}}\left(t\right) - {x}_{{a}{0}}\left(t\right)\right)}}{{\left(e^{\left(-{X}_{{a}{0}}\left(t\right) - {x}_{{a}{0}}\left(t\right)\right)} + 1\right)}^{2}} - 2 \, {x}_{{a}{0}}\left(t\right)\right)} + \frac{{{X}_{{a}{0}}}'(t) e^{\left(-{X}_{{a}{0}}\left(t\right) - {x}_{{a}{0}}\left(t\right)\right)}}{{\left(e^{\left(-{X}_{{a}{0}}\left(t\right) - {x}_{{a}{0}}\left(t\right)\right)} + 1\right)}^{2}},\,{{X}_{{a}{0}}}'(t) {\left(\frac{e^{\left(-{X}_{{a}{0}}\left(t\right) - {x}_{{a}{0}}\left(t\right)\right)}}{{\left(e^{\left(-{X}_{{a}{0}}\left(t\right) - {x}_{{a}{0}}\left(t\right)\right)} + 1\right)}^{2}} - 2 \, {X}_{{a}{0}}\left(t\right)\right)} + \frac{{{x}_{{a}{0}}}'(t) e^{\left(-{X}_{{a}{0}}\left(t\right) - {x}_{{a}{0}}\left(t\right)\right)}}{{\left(e^{\left(-{X}_{{a}{0}}\left(t\right) - {x}_{{a}{0}}\left(t\right)\right)} + 1\right)}^{2}}\right)
+\end{dmath*}
+
+\end{dgroup*}
+\fi
+The dynamics of the character variables are
+\iflatexml
+
+\begin{align*}
+  {{X}_{{a}{0}}}'(t) = -{\left({C_a}'(X_{a_{0}}) \mathit{nhat}_{0} - \mathit{nhat}_{0} \partial_{1}p(x_{a_{0}}, X_{a_{0}})\right)} \mathit{Nhat}_{0}\\
+  {{X}_{{t}{0}}}'(t) = 0\\
+  {{x}_{{a}{0}}}'(t) = -{\left(\mathit{Nhat}_{0} {c_a}'(x_{a_{0}}) - \mathit{Nhat}_{0} \partial_{0}p(x_{a_{0}}, X_{a_{0}})\right)} \mathit{nhat}_{0}\\
+  {{x}_{{t}{0}}}'(t) = 0
+\end{align*}
+\else
+\begin{dgroup*}
+  
+\begin{dmath*}
+  {{X}_{{a}{0}}}'(t) = -{\left({C_a}'(X_{a_{0}}) \mathit{nhat}_{0} - \mathit{nhat}_{0} \partial_{1}p(x_{a_{0}}, X_{a_{0}})\right)} \mathit{Nhat}_{0}
+\end{dmath*}
+
+\begin{dmath*}
+  {{X}_{{t}{0}}}'(t) = 0
+\end{dmath*}
+
+\begin{dmath*}
+  {{x}_{{a}{0}}}'(t) = -{\left(\mathit{Nhat}_{0} {c_a}'(x_{a_{0}}) - \mathit{Nhat}_{0} \partial_{0}p(x_{a_{0}}, X_{a_{0}})\right)} \mathit{nhat}_{0}
+\end{dmath*}
+
+\begin{dmath*}
+  {{x}_{{t}{0}}}'(t) = 0
+\end{dmath*}
+
+\end{dgroup*}
+\fi
+

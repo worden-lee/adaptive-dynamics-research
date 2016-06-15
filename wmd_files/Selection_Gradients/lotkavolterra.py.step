@@ -199,7 +199,7 @@ class LotkaVolterraAdaptiveDynamics( object ):
 	  ( r_name_indexer[i],
 	    self._lv_model._A_bindings( function( str( r_name_indexer[i] ) )( *(u[i] for u in us) ) ) )
 	  for i in self._lv_model._population_indices ]
-	#print '_A_to_function_dict:', self._A_to_function_dict
+	#print '_A_to_function_dict:', _A_to_function_dict
 	self._A_to_function_bindings = Bindings( dict( _A_to_function_dict ) )
 
 	A_late_bindings = self._lv_model._A_bindings + self._adaptivedynamics._bindings + self._adaptivedynamics._late_bindings
@@ -375,12 +375,6 @@ class LotkaVolterraAdaptiveDynamics( object ):
 	] )
 
 def plot_aij_with_arrows( evol_trajectory, lvad, filename=None, scale=1, bindings=Bindings(), **options ):
-    resolve_A_bindings = (
-	lvad._A_to_function_bindings +
-	lvad._A_function_expansion_bindings +
-	lvad.dudt_bindings() +
-	lvad._phenotypes_from_fn_bindings
-    )
     aap = Graphics()
     for i in lvad._lv_model._population_indices:
         for j in lvad._lv_model._population_indices:
@@ -390,50 +384,85 @@ def plot_aij_with_arrows( evol_trajectory, lvad, filename=None, scale=1, binding
 	        color='red', **options
 	    )
 	    # plot 4 arrows per (i,j) point
-	    pp0 = evol_trajectory._timeseries[0] + bindings + lvad._adaptivedynamics._bindings
-	    Aij = (
-	        pp0( resolve_A_bindings( lvad.A(i)[lvad.A_index(j)] ) ),
-	        pp0( resolve_A_bindings( lvad.A(j)[lvad.A_index(i)] ) )
-	    )
-	    print 'A:', Aij
-	    S = (
-	        pp0( resolve_A_bindings( lvad.S( lvad.A(i) )[lvad.A_index(j)] ) ),
-	        pp0( resolve_A_bindings( lvad.S( lvad.A(j) )[lvad.A_index(i)] ) )
-	    )
-	    print 'S:', S
-	    if S[0] != 0 or S[1] != 0:
-	        aap += arrow( Aij, ( a+scale*s for a,s in zip(Aij, S) ), color='red' )
-	    D = (
-	        resolve_A_bindings( lvad.direct_effect( i )[lvad.A_index(j)] ),
-	        resolve_A_bindings( lvad.direct_effect( j )[lvad.A_index(i)] )
-	    )
-	    print 'D:', D
-	    D = (
-	        pp0( D[0] ),
-	        pp0( D[1] )
-	    )
-	    print 'D:', D
-	    if D[0] != 0 or D[1] != 0:
-	        aap += arrow( Aij, ( a+scale*d for a,d in zip(Aij, D) ), color='green' )
-	    I = (
-	        resolve_A_bindings( lvad.indirect_effect( i )[lvad.A_index(j)] ),
-	        resolve_A_bindings( lvad.indirect_effect( j )[lvad.A_index(i)] )
-	    )
-	    print 'I:', I
-	    I = (
-	        pp0( I[0] ),
-	        pp0( I[1] )
-	    )
-	    print 'I:', I
-	    if I[0] != 0 or I[1] != 0:
-	        aap += arrow( Aij, ( a+scale*i for a,i in zip(Aij, I) ), color='purple' )
-	    d = (
-	        pp0( resolve_A_bindings( lvad.dAdt( i )[lvad.A_index(j)] ) ),
-	        pp0( resolve_A_bindings( lvad.dAdt( j )[lvad.A_index(i)] ) )
-	    )
-	    print 'dAdt:', d
-	    if d[0] != 0 or d[1] != 0:
-	        aap += arrow( Aij, ( a+scale*d for a,d in zip(Aij, d) ), color='blue' )
+	    pp0 = evol_trajectory._timeseries[0]
+	    aap += plot_single_aij_pair( i, j, pp0, lvad, scale=scale, bindings=bindings, **options )
+    aap.axes_labels( [ '$a_{ij}$', '$a_{ji}$' ] )
     if filename is not None:
-        aap.save( filename, figsize=(5,5), **options )
+	if 'figsize' not in options: options['figsize'] = (5,5)
+        aap.save( filename, **options )
+    return aap
+
+def plot_single_aij_pair( i, j, p, lvad, filename=None, scale=1, bindings=Bindings(), **options ):
+    resolve_A_bindings = (
+	lvad._A_to_function_bindings +
+	lvad._A_function_expansion_bindings +
+	lvad.dudt_bindings() +
+	lvad._phenotypes_from_fn_bindings
+    )
+    pp0 = p + bindings + lvad._adaptivedynamics._bindings
+    aap = Graphics()
+    Aij = (
+	pp0( resolve_A_bindings( lvad.A(i)[lvad.A_index(j)] ) ),
+	pp0( resolve_A_bindings( lvad.A(j)[lvad.A_index(i)] ) )
+    )
+    print 'A:', Aij
+    S = (
+	pp0( resolve_A_bindings( lvad.S( lvad.A(i) )[lvad.A_index(j)] ) ),
+	pp0( resolve_A_bindings( lvad.S( lvad.A(j) )[lvad.A_index(i)] ) )
+    )
+    print 'S:', S
+    if S[0] != 0 or S[1] != 0:
+	aap += arrow( Aij, ( a+scale*s for a,s in zip(Aij, S) ), color='red' )
+    D = (
+	resolve_A_bindings( lvad.direct_effect( i )[lvad.A_index(j)] ),
+	resolve_A_bindings( lvad.direct_effect( j )[lvad.A_index(i)] )
+    )
+    print 'D:', D
+    D = (
+	pp0( D[0] ),
+	pp0( D[1] )
+    )
+    print 'D:', D
+    if D[0] != 0 or D[1] != 0:
+	aap += arrow( Aij, ( a+scale*d for a,d in zip(Aij, D) ), color='green' )
+    I = (
+	resolve_A_bindings( lvad.indirect_effect( i )[lvad.A_index(j)] ),
+	resolve_A_bindings( lvad.indirect_effect( j )[lvad.A_index(i)] )
+    )
+    print 'I:', I
+    I = (
+	pp0( I[0] ),
+	pp0( I[1] )
+    )
+    print 'I:', I
+    if I[0] != 0 or I[1] != 0:
+	DI = ( D[0] + I[0], D[1] + I[1] )
+	aap += arrow(
+	    ( a+scale*d for a,d in zip(Aij, D) ),
+	    ( a+scale*i for a,i in zip(Aij, DI) ),
+	    color='purple' )
+    d = (
+	pp0( resolve_A_bindings( lvad.dAdt( i )[lvad.A_index(j)] ) ),
+	pp0( resolve_A_bindings( lvad.dAdt( j )[lvad.A_index(i)] ) )
+    )
+    print 'dAdt:', d
+    if d[0] != 0 or d[1] != 0:
+	aap += arrow( Aij, ( a+scale*d for a,d in zip(Aij, d) ), color='blue' )
+    ## curve parametrized by varying u_i only
+    ## todo: anything, when i==j?
+    ux = SR.symbol()
+    for u_var in (ui[i] for ui in lvad._adaptivedynamics._phenotype_indexers):
+	if lvad._adaptivedynamics._flow[u_var] != 0:
+	    px = pp0 + Bindings( { u_var: ux } )
+	    print px
+	    A_curve = (
+		px( resolve_A_bindings( lvad.A(i)[lvad.A_index(j)] ) ),
+		px( resolve_A_bindings( lvad.A(j)[lvad.A_index(i)] ) )
+	    )
+	    print A_curve
+	    aap += parametric_plot( A_curve, (ux,pp0(u_var)-1,pp0(u_var)+1), color='green' )
+    aap.axes_labels( [ '$a_{ij}$', '$a_{ji}$' ] )
+    if filename is not None:
+	if 'figsize' not in options: options['figsize'] = (5,5)
+        aap.save( filename, **options )
     return aap

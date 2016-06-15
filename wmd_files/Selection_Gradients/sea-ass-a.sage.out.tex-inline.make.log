@@ -1,0 +1,198 @@
+Tue Jun 14 17:37:53 2016
+/usr/bin/make -C /usr/local/src/adaptive-dynamics-research/wmd_files/Selection_Gradients \
+    sea-ass-a.sage.out.tex-inline
+Including .mk files: sage-inline.mk 
+Including .mk files from .sage-inline files: avec.sage.mk a-careful.sage.mk
+Including .mk files from .step files: aij.py.mk aij-assemble.sage.mk aij-assemble-plot.sage.mk aij-evol.sage.mk aij-evol-plot.sage.mk direct.py.mk direct-assemble.sage.mk direct-assemble-plot.sage.mk direct-evol.sage.mk direct-evol-plot.sage.mk foodweb.py.mk foodweb.sage.mk foodweb-adap.sage.mk foodweb.plot.sage.mk foodweb-2-2.sage.mk foodweb-2-2.plot.sage.mk large.py.mk large-assemble.sage.mk large-assemble-plot.sage.mk large-evol.sage.mk large-evol-plot.sage.mk logistic-S-A-curves.sage.mk maclev-S-A-curve.sage.mk logistic-S-A-curve.sage.mk maclev-1-1.sage.mk maclev-1-1-adap.sage.mk maclev-1-1-mc-adap-geom.sage.mk maclev-1-1-ak-adap-geom.sage.mk S-A-vector-field.sage.mk maclev-1-1-d1A-vector-field.sage.mk maclev-1-1-S-and-d1A-on-curve.sage.mk maclev-1-1-S-and-D-on-curve.sage.mk maclev_1_2_defs.py.mk maclev-1-2-popdyn.sage.mk maclev-1-2-adap.sage.mk maclev-1-2-p.sage.mk maclev-1-2-zngi.sage.mk maclev-1-2-geom.sage.mk maclev_unconstrained_c.py.mk maclev-2-2-c-popdyn.sage.mk maclev-2-2-c-adap.sage.mk maclev-2-2-c-p.sage.mk maclev-2-2-c-zngi.sage.mk maclev-2-2-c-geom.sage.mk maclev_2_2_defs.py.mk maclev-2-2-popdyn.sage.mk maclev-2-2-adap.sage.mk maclev-2-2-p.sage.mk maclev-2-2-zngi.sage.mk maclev-2-2-geom.sage.mk maclev_a_only_defs.py.mk maclev-a-only-popdyn.sage.mk maclev-a-only-adap.sage.mk maclev-a-only-p.sage.mk maclev-a-only-zngi.sage.mk maclev-a-only-geom.sage.mk maclev_a_c.py.mk maclev-2-2-a-c-popdyn.sage.mk maclev-2-2-a-c-adap.sage.mk maclev-2-2-a-c-p.sage.mk maclev-2-2-a-c-zngi.sage.mk maclev-2-2-a-c-geom.sage.mk maclevmodels.py.mk masel_model.py.mk masel.sage.mk masel-adap.sage.mk masel-2-adap.sage.mk statmech.py.mk statmech-assemble.sage.mk statmech-assemble-plot.sage.mk statmech-evol.sage.mk statmech-evol-plot.sage.mk sea.sage.mk sea-adap.sage.mk sea-down.sage.mk sea-down-test.sage.mk sea-vf.sage.mk sea-zero.sage.mk sea-ass.sage.mk sea-tran.sage.mk sea-all.sage.mk sea-up.sage.mk sea-up-a.sage.mk sea-ass-a.sage.mk toc.sage.mk maclev-2-2-zngi-invasion.sage.mk lotkavolterra.py.mk r_selection.py.mk r-selection.sage.mk
+Including .tex.d files: foodweb-2-2.tikz.tex.d foodweb.tikz.tex.d
+make[1]: Entering directory `/usr/local/src/adaptive-dynamics-research/wmd_files/Selection_Gradients'
+rm -f sea-ass-a.sage.out sea-ass-a.sage.status sea-ass-a.sage.out.tex sea-ass-a.svg
+(sage sea-ass-a.sage && touch sea-ass-a.sage.status) | tee sea-ass-a.sage.dmp
+ad bindings: {n_0 -> nhat_0, gamma -> 1, K -> 1, N_0 -> Nhat_0, k -> 1, c_t(x) -> 0, c_g(x) -> 0, C_g(x) -> 0, r(x,y) -> 1, C_t(x) -> 0, b(x,y) -> 1, R(x,y) -> 1, B(x,y) -> 1}
+model bindings: {k -> 1, K -> 1, c_t(x) -> 0, c_g(x) -> 0, C_g(x) -> 0, r(x,y) -> 1, C_t(x) -> 0, b(x,y) -> 1, R(x,y) -> 1, B(x,y) -> 1}
+_early_bindings: {}
+_late_bindings: {gamma -> 1}
+make LV model
+Inferring LV coefficients from N_0 equation: -N_0*n_0*C_a(X_a_0) + N_0*n_0*p(x_a_0, X_a_0) - N_0^2 + N_0
+a_H_0_g_0 : -C_a(X_a_0) + p(x_a_0, X_a_0)
+r_H_0 : 1
+Inferring LV coefficients from n_0 equation: -N_0*n_0*c_a(x_a_0) + N_0*n_0*p(x_a_0, X_a_0) - n_0^2 + n_0
+a_g_0_H_0 : -c_a(x_a_0) + p(x_a_0, X_a_0)
+r_g_0 : 1
+aij_dict: {a_g_0_g_0: -1, a_g_0_H_0: -c_a(x_a_0) + p(x_a_0, X_a_0), a_H_0_H_0: -1, r_g_0: 1, a_H_0_g_0: -C_a(X_a_0) + p(x_a_0, X_a_0), r_H_0: 1}
+set_population_indices: [(0, 0), (1, 0)]
+Inferring LV coefficients from N_0 equation: -N_0*n_0*C_a(X_a_0) + N_0*n_0*p(x_a_0, X_a_0) - N_0^2 + N_0
+a_H_0_g_0 : -C_a(X_a_0) + p(x_a_0, X_a_0)
+r_H_0 : 1
+Inferring LV coefficients from n_0 equation: -N_0*n_0*c_a(x_a_0) + N_0*n_0*p(x_a_0, X_a_0) - n_0^2 + n_0
+a_g_0_H_0 : -c_a(x_a_0) + p(x_a_0, X_a_0)
+r_g_0 : 1
+aij_dict: {a_g_0_g_0: -1, a_g_0_H_0: -c_a(x_a_0) + p(x_a_0, X_a_0), a_H_0_H_0: -1, r_g_0: 1, a_H_0_g_0: -C_a(X_a_0) + p(x_a_0, X_a_0), r_H_0: 1}
+_A_bindings: {r_g_0 -> 1, a_g_0_g_0 -> -1, a_H_0_g_0 -> -C_a(X_a_0) + p(x_a_0, X_a_0), a_g_0_H_0 -> -c_a(x_a_0) + p(x_a_0, X_a_0), r_H_0 -> 1, a_H_0_H_0 -> -1}
+make LV adaptive dynamics
+population vars [N_0, n_0]
+population vars [N_0, n_0]
+set_population_indices: [(0, 0), (1, 0), (0, 1)]
+set_population_indices: [(0, 0), (1, 0), (0, 1)]
+Inferring LV coefficients from N_0 equation: N_0*n_0*B(x_t_0, X_t_0)*p(x_a_0, X_a_0) - N_0*n_0*C_t(X_t_0)*p(x_a_0, X_a_0) - K*N_0^2 - K*N_0*N_1 - N_0*n_0*C_a(X_a_0) - N_0*C_g(X_a_0) + N_0*R(X_a_0, X_t_0)
+a_H_0_g_0 : B(x_t_0, X_t_0)*p(x_a_0, X_a_0) - C_t(X_t_0)*p(x_a_0, X_a_0) - C_a(X_a_0)
+a_H_0_H_1 : -K
+r_H_0 : -C_g(X_a_0) + R(X_a_0, X_t_0)
+Inferring LV coefficients from n_0 equation: N_0*n_0*b(x_t_0, X_t_0)*p(x_a_0, X_a_0) - N_0*n_0*c_t(x_t_0)*p(x_a_0, X_a_0) + N_1*n_0*b(x_t_0, X_t_1)*p(x_a_0, X_a_1) - N_1*n_0*c_t(x_t_0)*p(x_a_0, X_a_1) - k*n_0^2 - N_0*n_0*c_a(x_a_0) - N_1*n_0*c_a(x_a_0) - n_0*c_g(x_a_0) + n_0*r(x_a_0, x_t_0)
+a_g_0_H_0 : b(x_t_0, X_t_0)*p(x_a_0, X_a_0) - c_t(x_t_0)*p(x_a_0, X_a_0) - c_a(x_a_0)
+a_g_0_H_1 : b(x_t_0, X_t_1)*p(x_a_0, X_a_1) - c_t(x_t_0)*p(x_a_0, X_a_1) - c_a(x_a_0)
+r_g_0 : -c_g(x_a_0) + r(x_a_0, x_t_0)
+Inferring LV coefficients from N_1 equation: N_1*n_0*B(x_t_0, X_t_1)*p(x_a_0, X_a_1) - N_1*n_0*C_t(X_t_1)*p(x_a_0, X_a_1) - K*N_0*N_1 - K*N_1^2 - N_1*n_0*C_a(X_a_1) - N_1*C_g(X_a_1) + N_1*R(X_a_1, X_t_1)
+a_H_1_H_0 : -K
+a_H_1_g_0 : B(x_t_0, X_t_1)*p(x_a_0, X_a_1) - C_t(X_t_1)*p(x_a_0, X_a_1) - C_a(X_a_1)
+r_H_1 : -C_g(X_a_1) + R(X_a_1, X_t_1)
+aij_dict: {a_g_0_g_0: -k, a_H_1_H_0: -K, a_g_0_H_1: b(x_t_0, X_t_1)*p(x_a_0, X_a_1) - c_t(x_t_0)*p(x_a_0, X_a_1) - c_a(x_a_0), a_H_1_g_0: B(x_t_0, X_t_1)*p(x_a_0, X_a_1) - C_t(X_t_1)*p(x_a_0, X_a_1) - C_a(X_a_1), a_g_0_H_0: b(x_t_0, X_t_0)*p(x_a_0, X_a_0) - c_t(x_t_0)*p(x_a_0, X_a_0) - c_a(x_a_0), a_H_1_H_1: -K, a_H_0_H_0: -K, r_g_0: -c_g(x_a_0) + r(x_a_0, x_t_0), r_H_1: -C_g(X_a_1) + R(X_a_1, X_t_1), a_H_0_H_1: -K, a_H_0_g_0: B(x_t_0, X_t_0)*p(x_a_0, X_a_0) - C_t(X_t_0)*p(x_a_0, X_a_0) - C_a(X_a_0), r_H_0: -C_g(X_a_0) + R(X_a_0, X_t_0)}
+The invasion rate for mutant population is:
+\begin{align*}
+  \mathscr I = \frac{1}{{N}_{1}}\frac{d{N}_{1}}{dt} &= {N}_{0} {a}_{{H}{1}{H}{0}} + {N}_{1} {a}_{{H}{1}{H}{1}} + {a}_{{H}{1}{g}{0}} {n}_{0} + {r}_{{H}{1}} 
+\end{align*}
+
+limit as {a_H_1_g_0: a_H_0_g_0, r_H_1: r_H_0, a_H_1_H_0: a_H_0_H_0}
+simplify to 1
+simplify to N_0
+simplify to n_0
+after those limits:
+   1
+  N_0
+  n_0
+simplify to 1
+simplify to N_0
+simplify to n_0
+set_population_indices: [(0, 0), (1, 0), (1, 1)]
+set_population_indices: [(0, 0), (1, 0), (1, 1)]
+Inferring LV coefficients from N_0 equation: N_0*n_0*B(x_t_0, X_t_0)*p(x_a_0, X_a_0) - N_0*n_0*C_t(X_t_0)*p(x_a_0, X_a_0) + N_0*n_1*B(x_t_1, X_t_0)*p(x_a_1, X_a_0) - N_0*n_1*C_t(X_t_0)*p(x_a_1, X_a_0) - K*N_0^2 - N_0*n_0*C_a(X_a_0) - N_0*n_1*C_a(X_a_0) - N_0*C_g(X_a_0) + N_0*R(X_a_0, X_t_0)
+a_H_0_g_0 : B(x_t_0, X_t_0)*p(x_a_0, X_a_0) - C_t(X_t_0)*p(x_a_0, X_a_0) - C_a(X_a_0)
+a_H_0_g_1 : B(x_t_1, X_t_0)*p(x_a_1, X_a_0) - C_t(X_t_0)*p(x_a_1, X_a_0) - C_a(X_a_0)
+r_H_0 : -C_g(X_a_0) + R(X_a_0, X_t_0)
+Inferring LV coefficients from n_0 equation: N_0*n_0*b(x_t_0, X_t_0)*p(x_a_0, X_a_0) - N_0*n_0*c_t(x_t_0)*p(x_a_0, X_a_0) - k*n_0^2 - k*n_0*n_1 - N_0*n_0*c_a(x_a_0) - n_0*c_g(x_a_0) + n_0*r(x_a_0, x_t_0)
+a_g_0_H_0 : b(x_t_0, X_t_0)*p(x_a_0, X_a_0) - c_t(x_t_0)*p(x_a_0, X_a_0) - c_a(x_a_0)
+a_g_0_g_1 : -k
+r_g_0 : -c_g(x_a_0) + r(x_a_0, x_t_0)
+Inferring LV coefficients from n_1 equation: N_0*n_1*b(x_t_1, X_t_0)*p(x_a_1, X_a_0) - N_0*n_1*c_t(x_t_1)*p(x_a_1, X_a_0) - k*n_0*n_1 - k*n_1^2 - N_0*n_1*c_a(x_a_1) - n_1*c_g(x_a_1) + n_1*r(x_a_1, x_t_1)
+a_g_1_H_0 : b(x_t_1, X_t_0)*p(x_a_1, X_a_0) - c_t(x_t_1)*p(x_a_1, X_a_0) - c_a(x_a_1)
+a_g_1_g_0 : -k
+r_g_1 : -c_g(x_a_1) + r(x_a_1, x_t_1)
+aij_dict: {a_g_0_g_0: -k, a_g_1_H_0: b(x_t_1, X_t_0)*p(x_a_1, X_a_0) - c_t(x_t_1)*p(x_a_1, X_a_0) - c_a(x_a_1), a_g_0_g_1: -k, a_g_1_g_0: -k, a_g_0_H_0: b(x_t_0, X_t_0)*p(x_a_0, X_a_0) - c_t(x_t_0)*p(x_a_0, X_a_0) - c_a(x_a_0), a_g_1_g_1: -k, a_H_0_H_0: -K, r_g_0: -c_g(x_a_0) + r(x_a_0, x_t_0), r_g_1: -c_g(x_a_1) + r(x_a_1, x_t_1), a_H_0_g_1: B(x_t_1, X_t_0)*p(x_a_1, X_a_0) - C_t(X_t_0)*p(x_a_1, X_a_0) - C_a(X_a_0), a_H_0_g_0: B(x_t_0, X_t_0)*p(x_a_0, X_a_0) - C_t(X_t_0)*p(x_a_0, X_a_0) - C_a(X_a_0), r_H_0: -C_g(X_a_0) + R(X_a_0, X_t_0)}
+The invasion rate for mutant population is:
+\begin{align*}
+  \mathscr I = \frac{1}{{n}_{1}}\frac{d{n}_{1}}{dt} &= {N}_{0} {a}_{{g}{1}{H}{0}} + {a}_{{g}{1}{g}{0}} {n}_{0} + {a}_{{g}{1}{g}{1}} {n}_{1} + {r}_{{g}{1}} 
+\end{align*}
+
+limit as {a_g_1_g_0: a_g_0_g_0, r_g_1: r_g_0, a_g_1_H_0: a_g_0_H_0}
+simplify to 1
+simplify to N_0
+simplify to n_0
+after those limits:
+   1
+  N_0
+  n_0
+simplify to 1
+simplify to N_0
+simplify to n_0
+make LV evolution bindings
+ad bindings: {gamma -> 1, Nhat_0 -> (X_a_0^2 - 1/(e^(-X_a_0 - x_a_0) + 1) - 1)/(X_a_0^2*x_a_0^2 - X_a_0^2/(e^(-X_a_0 - x_a_0) + 1) - x_a_0^2/(e^(-X_a_0 - x_a_0) + 1) + 1/(e^(-X_a_0 - x_a_0) + 1)^2 - 1), N_0 -> (X_a_0^2 - 1/(e^(-X_a_0 - x_a_0) + 1) - 1)/(X_a_0^2*x_a_0^2 - X_a_0^2/(e^(-X_a_0 - x_a_0) + 1) - x_a_0^2/(e^(-X_a_0 - x_a_0) + 1) + 1/(e^(-X_a_0 - x_a_0) + 1)^2 - 1), nhat_0 -> (x_a_0^2 - 1/(e^(-X_a_0 - x_a_0) + 1) - 1)/(X_a_0^2*x_a_0^2 - X_a_0^2/(e^(-X_a_0 - x_a_0) + 1) - x_a_0^2/(e^(-X_a_0 - x_a_0) + 1) + 1/(e^(-X_a_0 - x_a_0) + 1)^2 - 1), n_0 -> (x_a_0^2 - 1/(e^(-X_a_0 - x_a_0) + 1) - 1)/(X_a_0^2*x_a_0^2 - X_a_0^2/(e^(-X_a_0 - x_a_0) + 1) - x_a_0^2/(e^(-X_a_0 - x_a_0) + 1) + 1/(e^(-X_a_0 - x_a_0) + 1)^2 - 1), k -> 1, K -> 1, C_g(x) -> 0, c_g(x) -> 0, C_a(x) -> x^2, r(x,y) -> 1, c_t(x) -> 0, b(x,y) -> 1, C_t(x) -> 0, R(x,y) -> 1, p(x,y) -> 1/(e^(-x - y) + 1), c_a(x) -> x^2, B(x,y) -> 1}
+model bindings: {K -> 1, Nhat_0 -> (X_a_0^2 - 1/(e^(-X_a_0 - x_a_0) + 1) - 1)/(X_a_0^2*x_a_0^2 - X_a_0^2/(e^(-X_a_0 - x_a_0) + 1) - x_a_0^2/(e^(-X_a_0 - x_a_0) + 1) + 1/(e^(-X_a_0 - x_a_0) + 1)^2 - 1), k -> 1, nhat_0 -> (x_a_0^2 - 1/(e^(-X_a_0 - x_a_0) + 1) - 1)/(X_a_0^2*x_a_0^2 - X_a_0^2/(e^(-X_a_0 - x_a_0) + 1) - x_a_0^2/(e^(-X_a_0 - x_a_0) + 1) + 1/(e^(-X_a_0 - x_a_0) + 1)^2 - 1), C_g(x) -> 0, c_g(x) -> 0, C_a(x) -> x^2, r(x,y) -> 1, c_t(x) -> 0, b(x,y) -> 1, C_t(x) -> 0, R(x,y) -> 1, p(x,y) -> 1/(e^(-x - y) + 1), c_a(x) -> x^2, B(x,y) -> 1}
+_early_bindings: {}
+_late_bindings: {gamma -> 1}
+make LV model
+Inferring LV coefficients from N_0 equation: -N_0*X_a_0^2*n_0 - N_0^2 + N_0 + N_0*n_0/(e^(-X_a_0 - x_a_0) + 1)
+a_H_0_g_0 : -X_a_0^2 + 1/(e^(-X_a_0 - x_a_0) + 1)
+r_H_0 : 1
+Inferring LV coefficients from n_0 equation: -N_0*n_0*x_a_0^2 - n_0^2 + n_0 + N_0*n_0/(e^(-X_a_0 - x_a_0) + 1)
+a_g_0_H_0 : -x_a_0^2 + 1/(e^(-X_a_0 - x_a_0) + 1)
+r_g_0 : 1
+aij_dict: {a_g_0_g_0: -1, a_g_0_H_0: -x_a_0^2 + 1/(e^(-X_a_0 - x_a_0) + 1), a_H_0_H_0: -1, r_g_0: 1, a_H_0_g_0: -X_a_0^2 + 1/(e^(-X_a_0 - x_a_0) + 1), r_H_0: 1}
+set_population_indices: [(0, 0), (1, 0)]
+Inferring LV coefficients from N_0 equation: -N_0*X_a_0^2*n_0 - N_0^2 + N_0 + N_0*n_0/(e^(-X_a_0 - x_a_0) + 1)
+a_H_0_g_0 : -X_a_0^2 + 1/(e^(-X_a_0 - x_a_0) + 1)
+r_H_0 : 1
+Inferring LV coefficients from n_0 equation: -N_0*n_0*x_a_0^2 - n_0^2 + n_0 + N_0*n_0/(e^(-X_a_0 - x_a_0) + 1)
+a_g_0_H_0 : -x_a_0^2 + 1/(e^(-X_a_0 - x_a_0) + 1)
+r_g_0 : 1
+aij_dict: {a_g_0_g_0: -1, a_g_0_H_0: -x_a_0^2 + 1/(e^(-X_a_0 - x_a_0) + 1), a_H_0_H_0: -1, r_g_0: 1, a_H_0_g_0: -X_a_0^2 + 1/(e^(-X_a_0 - x_a_0) + 1), r_H_0: 1}
+_A_bindings: {r_g_0 -> 1, a_g_0_g_0 -> -1, a_H_0_g_0 -> -X_a_0^2 + 1/(e^(-X_a_0 - x_a_0) + 1), a_g_0_H_0 -> -x_a_0^2 + 1/(e^(-X_a_0 - x_a_0) + 1), r_H_0 -> 1, a_H_0_H_0 -> -1}
+make LV adaptive dynamics
+population vars [N_0, n_0]
+population vars [N_0, n_0]
+set_population_indices: [(0, 0), (1, 0), (0, 1)]
+set_population_indices: [(0, 0), (1, 0), (0, 1)]
+Inferring LV coefficients from N_0 equation: N_0*n_0*B(x_t_0, X_t_0)*p(x_a_0, X_a_0) - N_0*n_0*C_t(X_t_0)*p(x_a_0, X_a_0) - K*N_0^2 - K*N_0*N_1 - N_0*n_0*C_a(X_a_0) - N_0*C_g(X_a_0) + N_0*R(X_a_0, X_t_0)
+a_H_0_g_0 : B(x_t_0, X_t_0)*p(x_a_0, X_a_0) - C_t(X_t_0)*p(x_a_0, X_a_0) - C_a(X_a_0)
+a_H_0_H_1 : -K
+r_H_0 : -C_g(X_a_0) + R(X_a_0, X_t_0)
+Inferring LV coefficients from n_0 equation: N_0*n_0*b(x_t_0, X_t_0)*p(x_a_0, X_a_0) - N_0*n_0*c_t(x_t_0)*p(x_a_0, X_a_0) + N_1*n_0*b(x_t_0, X_t_1)*p(x_a_0, X_a_1) - N_1*n_0*c_t(x_t_0)*p(x_a_0, X_a_1) - k*n_0^2 - N_0*n_0*c_a(x_a_0) - N_1*n_0*c_a(x_a_0) - n_0*c_g(x_a_0) + n_0*r(x_a_0, x_t_0)
+a_g_0_H_0 : b(x_t_0, X_t_0)*p(x_a_0, X_a_0) - c_t(x_t_0)*p(x_a_0, X_a_0) - c_a(x_a_0)
+a_g_0_H_1 : b(x_t_0, X_t_1)*p(x_a_0, X_a_1) - c_t(x_t_0)*p(x_a_0, X_a_1) - c_a(x_a_0)
+r_g_0 : -c_g(x_a_0) + r(x_a_0, x_t_0)
+Inferring LV coefficients from N_1 equation: N_1*n_0*B(x_t_0, X_t_1)*p(x_a_0, X_a_1) - N_1*n_0*C_t(X_t_1)*p(x_a_0, X_a_1) - K*N_0*N_1 - K*N_1^2 - N_1*n_0*C_a(X_a_1) - N_1*C_g(X_a_1) + N_1*R(X_a_1, X_t_1)
+a_H_1_H_0 : -K
+a_H_1_g_0 : B(x_t_0, X_t_1)*p(x_a_0, X_a_1) - C_t(X_t_1)*p(x_a_0, X_a_1) - C_a(X_a_1)
+r_H_1 : -C_g(X_a_1) + R(X_a_1, X_t_1)
+aij_dict: {a_g_0_g_0: -k, a_H_1_H_0: -K, a_g_0_H_1: b(x_t_0, X_t_1)*p(x_a_0, X_a_1) - c_t(x_t_0)*p(x_a_0, X_a_1) - c_a(x_a_0), a_H_1_g_0: B(x_t_0, X_t_1)*p(x_a_0, X_a_1) - C_t(X_t_1)*p(x_a_0, X_a_1) - C_a(X_a_1), a_g_0_H_0: b(x_t_0, X_t_0)*p(x_a_0, X_a_0) - c_t(x_t_0)*p(x_a_0, X_a_0) - c_a(x_a_0), a_H_1_H_1: -K, a_H_0_H_0: -K, r_g_0: -c_g(x_a_0) + r(x_a_0, x_t_0), r_H_1: -C_g(X_a_1) + R(X_a_1, X_t_1), a_H_0_H_1: -K, a_H_0_g_0: B(x_t_0, X_t_0)*p(x_a_0, X_a_0) - C_t(X_t_0)*p(x_a_0, X_a_0) - C_a(X_a_0), r_H_0: -C_g(X_a_0) + R(X_a_0, X_t_0)}
+The invasion rate for mutant population is:
+\begin{align*}
+  \mathscr I = \frac{1}{{N}_{1}}\frac{d{N}_{1}}{dt} &= {N}_{0} {a}_{{H}{1}{H}{0}} + {N}_{1} {a}_{{H}{1}{H}{1}} + {a}_{{H}{1}{g}{0}} {n}_{0} + {r}_{{H}{1}} 
+\end{align*}
+
+limit as {a_H_1_g_0: a_H_0_g_0, r_H_1: r_H_0, a_H_1_H_0: a_H_0_H_0}
+simplify to 1
+simplify to N_0
+simplify to n_0
+after those limits:
+   1
+  N_0
+  n_0
+simplify to 1
+simplify to N_0
+simplify to n_0
+set_population_indices: [(0, 0), (1, 0), (1, 1)]
+set_population_indices: [(0, 0), (1, 0), (1, 1)]
+Inferring LV coefficients from N_0 equation: N_0*n_0*B(x_t_0, X_t_0)*p(x_a_0, X_a_0) - N_0*n_0*C_t(X_t_0)*p(x_a_0, X_a_0) + N_0*n_1*B(x_t_1, X_t_0)*p(x_a_1, X_a_0) - N_0*n_1*C_t(X_t_0)*p(x_a_1, X_a_0) - K*N_0^2 - N_0*n_0*C_a(X_a_0) - N_0*n_1*C_a(X_a_0) - N_0*C_g(X_a_0) + N_0*R(X_a_0, X_t_0)
+a_H_0_g_0 : B(x_t_0, X_t_0)*p(x_a_0, X_a_0) - C_t(X_t_0)*p(x_a_0, X_a_0) - C_a(X_a_0)
+a_H_0_g_1 : B(x_t_1, X_t_0)*p(x_a_1, X_a_0) - C_t(X_t_0)*p(x_a_1, X_a_0) - C_a(X_a_0)
+r_H_0 : -C_g(X_a_0) + R(X_a_0, X_t_0)
+Inferring LV coefficients from n_0 equation: N_0*n_0*b(x_t_0, X_t_0)*p(x_a_0, X_a_0) - N_0*n_0*c_t(x_t_0)*p(x_a_0, X_a_0) - k*n_0^2 - k*n_0*n_1 - N_0*n_0*c_a(x_a_0) - n_0*c_g(x_a_0) + n_0*r(x_a_0, x_t_0)
+a_g_0_H_0 : b(x_t_0, X_t_0)*p(x_a_0, X_a_0) - c_t(x_t_0)*p(x_a_0, X_a_0) - c_a(x_a_0)
+a_g_0_g_1 : -k
+r_g_0 : -c_g(x_a_0) + r(x_a_0, x_t_0)
+Inferring LV coefficients from n_1 equation: N_0*n_1*b(x_t_1, X_t_0)*p(x_a_1, X_a_0) - N_0*n_1*c_t(x_t_1)*p(x_a_1, X_a_0) - k*n_0*n_1 - k*n_1^2 - N_0*n_1*c_a(x_a_1) - n_1*c_g(x_a_1) + n_1*r(x_a_1, x_t_1)
+a_g_1_H_0 : b(x_t_1, X_t_0)*p(x_a_1, X_a_0) - c_t(x_t_1)*p(x_a_1, X_a_0) - c_a(x_a_1)
+a_g_1_g_0 : -k
+r_g_1 : -c_g(x_a_1) + r(x_a_1, x_t_1)
+aij_dict: {a_g_0_g_0: -k, a_g_1_H_0: b(x_t_1, X_t_0)*p(x_a_1, X_a_0) - c_t(x_t_1)*p(x_a_1, X_a_0) - c_a(x_a_1), a_g_0_g_1: -k, a_g_1_g_0: -k, a_g_0_H_0: b(x_t_0, X_t_0)*p(x_a_0, X_a_0) - c_t(x_t_0)*p(x_a_0, X_a_0) - c_a(x_a_0), a_g_1_g_1: -k, a_H_0_H_0: -K, r_g_0: -c_g(x_a_0) + r(x_a_0, x_t_0), r_g_1: -c_g(x_a_1) + r(x_a_1, x_t_1), a_H_0_g_1: B(x_t_1, X_t_0)*p(x_a_1, X_a_0) - C_t(X_t_0)*p(x_a_1, X_a_0) - C_a(X_a_0), a_H_0_g_0: B(x_t_0, X_t_0)*p(x_a_0, X_a_0) - C_t(X_t_0)*p(x_a_0, X_a_0) - C_a(X_a_0), r_H_0: -C_g(X_a_0) + R(X_a_0, X_t_0)}
+The invasion rate for mutant population is:
+\begin{align*}
+  \mathscr I = \frac{1}{{n}_{1}}\frac{d{n}_{1}}{dt} &= {N}_{0} {a}_{{g}{1}{H}{0}} + {a}_{{g}{1}{g}{0}} {n}_{0} + {a}_{{g}{1}{g}{1}} {n}_{1} + {r}_{{g}{1}} 
+\end{align*}
+
+limit as {a_g_1_g_0: a_g_0_g_0, r_g_1: r_g_0, a_g_1_H_0: a_g_0_H_0}
+simplify to 1
+simplify to N_0
+simplify to n_0
+after those limits:
+   1
+  N_0
+  n_0
+simplify to 1
+simplify to N_0
+simplify to n_0
+make LV evolution bindings
+A: (0.508398666879965, 0.509998666879966)
+S: (2.03856255195011, 2.03640248376285)
+D: (Nhat_0*gamma*nhat_0*(2*x_a_0 - e^(-X_a_0 - x_a_0)/(e^(-X_a_0 - x_a_0) + 1)^2)^2, Nhat_0*(2*X_a_0 - e^(-X_a_0 - x_a_0)/(e^(-X_a_0 - x_a_0) + 1)^2)^2*gamma*nhat_0)
+D: (0.119832481865145, 0.259250895393647)
+I: (-Nhat_0*(2*X_a_0 - e^(-X_a_0 - x_a_0)/(e^(-X_a_0 - x_a_0) + 1)^2)*gamma*nhat_0*e^(-X_a_0 - x_a_0)/(e^(-X_a_0 - x_a_0) + 1)^2, -Nhat_0*gamma*nhat_0*(2*x_a_0 - e^(-X_a_0 - x_a_0)/(e^(-X_a_0 - x_a_0) + 1)^2)*e^(-X_a_0 - x_a_0)/(e^(-X_a_0 - x_a_0) + 1)^2)
+I: (0.259250895393647, 0.176257420328285)
+dAdt: (0.379083377258791, 0.435508315721931)
+{X_a_0 -> 0.000000000000000, t -> 0.000000000000000, x_a_0 -> symbol15798, X_t_0 -> -0.0800000000000000, gamma -> 1, Nhat_0 -> 2.03856255195011, N_0 -> 2.03856255195011, nhat_0 -> 2.03640248376285, n_0 -> 2.03640248376285, x_t_0 -> 0.000000000000000, k -> 1, K -> 1, c_t(x) -> 0, c_g(x) -> 0, C_g(x) -> 0, B(x,y) -> 1, C_a(x) -> x^2, r(x,y) -> 1, C_t(x) -> 0, R(x,y) -> 1, p(x,y) -> 1/(e^(-x - y) + 1), c_a(x) -> x^2, b(x,y) -> 1}
+(-symbol15798^2 + 1/(e^(-symbol15798) + 1), 1/(e^(-symbol15798) + 1))
+[ -e sea-ass-a.sage.status ] && (rm -f sea-ass-a.sage.status && mv sea-ass-a.sage.dmp sea-ass-a.sage.out) || exit 1
+(grep -q '\\begin{document}' sea-ass-a.sage.out.tex && sed -e '1,/\\begin{document}/d' -e '/\\end{document}/,$d' || cat) < sea-ass-a.sage.out.tex > sea-ass-a.sage.out.tex-inline
+make[1]: Leaving directory `/usr/local/src/adaptive-dynamics-research/wmd_files/Selection_Gradients'
+Make succeeded.
+Tue Jun 14 17:38:41 2016
