@@ -203,7 +203,7 @@ class LotkaVolterraAdaptiveDynamics( object ):
 	self._A_to_function_bindings = Bindings( dict( _A_to_function_dict ) )
 
 	A_late_bindings = self._lv_model._A_bindings + self._adaptivedynamics._bindings + self._adaptivedynamics._late_bindings
-	self._A_function_expansion_dict = dict( [
+	_A_function_expansion_dict = dict( [
 	    ( a_name_indexer[i][j],
 		A_late_bindings( a_name_indexer[i][j] )
 		    .function( *([ u_indexer[i] for u_indexer in u_indexers ] + [ u_indexer[j] for u_indexer in u_indexers ]) ) )
@@ -215,9 +215,9 @@ class LotkaVolterraAdaptiveDynamics( object ):
 		    .function( *([ u_indexer[i] for u_indexer in u_indexers ]) ) )
 		for i in self._lv_model._population_indices
 	] )
-	#print '_A_function_expansion_dict:', self._A_function_expansion_dict
+	#print '_A_function_expansion_dict:', _A_function_expansion_dict
 	self._A_function_expansion_bindings = Bindings( FunctionBindings(
-	    self._A_function_expansion_dict ) )
+	    _A_function_expansion_dict ) )
 	#print '_A_function_expansion_bindings:', self._A_function_expansion_bindings
 	# _phenotypes_to_fn_bindings: changes u_i to u_i(t)
 	# is used in all the below methods, so that du_i(t)/dt works
@@ -229,6 +229,15 @@ class LotkaVolterraAdaptiveDynamics( object ):
 	self._phenotypes_from_fn_bindings = Bindings(
 	    { v:k for k, v in self._phenotypes_to_fn_bindings.items() } )
 	#print '_phenotypes_from_fn_bindings:', self._phenotypes_from_fn_bindings
+    def bind_in_place( self, *bindings, **args ):
+	b = Bindings( *bindings, **args )
+	self._adaptivedynamics.bind_in_place( b )
+	self._lv_model.bind_in_place( b )
+	self._lv_adap.bind_in_place( b )
+	self._A_to_function_bindings.bind_in_place( b )
+	self._A_function_expansion_bindings.bind_in_place( b )
+	self._phenotypes_to_fn_bindings.bind_in_place( b )
+	self._phenotypes_from_fn_bindings.bind_in_place( b )
     def A( self, i ):
         '''The 'interaction phenotype' vector of Lotka-Volterra coefficients
         that are affected by selection on population i.  These are r_i and a_ij
@@ -436,7 +445,11 @@ def plot_single_aij_pair( i, j, p, lvad, filename=None, scale=1, bindings=Bindin
     )
     print 'I:', I
     if I[0] != 0 or I[1] != 0:
-	aap += arrow( Aij, ( a+scale*i for a,i in zip(Aij, I) ), color='purple' )
+	DI = ( D[0] + I[0], D[1] + I[1] )
+	aap += arrow(
+	    ( a+scale*d for a,d in zip(Aij, D) ),
+	    ( a+scale*i for a,i in zip(Aij, DI) ),
+	    color='purple' )
     d = (
 	pp0( resolve_A_bindings( lvad.dAdt( i )[lvad.A_index(j)] ) ),
 	pp0( resolve_A_bindings( lvad.dAdt( j )[lvad.A_index(i)] ) )
@@ -449,13 +462,13 @@ def plot_single_aij_pair( i, j, p, lvad, filename=None, scale=1, bindings=Bindin
     ux = SR.symbol()
     for u_var in (ui[i] for ui in lvad._adaptivedynamics._phenotype_indexers):
 	if lvad._adaptivedynamics._flow[u_var] != 0:
-	    px = pp0 + Bindings( { u_var: ux } )
+	    px = Bindings( { u_var: ux } ) + pp0
 	    print px
 	    A_curve = (
 		px( resolve_A_bindings( lvad.A(i)[lvad.A_index(j)] ) ),
 		px( resolve_A_bindings( lvad.A(j)[lvad.A_index(i)] ) )
 	    )
-	    print A_curve
+	    print 'curve:', A_curve
 	    aap += parametric_plot( A_curve, (ux,pp0(u_var)-1,pp0(u_var)+1), color='green' )
     aap.axes_labels( [ '$a_{ij}$', '$a_{ji}$' ] )
     if filename is not None:

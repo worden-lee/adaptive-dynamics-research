@@ -25,7 +25,7 @@ uplv_n = lotkavolterra.LotkaVolterraAdaptiveDynamics( sea_adap_up_n,
 ltx.write( 'For $a_{gH}$,\n' )
 ltx.write( dynamicalsystems.dgroup(
       [ [ SR('A'),
-	  uplv.A_pair( (seamodel.type_g,0), (seamodel.type_H,0) )
+	  uplv._lv_model._A_bindings( uplv.A_pair( (seamodel.type_g,0), (seamodel.type_H,0) ) )
 	],
 	[ SR('S'),
 	  uplv.S_pair( (seamodel.type_g,0), (seamodel.type_H,0) )
