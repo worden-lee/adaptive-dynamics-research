@@ -916,7 +916,7 @@ uplv_n = lotkavolterra.LotkaVolterraAdaptiveDynamics( sea_adap_up_n,
 ltx.write( 'For $a_{gH}$,\n' )
 ltx.write( dynamicalsystems.dgroup(
       [ [ SR('A'),
-	  uplv.A_pair( (seamodel.type_g,0), (seamodel.type_H,0) )
+	  uplv._lv_model._A_bindings( uplv.A_pair( (seamodel.type_g,0), (seamodel.type_H,0) ) )
 	],
 	[ SR('S'),
 	  uplv.S_pair( (seamodel.type_g,0), (seamodel.type_H,0) )
@@ -961,10 +961,11 @@ from sealv import *
 from seamodel import *
 from dynamicalsystems import *
 import lotkavolterra
+from ww_sage_util import ww_load_session
 
-load_session( 'sea-ass' )
-for k,l in _save_symbols.iteritems():
-	SR.symbol( k, latex_name=l ) 
+ww_load_session( 'sea-ass', locals() )
+#for k,l in _save_symbols.iteritems():
+#	SR.symbol( k, latex_name=l ) 
 
 ltx = latex_output( 'sea-ass-a.sage.out.tex' )
 
@@ -983,23 +984,32 @@ lv_ass_n = lotkavolterra.LotkaVolterraAdaptiveDynamics( sea_adap_ass,
 #	r_name_indexer=sea_r_indexer('r')
 #)
 
+ltx.write(
+	"The population dynamics of this version:\n",
+	lv_ass._adaptivedynamics._popdyn_model,
+	"In this case, all the selection is on the $a$ terms.\n"
+)
+
 ltx.write( dgroup(
       [ [ SR('A'),
-	  lv_ass.A_pair( (seamodel.type_g,0), (seamodel.type_H,0) )
+	  lv_ass._lv_model._A_bindings( lv_ass.A_pair( (seamodel.type_g,0), (seamodel.type_H,0) ) )
 	],
 	[ SR('S'),
 	  lv_ass.S_pair( (seamodel.type_g,0), (seamodel.type_H,0) )
 	],
 	[ SR('D'),
 	  lv_ass.D_pair( (seamodel.type_g,0), (seamodel.type_H,0) ).apply_map( latex_partials_representation() ),
-	  lv_ass_n.D_pair( (seamodel.type_g,0), (seamodel.type_H,0) ).apply_map( latex_partials_representation() )
+	  lv_ass._phenotypes_to_fn_bindings( lv_ass.dudt_bindings()( lv_ass.D_pair( (seamodel.type_g,0), (seamodel.type_H,0) ) ) ).apply_map( latex_partials_representation() ),
+	  #lv_ass_n.D_pair( (seamodel.type_g,0), (seamodel.type_H,0) ).apply_map( latex_partials_representation() )
 	],
 	[ SR.symbol('I'),
 	  lv_ass.I_pair( (seamodel.type_g,0), (seamodel.type_H,0) ).apply_map( latex_partials_representation() ),
-	  lv_ass_n.I_pair( (seamodel.type_g,0), (seamodel.type_H,0) ).apply_map( latex_partials_representation() )
+	  lv_ass._phenotypes_to_fn_bindings( lv_ass.dudt_bindings()( lv_ass.I_pair( (seamodel.type_g,0), (seamodel.type_H,0) ) ) ).apply_map( latex_partials_representation() ),
+	  #lv_ass_n.I_pair( (seamodel.type_g,0), (seamodel.type_H,0) ).apply_map( latex_partials_representation() )
 	],
 	[ SR('dA/dt'),
 	  lv_ass.dAdt_pair( (seamodel.type_g,0), (seamodel.type_H,0) ).apply_map( latex_partials_representation() ),
+	  lv_ass._phenotypes_to_fn_bindings( lv_ass.dudt_bindings()( lv_ass.dAdt_pair( (seamodel.type_g,0), (seamodel.type_H,0) ) ) ).apply_map( latex_partials_representation() ),
 	  lv_ass_n.dAdt_pair( (seamodel.type_g,0), (seamodel.type_H,0) ).apply_map( latex_partials_representation() )
 	],
       ], '='
@@ -1023,5 +1033,68 @@ lotkavolterra.plot_single_aij_pair(
 
 <project-file filename=sea-ass-a.sage.out.tex/>
 
+So, all the selection is in the $$a$$ terms between the host and guest.
+The guest's incentive is the probability of associating (with benefit 1)
+minus the cost of making it happen.
+The host's is the same (also with constant benefit 1 of associating).
+
+The indirect effect is the effect of each one's change in $$p$$ on the 
+other, since both experience $$p$$ in common.
+Since $$p$$ is symmetric, the effect on the other is equal to that
+part of the direct effect on the self.
+This could be good or bad, depending on the parts $$p$$ and $$c_a$$ are
+playing in the incentive.
+In this case, with $$p$$ and $$c$$ increasing as we leave zero,
+the indirect impact is to increase each party's $$p$$ a bit more, which is a
+positive exernality.
+It would be a negative externality if the incentive were to decrease
+both $$p$$ and $$c$$.
+
 <project-file filename=sea-ass-a.svg/>
 
+Here I am using $$c$$ to mean both $$c_a$$ and $$C_a$$, casually.
+What are the conditions for incentive to increase $$a$$:
+it always increases:
+\[* (c'(x) - dp/dx)^2 > 0 \]
+For positive indirect effect:
+\[* (dp/dx)^2 - c'(x) dp/dx > 0 \]
+This requires $$c'$$, $$dp/dx$$ have opposite sign or $$|c'|<|dp/dx|$$.
+For actual increase in $$a$$, it's the direct effect plus the other
+party's indirect impact, which are composed from different values.
+They need the sum to be positive.
+I guess we could consider the sum of $$a$$ terms?
+For that we get
+\[* \frac{d(a_{gH} + a_{Hg})}{dt}
+  = (dp/dx - c')^2 + dp/dx(dp/dx - c') + (dp/dX - C')^2 + dp/dX(dp/dX - C') \\
+  = (2dp/dx - c')(dp/dx - c') + (2dp/dX - C')(dp/dX - C')
+\]
+
+When is $$(2dp/dx - c')(dp/dx - c')$$ positive?
+I guess there are four cases:
+
+* both positive: then a's increase if $$dp/dx - c'$$ positive or $$2dp/dx - c$$ negative, i.e. unless $$dp/dx < c' < 2dp/dx$$
+* both negative: increase unless $$2dp/dx < c' < dp/dx$$
+* $$dp/dx < 0 < c'$$: increase guaranteed
+* $$c' < 0 < dp/dx$$: increase guaranteed
+
+These conditions amount to either positive indirect effect, or
+a different condition where $$2|dp/dx| < |c'|$$ -- in this latter case,
+the indirect effect is negative but too small to counter the direct effect.
+This is in a range where adaptation is driven by reducing the cost,
+rather than increasing association.
+
+Maybe I should look at changing association directly -
+that's $$p$$, isn't it.
+The change in $$p$$ is 
+\[* dp/dt = dp/dx_a (dp/dx_a - c'(x_a)) + dp/dX_a (dp/dX_a - C'(x_a)). \]
+If we imagine both players being roughly the same,
+this is what we were calling $$dp/dx(dp/dx -c')$$,
+which is the indirect effect.
+Since we have assumed association is positive for both,
+the indirect effect is the change in association.
+
+Therefore, the conditions for increasing mutual benefit in the
+form of $$a_{gH} + a_{Hg}$$ are:
+
+* association increases
+* association decreases due to incentive to reduce cost, and cost reduction outweighs loss of association.

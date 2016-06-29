@@ -14,6 +14,10 @@
 wmd_files/% : /proc/uptime
 	$(MAKE) -C $(dir $@) $(notdir $@)
 
+# make them using .tex output format rules, which is slightly different
+# in how .tex-inline files are made and maybe some other things
+export WW_OUTPUTFORMAT=tex
+
 # special target 'make sync':
 # rebuild the site without any WMD make operations.  This has several useful
 # side effects, including
