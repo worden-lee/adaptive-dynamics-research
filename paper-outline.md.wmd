@@ -1,0 +1,581 @@
+---
+layout: page
+title: Coevolution under constraint, and the special role of mutualism
+author: Lee Worden
+bibliography: master.bib
+wmd_project: Selection_Gradients
+---
+
+# Notes on Meta
+
+Take out $\Delta a$ model and direct model.
+Just discuss already-published cases of
+accumulation of mutualism.
+
+Add some info about natural historical evidence, via Bronstein/Akcay
+book and Boucher.
+
+Put predation model before competition model - it illustrates
+direct and indirect very well, while the competition model involves
+evolution of an exterior quantity $R^*$.
+
+Distinguishing ToC concept of utility from what's in these models.
+For most part, probably take ToC out of this ms.
+
+Complete analysis of how constraints cause qualitative results,
+in competition, predation, mutualism model.
+Connect it to published discussion of adaptation in these systems.
+
+Analyze competition model in terms of evolution of $R^*$
+quantities?
+
+Concise discussion of Masel's paper? Is it necessary?
+
+Selection gradient, etc, in pop gen?
+
+Response to Roughgarden's thing about change in the a matrix?
+
+Mention of change in game matrix, don't actually do the math in this
+paper.  Likewise S() in microeconomics, learning.
+
+The major points:
+
+* Direct effect is biased positive
+* 3-part program for study of adaptation and cooperation
+* Connection to game theory/altruism literature.
+
+# Introduction
+
+To be written.
+
+Use of the four types (quadrants) of Lotka-Volterra interactions to
+classify ecological relationships, interest in the causes of mutualism
+and antagonism
+
+Natural history examples: emergence of mutualism, and loss of mutualism
+
+Evolution of constrained phenotypes; connection to Levins fitness sets
+
+Coevolutionary dynamics, frequency-dependent selection
+
+Related questions about cooperation, incentives, and externalities
+
+# Sidebar: Coevolution of constrained characters
+
+When relevant characters p are parametrized by fewer u's
+
+Projection of gradient.
+
+Angle of projected motion is within $$90^\circ$$ of the unabridged gradient.
+
+Stasis is when original S is 0 or the curve is perpendicular.
+
+Figure illustrating the gradient before + after, with curve.
+
+# Coevolution of interaction terms
+
+$$a_{ij}$$ terms are sort of like $$p$$'s, controlled by $$u$$'s, but
+with the influence of the other $$u$$ as well.
+
+Agent and patient populations.
+
+Gradient of selection is projected onto patient population.
+
+That selection produces "direct effect".
+
+There is also "indirect effect" of the agent population.
+
+Gradient S(A) is always positive.
+
+Direct effect is within $$90^\circ$$ of that
+positive vector $$S$$.  
+
+Resulting change in A values is direct effect + indirect effect,
+therefore biased toward positive but can be negative.
+
+Figure: Evolution of $$(a_{ij},a_{ji})$$ pair on the plane of
+Lotka-Volterra interactions.
+
+Figure: The vector $$A_i = (a_{i1},\ldots,a_{in})$$ moves in an
+$$n$$-dimensional space (in the illustration $$n=2$$).
+
+Figure: Gradient of selection on $$A_i$$ in one dimension is in direction
+closest to abstract gradient of selection $$S$$.
+
+Figure: Each population $$j$$ changes due to selection on $$a_{j\cdot}$$
+terms. It causes change in $$a_{ij}$$, which is the source of the
+indirect effects on $$A_i$$.
+
+Figure: The direction of the direct effect is always in the half-space
+within $$90^\circ$$ of the abstract selection gradient $$S$$.  $$S$$ is
+always positive, which implies that the direct effect vector $$D$$ is
+largely positive.  The resultant direction of actual change in $$A_i$$
+is the sum $$\mathbf{D}_i+\mathbf{I}_i$$.  The positive bias in $$\mathbf{D}_i$$ may produce a
+positive bias in the motion of $$A_i$$.
+
+Figure: direct and indirect effects on the pair $$(a_{ij},a_{ji})$$.
+
+# Claims and questions about evolution of interactions
+
+The above argument establishes that if direct effects and indirect effects
+were IID random variables, interaction terms would drift upwards.
+
+They may not, though.
+
+* The "default", or *ceteris paribus*, outcome is positive drift, toward
+the mutualistic quadrant.  When interactions do not move in that direction,
+there are two categories of constraints interfering with positive drift:
+* Populations may not be able to increase the value of all their
+interactions due to
+tradeoffs in the different interaction terms affecting the population
+as patient.  That is, the shape of the "fitness set" of the interactions
+affecting the population.
+* Gains in the value of interactions may be lost due to 
+negative indirect effects of agents' adaptation
+on patients.  This can imply a zero-sum situation in which one population's
+gain is another's loss, or a Hardin-like tragedy ("race to the bottom",
+or social trap),
+in which a population's direct gain is indirectly its own loss.
+
+earlier paper proposed to focus away from presumed costly cooperation.
+
+I propose the above three-part
+structure as an alternative framework for researching the evolution of
+cooperation, focusing on **factors that interfere with the emergence of
+cooperation** in addition to studying means for mitigating tragic
+situations in which cooperation is hard.
+
+This research may help us to explain both mutualistic and
+antagonistic situations in nature and society, and may also help
+illuminate opportunities to transform antagonistic situations or
+social traps to opportunities for mutual benefit. 
+
+# Example: Resource competition
+
+Here we analyze the classic MacArthur-Levins formulation of $$n$$
+species competing for use of $$n$$ resources.
+
+ML equations.
+
+It's an LV system.
+
+Function forms of a and r terms.
+
+It's constrained to competition only - we will relate that constraint to
+the direct and indirect effects.
+
+## Evolution of ecological parameters
+
+Logistic equation with r(u), K(u)
+
+Given rare mutations, popdyn equilibrium, selection purely increases K,
+if population is lower it increases r.
+
+We write an vector p=(r,K).
+
+The former result is in the selection gradient.
+
+We impose smaller $$\hat{X}$$ to get the r-selection result from the
+selection gradient as $$\hat{X}\to0$$.
+
+## The Lotka-Volterra terms in this model
+
+To do adaptation we really need a resident-mutant form of the eqn -
+doing it the most obvious way gives the above results.
+
+The r and A are simple functions of r and K
+
+### Incentive and impact
+
+We can write the multitype form differently though, and get different outcomes.
+
+If we make K go with the agent rather than the
+patient in the interaction
+
+Selection is neutral on K and r, drifts.
+
+Why does the former Verhulst model decrease competition while the
+resource one increases it?
+
+In the former V model, K is connected to incentive, while in the
+latter it's impact, which is ignored by natural selection.
+
+Here's a combined model that has both - k_s for incentive
+(other's impact on self),
+k_f for impact (self's impact on the other).
+
+Do a change of variables, write the selection gradient.
+
+Incentive is to increase k_s, ignores k_f.
+
+Introduce u, monomorphic population.
+
+k_f changes as a side effect of u changing via selection on k_s
+
+population size increases unless change in k_f is *sufficiently*
+anticorrelated with k_s.
+
+The total impact on the environment increases no matter what, due to
+some oddity of the population size self-regulation.
+
+Yet the a term moves away from competition? Or does it?
+
+The direct effect of selection is something (so what?)
+
+### Competition for space vs. resource competition
+
+Form of the A vector in each model.
+
+Then what?
+
+# Example: Predator-prey model
+
+Along with competition, predation is the other big failure to
+mutualize. [or parasitism/disease?]
+
+Predation interactions are in the $$+/-$$ quadrants.
+
+I imagine predator and prey will have benefits from direct effects,
+detriment from indirect effects on each other, some balance of the two.
+
+Model is a foodweb graph with simple density-dependent
+competition on the autotroph level.
+
+Predation is a function $$f(u_i, u_j)$$, on both $$a_{ij}$$ and
+$$a_{ji}$$ terms, because it's number of predation events.
+
+r is 1 for autotrophs, -1 otherwise.
+
+We consider scalar u for each population.
+
+## Selection pressures on predators and prey
+
+Selection is only in a terms, via f(u,u)
+
+Gradient is made up of $$\partial f/\partial u$$ terms.
+
+I will use the functional form $$f(u_i,u_j) = 2 + \alpha \cos( u_i - u_j ),$$ 
+with some $$\alpha\in(0,1)$$.
+
+Antisymmetry allows use of a single f'
+
+Thus the direction of selection on $$u_i$$ depends on a weighted sum
+of influences of its prey and/or predators
+
+### Example: one prey, one predator
+
+When there is only population 1 eating population 0
+
+Simple S vector, -1, +k
+
+Selection is stronger on the prey, so it escapes.
+
+This example perhaps follows the "life-dinner hypothesis", in which
+selection acts more strongly on prey because they have more to lose
+from each interaction [@DawkinsKrebs1979].
+
+Using the cosine form, equilibrium is at $$u_0-u_1 = (2n+1)\pi$$,
+where predation is least.
+
+Figure: prey u escaping from predator u
+
+### Another example here?
+
+### Direct and indirect effects in the 2-species example
+
+Write the A vector
+
+The direct effect is increase in the predation interaction that affects you,
+with a factor of $$k^2$$ for the predator.
+
+The indirect effect is harm to the interaction that affects you, due to
+the other's incentive, with a factor of k on both.
+
+The resultant change is one mitigated by the other. The k factors make it so
+the prey prevails.
+
+The 1:-k ratio between the pair is preserved.
+
+The expression for change in (a,a) pair is nice and clean.
+
+## Direct and indirect effects in the general case
+
+In general community structure, here is S(u) - move away from predators
+and toward prey, with weighting by $$\hat{X}$$ and k.
+
+Motion of each (a,a) pair is a natural quantity
+
+# Externalities and the threat of "cheating" in evolution of mutualisms
+
+Transitions between mutualism and parasitism
+
+[To come. Roughgarden symbiosis model.]
+
+# Example: statistical mechanics of interactions.
+
+Model of n species where the angle on the (a,a) plane is chosen
+uniformly.
+
+There is a trend up and right.
+
+# Example: Hardin's Tragedy of the Commons
+
+simple ToC model is same as the MacLev model
+
+ToC is understood to be an indirect effect.
+
+Direct effects are interesting in the model too.
+
+But ToC uses a different definition of utility/benefit/detriment than we
+are using here, with more or less competition.  
+
+Game theory payoff terms are somewhere in between.
+
+[This and the game theory section below might be better to leave for
+a future paper]
+
+# Example: adaptive change in a game theory payoff matrix
+
+[selection gradient in rational action models.]
+
+[game theory payoff matrix entries behave just like L-V matrix entries
+under certain assumptions about changing game.]
+
+[transition from one game structure to another, like shift in interaction
+types.]
+
+# Discussion
+
+# Appendices
+
+## Adaptive change in constrained characters
+
+dynamics of phenotypic character vector p via invasion fitness, Metz,
+Ma
+
+Notation, p a column vector, $$\partial_1\mathcal{I}(p)$$ a row, etc.
+
+Change in p follows the selection gradient S(p).
+
+[Discuss how the rare mutant is the patient and the resident is the agent]
+
+[Consider discussing how this is in population genetics as well.]
+
+Per Levins, motion to the boundary leads to lower-dimensional dynamics,
+motivating p(u).
+
+Above analysis applies to S(u).
+
+dp/dt comes from the chain rule.
+
+Derivation of constrained selection gradient $$S_c(p)$$.
+
+Covariance matrix imposed by the constraint $$\partial p/\partial u$$.
+
+Lemma: the angle between $$S(p)$$ and $$S_c(p)$$ is no more than $$90^\circ$$.
+
+Corollary: S_c is within the half-space defined by S.
+
+On a curve, the half-space generally defines one of the two available
+directions.
+
+## Direct and indirect effect of adaptation on interaction terms
+
+a values are similar to p(u) but parametrized by two u values at
+a time, so there are extra complexities.
+
+S(u) in a GLV model
+
+du_i/dt in GLV
+
+Chain rule to write motion of r and a
+
+S(u_i) cares only about places where u_i is *patient*, not agent.
+
+Define patient and agent.
+
+Construct vector A of GLV quantities that drive motion of u_i
+
+Write du_i/dt in terms of that vector - it looks like the case with p.
+
+Define S(A)
+
+S(u) in terms of S(A) is just like the S(p) case.
+
+But the motion of A is not like the motion of p, because agent
+roles also affect it.
+
+Split motion of A into
+*direct effect* of patients responding to selection p-like,
+and *indirect effect* of agents altering course of interactions
+with externalities.
+
+Figure: selection and indirect effect on a-a plane
+
+Direct effect is within $90^\circ$ of S(A)
+
+* Given $$n$$ populations, there are $$n$$ intrinsic growth terms $$r_i$$
+and $$n^2$$ interaction terms $$a_{ij}$$.
+* We arrange those values into $$n$$ "interaction phenotypes" $$\mathbf{A}_i$$.
+* For each $$\mathbf{A}_i$$ there is a selection gradient
+$$\mathbf{S}(\mathbf{A}_i)$$, which is the direction of greatest increase in
+the invasion fitness of population $$i$$, when we vary population $$i$$
+as a rare invading population with all resident populations' phenotypes
+held fixed (including population $$i$$), that is, as the first argument
+to $$k(\mathbf u_i)$$ and $$a(\mathbf u_i, \mathbf u_j)$$, the patient.
+* Adaptive change in the $$i$$th population must be in a direction that
+would move $$\mathbf{A}_i$$ within $$90^\circ$$ of its selection gradient
+$$\mathbf{S}(\mathbf{A}_i)$$, considering $$i$$ as an invader with all resident 
+populations held fixed.
+* The direction of change in $$\mathbf{A}_i$$ due to that change in the
+$$i$$th population is the "direct effect" of selection on $$\mathbf{A}_i$$,
+$$\mathbf{D}_i$$.
+* The direction of change in $$\mathbf{A}_i$$ due to changes in all the
+resident populations, considered as agents, i.e. as the second argument to
+$$a(\mathbf{u}_i,\mathbf{u}_j)$$, is the "indirect effect" of selection
+on $$\mathbf{A}_i$$,
+$$\mathbf{I}_i$$.  Note that this includes an indirect effect of population
+$$i$$ on itself.
+
+## Upward bias in direct effects
+
+R() and a() can have any form
+
+But these results imply an upward bias.
+
+S(A) is always 1,X
+
+That's all positive.
+
+Therefore the direct effect can't be all negative, and is within
+90 degrees of that positive vector.  Ceteris paribus argument about rise.
+
+Can we assume indirect effect to be unbiased? There's an argument to be
+made.
+
+Sometimes a values increase and sometimes don't.
+Framework for examining when they do and do not increase:
+
+* The all-positive entries of the interaction selection gradient
+can be interpreted in terms of the meaning of a specific model's parameters,
+describing what selection "would like to do" if all degrees of freedom
+were available.
+* Constraints on actually available variation in $$r$$ and $$a$$ terms
+cause the direct effect to point in a different direction from the
+interaction selection gradient.  This can be interpreted in terms of
+tradeoffs and constraints imposed by the functional form of $$r$$ and
+$$a$$, as functions of the model's parameters.  Unpacking these constraints
+can shed light on how model assumptions constrain the evolution of
+interactions.
+* The indirect effects of each population's adaptation on other populations,
+and on itself, can change the resulting dynamics of interactions from
+what they would be due to direct effects alone.  These effects can be
+interpreted in terms of interplays or tensions between evolutionary
+"self-interest" and impacts of ones change on others.
+
+Use of these three parts to study how changes in interactions
+depend on assumptions.
+
+In this paper I explore these themes in various familiar models.
+
+## Direct and indirect effects in the Lotka-Volterra plane
+
+Motion of pairs on a-a plane.
+
+Definition of direct and indirect effect on a single a_ij value
+
+And on a pair.
+
+Equation for motion of pair
+
+Reveals nothing in particular about upward bias, but it's there because
+they're entries in the A vectors.
+
+motion of (a,a) in terms of partials of a() instead
+
+## Direct effects of constraints on interactions
+
+The direct effect is S(A) constrained to available-variation curve
+
+"effect of constraint" C_i = D_i - S(A)
+
+dA/dt = S(A) + C_i + I_I
+
+Rewrite of D_i
+
+Leading to the form of C_I
+
+When you have constraint but not indirect effect, it's
+**density-dependent selection**,
+while indirect effect is **frequency-dependent selection**.
+
+## Indirect effects of externalities on interactions
+
+[nothing here yet]
+
+## Structure of direct and indirect effects in monomorphic models
+
+### Direct effect
+
+Direct effect is the motion without frequency dependence.
+
+Consequence: in monomorphic model,
+density-dependent selection can reduce r or a but not both
+[and should be a polymorphic thing where at least one term increases?]
+
+Sign condition for selection on r and a to be in conflict.
+
+If not in conflict (and no zeros) then both increase.
+
+If in conflict then one increases, other decreases.
+
+Condition for increase in r
+
+Condition for increase in a
+
+Those give 3 cases, one increases, the other does, or both do.
+
+There is no case in which both $$r$$ and $$a$$ decrease due to direct
+effects of selection.
+
+### Externalities
+
+Externalities aka indirect effects act on a but not on r.
+
+Indirect effect in monomorphic model
+
+I.e. on a term uses $\partial_2 a$ to relate effect to S(u).
+
+Combine it with D to write full effect of adaptation on a
+
+Condition for decrease in a, i.e. sort of "tragedy of commons"
+
+$\partial_2 a$ has to be opposite in sign from $\partial_1$, and
+sufficiently large.
+
+## Details of resource competition model
+
+[this stuff is in the main body currently]
+
+## Details of predator-prey model
+
+## Details of mutualism model
+
+## Details of "statistical mechanics" model
+
+How to choose a() functions or phenotype vectors to get random
+angles $\partial_1, partial_2$.
+
+Do community assembly to get some coexisting species.
+
+Then watch what adaptation does.
+
+Example plots on lv plane.
+
+Also statistics on many runs?
+
+## Adaptive change in game theory payoff matrix
+
+## Details of game theory models
+
+# Bibliography
