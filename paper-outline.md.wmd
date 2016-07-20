@@ -15,6 +15,9 @@ accumulation of mutualism.
 Add some info about natural historical evidence, via Bronstein/Akcay
 book and Boucher.
 
+Do exposition of basic AD stuff in body of text simple and clear.
+Leave details to appendix.
+
 Put predation model before competition model - it illustrates
 direct and indirect very well, while the competition model involves
 evolution of an exterior quantity $R^*$.
@@ -49,8 +52,9 @@ The major points:
 To be written.
 
 Use of the four types (quadrants) of Lotka-Volterra interactions to
-classify ecological relationships, interest in the causes of mutualism
-and antagonism
+classify ecological relationships
+
+Interest in the causes of mutualism and antagonism
 
 Natural history examples: emergence of mutualism, and loss of mutualism
 
@@ -58,9 +62,19 @@ Evolution of constrained phenotypes; connection to Levins fitness sets
 
 Coevolutionary dynamics, frequency-dependent selection
 
-Related questions about cooperation, incentives, and externalities
+Related questions about cooperation, incentives, and externalities.
+Comments on $$+/+$$ cooperation vs. standard ideas of cooperation/altruism.
+Cost of cooperation, emergence of dilemmas and tragedies.
 
-# Sidebar: Coevolution of constrained characters
+# Review of multidimensional adaptive dynamics
+
+[bring (some?) from appendix.]
+
+Cover selection gradient, covariance matrix of mutation distribution.
+
+Sidebar?: selection gradient stuff in pop gen
+
+# Coevolution of constrained characters
 
 When relevant characters p are parametrized by fewer u's
 
@@ -74,16 +88,19 @@ Figure illustrating the gradient before + after, with curve.
 
 # Coevolution of interaction terms
 
+GLV model structure, with r(u) and a(u,u).
+
 $$a_{ij}$$ terms are sort of like $$p$$'s, controlled by $$u$$'s, but
 with the influence of the other $$u$$ as well.
 
-Agent and patient populations.
+Agent and patient roles.
 
-Gradient of selection is projected onto patient population.
+Gradient of selection is projected through patient roles.
 
 That selection produces "direct effect".
 
-There is also "indirect effect" of the agent population.
+There is also "indirect effect" of the agent population, also
+known as frequency-dependent selection (?).
 
 Gradient S(A) is always positive.
 
@@ -96,8 +113,8 @@ therefore biased toward positive but can be negative.
 Figure: Evolution of $$(a_{ij},a_{ji})$$ pair on the plane of
 Lotka-Volterra interactions.
 
-Figure: The vector $$A_i = (a_{i1},\ldots,a_{in})$$ moves in an
-$$n$$-dimensional space (in the illustration $$n=2$$).
+Figure: The vector $$A_i = (r_i,a_{i1},\ldots,a_{in})$$ moves in an
+$$n+1$$-dimensional space (in the illustration $$n=1$$ or $$2$$).
 
 Figure: Gradient of selection on $$A_i$$ in one dimension is in direction
 closest to abstract gradient of selection $$S$$.
@@ -110,7 +127,8 @@ Figure: The direction of the direct effect is always in the half-space
 within $$90^\circ$$ of the abstract selection gradient $$S$$.  $$S$$ is
 always positive, which implies that the direct effect vector $$D$$ is
 largely positive.  The resultant direction of actual change in $$A_i$$
-is the sum $$\mathbf{D}_i+\mathbf{I}_i$$.  The positive bias in $$\mathbf{D}_i$$ may produce a
+is the sum $$\mathbf{D}_i+\mathbf{I}_i$$.  The positive bias in
+$$\mathbf{D}_i$$ may produce a
 positive bias in the motion of $$A_i$$.
 
 Figure: direct and indirect effects on the pair $$(a_{ij},a_{ji})$$.
@@ -122,7 +140,8 @@ were IID random variables, interaction terms would drift upwards.
 
 They may not, though.
 
-* The "default", or *ceteris paribus*, outcome is positive drift, toward
+* The "default", or *ceteris paribus*, outcome is the direction
+of unconstrained selection: positive drift, toward
 the mutualistic quadrant.  When interactions do not move in that direction,
 there are two categories of constraints interfering with positive drift:
 * Populations may not be able to increase the value of all their
@@ -149,6 +168,90 @@ This research may help us to explain both mutualistic and
 antagonistic situations in nature and society, and may also help
 illuminate opportunities to transform antagonistic situations or
 social traps to opportunities for mutual benefit. 
+
+# Example: Predator-prey model
+
+Along with competition, predation is the other big failure to
+mutualize. [or parasitism/disease?]
+
+Predation interactions are in the $$+/-$$ quadrants.
+
+I imagine predator and prey will have benefits from direct effects,
+detriment from indirect effects on each other, some balance of the two.
+
+Model is a foodweb graph with simple density-dependent
+competition on the autotroph level.
+
+Predation is a function $$f(u_i, u_j)$$, on both $$a_{ij}$$ and
+$$a_{ji}$$ terms, because it's number of predation events.
+
+r is 1 for autotrophs, -1 otherwise.
+
+We consider scalar u for each population.
+
+## Selection pressures on predators and prey
+
+Selection is only in a terms, via f(u,u)
+
+Gradient is made up of $$\partial f/\partial u$$ terms.
+
+I will use the functional form $$f(u_i,u_j) = 2 + \alpha \cos( u_i - u_j ),$$ 
+with some $$\alpha\in(0,1)$$.
+
+Antisymmetry allows use of a single f'
+
+Thus the direction of selection on $$u_i$$ depends on a weighted sum
+of influences of its prey and/or predators
+
+### Example: one prey, one predator
+
+When there is only population 1 eating population 0
+
+Simple S vector, -1, +k
+
+Selection is stronger on the prey, so it escapes.
+
+This example perhaps follows the "life-dinner hypothesis", in which
+selection acts more strongly on prey because they have more to lose
+from each interaction [@DawkinsKrebs1979].
+
+Using the cosine form, equilibrium is at $$u_0-u_1 = (2n+1)\pi$$,
+where predation is least.
+
+Figure: prey u escaping from predator u
+
+### Another example here?
+
+### Direct and indirect effects in the 2-species example
+
+Write the A vector
+
+The direct effect is increase in the predation interaction that affects you,
+with a factor of $$k^2$$ for the predator.
+
+The indirect effect is harm to the interaction that affects you, due to
+the other's incentive, with a factor of k on both.
+
+The resultant change is one mitigated by the other. The k factors make it so
+the prey prevails.
+
+The 1:-k ratio between the pair is preserved.
+
+The expression for change in (a,a) pair is nice and clean.
+
+## Direct and indirect effects in the general case
+
+In general community structure, here is S(u) - move away from predators
+and toward prey, with weighting by $$\hat{X}$$ and k.
+
+Motion of each (a,a) pair is a natural quantity
+
+## Weakening the constraint
+
+Can I analyze the role of the constraint that prevents S(A) from happening?
+
+Do a model where variation can violate the constraint,
+Show it introduces up-and-right drift
 
 # Example: Resource competition
 
@@ -227,83 +330,6 @@ The direct effect of selection is something (so what?)
 Form of the A vector in each model.
 
 Then what?
-
-# Example: Predator-prey model
-
-Along with competition, predation is the other big failure to
-mutualize. [or parasitism/disease?]
-
-Predation interactions are in the $$+/-$$ quadrants.
-
-I imagine predator and prey will have benefits from direct effects,
-detriment from indirect effects on each other, some balance of the two.
-
-Model is a foodweb graph with simple density-dependent
-competition on the autotroph level.
-
-Predation is a function $$f(u_i, u_j)$$, on both $$a_{ij}$$ and
-$$a_{ji}$$ terms, because it's number of predation events.
-
-r is 1 for autotrophs, -1 otherwise.
-
-We consider scalar u for each population.
-
-## Selection pressures on predators and prey
-
-Selection is only in a terms, via f(u,u)
-
-Gradient is made up of $$\partial f/\partial u$$ terms.
-
-I will use the functional form $$f(u_i,u_j) = 2 + \alpha \cos( u_i - u_j ),$$ 
-with some $$\alpha\in(0,1)$$.
-
-Antisymmetry allows use of a single f'
-
-Thus the direction of selection on $$u_i$$ depends on a weighted sum
-of influences of its prey and/or predators
-
-### Example: one prey, one predator
-
-When there is only population 1 eating population 0
-
-Simple S vector, -1, +k
-
-Selection is stronger on the prey, so it escapes.
-
-This example perhaps follows the "life-dinner hypothesis", in which
-selection acts more strongly on prey because they have more to lose
-from each interaction [@DawkinsKrebs1979].
-
-Using the cosine form, equilibrium is at $$u_0-u_1 = (2n+1)\pi$$,
-where predation is least.
-
-Figure: prey u escaping from predator u
-
-### Another example here?
-
-### Direct and indirect effects in the 2-species example
-
-Write the A vector
-
-The direct effect is increase in the predation interaction that affects you,
-with a factor of $$k^2$$ for the predator.
-
-The indirect effect is harm to the interaction that affects you, due to
-the other's incentive, with a factor of k on both.
-
-The resultant change is one mitigated by the other. The k factors make it so
-the prey prevails.
-
-The 1:-k ratio between the pair is preserved.
-
-The expression for change in (a,a) pair is nice and clean.
-
-## Direct and indirect effects in the general case
-
-In general community structure, here is S(u) - move away from predators
-and toward prey, with weighting by $$\hat{X}$$ and k.
-
-Motion of each (a,a) pair is a natural quantity
 
 # Externalities and the threat of "cheating" in evolution of mutualisms
 

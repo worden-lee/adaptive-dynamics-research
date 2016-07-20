@@ -1,15 +1,14 @@
 ---
 layout: page
-title: "Evolution in a Food Web"
+title: "Evolution in a Food Web part 2"
 wmd_project: Selection_Gradients
 ---
-Evolution in a food web -- is it arms-race-like?
 
-We provide a directed graph representing the food web. Node labels are species names, and arrow labels are strength of predation.  Let's say the conversion factor from prey to predator is constant $$k$$.
+As in the "Food Web" section, we provide a directed graph representing the food web. Node labels are species names, and arrow labels are strength of predation.  Let's say the conversion factor from prey to predator is constant $$k$$.
 
 Then species $$i$$'s dynamics is
 
-$$\frac{dX_i}{dt} = (r_i + k \sum_{j\to i} f_{ji}X_j - \sum_{i\to j} f_{ij}X_j) X_i$$
+\[* \frac{dX_i}{dt} = \left(r_i + k \sum_{j\to i} f_{ji}X_j - \sum_{i\to j} f_{ij}X_j\right) X_i \]
 
 where
 
@@ -21,7 +20,27 @@ $$r_i = (0\text{ if }i\text{ is a predator, }1\text{ else})$$.
 
 This will induce the usual dynamics of apparent competition, and adaptive dynamics of all the $$u_i$$ follows.
 
-<source-file filename=foodweb.py.step lang=python texdisplay=none>
+* UPDATE: the above forces a fixed ratio of $$-k$$ between paired $$a$$ values.
+We can allow that to drift a little by giving each a 'conversion efficiency'
+value, maybe? Use a planar $$s_i=(u_i,\gamma_i)$$, and 
+instead of writing $$k f(u_i,u_j)$$, we use $$k \gamma_i \gamma_j f(u_i,u_j)$$.
+On the prey side just $$f(u_i,u_j)$$.   Then the ratio is $$k\gamma_i\gamma_j$$.
+Let the $$\gamma$$ values vary more slowly than $$f$$. 
+
+* UPDATE: Yes, but that way selection is only on the predator's $$\gamma$$
+because they only affect the predatory's fitness.
+Predatory's $$\gamma_i$$ can be how much it gets from eating a prey,
+but what does it mean for the prey to change the conversion rate?
+A predation event kills less than one prey animal?
+I mean, maybe if it's a fungus or something.
+That might work for me - let $$f(u_i,u_j)$$ be encounter rate,
+predator's $$\gamma_j$$ is how much it gets from encounter,
+prey's $$\sigma_i$$ is how much it loses from encounter, so
+we can say $$-k \gamma_j f(u_i,u_j)$$ and $$\sigma_i f(u_i, u_j)$$
+respectively, which will produce the selection I'm looking for,
+and ought to lead to marginal benefit for both.
+
+<source-file filename=foodweb2.py.step lang=python texdisplay=none>
 from sage.all import * 
 import dynamicalsystems
 
@@ -30,10 +49,11 @@ class vertex_indexer(dynamicalsystems.indexer):
 	self._f = x
     def __getitem__(self, tup):
 	# tup is a tuple (vertex, number)
-	v, i = tup
+	#v, i = tup
+	return dynamicalsystems.subscriptedsymbol( self._f, *tup )
 	return SR.symbol(
 	    '%s_%s_%s' % (self._f, str(i), str(v)),
-	    latex_name = '%s_{' '%s%s}' % (self._f, latex(i), latex(v))
+	    latex_name = '%s_{''%s%s}' % (self._f, latex(i), latex(v))
 	)
 
 class vertex_indexer_2d(dynamicalsystems.indexer):
@@ -48,6 +68,7 @@ class vertex_indexer_2d(dynamicalsystems.indexer):
 		# tup* is a tuple (vertex, number)
 		v, i = self._tupi
 		w, j = tupj
+		return dynamicalsystems.subscriptedsymbol( self._f, i, v, j, w )
 		return SR.symbol(
 		    '_'.join( [self._f, str(i), str(v), str(j), str(w)] ),
 		    latex_name = '%s_{''%s%s%s%s}' % (self._f, latex(i), latex(v), latex(j), latex(w))
@@ -64,6 +85,8 @@ class FoodWebModel(dynamicalsystems.PopulationDynamicsSystem):
 	x_indices = [ (v,0) for v in graph.vertices() ]
         pop_indexer = vertex_indexer('X')
 	self._u_indexer = vertex_indexer('u')
+	self._gamma_indexer = vertex_indexer(SR.symbol('gamma', latex_name='\\gamma'))
+	self._sigma_indexer = vertex_indexer(SR.symbol('sigma', latex_name='\\sigma'))
 	super(FoodWebModel,self).__init__(
 	    [], x_indices, pop_indexer, bindings=bindings
 	)
@@ -73,14 +96,16 @@ class FoodWebModel(dynamicalsystems.PopulationDynamicsSystem):
 	basal = self._graph.sources()
 	print 'basal:', basal
 	k = SR.symbol( 'k' )
+	slow = SR.symbol( 'slow' )
 	for i in self._population_indices:
 	    xi = self._population_indexer[i]
 	    for j in self._population_indices:
 	        xj = self._population_indexer[j]
 		if i != j and self._graph.has_edge( j[0], i[0] ):
+		    ## i eats j
 		    axx = self._f( i, j ) * xi * xj
-		    outflo[ xj ] += axx
-		    inflo[ xi ] += k * axx
+		    outflo[ xj ] += (1 + slow*self._sigma_indexer[j]) * axx
+		    inflo[ xi ] += k * (1 + slow*self._gamma_indexer[i]) * axx
 		if i[0] in basal and j[0] in basal:
 		    outflo[ xj ] += xi*xj
 	    if inflo[xi] == 0:
@@ -109,96 +134,114 @@ class FoodWebModel(dynamicalsystems.PopulationDynamicsSystem):
 	LF.close()
 </source-file>
 
-<source-file filename=foodweb.sage.step lang=sage texdisplay=none>
-# requires: foodweb.py
-# produces: foodweb.sobj foodweb.sage.out.tex foodweb.tikz.tex
+<source-file filename=foodweb2.sage.step lang=sage texdisplay=none>
+# requires: foodweb2.py
+# produces: foodweb2.sobj foodweb2.sage.out.tex foodweb2.tikz.tex
 from sage.all import * 
-from sage.misc.latex import _latex_file_
 
-import foodweb
+import foodweb2
 import dynamicalsystems
 
-ltx = dynamicalsystems.latex_output( 'foodweb.sage.out.tex' )
+ltx = dynamicalsystems.latex_output( 'foodweb2.sage.out.tex' )
 
 # now that I've defined the general resource-competition model, let's
 # create a 1-resource, 1-population instantiation to work with
 var('a b')
 
 fb = (
-    dynamicalsystems.Bindings( k = 9/10 ) +
+    dynamicalsystems.Bindings( k = 9/10, slow=1/50 ) +
     dynamicalsystems.FunctionBindings( { 'f':SR('2 + 4/5*cos( u - v )').function(SR('u'),SR('v')) } )
 )
 
-foodweb_pred_prey = foodweb.FoodWebModel(
+foodweb_pred_prey = foodweb2.FoodWebModel(
     DiGraph( { a:[b] } ),
     bindings = dynamicalsystems.Bindings( { 'r':1, 'm':1 } )
 );
 
 ltx.write( 'The foodweb model:', foodweb_pred_prey.bind(fb) )
 
-foodweb_pred_prey.plot_tikz( 'foodweb.tikz.tex' )
+foodweb_pred_prey.plot_tikz( 'foodweb2.tikz.tex' )
 
 ltx.close()
-save_session('foodweb')
+save_session('foodweb2')
 #sys.exit( 0r )
 </source-file>
 
-<source-file filename=foodweb-adap.sage.step lang=sage texdisplay=none>
-# requires: foodweb.py foodweb.sobj
-# produces: foodweb-adap.sage.out.tex foodweb-adap.sobj
+<source-file filename=foodweb2-adap.sage.step lang=sage texdisplay=none>
+# requires: foodweb2.py foodweb2.sobj
+# produces: foodweb2-adap.sage.out.tex foodweb2-adap.sobj
 from sage.all import * 
-from sage.misc.latex import _latex_file_
 
-import foodweb
-import dynamicalsystems
+import foodweb2, dynamicalsystems
 
-load_session("foodweb")
+load_session("foodweb2")
 
-ltx = dynamicalsystems.latex_output( 'foodweb-adap.sage.out.tex' )
+ltx = dynamicalsystems.latex_output( 'foodweb2-adap.sage.out.tex' )
+
+foodweb_adap_formal = dynamicalsystems.AdaptiveDynamicsModel( 
+    foodweb_pred_prey,
+    [ foodweb_pred_prey._u_indexer, foodweb_pred_prey._gamma_indexer, foodweb_pred_prey._sigma_indexer  ],
+    early_bindings=fb,
+    equilibrium = foodweb_pred_prey.symbolic_equilibria()
+).bind( { 'gamma':1 } )
+
+ltx.write( 'The foodweb adaptive dynamics:', foodweb_adap_formal.bind(fb) )
 
 equil = foodweb_pred_prey.interior_equilibria()
 print equil
 
-foodweb_adap = dynamicalsystems.AdaptiveDynamicsModel( 
-    foodweb_pred_prey,
-    [ foodweb_pred_prey._u_indexer ],
-    early_bindings=fb,
-    equilibrium = dynamicalsystems.Bindings( equil[0] )
-).bind( { 'gamma':1 } )
+#foodweb_adap = dynamicalsystems.AdaptiveDynamicsModel( 
+#    foodweb_pred_prey,
+#    [ foodweb_pred_prey._u_indexer, foodweb_pred_prey._gamma_indexer ],
+#    early_bindings=fb,
+#    equilibrium = dynamicalsystems.Bindings( equil[0] )
+#).bind( { 'gamma':1 } )
+foodweb_adap = foodweb_adap_formal.bind( equil[0] )
 
-ltx.write( 'Adaptive dynamics of model:\n', foodweb_adap )
+#ltx.write( 'Adaptive dynamics of model:\n', foodweb_adap )
 #ltx.write_environment( 'align*', [ '\\\\\n  '.join( r'\frac{d%s}{dt} &\propto %s' % (latex(v), latex(foodweb_adap._S[v])) for v in foodweb_adap._vars ) ] )
-
-pred_prey_init = dynamicalsystems.Bindings( { 'u_0_a':0.1, 'u_0_b':0 } )
-
-ltx.write( 'flow at ', '$%s$'%latex( dynamicalsystems.column_vector( [ pred_prey_init( v ) for v in foodweb_adap._vars ] ) ), ': ', 
-    '$%s$'%latex( dynamicalsystems.column_vector( pred_prey_init( foodweb_adap._flow[v] ) for v in foodweb_adap._vars ) ) )
-
-pred_prey_traj = foodweb_adap.bind( fb ).solve( [ pred_prey_init( v ) for v in foodweb_adap._vars ], end_time=1000 ) #, step=0.003 )
 
 ltx.close()
 
-save_session('foodweb-adap')
+save_session('foodweb2-adap')
 </source-file>
 
-<project-file filename=foodweb.tikz.crop.svg/>
-
-<project-file filename=foodweb.sage.out.tex/>
-
-<source-file filename="foodweb.plot.sage.step" texdisplay=none>
-# requires: foodweb-adap.sobj
-# produces: foodweb.plot.sage.out.tex 
-# produces: foodweb-pred-prey-adap.png foodweb-pred-prey-adap.svg
-# produces: foodweb-pred-prey-adap-difference.png
-# produces: foodweb-pred-prey-a-vs-t.png foodweb-pred-prey-a-vs-a.png
-# produces: foodweb-pred-prey-x-vs-t.png
+<source-file filename="foodweb2-adap-traj.sage.step" texdisplay=none>
+# requires: foodweb2-adap.sobj
+# produces: foodweb2-adap-traj.sobj
 from sage.all import *
-from sage.misc.latex import _latex_file_
+
+import foodweb2, dynamicalsystems, lotkavolterra
+
+load_session("foodweb2-adap")
+
+pred_prey_init = dynamicalsystems.Bindings( { 'u_a_0':0.1, 'u_b_0':0, 'gamma_a_0':0, 'gamma_b_0':0, 'sigma_a_0':1, 'sigma_b_0':1 } )
+
+#ltx.write( 'flow at ', '$%s$'%latex( dynamicalsystems.column_vector( [ pred_prey_init( v ) for v in foodweb_adap._vars ] ) ), ': ', 
+#    '$%s$'%latex( dynamicalsystems.column_vector( pred_prey_init( foodweb_adap._flow[v] ) for v in foodweb_adap._vars ) ) )
+
+pred_prey_traj = foodweb_adap.solve( [ pred_prey_init( v ) for v in foodweb_adap._vars ], end_time=1000 ) #, step=0.003 )
+
+save_session('foodweb2-adap-traj')
+</source-file>
+
+<project-file filename=foodweb2.tikz.crop.svg/>
+
+<project-file filename=foodweb2.sage.out.tex/>
+
+<project-file filename=foodweb2-adap.sage.out.tex/>
+
+<source-file filename="foodweb2.plot.sage.step" texdisplay=none>
+# requires: foodweb2-adap-traj.sobj
+# produces: foodweb2.plot.sage.out.tex 
+# produces: foodweb2-pred-prey-adap.png foodweb2-pred-prey-adap.svg
+# produces: foodweb2-pred-prey-adap-difference.png
+# produces: foodweb2-pred-prey-a-vs-t.png foodweb2-pred-prey-a-vs-a.png
+# produces: foodweb2-pred-prey-x-vs-t.png
+from sage.all import *
 from sage.misc.latex import latex
 
-import foodweb
-import dynamicalsystems
-import lotkavolterra
+import foodweb2, dynamicalsystems, lotkavolterra
 
 # create variables with custom latex names because load_session
 # creates them wrong: http://trac.sagemath.org/ticket/17559
@@ -206,84 +249,87 @@ import lotkavolterra
 #SR.symbol( 'c_0_0', latex_name='c_{00}' )
 #SR.symbol( 'c_i_0', latex_name='c_{i0}' )
 
-load_session("foodweb-adap")
+load_session("foodweb2-adap-traj")
 
-ltx = dynamicalsystems.latex_output( 'foodweb.plot.sage.out.tex' )
+ltx = dynamicalsystems.latex_output( 'foodweb2.plot.sage.out.tex' )
 
 #foodweb_adap.bind_in_place( fb )
 
 print 'flow at initial conditions:', pred_prey_init( foodweb_adap._flow )
 
-ppp = Graphics()
-for v, c, l in zip( foodweb_adap._vars, ['blue', 'red'], ['prey $u_0$','predator $u_1$'] ):
-    ppp += pred_prey_traj.plot( 't', v, color=c, legend_label=l )
-ppp.save( 'foodweb-pred-prey-adap.png',
-    ticks=[100,pi],
-    tick_formatter=[None,pi],
+#ppp = Graphics()
+#for v, c in zip( foodweb_adap._vars, ['blue', 'red', 'purple','green'] ):
+#    ppp += pred_prey_traj.plot( 't', v, color=c, legend_label=l )
+#    ppp += pred_prey_traj.plot( 't', v, color=c, legend_label='${}$'.format(latex(v)) )
+
+ppp = pred_prey_traj.plot( 't', foodweb_adap._vars )
+ppp.save( 'foodweb2-pred-prey-adap.png',
+    #ticks=[100,pi],
+    #tick_formatter=[None,pi],
     figsize=(5,5)
 )
-ppp.save( 'foodweb-pred-prey-adap.svg',
-    ticks=[500,pi],
-    tick_formatter=[None,pi],
+ppp.save( 'foodweb2-pred-prey-adap.svg',
+    #ticks=[500,pi],
+    #tick_formatter=[None,pi],
     figsize=(3,3)
 )
 
-pred_prey_traj.plot( 't', 'u_0_a - u_0_b', legend_label='$u_0-u_1$' ).save(
-    'foodweb-pred-prey-adap-difference.png',
-    ymin=0,
-    ymax=3.2,
-    ticks=[100,pi/2],
-    tick_formatter=[None,pi],
+pred_prey_traj.plot( 't', 'u_a_0 - u_b_0', legend_label='$u_{a0}-u_{b0}$' ).save(
+    'foodweb2-pred-prey-adap-difference.png',
+    #ymin=0,
+    #ymax=3.2,
+    #ticks=[100,pi/2],
+    #tick_formatter=[None,pi],
     figsize=(5,5)
 )
 
 xs = foodweb_adap._popdyn_model.equilibrium_vars()
-ppx = Graphics()
-for xhat in xs:
-    ppx += pred_prey_traj.plot( 't', xhat, legend_label='$%s$'%latex(xhat) )
-ppx.save( 'foodweb-pred-prey-x-vs-t.png', figsize=(5,5) )
+#ppx = Graphics()
+#for xhat in xs:
+#    ppx += pred_prey_traj.plot( 't', xhat, legend_label='$%s$'%latex(xhat) )
+ppx = pred_prey_traj.plot( 't', xs )
+ppx.save( 'foodweb2-pred-prey-x-vs-t.png', figsize=(5,5) )
 
 flv = lotkavolterra.LotkaVolterraAdaptiveDynamics( foodweb_adap,
-	r_name_indexer=foodweb.vertex_indexer('r'),
-        a_name_indexer=foodweb.vertex_indexer_2d('a') )
+	r_name_indexer=foodweb2.vertex_indexer('r'),
+        a_name_indexer=foodweb2.vertex_indexer_2d('a') )
 
 atp = Graphics()
 for i in foodweb_adap._popdyn_model._population_indices:
     for j in foodweb_adap._popdyn_model._population_indices:
 	atp += pred_prey_traj.plot( 't', fb( flv._lv_model._A_bindings( flv._lv_model._a_indexer[i][j] ) ),
 	    color = (i == j and 'red' or 'green') )
-atp.save( 'foodweb-pred-prey-a-vs-t.png', figsize=(5,5) )
+atp.save( 'foodweb2-pred-prey-a-vs-t.png', figsize=(5,5) )
 
-lotkavolterra.plot_aij_with_arrows( pred_prey_traj, flv, 'foodweb-pred-prey-a-vs-a.png', bindings=fb )
+lotkavolterra.plot_aij_with_arrows( pred_prey_traj, flv, 'foodweb2-pred-prey-a-vs-a.png', bindings=fb )
 
-lotkavolterra.plot_aij_with_arrows( pred_prey_traj, flv, 'foodweb-pred-prey-a-vs-a-detail.png', bindings=fb, xmin=-1.9955, xmax=-1.9945, ymin=1.795, ymax=1.796 )
+lotkavolterra.plot_aij_with_arrows( pred_prey_traj, flv, 'foodweb2-pred-prey-a-vs-a-detail.png', bindings=fb, xmin=-1.9955, xmax=-1.9945, ymin=1.795, ymax=1.796 )
 
 ltx.close()
 </source-file>
 
-<project-file filename=foodweb-pred-prey-adap.png/>
+<project-file filename=foodweb2-pred-prey-adap.png/>
 
-<project-file filename=foodweb-pred-prey-adap-difference.png/>
+<project-file filename=foodweb2-pred-prey-adap-difference.png/>
 
-<project-file filename=foodweb-pred-prey-x-vs-t.png/>
+<project-file filename=foodweb2-pred-prey-x-vs-t.png/>
 
-<project-file filename=foodweb-pred-prey-a-vs-t.png/>
+<project-file filename=foodweb2-pred-prey-a-vs-t.png/>
 
-<project-file filename=foodweb-pred-prey-a-vs-a.png/>
+<project-file filename=foodweb2-pred-prey-a-vs-a.png/>
 
-<project-file filename=foodweb-pred-prey-a-vs-a-detail.png/>
+<project-file filename=foodweb2-pred-prey-a-vs-a-detail.png/>
 
-<source-file filename=foodweb-2-2.sage.step lang=sage texdisplay=none>
-# requires: foodweb.py
-# produces: foodweb-2-2.sobj foodweb-2-2.sage.out.tex foodweb-2-2.tikz.tex
+<source-file filename=foodweb2-2-2.sage.step lang=sage texdisplay=none>
+# requires: foodweb2.py
+# produces: foodweb2-2-2.sobj foodweb2-2-2.sage.out.tex foodweb2-2-2.tikz.tex
 from sage.all import * 
-from sage.misc.latex import _latex_file_
-
-import foodweb
+)
+import foodweb2
 import dynamicalsystems
 import lotkavolterra
 
-ltx = dynamicalsystems.latex_output( 'foodweb-2-2.sage.out.tex' )
+ltx = dynamicalsystems.latex_output( 'foodweb2-2-2.sage.out.tex' )
 
 # now that I've defined the general resource-competition model, let's
 # create a 1-resource, 1-population instantiation to work with
@@ -300,10 +346,10 @@ fb_2_2 = foodweb_2_2.bind(fb)
 
 ltx.write( 'The foodweb model:', fb_2_2 )
 
-foodweb_2_2.plot_tikz( 'foodweb-2-2.tikz.tex' )
+foodweb_2_2.plot_tikz( 'foodweb2-2-2.tikz.tex' )
 
 #ltx.close()
-#save_session('foodweb-2-2')
+#save_session('foodweb2-2-2')
 #sys.exit( 0r )
 
 equil = fb_2_2.interior_equilibria()
@@ -336,29 +382,28 @@ print traj_2_2._timeseries
 
 ltx.close()
 
-save_session('foodweb-2-2')
+save_session('foodweb2-2-2')
 </source-file>
 
-<project-file filename=foodweb-2-2.tikz.crop.svg/>
+<project-file filename=foodweb2-2-2.tikz.crop.svg/>
 
-<project-file filename=foodweb-2-2.sage.out.tex/>
+<project-file filename=foodweb2-2-2.sage.out.tex/>
 
-<source-file filename="foodweb-2-2.plot.sage.step" texdisplay=none>
-# requires: foodweb-2-2.sobj
-# produces: foodweb-2-2.plot.sage.out.tex foodweb-2-2-adap.png
-# produces: foodweb-2-2-a-vs-a.png foodweb-2-2-a-vs-t.png
-# produces: foodweb-2-2-x-vs-t.png
+<source-file filename="foodweb2-2-2.plot.sage.step" texdisplay=none>
+# requires: foodweb2-2-2.sobj
+# produces: foodweb2-2-2.plot.sage.out.tex foodweb2-2-2-adap.png
+# produces: foodweb2-2-2-a-vs-a.png foodweb2-2-2-a-vs-t.png
+# produces: foodweb2-2-2-x-vs-t.png
 from sage.all import *
-from sage.misc.latex import _latex_file_
 from sage.misc.latex import latex
 
-import foodweb
+import foodweb2
 import dynamicalsystems
 import lotkavolterra
 
-load_session("foodweb-2-2")
+load_session("foodweb2-2-2")
 
-ltx = dynamicalsystems.latex_output( 'foodweb-2-2.plot.sage.out.tex' )
+ltx = dynamicalsystems.latex_output( 'foodweb2-2-2.plot.sage.out.tex' )
 
 # doesn't pickle?
 sym_lv = lotkavolterra.LotkaVolterraAdaptiveDynamics( foodweb_adap,
@@ -406,13 +451,13 @@ ltx.write_equality_aligned(
 ppp = Graphics()
 for v, c in zip( fb_adap._vars, ['blue', 'red', 'purple', 'orange'] ):
     ppp += traj_2_2.plot( 't', v, color=c )
-ppp.save( 'foodweb-2-2-adap.png', figsize=(5,5) )
+ppp.save( 'foodweb2-2-2-adap.png', figsize=(5,5) )
 
 xs = fb_adap._popdyn_model.equilibrium_vars()
 ppx = Graphics()
 for xhat, c in zip(xs, ['blue', 'red', 'purple', 'orange']):
     ppx += traj_2_2.plot( 't', xhat, legend_label='$%s$'%latex(xhat), color=c )
-ppx.save( 'foodweb-2-2-x-vs-t.png', figsize=(5,5) )
+ppx.save( 'foodweb2-2-2-x-vs-t.png', figsize=(5,5) )
 
 flv = lotkavolterra.LotkaVolterraAdaptiveDynamics( fb_adap,
 	r_name_indexer=foodweb.vertex_indexer('r'),
@@ -423,24 +468,24 @@ for i in fb_adap._popdyn_model._population_indices:
     for j in fb_adap._popdyn_model._population_indices:
 	atp += traj_2_2.plot( 't', flv._lv_model._A_bindings( flv._lv_model._a_indexer[i][j] ),
 	    color = (i == j and 'red' or 'green') )
-atp.save( 'foodweb-2-2-a-vs-t.png', figsize=(5,5) )
+atp.save( 'foodweb2-2-2-a-vs-t.png', figsize=(5,5) )
 
-lotkavolterra.plot_aij_with_arrows( traj_2_2, flv, 'foodweb-2-2-a-vs-a.png' )
+lotkavolterra.plot_aij_with_arrows( traj_2_2, flv, 'foodweb2-2-2-a-vs-a.png' )
 
-lotkavolterra.plot_aij_with_arrows( traj_2_2, flv, 'foodweb-2-2-a-vs-a-detail.png', xmin=-1.993, xmax=-1.9925, ymin=1.79325, ymax=1.79375 )
+lotkavolterra.plot_aij_with_arrows( traj_2_2, flv, 'foodweb2-2-2-a-vs-a-detail.png', xmin=-1.993, xmax=-1.9925, ymin=1.79325, ymax=1.79375 )
 
 ltx.close()
 </source-file>
 
-<project-file filename=foodweb-2-2.plot.sage.out.tex/>
+<project-file filename=foodweb2-2-2.plot.sage.out.tex/>
 
-<project-file filename=foodweb-2-2-adap.png/>
+<project-file filename=foodweb2-2-2-adap.png/>
 
-<project-file filename=foodweb-2-2-x-vs-t.png/>
+<project-file filename=foodweb2-2-2-x-vs-t.png/>
 
-<project-file filename=foodweb-2-2-a-vs-a.png/>
+<project-file filename=foodweb2-2-2-a-vs-a.png/>
 
-<project-file filename=foodweb-2-2-a-vs-a-detail.png/>
+<project-file filename=foodweb2-2-2-a-vs-a-detail.png/>
 
-<project-file filename=foodweb-2-2-a-vs-t.png/>
+<project-file filename=foodweb2-2-2-a-vs-t.png/>
 

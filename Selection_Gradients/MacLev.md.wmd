@@ -166,7 +166,7 @@ from sage.symbolic.function_factory import function
 # and MacArthurLevinsModel
 
 def c_var(i, l):
-    return SR.var( 'c_%s_%s'%(i,l), latex_name='c_{%s%s}'%(i,l) )
+    return SR.var( 'c_%s_%s'%(i,l), latex_name='c_{''%s%s}'%(i,l) )
 
 def b_var(i):
     return SR.var( 'b_%s'%i )
