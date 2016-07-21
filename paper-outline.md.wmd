@@ -8,19 +8,11 @@ wmd_project: Selection_Gradients
 
 # Notes on Meta
 
-Take out $\Delta a$ model and direct model.
-Just discuss already-published cases of
-accumulation of mutualism.
-
 Add some info about natural historical evidence, via Bronstein/Akcay
 book and Boucher.
 
 Do exposition of basic AD stuff in body of text simple and clear.
 Leave details to appendix.
-
-Put predation model before competition model - it illustrates
-direct and indirect very well, while the competition model involves
-evolution of an exterior quantity $R^*$.
 
 Distinguishing ToC concept of utility from what's in these models.
 For most part, probably take ToC out of this ms.
@@ -85,6 +77,8 @@ Angle of projected motion is within $$90^\circ$$ of the unabridged gradient.
 Stasis is when original S is 0 or the curve is perpendicular.
 
 Figure illustrating the gradient before + after, with curve.
+
+Discuss dialectic of selection, available variation
 
 # Coevolution of interaction terms
 
@@ -269,67 +263,74 @@ the direct and indirect effects.
 
 ## Evolution of ecological parameters
 
-Logistic equation with r(u), K(u)
+Parameters b, m, c become functions of u, and entries in a vector p(u).
 
-Given rare mutations, popdyn equilibrium, selection purely increases K,
-if population is lower it increases r.
+S(p)
 
-We write an vector p=(r,K).
+Selects for more c, less m, neutral on b
 
-The former result is in the selection gradient.
+Those are the ceteris paribus direction of change of p.
 
-We impose smaller $$\hat{X}$$ to get the r-selection result from the
-selection gradient as $$\hat{X}\to0$$.
+Tilman assures us that R* values decline
 
-## The Lotka-Volterra terms in this model
+Let's consider variation in c only.
 
-To do adaptation we really need a resident-mutant form of the eqn -
-doing it the most obvious way gives the above results.
+In one population/one resource, c increases, R* decreases, k increases,
+and a goes more negative.
 
-The r and A are simple functions of r and K
+Figure: c up, R* down
 
-### Incentive and impact
+In two populations/two resources, S(p) is a multiple
+of the R* vector
 
-We can write the multitype form differently though, and get different outcomes.
+Independent c values increase following that, and R* values decrease.
 
-If we make K go with the agent rather than the
-patient in the interaction
+Figure: 4 c values go up
 
-Selection is neutral on K and r, drifts.
+When c values are c(u), S(p) is projected into tangent space of constraint,
+outcome depends on form of constraint.
 
-Why does the former Verhulst model decrease competition while the
-resource one increases it?
+## Evolution of Lotka-Volterra interactions
 
-In the former V model, K is connected to incentive, while in the
-latter it's impact, which is ignored by natural selection.
+Why do a go down?
 
-Here's a combined model that has both - k_s for incentive
-(other's impact on self),
-k_f for impact (self's impact on the other).
+Figure: k up, a down
 
-Do a change of variables, write the selection gradient.
+We must look at selection on k and a terms and how they cause change in c
 
-Incentive is to increase k_s, ignores k_f.
+There are 3 parts: two parts of k and one part of a
 
-Introduce u, monomorphic population.
+k is the growth rate that would happen if no drawdown, minus mortality
 
-k_f changes as a side effect of u changing via selection on k_s
+a is the reduction in growth due to drawdown
 
-population size increases unless change in k_f is *sufficiently*
-anticorrelated with k_s.
+S(A) is the usual X
 
-The total impact on the environment increases no matter what, due to
-some oddity of the population size self-regulation.
+k increases with c and b, and decreases with m
 
-Yet the a term moves away from competition? Or does it?
+a decreases with c and b, ignores m
 
-The direct effect of selection is something (so what?)
+### selection on k causes competition to increase
 
-### Competition for space vs. resource competition
+k and a are at odds with respect to c
 
-Form of the A vector in each model.
+but the drawdown is never as much as the original amount; so k wins
 
-Then what?
+This is direct effect
+
+Indirect effect causes further decrease in a
+
+### selection on a terms alone decreases competition
+
+Experiment: don't allow k to change, only a
+
+Just the right trade-off between c and m
+
+Now c decrease, a rise toward zero
+
+Figure: c shrink, a shrink
+
+Todo: what is general condition for competition to lessen
 
 # Externalities and the threat of "cheating" in evolution of mutualisms
 
@@ -339,36 +340,12 @@ Transitions between mutualism and parasitism
 
 # Example: statistical mechanics of interactions.
 
+take this out?
+
 Model of n species where the angle on the (a,a) plane is chosen
 uniformly.
 
 There is a trend up and right.
-
-# Example: Hardin's Tragedy of the Commons
-
-simple ToC model is same as the MacLev model
-
-ToC is understood to be an indirect effect.
-
-Direct effects are interesting in the model too.
-
-But ToC uses a different definition of utility/benefit/detriment than we
-are using here, with more or less competition.  
-
-Game theory payoff terms are somewhere in between.
-
-[This and the game theory section below might be better to leave for
-a future paper]
-
-# Example: adaptive change in a game theory payoff matrix
-
-[selection gradient in rational action models.]
-
-[game theory payoff matrix entries behave just like L-V matrix entries
-under certain assumptions about changing game.]
-
-[transition from one game structure to another, like shift in interaction
-types.]
 
 # Discussion
 
