@@ -36,15 +36,15 @@
 \begin{document}
 The foodweb model:\iflatexml
 \begin{align*}
-\frac{dX_{0b}}{dt} &= \frac{9}{25} \, X_{0a} X_{0b} {\left(2 \, \cos\left(-u_{0a} + u_{0b}\right) + 5\right)} - X_{0b}\\
-\frac{dX_{0a}}{dt} &= -\frac{2}{5} \, X_{0a} X_{0b} {\left(2 \, \cos\left(-u_{0a} + u_{0b}\right) + 5\right)} - X_{0a}^{2} + X_{0a}
+\frac{dX_{0b}}{dt} &= X_{0a} X_{0b} k u_{0a} u_{0b} f\left(u_{0b}, u_{0a}\right) - X_{0b}\\
+\frac{dX_{0a}}{dt} &= -X_{0a} X_{0b} f\left(u_{0b}, u_{0a}\right) - X_{0a}^{2} + X_{0a}
 \end{align*}
 \else
 \begin{dgroup*}
 \begin{dmath*}
-\frac{dX_{0b}}{dt} = \frac{9}{25} \, X_{0a} X_{0b} {\left(2 \, \cos\left(-u_{0a} + u_{0b}\right) + 5\right)} - X_{0b}\end{dmath*}
+\frac{dX_{0b}}{dt} = X_{0a} X_{0b} k u_{0a} u_{0b} f\left(u_{0b}, u_{0a}\right) - X_{0b}\end{dmath*}
 \begin{dmath*}
-\frac{dX_{0a}}{dt} = -\frac{2}{5} \, X_{0a} X_{0b} {\left(2 \, \cos\left(-u_{0a} + u_{0b}\right) + 5\right)} - X_{0a}^{2} + X_{0a}
+\frac{dX_{0a}}{dt} = -X_{0a} X_{0b} f\left(u_{0b}, u_{0a}\right) - X_{0a}^{2} + X_{0a}
 \end{dmath*}
 \end{dgroup*}
 \fi

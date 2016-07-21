@@ -1,0 +1,15 @@
+The foodweb model:\iflatexml
+\begin{align*}
+\frac{d{X}_{{b}{0}}}{dt} &= \frac{9}{1250} \, {X}_{{a}{0}} {X}_{{b}{0}} {\left({\gamma}_{{b}{0}} + 50\right)} {\left(2 \, \cos\left(-{u}_{{a}{0}} + {u}_{{b}{0}}\right) + 5\right)} - {X}_{{b}{0}}\\
+\frac{d{X}_{{a}{0}}}{dt} &= -\frac{1}{125} \, {X}_{{a}{0}} {X}_{{b}{0}} {\left({\sigma}_{{a}{0}} + 50\right)} {\left(2 \, \cos\left(-{u}_{{a}{0}} + {u}_{{b}{0}}\right) + 5\right)} - {X}_{{a}{0}}^{2} + {X}_{{a}{0}}
+\end{align*}
+\else
+\begin{dgroup*}
+\begin{dmath*}
+\frac{d{X}_{{b}{0}}}{dt} = \frac{9}{1250} \, {X}_{{a}{0}} {X}_{{b}{0}} {\left({\gamma}_{{b}{0}} + 50\right)} {\left(2 \, \cos\left(-{u}_{{a}{0}} + {u}_{{b}{0}}\right) + 5\right)} - {X}_{{b}{0}}\end{dmath*}
+\begin{dmath*}
+\frac{d{X}_{{a}{0}}}{dt} = -\frac{1}{125} \, {X}_{{a}{0}} {X}_{{b}{0}} {\left({\sigma}_{{a}{0}} + 50\right)} {\left(2 \, \cos\left(-{u}_{{a}{0}} + {u}_{{b}{0}}\right) + 5\right)} - {X}_{{a}{0}}^{2} + {X}_{{a}{0}}
+\end{dmath*}
+\end{dgroup*}
+\fi
+

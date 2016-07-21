@@ -5,6 +5,8 @@
 # .make.log file, do make wmd_files/Project/target.make.log
 # using this rule.  Note sync is redundant because this includes the
 # sync operation.
+# note a downside of this pattern is that interrupting the job with
+# ^C causes make to remove the log file
 %.make.log : /proc/uptime
 	php $(WW_DIR)/wmd/wmd.php --post --cache-dir=wmd_files --default-project-name=$(subst /,,$(subst wmd_files/,,$(dir $*))) --make-single-file=$(notdir $*)
 

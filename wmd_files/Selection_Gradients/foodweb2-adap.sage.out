@@ -1,0 +1,37 @@
+set_population_indices: [(b, 0), (a, 0), (b, 1)]
+basal: [a]
+The invasion rate for mutant population is:
+\begin{align*}
+  \mathscr I = \frac{1}{{X}_{{b}{1}}}\frac{d{X}_{{b}{1}}}{dt} &= \frac{9 \, {X}_{{a}{0}} {X}_{{b}{1}} {\left({\gamma}_{{b}{1}} + 50\right)} {\left(2 \, \cos\left(-{u}_{{a}{0}} + {u}_{{b}{1}}\right) + 5\right)} - 1250 \, {X}_{{b}{1}}}{1250 \, {X}_{{b}{1}}} 
+\end{align*}
+
+limit as {gamma_b_1: gamma_b_0, u_b_1: u_b_0, sigma_b_1: sigma_b_0}
+simplify to -9/625*X_a_0*gamma_b_0*sin(-u_a_0 + u_b_0) - 18/25*X_a_0*sin(-u_a_0 + u_b_0)
+simplify to 9/625*X_a_0*cos(-u_a_0 + u_b_0) + 9/250*X_a_0
+simplify to 0
+after those limits:
+   -9/625*X_a_0*gamma_b_0*sin(-u_a_0 + u_b_0) - 18/25*X_a_0*sin(-u_a_0 + u_b_0)
+  9/625*X_a_0*cos(-u_a_0 + u_b_0) + 9/250*X_a_0
+  0
+simplify to -9/625*X_a_0*gamma_b_0*sin(-u_a_0 + u_b_0) - 18/25*X_a_0*sin(-u_a_0 + u_b_0)
+simplify to 9/625*X_a_0*cos(-u_a_0 + u_b_0) + 9/250*X_a_0
+simplify to 0
+set_population_indices: [(b, 0), (a, 0), (a, 1)]
+basal: [a]
+The invasion rate for mutant population is:
+\begin{align*}
+  \mathscr I = \frac{1}{{X}_{{a}{1}}}\frac{d{X}_{{a}{1}}}{dt} &= -\frac{{X}_{{a}{1}} {X}_{{b}{0}} {\left({\sigma}_{{a}{1}} + 50\right)} {\left(2 \, \cos\left(-{u}_{{a}{1}} + {u}_{{b}{0}}\right) + 5\right)} + 125 \, {X}_{{a}{0}} {X}_{{a}{1}} + 125 \, {X}_{{a}{1}}^{2} - 125 \, {X}_{{a}{1}}}{125 \, {X}_{{a}{1}}} 
+\end{align*}
+
+limit as {gamma_a_1: gamma_a_0, sigma_a_1: sigma_a_0, u_a_1: u_a_0}
+simplify to -2/125*X_b_0*sigma_a_0*sin(-u_a_0 + u_b_0) - 4/5*X_b_0*sin(-u_a_0 + u_b_0)
+simplify to 0
+simplify to -2/125*X_b_0*cos(-u_a_0 + u_b_0) - 1/25*X_b_0
+after those limits:
+   -2/125*X_b_0*sigma_a_0*sin(-u_a_0 + u_b_0) - 4/5*X_b_0*sin(-u_a_0 + u_b_0)
+  0
+  -2/125*X_b_0*cos(-u_a_0 + u_b_0) - 1/25*X_b_0
+simplify to -2/125*X_b_0*sigma_a_0*sin(-u_a_0 + u_b_0) - 4/5*X_b_0*sin(-u_a_0 + u_b_0)
+simplify to 0
+simplify to -2/125*X_b_0*cos(-u_a_0 + u_b_0) - 1/25*X_b_0
+[{Xhat_a_0: 1/((gamma_b_0*k*slow + k)*f(u_b_0, u_a_0)), Xhat_b_0: ((gamma_b_0*k*slow + k)*f(u_b_0, u_a_0) - 1)/((gamma_b_0*k*sigma_a_0*slow^2 + (gamma_b_0*k + k*sigma_a_0)*slow + k)*f(u_b_0, u_a_0)^2)}]

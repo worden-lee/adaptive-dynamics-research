@@ -9,7 +9,7 @@ class vertex_indexer(dynamicalsystems.indexer):
 	v, i = tup
 	return SR.symbol(
 	    '%s_%s_%s' % (self._f, str(i), str(v)),
-	    latex_name = '%s_{%s%s}' % (self._f, latex(i), latex(v))
+	    latex_name = '%s_{' '%s%s}' % (self._f, latex(i), latex(v))
 	)
 
 class vertex_indexer_2d(dynamicalsystems.indexer):
@@ -26,7 +26,7 @@ class vertex_indexer_2d(dynamicalsystems.indexer):
 		w, j = tupj
 		return SR.symbol(
 		    '_'.join( [self._f, str(i), str(v), str(j), str(w)] ),
-		    latex_name = '%s_{%s%s%s%s}' % (self._f, latex(i), latex(v), latex(j), latex(w))
+		    latex_name = '%s_{''%s%s%s%s}' % (self._f, latex(i), latex(v), latex(j), latex(w))
 		)
 	return vertex_indexer_2d_inner(self._f, tupi)
 

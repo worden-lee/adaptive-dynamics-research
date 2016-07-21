@@ -7,7 +7,7 @@
         <title>Adaptive Geometry of Resource Competition</title>
         <meta name="viewport" content="width=device-width">
         <meta name="description" content="Lee Worden prototype research website" />
-        <link rel="canonical" href="/Selection_Gradients/MacLev.html/" />
+        <link rel="canonical" href="/Selection_Gradients/MacLev/" />
 
         <!-- Custom CSS -->
 	<link rel="stylesheet" href="/adaptive-dynamics-research/css/main.css">
@@ -252,7 +252,7 @@ from sage.symbolic.function_factory import function
 # and MacArthurLevinsModel
 
 def c_var(i, l):
-    return SR.var( 'c_%s_%s'%(i,l), latex_name='c_{%s%s}'%(i,l) )
+    return SR.var( 'c_%s_%s'%(i,l), latex_name='c_{''%s%s}'%(i,l) )
 
 def b_var(i):
     return SR.var( 'b_%s'%i )

@@ -28,7 +28,7 @@ colors = rainbow( len(maclev._population_indices) * len(rescomp._r_indices) )
 for i in maclev._population_indices:
     for l in rescomp._r_indices:
 	c_timeseries += c_evolution.plot( 't', rescomp._indexers['c'][i][l],
-	   color=colors.pop(), legend_label='$c_{%d%d}$'%(i+1,l+1) )
+	   color=colors.pop(), legend_label='$c_{''%d%d}$'%(i+1,l+1) )
 c_timeseries.save( 'maclev-2-2-c-c-vs-t.png', figsize=(4,4), ymin=0 )
 c_timeseries.save( 'maclev-2-2-c-c-vs-t.svg', figsize=(2,2), ymin=0 )
 

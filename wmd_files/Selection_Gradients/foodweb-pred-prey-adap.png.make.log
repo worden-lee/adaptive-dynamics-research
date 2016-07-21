@@ -1,12 +1,34 @@
-Tue Mar 22 18:05:33 2016
+Mon Jul 11 12:45:12 2016
 /usr/bin/make -C /usr/local/src/adaptive-dynamics-research/wmd_files/Selection_Gradients \
     foodweb-pred-prey-adap.png
 Including .mk files: sage-inline.mk 
 Including .mk files from .sage-inline files: avec.sage.mk a-careful.sage.mk
-Including .mk files from .step files: aij.py.mk aij-assemble.sage.mk aij-assemble-plot.sage.mk aij-evol.sage.mk aij-evol-plot.sage.mk direct.py.mk direct-assemble.sage.mk direct-assemble-plot.sage.mk direct-evol.sage.mk direct-evol-plot.sage.mk foodweb.py.mk foodweb.sage.mk foodweb-adap.sage.mk foodweb.plot.sage.mk foodweb-2-2.sage.mk foodweb-2-2.plot.sage.mk large.py.mk large-assemble.sage.mk large-assemble-plot.sage.mk large-evol.sage.mk large-evol-plot.sage.mk logistic-S-A-curves.sage.mk maclev-S-A-curve.sage.mk logistic-S-A-curve.sage.mk maclev-1-1.sage.mk maclev-1-1-adap.sage.mk maclev-1-1-mc-adap-geom.sage.mk maclev-1-1-ak-adap-geom.sage.mk S-A-vector-field.sage.mk maclev-1-1-d1A-vector-field.sage.mk maclev-1-1-S-and-d1A-on-curve.sage.mk maclev-1-1-S-and-D-on-curve.sage.mk maclev_1_2_defs.py.mk maclev-1-2-popdyn.sage.mk maclev-1-2-adap.sage.mk maclev-1-2-p.sage.mk maclev-1-2-zngi.sage.mk maclev-1-2-geom.sage.mk maclev_unconstrained_c.py.mk maclev-2-2-c-popdyn.sage.mk maclev-2-2-c-adap.sage.mk maclev-2-2-c-p.sage.mk maclev-2-2-c-zngi.sage.mk maclev-2-2-c-geom.sage.mk maclev_2_2_defs.py.mk maclev-2-2-popdyn.sage.mk maclev-2-2-adap.sage.mk maclev-2-2-p.sage.mk maclev-2-2-zngi.sage.mk maclev-2-2-geom.sage.mk maclev_a_only_defs.py.mk maclev-a-only-popdyn.sage.mk maclev-a-only-adap.sage.mk maclev-a-only-p.sage.mk maclev-a-only-zngi.sage.mk maclev-a-only-geom.sage.mk maclev_a_c.py.mk maclev-2-2-a-c-popdyn.sage.mk maclev-2-2-a-c-adap.sage.mk maclev-2-2-a-c-p.sage.mk maclev-2-2-a-c-zngi.sage.mk maclev-2-2-a-c-geom.sage.mk maclevmodels.py.mk masel_model.py.mk masel.sage.mk masel-adap.sage.mk masel-2-adap.sage.mk statmech.py.mk statmech-assemble.sage.mk statmech-assemble-plot.sage.mk statmech-evol.sage.mk statmech-evol-plot.sage.mk sea.sage.mk sea-adap.sage.mk sea-down.sage.mk sea-down-test.sage.mk sea-vf.sage.mk sea-zero.sage.mk sea-ass.sage.mk sea-tran.sage.mk sea-all.sage.mk toc.sage.mk maclev-2-2-zngi-invasion.sage.mk lotkavolterra.py.mk r_selection.py.mk r-selection.sage.mk
+Including .mk files from .step files: aij.py.mk aij-assemble.sage.mk aij-assemble-plot.sage.mk aij-evol.sage.mk aij-evol-plot.sage.mk direct.py.mk direct-assemble.sage.mk direct-assemble-plot.sage.mk direct-evol.sage.mk direct-evol-plot.sage.mk foodweb.py.mk foodweb.sage.mk foodweb-adap.sage.mk foodweb.plot.sage.mk foodweb-2-2.sage.mk foodweb-2-2.plot.sage.mk large.py.mk large-assemble.sage.mk large-assemble-plot.sage.mk large-evol.sage.mk large-evol-plot.sage.mk logistic-S-A-curves.sage.mk maclev-S-A-curve.sage.mk logistic-S-A-curve.sage.mk maclev-1-1.sage.mk maclev-1-1-adap.sage.mk maclev-1-1-mc-adap-geom.sage.mk maclev-1-1-ak-adap-geom.sage.mk S-A-vector-field.sage.mk maclev-1-1-d1A-vector-field.sage.mk maclev-1-1-S-and-d1A-on-curve.sage.mk maclev-1-1-S-and-D-on-curve.sage.mk maclev_1_2_defs.py.mk maclev-1-2-popdyn.sage.mk maclev-1-2-adap.sage.mk maclev-1-2-p.sage.mk maclev-1-2-zngi.sage.mk maclev-1-2-geom.sage.mk maclev_unconstrained_c.py.mk maclev-2-2-c-popdyn.sage.mk maclev-2-2-c-adap.sage.mk maclev-2-2-c-p.sage.mk maclev-2-2-c-zngi.sage.mk maclev-2-2-c-geom.sage.mk maclev_2_2_defs.py.mk maclev-2-2-popdyn.sage.mk maclev-2-2-adap.sage.mk maclev-2-2-p.sage.mk maclev-2-2-zngi.sage.mk maclev-2-2-geom.sage.mk maclev_a_only_defs.py.mk maclev-a-only-popdyn.sage.mk maclev-a-only-adap.sage.mk maclev-a-only-p.sage.mk maclev-a-only-zngi.sage.mk maclev-a-only-geom.sage.mk maclev_a_c.py.mk maclev-2-2-a-c-popdyn.sage.mk maclev-2-2-a-c-adap.sage.mk maclev-2-2-a-c-p.sage.mk maclev-2-2-a-c-zngi.sage.mk maclev-2-2-a-c-geom.sage.mk maclevmodels.py.mk masel_model.py.mk masel.sage.mk masel-adap.sage.mk masel-2-adap.sage.mk statmech.py.mk statmech-assemble.sage.mk statmech-assemble-plot.sage.mk statmech-evol.sage.mk statmech-evol-plot.sage.mk sea.sage.mk sea-adap.sage.mk sea-down.sage.mk sea-down-test.sage.mk sea-vf.sage.mk sea-zero.sage.mk sea-ass.sage.mk sea-tran.sage.mk sea-all.sage.mk sea-up.sage.mk sea-up-a.sage.mk sea-ass-a.sage.mk toc.sage.mk maclev-2-2-zngi-invasion.sage.mk lotkavolterra.py.mk r_selection.py.mk r-selection.sage.mk
 Including .tex.d files: foodweb-2-2.tikz.tex.d foodweb.tikz.tex.d
-make: Entering directory `/usr/local/src/adaptive-dynamics-research/wmd_files/Selection_Gradients'
-make: `foodweb-pred-prey-adap.png' is up to date.
-make: Leaving directory `/usr/local/src/adaptive-dynamics-research/wmd_files/Selection_Gradients'
-Make succeeded.
-Tue Mar 22 18:05:33 2016
+make[1]: Entering directory `/usr/local/src/adaptive-dynamics-research/wmd_files/Selection_Gradients'
+perl -f /usr/local/src/workingwiki-trunk/ProjectEngine/resources/site/step.pl foodweb-adap.sage '#'
+rm -f foodweb-adap.sage.out foodweb-adap.sage.status foodweb-adap.sage.out.tex foodweb-adap.sobj
+(sage foodweb-adap.sage && touch foodweb-adap.sage.status) | tee foodweb-adap.sage.dmp
+Traceback (most recent call last):
+  File "foodweb-adap.sage.py", line 31, in <module>
+    '$%s$'%latex( dynamicalsystems.column_vector( pred_prey_init( foodweb_adap._flow[v] ) for v in foodweb_adap._vars ) ) )
+  File "/usr/local/src/SageDynamics/dynamicalsystems/latex_output.py", line 307, in __init__
+    self.vector = vector( *args )
+  File "sage/modules/free_module_element.pyx", line 504, in sage.modules.free_module_element.vector (build/cythonized/sage/modules/free_module_element.c:5306)
+  File "sage/modules/free_module_element.pyx", line 603, in sage.modules.free_module_element.prepare (build/cythonized/sage/modules/free_module_element.c:5824)
+  File "/usr/local/src/sage/local/lib/python2.7/site-packages/sage/structure/sequence.py", line 232, in Sequence
+    x = list(x)
+  File "foodweb-adap.sage.py", line 31, in <genexpr>
+    '$%s$'%latex( dynamicalsystems.column_vector( pred_prey_init( foodweb_adap._flow[v] ) for v in foodweb_adap._vars ) ) )
+  File "/usr/local/src/SageDynamics/dynamicalsystems/bindings.py", line 78, in __call__
+    return self.substitute(expr)
+  File "/usr/local/src/SageDynamics/dynamicalsystems/bindings.py", line 73, in substitute
+    expr = expr.substitute_expression(self)
+  File "sage/symbolic/expression.pyx", line 4429, in sage.symbolic.expression.Expression.substitute_expression (build/cythonized/sage/symbolic/expression.cpp:25028)
+  File "sage/symbolic/expression.pyx", line 4311, in sage.symbolic.expression.Expression.substitute (build/cythonized/sage/symbolic/expression.cpp:24456)
+ValueError: power::eval(): division by zero
+[ -e foodweb-adap.sage.status ] && (rm -f foodweb-adap.sage.status && mv foodweb-adap.sage.dmp foodweb-adap.sage.out) || exit 1
+make[1]: *** [foodweb-adap.sage.out] Error 1
+make[1]: Leaving directory `/usr/local/src/adaptive-dynamics-research/wmd_files/Selection_Gradients'
+Make failed with exit code 2.
+Mon Jul 11 12:45:27 2016

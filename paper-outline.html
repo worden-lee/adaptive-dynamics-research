@@ -1,0 +1,749 @@
+<!DOCTYPE html>
+<html>
+
+      <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Coevolution under constraint, and the special role of mutualism</title>
+        <meta name="viewport" content="width=device-width">
+        <meta name="description" content="Lee Worden prototype research website" />
+        <link rel="canonical" href="/paper-outline/" />
+
+        <!-- Custom CSS -->
+	<link rel="stylesheet" href="/adaptive-dynamics-research/css/main.css">
+	<link rel="stylesheet" href="/adaptive-dynamics-research/css/auto-generated-from-ww.css">
+	<link rel="stylesheet" href="/adaptive-dynamics-research/css/wmd.css">
+        <script type="text/x-mathjax-config">MathJax.Hub.Config({ jax: ["input/MathML", "output/HTML-CSS"] });</script>
+        <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=MML_HTMLorMML"></script>
+
+    </head>
+
+
+    <body>
+
+    <header class="site-header">
+
+  <div class="wrap">
+
+    <a class="site-title" href="/adaptive-dynamics-research/">Lee Worden research prototype website</a>
+
+    <nav class="site-nav">
+      <a href="#" class="menu-icon">
+        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+           viewBox="0 0 18 15" enable-background="new 0 0 18 15" xml:space="preserve">
+          <path fill="#505050" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0
+            h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+          <path fill="#505050" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484
+            h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+          <path fill="#505050" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0
+            c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+        </svg>
+      </a>
+      <div class="trigger">
+        <a class="page-link" href="/adaptive-dynamics-research/about">About</a>
+	<a class="page-link" href="/adaptive-dynamics-research/projects">Projects</a>
+      </div>
+    </nav>
+
+  </div>
+
+</header>
+
+
+    <div class="page-content">
+      <div class="wrap">
+      <div class="post">
+
+  <header class="post-header">
+    <h1>Coevolution under constraint, and the special role of mutualism</h1>
+  </header>
+
+  <article class="post-content">
+  <h1 id="notes-on-meta">Notes on Meta</h1>
+
+<p>Add some info about natural historical evidence, via Bronstein/Akcay
+book and Boucher.</p>
+
+<p>Do exposition of basic AD stuff in body of text simple and clear.
+Leave details to appendix.</p>
+
+<p>Distinguishing ToC concept of utility from what’s in these models.
+For most part, probably take ToC out of this ms.</p>
+
+<p>Complete analysis of how constraints cause qualitative results,
+in competition, predation, mutualism model.
+Connect it to published discussion of adaptation in these systems.</p>
+
+<p>Analyze competition model in terms of evolution of $R^*$
+quantities?</p>
+
+<p>Concise discussion of Masel’s paper? Is it necessary?</p>
+
+<p>Selection gradient, etc, in pop gen?</p>
+
+<p>Response to Roughgarden’s thing about change in the a matrix?</p>
+
+<p>Mention of change in game matrix, don’t actually do the math in this
+paper.  Likewise S() in microeconomics, learning.</p>
+
+<p>The major points:</p>
+
+<ul>
+  <li>Direct effect is biased positive</li>
+  <li>3-part program for study of adaptation and cooperation</li>
+  <li>Connection to game theory/altruism literature.</li>
+</ul>
+
+<h1 id="introduction">Introduction</h1>
+
+<p>To be written.</p>
+
+<p>Use of the four types (quadrants) of Lotka-Volterra interactions to
+classify ecological relationships</p>
+
+<p>Interest in the causes of mutualism and antagonism</p>
+
+<p>Natural history examples: emergence of mutualism, and loss of mutualism</p>
+
+<p>Evolution of constrained phenotypes; connection to Levins fitness sets</p>
+
+<p>Coevolutionary dynamics, frequency-dependent selection</p>
+
+<p>Related questions about cooperation, incentives, and externalities.
+Comments on <fieldset class="ww-messages"><legend>&lt;ww-messages-legend: &gt;</legend><p class='error'>Error: Project file not found: Standalone?50d0a96dc28bd755e574ba3761b3f91c.tex-math › 50d0a96dc28bd755e574ba3761b3f91c.tex-math.latexml.html</p>
+</fieldset>
+<!-- 50d0a96dc28bd755e574ba3761b3f91c.tex-math.latexml.html --> cooperation vs. standard ideas of cooperation/altruism.
+Cost of cooperation, emergence of dilemmas and tragedies.</p>
+
+<h1 id="review-of-multidimensional-adaptive-dynamics">Review of multidimensional adaptive dynamics</h1>
+
+<p>[bring (some?) from appendix.]</p>
+
+<p>Cover selection gradient, covariance matrix of mutation distribution.</p>
+
+<p>Sidebar?: selection gradient stuff in pop gen</p>
+
+<h1 id="coevolution-of-constrained-characters">Coevolution of constrained characters</h1>
+
+<p>When relevant characters p are parametrized by fewer u’s</p>
+
+<p>Projection of gradient.</p>
+
+<p>Angle of projected motion is within <!-- cbb05423d43193dc7a8067a59d4bd316.tex-math.latexml.html --><span class="latexml"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="90^{\circ}" display="inline"><msup><mn>90</mn><mo>∘</mo></msup></math></span> of the unabridged gradient.</p>
+
+<p>Stasis is when original S is 0 or the curve is perpendicular.</p>
+
+<p>Figure illustrating the gradient before + after, with curve.</p>
+
+<p>Discuss dialectic of selection, available variation</p>
+
+<h1 id="coevolution-of-interaction-terms">Coevolution of interaction terms</h1>
+
+<p>GLV model structure, with r(u) and a(u,u).</p>
+
+<p><!-- 9a59294d35ec9247478796ffb89359eb.tex-math.latexml.html --><span class="latexml"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="a_{ij}" display="inline"><msub><mi>a</mi><mrow><mi>i</mi><mo>⁢</mo><mi>j</mi></mrow></msub></math></span> terms are sort of like <fieldset class="ww-messages"><legend>&lt;ww-messages-legend: &gt;</legend><p class='error'>Error: Project file not found: Standalone?83878c91171338902e0fe0fb97a8c47a.tex-math › 83878c91171338902e0fe0fb97a8c47a.tex-math.latexml.html</p>
+</fieldset>
+<!-- 83878c91171338902e0fe0fb97a8c47a.tex-math.latexml.html -->’s, controlled by <!-- 7b774effe4a349c6dd82ad4f4f21d34c.tex-math.latexml.html --><span class="latexml"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="u" display="inline"><mi>u</mi></math></span>’s, but
+with the influence of the other <!-- 7b774effe4a349c6dd82ad4f4f21d34c.tex-math.latexml.html --><span class="latexml"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="u" display="inline"><mi>u</mi></math></span> as well.</p>
+
+<p>Agent and patient roles.</p>
+
+<p>Gradient of selection is projected through patient roles.</p>
+
+<p>That selection produces “direct effect”.</p>
+
+<p>There is also “indirect effect” of the agent population, also
+known as frequency-dependent selection (?).</p>
+
+<p>Gradient S(A) is always positive.</p>
+
+<p>Direct effect is within <!-- cbb05423d43193dc7a8067a59d4bd316.tex-math.latexml.html --><span class="latexml"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="90^{\circ}" display="inline"><msup><mn>90</mn><mo>∘</mo></msup></math></span> of that
+positive vector <!-- 5dbc98dcc983a70728bd082d1a47546e.tex-math.latexml.html --><span class="latexml"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="S" display="inline"><mi>S</mi></math></span>.</p>
+
+<p>Resulting change in A values is direct effect + indirect effect,
+therefore biased toward positive but can be negative.</p>
+
+<p>Figure: Evolution of <!-- 1f7d3da922442bec0425d6e3e395d701.tex-math.latexml.html --><span class="latexml"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="(a_{ij},a_{ji})" display="inline"><mrow><mo stretchy="false">(</mo><msub><mi>a</mi><mrow><mi>i</mi><mo>⁢</mo><mi>j</mi></mrow></msub><mo>,</mo><msub><mi>a</mi><mrow><mi>j</mi><mo>⁢</mo><mi>i</mi></mrow></msub><mo stretchy="false">)</mo></mrow></math></span> pair on the plane of
+Lotka-Volterra interactions.</p>
+
+<p>Figure: The vector <fieldset class="ww-messages"><legend>&lt;ww-messages-legend: &gt;</legend><p class='error'>Error: Project file not found: Standalone?9216c69428b5b4b160964a549f72634c.tex-math › 9216c69428b5b4b160964a549f72634c.tex-math.latexml.html</p>
+</fieldset>
+<!-- 9216c69428b5b4b160964a549f72634c.tex-math.latexml.html --> moves in an
+<fieldset class="ww-messages"><legend>&lt;ww-messages-legend: &gt;</legend><p class='error'>Error: Project file not found: Standalone?40b85027598d87611b1c8d5d11e46812.tex-math › 40b85027598d87611b1c8d5d11e46812.tex-math.latexml.html</p>
+</fieldset>
+<!-- 40b85027598d87611b1c8d5d11e46812.tex-math.latexml.html -->-dimensional space (in the illustration <fieldset class="ww-messages"><legend>&lt;ww-messages-legend: &gt;</legend><p class='error'>Error: Project file not found: Standalone?6d24e2bc97c5e4283dd8e34674afe7ea.tex-math › 6d24e2bc97c5e4283dd8e34674afe7ea.tex-math.latexml.html</p>
+</fieldset>
+<!-- 6d24e2bc97c5e4283dd8e34674afe7ea.tex-math.latexml.html --> or <fieldset class="ww-messages"><legend>&lt;ww-messages-legend: &gt;</legend><p class='error'>Error: Project file not found: Standalone?c81e728d9d4c2f636f067f89cc14862c.tex-math › c81e728d9d4c2f636f067f89cc14862c.tex-math.latexml.html</p>
+</fieldset>
+<!-- c81e728d9d4c2f636f067f89cc14862c.tex-math.latexml.html -->).</p>
+
+<p>Figure: Gradient of selection on <!-- 693a3b974c23e87e8c941211cd45cfb8.tex-math.latexml.html --><span class="latexml"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="A_{i}" display="inline"><msub><mi>A</mi><mi>i</mi></msub></math></span> in one dimension is in direction
+closest to abstract gradient of selection <!-- 5dbc98dcc983a70728bd082d1a47546e.tex-math.latexml.html --><span class="latexml"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="S" display="inline"><mi>S</mi></math></span>.</p>
+
+<p>Figure: Each population <!-- 363b122c528f54df4a0446b6bab05515.tex-math.latexml.html --><span class="latexml"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="j" display="inline"><mi>j</mi></math></span> changes due to selection on <!-- e62f15124c99fac879841dbda8739865.tex-math.latexml.html --><span class="latexml"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="a_{j\cdot}" display="inline"><msub><mi>a</mi><mrow><mi>j</mi><mo>⁣</mo><mo>⋅</mo></mrow></msub></math></span>
+terms. It causes change in <!-- 9a59294d35ec9247478796ffb89359eb.tex-math.latexml.html --><span class="latexml"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="a_{ij}" display="inline"><msub><mi>a</mi><mrow><mi>i</mi><mo>⁢</mo><mi>j</mi></mrow></msub></math></span>, which is the source of the
+indirect effects on <!-- 693a3b974c23e87e8c941211cd45cfb8.tex-math.latexml.html --><span class="latexml"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="A_{i}" display="inline"><msub><mi>A</mi><mi>i</mi></msub></math></span>.</p>
+
+<p>Figure: The direction of the direct effect is always in the half-space
+within <!-- cbb05423d43193dc7a8067a59d4bd316.tex-math.latexml.html --><span class="latexml"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="90^{\circ}" display="inline"><msup><mn>90</mn><mo>∘</mo></msup></math></span> of the abstract selection gradient <!-- 5dbc98dcc983a70728bd082d1a47546e.tex-math.latexml.html --><span class="latexml"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="S" display="inline"><mi>S</mi></math></span>.  <!-- 5dbc98dcc983a70728bd082d1a47546e.tex-math.latexml.html --><span class="latexml"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="S" display="inline"><mi>S</mi></math></span> is
+always positive, which implies that the direct effect vector <!-- f623e75af30e62bbd73d6df5b50bb7b5.tex-math.latexml.html --><span class="latexml"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="D" display="inline"><mi>D</mi></math></span> is
+largely positive.  The resultant direction of actual change in <!-- 693a3b974c23e87e8c941211cd45cfb8.tex-math.latexml.html --><span class="latexml"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="A_{i}" display="inline"><msub><mi>A</mi><mi>i</mi></msub></math></span>
+is the sum <!-- 39a974eb8b172281fddd9c3f59e3e0ba.tex-math.latexml.html --><span class="latexml"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="\mathbf{D}_{i}+\mathbf{I}_{i}" display="inline"><mrow><msub><mi>𝐃</mi><mi>i</mi></msub><mo>+</mo><msub><mi>𝐈</mi><mi>i</mi></msub></mrow></math></span>.  The positive bias in
+<!-- ae6674e1c06db45f1c3cd2f19632d742.tex-math.latexml.html --><span class="latexml"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="\mathbf{D}_{i}" display="inline"><msub><mi>𝐃</mi><mi>i</mi></msub></math></span> may produce a
+positive bias in the motion of <!-- 693a3b974c23e87e8c941211cd45cfb8.tex-math.latexml.html --><span class="latexml"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="A_{i}" display="inline"><msub><mi>A</mi><mi>i</mi></msub></math></span>.</p>
+
+<p>Figure: direct and indirect effects on the pair <!-- 1f7d3da922442bec0425d6e3e395d701.tex-math.latexml.html --><span class="latexml"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="(a_{ij},a_{ji})" display="inline"><mrow><mo stretchy="false">(</mo><msub><mi>a</mi><mrow><mi>i</mi><mo>⁢</mo><mi>j</mi></mrow></msub><mo>,</mo><msub><mi>a</mi><mrow><mi>j</mi><mo>⁢</mo><mi>i</mi></mrow></msub><mo stretchy="false">)</mo></mrow></math></span>.</p>
+
+<h1 id="claims-and-questions-about-evolution-of-interactions">Claims and questions about evolution of interactions</h1>
+
+<p>The above argument establishes that if direct effects and indirect effects
+were IID random variables, interaction terms would drift upwards.</p>
+
+<p>They may not, though.</p>
+
+<ul>
+  <li>The “default”, or <em>ceteris paribus</em>, outcome is the direction
+of unconstrained selection: positive drift, toward
+the mutualistic quadrant.  When interactions do not move in that direction,
+there are two categories of constraints interfering with positive drift:</li>
+  <li>Populations may not be able to increase the value of all their
+interactions due to
+tradeoffs in the different interaction terms affecting the population
+as patient.  That is, the shape of the “fitness set” of the interactions
+affecting the population.</li>
+  <li>Gains in the value of interactions may be lost due to 
+negative indirect effects of agents’ adaptation
+on patients.  This can imply a zero-sum situation in which one population’s
+gain is another’s loss, or a Hardin-like tragedy (“race to the bottom”,
+or social trap),
+in which a population’s direct gain is indirectly its own loss.</li>
+</ul>
+
+<p>earlier paper proposed to focus away from presumed costly cooperation.</p>
+
+<p>I propose the above three-part
+structure as an alternative framework for researching the evolution of
+cooperation, focusing on <strong>factors that interfere with the emergence of
+cooperation</strong> in addition to studying means for mitigating tragic
+situations in which cooperation is hard.</p>
+
+<p>This research may help us to explain both mutualistic and
+antagonistic situations in nature and society, and may also help
+illuminate opportunities to transform antagonistic situations or
+social traps to opportunities for mutual benefit.</p>
+
+<h1 id="example-predator-prey-model">Example: Predator-prey model</h1>
+
+<p>Along with competition, predation is the other big failure to
+mutualize. [or parasitism/disease?]</p>
+
+<p>Predation interactions are in the <fieldset class="ww-messages"><legend>&lt;ww-messages-legend: &gt;</legend><p class='error'>Error: Project file not found: Standalone?c56e0074e56edc35c555841ae11c8301.tex-math › c56e0074e56edc35c555841ae11c8301.tex-math.latexml.html</p>
+</fieldset>
+<!-- c56e0074e56edc35c555841ae11c8301.tex-math.latexml.html --> quadrants.</p>
+
+<p>I imagine predator and prey will have benefits from direct effects,
+detriment from indirect effects on each other, some balance of the two.</p>
+
+<p>Model is a foodweb graph with simple density-dependent
+competition on the autotroph level.</p>
+
+<p>Predation is a function <fieldset class="ww-messages"><legend>&lt;ww-messages-legend: &gt;</legend><p class='error'>Error: Project file not found: Standalone?4d96fdd4e943d47ade4105718a2bfa2c.tex-math › 4d96fdd4e943d47ade4105718a2bfa2c.tex-math.latexml.html</p>
+</fieldset>
+<!-- 4d96fdd4e943d47ade4105718a2bfa2c.tex-math.latexml.html -->, on both <!-- 9a59294d35ec9247478796ffb89359eb.tex-math.latexml.html --><span class="latexml"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="a_{ij}" display="inline"><msub><mi>a</mi><mrow><mi>i</mi><mo>⁢</mo><mi>j</mi></mrow></msub></math></span> and
+<!-- 25afb7203c03c65b50e979a3c2ea46ff.tex-math.latexml.html --><span class="latexml"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="a_{ji}" display="inline"><msub><mi>a</mi><mrow><mi>j</mi><mo>⁢</mo><mi>i</mi></mrow></msub></math></span> terms, because it’s number of predation events.</p>
+
+<p>r is 1 for autotrophs, -1 otherwise.</p>
+
+<p>We consider scalar u for each population.</p>
+
+<h2 id="selection-pressures-on-predators-and-prey">Selection pressures on predators and prey</h2>
+
+<p>Selection is only in a terms, via f(u,u)</p>
+
+<p>Gradient is made up of <fieldset class="ww-messages"><legend>&lt;ww-messages-legend: &gt;</legend><p class='error'>Error: Project file not found: Standalone?16c87a6fd578c14b3fe7d8b50e32de9c.tex-math › 16c87a6fd578c14b3fe7d8b50e32de9c.tex-math.latexml.html</p>
+</fieldset>
+<!-- 16c87a6fd578c14b3fe7d8b50e32de9c.tex-math.latexml.html --> terms.</p>
+
+<p>I will use the functional form <!-- 46280fa5c178fe9cf91cbd722cd201cf.tex-math.latexml.html --><span class="latexml"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="f(u_{i},u_{j})=2+\alpha\cos(u_{i}-u_{j})," display="inline"><mrow><mrow><mrow><mi>f</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><msub><mi>u</mi><mi>i</mi></msub><mo>,</mo><msub><mi>u</mi><mi>j</mi></msub><mo stretchy="false">)</mo></mrow></mrow><mo>=</mo><mrow><mn>2</mn><mo>+</mo><mrow><mi>α</mi><mo>⁢</mo><mrow><mi>cos</mi><mo>⁡</mo><mrow><mo stretchy="false">(</mo><mrow><msub><mi>u</mi><mi>i</mi></msub><mo>-</mo><msub><mi>u</mi><mi>j</mi></msub></mrow><mo stretchy="false">)</mo></mrow></mrow></mrow></mrow></mrow><mo>,</mo></mrow></math></span> 
+with some <!-- 74b5a1bcf099f4aa3813e10c70dcc3d7.tex-math.latexml.html --><span class="latexml"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="\alpha\in(0,1)" display="inline"><mrow><mi>α</mi><mo>∈</mo><mrow><mo stretchy="false">(</mo><mn>0</mn><mo>,</mo><mn>1</mn><mo stretchy="false">)</mo></mrow></mrow></math></span>.</p>
+
+<p>Antisymmetry allows use of a single f’</p>
+
+<p>Thus the direction of selection on <!-- eb00a04135562ae6f74786f084f54327.tex-math.latexml.html --><span class="latexml"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="u_{i}" display="inline"><msub><mi>u</mi><mi>i</mi></msub></math></span> depends on a weighted sum
+of influences of its prey and/or predators</p>
+
+<h3 id="example-one-prey-one-predator">Example: one prey, one predator</h3>
+
+<p>When there is only population 1 eating population 0</p>
+
+<p>Simple S vector, -1, +k</p>
+
+<p>Selection is stronger on the prey, so it escapes.</p>
+
+<p>This example perhaps follows the “life-dinner hypothesis”, in which
+selection acts more strongly on prey because they have more to lose
+from each interaction [@DawkinsKrebs1979].</p>
+
+<p>Using the cosine form, equilibrium is at <fieldset class="ww-messages"><legend>&lt;ww-messages-legend: &gt;</legend><p class='error'>Error: Project file not found: Standalone?0804e05b484866575b3d9803dcae396b.tex-math › 0804e05b484866575b3d9803dcae396b.tex-math.latexml.html</p>
+</fieldset>
+<!-- 0804e05b484866575b3d9803dcae396b.tex-math.latexml.html -->,
+where predation is least.</p>
+
+<p>Figure: prey u escaping from predator u</p>
+
+<h3 id="another-example-here">Another example here?</h3>
+
+<h3 id="direct-and-indirect-effects-in-the-2-species-example">Direct and indirect effects in the 2-species example</h3>
+
+<p>Write the A vector</p>
+
+<p>The direct effect is increase in the predation interaction that affects you,
+with a factor of <fieldset class="ww-messages"><legend>&lt;ww-messages-legend: &gt;</legend><p class='error'>Error: Project file not found: Standalone?5436fd3f474a5f35c684ff40dd257ec6.tex-math › 5436fd3f474a5f35c684ff40dd257ec6.tex-math.latexml.html</p>
+</fieldset>
+<!-- 5436fd3f474a5f35c684ff40dd257ec6.tex-math.latexml.html --> for the predator.</p>
+
+<p>The indirect effect is harm to the interaction that affects you, due to
+the other’s incentive, with a factor of k on both.</p>
+
+<p>The resultant change is one mitigated by the other. The k factors make it so
+the prey prevails.</p>
+
+<p>The 1:-k ratio between the pair is preserved.</p>
+
+<p>The expression for change in (a,a) pair is nice and clean.</p>
+
+<h2 id="direct-and-indirect-effects-in-the-general-case">Direct and indirect effects in the general case</h2>
+
+<p>In general community structure, here is S(u) - move away from predators
+and toward prey, with weighting by <!-- fd2b1eb3a3aacb801a8c6d0b7ec448b5.tex-math.latexml.html --><span class="latexml"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="\hat{X}" display="inline"><mover accent="true"><mi>X</mi><mo stretchy="false">^</mo></mover></math></span> and k.</p>
+
+<p>Motion of each (a,a) pair is a natural quantity</p>
+
+<h2 id="weakening-the-constraint">Weakening the constraint</h2>
+
+<p>Can I analyze the role of the constraint that prevents S(A) from happening?</p>
+
+<p>Do a model where variation can violate the constraint,
+Show it introduces up-and-right drift</p>
+
+<h1 id="example-resource-competition">Example: Resource competition</h1>
+
+<p>Here we analyze the classic MacArthur-Levins formulation of <!-- 7b8b965ad4bca0e41ab51de7b31363a1.tex-math.latexml.html --><span class="latexml"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="n" display="inline"><mi>n</mi></math></span>
+species competing for use of <!-- 7b8b965ad4bca0e41ab51de7b31363a1.tex-math.latexml.html --><span class="latexml"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="n" display="inline"><mi>n</mi></math></span> resources.</p>
+
+<p>ML equations.</p>
+
+<p>It’s an LV system.</p>
+
+<p>Function forms of a and r terms.</p>
+
+<p>It’s constrained to competition only - we will relate that constraint to
+the direct and indirect effects.</p>
+
+<h2 id="evolution-of-ecological-parameters">Evolution of ecological parameters</h2>
+
+<p>Parameters b, m, c become functions of u, and entries in a vector p(u).</p>
+
+<p>S(p)</p>
+
+<p>Selects for more c, less m, neutral on b</p>
+
+<p>Those are the ceteris paribus direction of change of p.</p>
+
+<p>Tilman assures us that R* values decline</p>
+
+<p>Let’s consider variation in c only.</p>
+
+<p>In one population/one resource, c increases, R* decreases, k increases,
+and a goes more negative.</p>
+
+<p>Figure: c up, R* down</p>
+
+<p>In two populations/two resources, S(p) is a multiple
+of the R* vector</p>
+
+<p>Independent c values increase following that, and R* values decrease.</p>
+
+<p>Figure: 4 c values go up</p>
+
+<p>When c values are c(u), S(p) is projected into tangent space of constraint,
+outcome depends on form of constraint.</p>
+
+<h2 id="evolution-of-lotka-volterra-interactions">Evolution of Lotka-Volterra interactions</h2>
+
+<p>Why do a go down?</p>
+
+<p>Figure: k up, a down</p>
+
+<p>We must look at selection on k and a terms and how they cause change in c</p>
+
+<p>There are 3 parts: two parts of k and one part of a</p>
+
+<p>k is the growth rate that would happen if no drawdown, minus mortality</p>
+
+<p>a is the reduction in growth due to drawdown</p>
+
+<p>S(A) is the usual X</p>
+
+<p>k increases with c and b, and decreases with m</p>
+
+<p>a decreases with c and b, ignores m</p>
+
+<h3 id="selection-on-k-causes-competition-to-increase">selection on k causes competition to increase</h3>
+
+<p>k and a are at odds with respect to c</p>
+
+<p>but the drawdown is never as much as the original amount; so k wins</p>
+
+<p>This is direct effect</p>
+
+<p>Indirect effect causes further decrease in a</p>
+
+<h3 id="selection-on-a-terms-alone-decreases-competition">selection on a terms alone decreases competition</h3>
+
+<p>Experiment: don’t allow k to change, only a</p>
+
+<p>Just the right trade-off between c and m</p>
+
+<p>Now c decrease, a rise toward zero</p>
+
+<p>Figure: c shrink, a shrink</p>
+
+<p>Todo: what is general condition for competition to lessen</p>
+
+<h1 id="externalities-and-the-threat-of-cheating-in-evolution-of-mutualisms">Externalities and the threat of “cheating” in evolution of mutualisms</h1>
+
+<p>Transitions between mutualism and parasitism</p>
+
+<p>[To come. Roughgarden symbiosis model.]</p>
+
+<h1 id="example-statistical-mechanics-of-interactions">Example: statistical mechanics of interactions.</h1>
+
+<p>take this out?</p>
+
+<p>Model of n species where the angle on the (a,a) plane is chosen
+uniformly.</p>
+
+<p>There is a trend up and right.</p>
+
+<h1 id="discussion">Discussion</h1>
+
+<h1 id="appendices">Appendices</h1>
+
+<h2 id="adaptive-change-in-constrained-characters">Adaptive change in constrained characters</h2>
+
+<p>dynamics of phenotypic character vector p via invasion fitness, Metz,
+Ma</p>
+
+<p>Notation, p a column vector, <fieldset class="ww-messages"><legend>&lt;ww-messages-legend: &gt;</legend><p class='error'>Error: Project file not found: Standalone?0d23b41b45eaac1525b3accb2488e23a.tex-math › 0d23b41b45eaac1525b3accb2488e23a.tex-math.latexml.html</p>
+</fieldset>
+<!-- 0d23b41b45eaac1525b3accb2488e23a.tex-math.latexml.html --> a row, etc.</p>
+
+<p>Change in p follows the selection gradient S(p).</p>
+
+<p>[Discuss how the rare mutant is the patient and the resident is the agent]</p>
+
+<p>[Consider discussing how this is in population genetics as well.]</p>
+
+<p>Per Levins, motion to the boundary leads to lower-dimensional dynamics,
+motivating p(u).</p>
+
+<p>Above analysis applies to S(u).</p>
+
+<p>dp/dt comes from the chain rule.</p>
+
+<p>Derivation of constrained selection gradient <fieldset class="ww-messages"><legend>&lt;ww-messages-legend: &gt;</legend><p class='error'>Error: Project file not found: Standalone?0f271980d80e2cfa92b8acbe348d0b59.tex-math › 0f271980d80e2cfa92b8acbe348d0b59.tex-math.latexml.html</p>
+</fieldset>
+<!-- 0f271980d80e2cfa92b8acbe348d0b59.tex-math.latexml.html -->.</p>
+
+<p>Covariance matrix imposed by the constraint <fieldset class="ww-messages"><legend>&lt;ww-messages-legend: &gt;</legend><p class='error'>Error: Project file not found: Standalone?b4778fbe255d918e75a8b1ce41cfd789.tex-math › b4778fbe255d918e75a8b1ce41cfd789.tex-math.latexml.html</p>
+</fieldset>
+<!-- b4778fbe255d918e75a8b1ce41cfd789.tex-math.latexml.html -->.</p>
+
+<p>Lemma: the angle between <fieldset class="ww-messages"><legend>&lt;ww-messages-legend: &gt;</legend><p class='error'>Error: Project file not found: Standalone?be81fe0f3d9275a189495781bf2f49b8.tex-math › be81fe0f3d9275a189495781bf2f49b8.tex-math.latexml.html</p>
+</fieldset>
+<!-- be81fe0f3d9275a189495781bf2f49b8.tex-math.latexml.html --> and <fieldset class="ww-messages"><legend>&lt;ww-messages-legend: &gt;</legend><p class='error'>Error: Project file not found: Standalone?0f271980d80e2cfa92b8acbe348d0b59.tex-math › 0f271980d80e2cfa92b8acbe348d0b59.tex-math.latexml.html</p>
+</fieldset>
+<!-- 0f271980d80e2cfa92b8acbe348d0b59.tex-math.latexml.html --> is no more than <!-- cbb05423d43193dc7a8067a59d4bd316.tex-math.latexml.html --><span class="latexml"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="90^{\circ}" display="inline"><msup><mn>90</mn><mo>∘</mo></msup></math></span>.</p>
+
+<p>Corollary: S_c is within the half-space defined by S.</p>
+
+<p>On a curve, the half-space generally defines one of the two available
+directions.</p>
+
+<h2 id="direct-and-indirect-effect-of-adaptation-on-interaction-terms">Direct and indirect effect of adaptation on interaction terms</h2>
+
+<p>a values are similar to p(u) but parametrized by two u values at
+a time, so there are extra complexities.</p>
+
+<p>S(u) in a GLV model</p>
+
+<p>du_i/dt in GLV</p>
+
+<p>Chain rule to write motion of r and a</p>
+
+<p>S(u_i) cares only about places where u_i is <em>patient</em>, not agent.</p>
+
+<p>Define patient and agent.</p>
+
+<p>Construct vector A of GLV quantities that drive motion of u_i</p>
+
+<p>Write du_i/dt in terms of that vector - it looks like the case with p.</p>
+
+<p>Define S(A)</p>
+
+<p>S(u) in terms of S(A) is just like the S(p) case.</p>
+
+<p>But the motion of A is not like the motion of p, because agent
+roles also affect it.</p>
+
+<p>Split motion of A into
+<em>direct effect</em> of patients responding to selection p-like,
+and <em>indirect effect</em> of agents altering course of interactions
+with externalities.</p>
+
+<p>Figure: selection and indirect effect on a-a plane</p>
+
+<p>Direct effect is within $90^\circ$ of S(A)</p>
+
+<ul>
+  <li>Given <!-- 7b8b965ad4bca0e41ab51de7b31363a1.tex-math.latexml.html --><span class="latexml"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="n" display="inline"><mi>n</mi></math></span> populations, there are <!-- 7b8b965ad4bca0e41ab51de7b31363a1.tex-math.latexml.html --><span class="latexml"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="n" display="inline"><mi>n</mi></math></span> intrinsic growth terms <!-- af2593b49488f8bc44396795792c2d79.tex-math.latexml.html --><span class="latexml"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="r_{i}" display="inline"><msub><mi>r</mi><mi>i</mi></msub></math></span>
+and <!-- 6595d679e306a127a3fe53268bcaddb2.tex-math.latexml.html --><span class="latexml"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="n^{2}" display="inline"><msup><mi>n</mi><mn>2</mn></msup></math></span> interaction terms <!-- 9a59294d35ec9247478796ffb89359eb.tex-math.latexml.html --><span class="latexml"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="a_{ij}" display="inline"><msub><mi>a</mi><mrow><mi>i</mi><mo>⁢</mo><mi>j</mi></mrow></msub></math></span>.</li>
+  <li>We arrange those values into <!-- 7b8b965ad4bca0e41ab51de7b31363a1.tex-math.latexml.html --><span class="latexml"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="n" display="inline"><mi>n</mi></math></span> “interaction phenotypes” <!-- 43149a5b5875036c0c4ed3304bae28ad.tex-math.latexml.html --><span class="latexml"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="\mathbf{A}_{i}" display="inline"><msub><mi>𝐀</mi><mi>i</mi></msub></math></span>.</li>
+  <li>For each <!-- 43149a5b5875036c0c4ed3304bae28ad.tex-math.latexml.html --><span class="latexml"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="\mathbf{A}_{i}" display="inline"><msub><mi>𝐀</mi><mi>i</mi></msub></math></span> there is a selection gradient
+<!-- 261af326501170273d331f62b6e5c4dc.tex-math.latexml.html --><span class="latexml"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="\mathbf{S}(\mathbf{A}_{i})" display="inline"><mrow><mi>𝐒</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><msub><mi>𝐀</mi><mi>i</mi></msub><mo stretchy="false">)</mo></mrow></mrow></math></span>, which is the direction of greatest increase in
+the invasion fitness of population <!-- 865c0c0b4ab0e063e5caa3387c1a8741.tex-math.latexml.html --><span class="latexml"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="i" display="inline"><mi>i</mi></math></span>, when we vary population <!-- 865c0c0b4ab0e063e5caa3387c1a8741.tex-math.latexml.html --><span class="latexml"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="i" display="inline"><mi>i</mi></math></span>
+as a rare invading population with all resident populations’ phenotypes
+held fixed (including population <!-- 865c0c0b4ab0e063e5caa3387c1a8741.tex-math.latexml.html --><span class="latexml"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="i" display="inline"><mi>i</mi></math></span>), that is, as the first argument
+to <!-- f8c257b0bf30fb11e7575d7a4f1dd928.tex-math.latexml.html --><span class="latexml"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="k(\mathbf{u}_{i})" display="inline"><mrow><mi>k</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><msub><mi>𝐮</mi><mi>i</mi></msub><mo stretchy="false">)</mo></mrow></mrow></math></span> and <!-- 08fdd9337547a3f93fea9d7aec33d0b0.tex-math.latexml.html --><span class="latexml"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="a(\mathbf{u}_{i},\mathbf{u}_{j})" display="inline"><mrow><mi>a</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><msub><mi>𝐮</mi><mi>i</mi></msub><mo>,</mo><msub><mi>𝐮</mi><mi>j</mi></msub><mo stretchy="false">)</mo></mrow></mrow></math></span>, the patient.</li>
+  <li>Adaptive change in the <!-- 865c0c0b4ab0e063e5caa3387c1a8741.tex-math.latexml.html --><span class="latexml"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="i" display="inline"><mi>i</mi></math></span>th population must be in a direction that
+would move <!-- 43149a5b5875036c0c4ed3304bae28ad.tex-math.latexml.html --><span class="latexml"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="\mathbf{A}_{i}" display="inline"><msub><mi>𝐀</mi><mi>i</mi></msub></math></span> within <!-- cbb05423d43193dc7a8067a59d4bd316.tex-math.latexml.html --><span class="latexml"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="90^{\circ}" display="inline"><msup><mn>90</mn><mo>∘</mo></msup></math></span> of its selection gradient
+<!-- 261af326501170273d331f62b6e5c4dc.tex-math.latexml.html --><span class="latexml"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="\mathbf{S}(\mathbf{A}_{i})" display="inline"><mrow><mi>𝐒</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><msub><mi>𝐀</mi><mi>i</mi></msub><mo stretchy="false">)</mo></mrow></mrow></math></span>, considering <!-- 865c0c0b4ab0e063e5caa3387c1a8741.tex-math.latexml.html --><span class="latexml"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="i" display="inline"><mi>i</mi></math></span> as an invader with all resident 
+populations held fixed.</li>
+  <li>The direction of change in <!-- 43149a5b5875036c0c4ed3304bae28ad.tex-math.latexml.html --><span class="latexml"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="\mathbf{A}_{i}" display="inline"><msub><mi>𝐀</mi><mi>i</mi></msub></math></span> due to that change in the
+<!-- 865c0c0b4ab0e063e5caa3387c1a8741.tex-math.latexml.html --><span class="latexml"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="i" display="inline"><mi>i</mi></math></span>th population is the “direct effect” of selection on <!-- 43149a5b5875036c0c4ed3304bae28ad.tex-math.latexml.html --><span class="latexml"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="\mathbf{A}_{i}" display="inline"><msub><mi>𝐀</mi><mi>i</mi></msub></math></span>,
+<!-- ae6674e1c06db45f1c3cd2f19632d742.tex-math.latexml.html --><span class="latexml"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="\mathbf{D}_{i}" display="inline"><msub><mi>𝐃</mi><mi>i</mi></msub></math></span>.</li>
+  <li>The direction of change in <!-- 43149a5b5875036c0c4ed3304bae28ad.tex-math.latexml.html --><span class="latexml"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="\mathbf{A}_{i}" display="inline"><msub><mi>𝐀</mi><mi>i</mi></msub></math></span> due to changes in all the
+resident populations, considered as agents, i.e. as the second argument to
+<!-- ff8895e931c895a390a5d500baf40205.tex-math.latexml.html --><span class="latexml"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="a(\mathbf{u}_{i},\mathbf{u}_{j})" display="inline"><mrow><mi>a</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><msub><mi>𝐮</mi><mi>i</mi></msub><mo>,</mo><msub><mi>𝐮</mi><mi>j</mi></msub><mo stretchy="false">)</mo></mrow></mrow></math></span>, is the “indirect effect” of selection
+on <!-- 43149a5b5875036c0c4ed3304bae28ad.tex-math.latexml.html --><span class="latexml"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="\mathbf{A}_{i}" display="inline"><msub><mi>𝐀</mi><mi>i</mi></msub></math></span>,
+<!-- ba7e3c032d83989250dd243704283406.tex-math.latexml.html --><span class="latexml"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="\mathbf{I}_{i}" display="inline"><msub><mi>𝐈</mi><mi>i</mi></msub></math></span>.  Note that this includes an indirect effect of population
+<!-- 865c0c0b4ab0e063e5caa3387c1a8741.tex-math.latexml.html --><span class="latexml"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="i" display="inline"><mi>i</mi></math></span> on itself.</li>
+</ul>
+
+<h2 id="upward-bias-in-direct-effects">Upward bias in direct effects</h2>
+
+<p>R() and a() can have any form</p>
+
+<p>But these results imply an upward bias.</p>
+
+<p>S(A) is always 1,X</p>
+
+<p>That’s all positive.</p>
+
+<p>Therefore the direct effect can’t be all negative, and is within
+90 degrees of that positive vector.  Ceteris paribus argument about rise.</p>
+
+<p>Can we assume indirect effect to be unbiased? There’s an argument to be
+made.</p>
+
+<p>Sometimes a values increase and sometimes don’t.
+Framework for examining when they do and do not increase:</p>
+
+<ul>
+  <li>The all-positive entries of the interaction selection gradient
+can be interpreted in terms of the meaning of a specific model’s parameters,
+describing what selection “would like to do” if all degrees of freedom
+were available.</li>
+  <li>Constraints on actually available variation in <!-- 4b43b0aee35624cd95b910189b3dc231.tex-math.latexml.html --><span class="latexml"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="r" display="inline"><mi>r</mi></math></span> and <!-- 0cc175b9c0f1b6a831c399e269772661.tex-math.latexml.html --><span class="latexml"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="a" display="inline"><mi>a</mi></math></span> terms
+cause the direct effect to point in a different direction from the
+interaction selection gradient.  This can be interpreted in terms of
+tradeoffs and constraints imposed by the functional form of <!-- 4b43b0aee35624cd95b910189b3dc231.tex-math.latexml.html --><span class="latexml"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="r" display="inline"><mi>r</mi></math></span> and
+<!-- 0cc175b9c0f1b6a831c399e269772661.tex-math.latexml.html --><span class="latexml"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="a" display="inline"><mi>a</mi></math></span>, as functions of the model’s parameters.  Unpacking these constraints
+can shed light on how model assumptions constrain the evolution of
+interactions.</li>
+  <li>The indirect effects of each population’s adaptation on other populations,
+and on itself, can change the resulting dynamics of interactions from
+what they would be due to direct effects alone.  These effects can be
+interpreted in terms of interplays or tensions between evolutionary
+“self-interest” and impacts of ones change on others.</li>
+</ul>
+
+<p>Use of these three parts to study how changes in interactions
+depend on assumptions.</p>
+
+<p>In this paper I explore these themes in various familiar models.</p>
+
+<h2 id="direct-and-indirect-effects-in-the-lotka-volterra-plane">Direct and indirect effects in the Lotka-Volterra plane</h2>
+
+<p>Motion of pairs on a-a plane.</p>
+
+<p>Definition of direct and indirect effect on a single a_ij value</p>
+
+<p>And on a pair.</p>
+
+<p>Equation for motion of pair</p>
+
+<p>Reveals nothing in particular about upward bias, but it’s there because
+they’re entries in the A vectors.</p>
+
+<p>motion of (a,a) in terms of partials of a() instead</p>
+
+<h2 id="direct-effects-of-constraints-on-interactions">Direct effects of constraints on interactions</h2>
+
+<p>The direct effect is S(A) constrained to available-variation curve</p>
+
+<p>“effect of constraint” C_i = D_i - S(A)</p>
+
+<p>dA/dt = S(A) + C_i + I_I</p>
+
+<p>Rewrite of D_i</p>
+
+<p>Leading to the form of C_I</p>
+
+<p>When you have constraint but not indirect effect, it’s
+<strong>density-dependent selection</strong>,
+while indirect effect is <strong>frequency-dependent selection</strong>.</p>
+
+<h2 id="indirect-effects-of-externalities-on-interactions">Indirect effects of externalities on interactions</h2>
+
+<p>[nothing here yet]</p>
+
+<h2 id="structure-of-direct-and-indirect-effects-in-monomorphic-models">Structure of direct and indirect effects in monomorphic models</h2>
+
+<h3 id="direct-effect">Direct effect</h3>
+
+<p>Direct effect is the motion without frequency dependence.</p>
+
+<p>Consequence: in monomorphic model,
+density-dependent selection can reduce r or a but not both
+[and should be a polymorphic thing where at least one term increases?]</p>
+
+<p>Sign condition for selection on r and a to be in conflict.</p>
+
+<p>If not in conflict (and no zeros) then both increase.</p>
+
+<p>If in conflict then one increases, other decreases.</p>
+
+<p>Condition for increase in r</p>
+
+<p>Condition for increase in a</p>
+
+<p>Those give 3 cases, one increases, the other does, or both do.</p>
+
+<p>There is no case in which both <!-- 4b43b0aee35624cd95b910189b3dc231.tex-math.latexml.html --><span class="latexml"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="r" display="inline"><mi>r</mi></math></span> and <!-- 0cc175b9c0f1b6a831c399e269772661.tex-math.latexml.html --><span class="latexml"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="a" display="inline"><mi>a</mi></math></span> decrease due to direct
+effects of selection.</p>
+
+<h3 id="externalities">Externalities</h3>
+
+<p>Externalities aka indirect effects act on a but not on r.</p>
+
+<p>Indirect effect in monomorphic model</p>
+
+<p>I.e. on a term uses $\partial_2 a$ to relate effect to S(u).</p>
+
+<p>Combine it with D to write full effect of adaptation on a</p>
+
+<p>Condition for decrease in a, i.e. sort of “tragedy of commons”</p>
+
+<p>$\partial_2 a$ has to be opposite in sign from $\partial_1$, and
+sufficiently large.</p>
+
+<h2 id="details-of-resource-competition-model">Details of resource competition model</h2>
+
+<p>[this stuff is in the main body currently]</p>
+
+<h2 id="details-of-predator-prey-model">Details of predator-prey model</h2>
+
+<h2 id="details-of-mutualism-model">Details of mutualism model</h2>
+
+<h2 id="details-of-statistical-mechanics-model">Details of “statistical mechanics” model</h2>
+
+<p>How to choose a() functions or phenotype vectors to get random
+angles $\partial_1, partial_2$.</p>
+
+<p>Do community assembly to get some coexisting species.</p>
+
+<p>Then watch what adaptation does.</p>
+
+<p>Example plots on lv plane.</p>
+
+<p>Also statistics on many runs?</p>
+
+<h2 id="adaptive-change-in-game-theory-payoff-matrix">Adaptive change in game theory payoff matrix</h2>
+
+<h2 id="details-of-game-theory-models">Details of game theory models</h2>
+
+<h1 id="bibliography">Bibliography</h1>
+
+  </article>
+
+</div>
+
+      </div>
+    </div>
+
+    <footer class="site-footer">
+
+  <div class="wrap">
+
+    <h2 class="footer-heading">Lee Worden</h2>
+
+    <div class="footer-col-1 column">
+      <ul>
+        <li><a href="mailto:worden.lee@gmail.com">worden.lee@gmail.com</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col-2 column">
+      <ul>
+        <li>
+          <a href="https://github.com/worden-lee">
+            <span class="icon github">
+              <svg version="1.1" class="github-icon-svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                 viewBox="0 0 16 16" enable-background="new 0 0 16 16" xml:space="preserve">
+                <path fill-rule="evenodd" clip-rule="evenodd" fill="#C2C2C2" d="M7.999,0.431c-4.285,0-7.76,3.474-7.76,7.761
+                c0,3.428,2.223,6.337,5.307,7.363c0.388,0.071,0.53-0.168,0.53-0.374c0-0.184-0.007-0.672-0.01-1.32
+                c-2.159,0.469-2.614-1.04-2.614-1.04c-0.353-0.896-0.862-1.135-0.862-1.135c-0.705-0.481,0.053-0.472,0.053-0.472
+                c0.779,0.055,1.189,0.8,1.189,0.8c0.692,1.186,1.816,0.843,2.258,0.645c0.071-0.502,0.271-0.843,0.493-1.037
+                C4.86,11.425,3.049,10.76,3.049,7.786c0-0.847,0.302-1.54,0.799-2.082C3.768,5.507,3.501,4.718,3.924,3.65
+                c0,0,0.652-0.209,2.134,0.796C6.677,4.273,7.34,4.187,8,4.184c0.659,0.003,1.323,0.089,1.943,0.261
+                c1.482-1.004,2.132-0.796,2.132-0.796c0.423,1.068,0.157,1.857,0.077,2.054c0.497,0.542,0.798,1.235,0.798,2.082
+                c0,2.981-1.814,3.637-3.543,3.829c0.279,0.24,0.527,0.713,0.527,1.437c0,1.037-0.01,1.874-0.01,2.129
+                c0,0.208,0.14,0.449,0.534,0.373c3.081-1.028,5.302-3.935,5.302-7.362C15.76,3.906,12.285,0.431,7.999,0.431z"/>
+              </svg>
+            </span>
+            <span class="username">worden-lee</span>
+          </a>
+        </li>
+        <li>
+          <a href="https://twitter.com/leeworden">
+            <span class="icon twitter">
+              <svg version="1.1" class="twitter-icon-svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                 viewBox="0 0 16 16" enable-background="new 0 0 16 16" xml:space="preserve">
+                <path fill="#C2C2C2" d="M15.969,3.058c-0.586,0.26-1.217,0.436-1.878,0.515c0.675-0.405,1.194-1.045,1.438-1.809
+                c-0.632,0.375-1.332,0.647-2.076,0.793c-0.596-0.636-1.446-1.033-2.387-1.033c-1.806,0-3.27,1.464-3.27,3.27
+                c0,0.256,0.029,0.506,0.085,0.745C5.163,5.404,2.753,4.102,1.14,2.124C0.859,2.607,0.698,3.168,0.698,3.767
+                c0,1.134,0.577,2.135,1.455,2.722C1.616,6.472,1.112,6.325,0.671,6.08c0,0.014,0,0.027,0,0.041c0,1.584,1.127,2.906,2.623,3.206
+                C3.02,9.402,2.731,9.442,2.433,9.442c-0.211,0-0.416-0.021-0.615-0.059c0.416,1.299,1.624,2.245,3.055,2.271
+                c-1.119,0.877-2.529,1.4-4.061,1.4c-0.264,0-0.524-0.015-0.78-0.046c1.447,0.928,3.166,1.469,5.013,1.469
+                c6.015,0,9.304-4.983,9.304-9.304c0-0.142-0.003-0.283-0.009-0.423C14.976,4.29,15.531,3.714,15.969,3.058z"/>
+              </svg>
+            </span>
+            <span class="username">leeworden</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="footer-col-3 column">
+	    <p class="text"><!-- Any additional text --></p>
+    </div>
+
+  </div>
+
+</footer>
+
+
+    </body>
+</html>

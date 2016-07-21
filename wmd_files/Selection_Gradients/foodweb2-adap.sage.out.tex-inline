@@ -1,0 +1,27 @@
+The foodweb adaptive dynamics:\iflatexml
+\begin{align*}
+\frac{d{u}_{{b}{0}}}{dt} &= -\frac{9}{625} \, {\left(\hat{X}_{a_{0}} {\gamma}_{{b}{0}} \sin\left(-{u}_{{a}{0}} + {u}_{{b}{0}}\right) + 50 \, \hat{X}_{a_{0}} \sin\left(-{u}_{{a}{0}} + {u}_{{b}{0}}\right)\right)} \hat{X}_{b_{0}}\\
+\frac{d{\gamma}_{{b}{0}}}{dt} &= \frac{9}{1250} \, {\left(2 \, \hat{X}_{a_{0}} \cos\left(-{u}_{{a}{0}} + {u}_{{b}{0}}\right) + 5 \, \hat{X}_{a_{0}}\right)} \hat{X}_{b_{0}}\\
+\frac{d{\sigma}_{{b}{0}}}{dt} &= 0\\
+\frac{d{u}_{{a}{0}}}{dt} &= -\frac{2}{125} \, {\left(\hat{X}_{b_{0}} {\sigma}_{{a}{0}} \sin\left(-{u}_{{a}{0}} + {u}_{{b}{0}}\right) + 50 \, \hat{X}_{b_{0}} \sin\left(-{u}_{{a}{0}} + {u}_{{b}{0}}\right)\right)} \hat{X}_{a_{0}}\\
+\frac{d{\gamma}_{{a}{0}}}{dt} &= 0\\
+\frac{d{\sigma}_{{a}{0}}}{dt} &= -\frac{1}{125} \, {\left(2 \, \hat{X}_{b_{0}} \cos\left(-{u}_{{a}{0}} + {u}_{{b}{0}}\right) + 5 \, \hat{X}_{b_{0}}\right)} \hat{X}_{a_{0}}
+\end{align*}
+\else
+\begin{dgroup*}
+\begin{dmath*}
+\frac{d{u}_{{b}{0}}}{dt} = -\frac{9}{625} \, {\left(\hat{X}_{a_{0}} {\gamma}_{{b}{0}} \sin\left(-{u}_{{a}{0}} + {u}_{{b}{0}}\right) + 50 \, \hat{X}_{a_{0}} \sin\left(-{u}_{{a}{0}} + {u}_{{b}{0}}\right)\right)} \hat{X}_{b_{0}}\end{dmath*}
+\begin{dmath*}
+\frac{d{\gamma}_{{b}{0}}}{dt} = \frac{9}{1250} \, {\left(2 \, \hat{X}_{a_{0}} \cos\left(-{u}_{{a}{0}} + {u}_{{b}{0}}\right) + 5 \, \hat{X}_{a_{0}}\right)} \hat{X}_{b_{0}}\end{dmath*}
+\begin{dmath*}
+\frac{d{\sigma}_{{b}{0}}}{dt} = 0\end{dmath*}
+\begin{dmath*}
+\frac{d{u}_{{a}{0}}}{dt} = -\frac{2}{125} \, {\left(\hat{X}_{b_{0}} {\sigma}_{{a}{0}} \sin\left(-{u}_{{a}{0}} + {u}_{{b}{0}}\right) + 50 \, \hat{X}_{b_{0}} \sin\left(-{u}_{{a}{0}} + {u}_{{b}{0}}\right)\right)} \hat{X}_{a_{0}}\end{dmath*}
+\begin{dmath*}
+\frac{d{\gamma}_{{a}{0}}}{dt} = 0\end{dmath*}
+\begin{dmath*}
+\frac{d{\sigma}_{{a}{0}}}{dt} = -\frac{1}{125} \, {\left(2 \, \hat{X}_{b_{0}} \cos\left(-{u}_{{a}{0}} + {u}_{{b}{0}}\right) + 5 \, \hat{X}_{b_{0}}\right)} \hat{X}_{a_{0}}
+\end{dmath*}
+\end{dgroup*}
+\fi
+

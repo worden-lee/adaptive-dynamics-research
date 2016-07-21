@@ -34,26 +34,3 @@
 \newcommand{\CFF}{\Bold{CFF}}
 \newcommand{\Bold}[1]{\mathbf{#1}}
 \begin{document}
-Adaptive dynamics of model:
-\iflatexml
-\begin{align*}
-\frac{d{u}_{00}}{dt} &= \hat{X}_{0}^{2}\\
-\frac{d{u}_{01}}{dt} &= \hat{X}_{0} \hat{X}_{1}\\
-\frac{du_{10}}{dt} &= \hat{X}_{0} \hat{X}_{1}\\
-\frac{du_{11}}{dt} &= \hat{X}_{1}^{2}
-\end{align*}
-\else
-\begin{dgroup*}
-\begin{dmath*}
-\frac{d{u}_{00}}{dt} = \hat{X}_{0}^{2}\end{dmath*}
-\begin{dmath*}
-\frac{d{u}_{01}}{dt} = \hat{X}_{0} \hat{X}_{1}\end{dmath*}
-\begin{dmath*}
-\frac{du_{10}}{dt} = \hat{X}_{0} \hat{X}_{1}\end{dmath*}
-\begin{dmath*}
-\frac{du_{11}}{dt} = \hat{X}_{1}^{2}
-\end{dmath*}
-\end{dgroup*}
-\fi
-
-\end{document}

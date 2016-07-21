@@ -1,4 +1,4 @@
-Wed Jun 29 12:07:19 2016
+Wed Jun 29 12:19:10 2016
 /usr/bin/make -C /usr/local/src/adaptive-dynamics-research/wmd_files/Selection_Gradients \
     sea-all-ts2.pdf
 Including .mk files: sage-inline.mk 
@@ -9,4 +9,4 @@ make[1]: Entering directory `/usr/local/src/adaptive-dynamics-research/wmd_files
 make[1]: `sea-all-ts2.pdf' is up to date.
 make[1]: Leaving directory `/usr/local/src/adaptive-dynamics-research/wmd_files/Selection_Gradients'
 Make succeeded.
-Wed Jun 29 12:07:19 2016
+Wed Jun 29 12:19:10 2016

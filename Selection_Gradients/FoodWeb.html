@@ -7,7 +7,7 @@
         <title>Evolution in a Food Web</title>
         <meta name="viewport" content="width=device-width">
         <meta name="description" content="Lee Worden prototype research website" />
-        <link rel="canonical" href="/Selection_Gradients/FoodWeb.html/" />
+        <link rel="canonical" href="/Selection_Gradients/FoodWeb/" />
 
         <!-- Custom CSS -->
 	<link rel="stylesheet" href="/adaptive-dynamics-research/css/main.css">
@@ -61,7 +61,7 @@
   <article class="post-content">
   <p>Evolution in a food web – is it arms-race-like?</p>
 
-<p>We provide a directed graph representing the food web. Node labels are species names, and arrow labels are strength of predation.  Let’s say the conversion factor from prey to predator is constant <!-- 4a8a08f09d37b73795649038408b5f33.tex-math.latexml.html --><span class="latexml"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="c" display="inline"><mi>c</mi></math></span>.</p>
+<p>We provide a directed graph representing the food web. Node labels are species names, and arrow labels are strength of predation.  Let’s say the conversion factor from prey to predator is constant <!-- 8ce4b16b22b58894aa86c421e8759df3.tex-math.latexml.html --><span class="latexml"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="k" display="inline"><mi>k</mi></math></span>.</p>
 
 <p>Then species <!-- 865c0c0b4ab0e063e5caa3387c1a8741.tex-math.latexml.html --><span class="latexml"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="i" display="inline"><mi>i</mi></math></span>’s dynamics is</p>
 
@@ -88,7 +88,7 @@ class vertex_indexer(dynamicalsystems.indexer):
 	v, i = tup
 	return SR.symbol(
 	    '%s_%s_%s' % (self._f, str(i), str(v)),
-	    latex_name = '%s_{%s%s}' % (self._f, latex(i), latex(v))
+	    latex_name = '%s_{' '%s%s}' % (self._f, latex(i), latex(v))
 	)
 
 class vertex_indexer_2d(dynamicalsystems.indexer):
@@ -105,7 +105,7 @@ class vertex_indexer_2d(dynamicalsystems.indexer):
 		w, j = tupj
 		return SR.symbol(
 		    '_'.join( [self._f, str(i), str(v), str(j), str(w)] ),
-		    latex_name = '%s_{%s%s%s%s}' % (self._f, latex(i), latex(v), latex(j), latex(w))
+		    latex_name = '%s_{''%s%s%s%s}' % (self._f, latex(i), latex(v), latex(j), latex(w))
 		)
 	return vertex_indexer_2d_inner(self._f, tupi)
 
