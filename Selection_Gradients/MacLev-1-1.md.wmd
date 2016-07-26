@@ -10,7 +10,7 @@ This page investigates the adaptive dynamics of [the Macarthur-Levins resource c
 
 Before we do evolution, we start by defining the basic population dynamics.  Here I'm just going to consider one population and one resource.  This configuration is well suited to visualizing in two-dimensional plots.  
 
-<source-file filename=maclev-1-1.sage.step lang=sage>
+<source-file filename=maclev-1-1.sage.step display=none>
 # requires: maclevmodels.py
 # produces: maclev-1-1.sobj maclev-1-1.sage.out.tex
 from sage.all import * 
@@ -26,7 +26,7 @@ ltx = latex_output( 'maclev-1-1.sage.out.tex' )
 rescomp = ResourceCompetitionModel(x_indices=[0], r_indices=[0])
 
 ltx.write( 'The original resource competition system:' )
-ltx.write_block( rescomp )
+ltx.write( rescomp )
 
 #print 'rescomp bindings:', rescomp._bindings
 
@@ -34,7 +34,7 @@ ltx.write_block( rescomp )
 maclev = MacArthurLevinsModel(rescomp)
 
 ltx.write( "And the Mac-Lev system derived from it: " )
-ltx.write_block( maclev )
+ltx.write( maclev )
 
 ltx.close()
 
@@ -42,7 +42,7 @@ save_session('maclev-1-1')
 </source-file>
 
 The model equations, according to Sage:
-<project-file filename=maclev-1-1.sage.out.html/>
+<project-file filename=maclev-1-1.sage.out.tex/>
 
 ## Adaptive dynamics of $$u$$
 
@@ -86,7 +86,7 @@ maclev_adap = AdaptiveDynamicsModel(maclev,
 print 'when c_00 == u, the adaptive dynamics is ', maclev_adap
 
 ltx.write( 'Adaptive dynamics of the Mac-Lev model with $b_i=m_i=1$ and $c_{i0} = u_i$:' )
-ltx.write_block( maclev_adap )
+ltx.write( maclev_adap )
 
 numeric_params = Bindings(
   { SR.var('r_0'): 1, SR.var('w_0'): 1,
@@ -101,14 +101,14 @@ c_evolution = maclev_adap_bound.solve( [initial_u], end_time=10 )
 
 # and plot. 
 t = maclev_adap.time_variable()
-c_evolution.plot( t, u_indexer[0], 'maclev-1-1-c.png', ymin=0, ylabel='$c_{00}$', figsize=(4,4) )
-c_evolution.plot( t, u_indexer[0], 'maclev-1-1-c.svg', ymin=0, ylabel='$c_{11}$', figsize=(2,2) )
+c_evolution.plot( t, u_indexer[0], filename='maclev-1-1-c.png', ymin=0, ylabel='$c_{00}$', figsize=(4,4) )
+c_evolution.plot( t, u_indexer[0], filename='maclev-1-1-c.svg', ymin=0, ylabel='$c_{11}$', figsize=(2,2) )
 # Xhat increases.
 Xhat = hat( maclev_adap_bound._popdyn_model._population_indexer[0] )
-c_evolution.plot( t, evol_c_bindings( maclev_adap_bound._bindings( Xhat ) ), "maclev-1-1-X.png", ylabel=Xhat, figsize=(4,4) )
+c_evolution.plot( t, evol_c_bindings( maclev_adap_bound._bindings( Xhat ) ), filename="maclev-1-1-X.png", ylabel=Xhat, figsize=(4,4) )
 Rhat = hat( maclev_adap_bound._popdyn_model._rescomp_model._indexers['R'][0] )
-c_evolution.plot( t, evol_c_bindings( maclev_adap_bound._bindings( Rhat ) ), "maclev-1-1-R.svg", figsize=(2,2), ymin=0, ylabel='$\hat{R}_1$' )
-c_evolution.plot( t, evol_c_bindings( maclev_adap_bound._bindings( Rhat ) ), "maclev-1-1-R.png", figsize=(4,4), ymin=0, ylabel=Rhat )
+c_evolution.plot( t, evol_c_bindings( maclev_adap_bound._bindings( Rhat ) ), filename="maclev-1-1-R.svg", figsize=(2,2), ymin=0, ylabel='$\hat{R}_1$' )
+c_evolution.plot( t, evol_c_bindings( maclev_adap_bound._bindings( Rhat ) ), filename="maclev-1-1-R.png", figsize=(4,4), ymin=0, ylabel=Rhat )
 # and let's also plot k_0 vs. a_00.
 # these are the coefficients if you rewrite the maclev dynamics
 # as dX_0/dt = X_0(k_0 + a_00 X_0)
@@ -130,17 +130,17 @@ ltx.write( 'And the equilibrium values $\\hat X$ and $\\hat R$:',
     latex( maclev_adap_bound._bindings( Rhat ).expand() ), '\n',
     '\\end{align*}\n' )
 
-c_evolution.plot( t, maclev_adap_bound._early_bindings( k_0 ), "maclev-1-1-k.svg",
+c_evolution.plot( t, maclev_adap_bound._early_bindings( k_0 ), filename="maclev-1-1-k.svg",
   ymin=0, ylabel='$k_1$', figsize=(2,2) )
-c_evolution.plot( t, maclev_adap_bound._early_bindings( k_0 ), "maclev-1-1-k.png",
+c_evolution.plot( t, maclev_adap_bound._early_bindings( k_0 ), filename="maclev-1-1-k.png",
   figsize=(4,4) )
 
-c_evolution.plot( t, maclev_adap_bound._early_bindings( a_00 ), "maclev-1-1-a.svg",
+c_evolution.plot( t, maclev_adap_bound._early_bindings( a_00 ), filename="maclev-1-1-a.svg",
   ymax=0, ylabel='$a_{11}$', figsize=(2,2) )
-c_evolution.plot( t, maclev_adap_bound._early_bindings( a_00 ), "maclev-1-1-a.png",
+c_evolution.plot( t, maclev_adap_bound._early_bindings( a_00 ), filename="maclev-1-1-a.png",
   ymax=0, ylabel='$a_{11}$', figsize=(4,4) )
 
-c_evolution.plot( maclev_adap_bound._early_bindings( a_00 ), maclev_adap_bound._early_bindings( k_0 ), "maclev-1-1-ak.png",
+c_evolution.plot( maclev_adap_bound._early_bindings( a_00 ), maclev_adap_bound._early_bindings( k_0 ), filename="maclev-1-1-ak.png",
   xlabel = SR.var('a_00'), ylabel = SR.var('k_0'), figsize=(4,4) )
 
 ltx.close()
@@ -150,7 +150,7 @@ save_session('maclev-1-1-adap')
 
 Here we derive the adaptive dynamics equations when it is the uptake rate $$c_{00}$$ that is evolving -- that is, when $$c_{00}(u)=u$$, $$b_0=1$$, and $$m_0=1$$; and then we bind the remaining parameters to get a realization of the system that we can integrate and plot.
 
-<project-file filename=maclev-1-1-adap.sage.out.html/>
+<project-file filename=maclev-1-1-adap.sage.out.tex/>
 
 With these parameters, the uptake rate $$c_{00}$$ ($$=u_0$$) increases as long as it starts above $$\frac12$$.  This is the only relevant range, because it has to be above $$\frac12$$ in order for the population to be viable ($$\hat X_0 > 0$$).
 
@@ -235,20 +235,20 @@ maclev_c00 = MacArthurLevinsModel( x_indices = [0], r_indices = [0],
        c = indexer(lambda i: indexer(lambda l: 'u_%s'%i)) )
 
 #ltx.write( 'maclev_c00:' )
-#ltx.write_block( maclev_c00 )
+#ltx.write( maclev_c00 )
 
 maclev_adap_c00 = AdaptiveDynamicsModel(maclev_c00, 
     [ indexer('u') ])
 
 #ltx.write( 'Returning to the adaptive dynamics, with $c_0(u_0)=u_0$, $b(u_0) = m(u_0) = 1$:' )
-#ltx.write_block( maclev_adap_c00 )
+#ltx.write( maclev_adap_c00 )
 
 maclev_adap_c00_bound = maclev_adap_c00.bind( Bindings( 
   { SR.var('r_0'): 1, SR.var('w_0'): 1,
     SR.var('K_0'): 2, SR.var('gamma'): 1 } ) )
 
 #ltx.write( 'And with parameters bound:' )
-#ltx.write_block( maclev_adap_c00_bound )
+#ltx.write( maclev_adap_c00_bound )
 
 c00_evolution = maclev_adap_c00_bound.solve( [2] )
 
@@ -280,7 +280,7 @@ ltx.write( 'The derivative of $\mathbf p$ is \n\\[\n  ',
   latex( column_vector( dp_du_bound ) ), ', \\]\n' )
 ltx.write( 'and we can recover the motion of $u_0$: \n\\[ ',
   latex( S_symb( u_0 ) ),
-  ' = \\frac{d%s}{d%s}^\mathrm{T} %s = ' % ( latex(p_symb), latex(u_0), latex( S_symb( pf_symb( u_0 ) ) ) ),
+  ' = \\frac{d%s}{d%s}^{\mathrm{T}} %s = ' % ( latex(p_symb), latex(u_0), latex( S_symb( pf_symb( u_0 ) ) ) ),
   latex( c00_bindings( change_p_to_functions( dp_du_bound.dot_product( S_p ) ) ) ), ' \\]\n' )
 ltx.write_equality( wrap_latex( '\\frac{du_0}{dt}' ),
   wrap_latex( '\\gamma\\hat X_0 %s' %  latex( S_symb( u_0 ) ) ),
@@ -288,7 +288,7 @@ ltx.write_equality( wrap_latex( '\\frac{du_0}{dt}' ),
 
 ltx.write( 'and the motion of $\\mathbf p(u_0)$:' )
 ltx.write_equality( wrap_latex( '\\frac{d\\mathbf p(u_0)}{dt}' ),
-  wrap_latex( '\\gamma\\hat X_0 \\frac{d\\mathbf p}{du_0} \\frac{d\\mathbf p}{du_0}^\\mathrm{T} %s' %  latex( S_symb( pf_symb( u_0 ) ) ) ),
+  wrap_latex( '\\gamma\\hat X_0 \\frac{d\\mathbf p}{du_0} \\frac{d\\mathbf p}{du_0}^{\\mathrm{T}} %s' %  latex( S_symb( pf_symb( u_0 ) ) ) ),
   latex( column_vector( c00_bindings( change_p_to_functions( z ) ) for z in SR('gamma') * X_0 * dp_du_bound * dp_du_bound.dot_product( S_p ) ) ) );
 
 # OK, so that seems to be right, so we ought to be able to plot S(p)
@@ -335,7 +335,7 @@ ltx.close()
 save_session("maclev-1-1-mc-adap-geom")
 </source-file>
 
-<project-file filename=maclev-1-1-mc-adap-geom.sage.out.html/>
+<project-file filename=maclev-1-1-mc-adap-geom.sage.out.tex/>
 
 And here in the graphics is the part I really care about: the geometry of $$\mathbf p$$ and $$\mathbf A$$.  Starting with $$\mathbf p$$.
 
@@ -380,7 +380,7 @@ ltx.write( 'As before, the adaptive dynamics of $u$ is' )
 ltx.write_equality( wrap_latex('\\mathbf S' + latex( maclev_adap_lv.A(0) )),
     maclev_adap_lv.S( maclev_adap_lv.A(0) ),
     maclev_adap_lv._lv_model.interior_equilibrium_bindings()( maclev_adap_lv.S( maclev_adap_lv.A(0) ) ) )
-ltx.write_block( maclev_adap_lv._adaptivedynamics )
+ltx.write( maclev_adap_lv._adaptivedynamics )
 
 save_session( 'maclev-1-1-ak-adap-geom' )
 ltx.close()
@@ -391,7 +391,7 @@ exit()
 maclev_lv = GeneralizedLotkaVolterraModel( [0], r = indexer('k') )
 
 ltx.write( "Abstract Lotka-Volterra model corresponding to the 1-population Mac-Lev model:" )
-ltx.write_block( maclev_adap_lv )
+ltx.write( maclev_adap_lv )
 
 # Here is the adaptive dynamics of the Lotka-Volterra model
 # We get the general S(A) using this unparametrized lv system; we'll add
@@ -445,19 +445,19 @@ maclev_lv_u = GeneralizedLotkaVolterraModel( [0],
   a = indexer(lambda i: indexer(lambda j: af(SR('u_%s'%i),SR('u_%s'%j)))) )
 
 #ltx.write( 'now with $a$ and $k$ as functions of $u$:' )
-#ltx.write_block( maclev_lv_u )
+#ltx.write( maclev_lv_u )
 
 #ltx.write( 'with coefficients:' )
-#ltx.write_block( A_bindings )
+#ltx.write( A_bindings )
 
 # then bind a, k to specific functions of u, to be precise, with
 # c_0i = u_i, b_i = m_1 = 1
 maclev_lv = maclev_lv_u.bind( A_bindings )
 #ltx.write( 'becomes:' )
-#ltx.write_block( maclev_lv )
+#ltx.write( maclev_lv )
 
 #ltx.write( '(a 2-variable system would be ' )
-#ltx.write_block( GeneralizedLotkaVolterraModel( [0, 1],
+#ltx.write( GeneralizedLotkaVolterraModel( [0, 1],
 #  k = indexer(lambda i:'k(u_%s)'%i),
 #  a = indexer(lambda i: indexer(lambda j: 'a(u_%s,u_%s)'%(i,j))),
 #  bindings = A_bindings ) )
@@ -469,9 +469,9 @@ maclev_lv_c00 = maclev_lv.bind( FunctionBindings( {
     function('m'): symbolic_expression('1').function(u_0) } ) )
 
 ltx.write( 'Now we bind $c, m, b$:' )
-ltx.write_block( maclev_lv_c00 )
+ltx.write( maclev_lv_c00 )
 ltx.write( 'maclev_lv_c00._bindings:' )
-ltx.write_block( maclev_lv_c00._bindings )
+ltx.write( maclev_lv_c00._bindings )
 
 # assign constant values to the rest of the parameters
 maclev_lv_c00_bound = maclev_lv_c00.bind( Bindings( 
@@ -479,7 +479,7 @@ maclev_lv_c00_bound = maclev_lv_c00.bind( Bindings(
     SR.var('K_0'): 2, SR.var('gamma'): 1 } ) )
 
 ltx.write( 'With all the bindings works out to:' )
-ltx.write_block( maclev_lv_c00_bound )
+ltx.write( maclev_lv_c00_bound )
 
 # and derive the adaptive dynamics of u_0 under those assumptions,
 # i.e. the adaptive dynamics of c_00 with all else held fixed.
@@ -492,7 +492,7 @@ maclev_adap_lv_c00_bound = AdaptiveDynamicsModel( maclev_lv_c00_bound,
 ltx.write( 'As before, the adaptive dynamics of $u$ is' )
 ltx.write_equality( wrap_latex('\\mathbf S' + latex( cvector( [ u_j for u_j in maclev_adap_lv_c00_bound._S.keys() ] ) ) ),
             cvector( [ dI_duj for dI_duj in maclev_adap_lv_c00_bound._S.values() ] ) )
-ltx.write_block( maclev_adap_lv_c00_bound )
+ltx.write( maclev_adap_lv_c00_bound )
 
 ltx.write( 'and' )
 ltx.write_equality( X_0, maclev_adap_lv_c00_bound._bindings( X_0 ) )
@@ -574,7 +574,7 @@ ltx.write_equality( wrap_latex('\\partial_1\mathbf A\\partial_1\mathbf A^T S(\ma
 
 d1A_curve = A_j.substitute( { u_j : initial_u } )
 #ltx.write( 'and the mysterious curve (for $v\in[%s,%s]$) is' %(initial_u-2,initial_u+2) )
-#ltx.write_block( d1A_curve )
+#ltx.write( d1A_curve )
  
 d1A_constraint = parametric_plot( (d1A_curve[0], d1A_curve[1]),
   (u_i, initial_u-2, initial_u+2), color='green' )
@@ -582,9 +582,9 @@ d1A_constraint = parametric_plot( (d1A_curve[0], d1A_curve[1]),
 #dAdu_0 = dAdu_0.substitute({u_0: initial_u, v: initial_u})
 
 #ltx.write( 'dA(v,u_0)/dv:\n' )
-#ltx.write_block( dAdv )
+#ltx.write( dAdv )
 #ltx.write( 'dA(v,u_0)/du_0:\n' )
-#ltx.write_block( dAdu_0 )
+#ltx.write( dAdu_0 )
 
 dAdt_unconstrained = A.apply_map( lambda a :  c00_bindings(maclev_adap_lv._flow[a].substitute({SR.var('a_0_0'):A_0[0][0], SR.var('k_0'):A_0[1][0]})) )
 
@@ -623,13 +623,13 @@ ltx.write_equality( wrap_latex('\\frac{dA}{dt}'),
 dudt_0 = initcond_bindings(maclev_adap_c00_bound._flow[u_0])
 dA_du_0c = dA_du_0.transpose()
 #ltx.write( 'dudt_0 =' )
-#ltx.write_block( dudt_0 )
+#ltx.write( dudt_0 )
 #ltx.write( 'dA_du_0 =' )
-#ltx.write_block( dA_du_0c )
+#ltx.write( dA_du_0c )
 
 dAdt_constrained = dA_du_0c * dudt_0
 #ltx.write( 'and dAdt_constrained =' )
-#ltx.write_block( dAdt_constrained )
+#ltx.write( dAdt_constrained )
 
 def arrow_from_cvectors(tail, length, **kargs):
     return arrow( (tail[0][0], tail[1][0]),
@@ -655,7 +655,7 @@ ltx.close()
 
 </source-file>
 
-<project-file filename=maclev-1-1-ak-adap-geom.sage.out.html/>
+<project-file filename=maclev-1-1-ak-adap-geom.sage.out.tex/>
 
 This is a work in progress.
 
@@ -669,11 +669,15 @@ This figure includes $$S(A)$$ (red) and $$\frac{dA}{dt}$$ (blue), but also the p
 
 We made this model by using an equilibrium resource quantity
 
-$$\usepackage[usenames,dvipsnames,svgnames,table]{xcolor} \hat R_0 = {\color{orange} K_0} - {\color{green} \frac{c_{00}X_0}{r_0}}$$
+\[* \hat R_0 = {\color{orange} K_0} - {\color{green} \frac{c_{00}X_0}{r_0}} \]
 
 given population size $$X_0$$.
 
-Here $$\usepackage[usenames,dvipsnames,svgnames,table]{xcolor} \color{orange} K_0$$ is the resource "set point" - the level it'll return to if consumption stops - and $$\usepackage[usenames,dvipsnames,svgnames,table]{xcolor} \color{green} \frac{c_{00}X_0}{r_0}$$ is the "draw-down" of the resource - the amount removed to bring $$R$$ to the level where replacement and consumption balance.
+Here $$\color{orange} K_0$$ is the resource "set point" -
+the level it'll return to if consumption stops -
+and $$\color{green} \frac{c_{00}X_0}{r_0}$$ is the "draw-down" of the resource -
+the amount removed to bring $$R$$ to the level where
+replacement and consumption balance.
 
 The population dynamics is
 
@@ -683,35 +687,46 @@ with a growth term driven by resource availability and a constant per-capita mor
 
 So after we substitute $$R_0\to\hat R_0$$ and partition out the linear and quadratic terms to make $$a_{00}$$ and $$k_0$$, we have
 
-<latex>\usepackage[usenames,dvipsnames,svgnames,table]{xcolor} \begin{align*}
-\frac{dX_0}{dt} &= ({\color{purple} b_0 c_{00} w_0} R_0 - {\color{red} b_0 m_0}) X_0 \\
- &= ({\color{purple} b_0 c_{00} w_0} ({\color{orange} K_0} - {\color{green} \frac{c_{00}X_0}{r_0}}) - {\color{red} b_0 m_0}) X_0 \\
- &= {\color{purple} b_0 c_{00} w_0 \color{orange} K_0} X_0 - {\color{red} b_0 m_0} X_0 - {\color{purple} b_0 c_{00} w_0 \color{green} \frac{c_{00}}{r_0}} X_0^2.
-\end{align*}</latex>
+\[* \frac{dX_0}{dt} = ({\color{purple} b_0 c_{00} w_0} R_0 - {\color{red} b_0 m_0}) X_0 \\
+ = ({\color{purple} b_0 c_{00} w_0} ({\color{orange} K_0} - {\color{green} \frac{c_{00}X_0}{r_0}}) - {\color{red} b_0 m_0}) X_0 \\
+ = {\color{purple} b_0 c_{00} w_0 \color{orange} K_0} X_0 - {\color{red} b_0 m_0} X_0 - {\color{purple} b_0 c_{00} w_0 \color{green} \frac{c_{00}}{r_0}} X_0^2.
+\]
 
 So in a nutshell,
 
-$$\usepackage[usenames,dvipsnames,svgnames,table]{xcolor} k_0 = {\color{purple} b_0 c_{00} w_0 \color{orange} K_0} - {\color{red} b_0 m_0}$$
+\[* k_0 = {\color{purple} b_0 c_{00} w_0 \color{orange} K_0} - {\color{red} b_0 m_0} \]
 
 is what the net reproduction rate ''would be'' if $$R$$ were at its set point, and
 
-$$\usepackage[usenames,dvipsnames,svgnames,table]{xcolor} a_{00} = - {\color{purple} b_0 c_{00} w_0\color{green} \frac{c_{00}}{r_0}}$$
+\[* a_{00} = - {\color{purple} b_0 c_{00} w_0\color{green} \frac{c_{00}}{r_0}} \]
 
 encompasses the loss of reproduction due to draw-down of $$R$$.
 
-The agent-patient distinction is that we consider the fitness of population 0 (as patient) in the environment created by population 0 (as agent).  Adaptive dynamics is driven by the difference of fitness as the patient population varies while the agent population stays fixed.  So the green $$\usepackage[usenames,dvipsnames,svgnames,table]{xcolor}\color{green} c_{00}$$ in the  expression for $$\hat R$$ is the agent population's consumption rate - it shows up in $$a_{00}$$ - and the purple $$\usepackage[usenames,dvipsnames,svgnames,table]{xcolor}\color{purple} b_0 c_{00}$$ and red $$\usepackage[usenames,dvipsnames,svgnames,table]{xcolor}\color{red} b_0 m_0$$ in the $$X$$ equation - the other population parameters in $$a$$ and $$k$$ - are the patient population's characteristics.
+The agent-patient distinction is that
+we consider the fitness of population 0 (as patient)
+in the environment created by population 0 (as agent).
+Adaptive dynamics is driven by the difference of fitness
+as the patient population varies while the agent population stays fixed.
+So the green $$\color{green} c_{00}$$ in the  expression for $$\hat R$$
+is the agent population's consumption rate -
+it shows up in $$a_{00}$$ -
+and the purple $$\color{purple} b_0 c_{00}$$
+and red $$\color{red} b_0 m_0$$ in the $$X$$ equation -
+the other population parameters in $$a$$ and $$k$$ -
+are the patient population's characteristics.
 
 To summarize: the interaction vector $$A$$ is
 
-$$\usepackage[usenames,dvipsnames,svgnames,table]{xcolor} A = \left(\begin{array}{c} a_{00} \\ k_0 \end{array}\right) = \left(\begin{array}{c} - {\color{purple} b_0 c_{00} w_0\color{green} \frac{c_{00}}{r_0}} \\ {\color{purple} b_0 c_{00} w_0 \color{orange} K_0} - {\color{red} b_0 m_0} \end{array}\right).$$
+$$ A = \left(\begin{array}{c} a_{00} \\ k_0 \end{array}\right) = \left(\begin{array}{c} - {\color{purple} b_0 c_{00} w_0\color{green} \frac{c_{00}}{r_0}} \\ {\color{purple} b_0 c_{00} w_0 \color{orange} K_0} - {\color{red} b_0 m_0} \end{array}\right).
+$$
 
 ### The selection gradient $$S(A)$$
 
 Any evolvable traits of this population must be expressed in its ecological parameters $$b_0$$, $$c_{00}$$, and $$m_0$$.  Under the adaptive dynamics assumptions, selection occurs through the marginal reproductive fitness of a variant invader population $$i$$ in the resident population $$0$$'s environment.  That works out to mean the fitness conferred by the variant's $$b$$, $$c$$, and $$m$$, when $$i$$ is the ''patient'' in the environment of ''agent'' $$0$$: the derivative of
 
-$$\mathcal I = k_i + a_{i0} \hat X_0$$
-
-$$\usepackage[usenames,dvipsnames,svgnames,table]{xcolor} =  ({\color{purple} b_i c_{i0} w_0 \color{orange} K_0} - {\color{red} b_i m_i}) - {\color{purple} b_i c_{i0} w_0 \color{green} \frac{c_{00}}{r_0}} \hat X_0$$
+\[* \mathcal I = k_i + a_{i0} \hat X_0 \\
+  =  ({\color{purple} b_i c_{i0} w_0 \color{orange} K_0} - {\color{red} b_i m_i}) - {\color{purple} b_i c_{i0} w_0 \color{green} \frac{c_{00}}{r_0}} \hat X_0
+\]
 
 with respect to the characteristics of population $$i$$.
 
@@ -738,21 +753,21 @@ SAvf.save( 'S-A-vector-field.png' );
 
 But maybe it's helpful to expand out the value of $$\hat X_0$$?
 
-$$\usepackage[usenames,dvipsnames,svgnames,table]{xcolor} \hat X_0 = (\color{orange} K_0 - \frac{\color{red} m_0}{\color{purple} c_{00} w_0}) \color{green} \frac{r_0}{c_{00}}$$.
+\[* \hat X_0 = (\color{orange} K_0 - \frac{\color{red} m_0}{\color{purple} c_{00} w_0}) \color{green} \frac{r_0}{c_{00}}. \]
 
 Anyway, it's directly proportional to the population's growth rate in a sterile world, and inversely proportional to the drawdown: the more $$X$$ draws down the resource at equilibrium, the smaller $$X$$ is.
 
 [And while we're at it:
 
-<latex>\usepackage[usenames,dvipsnames,svgnames,table]{xcolor}\begin{align*}
-\hat R_0 &= {\color{orange} K_0} - {\color{green} \frac{c_{00}}{r_0}}\hat X_0 \\
-  &= {\color{orange} K_0} - {\color{green} \frac{c_{00}}{r_0}}(\color{orange} K_0 - \frac{\color{red} m_0}{\color{purple} c_{00} w_0}) \color{green} \frac{r_0}{c_{00}} \\
-  &= \frac{\color{red} m_0}{\color{purple} c_{00} w_0}.]
-\end{align*}</latex>
+\[* \hat R_0 = {\color{orange} K_0} - {\color{green} \frac{c_{00}}{r_0}}\hat X_0 \\
+  = {\color{orange} K_0} - {\color{green} \frac{c_{00}}{r_0}}(\color{orange} K_0 - \frac{\color{red} m_0}{\color{purple} c_{00} w_0}) \color{green} \frac{r_0}{c_{00}} \\
+  = \frac{\color{red} m_0}{\color{purple} c_{00} w_0}.]
+\]
 
 For reference, the expanded-out value of the gradient is
 
-$$S(A) = \left(\begin{array}{c} (\color{orange} K_0 - \frac{\color{red} m_0}{\color{purple} c_{00} w_0}) \color{green} \frac{r_0}{c_{00}} \\ 1 \end{array}\right)$$.
+<latex>\begin{dmath*} S(A) = \left(\begin{array}{c} (\color{orange} K_0 - \frac{\color{red} m_0}{\color{purple} c_{00} w_0}) \color{green} \frac{r_0}{c_{00}} \\ 1 \end{array}\right).
+\end{dmath*}</latex>
 
 ### The direct effect
 
@@ -767,7 +782,7 @@ is the selection gradient vector projected on to the constrained available direc
 Let's examine $$D$$ more closely in the Mac-Lev model.
 
 To review, the interaction vector (or whatever we call it) is
-<source-file filename="avec.sage-inline" display="avec.sage.out.html">
+<source-file filename="avec.sage-inline" display="avec.sage.out.tex">
 from maclevmodels import *
 def cvector( *args ):
     return matrix( *args ).transpose()
@@ -777,7 +792,7 @@ ltx.write_equality( wrap_latex('A'),
     cvector( [ - c_00^2*SR('b_0 w_0/r_0'), c_00 * SR('K_0 w_0 b_0') - SR('m_0 b_0') ] ) )
 </source-file>
 but to get the adaptive dynamics right we have to distinguish agents from patients: the terms of this are
-<source-file filename="a-careful.sage-inline" display="a-careful.sage.out.html">
+<source-file filename="a-careful.sage-inline" display="a-careful.sage.out.tex">
 from maclevmodels import *
 def cvector( *args ):
     return matrix( *args ).transpose()
@@ -832,7 +847,7 @@ But actually those vectors are only meaningful at $$(a, k)$$ combinations that c
 # requires: maclevmodels.py maclev-1-1-mc-adap-geom.sobj
 # produces: maclev-1-1-S-and-d1A-on-curve.png
 from dynamicalsystems import *
-from plot_vector_field_along_curve import *
+#from plot_vector_field_along_curve import *
 load_session( 'maclev-1-1-mc-adap-geom' )
 var( 'b_0 c m_0 w_0 r_0 K_0 gamma' )
 fixed_parameter_bindings = Bindings( 
@@ -887,7 +902,7 @@ Here are $$S(A)$$ and $$D$$ on the $$c$$ curve:
 # requires: maclevmodels.py maclev-1-1-mc-adap-geom.sobj
 # produces: maclev-1-1-S-and-D-on-curve.png
 from dynamicalsystems import *
-from plot_vector_field_along_curve import *
+#from plot_vector_field_along_curve import *
 load_session( 'maclev-1-1-mc-adap-geom' )
 var( 'b_0 c m_0 w_0 r_0 K_0 gamma' )
 fixed_parameter_bindings = Bindings( 

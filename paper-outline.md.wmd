@@ -8,9 +8,6 @@ wmd_project: Selection_Gradients
 
 # Notes on Meta
 
-Add some info about natural historical evidence, via Bronstein/Akcay
-book and Boucher.
-
 Do exposition of basic AD stuff in body of text simple and clear.
 Leave details to appendix.
 
@@ -21,12 +18,7 @@ Complete analysis of how constraints cause qualitative results,
 in competition, predation, mutualism model.
 Connect it to published discussion of adaptation in these systems.
 
-Analyze competition model in terms of evolution of $R^*$
-quantities?
-
 Concise discussion of Masel's paper? Is it necessary?
-
-Selection gradient, etc, in pop gen?
 
 Response to Roughgarden's thing about change in the a matrix?
 
@@ -49,6 +41,7 @@ classify ecological relationships
 Interest in the causes of mutualism and antagonism
 
 Natural history examples: emergence of mutualism, and loss of mutualism
+Include some review via Bronstein/Akcay book and Boucher.
 
 Evolution of constrained phenotypes; connection to Levins fitness sets
 
@@ -78,7 +71,15 @@ Stasis is when original S is 0 or the curve is perpendicular.
 
 Figure illustrating the gradient before + after, with curve.
 
-Discuss dialectic of selection, available variation
+TODO: Discuss dialectic of selection, available variation
+
+# Coevolution of environmental phenomena
+
+TODO: ?? work through Macarthur-Levins model in terms of motion of R*, then
+decide whether to put this here
+
+TODO: agent-patient thing may arise here. Also, give much attention to
+how to make the geometry clear and bypass the confusing equations.
 
 # Coevolution of interaction terms
 
@@ -289,6 +290,12 @@ Figure: 4 c values go up
 
 When c values are c(u), S(p) is projected into tangent space of constraint,
 outcome depends on form of constraint.
+
+## Evolution of resource concentrations
+
+TODO: adaptive dynamics of R* vector. Hope it will be illuminating!
+
+TODO: does it help with explaining why/when k beats a and that?
 
 ## Evolution of Lotka-Volterra interactions
 
