@@ -531,7 +531,7 @@ Under this assumption, we can hold the population sizes $$X_i$$ fixed
 and solve the second equation above for $$R_\ell$$
 when $$\frac{dR_\ell}{dt}=0$$:
 
-$${R}^*_\ell = K_\ell - \frac1{s_\ell}\sum_ic_{i\ell}X_i$$.
+$${R}_\ell = K_\ell - \frac1{s_\ell}\sum_ic_{i\ell}X_i$$.
 
 Then we simply use that value of $$R_\ell$$ in the first equation,
 and we have a system of population sizes only:
@@ -695,6 +695,19 @@ Because of this, it is natural to wonder whether the adaptive dynamics
 of the system can be analyzed cleanly by using these $$R^*$$ values
 as intermediate quantities.
 
+These are the values
+$$R^*_\ell$$ of the resource abundances that are found when the
+population sizes are also at equilibrium.  These are described by
+the linear system of equations
+\[* \sum_\ell c_{i\ell}w_\ell R^*_\ell = m_i \quad\text{for all }i \\
+   \mathbf{CWR}^* = \mathbf{M} \\
+   \mathbf{R}^* = \mathbf{W}^{-1} \mathbf{C}^{-1} \mathbf{M},
+\]
+assuming those inverses exist, where
+$$\mathbf{C}$$ is the matrix of $$c_{i\ell}$$
+values, $$\mathbf{W}$$ is a diagonal matrix with entries $$w_\ell$$, and
+$$\mathbf{M}$$ is a vector of the values $$m_i$$.
+
 We can write them as a vector parametrized by underlying phenotypes,
 as in the previous section, but there is the key difference that
 in this case, each value is parametrized by the phenotypes
@@ -705,6 +718,110 @@ a vector of $n$ $R^*$ values:
 <latex>\begin{dmath*}
 \mathbf{R}^* = \begin{pmatrix} R_1^*(\mathbf{p}_1, \ldots, \mathbf{p}_n) \\ \vdots \\ R_n^*(\mathbf{p}_1, \ldots, \mathbf{p}_n) \end{pmatrix}
 \end{dmath*}</latex>
+
+Consider a variant population $$i'$$ entering the community and
+replacing its parent. At introduction, when rare, the variant's
+invasion speed is
+\[* \mathcal{I}(i'|i) = b_{i'} \left( \sum_\ell c_{i'\ell} w_\ell R^*_\ell - m_{i'} \right) \\
+  = b_{i'} \left( \sum_\ell \Delta c_{i\ell} w_\ell R^*_\ell - \Delta m_{i} \right) \\
+  > 0.
+\]
+After the replacement, there is a perturbed resource vector $${R^*}'$$,
+restoring the long-term trivial fitness:
+\[* \mathcal{I}(i'|i') = b_{i'} \left( \sum_\ell c_{i'\ell} w_\ell {R^*_\ell}' - m_{i'} \right) \\
+  = b_{i'} \left( \sum_\ell \Delta c_{i\ell} w_\ell {R^*_\ell}' - \Delta m_{i} \right) \\
+  = 0.
+\]
+Something is conserved by the change in $$R^*$$:
+\[* \mathcal{I}(i'|i') - \mathcal{I}(i|i)
+  = \sum_\ell w_\ell \left( c_{i'\ell} {R^*_\ell}'- c_{i\ell} R^*_\ell \right) - \left( m_{i'} - m_i \right) \\
+  = 0
+\]
+This defines the change in $$R^*$$, if we use it right.
+\[* \sum_\ell w_\ell \frac{d}{dt} \left( c_{i\ell} R^*_\ell \right) - \frac{dm_i}{dt} 
+  = 0 \\
+  \sum_\ell w_\ell \left( c_{i\ell} \frac{d}{dt}R^*_\ell + \frac{dc_{i\ell}}{dt} R^*_\ell \right) - \frac{dm_i}{dt} = 0 \\
+  \mathbf{C W} \frac{d\mathbf{R}^*}{dt} + \frac{d\mathbf C}{dt} \mathbf{W R}^* - \frac{d\mathbf M}{dt} = 0 \\
+  \frac{d\mathbf{R}^*}{dt} = \mathbf{W}^{-1}\mathbf{C}^{-1}\left( \frac{d\mathbf M}{dt} - \frac{d\mathbf C}{dt} \mathbf{W R}^* \right).
+\]
+That looks a little complicated to be useful.
+
+Anyway, each population $$i$$ defines a codimension 1 manifold
+of equilibrium solutions $$(R^*_\ell)$$, and the solution achieved
+is at the intersection of those solutions.
+A change in one population's characters is a shift in one of those
+solution manifolds, and that shift moves the solution $$\mathbf{R}^*$$
+to the new intersection.
+
+Thus it may be reasonable to look at that manifold as another
+representation of the population's phenotype.
+As above,
+that manifold for population $$i$$ is the hyperplane solving the
+equation
+\[* \sum_\ell c_{i\ell}w_\ell R^*_\ell - m_i = 0. \]
+So it's another way of representing the phenotype values
+$$c_{i\ell}$$ and $$m_i$$.
+Let $$q_{i\ell} = c_{i\ell}w_\ell$$.
+The hyperplane is normal to the vector $$\mathbf{q}_i$$, and
+does not pass through the origin but rather through the point
+\[* m_i\frac{\mathbf{q}_i}{||\mathbf{q}_i||}. \]
+This hyperplane divides the $$\mathbf{R}^*$$ space into two
+halves, the half where this quantity is positive (above the plane)
+and the half where it is negative (below the plane, including the
+origin).
+
+This quantity is sign-equivalent to the species's invasion fitness.
+Thus a variant that can invade is one that moves its dividing plane
+to below the current $$\mathbf{R}^*$$, so that its invasion fitness
+is positive at first.
+Then $$\mathbf{R}^*$$ shifts to the new plane, returning the fitness
+to zero.
+Where is it in relation to the old plane?
+This would be one measure of increase or decrease in well being.
+The availability of resources is very similar to the common good
+of Hardin's model.
+This should be the familiar question about first and second derivatives.
+$$\mathbf{R}^*$$ is the $$\mathbf{E}$$ of Metz et al's analysis.
+
+That answer is the sign of
+\[* \mathbf{q}_i \cdot {\mathbf{R}^*}' - m_i \]
+where
+\[* \mathbf{q}_i \cdot \mathbf{R}^* - m_i = 0 \\
+  \mathbf{q}'_i \cdot {\mathbf{R}^*}' - m'_i = 0,
+\]
+but for simplicity let's consider constant $$m$$, so
+\[* \mathbf{q}'_i \cdot {\mathbf{R}^*}' - m_i = 0 \\
+ (\mathbf{q}_i + \Delta \mathbf{q}_i) \cdot (\mathbf{R}^* + \Delta\mathbf{R}^*) - m_i = 0 \\
+ (\mathbf{q}_i + \Delta \mathbf{q}_i) \cdot \mathbf{R}^* -  m_i
+  = -(\mathbf{q}_i + \Delta \mathbf{q}_i) \cdot  \Delta\mathbf{R}^* \\
+ \Delta\mathbf{q}_i \cdot \mathbf{R}^*
+  = -(\mathbf{q}_i + \Delta \mathbf{q}_i) \cdot  \Delta\mathbf{R}^*.
+\]
+We also have
+\[* \mathbf{q}'_i \cdot {\mathbf{R}^*} - m_i > 0 \\
+ (\mathbf{q}_i + \Delta \mathbf{q}_i) \cdot \mathbf{R}^* - m_i > 0 \\
+  \Delta\mathbf{q}_i \cdot {\mathbf{R}^*} > 0 \\
+ (\mathbf{q}_i + \Delta \mathbf{q}_i) \cdot \Delta\mathbf{R}^* < 0.
+\]
+So what does this tell us about the change in the environment?
+\[* \mathbf{q}_i \cdot {\mathbf{R}^*}' - m_i
+  = \mathbf{q}_i \cdot \Delta\mathbf{R}^*.
+\]
+So consequently this quantity should be negative if the deltas are
+infinitesimal, because it will have the same sign as
+$$(\mathbf{q}_i + \Delta \mathbf{q}_i) \cdot \Delta\mathbf{R}^*$$.
+
+This demonstrates that a certain weighted total resource availability
+must decline with adaptation. But it doesn't demonstrate that any
+measure of resource availability declines long-term, because the
+weighting changes dynamically with the species phenotype.
+
+However it does demonstrate that adaptation proceeds by replacements
+that move $$\mathbf{R}^*$$ into the negative-fitness half-space of the
+resident strain.
+(When I put it that way, I see that this is equivalent to having
+replacement follow from invasion. The assumption about $$\Delta^2$$ being
+negligible probably fails when branching occurs.)
 
 We can use the chain rule as we did with derived phenotypic characters,
 but it will involve multiple terms, one for each species that affects
@@ -719,8 +836,86 @@ where we might be using $$S(\mathbf{p}_i)$$ or $$S_u(\mathbf{p}_i)$$ as
 appropriate. In the former case, for simplicity, we have
 \[* S(\mathbf{p}_i) = \partial_1\mathcal{I}(\mathbf{p}_i)^T \\
   = \left( \partial_1\mathcal{I}_i(\mathbf{R}^*) \frac{\partial\mathbf{R}^*}{\partial\mathbf{p}_i} \right)^T \\
-  = \frac{\partial\mathbf{R}^*}{\partial\mathbf{p}_i}^T \partial_1\mathcal{I}_i(\mathbf{R}^*)^T
+  = \frac{\partial\mathbf{R}^*}{\partial\mathbf{p}_i}^T \partial_1\mathcal{I}_i(\mathbf{R}^*)^T.
 \]
+To treat these environmental variables $$R^*$$ as a somewhat autonomous
+actant in the coevolution, we need to inquire whether the selection
+gradient $$S(\mathbf{p}_i)=\partial_1\mathcal{I}(\mathbf{p_i})^T$$
+can be evaluated via a composition of functions
+$$\mathcal{I}(\mathbf{p}_i)=\mathcal{I}(\mathbf{R}^*(\mathbf{p_i}))$$.
+
+If so, we would be able to write
+\[* \partial_1\mathcal{I}(\mathbf{p}_i) = \partial_1\mathcal{I}(\mathbf{R^*}) \frac{\partial \mathbf{R}^*}{\partial\mathbf{p}_i}. \]
+
+The invasion speed is
+\[* \mathcal{I}(\mathbf{p}_i) = b_i \left( \sum_\ell c_{i\ell} w_\ell R^*_\ell - m_i \right), \]
+which is a function of both $$\mathbf{R}^*$$ and $$\mathbf{p}_i$$, 
+the latter represented by its components $$b_i$$, $$m_i$$, and $$c_{i\ell}$$
+for each $$\ell$$.
+The question then is whether there is an inverse function
+$$\mathbf{p}_i(\mathbf{R}^*)$$.
+The answer is clearly no, because $$b_i$$ can not be recovered from
+the values of $$\mathbf{R}^*$$.
+If we assume those $$b_i$$ values to be held fixed, so that we can
+define $$\mathbf{p}_i$$ to include only $$m$$ and $$c$$ values,
+then what? I don't know right now.
+
+But if we assume $$\mathbf{p}_i$$ to be parametrized by a single
+scalar $$u_i$$ per population, then we have no rank problem with
+$$\mathbf{R}^*$$ a function of the same-size vector $$\mathbf{u}$$,
+at least as long as we avoid places where the total derivative
+$$\partial\mathbf{R}^*/\partial\mathbf{u}$$ is nonsingular.
+
+Then what?  The motion of $$\mathbf{R}^*$$ is described by
+\[* \frac{d\mathbf{R}^*}{dt}
+ = \sum_i \frac{\partial\mathbf{R}^*}{\partial{u}_i} \frac{d{u}_i}{dt} \\
+ = \gamma \sum_i \hat{X}_i \frac{\partial\mathbf{R}^*}{\partial{u}_i} \partial_1\mathcal{I}(u_i).
+\]
+I think the challenge is to write $$S(u_i)$$ in terms of $$R^*$$.
+We have
+\[* S(u_i)
+  = \partial_1\mathbf{I}(u_i)^T \\
+  = b_i(u_i) \left( \sum_\ell c_{i\ell}'(u_i) R^*_\ell(\mathbf{u}) - m_i'(u_i) \right).
+\]
+Also, we have
+\[* \mathbf{R}^*(\mathbf{u}) = \mathbf{W}^{-1} \mathbf{C}(\mathbf{u})^{-1} \mathbf{M}(\mathbf{u}); \]
+I don't think we can write an inverse function $$\mathbf{u}(\mathbf{R}^*)$$
+explicitly, but we can imagine one exists. Then we can write
+\[* \partial_1\mathcal{I}(u_i)^T
+  = \frac{\partial\mathbf{R}^*}{\partial u_i}^T \partial_1\mathcal{I}_i(\mathbf{R}^*)^T
+\]
+with
+\[* \partial_1\mathcal{I}_i(\mathbf{R}^*)
+  = \frac{\partial\mathcal{I}_i}{\partial{u_i}} \frac{\partial u_i}{\partial\mathbf{R}^*}
+\]
+but this derivative is very different from the usual interpretation of
+$$\partial\mathcal{I}_i/\partial\mathbf{R}^*$$.
+
+--
+
+Many things going on in this section, all confusing.
+Let me just try to describe the motion of $$R^*$$ constrained by $$u$$.
+
+With the above, we have
+\[* \frac{\partial\mathbf{R}^*}{\partial{u}_i}
+  = \mathbf{W}^{-1} \left[ \mathbf{C}(\mathbf{u})^{-1} \frac{\partial\mathbf{M}}{\partial{u}_i} + \frac{\partial\mathbf{C}^{-1}}{\partial u_i} \mathbf{M}(\mathbf{u}) \right].
+\]
+We could work through that, or work more directly:
+\[* \sum_\ell c_\ell'(u_i) w_\ell R^*_\ell(\mathbf{u}) + \sum_\ell c_\ell(u_i) w_\ell \frac{\partial R^*_\ell}{\partial u_i} = m'(u_i) \\
+    {\mathbf{c}_i'}^T \mathbf{W} \mathbf{R}^* + \mathbf{c}_i \mathbf{W} \frac{\partial\mathbf{R}^*}{\partial u_i} = m_i'
+\]
+or, taking all $$i$$ simultaneously,
+
+--
+
+Still, $$\mathbf{R}^*$$ is a vector of $$n$$ values computed from
+the community's $$n(n+1)$$ values of each population's $$m$$ and
+$$c$$ variables.  Clearly there is not enough rank to go around;
+but if we restrict ourselves to marginal changes, can we recover
+the partial derivatives $$\partial\mathcal{I}/\partial\mathbf{p}_i$$
+from the values of $$\mathbf{R}^*$$?
+No to that either, since that is $$n+1$$ values.
+
 and, substituting,
 \[* \frac{d\mathbf{R}^*}{dt}
  = \gamma \sum_i \hat{X}_i \frac{\partial\mathbf{R}^*}{\partial\mathbf{p}_i} \frac{\partial\mathbf{R}^*}{\partial\mathbf{p}_i}^T\partial_1\mathcal{I}_i(\mathbf{R}^*)^T \\
@@ -776,8 +971,7 @@ Using these we should be able to recover the selection on $\mathbf{p}$:
   \begin{pmatrix} 0      & 0 & \cdots & 0 \\
                   1/s_1  & 0      &   & 0 \\
                   0      & 1/s_2  &   & \vdots \\
-                         & 0      &   &   \\
-                  \ldots & \ldots & \ddots & 0 \\
+                  \vdots & \vdots & \ddots & 0 \\
                   0      & 0      &   & 1/s_n
   \end{pmatrix} \begin{pmatrix}
     c_{i1}w_1 \\ \vdots \\ c_{in}w_n

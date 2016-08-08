@@ -64,7 +64,7 @@ PROJECT = Selection_Gradients
 TITLE = "Evolution in a Food Web"
 _pandoc/constraint.md : TITLE="Constraints"
 #_pandoc/AijModel.pdf : WMD_ARGS=--enable-make=0
-_pandoc/paper.tex : WMD_ARGS=--enable-make=0
+#_pandoc/paper.tex : WMD_ARGS=--enable-make=0
 _pandoc/Masel.md _pandoc/Masel.tex: TITLE="'Notes on Masel Model'"
 
 _pandoc/%.md : Selection_Gradients/%.md.wmd wmd_files/.workingwiki/.wmd.data
