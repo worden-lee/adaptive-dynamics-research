@@ -823,6 +823,173 @@ resident strain.
 replacement follow from invasion. The assumption about $$\Delta^2$$ being
 negligible probably fails when branching occurs.)
 
+I'm guessing that for any fixed measure of total availability, at least
+of the form $$\mathbf{x}\cdot\mathbf{R}^*$$
+(and any smooth function will look like that marginally), 
+it should be possible to construct a community and a replacement that
+will increase rather than decrease that measure.
+
+-----
+
+What about treating $$R^*$$ as a transformed phenotype?
+
+For a single replacement, we treat all the other resident strains as
+a fixed environment.
+In that lens, the environment is the other strains' hyperplanes;
+or really, just their line of intersection; and the adapting
+strain's phenotype is the hyperplane that crosses the line.
+A viable variant strain is a hyperplane that crosses at a point
+in the lower half-space defined by the resident hyperplane.
+The hyperplane is minimally specified by the vector
+$$(c_{i1},\ldots,c_{in},m_i)$$, but might be worth putting
+in different coordinates.
+For example $$(R^*_1,\ldots,R^*_n,m_i)$$, especially if
+each $$m_i$$ is held fixed.
+
+In this case, $$\mathbf{R}^*$$ and $$\mathbf{c}_i$$ are
+equal-dimensional, and can be transformed to one another
+providing all other populations are held in place.
+I'll take both $$\mathbf{R}^*$$ and $$\mathbf{c}_i$$ as
+column vectors for the matrix math to follow.
+
+The relation again is
+\[* \mathbf{c}_i^T\mathbf{WR}^* = m_i \]
+or equivalently
+\[* \mathbf{q}_i^T\mathbf{R}^* = m_i \]
+where $$q_{i\ell} = c_{i\ell}w_{\ell}$$.
+
+Well, actually that doesn't specify $$\mathbf{R}^*$$ fully --
+we need the other species' criteria, which is the full matrix
+equation
+\[* \mathbf{Q}^T\,\mathbf{R}^* = \mathbf{M} \]
+where matrix $$\mathbf{Q}$$ has the transformed phenotype vectors
+$$\mathbf{q}_j$$ as columns.
+
+A change in population $$i$$'s phenotype is a change in
+$$\mathbf{c}_i$$, equivalently in $$\mathbf{q}_i$$.
+Consider a change in that column $$i$$ of the $$\mathbf{Q}$$ matrix:
+\[* \mathbf{Q}' = \mathbf{Q} + \Delta\mathbf{Q}. \]
+
+The questions I hope to ask of this are
+
+* What is $$\mathcal{I}$$ in terms of $$\mathbf{R}^*$$
+* What is $$\partial_1\mathcal{I}(\mathbf{R}^*)$$ when $$\mathbf{R}^*$$ is
+considered a function of $$\mathbf{q}_i$$ only.
+
+So what is $$\mathcal{I}$$?
+In this setting where $$m$$ doesn't vary, it's
+\[* \mathcal{I}(i'|i) = b_{i'} \sum_\ell \Delta c_{i\ell} w_\ell R^*_\ell \\
+      = b_{i'} \sum_\ell \Delta q_{i\ell} R^*_\ell \\
+      = b_{i'} \Delta\mathbf{q}_i^T \mathbf{R}^*
+\]
+So it should follow straightforwardly that
+\[* S(\mathbf{q}_i) = \partial_1\mathcal{I}(\mathbf{q}_{i})^T = b_i \mathbf{R}^*. \]
+
+As adaptive dynamics proceeds, $$\mathbf{R}^*$$ evolves such that
+$$\mathcal{I}=0$$ is conserved:
+\[* (\mathbf{Q}	+ \Delta\mathbf{Q})^T\left(\mathbf{R}^* + \Delta\mathbf{R}^*\right)
+  = \mathbf{Q} \mathbf{R}^*\ \hiderel{=}\ \mathbf{M}
+\]
+
+We could write $$\mathbf{R}^*$$ as a function, mapping the
+change in $$\mathbf{q}$$ to the consequent change
+in $$\mathbf{R}^*$$ that it implies, under the assumption of adaptive
+dynamics replacement and that all other populations remain fixed:
+\[* \mathbf{R}^*\left(\mathbf{Q} + \Delta\mathbf{Q}\right)
+      = \left(\mathbf{Q} + \Delta\mathbf{Q}\right)^{-T}\,\mathbf{Q}^T\,\mathbf{R}^*\left(\mathbf{Q}\right).
+\]
+Interesting!
+
+There should be a Jacobian
+\[* J_{(i)} = \left(\frac{dR^*_j}{dq_{ik}}\right)_{jk}, \]
+describing the linear change in $$\mathbf{R}^*$$ resulting
+from change in $$\mathbf{q}_i$$.
+
+Given an arbitrary change $$d\mathbf{q}_i$$, while all other
+$$\mathbf{q}_j$$ are unchanged, there is a balancing change in
+$$\mathbf{R}^*$$ that conserves
+\[* \mathbf{q}_j^T\,\mathbf{R}^* = \sum_\ell q_{j\ell} R^*_\ell\ \hiderel{=} 0\ \\
+    \mathbf{q}_i^T\,\mathbf{R}^* = \sum_\ell q_{i\ell} R^*_\ell\ \hiderel{=} 0\ \\
+    \mathbf{q}_j^T\,(\mathbf{R}^* + d\mathbf{R}^*) = \sum_\ell q_{j\ell} (R^*_\ell + dR^*_\ell)\ \hiderel{=}\ 0 \\
+    \mathbf{q}_j^T\,d\mathbf{R}^* = \sum_\ell q_{j\ell} dR^*_\ell\ \hiderel{=}\ 0 \\
+    (\mathbf{q}_i + d\mathbf{q}_i)^T (\mathbf{R}^* + d\mathbf{R}^*) = \sum_\ell (q_{i\ell} + dq_{i\ell}) (R^*_\ell + dR^*_\ell)\ \hiderel{=}\ 0 \\
+    \mathbf{q}_i^T\,d\mathbf{R}^* = \sum_\ell q_{i\ell} dR^*_\ell\ \hiderel{=}\ - d\mathbf{q}_i^T\,\mathbf{R}^*
+\]
+Can we use this to deduce all the values of $$\mathbf{J}_{(i)}$$?
+Let
+<latex>\begin{dmath*}
+ \mathbf{Q}' = \begin{cases}
+     \mathbf{q}_j & \text{in column }j\not=i \\
+     \mathbf{q}_i + d\mathbf{q}_i & \text{in column }i
+\end{cases}
+\end{dmath*}</latex>
+so that the above relations imply
+<latex>\begin{dmath*}
+{\mathbf{Q}'}^T\,d\mathbf{R}^* = \begin{cases}
+  \mathbf{0} & \text{in row }j\not=i \\
+  - d\mathbf{q}_i^T\,\mathbf{R}^* & \text{in row }i.
+\end{cases}
+\end{dmath*}</latex>
+
+We will have
+\[* d\mathbf{R}^* = \mathbf{J}_{(i)}\,d\mathbf{q}_i \\
+  dR^*_\ell = \sum_k \frac{\partial R^*_\ell}{\partial q_{ik}} dq_{ik}
+\]
+so by choosing $$d\mathbf{q}_i$$ to be the different unit test vectors
+we can find the values of $$dR^*_\ell$$:
+with $$d\mathbf{q}_i=\epsilon\mathbf{e}_k$$,
+\[* \mathbf{q}_i^T\,d\mathbf{R}^*(\mathbf{q}_i + \epsilon\mathbf{e}_k) = 
+      - \epsilon \mathbf{e}_k^T\,\mathbf{R}^* \\
+  = - \epsilon R^*_k \\
+ \mathbf{q}_j^T\,d\mathbf{R}^*(\mathbf{q}_i + \epsilon\mathbf{e}_k) = 0.
+\]
+So with the linear assumption about the Jacobian,
+\[* d\mathbf{R}^*(\mathbf{q}_i + \epsilon\mathbf{e}_k) = 
+     \mathbf{J}_{(i)}\,\epsilon\mathbf{e}_k,
+\]
+which is the $$k$$th column of the Jacobian matrix.
+
+The $$k$$th column is determined by the conditions we've found:
+its inner product with every $$\mathbf{q}_j$$, $$j\not=i$$, is zero,
+and its inner product with $$\mathbf{q}_i$$ is $$-R^*_k$$.
+In other words
+<latex>\begin{dmath*}
+ \mathbf{Q}^T\,\mathbf{J}_{(i)}\,\mathbf{e}_k = \begin{pmatrix} 0 \\ \vdots \\ -R^*_k \\ \vdots \\ 0 \end{pmatrix}
+\end{dmath*}</latex>
+Putting all $$k$$ together
+<latex>\begin{dgroup*}\begin{dmath*}
+ \mathbf{Q}^T\,\mathbf{J}_{(i)} = \begin{pmatrix} \mathbf{0} \\ \vdots \\ -{\mathbf{R}^*}^T \\ \vdots \\ \mathbf{0} \end{pmatrix}
+\end{dmath*}\begin{dmath*}
+ \mathbf{J}_{(i)} = -\mathbf{Q}^{-T}\,\begin{pmatrix} \mathbf{0} \\ \vdots \\ {\mathbf{R}^*}^T \\ \vdots \\ \mathbf{0} \end{pmatrix}
+    = - \mathbf{Q}^{-T}\,\mathbf{e}_i\,{\mathbf{R}^*}^T.
+\end{dmath*}\end{dgroup*}</latex>
+$$\mathbf{Q}^{-T}\,\mathbf{e}_i$$ is the $$i$$th column of
+$$\mathbf{Q}^{-T}$$, (thus, the $$i$$th row of $$\mathbf{Q}^{-1}$$).
+
+TODO: get rows and columns right from here down!
+
+which is a column vector $$\mathbf{q}'_i$$
+having the property that
+$$\mathbf{q}_i\,\mathbf{q}'_i=1$$, and
+$$\mathbf{q}_j\,\mathbf{q}'_i=0$$ when $$j\not=i$$.
+An indicator for the phenotype vector of population $$i$$.
+It could possibly be written $$\left| \mathbf{q}_i \right\rangle$$.
+As a geometric vector, it's in the spaces normal to all the
+consumption vectors $$\mathbf{q}_j$$ (the space of $$\mathbf{R}^*$$
+values compatible with each population $$j$$), $$j\not=i$$,
+which intersect in a line where $$\mathbf{q}'_i$$ must be,
+and scaled so its inner product
+with $$\mathbf{q}_i$$ is normalized.
+
+That may help us understand the alternative way of writing the above,
+\[* \mathbf{J}_{(i)} = - \mathbf{q}'_i\,{\mathbf{R}^*}^T. \]
+
+Thus a change $$d\mathbf{q}_i$$ in phenotype $$i$$ will come with
+a change $$d\mathbf{R}^* = \mathbf{J}_{(i)}\,d\mathbf{q}_i = - \mathbf{q}'_i\,{\mathbf{R}^*}^T\,d\mathbf{q}_i$$
+(at least, if $$\mathbf{q}$$ is a column. Time to get that sorted out.
+
+-----
+
 We can use the chain rule as we did with derived phenotypic characters,
 but it will involve multiple terms, one for each species that affects
 $\mathbf{R}^*$:
