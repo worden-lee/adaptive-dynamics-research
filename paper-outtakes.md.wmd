@@ -46,7 +46,7 @@ logistic growth in a single population, and suppose that the two
 parameters $$r$$ and $$K$$ are in fact affected by the population's
 phenotype $$u$$:
 
-$$\frac{dX}{dT} = r(u) X (1-\frac{X}{K(u)})$$.
+\[* \frac{dX}{dt} = r(u) X \left( 1-\frac{X}{K(u)} \right). \]
 
 If adaptation occurs when the population is at its equilibrium size,
 the well-known result is that selection acts to increase the carrying
@@ -58,20 +58,23 @@ hand, then selection tends to increase $$r$$.
 To recast this result into the terms of this paper, we construct a
 vector of the population's ecological characteristics:
 
-$$\mathbf{p}(u) = \begin{pmatrix} r(u) \\ K(u) \end{pmatrix}$$.
+<latex>\begin{align*}
+\mathbf{p}(u) &= \begin{pmatrix} r(u) \\ K(u) \end{pmatrix}.
+\end{align*}</latex>
 
 The selection gradient on $$\mathbf{p}$$ is
 
-<latex>$
-S(\mathbf{p}) = \begin{pmatrix}
-  \frac{\partial}{\partial r}\frac{dX}{dt} \\ 
+<latex>\begin{align*}
+S(\mathbf{p}) &= \begin{pmatrix}
+  \frac{\partial}{\partial r}\frac{dX}{dt} \\[1.5ex] 
   \frac{\partial}{\partial K}\frac{dX}{dt}
 \end{pmatrix} = \begin{pmatrix}
-  1 - \frac{\hat{X}}{K(u)} \\
+  1 - \frac{\hat{X}}{K(u)} \\[1.5ex]
   r(u) \frac{\hat{X}}{K(u)^2}
 \end{pmatrix} = \begin{pmatrix}
-  0 \\ r(u)\frac{\hat{X}}{K(u)^2}
-\end{pmatrix} $</latex>
+  0 \\[1.5ex] r(u)\frac{\hat{X}}{K(u)^2}
+\end{pmatrix}
+\end{align*}</latex>
 
 From this we can see directly that the gradient of selection is entirely
 in the direction of increasing $$K$$, and it follows that selection on
@@ -82,11 +85,11 @@ vanishes when $$\hat{X}=K$$.
 In the $$r$$-selection case, we suppose that disturbance acts to reduce
 population size, so that $$\hat{X}<K$$.  Then
 
-<latex>$
+<latex>\[
 S(\mathbf{p}) = \begin{pmatrix}
-  1 - \frac{\hat{X}}{K(u)} \\
+  1 - \frac{\hat{X}}{K(u)} \\[1.5ex]
   r(u) \frac{\hat{X}}{K(u)^2}
-\end{pmatrix}, $</latex>
+\end{pmatrix}, \]</latex>
 
 so that selection will favor increase in both $$r$$ and $$K$$.  If $$\hat{X}$$
 is reduced to near 0, selection will become almost entirely on $$r$$.
@@ -97,7 +100,7 @@ The above is actually ambiguous: in order to model adaptation it's necessary
 to define a multiple-population form of the model, to specify how a
 resident and rare variant type will interact.  The obvious form is
 
-$$\frac{dX_i}{dt} = r(u_i) X_i (1 - \frac{\sum_j X_j}{K(u_i)})$$.
+\[* \frac{dX_i}{dt} = r(u_i) X_i \left( 1 - \frac{\sum_j X_j}{K(u_i)} \right). \]
 
 This model produces the results summarized above.  If multiple populations
 have different $$K(u_i)$$, the only stable equilibrium will be monomorphic
@@ -118,7 +121,7 @@ however, as we will see, with different results.
 
 For example if
 
-$$\frac{dX_i}{dt} = r(u_i) X_i (1 - \sum_j \frac{X_j}{K(u_j)})$$.
+\[* \frac{dX_i}{dt} = r(u_i) X_i \left( 1 - \sum_j \frac{X_j}{K(u_j)} \right). \]
 
 In the previous form, $$K(u_i)$$ quantifies what total population size it
 takes to make population $$i$$ stop increasing: it's the response of
@@ -153,7 +156,7 @@ while the latter describes **impact** on the environment due to
 individuals.  We can study the interplay between the two by making
 a combined model:
 
-$$\frac{dX_i}{dt} = r(u_i) X_i (1 - \sum_j\frac{X_j}{k_s(u_i)k_f(u_j)})$$
+\[* \frac{dX_i}{dt} = r(u_i) X_i \left( 1 - \sum_j\frac{X_j}{k_s(u_i)k_f(u_j)} \right) \]
 
 where we allow for two carrying-capacity factors, $$k_s(u_i)$$ describing
 the sensitivity of population $$i$$ to crowding and $$k_f(u_j)$$ describing
@@ -169,7 +172,7 @@ $$c_f(u_j)=1/k_f(u_j)$$, so that we have $$a_{ij}=-r(u_i)c_s(u_i)c_f(u_j)$$
 (and $$r_i=r(u_i)$$).  The selection gradient on $$u_i$$ is
 
 <latex>\begin{align*}
-S(u_i) &= r'(u_i)(1 - \sum_j c_s(u_i)c_f(u_j)\hat{X}_j) - r(u_i)\sum_j c_s'(u_i)c_f(u_j) \hat{X}_j \\
+S(u_i) &= r'(u_i) \left( 1 - \sum_j c_s(u_i)c_f(u_j)\hat{X}_j \right) - r(u_i)\sum_j c_s'(u_i)c_f(u_j) \hat{X}_j \\
  &= - r(u_i) c_s'(u_i) \sum_j c_f(u_j) \hat{X}_j.
 \end{align*}</latex>
 
@@ -190,7 +193,7 @@ the derivatives have the opposite sign.
 The equilibrium size of the changing
 population is $$k_s(u)k_f(u)$$.  The change in this size is
 
-$$\frac{d(k_s(u)k_f(u))}{du} = k_s'(u)k_f(u)+k_s(u)k_f'(u)$$.
+\[* \frac{d(k_s(u)k_f(u))}{du} = k_s'(u)k_f(u)+k_s(u)k_f'(u). \]
 
 The equilibrium population size increases when that quantity has the same sign
 as $$k_s'(u)$$:
@@ -219,17 +222,23 @@ it does the opposite.  [TODO: not entirely true.  Clarify.]
 
 The direct effect of selection is 
 
-$$D_i = \gamma \hat{X}_i \begin{pmatrix} r'(u_i) \\ -(r(u_i)c_s'(u_i)+r'(u_i)c_s(u_i))c_f(u_1) \\ \vdots \\ -(r(u_i)c_s'(u_i)+r'(u_i)c_s(u_i))c_f(u_n) \end{pmatrix} S(u_i)$$.
+<latex>\begin{align*}
+ D_i &= \gamma \hat{X}_i \begin{pmatrix} r'(u_i) \\[1.2ex] -(r(u_i)c_s'(u_i)+r'(u_i)c_s(u_i))c_f(u_1) \\[1.2ex] \vdots \\[1.2ex] -(r(u_i)c_s'(u_i)+r'(u_i)c_s(u_i))c_f(u_n) \end{pmatrix} S(u_i).
+\end{align*}</latex>
 
 ### Competition for space vs. resource competition
 
 As above,
 
-$$\mathbf{A}(u) = \begin{pmatrix} r(u) \\ -r(u)/K(u) \end{pmatrix}$$.
+<latex>\begin{align*}
+\mathbf{A}(u) &= \begin{pmatrix} r(u) \\ -r(u)/K(u) \end{pmatrix}.
+\end{align*}</latex>
 
 For reference, in the one-species, one-resource MacArthur-Levins system,
 
-$$\mathbf{A}(u) = \begin{pmatrix} b(u) c_1(u) w_1 K_1 - b(u)m(u) \\ -b(u) c_1(u)^2 w_1/r_1 \end{pmatrix}$$. 
+<latex>\begin{align*}
+ \mathbf{A}(u) &= \begin{pmatrix} b(u) c_1(u) w_1 K_1 - b(u)m(u) \\ -b(u) c_1(u)^2 w_1/r_1 \end{pmatrix}.
+\end{align*}</latex>
 
 In both cases, the selection gradient on $$\mathbf{A}$$ is, as always,
 $$\mathbf{S}(\mathbf{A})=\begin{pmatrix} 1 \\ \hat{X} \end{pmatrix}$$.

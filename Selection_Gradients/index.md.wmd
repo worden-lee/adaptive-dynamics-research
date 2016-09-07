@@ -334,7 +334,7 @@ class LotkaVolterraAdaptiveDynamics( object ):
 	    for u in self._adaptivedynamics._phenotype_indexers ) )
 	# _phenotypes_from_fn_bindings: the inverse, change u_i(t) to u_i
 	self._phenotypes_from_fn_bindings = Bindings(
-	    { v:k for k, v in self._phenotypes_to_fn_bindings.items() } )
+	    { v:k for k, v in self._phenotypes_to_fn_bindings._dict.items() } )
 	#print '_phenotypes_from_fn_bindings:', self._phenotypes_from_fn_bindings
     def bind_in_place( self, *bindings, **args ):
 	b = Bindings( *bindings, **args )
