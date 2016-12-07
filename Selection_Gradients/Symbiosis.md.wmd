@@ -191,8 +191,8 @@ sea = seamodel.SeaSymbiosisModel(
 ltx = dynamicalsystems.latex_output( 'sea.sage.out.tex' )
 ltx.write( 'The dynamics:' )
 ltx.write( sea )
-
 ltx.close()
+
 save_session( 'sea' )
 </source-file>
 
@@ -203,14 +203,13 @@ save_session( 'sea' )
 # produces: sea-adap.sobj sea-adap.sage.out.tex
 from sage.all import * 
 from sage.misc.latex import _latex_file_
-import dynamicalsystems
-from dynamicalsystems import indexer, subscriptedsymbol, Bindings
+from dynamicalsystems import *
 from seamodel import *
 
 load_session( 'sea' )
 ltx = dynamicalsystems.latex_output( 'sea-adap.sage.out.tex' )
 
-sea_adap_c = dynamicalsystems.AdaptiveDynamicsModel( 
+sea_adap_c = AdaptiveDynamicsModel( 
     sea,
     [ sea._indexers[s] for s in ('r', 'c_g','c_a','c_t') ] +
     [ indexer( bcfn ), indexer( pcfn ) ],
@@ -218,8 +217,8 @@ sea_adap_c = dynamicalsystems.AdaptiveDynamicsModel(
 )
 
 ltx.write( 'Whence the selective pressure on the ecological quantities is' )
-ltx.write( dynamicalsystems.dgroup( [ [ v, sea_adap_c._S[v] ] for v in sea_adap_c._vars ], op=r'\to' ) )
-#ltx.write_environment( 'align*', '\\\\\n  '.join( r'\frac{d%s}{dt} &\propto %s' % (dynamicalsystems.latex_math(v), dynamicalsystems.latex_math(sea_adap_c._S[v])) for v in sea_adap_c._vars ) )
+ltx.write( dgroup( [ [ v, sea_adap_c._S[v] ] for v in sea_adap_c._vars ], op=r'\to' ) )
+#ltx.write_environment( 'align*', '\\\\\n  '.join( r'\frac{d%s}{dt} &\propto %s' % (latex_math(v), latex_math(sea_adap_c._S[v])) for v in sea_adap_c._vars ) )
 
 ## phenotype indexers for sea correlation
 
@@ -239,7 +238,7 @@ sea_f = SeaSymbiosisModel(
 ltx.write( 'Dynamics with constraints:' )
 ltx.write( sea_f )
 
-sea_adap_f = dynamicalsystems.AdaptiveDynamicsModel( 
+sea_adap_f = AdaptiveDynamicsModel( 
     sea_f,
     [ a_indexer, t_indexer ],
     equilibrium=sea_f.symbolic_equilibria(),
@@ -250,13 +249,13 @@ sea_adap_f = dynamicalsystems.AdaptiveDynamicsModel(
 seaquil = sea_f.interior_equilibria()
 
 ltx.write( 'And selective pressure on constraining characters is' )
-ltx.write( dynamicalsystems.dgroup( [ [ v, sea_adap_f._S[v] ] for v in sea_adap_f._vars ], op=r'\propto' ) )
+ltx.write( dgroup( [ [ dot(v), latex_partials_representation()( sea_adap_f._S[v] ) ] for v in sea_adap_f._vars ], op=r'\propto' ) )
 
 ltx.close()
 
 _save_symbols = { sv:lv for sv,lv in ( (str(v), latex(v)) for v in sage.symbolic.ring.pynac_symbol_registry.values() ) if sv != lv }
-save_session('sea-adap')
 
+save_session('sea-adap')
 </source-file>
 
 <project-file filename=sea-adap.sage.out.tex/>
@@ -433,6 +432,7 @@ ltx.write( 'And at starting point ', vector( [ starting_comm(v) for v in sea_ada
 
 ltx.close()
 _save_symbols = { sv:lv for sv,lv in ( (str(v), latex(v)) for v in sage.symbolic.ring.pynac_symbol_registry.values() ) if sv != lv }
+
 save_session('sea-down')
 </source-file>
 
@@ -534,18 +534,17 @@ investment remains fixed at its initial value of zero.
 # produces: sea-ass-ts.svg sea-ass-sel.tex
 from sage.all import * 
 from sage.misc.latex import _latex_file_
-import dynamicalsystems
-from dynamicalsystems import indexer, subscriptedsymbol, Bindings
+from dynamicalsystems import *
 from seamodel import *
 
 load_session( 'sea-down' )
 for k,l in _save_symbols.iteritems(): SR.symbol( k, latex_name=l ) 
 
-ltx = dynamicalsystems.latex_output( 'sea-ass.sage.out.tex' )
+ltx = latex_output( 'sea-ass.sage.out.tex' )
 
 sea_ass = sea_f.bind( base_b, exp_ass_b, fixed_tran_b )
 
-ltx.write( 'To study the incentive structure for association, we set', exp_ass_b )
+ltx.write( 'To study the incentive structure for association, we set', base_b, exp_ass_b, fixed_tran_b )
 
 ltx.write( 'Dynamics with association only:', sea_f.bind( base_b, fixed_tran_b, ass_only_b ) )
 ltx.write( 'Or', sea_ass )
@@ -553,7 +552,9 @@ ltx.write( 'Or', sea_ass )
 sea_adap_ass_formal = sea_adap_f.bind( base_b, fixed_tran_b, ass_only_b )
 sea_adap_ass = sea_adap_ass_formal.bind( exp_ass_b )
 ltx.write( 'And its adaptive dynamics is' )
-ltx.write( sea_adap_ass_formal, 'Or ', sea_adap_ass )
+ltx.write( 
+	dgroup( [ [ dot(v), latex_partials_representation()( sea_adap_ass_formal._flow[v] ) ] for v in sea_adap_ass_formal._vars ], op='=' ),
+	'Or ', sea_adap_ass )
 
 sea_adap_ass.bind_in_place( seaquil[0] )
 #ltx.write( 'With equilibrium populations is', sea_adap_ass )
@@ -564,16 +565,16 @@ adap_traj.plot( 't', [ a_indexer[i] for i in sea_adap_ass._popdyn_model._populat
 
 ltx.close()
 
-ltx = dynamicalsystems.latex_output( 'sea-ass-sel.tex' )
+ltx = latex_output( 'sea-ass-sel.tex' )
 
 ltx.write( 'The selective pressures on investment are' )
-ltx.write( dynamicalsystems.dgroup( [ [ a_indexer[i], sea_adap_ass_formal._S[a_indexer[i]] ] for i in sea_adap_ass._popdyn_model._population_indices ], op=r'\to' ) )
+ltx.write( dgroup( [ [ a_indexer[i], latex_partials_representation()( sea_adap_ass_formal._S[a_indexer[i]] ) ] for i in sea_adap_ass._popdyn_model._population_indices ], op=r'\to' ) )
 
 ltx.write( 'So the condition for increase in guest investment is' )
-ltx.write_block( sea_adap_ass_formal._S[a_indexer[(seamodel.type_g,0)]] > 0 )
+ltx.write_block( latex_partials_representation()( sea_adap_ass_formal._S[a_indexer[(seamodel.type_g,0)]] ) > 0 )
 
 ltx.write( 'And for increase in host investment' )
-ltx.write_block( sea_adap_ass_formal._S[a_indexer[(seamodel.type_H,0)]] > 0 )
+ltx.write_block( latex_partials_representation()( sea_adap_ass_formal._S[a_indexer[(seamodel.type_H,0)]] ) > 0 )
 
 ltx.close()
 save_session('sea-ass')
@@ -598,6 +599,170 @@ We have assumed functional forms such that benefit increases more quickly
 than cost near zero investment, so investment rises from zero until the
 marginal benefit no longer exceeds marginal cost.
 
+## Analysis of association-only model
+
+Let's go through this simpler model, because this may be enough for
+the paper.
+
+### Ecological quantities
+
+In the above the ecological quantities subject to variation and
+selection are $c_a$, $C_a$, the costs of each population's
+investment in association,
+and $p$, the net probability of associating.
+The other quantities are being held fixed, and in particular,
+in the above we have $b=B=1$,
+meaning that transfer is beneficial to both guest and host. 
+Let's keep $b$ and $B$ variable to make their role visible.
+
+With that we have
+\[*
+  \dot{x}_a = \hat{N} ( b \partial_0 p - \partial_0 c_a ) \\
+  \dot{X}_a = \hat{n} ( B \partial_1 p - \partial_0 C_a ).
+\]
+It seems clear that one could make these go either way.
+We assume $b>0$ (guest benefits from transfer), and
+$\partial_0 p >0$, $\partial_1 p > 0$ as investment in association
+makes it more probable. Also assume $c_a$ and $C_a$ increase
+with the magnitude of investment, so the sign of their derivative
+matches the sign of the argument, and is zero at 0.
+
+It follows that at the neutral point $(x_a,X_a)=(0,0)$,
+selection is positive on $x_a$, and selection on $X_a$ matches
+the sign of $B$.
+In many cases, depending on the functional forms of $p$, $c_a$,
+and $C_a$, there will be an equilibrium at which these differences
+come to zero, and in cases where there is not, it is possible
+for investment to diverge away from zero.
+  
+## Interactions
+
+Under these assumptions, in which $r, R$ aren't affected by
+investment in association, all selection is via the interaction
+terms $a_{gH}$, $a_{Hg}$.
+
+The guest is selected to raise $a_{gH}$ by adjusting $x_a$, which
+changes $p$ and $c_a$. Specifically, it raises $x_a$, which
+raises
+\[* a_{gH} = b\,p(x_a,X_a) - c_a(x_a) \]
+by increasing $bp$ more than it increases $c_a$,
+and stops when increase in $c_a$ becomes as large as the
+increase in benefit.
+
+The host is selected to raise
+\[* a_{Hg} = B\,p(x_a,X_a) - C_a(X_a). \]
+If $B$ is negative, this is done by reducing $p$,
+via reducing $X_a$ below zero, even though this
+raises the cost $C_a$. This proceeds until the
+cost increases are too much.
+
+If $B$ is positive, the host raises $p$ by raising
+$X_a$ until the cost becomes limiting.
+
+Thus the direct effect of guest selection on the interaction
+pair is to raise $a_{gH}$,
+and of host selection is to raise $a_{Hg}$.
+
+Guest selection impacts $a_{Hg}$ indirectly via $p$:
+if $B$ is positive the indirect effect is positive,
+and if $B$ is negative it is negative.
+Likewise host selection affects $a_{gH}$ indirectly,
+positively if $B$ is positive
+and negatively if $B$ is negative.
+
+Thus the guest and host have matching incentives when
+both $b$ and $B$ are positive,
+and will construct a mutualism,
+and have conflicting incentives when $B<0<b$,
+and will pull in opposite directions, with the
+outcome depending on which has more influence over the
+changing interaction.
+
+Under the assumption that $p$, $c_a$, and $C_a$
+are nonnegative,
+$a_{gH}$ can be any sign, and
+$a_{Hg}$ can be any sign if
+$B$ is positive and can only be negative
+if $B$ is negative.
+In the latter, conflicting case,
+an equilibrium level of $p$ will be reached
+that depends on the details.
+If it is small, $a_{gH}$ will be negative
+and $a_{Hg}$ will be negative but small;
+if $p$ is large at equilibrium, 
+$a_{gH}$ will be positive and
+$a_{Hg}$ will be large and negative.
+
+Thus the outcome is mutualistic when
+incentives are aligned,
+and either competitive or parasitic
+when incentives are in conflict.
+
+[@@ todo: verify these conclusions numerically.
+Is the competitive outcome realistic?
+Why wouldn't the guest abandon association in that case?]
+
+
+## Calculations
+
+Using functional forms
+\[* c_a(x_a) = \gamma x_a^2 \\
+    C_a(X_a) = \Gamma X_a^2 \\
+    p(x_a,X_a) = \frac12 + x_a + X_a
+\]
+and restricting to the region where these forms work,
+$-\frac12\leq x_a+X_a\leq\frac12$,
+the equations for adaptive equilibrium are
+\[*
+  b - 2\gamma x_a = 0 \\
+  B - 2\Gamma X_a = 0
+\]
+Combining:
+\[* 
+    X_a = \frac{B}{2\Gamma} \\
+    x_a = \frac{b}{2\gamma} \\
+    X_a = \frac{\gamma B}{\Gamma b} x_a
+\]
+Thus $x_a$ is positive and $X_a$ has the sign of $B$.
+
+If $B>0$, then both $x$ variables are positive, $p>\frac12$,
+\[* a_{gH} = b p - \gamma x_a^2 \\
+      = b \left(\frac12 + x_a + X_a\right) - \gamma x_a^2 \\
+      = b X_a + \frac12 b + b x_a - \gamma x_a^2 \\
+      = \frac{Bb}{2\Gamma} + \frac{b}{2} + \frac{b^2}{2\gamma} - \frac{b^2}{4\gamma} \\
+      > 0
+\]
+and
+\[* a_{Hg} = B p - \Gamma X_a^2 \\
+      = B \left( \frac12 + x_a + \frac{B}{2\Gamma} \right) - \frac{B^2}{4\Gamma} \\
+      > 0.
+\]
+
+If $B<0$, then $X_a<0$, and
+\[* a_{gH} = \frac{b}{2}\left( \frac{B}\Gamma + 1 + \frac{b}{2\gamma} \right) \\
+	> 0
+\]
+if $-\frac{B}\Gamma < 1 + \frac{b}{2\gamma}$;
+\[* a_{Hg} = \frac{B}{2}\left( \frac{b}\gamma + 1 + \frac{B}{2\Gamma} \right) \\
+	> 0
+\]
+if $-\frac{B}{\Gamma} > 1 + \frac{b}{\gamma}$.
+
+In this case there are three generic cases:
+<latex>\begin{align*}\begin{dcases}
+   -\frac{B}\Gamma < 1 + \frac{b}{2\gamma} & a_{Hg} < 0 < a_{gH} \\
+   1 + \frac{b}{2\gamma} < -\frac{B}\Gamma < 1 + \frac{b}\gamma
+	& a_{Hg} < 0, a_{gH} < 0 \\
+   1 + \frac{b}\gamma < -\frac{B}\Gamma    & a_{gH} < 0 < a_{Hg}.
+\end{dcases}\end{align*}</latex>
+Interestingly, mutualism is only possible in the $B>0$ case,
+in which case it is necessary.
+
+# END OF USEFUL PART, MAYBE
+
+The following more complex model treatments might be overkill,
+and not worth bothering with.
+
 # Evolution of transfer
 
 Maybe transfer, when association is held fixed, will behave similarly.
@@ -608,14 +773,13 @@ Maybe transfer, when association is held fixed, will behave similarly.
 # produces: sea-tran-ts.svg sea-tran-sel.tex
 from sage.all import * 
 from sage.misc.latex import _latex_file_
-import dynamicalsystems
-from dynamicalsystems import indexer, subscriptedsymbol, Bindings
+from dynamicalsystems import *
 from seamodel import *
 
 load_session( 'sea-down' )
 for k,l in _save_symbols.iteritems(): SR.symbol( k, latex_name=l ) 
 
-ltx = dynamicalsystems.latex_output( 'sea-tran.sage.out.tex' )
+ltx = latex_output( 'sea-tran.sage.out.tex' )
 
 sea_tran = sea_f.bind( base_b, fixed_ass_b, diag_tran_b )
 
@@ -627,7 +791,9 @@ ltx.write( 'Or', sea_tran )
 sea_adap_tran_formal = sea_adap_f.bind( base_b, fixed_ass_b )
 sea_adap_tran = sea_adap_tran_formal.bind( diag_tran_b )
 ltx.write( 'And its adaptive dynamics is' )
-ltx.write( sea_adap_tran_formal, 'Or ', sea_adap_tran )
+ltx.write(
+	dgroup( [ [ dot(v), latex_partials_representation()( sea_adap_tran_formal._flow[v] ) ] for v in sea_adap_tran_formal._vars ], op='=' ),
+	'Or ', sea_adap_tran )
 
 sea_adap_tran.bind_in_place( seaquil[0], p=1 )
 #ltx.write( 'With equilibrium populations is', sea_adap_tran )
@@ -638,16 +804,16 @@ adap_traj.plot( 't', [ t_indexer[i] for i in sea_adap_tran._popdyn_model._popula
 
 ltx.close()
 
-ltx = dynamicalsystems.latex_output( 'sea-tran-sel.tex' )
+ltx = latex_output( 'sea-tran-sel.tex' )
 
 ltx.write( 'The selective pressures on investment are' )
-ltx.write( dynamicalsystems.dgroup( [ [ t_indexer[i], sea_adap_tran_formal._S[t_indexer[i]] ] for i in sea_adap_tran._popdyn_model._population_indices ], op=r'\to' ) )
+ltx.write( dgroup( [ [ t_indexer[i], latex_partials_representation()( sea_adap_tran_formal._S[t_indexer[i]] ) ] for i in sea_adap_tran._popdyn_model._population_indices ], op=r'\to' ) )
 
 ltx.write( 'So the condition for increase in guest investment is' )
-ltx.write_block( sea_adap_tran_formal._S[t_indexer[(seamodel.type_g,0)]] > 0 )
+ltx.write_block( latex_partials_representation()( sea_adap_tran_formal._S[t_indexer[(seamodel.type_g,0)]] ) > 0 )
 
 ltx.write( 'And for increase in host investment' )
-ltx.write_block( sea_adap_tran_formal._S[t_indexer[(seamodel.type_H,0)]] > 0 )
+ltx.write_block( latex_partials_representation()( sea_adap_tran_formal._S[t_indexer[(seamodel.type_H,0)]] ) > 0 )
 
 ltx.close()
 save_session('sea-tran')
@@ -682,14 +848,13 @@ And when both association and transfer are up for adaptation?
 # produces: sea-all-ts2.svg sea-all-values2.svg
 from sage.all import * 
 from sage.misc.latex import _latex_file_
-import dynamicalsystems
-from dynamicalsystems import indexer, subscriptedsymbol, Bindings
+from dynamicalsystems import *
 from seamodel import *
 
 load_session( 'sea-down' )
 for k,l in _save_symbols.iteritems(): SR.symbol( k, latex_name=l ) 
 
-ltx = dynamicalsystems.latex_output( 'sea-all.sage.out.tex' )
+ltx = latex_output( 'sea-all.sage.out.tex' )
 
 sea_all = sea_f.bind( base_b, exp_ass_b, diag_tran_b )
 
@@ -701,7 +866,9 @@ ltx.write( 'Or', sea_all )
 sea_adap_all_formal = sea_adap_f.bind( base_b )
 sea_adap_all = sea_adap_all_formal.bind( exp_ass_b, diag_tran_b )
 ltx.write( 'And its adaptive dynamics is' )
-ltx.write( sea_adap_all_formal, 'Or ', sea_adap_all )
+ltx.write(
+	dgroup( [ [ dot(v), latex_partials_representation()( sea_adap_all_formal._flow[v] ) ] for v in sea_adap_all_formal._vars ], op='=' ),
+	'Or ', sea_adap_all )
 
 sea_adap_all.bind_in_place( p=1 )
 sea_adap_all_n = sea_adap_all.bind( seaquil[0] )
@@ -725,7 +892,7 @@ adap_traj.plot( 't',
 	]
 ).save( filename='sea-all-values2.svg', figsize=(4,3) )
 
-scomm3 = dynamicalsystems.Bindings( x_a_0=0, x_t_0=0, X_a_0=0.001, X_t_0=0.001 )
+scomm3 = Bindings( x_a_0=0, x_t_0=0, X_a_0=0.001, X_t_0=0.001 )
 adap_traj = sea_adap_all_n.solve( scomm3 )
 adap_traj.plot( 't', sea_adap_all_n._vars ).save( filename='sea-all-ts3.svg', figsize=(4,3) )
 
@@ -734,7 +901,8 @@ adap_traj.plot( 't',
 	  SR('c_t(x_t_0)'), SR('c_a(x_a_0)'), SR('C_t(X_t_0)'), SR('C_a(X_a_0)'),
 	  diff( SR('p(x_a_0,X_a_0)'), SR('x_a_0') ),
 	  diff( SR('c_a(x_a_0)'), SR('x_a_0') )
-	]
+	],
+	label_transformation=latex_partials_representation()
 ).save( filename='sea-all-values3.svg', legend_loc='right', figsize=(4,3) )
 
 ltx.close()
@@ -837,19 +1005,19 @@ sea_adap_up_n.bind(
     a_H_g = SR('(b(x_t_0,X_t_0)-c_t(x_t_0))*p(x_a_0,X_a_0) - c_a(x_a_0)')
 )
 
-adap_traj = sea_adap_up_n.solve( starting_comm, step=0.002 )
-adap_traj.plot( 't', sea_adap_up_n._vars ).save( filename='sea-up-ts.svg', figsize=(4,3) )
+#adap_traj = sea_adap_up_n.solve( starting_comm, step=0.002 )
+#adap_traj.plot( 't', sea_adap_up_n._vars ).save( filename='sea-up-ts.svg', figsize=(4,3) )
 
-adap_traj.plot( 't',
-	[ SR('p(x_a_0,X_a_0)'), SR('b(x_t_0,X_t_0)'), SR('B(x_t_0,X_t_0)'),
-	  'a_g_H', 'a_H_g'
-	] + sea_adap_up._popdyn_model.equilibrium_vars()
-).save( filename='sea-up-values.svg', figsize=(4,3) )
+#adap_traj.plot( 't',
+#	[ SR('p(x_a_0,X_a_0)'), SR('b(x_t_0,X_t_0)'), SR('B(x_t_0,X_t_0)'),
+#	  'a_g_H', 'a_H_g'
+#	] + sea_adap_up._popdyn_model.equilibrium_vars()
+#).save( filename='sea-up-values.svg', figsize=(4,3) )
 
-adap_traj.plot( 't',
-	[ SR('c_t(x_t_0)'), SR('c_a(x_a_0)'), SR('C_t(X_t_0)'), SR('C_a(X_a_0)'),
-	]
-).save( filename='sea-up-c-values.svg', figsize=(4,3) )
+#adap_traj.plot( 't',
+#	[ SR('c_t(x_t_0)'), SR('c_a(x_a_0)'), SR('C_t(X_t_0)'), SR('C_a(X_a_0)'),
+#	]
+#).save( filename='sea-up-c-values.svg', figsize=(4,3) )
 
 ltx.close()
 save_session('sea-up')
@@ -892,7 +1060,7 @@ class sea_r_indexer(dynamicalsystems.indexer):
 # requires: sealv.py
 # requires: sea-up.sobj
 # produces: sea-up-a.sage.out.tex
-# produces: sea-up-a.svg
+# produces: #sea-up-a.svg
 from sealv import *
 from seamodel import *
 import dynamicalsystems, lotkavolterra
@@ -938,7 +1106,7 @@ ltx.write( dynamicalsystems.dgroup(
 
 ltx.close()
 
-aap = lotkavolterra.plot_aij_with_arrows( adap_traj, uplv_n, filename='sea-up-a.svg' )
+#aap = lotkavolterra.plot_aij_with_arrows( adap_traj, uplv_n, filename='sea-up-a.svg' )
 </source-file>
 
 <project-file filename=sea-up-a.svg/>
@@ -956,7 +1124,7 @@ In this case, for $$a_{gH}$$,
 # requires: sealv.py
 # requires: sea-ass.sobj
 # produces: sea-ass-a.sage.out.tex
-# produces: sea-ass-a.svg
+# produces: #sea-ass-a.svg
 from sealv import *
 from seamodel import *
 from dynamicalsystems import *

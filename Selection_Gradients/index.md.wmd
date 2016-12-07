@@ -607,6 +607,7 @@ up somewhere more central.
 from sage.misc.session import *
 from sage.symbolic.ring import *
 from dynamicalsystems import Bindings
+import sys
 
 def ww_load_session( x, into_state=locals() ):
 	"""supplemented version of Sage's load_session():
@@ -623,10 +624,13 @@ def ww_load_session( x, into_state=locals() ):
 	SS = Bindings( **SS )
 	for k,x in D.iteritems():
 		try:
+			print x; sys.stdout.flush()
 			into_state[k] = SS( x )
-			print x, '=becomes=>', into_state[k]
+			print '=becomes=>', into_state[k]; sys.stdout.flush()
 		except TypeError:
 			into_state[k] = x
 		except AttributeError:
+			into_state[k] = x
+		except ValueError:
 			into_state[k] = x
 </source-file>
