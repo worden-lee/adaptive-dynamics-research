@@ -39,7 +39,7 @@ maclev_adap = AdaptiveDynamicsModel(maclev,
 print 'when c_00 == u, the adaptive dynamics is ', maclev_adap
 
 ltx.write( 'Adaptive dynamics of the Mac-Lev model with $b_i=m_i=1$ and $c_{i0} = u_i$:' )
-ltx.write_block( maclev_adap )
+ltx.write( maclev_adap )
 
 numeric_params = Bindings(
   { SR.var('r_0'): _sage_const_1 , SR.var('w_0'): _sage_const_1 ,
@@ -54,14 +54,14 @@ c_evolution = maclev_adap_bound.solve( [initial_u], end_time=_sage_const_10  )
 
 # and plot. 
 t = maclev_adap.time_variable()
-c_evolution.plot( t, u_indexer[_sage_const_0 ], 'maclev-1-1-c.png', ymin=_sage_const_0 , ylabel='$c_{00}$', figsize=(_sage_const_4 ,_sage_const_4 ) )
-c_evolution.plot( t, u_indexer[_sage_const_0 ], 'maclev-1-1-c.svg', ymin=_sage_const_0 , ylabel='$c_{11}$', figsize=(_sage_const_2 ,_sage_const_2 ) )
+c_evolution.plot( t, u_indexer[_sage_const_0 ], filename='maclev-1-1-c.png', ymin=_sage_const_0 , ylabel='$c_{00}$', figsize=(_sage_const_4 ,_sage_const_4 ) )
+c_evolution.plot( t, u_indexer[_sage_const_0 ], filename='maclev-1-1-c.svg', ymin=_sage_const_0 , ylabel='$c_{11}$', figsize=(_sage_const_2 ,_sage_const_2 ) )
 # Xhat increases.
 Xhat = hat( maclev_adap_bound._popdyn_model._population_indexer[_sage_const_0 ] )
-c_evolution.plot( t, evol_c_bindings( maclev_adap_bound._bindings( Xhat ) ), "maclev-1-1-X.png", ylabel=Xhat, figsize=(_sage_const_4 ,_sage_const_4 ) )
+c_evolution.plot( t, evol_c_bindings( maclev_adap_bound._bindings( Xhat ) ), filename="maclev-1-1-X.png", ylabel=Xhat, figsize=(_sage_const_4 ,_sage_const_4 ) )
 Rhat = hat( maclev_adap_bound._popdyn_model._rescomp_model._indexers['R'][_sage_const_0 ] )
-c_evolution.plot( t, evol_c_bindings( maclev_adap_bound._bindings( Rhat ) ), "maclev-1-1-R.svg", figsize=(_sage_const_2 ,_sage_const_2 ), ymin=_sage_const_0 , ylabel='$\hat{R}_1$' )
-c_evolution.plot( t, evol_c_bindings( maclev_adap_bound._bindings( Rhat ) ), "maclev-1-1-R.png", figsize=(_sage_const_4 ,_sage_const_4 ), ymin=_sage_const_0 , ylabel=Rhat )
+c_evolution.plot( t, evol_c_bindings( maclev_adap_bound._bindings( Rhat ) ), filename="maclev-1-1-R.svg", figsize=(_sage_const_2 ,_sage_const_2 ), ymin=_sage_const_0 , ylabel='$\hat{R}_1$' )
+c_evolution.plot( t, evol_c_bindings( maclev_adap_bound._bindings( Rhat ) ), filename="maclev-1-1-R.png", figsize=(_sage_const_4 ,_sage_const_4 ), ymin=_sage_const_0 , ylabel=Rhat )
 # and let's also plot k_0 vs. a_00.
 # these are the coefficients if you rewrite the maclev dynamics
 # as dX_0/dt = X_0(k_0 + a_00 X_0)
@@ -83,17 +83,17 @@ ltx.write( 'And the equilibrium values $\\hat X$ and $\\hat R$:',
     latex( maclev_adap_bound._bindings( Rhat ).expand() ), '\n',
     '\\end{align*}\n' )
 
-c_evolution.plot( t, maclev_adap_bound._early_bindings( k_0 ), "maclev-1-1-k.svg",
+c_evolution.plot( t, maclev_adap_bound._early_bindings( k_0 ), filename="maclev-1-1-k.svg",
   ymin=_sage_const_0 , ylabel='$k_1$', figsize=(_sage_const_2 ,_sage_const_2 ) )
-c_evolution.plot( t, maclev_adap_bound._early_bindings( k_0 ), "maclev-1-1-k.png",
+c_evolution.plot( t, maclev_adap_bound._early_bindings( k_0 ), filename="maclev-1-1-k.png",
   figsize=(_sage_const_4 ,_sage_const_4 ) )
 
-c_evolution.plot( t, maclev_adap_bound._early_bindings( a_00 ), "maclev-1-1-a.svg",
+c_evolution.plot( t, maclev_adap_bound._early_bindings( a_00 ), filename="maclev-1-1-a.svg",
   ymax=_sage_const_0 , ylabel='$a_{11}$', figsize=(_sage_const_2 ,_sage_const_2 ) )
-c_evolution.plot( t, maclev_adap_bound._early_bindings( a_00 ), "maclev-1-1-a.png",
+c_evolution.plot( t, maclev_adap_bound._early_bindings( a_00 ), filename="maclev-1-1-a.png",
   ymax=_sage_const_0 , ylabel='$a_{11}$', figsize=(_sage_const_4 ,_sage_const_4 ) )
 
-c_evolution.plot( maclev_adap_bound._early_bindings( a_00 ), maclev_adap_bound._early_bindings( k_0 ), "maclev-1-1-ak.png",
+c_evolution.plot( maclev_adap_bound._early_bindings( a_00 ), maclev_adap_bound._early_bindings( k_0 ), filename="maclev-1-1-ak.png",
   xlabel = SR.var('a_00'), ylabel = SR.var('k_0'), figsize=(_sage_const_4 ,_sage_const_4 ) )
 
 ltx.close()

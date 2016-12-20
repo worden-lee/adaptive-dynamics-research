@@ -34,3 +34,26 @@
 \newcommand{\CFF}{\Bold{CFF}}
 \newcommand{\Bold}[1]{\mathbf{#1}}
 \begin{document}
+Adaptive dynamics of model:
+\iflatexml
+\begin{align*}
+\frac{d{u}_{00}}{dt} &= 0\\
+\frac{d{u}_{10}}{dt} &= 0\\
+\frac{d{u}_{01}}{dt} &= 0\\
+\frac{d{u}_{11}}{dt} &= 0
+\end{align*}
+\else
+\begin{dgroup*}
+\begin{dmath*}
+\frac{d{u}_{00}}{dt} = 0\end{dmath*}
+\begin{dmath*}
+\frac{d{u}_{10}}{dt} = 0\end{dmath*}
+\begin{dmath*}
+\frac{d{u}_{01}}{dt} = 0\end{dmath*}
+\begin{dmath*}
+\frac{d{u}_{11}}{dt} = 0
+\end{dmath*}
+\end{dgroup*}
+\fi
+
+\end{document}

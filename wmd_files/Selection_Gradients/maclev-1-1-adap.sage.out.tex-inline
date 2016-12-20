@@ -1,0 +1,35 @@
+Adaptive dynamics of the Mac-Lev model with $b_i=m_i=1$ and $c_{i0} = u_i$:\iflatexml
+\begin{align*}
+\frac{du_{0}}{dt} &= \frac{{\left(K_{0} r_{0} u_{0} w_{0} - r_{0}\right)} {\left(K_{0} r_{0} w_{0} - \frac{K_{0} r_{0} u_{0} w_{0} - r_{0}}{u_{0}}\right)} \gamma}{r_{0} u_{0}^{2} w_{0}}
+\end{align*}
+\else
+\begin{dgroup*}
+\begin{dmath*}
+\frac{du_{0}}{dt} = \frac{{\left(K_{0} r_{0} u_{0} w_{0} - r_{0}\right)} {\left(K_{0} r_{0} w_{0} - \frac{K_{0} r_{0} u_{0} w_{0} - r_{0}}{u_{0}}\right)} \gamma}{r_{0} u_{0}^{2} w_{0}}
+\end{dmath*}
+\end{dgroup*}
+\fi
+and the bound adaptive dynamics is:\iflatexml
+\begin{align*}
+\frac{du_{0}}{dt} &= -\frac{{\left(2 \, u_{0} - 1\right)} {\left(\frac{2 \, u_{0} - 1}{u_{0}} - 2\right)}}{u_{0}^{2}}
+\end{align*}
+\else
+\begin{dgroup*}
+\begin{dmath*}
+\frac{du_{0}}{dt} = -\frac{{\left(2 \, u_{0} - 1\right)} {\left(\frac{2 \, u_{0} - 1}{u_{0}} - 2\right)}}{u_{0}^{2}}
+\end{dmath*}
+\end{dgroup*}
+\fi
+its bindings:\text{\texttt{{\char`\{}Xhat{\char`\_}0{ }{-}>{ }(2*u{\char`\_}0{ }{-}{ }1)/u{\char`\_}0{\char`\^}2,{ }m{\char`\_}0{ }{-}>{ }1,{ }R{\char`\_}0{ }{-}>{ }{-}X{\char`\_}0*u{\char`\_}0{ }+{ }2,{ }b{\char`\_}1{ }{-}>{ }1,{ }K{\char`\_}0{ }{-}>{ }2,{ }r{\char`\_}0{ }{-}>{ }1,{ }m{\char`\_}1{ }{-}>{ }1,{ }b{\char`\_}0{ }{-}>{ }1,{ }c{\char`\_}0{\char`\_}0{ }{-}>{ }u{\char`\_}0,{ }c{\char`\_}1{\char`\_}0{ }{-}>{ }u{\char`\_}1,{ }gamma{ }{-}>{ }1,{ }w{\char`\_}0{ }{-}>{ }1,{ }Rhat{\char`\_}0{ }{-}>{ }{-}(2*u{\char`\_}0{ }{-}{ }1)/u{\char`\_}0{ }+{ }2{\char`\}}}}With and without these bindings, the Lotka-Volterra coefficients $k_0$ and $a_{00}$ are:
+\[
+  k_{0} = K_{0} b_{0} c_{00} w_{0} - b_{0} m_{0} = 2 \, u_{0} - 1
+\]
+
+\[
+  {a_{00}} = -\frac{b_{0} c_{00}^{2} w_{0}}{r_{0}} = -u_{0}^{2}
+\]
+And the equilibrium values $\hat X$ and $\hat R$:\begin{align*}
+  \hat X_0 &\to \frac{K_{0} r_{0}}{{c}_{00}} - \frac{m_{0} r_{0}}{{c}_{00}^{2} w_{0}} = \frac{2}{u_{0}} - \frac{1}{u_{0}^{2}}\\
+  \hat R_0 &\to -K_{0} r_{0} + \frac{m_{0} r_{0}}{c_{00} w_{0}} + 2 = \frac{1}{u_{0}}
+\end{align*}
+

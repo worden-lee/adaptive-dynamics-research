@@ -67,10 +67,12 @@ class ResourceCompetitionModel(PopulationDynamicsSystem):
             P += point( self._bindings( vector( [ self._indexers['K'][i] for i in (0,1) ] ) ), color='gray', size=30 )
         # aux. line crossing R*
         for x_in in self.population_vars():
-            zngi = solve( self._flow[x_in]/x_in == 0, R_1, solution_dict=True )[0][R_1]
+            zsol = solve( self._flow[x_in]/x_in == 0, R_1, solution_dict=True )
+            zngi = zsol[0][R_1]
             zngi_options = dict( options, color='gray', thickness=2, fill=True, fillcolor='gray', fillalpha=0.3, filename=None )
             del zngi_options['filename']
-            r0max = solve( zngi, R_0, solution_dict=True )[0][R_0]
+            rsol = solve( zngi, R_0, solution_dict=True )
+            r0max = rsol[0][R_0]
             #print 'plot zngi:', zngi
             #sys.stdout.flush()
             P += plot( zngi, (R_0, 0, r0max), **zngi_options )
@@ -111,7 +113,7 @@ class MacArthurLevinsModel(PopulationDynamicsSystem):
           [],
           rescomp_model._population_indices,
           rescomp_model._population_indexer,
-          bindings = rescomp_model._bindings )
+          bindings = deepcopy( rescomp_model._bindings ) )
     def flow(self):
         # find the equilibrium values of R_l given the current values X_i
         R = [self._rescomp_model._indexers['R'][l] for l in self._r_indices]

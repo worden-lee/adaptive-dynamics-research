@@ -5,14 +5,13 @@ _sage_const_3 = Integer(3); _sage_const_1 = Integer(1); _sage_const_0 = Integer(
 # produces: sea-tran-ts.svg sea-tran-sel.tex
 from sage.all import * 
 from sage.misc.latex import _latex_file_
-import dynamicalsystems
-from dynamicalsystems import indexer, subscriptedsymbol, Bindings
+from dynamicalsystems import *
 from seamodel import *
 
 load_session( 'sea-down' )
 for k,l in _save_symbols.iteritems(): SR.symbol( k, latex_name=l ) 
 
-ltx = dynamicalsystems.latex_output( 'sea-tran.sage.out.tex' )
+ltx = latex_output( 'sea-tran.sage.out.tex' )
 
 sea_tran = sea_f.bind( base_b, fixed_ass_b, diag_tran_b )
 
@@ -24,7 +23,9 @@ ltx.write( 'Or', sea_tran )
 sea_adap_tran_formal = sea_adap_f.bind( base_b, fixed_ass_b )
 sea_adap_tran = sea_adap_tran_formal.bind( diag_tran_b )
 ltx.write( 'And its adaptive dynamics is' )
-ltx.write( sea_adap_tran_formal, 'Or ', sea_adap_tran )
+ltx.write(
+	dgroup( [ [ dot(v), latex_partials_representation()( sea_adap_tran_formal._flow[v] ) ] for v in sea_adap_tran_formal._vars ], op='=' ),
+	'Or ', sea_adap_tran )
 
 sea_adap_tran.bind_in_place( seaquil[_sage_const_0 ], p=_sage_const_1  )
 #ltx.write( 'With equilibrium populations is', sea_adap_tran )
@@ -35,16 +36,16 @@ adap_traj.plot( 't', [ t_indexer[i] for i in sea_adap_tran._popdyn_model._popula
 
 ltx.close()
 
-ltx = dynamicalsystems.latex_output( 'sea-tran-sel.tex' )
+ltx = latex_output( 'sea-tran-sel.tex' )
 
 ltx.write( 'The selective pressures on investment are' )
-ltx.write( dynamicalsystems.dgroup( [ [ t_indexer[i], sea_adap_tran_formal._S[t_indexer[i]] ] for i in sea_adap_tran._popdyn_model._population_indices ], op=r'\to' ) )
+ltx.write( dgroup( [ [ t_indexer[i], latex_partials_representation()( sea_adap_tran_formal._S[t_indexer[i]] ) ] for i in sea_adap_tran._popdyn_model._population_indices ], op=r'\to' ) )
 
 ltx.write( 'So the condition for increase in guest investment is' )
-ltx.write_block( sea_adap_tran_formal._S[t_indexer[(seamodel.type_g,_sage_const_0 )]] > _sage_const_0  )
+ltx.write_block( latex_partials_representation()( sea_adap_tran_formal._S[t_indexer[(seamodel.type_g,_sage_const_0 )]] ) > _sage_const_0  )
 
 ltx.write( 'And for increase in host investment' )
-ltx.write_block( sea_adap_tran_formal._S[t_indexer[(seamodel.type_H,_sage_const_0 )]] > _sage_const_0  )
+ltx.write_block( latex_partials_representation()( sea_adap_tran_formal._S[t_indexer[(seamodel.type_H,_sage_const_0 )]] ) > _sage_const_0  )
 
 ltx.close()
 save_session('sea-tran')

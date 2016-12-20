@@ -51,19 +51,19 @@ sea_adap_up_n.bind(
     a_H_g = SR('(b(x_t_0,X_t_0)-c_t(x_t_0))*p(x_a_0,X_a_0) - c_a(x_a_0)')
 )
 
-adap_traj = sea_adap_up_n.solve( starting_comm, step=0.002 )
-adap_traj.plot( 't', sea_adap_up_n._vars ).save( filename='sea-up-ts.svg', figsize=(4,3) )
+#adap_traj = sea_adap_up_n.solve( starting_comm, step=0.002 )
+#adap_traj.plot( 't', sea_adap_up_n._vars ).save( filename='sea-up-ts.svg', figsize=(4,3) )
 
-adap_traj.plot( 't',
-	[ SR('p(x_a_0,X_a_0)'), SR('b(x_t_0,X_t_0)'), SR('B(x_t_0,X_t_0)'),
-	  'a_g_H', 'a_H_g'
-	] + sea_adap_up._popdyn_model.equilibrium_vars()
-).save( filename='sea-up-values.svg', figsize=(4,3) )
+#adap_traj.plot( 't',
+#	[ SR('p(x_a_0,X_a_0)'), SR('b(x_t_0,X_t_0)'), SR('B(x_t_0,X_t_0)'),
+#	  'a_g_H', 'a_H_g'
+#	] + sea_adap_up._popdyn_model.equilibrium_vars()
+#).save( filename='sea-up-values.svg', figsize=(4,3) )
 
-adap_traj.plot( 't',
-	[ SR('c_t(x_t_0)'), SR('c_a(x_a_0)'), SR('C_t(X_t_0)'), SR('C_a(X_a_0)'),
-	]
-).save( filename='sea-up-c-values.svg', figsize=(4,3) )
+#adap_traj.plot( 't',
+#	[ SR('c_t(x_t_0)'), SR('c_a(x_a_0)'), SR('C_t(X_t_0)'), SR('C_a(X_a_0)'),
+#	]
+#).save( filename='sea-up-c-values.svg', figsize=(4,3) )
 
 ltx.close()
 save_session('sea-up')

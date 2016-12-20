@@ -58,20 +58,20 @@ maclev_c00 = MacArthurLevinsModel( x_indices = [0], r_indices = [0],
        c = indexer(lambda i: indexer(lambda l: 'u_%s'%i)) )
 
 #ltx.write( 'maclev_c00:' )
-#ltx.write_block( maclev_c00 )
+#ltx.write( maclev_c00 )
 
 maclev_adap_c00 = AdaptiveDynamicsModel(maclev_c00, 
     [ indexer('u') ])
 
 #ltx.write( 'Returning to the adaptive dynamics, with $c_0(u_0)=u_0$, $b(u_0) = m(u_0) = 1$:' )
-#ltx.write_block( maclev_adap_c00 )
+#ltx.write( maclev_adap_c00 )
 
 maclev_adap_c00_bound = maclev_adap_c00.bind( Bindings( 
   { SR.var('r_0'): 1, SR.var('w_0'): 1,
     SR.var('K_0'): 2, SR.var('gamma'): 1 } ) )
 
 #ltx.write( 'And with parameters bound:' )
-#ltx.write_block( maclev_adap_c00_bound )
+#ltx.write( maclev_adap_c00_bound )
 
 c00_evolution = maclev_adap_c00_bound.solve( [2] )
 
@@ -103,7 +103,7 @@ ltx.write( 'The derivative of $\mathbf p$ is \n\\[\n  ',
   latex( column_vector( dp_du_bound ) ), ', \\]\n' )
 ltx.write( 'and we can recover the motion of $u_0$: \n\\[ ',
   latex( S_symb( u_0 ) ),
-  ' = \\frac{d%s}{d%s}^\mathrm{T} %s = ' % ( latex(p_symb), latex(u_0), latex( S_symb( pf_symb( u_0 ) ) ) ),
+  ' = \\frac{d%s}{d%s}^{\mathrm{T}} %s = ' % ( latex(p_symb), latex(u_0), latex( S_symb( pf_symb( u_0 ) ) ) ),
   latex( c00_bindings( change_p_to_functions( dp_du_bound.dot_product( S_p ) ) ) ), ' \\]\n' )
 ltx.write_equality( wrap_latex( '\\frac{du_0}{dt}' ),
   wrap_latex( '\\gamma\\hat X_0 %s' %  latex( S_symb( u_0 ) ) ),
@@ -111,7 +111,7 @@ ltx.write_equality( wrap_latex( '\\frac{du_0}{dt}' ),
 
 ltx.write( 'and the motion of $\\mathbf p(u_0)$:' )
 ltx.write_equality( wrap_latex( '\\frac{d\\mathbf p(u_0)}{dt}' ),
-  wrap_latex( '\\gamma\\hat X_0 \\frac{d\\mathbf p}{du_0} \\frac{d\\mathbf p}{du_0}^\\mathrm{T} %s' %  latex( S_symb( pf_symb( u_0 ) ) ) ),
+  wrap_latex( '\\gamma\\hat X_0 \\frac{d\\mathbf p}{du_0} \\frac{d\\mathbf p}{du_0}^{\\mathrm{T}} %s' %  latex( S_symb( pf_symb( u_0 ) ) ) ),
   latex( column_vector( c00_bindings( change_p_to_functions( z ) ) for z in SR('gamma') * X_0 * dp_du_bound * dp_du_bound.dot_product( S_p ) ) ) );
 
 # OK, so that seems to be right, so we ought to be able to plot S(p)

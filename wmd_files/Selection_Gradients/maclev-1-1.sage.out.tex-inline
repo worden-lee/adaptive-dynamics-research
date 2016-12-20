@@ -1,0 +1,26 @@
+The original resource competition system:\iflatexml
+\begin{align*}
+\frac{dR_{0}}{dt} &= -X_{0} {c}_{00} + {\left(K_{0} - R_{0}\right)} r_{0}\\
+\frac{dX_{0}}{dt} &= {\left(R_{0} {c}_{00} w_{0} - m_{0}\right)} X_{0} b_{0}
+\end{align*}
+\else
+\begin{dgroup*}
+\begin{dmath*}
+\frac{dR_{0}}{dt} = -X_{0} {c}_{00} + {\left(K_{0} - R_{0}\right)} r_{0}\end{dmath*}
+\begin{dmath*}
+\frac{dX_{0}}{dt} = {\left(R_{0} {c}_{00} w_{0} - m_{0}\right)} X_{0} b_{0}
+\end{dmath*}
+\end{dgroup*}
+\fi
+And the Mac-Lev system derived from it: \iflatexml
+\begin{align*}
+\frac{dX_{0}}{dt} &= -{\left(\frac{{\left(X_{0} {c}_{00} - K_{0} r_{0}\right)} {c}_{00} w_{0}}{r_{0}} + m_{0}\right)} X_{0} b_{0}
+\end{align*}
+\else
+\begin{dgroup*}
+\begin{dmath*}
+\frac{dX_{0}}{dt} = -{\left(\frac{{\left(X_{0} {c}_{00} - K_{0} r_{0}\right)} {c}_{00} w_{0}}{r_{0}} + m_{0}\right)} X_{0} b_{0}
+\end{dmath*}
+\end{dgroup*}
+\fi
+

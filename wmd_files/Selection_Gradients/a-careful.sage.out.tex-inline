@@ -1,0 +1,8 @@
+
+\[
+  A_i = \left(\begin{array}{r}
+-\frac{b_{i} {c_{i0}} {c_{j0}} w_{0}}{r_{0}} \\
+K_{0} b_{i} {c_{i0}} w_{0} - b_{i} m_{i}
+\end{array}\right)
+\]
+

@@ -38,23 +38,32 @@ Or\iflatexml
 \end{dgroup*}
 \fi
 And its adaptive dynamics is\iflatexml
+
 \begin{align*}
-\frac{d{X}_{{a}{0}}}{dt} &= 0\\
-\frac{d{X}_{{t}{0}}}{dt} &= {\left(\hat{{n}}_{0} p D[1]\left(B\right)\left({x}_{{t}{0}}, {X}_{{t}{0}}\right) - \hat{{n}}_{0} p D[0]\left(C_{t}\right)\left({X}_{{t}{0}}\right)\right)} \hat{{N}}_{0}\\
-\frac{d{x}_{{a}{0}}}{dt} &= 0\\
-\frac{d{x}_{{t}{0}}}{dt} &= {\left(\hat{{N}}_{0} p D[0]\left(b\right)\left({x}_{{t}{0}}, {X}_{{t}{0}}\right) - \hat{{N}}_{0} p D[0]\left(c_{t}\right)\left({x}_{{t}{0}}\right)\right)} \hat{{n}}_{0}
+  \dot{{X}}_{{a}{0}} = 0\\
+  \dot{{X}}_{{t}{0}} = -{\left({C_t}'({X}_{{t}{0}}) \hat{{n}}_{0} p - \hat{{n}}_{0} p \partial_{1}B({x}_{{t}{0}}, {X}_{{t}{0}})\right)} \hat{{N}}_{0}\\
+  \dot{{x}}_{{a}{0}} = 0\\
+  \dot{{x}}_{{t}{0}} = -{\left(\hat{{N}}_{0} {c_t}'({x}_{{t}{0}}) p - \hat{{N}}_{0} p \partial_{0}b({x}_{{t}{0}}, {X}_{{t}{0}})\right)} \hat{{n}}_{0}
 \end{align*}
 \else
 \begin{dgroup*}
+  
 \begin{dmath*}
-\frac{d{X}_{{a}{0}}}{dt} = 0\end{dmath*}
-\begin{dmath*}
-\frac{d{X}_{{t}{0}}}{dt} = {\left(\hat{{n}}_{0} p D[1]\left(B\right)\left({x}_{{t}{0}}, {X}_{{t}{0}}\right) - \hat{{n}}_{0} p D[0]\left(C_{t}\right)\left({X}_{{t}{0}}\right)\right)} \hat{{N}}_{0}\end{dmath*}
-\begin{dmath*}
-\frac{d{x}_{{a}{0}}}{dt} = 0\end{dmath*}
-\begin{dmath*}
-\frac{d{x}_{{t}{0}}}{dt} = {\left(\hat{{N}}_{0} p D[0]\left(b\right)\left({x}_{{t}{0}}, {X}_{{t}{0}}\right) - \hat{{N}}_{0} p D[0]\left(c_{t}\right)\left({x}_{{t}{0}}\right)\right)} \hat{{n}}_{0}
+  \dot{{X}}_{{a}{0}} = 0
 \end{dmath*}
+
+\begin{dmath*}
+  \dot{{X}}_{{t}{0}} = -{\left({C_t}'({X}_{{t}{0}}) \hat{{n}}_{0} p - \hat{{n}}_{0} p \partial_{1}B({x}_{{t}{0}}, {X}_{{t}{0}})\right)} \hat{{N}}_{0}
+\end{dmath*}
+
+\begin{dmath*}
+  \dot{{x}}_{{a}{0}} = 0
+\end{dmath*}
+
+\begin{dmath*}
+  \dot{{x}}_{{t}{0}} = -{\left(\hat{{N}}_{0} {c_t}'({x}_{{t}{0}}) p - \hat{{N}}_{0} p \partial_{0}b({x}_{{t}{0}}, {X}_{{t}{0}})\right)} \hat{{n}}_{0}
+\end{dmath*}
+
 \end{dgroup*}
 \fi
 Or \iflatexml

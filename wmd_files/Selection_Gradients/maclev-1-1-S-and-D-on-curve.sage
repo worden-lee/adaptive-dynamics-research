@@ -1,7 +1,7 @@
 # requires: maclevmodels.py maclev-1-1-mc-adap-geom.sobj
 # produces: maclev-1-1-S-and-D-on-curve.png
 from dynamicalsystems import *
-from plot_vector_field_along_curve import *
+#from plot_vector_field_along_curve import *
 load_session( 'maclev-1-1-mc-adap-geom' )
 var( 'b_0 c m_0 w_0 r_0 K_0 gamma' )
 fixed_parameter_bindings = Bindings( 

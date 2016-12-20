@@ -2,13 +2,8 @@
 from sage.all_cmdline import *   # import sage library
 _sage_const_2 = Integer(2); _sage_const_1 = Integer(1); _sage_const_0 = Integer(0); _sage_const_4 = Integer(4); _sage_const_1p2 = RealNumber('1.2'); _sage_const_0p5 = RealNumber('0.5')# requires: maclevmodels.py maclev-1-1-mc-adap-geom.sobj
 # produces: maclev-1-1-S-and-d1A-on-curve.png
-import os, sys
-sys.path.append( os.environ['SageUtils'] )
-sys.path.append( os.environ['SageDynamics'] )
-sys.path.append( os.environ['SageAdaptiveDynamics'] )
 from dynamicalsystems import *
-from adaptivedynamics import *
-from plot_vector_field_along_curve import *
+#from plot_vector_field_along_curve import *
 load_session( 'maclev-1-1-mc-adap-geom' )
 var( 'b_0 c m_0 w_0 r_0 K_0 gamma' )
 fixed_parameter_bindings = Bindings( 

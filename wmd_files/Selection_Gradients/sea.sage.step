@@ -13,6 +13,6 @@ sea = seamodel.SeaSymbiosisModel(
 ltx = dynamicalsystems.latex_output( 'sea.sage.out.tex' )
 ltx.write( 'The dynamics:' )
 ltx.write( sea )
-
 ltx.close()
+
 save_session( 'sea' )

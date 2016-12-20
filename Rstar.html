@@ -1,0 +1,1062 @@
+<!DOCTYPE html>
+<html>
+
+      <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>R star notes</title>
+        <meta name="viewport" content="width=device-width">
+        <meta name="description" content="Lee Worden prototype research website" />
+        <link rel="canonical" href="/Rstar/" />
+
+        <!-- Custom CSS -->
+	<link rel="stylesheet" href="/adaptive-dynamics-research/css/main.css">
+	<link rel="stylesheet" href="/adaptive-dynamics-research/css/auto-generated-from-ww.css">
+	<link rel="stylesheet" href="/adaptive-dynamics-research/css/wmd.css">
+        <script type="text/x-mathjax-config">MathJax.Hub.Config({ jax: ["input/MathML", "output/HTML-CSS"] });</script>
+        <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=MML_HTMLorMML"></script>
+
+    </head>
+
+
+    <body>
+
+    <header class="site-header">
+
+  <div class="wrap">
+
+    <a class="site-title" href="/adaptive-dynamics-research/">Lee Worden research prototype website</a>
+
+    <nav class="site-nav">
+      <a href="#" class="menu-icon">
+        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+           viewBox="0 0 18 15" enable-background="new 0 0 18 15" xml:space="preserve">
+          <path fill="#505050" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0
+            h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+          <path fill="#505050" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484
+            h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+          <path fill="#505050" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0
+            c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+        </svg>
+      </a>
+      <div class="trigger">
+        <a class="page-link" href="/adaptive-dynamics-research/about">About</a>
+	<a class="page-link" href="/adaptive-dynamics-research/projects">Projects</a>
+      </div>
+    </nav>
+
+  </div>
+
+</header>
+
+
+    <div class="page-content">
+      <div class="wrap">
+      <div class="post">
+
+  <header class="post-header">
+    <h1>R star notes</h1>
+  </header>
+
+  <article class="post-content">
+  <p>Notes on adaptive dynamics of R* vector.
+Eventually to be adapted into the paper…</p>
+
+<p>We know from generations of ecological theory (e.g. [@Tilman1982])
+that the dynamics of consumer-resource systems like this one are
+naturally explained in terms of the equilibrium resource concentrations
+<!-- 82027e282a4cab1583529ef3e0a7b532.tex-math.latexml.html --><span class="latexml"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="R^{*}" display="inline"><msup><mi>R</mi><mo>*</mo></msup></math></span>.
+When multiple consumer populations compete for a single resource, 
+the survivor will be whichever can survive the lowest value of <!-- 82027e282a4cab1583529ef3e0a7b532.tex-math.latexml.html --><span class="latexml"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="R^{*}" display="inline"><msup><mi>R</mi><mo>*</mo></msup></math></span>,
+and the resource will be maintained at that low concentration.
+In the case of multiple resources, it is a weighted sum of resources
+that is minimized. [TODO: check that assertion against Tilman]</p>
+
+<p>Because of this, it is natural to wonder whether the adaptive dynamics
+of the system can be analyzed cleanly by using these <!-- 82027e282a4cab1583529ef3e0a7b532.tex-math.latexml.html --><span class="latexml"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="R^{*}" display="inline"><msup><mi>R</mi><mo>*</mo></msup></math></span> values
+as intermediate quantities.</p>
+
+<p>These are the values
+<fieldset class="ww-messages"><legend>&lt;ww-messages-legend: &gt;</legend><p class='error'>Error: Project file not found: Standalone?607e638d380553491a4df22618fa1b26.tex-math › 607e638d380553491a4df22618fa1b26.tex-math.latexml.html</p>
+</fieldset>
+<!-- 607e638d380553491a4df22618fa1b26.tex-math.latexml.html --> of the resource abundances that are found when the
+population sizes are also at equilibrium.  These are described by
+the linear system of equations
+<fieldset class="ww-messages"><legend>&lt;ww-messages-legend: &gt;</legend><p class='error'>Error: Project file not found: Standalone?05286ff154899ef01ce2a92f8e6f2596.tex-inline › 05286ff154899ef01ce2a92f8e6f2596.tex-inline.latexml.html</p>
+</fieldset>
+<!-- 05286ff154899ef01ce2a92f8e6f2596.tex-inline.latexml.html -->
+assuming those inverses exist, where
+<fieldset class="ww-messages"><legend>&lt;ww-messages-legend: &gt;</legend><p class='error'>Error: Project file not found: Standalone?05d05e751a80db7375eae13c25f0ca13.tex-math › 05d05e751a80db7375eae13c25f0ca13.tex-math.latexml.html</p>
+</fieldset>
+<!-- 05d05e751a80db7375eae13c25f0ca13.tex-math.latexml.html --> is the matrix of <!-- e9faee1f59b9695ec26f913247352530.tex-math.latexml.html --><span class="latexml"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="c_{i\ell}" display="inline"><msub><mi>c</mi><mrow><mi>i</mi><mo>⁢</mo><mi mathvariant="normal">ℓ</mi></mrow></msub></math></span>
+values, <fieldset class="ww-messages"><legend>&lt;ww-messages-legend: &gt;</legend><p class='error'>Error: Project file not found: Standalone?60a350288e29b0392478da9b5e528324.tex-math › 60a350288e29b0392478da9b5e528324.tex-math.latexml.html</p>
+</fieldset>
+<!-- 60a350288e29b0392478da9b5e528324.tex-math.latexml.html --> is a diagonal matrix with entries <!-- 1235855f8799d6d05eb99f4107d753b8.tex-math.latexml.html --><span class="latexml"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="w_{\ell}" display="inline"><msub><mi>w</mi><mi mathvariant="normal">ℓ</mi></msub></math></span>, and
+<fieldset class="ww-messages"><legend>&lt;ww-messages-legend: &gt;</legend><p class='error'>Error: Project file not found: Standalone?1a0fa318ebc1b3fa6ffac01d86c286ce.tex-math › 1a0fa318ebc1b3fa6ffac01d86c286ce.tex-math.latexml.html</p>
+</fieldset>
+<!-- 1a0fa318ebc1b3fa6ffac01d86c286ce.tex-math.latexml.html --> is a vector of the values <!-- 342e772474b691ac87dac30aeef596c0.tex-math.latexml.html --><span class="latexml"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="m_{i}" display="inline"><msub><mi>m</mi><mi>i</mi></msub></math></span>.</p>
+
+<p>We can write them as a vector parametrized by underlying phenotypes,
+as in the previous section, but there is the key difference that
+in this case, each value is parametrized by the phenotypes
+of multiple species.
+Assuming a community of $n$ species and $n$ resources, we have
+a vector of $n$ $R^*$ values:</p>
+
+<p><fieldset class="ww-messages"><legend>&lt;ww-messages-legend: &gt;</legend><p class='error'>Error: Project file not found: Standalone?97b60b67515d94d1d51c5c6ee1a5afab.tex-inline › 97b60b67515d94d1d51c5c6ee1a5afab.tex-inline.latexml.html</p>
+</fieldset>
+<!-- 97b60b67515d94d1d51c5c6ee1a5afab.tex-inline.latexml.html --></p>
+
+<p>Consider a variant population <fieldset class="ww-messages"><legend>&lt;ww-messages-legend: &gt;</legend><p class='error'>Error: Project file not found: Standalone?47dff5405744818bd472bd3c1675cc42.tex-math › 47dff5405744818bd472bd3c1675cc42.tex-math.latexml.html</p>
+</fieldset>
+<!-- 47dff5405744818bd472bd3c1675cc42.tex-math.latexml.html --> entering the community and
+replacing its parent. At introduction, when rare, the variant’s
+invasion speed is
+<fieldset class="ww-messages"><legend>&lt;ww-messages-legend: &gt;</legend><p class='error'>Error: Project file not found: Standalone?b4868800a01f3415d615d504a616b916.tex-inline › b4868800a01f3415d615d504a616b916.tex-inline.latexml.html</p>
+</fieldset>
+<!-- b4868800a01f3415d615d504a616b916.tex-inline.latexml.html -->
+After the replacement, there is a perturbed resource vector <fieldset class="ww-messages"><legend>&lt;ww-messages-legend: &gt;</legend><p class='error'>Error: Project file not found: Standalone?1fdbd3b088f5774857ad7c2d7cd575bd.tex-math › 1fdbd3b088f5774857ad7c2d7cd575bd.tex-math.latexml.html</p>
+</fieldset>
+<!-- 1fdbd3b088f5774857ad7c2d7cd575bd.tex-math.latexml.html -->,
+restoring the long-term trivial fitness:
+<fieldset class="ww-messages"><legend>&lt;ww-messages-legend: &gt;</legend><p class='error'>Error: Project file not found: Standalone?a0335b40393ab855409ddd38b5d5632a.tex-inline › a0335b40393ab855409ddd38b5d5632a.tex-inline.latexml.html</p>
+</fieldset>
+<!-- a0335b40393ab855409ddd38b5d5632a.tex-inline.latexml.html -->
+Something is conserved by the change in <!-- 82027e282a4cab1583529ef3e0a7b532.tex-math.latexml.html --><span class="latexml"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="R^{*}" display="inline"><msup><mi>R</mi><mo>*</mo></msup></math></span>:
+<fieldset class="ww-messages"><legend>&lt;ww-messages-legend: &gt;</legend><p class='error'>Error: Project file not found: Standalone?853f7425aeafef55c77462296dd4eeb0.tex-inline › 853f7425aeafef55c77462296dd4eeb0.tex-inline.latexml.html</p>
+</fieldset>
+<!-- 853f7425aeafef55c77462296dd4eeb0.tex-inline.latexml.html -->
+This defines the change in <!-- 82027e282a4cab1583529ef3e0a7b532.tex-math.latexml.html --><span class="latexml"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="R^{*}" display="inline"><msup><mi>R</mi><mo>*</mo></msup></math></span>, if we use it right.
+<fieldset class="ww-messages"><legend>&lt;ww-messages-legend: &gt;</legend><p class='error'>Error: Project file not found: Standalone?ec4666bf5f6476587fe4455d797dbc1e.tex-inline › ec4666bf5f6476587fe4455d797dbc1e.tex-inline.latexml.html</p>
+</fieldset>
+<!-- ec4666bf5f6476587fe4455d797dbc1e.tex-inline.latexml.html -->
+That looks a little complicated to be useful.</p>
+
+<p>Anyway, each population <!-- 865c0c0b4ab0e063e5caa3387c1a8741.tex-math.latexml.html --><span class="latexml"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="i" display="inline"><mi>i</mi></math></span> defines a codimension 1 manifold
+of equilibrium solutions <fieldset class="ww-messages"><legend>&lt;ww-messages-legend: &gt;</legend><p class='error'>Error: Project file not found: Standalone?1fa11c3f9c3caf5bbbcb9bfde12bcc1f.tex-math › 1fa11c3f9c3caf5bbbcb9bfde12bcc1f.tex-math.latexml.html</p>
+</fieldset>
+<!-- 1fa11c3f9c3caf5bbbcb9bfde12bcc1f.tex-math.latexml.html -->, and the solution achieved
+is at the intersection of those solutions.
+A change in one population’s characters is a shift in one of those
+solution manifolds, and that shift moves the solution <fieldset class="ww-messages"><legend>&lt;ww-messages-legend: &gt;</legend><p class='error'>Error: Project file not found: Standalone?b16ae8b5e2bc75722aaee8a1f7d37b1e.tex-math › b16ae8b5e2bc75722aaee8a1f7d37b1e.tex-math.latexml.html</p>
+</fieldset>
+<!-- b16ae8b5e2bc75722aaee8a1f7d37b1e.tex-math.latexml.html -->
+to the new intersection.</p>
+
+<p>Thus it may be reasonable to look at that manifold as another
+representation of the population’s phenotype.
+As above,
+that manifold for population <!-- 865c0c0b4ab0e063e5caa3387c1a8741.tex-math.latexml.html --><span class="latexml"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="i" display="inline"><mi>i</mi></math></span> is the hyperplane solving the
+equation
+<fieldset class="ww-messages"><legend>&lt;ww-messages-legend: &gt;</legend><p class='error'>Error: Project file not found: Standalone?2d950edc15d2d2131000fb015f2a73dc.tex-inline › 2d950edc15d2d2131000fb015f2a73dc.tex-inline.latexml.html</p>
+</fieldset>
+<!-- 2d950edc15d2d2131000fb015f2a73dc.tex-inline.latexml.html -->
+So it’s another way of representing the phenotype values
+<!-- e9faee1f59b9695ec26f913247352530.tex-math.latexml.html --><span class="latexml"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="c_{i\ell}" display="inline"><msub><mi>c</mi><mrow><mi>i</mi><mo>⁢</mo><mi mathvariant="normal">ℓ</mi></mrow></msub></math></span> and <!-- 342e772474b691ac87dac30aeef596c0.tex-math.latexml.html --><span class="latexml"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="m_{i}" display="inline"><msub><mi>m</mi><mi>i</mi></msub></math></span>.
+Let <fieldset class="ww-messages"><legend>&lt;ww-messages-legend: &gt;</legend><p class='error'>Error: Project file not found: Standalone?0b1f4c9df3ab2fc3a8f9d9d51627ca46.tex-math › 0b1f4c9df3ab2fc3a8f9d9d51627ca46.tex-math.latexml.html</p>
+</fieldset>
+<!-- 0b1f4c9df3ab2fc3a8f9d9d51627ca46.tex-math.latexml.html -->.
+The hyperplane is normal to the vector <fieldset class="ww-messages"><legend>&lt;ww-messages-legend: &gt;</legend><p class='error'>Error: Project file not found: Standalone?c75f2a258b8e3f9dbfa16854adf672b5.tex-math › c75f2a258b8e3f9dbfa16854adf672b5.tex-math.latexml.html</p>
+</fieldset>
+<!-- c75f2a258b8e3f9dbfa16854adf672b5.tex-math.latexml.html -->, and
+does not pass through the origin but rather through the point
+<fieldset class="ww-messages"><legend>&lt;ww-messages-legend: &gt;</legend><p class='error'>Error: Project file not found: Standalone?14712a6c7c17c0754742f2edd73e9134.tex-inline › 14712a6c7c17c0754742f2edd73e9134.tex-inline.latexml.html</p>
+</fieldset>
+<!-- 14712a6c7c17c0754742f2edd73e9134.tex-inline.latexml.html -->
+This hyperplane divides the <fieldset class="ww-messages"><legend>&lt;ww-messages-legend: &gt;</legend><p class='error'>Error: Project file not found: Standalone?b16ae8b5e2bc75722aaee8a1f7d37b1e.tex-math › b16ae8b5e2bc75722aaee8a1f7d37b1e.tex-math.latexml.html</p>
+</fieldset>
+<!-- b16ae8b5e2bc75722aaee8a1f7d37b1e.tex-math.latexml.html --> space into two
+halves, the half where this quantity is positive (above the plane)
+and the half where it is negative (below the plane, including the
+origin).</p>
+
+<p>This quantity is sign-equivalent to the species’s invasion fitness.
+Thus a variant that can invade is one that moves its dividing plane
+to below the current <fieldset class="ww-messages"><legend>&lt;ww-messages-legend: &gt;</legend><p class='error'>Error: Project file not found: Standalone?b16ae8b5e2bc75722aaee8a1f7d37b1e.tex-math › b16ae8b5e2bc75722aaee8a1f7d37b1e.tex-math.latexml.html</p>
+</fieldset>
+<!-- b16ae8b5e2bc75722aaee8a1f7d37b1e.tex-math.latexml.html -->, so that its invasion fitness
+is positive at first.
+Then <fieldset class="ww-messages"><legend>&lt;ww-messages-legend: &gt;</legend><p class='error'>Error: Project file not found: Standalone?b16ae8b5e2bc75722aaee8a1f7d37b1e.tex-math › b16ae8b5e2bc75722aaee8a1f7d37b1e.tex-math.latexml.html</p>
+</fieldset>
+<!-- b16ae8b5e2bc75722aaee8a1f7d37b1e.tex-math.latexml.html --> shifts to the new plane, returning the fitness
+to zero.
+Where is it in relation to the old plane?
+This would be one measure of increase or decrease in well being.
+The availability of resources is very similar to the common good
+of Hardin’s model.
+This should be the familiar question about first and second derivatives.
+<fieldset class="ww-messages"><legend>&lt;ww-messages-legend: &gt;</legend><p class='error'>Error: Project file not found: Standalone?b16ae8b5e2bc75722aaee8a1f7d37b1e.tex-math › b16ae8b5e2bc75722aaee8a1f7d37b1e.tex-math.latexml.html</p>
+</fieldset>
+<!-- b16ae8b5e2bc75722aaee8a1f7d37b1e.tex-math.latexml.html --> is the <fieldset class="ww-messages"><legend>&lt;ww-messages-legend: &gt;</legend><p class='error'>Error: Project file not found: Standalone?cb76f0e87671f95c7910c17b7a93fb7c.tex-math › cb76f0e87671f95c7910c17b7a93fb7c.tex-math.latexml.html</p>
+</fieldset>
+<!-- cb76f0e87671f95c7910c17b7a93fb7c.tex-math.latexml.html --> of Metz et al’s analysis.</p>
+
+<p>That answer is the sign of
+<fieldset class="ww-messages"><legend>&lt;ww-messages-legend: &gt;</legend><p class='error'>Error: Project file not found: Standalone?ac0d4ba86baa7c2547ce1ddf659c533d.tex-inline › ac0d4ba86baa7c2547ce1ddf659c533d.tex-inline.latexml.html</p>
+</fieldset>
+<!-- ac0d4ba86baa7c2547ce1ddf659c533d.tex-inline.latexml.html -->
+where
+<fieldset class="ww-messages"><legend>&lt;ww-messages-legend: &gt;</legend><p class='error'>Error: Project file not found: Standalone?67c2c8ae6f698a3648b1281050768312.tex-inline › 67c2c8ae6f698a3648b1281050768312.tex-inline.latexml.html</p>
+</fieldset>
+<!-- 67c2c8ae6f698a3648b1281050768312.tex-inline.latexml.html -->
+but for simplicity let’s consider constant <!-- 6f8f57715090da2632453988d9a1501b.tex-math.latexml.html --><span class="latexml"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="m" display="inline"><mi>m</mi></math></span>, so
+<fieldset class="ww-messages"><legend>&lt;ww-messages-legend: &gt;</legend><p class='error'>Error: Project file not found: Standalone?7c69a03aa566d57987513829ac24ed7a.tex-inline › 7c69a03aa566d57987513829ac24ed7a.tex-inline.latexml.html</p>
+</fieldset>
+<!-- 7c69a03aa566d57987513829ac24ed7a.tex-inline.latexml.html -->
+We also have
+<fieldset class="ww-messages"><legend>&lt;ww-messages-legend: &gt;</legend><p class='error'>Error: Project file not found: Standalone?4e7220b305bce5ce2f80094610755612.tex-inline › 4e7220b305bce5ce2f80094610755612.tex-inline.latexml.html</p>
+</fieldset>
+<!-- 4e7220b305bce5ce2f80094610755612.tex-inline.latexml.html -->
+So what does this tell us about the change in the environment?
+<fieldset class="ww-messages"><legend>&lt;ww-messages-legend: &gt;</legend><p class='error'>Error: Project file not found: Standalone?2d64731daaca9f2f0eb9bcf2bc65e4ad.tex-inline › 2d64731daaca9f2f0eb9bcf2bc65e4ad.tex-inline.latexml.html</p>
+</fieldset>
+<!-- 2d64731daaca9f2f0eb9bcf2bc65e4ad.tex-inline.latexml.html -->
+So consequently this quantity should be negative if the deltas are
+infinitesimal, because it will have the same sign as
+<fieldset class="ww-messages"><legend>&lt;ww-messages-legend: &gt;</legend><p class='error'>Error: Project file not found: Standalone?f914622af0fd4ca25fa118f5e95d49fb.tex-math › f914622af0fd4ca25fa118f5e95d49fb.tex-math.latexml.html</p>
+</fieldset>
+<!-- f914622af0fd4ca25fa118f5e95d49fb.tex-math.latexml.html -->.</p>
+
+<p>This demonstrates that a certain weighted total resource availability
+must decline with adaptation. But it doesn’t demonstrate that any
+measure of resource availability declines long-term, because the
+weighting changes dynamically with the species phenotype.</p>
+
+<p>However it does demonstrate that adaptation proceeds by replacements
+that move <fieldset class="ww-messages"><legend>&lt;ww-messages-legend: &gt;</legend><p class='error'>Error: Project file not found: Standalone?b16ae8b5e2bc75722aaee8a1f7d37b1e.tex-math › b16ae8b5e2bc75722aaee8a1f7d37b1e.tex-math.latexml.html</p>
+</fieldset>
+<!-- b16ae8b5e2bc75722aaee8a1f7d37b1e.tex-math.latexml.html --> into the negative-fitness half-space of the
+resident strain.
+(When I put it that way, I see that this is equivalent to having
+replacement follow from invasion. The assumption about <fieldset class="ww-messages"><legend>&lt;ww-messages-legend: &gt;</legend><p class='error'>Error: Project file not found: Standalone?d0c8fe0fa370e4fc140993355dcc8ec1.tex-math › d0c8fe0fa370e4fc140993355dcc8ec1.tex-math.latexml.html</p>
+</fieldset>
+<!-- d0c8fe0fa370e4fc140993355dcc8ec1.tex-math.latexml.html --> being
+negligible probably fails when branching occurs.)</p>
+
+<p>I’m guessing that for any fixed measure of total availability, at least
+of the form <fieldset class="ww-messages"><legend>&lt;ww-messages-legend: &gt;</legend><p class='error'>Error: Project file not found: Standalone?828228248fd3b0c3c64ea9ccf873a247.tex-math › 828228248fd3b0c3c64ea9ccf873a247.tex-math.latexml.html</p>
+</fieldset>
+<!-- 828228248fd3b0c3c64ea9ccf873a247.tex-math.latexml.html -->
+(and any smooth function will look like that marginally), 
+it should be possible to construct a community and a replacement that
+will increase rather than decrease that measure.</p>
+
+<hr />
+
+<p>What about treating <!-- 82027e282a4cab1583529ef3e0a7b532.tex-math.latexml.html --><span class="latexml"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="R^{*}" display="inline"><msup><mi>R</mi><mo>*</mo></msup></math></span> as a transformed phenotype?</p>
+
+<p>For a single replacement, we treat all the other resident strains as
+a fixed environment.
+In that lens, the environment is the other strains’ hyperplanes;
+or really, just their line of intersection; and the adapting
+strain’s phenotype is the hyperplane that crosses the line.
+A viable variant strain is a hyperplane that crosses at a point
+in the lower half-space defined by the resident hyperplane.
+The hyperplane is minimally specified by the vector
+<fieldset class="ww-messages"><legend>&lt;ww-messages-legend: &gt;</legend><p class='error'>Error: Project file not found: Standalone?a5e1f51ac11005c7b6a663885eb26140.tex-math › a5e1f51ac11005c7b6a663885eb26140.tex-math.latexml.html</p>
+</fieldset>
+<!-- a5e1f51ac11005c7b6a663885eb26140.tex-math.latexml.html -->, but might be worth putting
+in different coordinates.
+For example <fieldset class="ww-messages"><legend>&lt;ww-messages-legend: &gt;</legend><p class='error'>Error: Project file not found: Standalone?286caf9659919faf6fbd2728992ff97f.tex-math › 286caf9659919faf6fbd2728992ff97f.tex-math.latexml.html</p>
+</fieldset>
+<!-- 286caf9659919faf6fbd2728992ff97f.tex-math.latexml.html -->, especially if
+each <!-- 342e772474b691ac87dac30aeef596c0.tex-math.latexml.html --><span class="latexml"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="m_{i}" display="inline"><msub><mi>m</mi><mi>i</mi></msub></math></span> is held fixed.</p>
+
+<p>In this case, <fieldset class="ww-messages"><legend>&lt;ww-messages-legend: &gt;</legend><p class='error'>Error: Project file not found: Standalone?b16ae8b5e2bc75722aaee8a1f7d37b1e.tex-math › b16ae8b5e2bc75722aaee8a1f7d37b1e.tex-math.latexml.html</p>
+</fieldset>
+<!-- b16ae8b5e2bc75722aaee8a1f7d37b1e.tex-math.latexml.html --> and <fieldset class="ww-messages"><legend>&lt;ww-messages-legend: &gt;</legend><p class='error'>Error: Project file not found: Standalone?7ff0605cefefe271d1a6c5f8b4258455.tex-math › 7ff0605cefefe271d1a6c5f8b4258455.tex-math.latexml.html</p>
+</fieldset>
+<!-- 7ff0605cefefe271d1a6c5f8b4258455.tex-math.latexml.html --> are
+equal-dimensional, and can be transformed to one another
+providing all other populations are held in place.
+I’ll take both <fieldset class="ww-messages"><legend>&lt;ww-messages-legend: &gt;</legend><p class='error'>Error: Project file not found: Standalone?b16ae8b5e2bc75722aaee8a1f7d37b1e.tex-math › b16ae8b5e2bc75722aaee8a1f7d37b1e.tex-math.latexml.html</p>
+</fieldset>
+<!-- b16ae8b5e2bc75722aaee8a1f7d37b1e.tex-math.latexml.html --> and <fieldset class="ww-messages"><legend>&lt;ww-messages-legend: &gt;</legend><p class='error'>Error: Project file not found: Standalone?7ff0605cefefe271d1a6c5f8b4258455.tex-math › 7ff0605cefefe271d1a6c5f8b4258455.tex-math.latexml.html</p>
+</fieldset>
+<!-- 7ff0605cefefe271d1a6c5f8b4258455.tex-math.latexml.html --> as
+column vectors for the matrix math to follow.</p>
+
+<p>The relation again is
+<fieldset class="ww-messages"><legend>&lt;ww-messages-legend: &gt;</legend><p class='error'>Error: Project file not found: Standalone?2490a9cf76e69182ef87bbdb787bef60.tex-inline › 2490a9cf76e69182ef87bbdb787bef60.tex-inline.latexml.html</p>
+</fieldset>
+<!-- 2490a9cf76e69182ef87bbdb787bef60.tex-inline.latexml.html -->
+or equivalently
+<fieldset class="ww-messages"><legend>&lt;ww-messages-legend: &gt;</legend><p class='error'>Error: Project file not found: Standalone?bc5f4c5d71138c5ed617ce9a82fab2c0.tex-inline › bc5f4c5d71138c5ed617ce9a82fab2c0.tex-inline.latexml.html</p>
+</fieldset>
+<!-- bc5f4c5d71138c5ed617ce9a82fab2c0.tex-inline.latexml.html -->
+where <fieldset class="ww-messages"><legend>&lt;ww-messages-legend: &gt;</legend><p class='error'>Error: Project file not found: Standalone?5fa9f0ab904deb209f1ec041f8695952.tex-math › 5fa9f0ab904deb209f1ec041f8695952.tex-math.latexml.html</p>
+</fieldset>
+<!-- 5fa9f0ab904deb209f1ec041f8695952.tex-math.latexml.html -->.</p>
+
+<p>Well, actually that doesn’t specify <fieldset class="ww-messages"><legend>&lt;ww-messages-legend: &gt;</legend><p class='error'>Error: Project file not found: Standalone?b16ae8b5e2bc75722aaee8a1f7d37b1e.tex-math › b16ae8b5e2bc75722aaee8a1f7d37b1e.tex-math.latexml.html</p>
+</fieldset>
+<!-- b16ae8b5e2bc75722aaee8a1f7d37b1e.tex-math.latexml.html --> fully –
+we need the other species’ criteria, which is the full matrix
+equation
+<fieldset class="ww-messages"><legend>&lt;ww-messages-legend: &gt;</legend><p class='error'>Error: Project file not found: Standalone?7dc2352cfbeee3b48f2dd3fa2bf76ee8.tex-inline › 7dc2352cfbeee3b48f2dd3fa2bf76ee8.tex-inline.latexml.html</p>
+</fieldset>
+<!-- 7dc2352cfbeee3b48f2dd3fa2bf76ee8.tex-inline.latexml.html -->
+where matrix <fieldset class="ww-messages"><legend>&lt;ww-messages-legend: &gt;</legend><p class='error'>Error: Project file not found: Standalone?5e1ad0579fc06ddcbda6abaa092b7382.tex-math › 5e1ad0579fc06ddcbda6abaa092b7382.tex-math.latexml.html</p>
+</fieldset>
+<!-- 5e1ad0579fc06ddcbda6abaa092b7382.tex-math.latexml.html --> has the transformed phenotype vectors
+<fieldset class="ww-messages"><legend>&lt;ww-messages-legend: &gt;</legend><p class='error'>Error: Project file not found: Standalone?277f44a4dbd298ea3c626519772f855c.tex-math › 277f44a4dbd298ea3c626519772f855c.tex-math.latexml.html</p>
+</fieldset>
+<!-- 277f44a4dbd298ea3c626519772f855c.tex-math.latexml.html --> as columns.</p>
+
+<p>A change in population <!-- 865c0c0b4ab0e063e5caa3387c1a8741.tex-math.latexml.html --><span class="latexml"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="i" display="inline"><mi>i</mi></math></span>’s phenotype is a change in
+<fieldset class="ww-messages"><legend>&lt;ww-messages-legend: &gt;</legend><p class='error'>Error: Project file not found: Standalone?7ff0605cefefe271d1a6c5f8b4258455.tex-math › 7ff0605cefefe271d1a6c5f8b4258455.tex-math.latexml.html</p>
+</fieldset>
+<!-- 7ff0605cefefe271d1a6c5f8b4258455.tex-math.latexml.html -->, equivalently in <fieldset class="ww-messages"><legend>&lt;ww-messages-legend: &gt;</legend><p class='error'>Error: Project file not found: Standalone?c75f2a258b8e3f9dbfa16854adf672b5.tex-math › c75f2a258b8e3f9dbfa16854adf672b5.tex-math.latexml.html</p>
+</fieldset>
+<!-- c75f2a258b8e3f9dbfa16854adf672b5.tex-math.latexml.html -->.
+Consider a change in that column <!-- 865c0c0b4ab0e063e5caa3387c1a8741.tex-math.latexml.html --><span class="latexml"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="i" display="inline"><mi>i</mi></math></span> of the <fieldset class="ww-messages"><legend>&lt;ww-messages-legend: &gt;</legend><p class='error'>Error: Project file not found: Standalone?5e1ad0579fc06ddcbda6abaa092b7382.tex-math › 5e1ad0579fc06ddcbda6abaa092b7382.tex-math.latexml.html</p>
+</fieldset>
+<!-- 5e1ad0579fc06ddcbda6abaa092b7382.tex-math.latexml.html --> matrix:
+<fieldset class="ww-messages"><legend>&lt;ww-messages-legend: &gt;</legend><p class='error'>Error: Project file not found: Standalone?e1b6759661ab5931527400f4b8316cb0.tex-inline › e1b6759661ab5931527400f4b8316cb0.tex-inline.latexml.html</p>
+</fieldset>
+<!-- e1b6759661ab5931527400f4b8316cb0.tex-inline.latexml.html --></p>
+
+<p>The questions I hope to ask of this are</p>
+
+<ul>
+  <li>What is <!-- 11c30e85ef351220045729fb5f1b9006.tex-math.latexml.html --><span class="latexml"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="\mathcal{I}" display="inline"><mi class="ltx_font_mathcaligraphic">ℐ</mi></math></span> in terms of <fieldset class="ww-messages"><legend>&lt;ww-messages-legend: &gt;</legend><p class='error'>Error: Project file not found: Standalone?b16ae8b5e2bc75722aaee8a1f7d37b1e.tex-math › b16ae8b5e2bc75722aaee8a1f7d37b1e.tex-math.latexml.html</p>
+</fieldset>
+<!-- b16ae8b5e2bc75722aaee8a1f7d37b1e.tex-math.latexml.html --></li>
+  <li>What is <fieldset class="ww-messages"><legend>&lt;ww-messages-legend: &gt;</legend><p class='error'>Error: Project file not found: Standalone?b4cc9ecc1d9b583dbb7c7c5e51401ca7.tex-math › b4cc9ecc1d9b583dbb7c7c5e51401ca7.tex-math.latexml.html</p>
+</fieldset>
+<!-- b4cc9ecc1d9b583dbb7c7c5e51401ca7.tex-math.latexml.html --> when <fieldset class="ww-messages"><legend>&lt;ww-messages-legend: &gt;</legend><p class='error'>Error: Project file not found: Standalone?b16ae8b5e2bc75722aaee8a1f7d37b1e.tex-math › b16ae8b5e2bc75722aaee8a1f7d37b1e.tex-math.latexml.html</p>
+</fieldset>
+<!-- b16ae8b5e2bc75722aaee8a1f7d37b1e.tex-math.latexml.html --> is
+considered a function of <fieldset class="ww-messages"><legend>&lt;ww-messages-legend: &gt;</legend><p class='error'>Error: Project file not found: Standalone?c75f2a258b8e3f9dbfa16854adf672b5.tex-math › c75f2a258b8e3f9dbfa16854adf672b5.tex-math.latexml.html</p>
+</fieldset>
+<!-- c75f2a258b8e3f9dbfa16854adf672b5.tex-math.latexml.html --> only.</li>
+</ul>
+
+<p>So what is <!-- 11c30e85ef351220045729fb5f1b9006.tex-math.latexml.html --><span class="latexml"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="\mathcal{I}" display="inline"><mi class="ltx_font_mathcaligraphic">ℐ</mi></math></span>?
+In this setting where <!-- 6f8f57715090da2632453988d9a1501b.tex-math.latexml.html --><span class="latexml"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="m" display="inline"><mi>m</mi></math></span> doesn’t vary, it’s
+<fieldset class="ww-messages"><legend>&lt;ww-messages-legend: &gt;</legend><p class='error'>Error: Project file not found: Standalone?d038be0162c234685fb17ef2dada3606.tex-inline › d038be0162c234685fb17ef2dada3606.tex-inline.latexml.html</p>
+</fieldset>
+<!-- d038be0162c234685fb17ef2dada3606.tex-inline.latexml.html -->
+So it should follow straightforwardly that
+<fieldset class="ww-messages"><legend>&lt;ww-messages-legend: &gt;</legend><p class='error'>Error: Project file not found: Standalone?f99a4f7a0ab62a312016c7798187da33.tex-inline › f99a4f7a0ab62a312016c7798187da33.tex-inline.latexml.html</p>
+</fieldset>
+<!-- f99a4f7a0ab62a312016c7798187da33.tex-inline.latexml.html --></p>
+
+<p>As adaptive dynamics proceeds, <fieldset class="ww-messages"><legend>&lt;ww-messages-legend: &gt;</legend><p class='error'>Error: Project file not found: Standalone?b16ae8b5e2bc75722aaee8a1f7d37b1e.tex-math › b16ae8b5e2bc75722aaee8a1f7d37b1e.tex-math.latexml.html</p>
+</fieldset>
+<!-- b16ae8b5e2bc75722aaee8a1f7d37b1e.tex-math.latexml.html --> evolves such that
+<fieldset class="ww-messages"><legend>&lt;ww-messages-legend: &gt;</legend><p class='error'>Error: Project file not found: Standalone?ad67f241d1fec23539ced8ef1f97af6c.tex-math › ad67f241d1fec23539ced8ef1f97af6c.tex-math.latexml.html</p>
+</fieldset>
+<!-- ad67f241d1fec23539ced8ef1f97af6c.tex-math.latexml.html --> is conserved:
+<fieldset class="ww-messages"><legend>&lt;ww-messages-legend: &gt;</legend><p class='error'>Error: Project file not found: Standalone?f459ca27decaa3f973e76d81f098c8dd.tex-inline › f459ca27decaa3f973e76d81f098c8dd.tex-inline.latexml.html</p>
+</fieldset>
+<!-- f459ca27decaa3f973e76d81f098c8dd.tex-inline.latexml.html --></p>
+
+<p>We could write <fieldset class="ww-messages"><legend>&lt;ww-messages-legend: &gt;</legend><p class='error'>Error: Project file not found: Standalone?b16ae8b5e2bc75722aaee8a1f7d37b1e.tex-math › b16ae8b5e2bc75722aaee8a1f7d37b1e.tex-math.latexml.html</p>
+</fieldset>
+<!-- b16ae8b5e2bc75722aaee8a1f7d37b1e.tex-math.latexml.html --> as a function, mapping the
+change in <fieldset class="ww-messages"><legend>&lt;ww-messages-legend: &gt;</legend><p class='error'>Error: Project file not found: Standalone?f7a0cb4a478010e6d3f9adbc28eeedf1.tex-math › f7a0cb4a478010e6d3f9adbc28eeedf1.tex-math.latexml.html</p>
+</fieldset>
+<!-- f7a0cb4a478010e6d3f9adbc28eeedf1.tex-math.latexml.html --> to the consequent change
+in <fieldset class="ww-messages"><legend>&lt;ww-messages-legend: &gt;</legend><p class='error'>Error: Project file not found: Standalone?b16ae8b5e2bc75722aaee8a1f7d37b1e.tex-math › b16ae8b5e2bc75722aaee8a1f7d37b1e.tex-math.latexml.html</p>
+</fieldset>
+<!-- b16ae8b5e2bc75722aaee8a1f7d37b1e.tex-math.latexml.html --> that it implies, under the assumption of adaptive
+dynamics replacement and that all other populations remain fixed:
+<fieldset class="ww-messages"><legend>&lt;ww-messages-legend: &gt;</legend><p class='error'>Error: Project file not found: Standalone?bfe4c3cf9e4681a5317f2b70ef4fe9c1.tex-inline › bfe4c3cf9e4681a5317f2b70ef4fe9c1.tex-inline.latexml.html</p>
+</fieldset>
+<!-- bfe4c3cf9e4681a5317f2b70ef4fe9c1.tex-inline.latexml.html -->
+Interesting!</p>
+
+<p>There should be a Jacobian
+<fieldset class="ww-messages"><legend>&lt;ww-messages-legend: &gt;</legend><p class='error'>Error: Project file not found: Standalone?2ef96b3d94a3205a021f70434680efff.tex-inline › 2ef96b3d94a3205a021f70434680efff.tex-inline.latexml.html</p>
+</fieldset>
+<!-- 2ef96b3d94a3205a021f70434680efff.tex-inline.latexml.html -->
+describing the linear change in <fieldset class="ww-messages"><legend>&lt;ww-messages-legend: &gt;</legend><p class='error'>Error: Project file not found: Standalone?b16ae8b5e2bc75722aaee8a1f7d37b1e.tex-math › b16ae8b5e2bc75722aaee8a1f7d37b1e.tex-math.latexml.html</p>
+</fieldset>
+<!-- b16ae8b5e2bc75722aaee8a1f7d37b1e.tex-math.latexml.html --> resulting
+from change in <fieldset class="ww-messages"><legend>&lt;ww-messages-legend: &gt;</legend><p class='error'>Error: Project file not found: Standalone?c75f2a258b8e3f9dbfa16854adf672b5.tex-math › c75f2a258b8e3f9dbfa16854adf672b5.tex-math.latexml.html</p>
+</fieldset>
+<!-- c75f2a258b8e3f9dbfa16854adf672b5.tex-math.latexml.html -->.</p>
+
+<p>Given an arbitrary change <fieldset class="ww-messages"><legend>&lt;ww-messages-legend: &gt;</legend><p class='error'>Error: Project file not found: Standalone?907216e4f0314c532ad58a063d4e0bed.tex-math › 907216e4f0314c532ad58a063d4e0bed.tex-math.latexml.html</p>
+</fieldset>
+<!-- 907216e4f0314c532ad58a063d4e0bed.tex-math.latexml.html -->, while all other
+<fieldset class="ww-messages"><legend>&lt;ww-messages-legend: &gt;</legend><p class='error'>Error: Project file not found: Standalone?277f44a4dbd298ea3c626519772f855c.tex-math › 277f44a4dbd298ea3c626519772f855c.tex-math.latexml.html</p>
+</fieldset>
+<!-- 277f44a4dbd298ea3c626519772f855c.tex-math.latexml.html --> are unchanged, there is a balancing change in
+<fieldset class="ww-messages"><legend>&lt;ww-messages-legend: &gt;</legend><p class='error'>Error: Project file not found: Standalone?b16ae8b5e2bc75722aaee8a1f7d37b1e.tex-math › b16ae8b5e2bc75722aaee8a1f7d37b1e.tex-math.latexml.html</p>
+</fieldset>
+<!-- b16ae8b5e2bc75722aaee8a1f7d37b1e.tex-math.latexml.html --> that conserves
+<fieldset class="ww-messages"><legend>&lt;ww-messages-legend: &gt;</legend><p class='error'>Error: Project file not found: Standalone?b3ac63306fc6334dfe3d870ee8897235.tex-inline › b3ac63306fc6334dfe3d870ee8897235.tex-inline.latexml.html</p>
+</fieldset>
+<!-- b3ac63306fc6334dfe3d870ee8897235.tex-inline.latexml.html -->
+Can we use this to deduce all the values of <fieldset class="ww-messages"><legend>&lt;ww-messages-legend: &gt;</legend><p class='error'>Error: Project file not found: Standalone?600ba482664d1dcda44c7e0a23a5ee32.tex-math › 600ba482664d1dcda44c7e0a23a5ee32.tex-math.latexml.html</p>
+</fieldset>
+<!-- 600ba482664d1dcda44c7e0a23a5ee32.tex-math.latexml.html -->?
+Let
+<fieldset class="ww-messages"><legend>&lt;ww-messages-legend: &gt;</legend><p class='error'>Error: Project file not found: Standalone?49ff687fe929fa20c1b2c0ce069454a2.tex-inline › 49ff687fe929fa20c1b2c0ce069454a2.tex-inline.latexml.html</p>
+</fieldset>
+<!-- 49ff687fe929fa20c1b2c0ce069454a2.tex-inline.latexml.html -->
+so that the above relations imply
+<fieldset class="ww-messages"><legend>&lt;ww-messages-legend: &gt;</legend><p class='error'>Error: Project file not found: Standalone?83bd998f1cb04fbcda7327abac7c6091.tex-inline › 83bd998f1cb04fbcda7327abac7c6091.tex-inline.latexml.html</p>
+</fieldset>
+<!-- 83bd998f1cb04fbcda7327abac7c6091.tex-inline.latexml.html --></p>
+
+<p>We will have
+<fieldset class="ww-messages"><legend>&lt;ww-messages-legend: &gt;</legend><p class='error'>Error: Project file not found: Standalone?bf638e353abbf99b6407e96cbd7e6b26.tex-inline › bf638e353abbf99b6407e96cbd7e6b26.tex-inline.latexml.html</p>
+</fieldset>
+<!-- bf638e353abbf99b6407e96cbd7e6b26.tex-inline.latexml.html -->
+so by choosing <fieldset class="ww-messages"><legend>&lt;ww-messages-legend: &gt;</legend><p class='error'>Error: Project file not found: Standalone?907216e4f0314c532ad58a063d4e0bed.tex-math › 907216e4f0314c532ad58a063d4e0bed.tex-math.latexml.html</p>
+</fieldset>
+<!-- 907216e4f0314c532ad58a063d4e0bed.tex-math.latexml.html --> to be the different unit test vectors
+we can find the values of <fieldset class="ww-messages"><legend>&lt;ww-messages-legend: &gt;</legend><p class='error'>Error: Project file not found: Standalone?3b49eabd367b4903c6405d25cb4fe16f.tex-math › 3b49eabd367b4903c6405d25cb4fe16f.tex-math.latexml.html</p>
+</fieldset>
+<!-- 3b49eabd367b4903c6405d25cb4fe16f.tex-math.latexml.html -->:
+with <fieldset class="ww-messages"><legend>&lt;ww-messages-legend: &gt;</legend><p class='error'>Error: Project file not found: Standalone?13d9ea75842f9920417d31042f48bd1d.tex-math › 13d9ea75842f9920417d31042f48bd1d.tex-math.latexml.html</p>
+</fieldset>
+<!-- 13d9ea75842f9920417d31042f48bd1d.tex-math.latexml.html -->,
+<fieldset class="ww-messages"><legend>&lt;ww-messages-legend: &gt;</legend><p class='error'>Error: Project file not found: Standalone?112df7e8b0c06d48c343d289a44f630d.tex-inline › 112df7e8b0c06d48c343d289a44f630d.tex-inline.latexml.html</p>
+</fieldset>
+<!-- 112df7e8b0c06d48c343d289a44f630d.tex-inline.latexml.html -->
+So with the linear assumption about the Jacobian,
+<fieldset class="ww-messages"><legend>&lt;ww-messages-legend: &gt;</legend><p class='error'>Error: Project file not found: Standalone?41c49a606a5899f1fe7c4d9ecc57c132.tex-inline › 41c49a606a5899f1fe7c4d9ecc57c132.tex-inline.latexml.html</p>
+</fieldset>
+<!-- 41c49a606a5899f1fe7c4d9ecc57c132.tex-inline.latexml.html -->
+which is the <!-- 8ce4b16b22b58894aa86c421e8759df3.tex-math.latexml.html --><span class="latexml"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="k" display="inline"><mi>k</mi></math></span>th column of the Jacobian matrix.</p>
+
+<p>The <!-- 8ce4b16b22b58894aa86c421e8759df3.tex-math.latexml.html --><span class="latexml"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="k" display="inline"><mi>k</mi></math></span>th column is determined by the conditions we’ve found:
+its inner product with every <fieldset class="ww-messages"><legend>&lt;ww-messages-legend: &gt;</legend><p class='error'>Error: Project file not found: Standalone?277f44a4dbd298ea3c626519772f855c.tex-math › 277f44a4dbd298ea3c626519772f855c.tex-math.latexml.html</p>
+</fieldset>
+<!-- 277f44a4dbd298ea3c626519772f855c.tex-math.latexml.html -->, <fieldset class="ww-messages"><legend>&lt;ww-messages-legend: &gt;</legend><p class='error'>Error: Project file not found: Standalone?53451b44aab4ca83502758a72ac05278.tex-math › 53451b44aab4ca83502758a72ac05278.tex-math.latexml.html</p>
+</fieldset>
+<!-- 53451b44aab4ca83502758a72ac05278.tex-math.latexml.html -->, is zero,
+and its inner product with <fieldset class="ww-messages"><legend>&lt;ww-messages-legend: &gt;</legend><p class='error'>Error: Project file not found: Standalone?c75f2a258b8e3f9dbfa16854adf672b5.tex-math › c75f2a258b8e3f9dbfa16854adf672b5.tex-math.latexml.html</p>
+</fieldset>
+<!-- c75f2a258b8e3f9dbfa16854adf672b5.tex-math.latexml.html --> is <fieldset class="ww-messages"><legend>&lt;ww-messages-legend: &gt;</legend><p class='error'>Error: Project file not found: Standalone?a2b6bdc90440b6c8084645c035a6df93.tex-math › a2b6bdc90440b6c8084645c035a6df93.tex-math.latexml.html</p>
+</fieldset>
+<!-- a2b6bdc90440b6c8084645c035a6df93.tex-math.latexml.html -->.
+In other words
+<fieldset class="ww-messages"><legend>&lt;ww-messages-legend: &gt;</legend><p class='error'>Error: Project file not found: Standalone?f452b5541ea7dd006951c64148f333ac.tex-inline › f452b5541ea7dd006951c64148f333ac.tex-inline.latexml.html</p>
+</fieldset>
+<!-- f452b5541ea7dd006951c64148f333ac.tex-inline.latexml.html -->
+Putting all <!-- 8ce4b16b22b58894aa86c421e8759df3.tex-math.latexml.html --><span class="latexml"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="k" display="inline"><mi>k</mi></math></span> together
+<fieldset class="ww-messages"><legend>&lt;ww-messages-legend: &gt;</legend><p class='error'>Error: Project file not found: Standalone?b338d94717d2fb43aacb7647d8431fc8.tex-inline › b338d94717d2fb43aacb7647d8431fc8.tex-inline.latexml.html</p>
+</fieldset>
+<!-- b338d94717d2fb43aacb7647d8431fc8.tex-inline.latexml.html -->
+<fieldset class="ww-messages"><legend>&lt;ww-messages-legend: &gt;</legend><p class='error'>Error: Project file not found: Standalone?2ebe9146a2e82ff82d7b0ec7893778c3.tex-math › 2ebe9146a2e82ff82d7b0ec7893778c3.tex-math.latexml.html</p>
+</fieldset>
+<!-- 2ebe9146a2e82ff82d7b0ec7893778c3.tex-math.latexml.html --> is the <!-- 865c0c0b4ab0e063e5caa3387c1a8741.tex-math.latexml.html --><span class="latexml"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="i" display="inline"><mi>i</mi></math></span>th column of
+<fieldset class="ww-messages"><legend>&lt;ww-messages-legend: &gt;</legend><p class='error'>Error: Project file not found: Standalone?9750e40280690e45055df5cde73c85ec.tex-math › 9750e40280690e45055df5cde73c85ec.tex-math.latexml.html</p>
+</fieldset>
+<!-- 9750e40280690e45055df5cde73c85ec.tex-math.latexml.html --> (thus, the <!-- 865c0c0b4ab0e063e5caa3387c1a8741.tex-math.latexml.html --><span class="latexml"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="i" display="inline"><mi>i</mi></math></span>th row of <fieldset class="ww-messages"><legend>&lt;ww-messages-legend: &gt;</legend><p class='error'>Error: Project file not found: Standalone?20e280f9e355985d2fd19415d66c989c.tex-math › 20e280f9e355985d2fd19415d66c989c.tex-math.latexml.html</p>
+</fieldset>
+<!-- 20e280f9e355985d2fd19415d66c989c.tex-math.latexml.html -->).</p>
+
+<p>Let’s call that a column vector <fieldset class="ww-messages"><legend>&lt;ww-messages-legend: &gt;</legend><p class='error'>Error: Project file not found: Standalone?0e0d5d57d1bb17ce4ad52150aeec7772.tex-math › 0e0d5d57d1bb17ce4ad52150aeec7772.tex-math.latexml.html</p>
+</fieldset>
+<!-- 0e0d5d57d1bb17ce4ad52150aeec7772.tex-math.latexml.html -->:
+it has the property that
+<fieldset class="ww-messages"><legend>&lt;ww-messages-legend: &gt;</legend><p class='error'>Error: Project file not found: Standalone?2221d3ebab00b9d606cc3f527594b76b.tex-math › 2221d3ebab00b9d606cc3f527594b76b.tex-math.latexml.html</p>
+</fieldset>
+<!-- 2221d3ebab00b9d606cc3f527594b76b.tex-math.latexml.html -->, and
+<fieldset class="ww-messages"><legend>&lt;ww-messages-legend: &gt;</legend><p class='error'>Error: Project file not found: Standalone?d1fc7dd913d8c3c8f88844c9dce869ce.tex-math › d1fc7dd913d8c3c8f88844c9dce869ce.tex-math.latexml.html</p>
+</fieldset>
+<!-- d1fc7dd913d8c3c8f88844c9dce869ce.tex-math.latexml.html --> when <fieldset class="ww-messages"><legend>&lt;ww-messages-legend: &gt;</legend><p class='error'>Error: Project file not found: Standalone?53451b44aab4ca83502758a72ac05278.tex-math › 53451b44aab4ca83502758a72ac05278.tex-math.latexml.html</p>
+</fieldset>
+<!-- 53451b44aab4ca83502758a72ac05278.tex-math.latexml.html -->.
+An indicator for the phenotype vector of population <!-- 865c0c0b4ab0e063e5caa3387c1a8741.tex-math.latexml.html --><span class="latexml"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="i" display="inline"><mi>i</mi></math></span>.
+As a geometric vector, <fieldset class="ww-messages"><legend>&lt;ww-messages-legend: &gt;</legend><p class='error'>Error: Project file not found: Standalone?0e0d5d57d1bb17ce4ad52150aeec7772.tex-math › 0e0d5d57d1bb17ce4ad52150aeec7772.tex-math.latexml.html</p>
+</fieldset>
+<!-- 0e0d5d57d1bb17ce4ad52150aeec7772.tex-math.latexml.html --> is in the spaces normal to all the
+consumption vectors <fieldset class="ww-messages"><legend>&lt;ww-messages-legend: &gt;</legend><p class='error'>Error: Project file not found: Standalone?277f44a4dbd298ea3c626519772f855c.tex-math › 277f44a4dbd298ea3c626519772f855c.tex-math.latexml.html</p>
+</fieldset>
+<!-- 277f44a4dbd298ea3c626519772f855c.tex-math.latexml.html --> (the tangent space of <fieldset class="ww-messages"><legend>&lt;ww-messages-legend: &gt;</legend><p class='error'>Error: Project file not found: Standalone?b16ae8b5e2bc75722aaee8a1f7d37b1e.tex-math › b16ae8b5e2bc75722aaee8a1f7d37b1e.tex-math.latexml.html</p>
+</fieldset>
+<!-- b16ae8b5e2bc75722aaee8a1f7d37b1e.tex-math.latexml.html -->
+values compatible with each population <!-- 363b122c528f54df4a0446b6bab05515.tex-math.latexml.html --><span class="latexml"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="j" display="inline"><mi>j</mi></math></span>), <fieldset class="ww-messages"><legend>&lt;ww-messages-legend: &gt;</legend><p class='error'>Error: Project file not found: Standalone?53451b44aab4ca83502758a72ac05278.tex-math › 53451b44aab4ca83502758a72ac05278.tex-math.latexml.html</p>
+</fieldset>
+<!-- 53451b44aab4ca83502758a72ac05278.tex-math.latexml.html -->,
+which intersect in a line where <fieldset class="ww-messages"><legend>&lt;ww-messages-legend: &gt;</legend><p class='error'>Error: Project file not found: Standalone?0e0d5d57d1bb17ce4ad52150aeec7772.tex-math › 0e0d5d57d1bb17ce4ad52150aeec7772.tex-math.latexml.html</p>
+</fieldset>
+<!-- 0e0d5d57d1bb17ce4ad52150aeec7772.tex-math.latexml.html --> must be,
+and scaled so its inner product
+with <fieldset class="ww-messages"><legend>&lt;ww-messages-legend: &gt;</legend><p class='error'>Error: Project file not found: Standalone?c75f2a258b8e3f9dbfa16854adf672b5.tex-math › c75f2a258b8e3f9dbfa16854adf672b5.tex-math.latexml.html</p>
+</fieldset>
+<!-- c75f2a258b8e3f9dbfa16854adf672b5.tex-math.latexml.html --> is normalized.</p>
+
+<p>That may help us understand the alternative way of writing the above,
+<fieldset class="ww-messages"><legend>&lt;ww-messages-legend: &gt;</legend><p class='error'>Error: Project file not found: Standalone?fd50f645da21eb5579660993f413f82f.tex-inline › fd50f645da21eb5579660993f413f82f.tex-inline.latexml.html</p>
+</fieldset>
+<!-- fd50f645da21eb5579660993f413f82f.tex-inline.latexml.html -->
+<fieldset class="ww-messages"><legend>&lt;ww-messages-legend: &gt;</legend><p class='error'>Error: Project file not found: Standalone?600ba482664d1dcda44c7e0a23a5ee32.tex-math › 600ba482664d1dcda44c7e0a23a5ee32.tex-math.latexml.html</p>
+</fieldset>
+<!-- 600ba482664d1dcda44c7e0a23a5ee32.tex-math.latexml.html --> is a rank-1 matrix,
+in which all rows are multiples of <fieldset class="ww-messages"><legend>&lt;ww-messages-legend: &gt;</legend><p class='error'>Error: Project file not found: Standalone?dd8759ad89f6c828ca0b59419661f352.tex-math › dd8759ad89f6c828ca0b59419661f352.tex-math.latexml.html</p>
+</fieldset>
+<!-- dd8759ad89f6c828ca0b59419661f352.tex-math.latexml.html -->,
+and all columns are multiples of <fieldset class="ww-messages"><legend>&lt;ww-messages-legend: &gt;</legend><p class='error'>Error: Project file not found: Standalone?0e0d5d57d1bb17ce4ad52150aeec7772.tex-math › 0e0d5d57d1bb17ce4ad52150aeec7772.tex-math.latexml.html</p>
+</fieldset>
+<!-- 0e0d5d57d1bb17ce4ad52150aeec7772.tex-math.latexml.html -->.
+Thus the dependence of <fieldset class="ww-messages"><legend>&lt;ww-messages-legend: &gt;</legend><p class='error'>Error: Project file not found: Standalone?5262c39ce32e6642a3827a69ff7c84da.tex-math › 5262c39ce32e6642a3827a69ff7c84da.tex-math.latexml.html</p>
+</fieldset>
+<!-- 5262c39ce32e6642a3827a69ff7c84da.tex-math.latexml.html --> on <fieldset class="ww-messages"><legend>&lt;ww-messages-legend: &gt;</legend><p class='error'>Error: Project file not found: Standalone?8f93d5ad6f7fc11d918657d9ffdde077.tex-math › 8f93d5ad6f7fc11d918657d9ffdde077.tex-math.latexml.html</p>
+</fieldset>
+<!-- 8f93d5ad6f7fc11d918657d9ffdde077.tex-math.latexml.html --> is proportional
+to the <!-- 363b122c528f54df4a0446b6bab05515.tex-math.latexml.html --><span class="latexml"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="j" display="inline"><mi>j</mi></math></span>th entry of <fieldset class="ww-messages"><legend>&lt;ww-messages-legend: &gt;</legend><p class='error'>Error: Project file not found: Standalone?0e0d5d57d1bb17ce4ad52150aeec7772.tex-math › 0e0d5d57d1bb17ce4ad52150aeec7772.tex-math.latexml.html</p>
+</fieldset>
+<!-- 0e0d5d57d1bb17ce4ad52150aeec7772.tex-math.latexml.html --> and
+the <!-- 8ce4b16b22b58894aa86c421e8759df3.tex-math.latexml.html --><span class="latexml"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="k" display="inline"><mi>k</mi></math></span>th entry of <fieldset class="ww-messages"><legend>&lt;ww-messages-legend: &gt;</legend><p class='error'>Error: Project file not found: Standalone?b16ae8b5e2bc75722aaee8a1f7d37b1e.tex-math › b16ae8b5e2bc75722aaee8a1f7d37b1e.tex-math.latexml.html</p>
+</fieldset>
+<!-- b16ae8b5e2bc75722aaee8a1f7d37b1e.tex-math.latexml.html -->.</p>
+
+<p>A change <fieldset class="ww-messages"><legend>&lt;ww-messages-legend: &gt;</legend><p class='error'>Error: Project file not found: Standalone?907216e4f0314c532ad58a063d4e0bed.tex-math › 907216e4f0314c532ad58a063d4e0bed.tex-math.latexml.html</p>
+</fieldset>
+<!-- 907216e4f0314c532ad58a063d4e0bed.tex-math.latexml.html --> in phenotype <!-- 865c0c0b4ab0e063e5caa3387c1a8741.tex-math.latexml.html --><span class="latexml"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="i" display="inline"><mi>i</mi></math></span> will come with
+a change
+<fieldset class="ww-messages"><legend>&lt;ww-messages-legend: &gt;</legend><p class='error'>Error: Project file not found: Standalone?21b8cf0b4017e46704d0dc048a8d796d.tex-math › 21b8cf0b4017e46704d0dc048a8d796d.tex-math.latexml.html</p>
+</fieldset>
+<!-- 21b8cf0b4017e46704d0dc048a8d796d.tex-math.latexml.html -->,
+which is a scalar multiple of <fieldset class="ww-messages"><legend>&lt;ww-messages-legend: &gt;</legend><p class='error'>Error: Project file not found: Standalone?0e0d5d57d1bb17ce4ad52150aeec7772.tex-math › 0e0d5d57d1bb17ce4ad52150aeec7772.tex-math.latexml.html</p>
+</fieldset>
+<!-- 0e0d5d57d1bb17ce4ad52150aeec7772.tex-math.latexml.html -->.</p>
+
+<p>Because <fieldset class="ww-messages"><legend>&lt;ww-messages-legend: &gt;</legend><p class='error'>Error: Project file not found: Standalone?600ba482664d1dcda44c7e0a23a5ee32.tex-math › 600ba482664d1dcda44c7e0a23a5ee32.tex-math.latexml.html</p>
+</fieldset>
+<!-- 600ba482664d1dcda44c7e0a23a5ee32.tex-math.latexml.html --> is singular, it can not be inverted to
+express <fieldset class="ww-messages"><legend>&lt;ww-messages-legend: &gt;</legend><p class='error'>Error: Project file not found: Standalone?518dec0baa139fc59ea99baee0a847a2.tex-math › 518dec0baa139fc59ea99baee0a847a2.tex-math.latexml.html</p>
+</fieldset>
+<!-- 518dec0baa139fc59ea99baee0a847a2.tex-math.latexml.html --> as an independent variable and
+<fieldset class="ww-messages"><legend>&lt;ww-messages-legend: &gt;</legend><p class='error'>Error: Project file not found: Standalone?907216e4f0314c532ad58a063d4e0bed.tex-math › 907216e4f0314c532ad58a063d4e0bed.tex-math.latexml.html</p>
+</fieldset>
+<!-- 907216e4f0314c532ad58a063d4e0bed.tex-math.latexml.html --> as a function of it.
+On the other hand, this shows that beyond the one-dimensional quantity
+<fieldset class="ww-messages"><legend>&lt;ww-messages-legend: &gt;</legend><p class='error'>Error: Project file not found: Standalone?07e88d1d308698f99e506a3e95f37582.tex-math › 07e88d1d308698f99e506a3e95f37582.tex-math.latexml.html</p>
+</fieldset>
+<!-- 07e88d1d308698f99e506a3e95f37582.tex-math.latexml.html -->, the value of
+<fieldset class="ww-messages"><legend>&lt;ww-messages-legend: &gt;</legend><p class='error'>Error: Project file not found: Standalone?907216e4f0314c532ad58a063d4e0bed.tex-math › 907216e4f0314c532ad58a063d4e0bed.tex-math.latexml.html</p>
+</fieldset>
+<!-- 907216e4f0314c532ad58a063d4e0bed.tex-math.latexml.html --> doesn’t matter to instantaneous adaptive dynamics.
+It does matter beyond the instant, however, as the full value of
+<fieldset class="ww-messages"><legend>&lt;ww-messages-legend: &gt;</legend><p class='error'>Error: Project file not found: Standalone?c75f2a258b8e3f9dbfa16854adf672b5.tex-math › c75f2a258b8e3f9dbfa16854adf672b5.tex-math.latexml.html</p>
+</fieldset>
+<!-- c75f2a258b8e3f9dbfa16854adf672b5.tex-math.latexml.html --> contributes to the direction <fieldset class="ww-messages"><legend>&lt;ww-messages-legend: &gt;</legend><p class='error'>Error: Project file not found: Standalone?08a95717256684d5d551eb96ca21502c.tex-math › 08a95717256684d5d551eb96ca21502c.tex-math.latexml.html</p>
+</fieldset>
+<!-- 08a95717256684d5d551eb96ca21502c.tex-math.latexml.html -->
+of change in the other populations at all future times.</p>
+
+<p>I think that <fieldset class="ww-messages"><legend>&lt;ww-messages-legend: &gt;</legend><p class='error'>Error: Project file not found: Standalone?4f3c58b92c7bb8388075ae7a1fb3042e.tex-math › 4f3c58b92c7bb8388075ae7a1fb3042e.tex-math.latexml.html</p>
+</fieldset>
+<!-- 4f3c58b92c7bb8388075ae7a1fb3042e.tex-math.latexml.html -->.
+That is, the expected instantaneous mean direction of motion
+of <fieldset class="ww-messages"><legend>&lt;ww-messages-legend: &gt;</legend><p class='error'>Error: Project file not found: Standalone?c75f2a258b8e3f9dbfa16854adf672b5.tex-math › c75f2a258b8e3f9dbfa16854adf672b5.tex-math.latexml.html</p>
+</fieldset>
+<!-- c75f2a258b8e3f9dbfa16854adf672b5.tex-math.latexml.html --> is <fieldset class="ww-messages"><legend>&lt;ww-messages-legend: &gt;</legend><p class='error'>Error: Project file not found: Standalone?b16ae8b5e2bc75722aaee8a1f7d37b1e.tex-math › b16ae8b5e2bc75722aaee8a1f7d37b1e.tex-math.latexml.html</p>
+</fieldset>
+<!-- b16ae8b5e2bc75722aaee8a1f7d37b1e.tex-math.latexml.html -->, and a change
+<fieldset class="ww-messages"><legend>&lt;ww-messages-legend: &gt;</legend><p class='error'>Error: Project file not found: Standalone?907216e4f0314c532ad58a063d4e0bed.tex-math › 907216e4f0314c532ad58a063d4e0bed.tex-math.latexml.html</p>
+</fieldset>
+<!-- 907216e4f0314c532ad58a063d4e0bed.tex-math.latexml.html --> that is a positive multiple of <fieldset class="ww-messages"><legend>&lt;ww-messages-legend: &gt;</legend><p class='error'>Error: Project file not found: Standalone?b16ae8b5e2bc75722aaee8a1f7d37b1e.tex-math › b16ae8b5e2bc75722aaee8a1f7d37b1e.tex-math.latexml.html</p>
+</fieldset>
+<!-- b16ae8b5e2bc75722aaee8a1f7d37b1e.tex-math.latexml.html -->
+is the maximizer of invasion speed, and most likely to establish.
+Corollary is that <fieldset class="ww-messages"><legend>&lt;ww-messages-legend: &gt;</legend><p class='error'>Error: Project file not found: Standalone?c75f2a258b8e3f9dbfa16854adf672b5.tex-math › c75f2a258b8e3f9dbfa16854adf672b5.tex-math.latexml.html</p>
+</fieldset>
+<!-- c75f2a258b8e3f9dbfa16854adf672b5.tex-math.latexml.html --> should increase.
+In fact at each moment they all increase in parallel, with each
+<fieldset class="ww-messages"><legend>&lt;ww-messages-legend: &gt;</legend><p class='error'>Error: Project file not found: Standalone?c08df676af3ef2dec253113f0d005298.tex-math › c08df676af3ef2dec253113f0d005298.tex-math.latexml.html</p>
+</fieldset>
+<!-- c08df676af3ef2dec253113f0d005298.tex-math.latexml.html --> vector’s derivative being a positive multiple
+of <fieldset class="ww-messages"><legend>&lt;ww-messages-legend: &gt;</legend><p class='error'>Error: Project file not found: Standalone?b16ae8b5e2bc75722aaee8a1f7d37b1e.tex-math › b16ae8b5e2bc75722aaee8a1f7d37b1e.tex-math.latexml.html</p>
+</fieldset>
+<!-- b16ae8b5e2bc75722aaee8a1f7d37b1e.tex-math.latexml.html -->.</p>
+
+<p>That quantity being positive, <fieldset class="ww-messages"><legend>&lt;ww-messages-legend: &gt;</legend><p class='error'>Error: Project file not found: Standalone?b16ae8b5e2bc75722aaee8a1f7d37b1e.tex-math › b16ae8b5e2bc75722aaee8a1f7d37b1e.tex-math.latexml.html</p>
+</fieldset>
+<!-- b16ae8b5e2bc75722aaee8a1f7d37b1e.tex-math.latexml.html --> will move in the
+direction of <fieldset class="ww-messages"><legend>&lt;ww-messages-legend: &gt;</legend><p class='error'>Error: Project file not found: Standalone?dac415393dddb0e565f6e235ee1766cb.tex-math › dac415393dddb0e565f6e235ee1766cb.tex-math.latexml.html</p>
+</fieldset>
+<!-- dac415393dddb0e565f6e235ee1766cb.tex-math.latexml.html -->.</p>
+
+<p>With all species coadapting together, the full motion of
+<fieldset class="ww-messages"><legend>&lt;ww-messages-legend: &gt;</legend><p class='error'>Error: Project file not found: Standalone?b16ae8b5e2bc75722aaee8a1f7d37b1e.tex-math › b16ae8b5e2bc75722aaee8a1f7d37b1e.tex-math.latexml.html</p>
+</fieldset>
+<!-- b16ae8b5e2bc75722aaee8a1f7d37b1e.tex-math.latexml.html --> must be
+<fieldset class="ww-messages"><legend>&lt;ww-messages-legend: &gt;</legend><p class='error'>Error: Project file not found: Standalone?7c2b5f8d81c4771793f114afc3547420.tex-inline › 7c2b5f8d81c4771793f114afc3547420.tex-inline.latexml.html</p>
+</fieldset>
+<!-- 7c2b5f8d81c4771793f114afc3547420.tex-inline.latexml.html -->
+(whatever that’s good for).
+A linear sum of <fieldset class="ww-messages"><legend>&lt;ww-messages-legend: &gt;</legend><p class='error'>Error: Project file not found: Standalone?dac415393dddb0e565f6e235ee1766cb.tex-math › dac415393dddb0e565f6e235ee1766cb.tex-math.latexml.html</p>
+</fieldset>
+<!-- dac415393dddb0e565f6e235ee1766cb.tex-math.latexml.html --> vectors.</p>
+
+<p>Can we do anything meaningful with <fieldset class="ww-messages"><legend>&lt;ww-messages-legend: &gt;</legend><p class='error'>Error: Project file not found: Standalone?c7a2e5c11aad9e73aaaeb4cbabc53dc3.tex-math › c7a2e5c11aad9e73aaaeb4cbabc53dc3.tex-math.latexml.html</p>
+</fieldset>
+<!-- c7a2e5c11aad9e73aaaeb4cbabc53dc3.tex-math.latexml.html -->
+in terms of <fieldset class="ww-messages"><legend>&lt;ww-messages-legend: &gt;</legend><p class='error'>Error: Project file not found: Standalone?b16ae8b5e2bc75722aaee8a1f7d37b1e.tex-math › b16ae8b5e2bc75722aaee8a1f7d37b1e.tex-math.latexml.html</p>
+</fieldset>
+<!-- b16ae8b5e2bc75722aaee8a1f7d37b1e.tex-math.latexml.html -->?</p>
+
+<p>We have (again)
+<fieldset class="ww-messages"><legend>&lt;ww-messages-legend: &gt;</legend><p class='error'>Error: Project file not found: Standalone?7e305e1217274646f38b829d11fee910.tex-inline › 7e305e1217274646f38b829d11fee910.tex-inline.latexml.html</p>
+</fieldset>
+<!-- 7e305e1217274646f38b829d11fee910.tex-inline.latexml.html --></p>
+
+<p>The change in <fieldset class="ww-messages"><legend>&lt;ww-messages-legend: &gt;</legend><p class='error'>Error: Project file not found: Standalone?b16ae8b5e2bc75722aaee8a1f7d37b1e.tex-math › b16ae8b5e2bc75722aaee8a1f7d37b1e.tex-math.latexml.html</p>
+</fieldset>
+<!-- b16ae8b5e2bc75722aaee8a1f7d37b1e.tex-math.latexml.html --> with that <!-- 8277e0910d750195b448797616e091ad.tex-math.latexml.html --><span class="latexml"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="d" display="inline"><mi>d</mi></math></span> is
+<fieldset class="ww-messages"><legend>&lt;ww-messages-legend: &gt;</legend><p class='error'>Error: Project file not found: Standalone?f8d8aee9b933455fa0268777f05aa00a.tex-inline › f8d8aee9b933455fa0268777f05aa00a.tex-inline.latexml.html</p>
+</fieldset>
+<!-- f8d8aee9b933455fa0268777f05aa00a.tex-inline.latexml.html -->
+so it follows that
+<fieldset class="ww-messages"><legend>&lt;ww-messages-legend: &gt;</legend><p class='error'>Error: Project file not found: Standalone?eaad1df8864c0a5785a0e3128e95386a.tex-inline › eaad1df8864c0a5785a0e3128e95386a.tex-inline.latexml.html</p>
+</fieldset>
+<!-- eaad1df8864c0a5785a0e3128e95386a.tex-inline.latexml.html -->
+or, if we wish to think of it so,
+<fieldset class="ww-messages"><legend>&lt;ww-messages-legend: &gt;</legend><p class='error'>Error: Project file not found: Standalone?87e053d8c761bcaffa4945bba1d4879c.tex-inline › 87e053d8c761bcaffa4945bba1d4879c.tex-inline.latexml.html</p>
+</fieldset>
+<!-- 87e053d8c761bcaffa4945bba1d4879c.tex-inline.latexml.html --></p>
+
+<p>This actually is nice: it shows that the invasion is evaluated simply
+in terms of the change in <fieldset class="ww-messages"><legend>&lt;ww-messages-legend: &gt;</legend><p class='error'>Error: Project file not found: Standalone?b16ae8b5e2bc75722aaee8a1f7d37b1e.tex-math › b16ae8b5e2bc75722aaee8a1f7d37b1e.tex-math.latexml.html</p>
+</fieldset>
+<!-- b16ae8b5e2bc75722aaee8a1f7d37b1e.tex-math.latexml.html --> vs the
+preferred direction.</p>
+
+<p>Some questions:</p>
+
+<ul>
+  <li>what is the preferred direction? It looks like <fieldset class="ww-messages"><legend>&lt;ww-messages-legend: &gt;</legend><p class='error'>Error: Project file not found: Standalone?0e0d5d57d1bb17ce4ad52150aeec7772.tex-math › 0e0d5d57d1bb17ce4ad52150aeec7772.tex-math.latexml.html</p>
+</fieldset>
+<!-- 0e0d5d57d1bb17ce4ad52150aeec7772.tex-math.latexml.html -->
+can’t be a positive vector</li>
+  <li>what can we learn about direct and indirect effects</li>
+</ul>
+
+<p><fieldset class="ww-messages"><legend>&lt;ww-messages-legend: &gt;</legend><p class='error'>Error: Project file not found: Standalone?b16ae8b5e2bc75722aaee8a1f7d37b1e.tex-math › b16ae8b5e2bc75722aaee8a1f7d37b1e.tex-math.latexml.html</p>
+</fieldset>
+<!-- b16ae8b5e2bc75722aaee8a1f7d37b1e.tex-math.latexml.html --> is a function of all the phenotypes:
+<fieldset class="ww-messages"><legend>&lt;ww-messages-legend: &gt;</legend><p class='error'>Error: Project file not found: Standalone?2ea8551b836cb619321f8419f9bf1d6a.tex-inline › 2ea8551b836cb619321f8419f9bf1d6a.tex-inline.latexml.html</p>
+</fieldset>
+<!-- 2ea8551b836cb619321f8419f9bf1d6a.tex-inline.latexml.html -->
+The populations interact with each other through changes in <fieldset class="ww-messages"><legend>&lt;ww-messages-legend: &gt;</legend><p class='error'>Error: Project file not found: Standalone?b16ae8b5e2bc75722aaee8a1f7d37b1e.tex-math › b16ae8b5e2bc75722aaee8a1f7d37b1e.tex-math.latexml.html</p>
+</fieldset>
+<!-- b16ae8b5e2bc75722aaee8a1f7d37b1e.tex-math.latexml.html -->.
+The question of direct and indirect effects requires further specification:
+effects on what?
+Since we’re here talking about adaptive change in <fieldset class="ww-messages"><legend>&lt;ww-messages-legend: &gt;</legend><p class='error'>Error: Project file not found: Standalone?b16ae8b5e2bc75722aaee8a1f7d37b1e.tex-math › b16ae8b5e2bc75722aaee8a1f7d37b1e.tex-math.latexml.html</p>
+</fieldset>
+<!-- b16ae8b5e2bc75722aaee8a1f7d37b1e.tex-math.latexml.html -->,
+I think we are talking about effects of changes in populations’
+<fieldset class="ww-messages"><legend>&lt;ww-messages-legend: &gt;</legend><p class='error'>Error: Project file not found: Standalone?c75f2a258b8e3f9dbfa16854adf672b5.tex-math › c75f2a258b8e3f9dbfa16854adf672b5.tex-math.latexml.html</p>
+</fieldset>
+<!-- c75f2a258b8e3f9dbfa16854adf672b5.tex-math.latexml.html --> on <fieldset class="ww-messages"><legend>&lt;ww-messages-legend: &gt;</legend><p class='error'>Error: Project file not found: Standalone?b16ae8b5e2bc75722aaee8a1f7d37b1e.tex-math › b16ae8b5e2bc75722aaee8a1f7d37b1e.tex-math.latexml.html</p>
+</fieldset>
+<!-- b16ae8b5e2bc75722aaee8a1f7d37b1e.tex-math.latexml.html -->.</p>
+
+<p>So: a variation <fieldset class="ww-messages"><legend>&lt;ww-messages-legend: &gt;</legend><p class='error'>Error: Project file not found: Standalone?907216e4f0314c532ad58a063d4e0bed.tex-math › 907216e4f0314c532ad58a063d4e0bed.tex-math.latexml.html</p>
+</fieldset>
+<!-- 907216e4f0314c532ad58a063d4e0bed.tex-math.latexml.html --> is selected for its effect on
+<fieldset class="ww-messages"><legend>&lt;ww-messages-legend: &gt;</legend><p class='error'>Error: Project file not found: Standalone?b16ae8b5e2bc75722aaee8a1f7d37b1e.tex-math › b16ae8b5e2bc75722aaee8a1f7d37b1e.tex-math.latexml.html</p>
+</fieldset>
+<!-- b16ae8b5e2bc75722aaee8a1f7d37b1e.tex-math.latexml.html -->, in the context of the community
+[note: no it isn’t, it’s selected for making better use of the available
+<!-- 82027e282a4cab1583529ef3e0a7b532.tex-math.latexml.html --><span class="latexml"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="R^{*}" display="inline"><msup><mi>R</mi><mo>*</mo></msup></math></span>, before and after establishing but I think mostly before.
+See ToCRstar.pdf]:
+<fieldset class="ww-messages"><legend>&lt;ww-messages-legend: &gt;</legend><p class='error'>Error: Project file not found: Standalone?6bf176416437422034f46dc62c179955.tex-inline › 6bf176416437422034f46dc62c179955.tex-inline.latexml.html</p>
+</fieldset>
+<!-- 6bf176416437422034f46dc62c179955.tex-inline.latexml.html --></p>
+
+<p>[Note: I think I want to look at <fieldset class="ww-messages"><legend>&lt;ww-messages-legend: &gt;</legend><p class='error'>Error: Project file not found: Standalone?9750e40280690e45055df5cde73c85ec.tex-math › 9750e40280690e45055df5cde73c85ec.tex-math.latexml.html</p>
+</fieldset>
+<!-- 9750e40280690e45055df5cde73c85ec.tex-math.latexml.html --> a bit more??]</p>
+
+<p>That’s not a partial effect, but the full effect that the change
+has on <fieldset class="ww-messages"><legend>&lt;ww-messages-legend: &gt;</legend><p class='error'>Error: Project file not found: Standalone?b16ae8b5e2bc75722aaee8a1f7d37b1e.tex-math › b16ae8b5e2bc75722aaee8a1f7d37b1e.tex-math.latexml.html</p>
+</fieldset>
+<!-- b16ae8b5e2bc75722aaee8a1f7d37b1e.tex-math.latexml.html --> if it establishes. So there is no indirect effect
+of ones adaptation on ones own self, via <fieldset class="ww-messages"><legend>&lt;ww-messages-legend: &gt;</legend><p class='error'>Error: Project file not found: Standalone?b16ae8b5e2bc75722aaee8a1f7d37b1e.tex-math › b16ae8b5e2bc75722aaee8a1f7d37b1e.tex-math.latexml.html</p>
+</fieldset>
+<!-- b16ae8b5e2bc75722aaee8a1f7d37b1e.tex-math.latexml.html -->.
+Populations do have effects on each other, of course, which are indirect.</p>
+
+<p>This should be carefully distinguished from the direct and indirect
+effects on <!-- 01f3a391a61df4f8bf52765c05d92877.tex-math.latexml.html --><span class="latexml"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="a_{ii}" display="inline"><msub><mi>a</mi><mrow><mi>i</mi><mo>⁢</mo><mi>i</mi></mrow></msub></math></span> of change in <fieldset class="ww-messages"><legend>&lt;ww-messages-legend: &gt;</legend><p class='error'>Error: Project file not found: Standalone?c75f2a258b8e3f9dbfa16854adf672b5.tex-math › c75f2a258b8e3f9dbfa16854adf672b5.tex-math.latexml.html</p>
+</fieldset>
+<!-- c75f2a258b8e3f9dbfa16854adf672b5.tex-math.latexml.html -->, which does
+have an indirect effect on self-competition.</p>
+
+<p>Also, maybe distinguish it from the Hardin model – is the tragedy
+in fact characterized by an
+indirect effect on habitat quality there?</p>
+
+<p>See ToCRstar.pdf for notes on direct and indirect effects in this and
+the commons model. It provides a pretty good account of what they are.
+I need to review the literature on Tilman stuff, to understand the
+meaning of <fieldset class="ww-messages"><legend>&lt;ww-messages-legend: &gt;</legend><p class='error'>Error: Project file not found: Standalone?63a71428de42c8a95a5552cc39af2f7f.tex-math › 63a71428de42c8a95a5552cc39af2f7f.tex-math.latexml.html</p>
+</fieldset>
+<!-- 63a71428de42c8a95a5552cc39af2f7f.tex-math.latexml.html --> (in <!-- 7b8b965ad4bca0e41ab51de7b31363a1.tex-math.latexml.html --><span class="latexml"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="n" display="inline"><mi>n</mi></math></span> resources is that
+<fieldset class="ww-messages"><legend>&lt;ww-messages-legend: &gt;</legend><p class='error'>Error: Project file not found: Standalone?fdeac2760ac9ef4ba68a76bbfdfbac8e.tex-math › fdeac2760ac9ef4ba68a76bbfdfbac8e.tex-math.latexml.html</p>
+</fieldset>
+<!-- fdeac2760ac9ef4ba68a76bbfdfbac8e.tex-math.latexml.html -->?),
+the utility or per capita fitness benefit of consumption of those resources
+to population <!-- 865c0c0b4ab0e063e5caa3387c1a8741.tex-math.latexml.html --><span class="latexml"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="i" display="inline"><mi>i</mi></math></span>.</p>
+
+<p>That’s the quantity that seems to make sense in those notes:
+per capita benefit taken from the available resources.
+Maybe actually the most appropriate form of that is
+<fieldset class="ww-messages"><legend>&lt;ww-messages-legend: &gt;</legend><p class='error'>Error: Project file not found: Standalone?f9637b97eb0d817f627ffcef631cd448.tex-math › f9637b97eb0d817f627ffcef631cd448.tex-math.latexml.html</p>
+</fieldset>
+<!-- f9637b97eb0d817f627ffcef631cd448.tex-math.latexml.html -->.</p>
+
+<p>This quantity is fixed equal to <!-- 342e772474b691ac87dac30aeef596c0.tex-math.latexml.html --><span class="latexml"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="m_{i}" display="inline"><msub><mi>m</mi><mi>i</mi></msub></math></span> in the adaptive dynamics,
+so it’s no mystery that direct and indirect effects on it will
+cancel exactly.  We will want to look at varying <!-- 6f8f57715090da2632453988d9a1501b.tex-math.latexml.html --><span class="latexml"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="m" display="inline"><mi>m</mi></math></span> and <!-- 92eb5ffee6ae2fec3ad71c777531578f.tex-math.latexml.html --><span class="latexml"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="b" display="inline"><mi>b</mi></math></span>
+as well as <!-- 4a8a08f09d37b73795649038408b5f33.tex-math.latexml.html --><span class="latexml"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="c" display="inline"><mi>c</mi></math></span>.</p>
+
+<hr />
+
+<p>It’s very interesting in that <fieldset class="ww-messages"><legend>&lt;ww-messages-legend: &gt;</legend><p class='error'>Error: Project file not found: Standalone?b16ae8b5e2bc75722aaee8a1f7d37b1e.tex-math › b16ae8b5e2bc75722aaee8a1f7d37b1e.tex-math.latexml.html</p>
+</fieldset>
+<!-- b16ae8b5e2bc75722aaee8a1f7d37b1e.tex-math.latexml.html --> only varies in
+one dimension with change in population <!-- 865c0c0b4ab0e063e5caa3387c1a8741.tex-math.latexml.html --><span class="latexml"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="i" display="inline"><mi>i</mi></math></span> – a case of a
+small-dimensional vector parametrized by a large one, rather than the
+reverse.</p>
+
+<p>So a space of different changes in <!-- f1b5db594efcff91c6ecde949f59d0c8.tex-math.latexml.html --><span class="latexml"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="\mathbf{c}" display="inline"><mi>𝐜</mi></math></span> are equivalent in
+the <fieldset class="ww-messages"><legend>&lt;ww-messages-legend: &gt;</legend><p class='error'>Error: Project file not found: Standalone?b16ae8b5e2bc75722aaee8a1f7d37b1e.tex-math › b16ae8b5e2bc75722aaee8a1f7d37b1e.tex-math.latexml.html</p>
+</fieldset>
+<!-- b16ae8b5e2bc75722aaee8a1f7d37b1e.tex-math.latexml.html --> they produce,
+and selection on <fieldset class="ww-messages"><legend>&lt;ww-messages-legend: &gt;</legend><p class='error'>Error: Project file not found: Standalone?b16ae8b5e2bc75722aaee8a1f7d37b1e.tex-math › b16ae8b5e2bc75722aaee8a1f7d37b1e.tex-math.latexml.html</p>
+</fieldset>
+<!-- b16ae8b5e2bc75722aaee8a1f7d37b1e.tex-math.latexml.html --> is not sufficient
+to predict which will be selected, though I guess knowledge of the
+variation in <!-- f1b5db594efcff91c6ecde949f59d0c8.tex-math.latexml.html --><span class="latexml"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="\mathbf{c}" display="inline"><mi>𝐜</mi></math></span> ought to be enough to get an answer.</p>
+
+<p>Should I do the large-to-small case in general in <!-- 7a52b64bc3b6fc5b02ec5112e4bd6b8a.tex-math.latexml.html --><span class="latexml"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="\mathbf{u}" display="inline"><mi>𝐮</mi></math></span> and
+<!-- ba0d8bb3a7b9d14aa7496d59f463efb7.tex-math.latexml.html --><span class="latexml"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="\mathbf{p}" display="inline"><mi>𝐩</mi></math></span>, or just handle the <fieldset class="ww-messages"><legend>&lt;ww-messages-legend: &gt;</legend><p class='error'>Error: Project file not found: Standalone?b16ae8b5e2bc75722aaee8a1f7d37b1e.tex-math › b16ae8b5e2bc75722aaee8a1f7d37b1e.tex-math.latexml.html</p>
+</fieldset>
+<!-- b16ae8b5e2bc75722aaee8a1f7d37b1e.tex-math.latexml.html --> case…</p>
+
+<hr />
+
+<p>Let’s do the general case, rather than dancing around it.
+It seems like it might be manageable now that I’ve done the above.</p>
+
+<p>Assume a phenotype vector <!-- 7a52b64bc3b6fc5b02ec5112e4bd6b8a.tex-math.latexml.html --><span class="latexml"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="\mathbf{u}" display="inline"><mi>𝐮</mi></math></span>, with
+<fieldset class="ww-messages"><legend>&lt;ww-messages-legend: &gt;</legend><p class='error'>Error: Project file not found: Standalone?6eba7e05d7229f0b150e4416328c13b3.tex-math › 6eba7e05d7229f0b150e4416328c13b3.tex-math.latexml.html</p>
+</fieldset>
+<!-- 6eba7e05d7229f0b150e4416328c13b3.tex-math.latexml.html -->, <!-- 92eb5ffee6ae2fec3ad71c777531578f.tex-math.latexml.html --><span class="latexml"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="b" display="inline"><mi>b</mi></math></span>, and <!-- 6f8f57715090da2632453988d9a1501b.tex-math.latexml.html --><span class="latexml"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="m" display="inline"><mi>m</mi></math></span> forming
+a vector <!-- ba0d8bb3a7b9d14aa7496d59f463efb7.tex-math.latexml.html --><span class="latexml"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="\mathbf{p}" display="inline"><mi>𝐩</mi></math></span> parametrized by <!-- 7a52b64bc3b6fc5b02ec5112e4bd6b8a.tex-math.latexml.html --><span class="latexml"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="\mathbf{u}" display="inline"><mi>𝐮</mi></math></span>
+(<!-- 7a52b64bc3b6fc5b02ec5112e4bd6b8a.tex-math.latexml.html --><span class="latexml"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="\mathbf{u}" display="inline"><mi>𝐮</mi></math></span> might in fact be those values, or might not.
+If it is, then <fieldset class="ww-messages"><legend>&lt;ww-messages-legend: &gt;</legend><p class='error'>Error: Project file not found: Standalone?cdf7c0be5ec125d0635cebf53ba8ea6f.tex-math › cdf7c0be5ec125d0635cebf53ba8ea6f.tex-math.latexml.html</p>
+</fieldset>
+<!-- cdf7c0be5ec125d0635cebf53ba8ea6f.tex-math.latexml.html --> will
+be an identity matrix.).</p>
+
+<p>The invasion fitness is
+<fieldset class="ww-messages"><legend>&lt;ww-messages-legend: &gt;</legend><p class='error'>Error: Project file not found: Standalone?85440ae9f57489dee203629c32f806d3.tex-inline › 85440ae9f57489dee203629c32f806d3.tex-inline.latexml.html</p>
+</fieldset>
+<!-- 85440ae9f57489dee203629c32f806d3.tex-inline.latexml.html -->
+where <fieldset class="ww-messages"><legend>&lt;ww-messages-legend: &gt;</legend><p class='error'>Error: Project file not found: Standalone?e7b263c828e4306f898ba5ad727d5677.tex-math › e7b263c828e4306f898ba5ad727d5677.tex-math.latexml.html</p>
+</fieldset>
+<!-- e7b263c828e4306f898ba5ad727d5677.tex-math.latexml.html --> as above, and
+<fieldset class="ww-messages"><legend>&lt;ww-messages-legend: &gt;</legend><p class='error'>Error: Project file not found: Standalone?ccf6cb7a07e53d6a5c3e8449ae73d371.tex-math › ccf6cb7a07e53d6a5c3e8449ae73d371.tex-math.latexml.html</p>
+</fieldset>
+<!-- ccf6cb7a07e53d6a5c3e8449ae73d371.tex-math.latexml.html --> is all the populations’ <!-- ba0d8bb3a7b9d14aa7496d59f463efb7.tex-math.latexml.html --><span class="latexml"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="\mathbf{p}" display="inline"><mi>𝐩</mi></math></span> vectors.</p>
+
+<p>The equilibrium resource abundance vector <fieldset class="ww-messages"><legend>&lt;ww-messages-legend: &gt;</legend><p class='error'>Error: Project file not found: Standalone?167af29c089dd7b84714c24dc48af0b3.tex-math › 167af29c089dd7b84714c24dc48af0b3.tex-math.latexml.html</p>
+</fieldset>
+<!-- 167af29c089dd7b84714c24dc48af0b3.tex-math.latexml.html -->
+is the solution of <fieldset class="ww-messages"><legend>&lt;ww-messages-legend: &gt;</legend><p class='error'>Error: Project file not found: Standalone?61f1afd2b4ca4f6241b2aa0874e54901.tex-math › 61f1afd2b4ca4f6241b2aa0874e54901.tex-math.latexml.html</p>
+</fieldset>
+<!-- 61f1afd2b4ca4f6241b2aa0874e54901.tex-math.latexml.html -->
+(for any <!-- 865c0c0b4ab0e063e5caa3387c1a8741.tex-math.latexml.html --><span class="latexml"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="i" display="inline"><mi>i</mi></math></span>), or
+<fieldset class="ww-messages"><legend>&lt;ww-messages-legend: &gt;</legend><p class='error'>Error: Project file not found: Standalone?9f8d4940e58aef1be3a3e61accc385c8.tex-inline › 9f8d4940e58aef1be3a3e61accc385c8.tex-inline.latexml.html</p>
+</fieldset>
+<!-- 9f8d4940e58aef1be3a3e61accc385c8.tex-inline.latexml.html --></p>
+
+<p>Selection gradient on <!-- 517c9a3f11ccc287f834b02224c5c5e8.tex-math.latexml.html --><span class="latexml"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="\mathbf{p}_{i}" display="inline"><msub><mi>𝐩</mi><mi>i</mi></msub></math></span> is
+<fieldset class="ww-messages"><legend>&lt;ww-messages-legend: &gt;</legend><p class='error'>Error: Project file not found: Standalone?570a6f5a5a86341e85552bea6ec4385d.tex-inline › 570a6f5a5a86341e85552bea6ec4385d.tex-inline.latexml.html</p>
+</fieldset>
+<!-- 570a6f5a5a86341e85552bea6ec4385d.tex-inline.latexml.html --></p>
+
+<p>The “utility” function, measuring reproductive value extracted from
+the resources by an individual, is
+<fieldset class="ww-messages"><legend>&lt;ww-messages-legend: &gt;</legend><p class='error'>Error: Project file not found: Standalone?f4f79bc96e1f745e822dab9e67974c9d.tex-math › f4f79bc96e1f745e822dab9e67974c9d.tex-math.latexml.html</p>
+</fieldset>
+<!-- f4f79bc96e1f745e822dab9e67974c9d.tex-math.latexml.html -->,
+so the change in <fieldset class="ww-messages"><legend>&lt;ww-messages-legend: &gt;</legend><p class='error'>Error: Project file not found: Standalone?c3ee1dc5fa3ac0d0ff50b8993000a8bb.tex-math › c3ee1dc5fa3ac0d0ff50b8993000a8bb.tex-math.latexml.html</p>
+</fieldset>
+<!-- c3ee1dc5fa3ac0d0ff50b8993000a8bb.tex-math.latexml.html --> due to change in population <!-- 865c0c0b4ab0e063e5caa3387c1a8741.tex-math.latexml.html --><span class="latexml"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="i" display="inline"><mi>i</mi></math></span> is
+<fieldset class="ww-messages"><legend>&lt;ww-messages-legend: &gt;</legend><p class='error'>Error: Project file not found: Standalone?ede70a462c879e607d366db8343d1099.tex-inline › ede70a462c879e607d366db8343d1099.tex-inline.latexml.html</p>
+</fieldset>
+<!-- ede70a462c879e607d366db8343d1099.tex-inline.latexml.html -->
+That’s direct effect plus indirect effect:
+<fieldset class="ww-messages"><legend>&lt;ww-messages-legend: &gt;</legend><p class='error'>Error: Project file not found: Standalone?a1b1c9a64dc3ee3f0901d9b5525b0fd0.tex-inline › a1b1c9a64dc3ee3f0901d9b5525b0fd0.tex-inline.latexml.html</p>
+</fieldset>
+<!-- a1b1c9a64dc3ee3f0901d9b5525b0fd0.tex-inline.latexml.html --></p>
+
+<p>The other part is the indirect effect of population <!-- 865c0c0b4ab0e063e5caa3387c1a8741.tex-math.latexml.html --><span class="latexml"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="i" display="inline"><mi>i</mi></math></span> on its own
+utility, which requires the partials of <fieldset class="ww-messages"><legend>&lt;ww-messages-legend: &gt;</legend><p class='error'>Error: Project file not found: Standalone?b16ae8b5e2bc75722aaee8a1f7d37b1e.tex-math › b16ae8b5e2bc75722aaee8a1f7d37b1e.tex-math.latexml.html</p>
+</fieldset>
+<!-- b16ae8b5e2bc75722aaee8a1f7d37b1e.tex-math.latexml.html -->:
+<fieldset class="ww-messages"><legend>&lt;ww-messages-legend: &gt;</legend><p class='error'>Error: Project file not found: Standalone?58ba255fa9efb7036e588bb4913792d0.tex-inline › 58ba255fa9efb7036e588bb4913792d0.tex-inline.latexml.html</p>
+</fieldset>
+<!-- 58ba255fa9efb7036e588bb4913792d0.tex-inline.latexml.html -->
+<fieldset class="ww-messages"><legend>&lt;ww-messages-legend: &gt;</legend><p class='error'>Error: Project file not found: Standalone?109f2f8c072e4251235b0f9bff6b2205.tex-inline › 109f2f8c072e4251235b0f9bff6b2205.tex-inline.latexml.html</p>
+</fieldset>
+<!-- 109f2f8c072e4251235b0f9bff6b2205.tex-inline.latexml.html --></p>
+
+<p><fieldset class="ww-messages"><legend>&lt;ww-messages-legend: &gt;</legend><p class='error'>Error: Project file not found: Standalone?3a26284a5dfdeb1844f36c710c7669cc.tex-inline › 3a26284a5dfdeb1844f36c710c7669cc.tex-inline.latexml.html</p>
+</fieldset>
+<!-- 3a26284a5dfdeb1844f36c710c7669cc.tex-inline.latexml.html --></p>
+
+<hr />
+
+<p>We can use the chain rule as we did with derived phenotypic characters,
+but it will involve multiple terms, one for each species that affects
+$\mathbf{R}^*$:</p>
+
+<p><fieldset class="ww-messages"><legend>&lt;ww-messages-legend: &gt;</legend><p class='error'>Error: Project file not found: Standalone?b7a5de0ce8fd45de321b1bc3dcb99a15.tex-inline › b7a5de0ce8fd45de321b1bc3dcb99a15.tex-inline.latexml.html</p>
+</fieldset>
+<!-- b7a5de0ce8fd45de321b1bc3dcb99a15.tex-inline.latexml.html -->
+where we might be using <!-- c2a92e2434e80e2faa5406b12a54a7ae.tex-math.latexml.html --><span class="latexml"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="S(\mathbf{p}_{i})" display="inline"><mrow><mi>S</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><msub><mi>𝐩</mi><mi>i</mi></msub><mo stretchy="false">)</mo></mrow></mrow></math></span> or <fieldset class="ww-messages"><legend>&lt;ww-messages-legend: &gt;</legend><p class='error'>Error: Project file not found: Standalone?caeae86cc79207957b76ac4d2d08c237.tex-math › caeae86cc79207957b76ac4d2d08c237.tex-math.latexml.html</p>
+</fieldset>
+<!-- caeae86cc79207957b76ac4d2d08c237.tex-math.latexml.html --> as
+appropriate. In the former case, for simplicity, we have
+<fieldset class="ww-messages"><legend>&lt;ww-messages-legend: &gt;</legend><p class='error'>Error: Project file not found: Standalone?0fd721fe0170822838716410267a8877.tex-inline › 0fd721fe0170822838716410267a8877.tex-inline.latexml.html</p>
+</fieldset>
+<!-- 0fd721fe0170822838716410267a8877.tex-inline.latexml.html -->
+To treat these environmental variables <!-- 82027e282a4cab1583529ef3e0a7b532.tex-math.latexml.html --><span class="latexml"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="R^{*}" display="inline"><msup><mi>R</mi><mo>*</mo></msup></math></span> as a somewhat autonomous
+actant in the coevolution, we need to inquire whether the selection
+gradient <fieldset class="ww-messages"><legend>&lt;ww-messages-legend: &gt;</legend><p class='error'>Error: Project file not found: Standalone?5981710a72a6944ab284fe400a7d876c.tex-math › 5981710a72a6944ab284fe400a7d876c.tex-math.latexml.html</p>
+</fieldset>
+<!-- 5981710a72a6944ab284fe400a7d876c.tex-math.latexml.html -->
+can be evaluated via a composition of functions
+<fieldset class="ww-messages"><legend>&lt;ww-messages-legend: &gt;</legend><p class='error'>Error: Project file not found: Standalone?d11dcf5276620aa90c8f83cb02df76c4.tex-math › d11dcf5276620aa90c8f83cb02df76c4.tex-math.latexml.html</p>
+</fieldset>
+<!-- d11dcf5276620aa90c8f83cb02df76c4.tex-math.latexml.html -->.</p>
+
+<p>If so, we would be able to write
+<fieldset class="ww-messages"><legend>&lt;ww-messages-legend: &gt;</legend><p class='error'>Error: Project file not found: Standalone?c037209c66731fc216ce39bf6805846d.tex-inline › c037209c66731fc216ce39bf6805846d.tex-inline.latexml.html</p>
+</fieldset>
+<!-- c037209c66731fc216ce39bf6805846d.tex-inline.latexml.html --></p>
+
+<p>The invasion speed is
+<fieldset class="ww-messages"><legend>&lt;ww-messages-legend: &gt;</legend><p class='error'>Error: Project file not found: Standalone?f2664e5017b071481514f8d43faf0468.tex-inline › f2664e5017b071481514f8d43faf0468.tex-inline.latexml.html</p>
+</fieldset>
+<!-- f2664e5017b071481514f8d43faf0468.tex-inline.latexml.html -->
+which is a function of both <fieldset class="ww-messages"><legend>&lt;ww-messages-legend: &gt;</legend><p class='error'>Error: Project file not found: Standalone?b16ae8b5e2bc75722aaee8a1f7d37b1e.tex-math › b16ae8b5e2bc75722aaee8a1f7d37b1e.tex-math.latexml.html</p>
+</fieldset>
+<!-- b16ae8b5e2bc75722aaee8a1f7d37b1e.tex-math.latexml.html --> and <!-- 517c9a3f11ccc287f834b02224c5c5e8.tex-math.latexml.html --><span class="latexml"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="\mathbf{p}_{i}" display="inline"><msub><mi>𝐩</mi><mi>i</mi></msub></math></span>, 
+the latter represented by its components <!-- fe3e01a305f27284ff5115f4c5ea0fa4.tex-math.latexml.html --><span class="latexml"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="b_{i}" display="inline"><msub><mi>b</mi><mi>i</mi></msub></math></span>, <!-- 342e772474b691ac87dac30aeef596c0.tex-math.latexml.html --><span class="latexml"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="m_{i}" display="inline"><msub><mi>m</mi><mi>i</mi></msub></math></span>, and <!-- e9faee1f59b9695ec26f913247352530.tex-math.latexml.html --><span class="latexml"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="c_{i\ell}" display="inline"><msub><mi>c</mi><mrow><mi>i</mi><mo>⁢</mo><mi mathvariant="normal">ℓ</mi></mrow></msub></math></span>
+for each <!-- ee5e5c003694e7cd5ae404923c665edb.tex-math.latexml.html --><span class="latexml"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="\ell" display="inline"><mi mathvariant="normal">ℓ</mi></math></span>.
+The question then is whether there is an inverse function
+<fieldset class="ww-messages"><legend>&lt;ww-messages-legend: &gt;</legend><p class='error'>Error: Project file not found: Standalone?d115bbdbb125d60b6264a5d5c1777be8.tex-math › d115bbdbb125d60b6264a5d5c1777be8.tex-math.latexml.html</p>
+</fieldset>
+<!-- d115bbdbb125d60b6264a5d5c1777be8.tex-math.latexml.html -->.
+The answer is clearly no, because <!-- fe3e01a305f27284ff5115f4c5ea0fa4.tex-math.latexml.html --><span class="latexml"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="b_{i}" display="inline"><msub><mi>b</mi><mi>i</mi></msub></math></span> can not be recovered from
+the values of <fieldset class="ww-messages"><legend>&lt;ww-messages-legend: &gt;</legend><p class='error'>Error: Project file not found: Standalone?b16ae8b5e2bc75722aaee8a1f7d37b1e.tex-math › b16ae8b5e2bc75722aaee8a1f7d37b1e.tex-math.latexml.html</p>
+</fieldset>
+<!-- b16ae8b5e2bc75722aaee8a1f7d37b1e.tex-math.latexml.html -->.
+If we assume those <!-- fe3e01a305f27284ff5115f4c5ea0fa4.tex-math.latexml.html --><span class="latexml"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="b_{i}" display="inline"><msub><mi>b</mi><mi>i</mi></msub></math></span> values to be held fixed, so that we can
+define <!-- 517c9a3f11ccc287f834b02224c5c5e8.tex-math.latexml.html --><span class="latexml"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="\mathbf{p}_{i}" display="inline"><msub><mi>𝐩</mi><mi>i</mi></msub></math></span> to include only <!-- 6f8f57715090da2632453988d9a1501b.tex-math.latexml.html --><span class="latexml"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="m" display="inline"><mi>m</mi></math></span> and <!-- 4a8a08f09d37b73795649038408b5f33.tex-math.latexml.html --><span class="latexml"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="c" display="inline"><mi>c</mi></math></span> values,
+then what? I don’t know right now.</p>
+
+<p>But if we assume <!-- 517c9a3f11ccc287f834b02224c5c5e8.tex-math.latexml.html --><span class="latexml"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="\mathbf{p}_{i}" display="inline"><msub><mi>𝐩</mi><mi>i</mi></msub></math></span> to be parametrized by a single
+scalar <!-- eb00a04135562ae6f74786f084f54327.tex-math.latexml.html --><span class="latexml"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="u_{i}" display="inline"><msub><mi>u</mi><mi>i</mi></msub></math></span> per population, then we have no rank problem with
+<fieldset class="ww-messages"><legend>&lt;ww-messages-legend: &gt;</legend><p class='error'>Error: Project file not found: Standalone?b16ae8b5e2bc75722aaee8a1f7d37b1e.tex-math › b16ae8b5e2bc75722aaee8a1f7d37b1e.tex-math.latexml.html</p>
+</fieldset>
+<!-- b16ae8b5e2bc75722aaee8a1f7d37b1e.tex-math.latexml.html --> a function of the same-size vector <!-- 7a52b64bc3b6fc5b02ec5112e4bd6b8a.tex-math.latexml.html --><span class="latexml"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="\mathbf{u}" display="inline"><mi>𝐮</mi></math></span>,
+at least as long as we avoid places where the total derivative
+<fieldset class="ww-messages"><legend>&lt;ww-messages-legend: &gt;</legend><p class='error'>Error: Project file not found: Standalone?524650dda5aaa52a52c7614ba6644060.tex-math › 524650dda5aaa52a52c7614ba6644060.tex-math.latexml.html</p>
+</fieldset>
+<!-- 524650dda5aaa52a52c7614ba6644060.tex-math.latexml.html --> is nonsingular.</p>
+
+<p>Then what?  The motion of <fieldset class="ww-messages"><legend>&lt;ww-messages-legend: &gt;</legend><p class='error'>Error: Project file not found: Standalone?b16ae8b5e2bc75722aaee8a1f7d37b1e.tex-math › b16ae8b5e2bc75722aaee8a1f7d37b1e.tex-math.latexml.html</p>
+</fieldset>
+<!-- b16ae8b5e2bc75722aaee8a1f7d37b1e.tex-math.latexml.html --> is described by
+<fieldset class="ww-messages"><legend>&lt;ww-messages-legend: &gt;</legend><p class='error'>Error: Project file not found: Standalone?e5718f3d61648bab539940c08988d2c9.tex-inline › e5718f3d61648bab539940c08988d2c9.tex-inline.latexml.html</p>
+</fieldset>
+<!-- e5718f3d61648bab539940c08988d2c9.tex-inline.latexml.html -->
+I think the challenge is to write <!-- 8b0442b853975acd2af5a7607ca06965.tex-math.latexml.html --><span class="latexml"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="S(u_{i})" display="inline"><mrow><mi>S</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><msub><mi>u</mi><mi>i</mi></msub><mo stretchy="false">)</mo></mrow></mrow></math></span> in terms of <!-- 82027e282a4cab1583529ef3e0a7b532.tex-math.latexml.html --><span class="latexml"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="R^{*}" display="inline"><msup><mi>R</mi><mo>*</mo></msup></math></span>.
+We have
+<fieldset class="ww-messages"><legend>&lt;ww-messages-legend: &gt;</legend><p class='error'>Error: Project file not found: Standalone?98fcb4cb5bd551582bb44f9377a11999.tex-inline › 98fcb4cb5bd551582bb44f9377a11999.tex-inline.latexml.html</p>
+</fieldset>
+<!-- 98fcb4cb5bd551582bb44f9377a11999.tex-inline.latexml.html -->
+Also, we have
+<fieldset class="ww-messages"><legend>&lt;ww-messages-legend: &gt;</legend><p class='error'>Error: Project file not found: Standalone?93db73f8c269c1921194fe9f28986157.tex-inline › 93db73f8c269c1921194fe9f28986157.tex-inline.latexml.html</p>
+</fieldset>
+<!-- 93db73f8c269c1921194fe9f28986157.tex-inline.latexml.html -->
+I don’t think we can write an inverse function <fieldset class="ww-messages"><legend>&lt;ww-messages-legend: &gt;</legend><p class='error'>Error: Project file not found: Standalone?d1c7bcac719aaaa61e8a3920a34cbff7.tex-math › d1c7bcac719aaaa61e8a3920a34cbff7.tex-math.latexml.html</p>
+</fieldset>
+<!-- d1c7bcac719aaaa61e8a3920a34cbff7.tex-math.latexml.html -->
+explicitly, but we can imagine one exists. Then we can write
+<fieldset class="ww-messages"><legend>&lt;ww-messages-legend: &gt;</legend><p class='error'>Error: Project file not found: Standalone?d5bc947f9ffbdfa751518cab15ddf488.tex-inline › d5bc947f9ffbdfa751518cab15ddf488.tex-inline.latexml.html</p>
+</fieldset>
+<!-- d5bc947f9ffbdfa751518cab15ddf488.tex-inline.latexml.html -->
+with
+<fieldset class="ww-messages"><legend>&lt;ww-messages-legend: &gt;</legend><p class='error'>Error: Project file not found: Standalone?abf5933ccf0d5f282a11b4f462ace7d8.tex-inline › abf5933ccf0d5f282a11b4f462ace7d8.tex-inline.latexml.html</p>
+</fieldset>
+<!-- abf5933ccf0d5f282a11b4f462ace7d8.tex-inline.latexml.html -->
+but this derivative is very different from the usual interpretation of
+<fieldset class="ww-messages"><legend>&lt;ww-messages-legend: &gt;</legend><p class='error'>Error: Project file not found: Standalone?e347e5e103bc2fbf20e39dabda9b98b2.tex-math › e347e5e103bc2fbf20e39dabda9b98b2.tex-math.latexml.html</p>
+</fieldset>
+<!-- e347e5e103bc2fbf20e39dabda9b98b2.tex-math.latexml.html -->.</p>
+
+<p>–</p>
+
+<p>Many things going on in this section, all confusing.
+Let me just try to describe the motion of <!-- 82027e282a4cab1583529ef3e0a7b532.tex-math.latexml.html --><span class="latexml"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="R^{*}" display="inline"><msup><mi>R</mi><mo>*</mo></msup></math></span> constrained by <!-- 7b774effe4a349c6dd82ad4f4f21d34c.tex-math.latexml.html --><span class="latexml"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="u" display="inline"><mi>u</mi></math></span>.</p>
+
+<p>With the above, we have
+<fieldset class="ww-messages"><legend>&lt;ww-messages-legend: &gt;</legend><p class='error'>Error: Project file not found: Standalone?019cdde70be7fddc206e01ebb39f784e.tex-inline › 019cdde70be7fddc206e01ebb39f784e.tex-inline.latexml.html</p>
+</fieldset>
+<!-- 019cdde70be7fddc206e01ebb39f784e.tex-inline.latexml.html -->
+We could work through that, or work more directly:
+<fieldset class="ww-messages"><legend>&lt;ww-messages-legend: &gt;</legend><p class='error'>Error: Project file not found: Standalone?0c3b2dabc97037a75c09d8ce77cffb4e.tex-inline › 0c3b2dabc97037a75c09d8ce77cffb4e.tex-inline.latexml.html</p>
+</fieldset>
+<!-- 0c3b2dabc97037a75c09d8ce77cffb4e.tex-inline.latexml.html -->
+or, taking all <!-- 865c0c0b4ab0e063e5caa3387c1a8741.tex-math.latexml.html --><span class="latexml"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="i" display="inline"><mi>i</mi></math></span> simultaneously,</p>
+
+<p>–</p>
+
+<p>Still, <fieldset class="ww-messages"><legend>&lt;ww-messages-legend: &gt;</legend><p class='error'>Error: Project file not found: Standalone?b16ae8b5e2bc75722aaee8a1f7d37b1e.tex-math › b16ae8b5e2bc75722aaee8a1f7d37b1e.tex-math.latexml.html</p>
+</fieldset>
+<!-- b16ae8b5e2bc75722aaee8a1f7d37b1e.tex-math.latexml.html --> is a vector of <!-- 7b8b965ad4bca0e41ab51de7b31363a1.tex-math.latexml.html --><span class="latexml"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="n" display="inline"><mi>n</mi></math></span> values computed from
+the community’s <fieldset class="ww-messages"><legend>&lt;ww-messages-legend: &gt;</legend><p class='error'>Error: Project file not found: Standalone?83a348d7bc7ca64a9e8178da6ebfc927.tex-math › 83a348d7bc7ca64a9e8178da6ebfc927.tex-math.latexml.html</p>
+</fieldset>
+<!-- 83a348d7bc7ca64a9e8178da6ebfc927.tex-math.latexml.html --> values of each population’s <!-- 6f8f57715090da2632453988d9a1501b.tex-math.latexml.html --><span class="latexml"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="m" display="inline"><mi>m</mi></math></span> and
+<!-- 4a8a08f09d37b73795649038408b5f33.tex-math.latexml.html --><span class="latexml"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="c" display="inline"><mi>c</mi></math></span> variables.  Clearly there is not enough rank to go around;
+but if we restrict ourselves to marginal changes, can we recover
+the partial derivatives <fieldset class="ww-messages"><legend>&lt;ww-messages-legend: &gt;</legend><p class='error'>Error: Project file not found: Standalone?e17cd6818b318c3b0a8c40ddd70b2309.tex-math › e17cd6818b318c3b0a8c40ddd70b2309.tex-math.latexml.html</p>
+</fieldset>
+<!-- e17cd6818b318c3b0a8c40ddd70b2309.tex-math.latexml.html -->
+from the values of <fieldset class="ww-messages"><legend>&lt;ww-messages-legend: &gt;</legend><p class='error'>Error: Project file not found: Standalone?b16ae8b5e2bc75722aaee8a1f7d37b1e.tex-math › b16ae8b5e2bc75722aaee8a1f7d37b1e.tex-math.latexml.html</p>
+</fieldset>
+<!-- b16ae8b5e2bc75722aaee8a1f7d37b1e.tex-math.latexml.html -->?
+No to that either, since that is <fieldset class="ww-messages"><legend>&lt;ww-messages-legend: &gt;</legend><p class='error'>Error: Project file not found: Standalone?40b85027598d87611b1c8d5d11e46812.tex-math › 40b85027598d87611b1c8d5d11e46812.tex-math.latexml.html</p>
+</fieldset>
+<!-- 40b85027598d87611b1c8d5d11e46812.tex-math.latexml.html --> values.</p>
+
+<p>and, substituting,
+<fieldset class="ww-messages"><legend>&lt;ww-messages-legend: &gt;</legend><p class='error'>Error: Project file not found: Standalone?51ccf1e13c83841152100e37e7bad582.tex-inline › 51ccf1e13c83841152100e37e7bad582.tex-inline.latexml.html</p>
+</fieldset>
+<!-- 51ccf1e13c83841152100e37e7bad582.tex-inline.latexml.html --></p>
+
+<p>An unmentioned assumption in the above is that the gradient of selection on
+phenotypes, $S(\mathbf{p}_i)$,
+has the resource concentrations $R_j^*$ as intermediate variables.
+If this is not true, the above expressions are meaningless.
+We have seen in the previous section that this is true provided the
+mortality rate $m_i$ is not evolving.
+If $m$ evolves, then we must include extra terms in our expansion of
+$S(\mathbf{p}_i)$.</p>
+
+<p>Let us simplify by assuming variation in the $c$ and $b$
+parts of $\mathbf{p}$ only.
+In that case we have $\partial R_j^<em>/\partial b_i = 0$ and
+$\partial R_j^</em>/\partial c_{i\ell} = \hat{X}_i / s_j$ if $j=\ell$,
+and 0 otherwise, and we can use the above expression for
+$d\mathbf{R}^<em>/dt$.
+This expression asserts that the change in the $\mathbf{R}^</em>$ vector
+is a sum of two</p>
+
+<p>The dependence of species $i$’s invasion speed on $R^*$ is straighforward given
+the form of the Macarthur-Levins dynamics:
+<fieldset class="ww-messages"><legend>&lt;ww-messages-legend: &gt;</legend><p class='error'>Error: Project file not found: Standalone?cedea9cc89be4f5aed9a4727b3b6db4b.tex-inline › cedea9cc89be4f5aed9a4727b3b6db4b.tex-inline.latexml.html</p>
+</fieldset>
+<!-- cedea9cc89be4f5aed9a4727b3b6db4b.tex-inline.latexml.html --></p>
+
+<p>Taking the phenotype vector to be
+<fieldset class="ww-messages"><legend>&lt;ww-messages-legend: &gt;</legend><p class='error'>Error: Project file not found: Standalone?80a42da1c57d1aa6293dbcd0a7d9d954.tex-inline › 80a42da1c57d1aa6293dbcd0a7d9d954.tex-inline.latexml.html</p>
+</fieldset>
+<!-- 80a42da1c57d1aa6293dbcd0a7d9d954.tex-inline.latexml.html -->
+we can write
+<fieldset class="ww-messages"><legend>&lt;ww-messages-legend: &gt;</legend><p class='error'>Error: Project file not found: Standalone?844511f8f2d7a770e4401cb1ada8c3b4.tex-inline › 844511f8f2d7a770e4401cb1ada8c3b4.tex-inline.latexml.html</p>
+</fieldset>
+<!-- 844511f8f2d7a770e4401cb1ada8c3b4.tex-inline.latexml.html -->
+From this we could write a full expression for $d\mathbf{R}^*/dt$,
+but I think we may be more interested in the selection gradient
+<fieldset class="ww-messages"><legend>&lt;ww-messages-legend: &gt;</legend><p class='error'>Error: Project file not found: Standalone?066cf50602d4240ae9d4c5f3dfbb956f.tex-inline › 066cf50602d4240ae9d4c5f3dfbb956f.tex-inline.latexml.html</p>
+</fieldset>
+<!-- 066cf50602d4240ae9d4c5f3dfbb956f.tex-inline.latexml.html --></p>
+
+<p>Using these we should be able to recover the selection on $\mathbf{p}$:
+<fieldset class="ww-messages"><legend>&lt;ww-messages-legend: &gt;</legend><p class='error'>Error: Project file not found: Standalone?3de3885f14dc5a3ae22e2cf32666cc57.tex-inline › 3de3885f14dc5a3ae22e2cf32666cc57.tex-inline.latexml.html</p>
+</fieldset>
+<!-- 3de3885f14dc5a3ae22e2cf32666cc57.tex-inline.latexml.html --></p>
+
+<p>TODO: does it help with explaining why/when r beats a and that?</p>
+
+  </article>
+
+</div>
+
+      </div>
+    </div>
+
+    <footer class="site-footer">
+
+  <div class="wrap">
+
+    <h2 class="footer-heading">Lee Worden</h2>
+
+    <div class="footer-col-1 column">
+      <ul>
+        <li><a href="mailto:worden.lee@gmail.com">worden.lee@gmail.com</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col-2 column">
+      <ul>
+        <li>
+          <a href="https://github.com/worden-lee">
+            <span class="icon github">
+              <svg version="1.1" class="github-icon-svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                 viewBox="0 0 16 16" enable-background="new 0 0 16 16" xml:space="preserve">
+                <path fill-rule="evenodd" clip-rule="evenodd" fill="#C2C2C2" d="M7.999,0.431c-4.285,0-7.76,3.474-7.76,7.761
+                c0,3.428,2.223,6.337,5.307,7.363c0.388,0.071,0.53-0.168,0.53-0.374c0-0.184-0.007-0.672-0.01-1.32
+                c-2.159,0.469-2.614-1.04-2.614-1.04c-0.353-0.896-0.862-1.135-0.862-1.135c-0.705-0.481,0.053-0.472,0.053-0.472
+                c0.779,0.055,1.189,0.8,1.189,0.8c0.692,1.186,1.816,0.843,2.258,0.645c0.071-0.502,0.271-0.843,0.493-1.037
+                C4.86,11.425,3.049,10.76,3.049,7.786c0-0.847,0.302-1.54,0.799-2.082C3.768,5.507,3.501,4.718,3.924,3.65
+                c0,0,0.652-0.209,2.134,0.796C6.677,4.273,7.34,4.187,8,4.184c0.659,0.003,1.323,0.089,1.943,0.261
+                c1.482-1.004,2.132-0.796,2.132-0.796c0.423,1.068,0.157,1.857,0.077,2.054c0.497,0.542,0.798,1.235,0.798,2.082
+                c0,2.981-1.814,3.637-3.543,3.829c0.279,0.24,0.527,0.713,0.527,1.437c0,1.037-0.01,1.874-0.01,2.129
+                c0,0.208,0.14,0.449,0.534,0.373c3.081-1.028,5.302-3.935,5.302-7.362C15.76,3.906,12.285,0.431,7.999,0.431z"/>
+              </svg>
+            </span>
+            <span class="username">worden-lee</span>
+          </a>
+        </li>
+        <li>
+          <a href="https://twitter.com/leeworden">
+            <span class="icon twitter">
+              <svg version="1.1" class="twitter-icon-svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                 viewBox="0 0 16 16" enable-background="new 0 0 16 16" xml:space="preserve">
+                <path fill="#C2C2C2" d="M15.969,3.058c-0.586,0.26-1.217,0.436-1.878,0.515c0.675-0.405,1.194-1.045,1.438-1.809
+                c-0.632,0.375-1.332,0.647-2.076,0.793c-0.596-0.636-1.446-1.033-2.387-1.033c-1.806,0-3.27,1.464-3.27,3.27
+                c0,0.256,0.029,0.506,0.085,0.745C5.163,5.404,2.753,4.102,1.14,2.124C0.859,2.607,0.698,3.168,0.698,3.767
+                c0,1.134,0.577,2.135,1.455,2.722C1.616,6.472,1.112,6.325,0.671,6.08c0,0.014,0,0.027,0,0.041c0,1.584,1.127,2.906,2.623,3.206
+                C3.02,9.402,2.731,9.442,2.433,9.442c-0.211,0-0.416-0.021-0.615-0.059c0.416,1.299,1.624,2.245,3.055,2.271
+                c-1.119,0.877-2.529,1.4-4.061,1.4c-0.264,0-0.524-0.015-0.78-0.046c1.447,0.928,3.166,1.469,5.013,1.469
+                c6.015,0,9.304-4.983,9.304-9.304c0-0.142-0.003-0.283-0.009-0.423C14.976,4.29,15.531,3.714,15.969,3.058z"/>
+              </svg>
+            </span>
+            <span class="username">leeworden</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="footer-col-3 column">
+	    <p class="text"><!-- Any additional text --></p>
+    </div>
+
+  </div>
+
+</footer>
+
+
+    </body>
+</html>

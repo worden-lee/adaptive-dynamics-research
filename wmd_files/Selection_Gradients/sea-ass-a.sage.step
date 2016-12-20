@@ -1,7 +1,7 @@
 # requires: sealv.py
 # requires: sea-ass.sobj
 # produces: sea-ass-a.sage.out.tex
-# produces: sea-ass-a.svg
+# produces: #sea-ass-a.svg
 from sealv import *
 from seamodel import *
 from dynamicalsystems import *

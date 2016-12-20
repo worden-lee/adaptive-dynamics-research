@@ -13,7 +13,7 @@ ltx = latex_output( 'maclev-1-1.sage.out.tex' )
 rescomp = ResourceCompetitionModel(x_indices=[0], r_indices=[0])
 
 ltx.write( 'The original resource competition system:' )
-ltx.write_block( rescomp )
+ltx.write( rescomp )
 
 #print 'rescomp bindings:', rescomp._bindings
 
@@ -21,7 +21,7 @@ ltx.write_block( rescomp )
 maclev = MacArthurLevinsModel(rescomp)
 
 ltx.write( "And the Mac-Lev system derived from it: " )
-ltx.write_block( maclev )
+ltx.write( maclev )
 
 ltx.close()
 

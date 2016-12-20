@@ -1,6 +1,6 @@
 For the base dynamics without symbiosis, we set\begin{align*}
   k &\to 1 \\
-  K &\to 1\\
+  K &\to 1 \\
   r(x,y) &\to 1\\
   R(x,y) &\to 1
 \end{align*}\begin{align*}

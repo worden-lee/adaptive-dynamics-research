@@ -171,4 +171,5 @@ ltx.write( 'And at starting point ', vector( [ starting_comm(v) for v in sea_ada
 
 ltx.close()
 _save_symbols = { sv:lv for sv,lv in ( (str(v), latex(v)) for v in sage.symbolic.ring.pynac_symbol_registry.values() ) if sv != lv }
+
 save_session('sea-down')

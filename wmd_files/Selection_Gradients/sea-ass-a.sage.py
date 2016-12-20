@@ -3,7 +3,7 @@ from sage.all_cmdline import *   # import sage library
 _sage_const_0 = Integer(0)# requires: sealv.py
 # requires: sea-ass.sobj
 # produces: sea-ass-a.sage.out.tex
-# produces: sea-ass-a.svg
+# produces: #sea-ass-a.svg
 from sealv import *
 from seamodel import *
 from dynamicalsystems import *

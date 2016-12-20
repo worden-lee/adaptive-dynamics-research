@@ -68,9 +68,9 @@ at adaptive motion in the plane of interaction coefficients.</p>
 
 <p>The guest dynamics:</p>
 
-<p><fieldset class="ww-messages"><legend>&lt;ww-messages-legend: &gt;</legend><p class='error'>Error: Project file not found: Standalone?3593c6327be5779f1f6d89a7e534ce68.tex-inline › 3593c6327be5779f1f6d89a7e534ce68.tex-inline.latexml.html</p>
+<p><fieldset class="ww-messages"><legend>&lt;ww-messages-legend: &gt;</legend><p class='error'>Error: Project file not found: Standalone?98638d921d9ffe59aa665352edd7649b.tex-inline › 98638d921d9ffe59aa665352edd7649b.tex-inline.latexml.html</p>
 </fieldset>
-<!-- 3593c6327be5779f1f6d89a7e534ce68.tex-inline.latexml.html -->.</p>
+<!-- 98638d921d9ffe59aa665352edd7649b.tex-inline.latexml.html -->.</p>
 
 <p>The host strategy/phenotype is</p>
 
@@ -85,9 +85,9 @@ at adaptive motion in the plane of interaction coefficients.</p>
 <!-- ff41056dec337b31678a729b1ecfcfb4.tex-math.latexml.html -->: investment for/against transfer of resources (“exploitation”) by guest (given association).</li>
 </ul>
 
-<p><fieldset class="ww-messages"><legend>&lt;ww-messages-legend: &gt;</legend><p class='error'>Error: Project file not found: Standalone?5028b81673312ce4dfdcd45ef038d876.tex-inline › 5028b81673312ce4dfdcd45ef038d876.tex-inline.latexml.html</p>
+<p><fieldset class="ww-messages"><legend>&lt;ww-messages-legend: &gt;</legend><p class='error'>Error: Project file not found: Standalone?9f569ba85750dfb9db0efd932208b83e.tex-inline › 9f569ba85750dfb9db0efd932208b83e.tex-inline.latexml.html</p>
 </fieldset>
-<!-- 5028b81673312ce4dfdcd45ef038d876.tex-inline.latexml.html --></p>
+<!-- 9f569ba85750dfb9db0efd932208b83e.tex-inline.latexml.html --></p>
 
 <p>let <fieldset class="ww-messages"><legend>&lt;ww-messages-legend: &gt;</legend><p class='error'>Error: Project file not found: Standalone?617d9f5651aede70f1a76f73d6beef46.tex-math › 617d9f5651aede70f1a76f73d6beef46.tex-math.latexml.html</p>
 </fieldset>
@@ -152,9 +152,9 @@ at adaptive motion in the plane of interaction coefficients.</p>
 
 <p>So we then have</p>
 
-<p><fieldset class="ww-messages"><legend>&lt;ww-messages-legend: &gt;</legend><p class='error'>Error: Project file not found: Standalone?a2fdb5704f92de5f12af3d2339065411.tex-inline › a2fdb5704f92de5f12af3d2339065411.tex-inline.latexml.html</p>
+<p><fieldset class="ww-messages"><legend>&lt;ww-messages-legend: &gt;</legend><p class='error'>Error: Project file not found: Standalone?099ae2bff03dc470aeab64277a426a3c.tex-inline › 099ae2bff03dc470aeab64277a426a3c.tex-inline.latexml.html</p>
 </fieldset>
-<!-- a2fdb5704f92de5f12af3d2339065411.tex-inline.latexml.html --></p>
+<!-- 099ae2bff03dc470aeab64277a426a3c.tex-inline.latexml.html --></p>
 
 <p>This is oddly symmetric - maybe I abstracted it too much.  But one asymmetry is that the benefit to the host can be positive or negative, while it’s assumed positive for the guest.  Thus the host might want to invest in defense against guests, while guests will always want to associate and transfer.</p>
 
@@ -223,6 +223,175 @@ cost, and stop when the derivatives become equal.</p>
 than cost near zero investment, so investment rises from zero until the
 marginal benefit no longer exceeds marginal cost.</p>
 
+<h2 id="analysis-of-association-only-model">Analysis of association-only model</h2>
+
+<p>Let’s go through this simpler model, because this may be enough for
+the paper.</p>
+
+<h3 id="ecological-quantities">Ecological quantities</h3>
+
+<p>In the above the ecological quantities subject to variation and
+selection are $c_a$, $C_a$, the costs of each population’s
+investment in association,
+and $p$, the net probability of associating.
+The other quantities are being held fixed, and in particular,
+in the above we have $b=B=1$,
+meaning that transfer is beneficial to both guest and host. 
+Let’s keep $b$ and $B$ variable to make their role visible.</p>
+
+<p>With that we have
+<fieldset class="ww-messages"><legend>&lt;ww-messages-legend: &gt;</legend><p class='error'>Error: Project file not found: Standalone?d17d850bfe3205278d3d79f53d390d6f.tex-inline › d17d850bfe3205278d3d79f53d390d6f.tex-inline.latexml.html</p>
+</fieldset>
+<!-- d17d850bfe3205278d3d79f53d390d6f.tex-inline.latexml.html -->
+It seems clear that one could make these go either way.
+We assume $b&gt;0$ (guest benefits from transfer), and
+$\partial_0 p &gt;0$, $\partial_1 p &gt; 0$ as investment in association
+makes it more probable. Also assume $c_a$ and $C_a$ increase
+with the magnitude of investment, so the sign of their derivative
+matches the sign of the argument, and is zero at 0.</p>
+
+<p>It follows that at the neutral point $(x_a,X_a)=(0,0)$,
+selection is positive on $x_a$, and selection on $X_a$ matches
+the sign of $B$.
+In many cases, depending on the functional forms of $p$, $c_a$,
+and $C_a$, there will be an equilibrium at which these differences
+come to zero, and in cases where there is not, it is possible
+for investment to diverge away from zero.</p>
+
+<h2 id="interactions">Interactions</h2>
+
+<p>Under these assumptions, in which $r, R$ aren’t affected by
+investment in association, all selection is via the interaction
+terms $a_{gH}$, $a_{Hg}$.</p>
+
+<p>The guest is selected to raise $a_{gH}$ by adjusting $x_a$, which
+changes $p$ and $c_a$. Specifically, it raises $x_a$, which
+raises
+<fieldset class="ww-messages"><legend>&lt;ww-messages-legend: &gt;</legend><p class='error'>Error: Project file not found: Standalone?165b02e3a31c1e53d1f15c36fe8fd886.tex-inline › 165b02e3a31c1e53d1f15c36fe8fd886.tex-inline.latexml.html</p>
+</fieldset>
+<!-- 165b02e3a31c1e53d1f15c36fe8fd886.tex-inline.latexml.html -->
+by increasing $bp$ more than it increases $c_a$,
+and stops when increase in $c_a$ becomes as large as the
+increase in benefit.</p>
+
+<p>The host is selected to raise
+<fieldset class="ww-messages"><legend>&lt;ww-messages-legend: &gt;</legend><p class='error'>Error: Project file not found: Standalone?572a6a157a0f857859fa832da592463e.tex-inline › 572a6a157a0f857859fa832da592463e.tex-inline.latexml.html</p>
+</fieldset>
+<!-- 572a6a157a0f857859fa832da592463e.tex-inline.latexml.html -->
+If $B$ is negative, this is done by reducing $p$,
+via reducing $X_a$ below zero, even though this
+raises the cost $C_a$. This proceeds until the
+cost increases are too much.</p>
+
+<p>If $B$ is positive, the host raises $p$ by raising
+$X_a$ until the cost becomes limiting.</p>
+
+<p>Thus the direct effect of guest selection on the interaction
+pair is to raise $a_{gH}$,
+and of host selection is to raise $a_{Hg}$.</p>
+
+<p>Guest selection impacts $a_{Hg}$ indirectly via $p$:
+if $B$ is positive the indirect effect is positive,
+and if $B$ is negative it is negative.
+Likewise host selection affects $a_{gH}$ indirectly,
+positively if $B$ is positive
+and negatively if $B$ is negative.</p>
+
+<p>Thus the guest and host have matching incentives when
+both $b$ and $B$ are positive,
+and will construct a mutualism,
+and have conflicting incentives when $B&lt;0&lt;b$,
+and will pull in opposite directions, with the
+outcome depending on which has more influence over the
+changing interaction.</p>
+
+<p>Under the assumption that $p$, $c_a$, and $C_a$
+are nonnegative,
+$a_{gH}$ can be any sign, and
+$a_{Hg}$ can be any sign if
+$B$ is positive and can only be negative
+if $B$ is negative.
+In the latter, conflicting case,
+an equilibrium level of $p$ will be reached
+that depends on the details.
+If it is small, $a_{gH}$ will be negative
+and $a_{Hg}$ will be negative but small;
+if $p$ is large at equilibrium, 
+$a_{gH}$ will be positive and
+$a_{Hg}$ will be large and negative.</p>
+
+<p>Thus the outcome is mutualistic when
+incentives are aligned,
+and either competitive or parasitic
+when incentives are in conflict.</p>
+
+<p>[@@ todo: verify these conclusions numerically.
+Is the competitive outcome realistic?
+Why wouldn’t the guest abandon association in that case?]</p>
+
+<h2 id="calculations">Calculations</h2>
+
+<p>Using functional forms
+<fieldset class="ww-messages"><legend>&lt;ww-messages-legend: &gt;</legend><p class='error'>Error: Project file not found: Standalone?cf1ed32328a65dcbc64fa2510c24d49a.tex-inline › cf1ed32328a65dcbc64fa2510c24d49a.tex-inline.latexml.html</p>
+</fieldset>
+<!-- cf1ed32328a65dcbc64fa2510c24d49a.tex-inline.latexml.html -->
+and restricting to the region where these forms work,
+$-\frac12\leq x_a+X_a\leq\frac12$,
+the equations for adaptive equilibrium are
+<fieldset class="ww-messages"><legend>&lt;ww-messages-legend: &gt;</legend><p class='error'>Error: Project file not found: Standalone?2860fd8edcf558200a5a322e1df032c8.tex-inline › 2860fd8edcf558200a5a322e1df032c8.tex-inline.latexml.html</p>
+</fieldset>
+<!-- 2860fd8edcf558200a5a322e1df032c8.tex-inline.latexml.html -->
+Combining:
+<fieldset class="ww-messages"><legend>&lt;ww-messages-legend: &gt;</legend><p class='error'>Error: Project file not found: Standalone?733ab775969339d6ee4eecd197e1a021.tex-inline › 733ab775969339d6ee4eecd197e1a021.tex-inline.latexml.html</p>
+</fieldset>
+<!-- 733ab775969339d6ee4eecd197e1a021.tex-inline.latexml.html -->
+Thus $x_a$ is positive and $X_a$ has the sign of $B$.</p>
+
+<p>If $B&gt;0$, then both $x$ variables are positive, $p&gt;\frac12$,
+<fieldset class="ww-messages"><legend>&lt;ww-messages-legend: &gt;</legend><p class='error'>Error: Project file not found: Standalone?33cf2ba75014c8b32f41422dac774192.tex-inline › 33cf2ba75014c8b32f41422dac774192.tex-inline.latexml.html</p>
+</fieldset>
+<!-- 33cf2ba75014c8b32f41422dac774192.tex-inline.latexml.html -->
+and
+<fieldset class="ww-messages"><legend>&lt;ww-messages-legend: &gt;</legend><p class='error'>Error: Project file not found: Standalone?a20d9467cfaffce5aa29d9b338795093.tex-inline › a20d9467cfaffce5aa29d9b338795093.tex-inline.latexml.html</p>
+</fieldset>
+<!-- a20d9467cfaffce5aa29d9b338795093.tex-inline.latexml.html --></p>
+
+<p>If $B&lt;0$, then $X_a&lt;0$, and
+<fieldset class="ww-messages"><legend>&lt;ww-messages-legend: &gt;</legend><p class='error'>Error: Project file not found: Standalone?5e41cc82fffbbc1668d6e66a75d349a2.tex-inline › 5e41cc82fffbbc1668d6e66a75d349a2.tex-inline.latexml.html</p>
+</fieldset>
+<!-- 5e41cc82fffbbc1668d6e66a75d349a2.tex-inline.latexml.html -->
+if $-\frac{B}\Gamma &lt; 1 + \frac{b}{2\gamma}$;
+<fieldset class="ww-messages"><legend>&lt;ww-messages-legend: &gt;</legend><p class='error'>Error: Project file not found: Standalone?1313938d10bc1256919175172c37be72.tex-inline › 1313938d10bc1256919175172c37be72.tex-inline.latexml.html</p>
+</fieldset>
+<!-- 1313938d10bc1256919175172c37be72.tex-inline.latexml.html -->
+if $-\frac{B}{\Gamma} &gt; 1 + \frac{b}{\gamma}$.</p>
+
+<p>In this case there are three generic cases:
+<fieldset class="ww-messages"><legend>&lt;ww-messages-legend: &gt;</legend><p class='error'>Error: Project file not found: Standalone?ee18be03b1322d772ef87abe634a3a18.tex-inline › ee18be03b1322d772ef87abe634a3a18.tex-inline.latexml.html</p>
+</fieldset>
+<!-- ee18be03b1322d772ef87abe634a3a18.tex-inline.latexml.html -->
+Interestingly, mutualism is only possible in the $B&gt;0$ case,
+in which case it is necessary.</p>
+
+<p>What does this have to do with constraint structure and
+constraintfree selection?</p>
+
+<p>By hypothesis, the $B&lt;0$ results must be due to constraint
+structure because constraint-free selection on $a$ points to
+mutualism.</p>
+
+<p>Verify that $\dot{a}$ points negative at the origin?</p>
+
+<p>Given the above, when $a_{gH} = a_{Hg} = 0$,
+we would have
+<fieldset class="ww-messages"><legend>&lt;ww-messages-legend: &gt;</legend><p class='error'>Error: Project file not found: Standalone?8895edda18d73dadee7d4d6c3f2afdc7.tex-inline › 8895edda18d73dadee7d4d6c3f2afdc7.tex-inline.latexml.html</p>
+</fieldset>
+<!-- 8895edda18d73dadee7d4d6c3f2afdc7.tex-inline.latexml.html -->
+# END OF USEFUL PART, MAYBE</p>
+
+<p>The following more complex model treatments might be overkill,
+and not worth bothering with.</p>
+
 <h1 id="evolution-of-transfer">Evolution of transfer</h1>
 
 <p>Maybe transfer, when association is held fixed, will behave similarly.</p>
@@ -288,9 +457,9 @@ transfer, drives the polarization?</p>
 </fieldset>
 <!-- a1e86ede2a27570984c9ca943347b48e.tex-math.latexml.html --> goes downward.  Given that it’s</p>
 
-<p><fieldset class="ww-messages"><legend>&lt;ww-messages-legend: &gt;</legend><p class='error'>Error: Project file not found: Standalone?c3740faa91d575ed76046daa8b48a052.tex-inline › c3740faa91d575ed76046daa8b48a052.tex-inline.latexml.html</p>
+<p><fieldset class="ww-messages"><legend>&lt;ww-messages-legend: &gt;</legend><p class='error'>Error: Project file not found: Standalone?fb69338e2693bb6244bf02d2cdbc7b10.tex-inline › fb69338e2693bb6244bf02d2cdbc7b10.tex-inline.latexml.html</p>
 </fieldset>
-<!-- c3740faa91d575ed76046daa8b48a052.tex-inline.latexml.html --></p>
+<!-- fb69338e2693bb6244bf02d2cdbc7b10.tex-inline.latexml.html --></p>
 
 <p>with <fieldset class="ww-messages"><legend>&lt;ww-messages-legend: &gt;</legend><p class='error'>Error: Project file not found: Standalone?d429ddac56e57c68fc6c3afe43388401.tex-math › d429ddac56e57c68fc6c3afe43388401.tex-math.latexml.html</p>
 </fieldset>
@@ -325,9 +494,13 @@ the cost <fieldset class="ww-messages"><legend>&lt;ww-messages-legend: &gt;</leg
 </fieldset>
 <!-- sea-up.sage.out.latexml.html --></p>
 
-<p><!-- sea-up-ts.svg --><object data="/adaptive-dynamics-research/wmd_files/Selection_Gradients/sea-up-ts.svg" type="image/svg+xml"><img src="/adaptive-dynamics-research/wmd_files/Selection_Gradients/sea-up-ts.png" alt="sea-up-ts.svg"/></object></p>
+<p><fieldset class="ww-messages"><legend>&lt;ww-messages-legend: &gt;</legend><p class='error'>Error: Project file not found: Selection_Gradients › sea-up-ts.svg</p>
+</fieldset>
+<!-- sea-up-ts.svg --></p>
 
-<p><!-- sea-up-values.svg --><object data="/adaptive-dynamics-research/wmd_files/Selection_Gradients/sea-up-values.svg" type="image/svg+xml"><img src="/adaptive-dynamics-research/wmd_files/Selection_Gradients/sea-up-values.png" alt="sea-up-values.svg"/></object></p>
+<p><fieldset class="ww-messages"><legend>&lt;ww-messages-legend: &gt;</legend><p class='error'>Error: Project file not found: Selection_Gradients › sea-up-values.svg</p>
+</fieldset>
+<!-- sea-up-values.svg --></p>
 
 <p><!-- sea-up-c-values.svg --><object data="/adaptive-dynamics-research/wmd_files/Selection_Gradients/sea-up-c-values.svg" type="image/svg+xml"><img src="/adaptive-dynamics-research/wmd_files/Selection_Gradients/sea-up-c-values.png" alt="sea-up-c-values.svg"/></object></p>
 
@@ -347,7 +520,9 @@ increase in mutualism is enough for my purposes.</p>
 
 <p></p>
 
-<p><!-- sea-up-a.svg --><object data="/adaptive-dynamics-research/wmd_files/Selection_Gradients/sea-up-a.svg" type="image/svg+xml"><img src="/adaptive-dynamics-research/wmd_files/Selection_Gradients/sea-up-a.png" alt="sea-up-a.svg"/></object></p>
+<p><fieldset class="ww-messages"><legend>&lt;ww-messages-legend: &gt;</legend><p class='error'>Error: Project file not found: Selection_Gradients › sea-up-a.svg</p>
+</fieldset>
+<!-- sea-up-a.svg --></p>
 
 <p><fieldset class="ww-messages"><legend>&lt;ww-messages-legend: &gt;</legend><p class='error'>Error: Project file not found: Selection_Gradients › sea-up-a.sage.out.latexml.html</p>
 </fieldset>
@@ -410,13 +585,13 @@ both <fieldset class="ww-messages"><legend>&lt;ww-messages-legend: &gt;</legend>
 <!-- 93dd5f8f92632181f8418b803b94d4a3.tex-math.latexml.html -->, casually.
 What are the conditions for incentive to increase <!-- 0cc175b9c0f1b6a831c399e269772661.tex-math.latexml.html --><span class="latexml"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="a" display="inline"><mi>a</mi></math></span>:
 it always increases:
-<fieldset class="ww-messages"><legend>&lt;ww-messages-legend: &gt;</legend><p class='error'>Error: Project file not found: Standalone?8bb3d1e3ecaebe8d2cd23682c54fa925.tex-inline › 8bb3d1e3ecaebe8d2cd23682c54fa925.tex-inline.latexml.html</p>
+<fieldset class="ww-messages"><legend>&lt;ww-messages-legend: &gt;</legend><p class='error'>Error: Project file not found: Standalone?3d8426a69bba603adc2e850d731e79ca.tex-inline › 3d8426a69bba603adc2e850d731e79ca.tex-inline.latexml.html</p>
 </fieldset>
-<!-- 8bb3d1e3ecaebe8d2cd23682c54fa925.tex-inline.latexml.html -->
+<!-- 3d8426a69bba603adc2e850d731e79ca.tex-inline.latexml.html -->
 For positive indirect effect:
-<fieldset class="ww-messages"><legend>&lt;ww-messages-legend: &gt;</legend><p class='error'>Error: Project file not found: Standalone?5d1f028a4d5a244b5a0e5b68e0e30a23.tex-inline › 5d1f028a4d5a244b5a0e5b68e0e30a23.tex-inline.latexml.html</p>
+<fieldset class="ww-messages"><legend>&lt;ww-messages-legend: &gt;</legend><p class='error'>Error: Project file not found: Standalone?6378c16adab726e6a75c6bb5f2943c16.tex-inline › 6378c16adab726e6a75c6bb5f2943c16.tex-inline.latexml.html</p>
 </fieldset>
-<!-- 5d1f028a4d5a244b5a0e5b68e0e30a23.tex-inline.latexml.html -->
+<!-- 6378c16adab726e6a75c6bb5f2943c16.tex-inline.latexml.html -->
 This requires <fieldset class="ww-messages"><legend>&lt;ww-messages-legend: &gt;</legend><p class='error'>Error: Project file not found: Standalone?12c7acffa10294560a339fa9f4796b80.tex-math › 12c7acffa10294560a339fa9f4796b80.tex-math.latexml.html</p>
 </fieldset>
 <!-- 12c7acffa10294560a339fa9f4796b80.tex-math.latexml.html -->, <fieldset class="ww-messages"><legend>&lt;ww-messages-legend: &gt;</legend><p class='error'>Error: Project file not found: Standalone?0486da111bb6090cab236af8666d3a64.tex-math › 0486da111bb6090cab236af8666d3a64.tex-math.latexml.html</p>
@@ -429,9 +604,9 @@ party’s indirect impact, which are composed from different values.
 They need the sum to be positive.
 I guess we could consider the sum of <!-- 0cc175b9c0f1b6a831c399e269772661.tex-math.latexml.html --><span class="latexml"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="a" display="inline"><mi>a</mi></math></span> terms?
 For that we get
-<fieldset class="ww-messages"><legend>&lt;ww-messages-legend: &gt;</legend><p class='error'>Error: Project file not found: Standalone?b838635a6b09fbb69b2ef4e742b17193.tex-inline › b838635a6b09fbb69b2ef4e742b17193.tex-inline.latexml.html</p>
+<fieldset class="ww-messages"><legend>&lt;ww-messages-legend: &gt;</legend><p class='error'>Error: Project file not found: Standalone?74f49abfd637f367c321a7a16673ac6b.tex-inline › 74f49abfd637f367c321a7a16673ac6b.tex-inline.latexml.html</p>
 </fieldset>
-<!-- b838635a6b09fbb69b2ef4e742b17193.tex-inline.latexml.html --></p>
+<!-- 74f49abfd637f367c321a7a16673ac6b.tex-inline.latexml.html --></p>
 
 <p>When is <fieldset class="ww-messages"><legend>&lt;ww-messages-legend: &gt;</legend><p class='error'>Error: Project file not found: Standalone?5b08daec5d22ce90cc0a62eb203b7b30.tex-math › 5b08daec5d22ce90cc0a62eb203b7b30.tex-math.latexml.html</p>
 </fieldset>
@@ -472,9 +647,9 @@ that’s <fieldset class="ww-messages"><legend>&lt;ww-messages-legend: &gt;</leg
 The change in <fieldset class="ww-messages"><legend>&lt;ww-messages-legend: &gt;</legend><p class='error'>Error: Project file not found: Standalone?83878c91171338902e0fe0fb97a8c47a.tex-math › 83878c91171338902e0fe0fb97a8c47a.tex-math.latexml.html</p>
 </fieldset>
 <!-- 83878c91171338902e0fe0fb97a8c47a.tex-math.latexml.html --> is 
-<fieldset class="ww-messages"><legend>&lt;ww-messages-legend: &gt;</legend><p class='error'>Error: Project file not found: Standalone?f7c74c8a81f58d7676d5d557d0a32cb2.tex-inline › f7c74c8a81f58d7676d5d557d0a32cb2.tex-inline.latexml.html</p>
+<fieldset class="ww-messages"><legend>&lt;ww-messages-legend: &gt;</legend><p class='error'>Error: Project file not found: Standalone?a220378f7dc0dc81f8c7cc9442dd6285.tex-inline › a220378f7dc0dc81f8c7cc9442dd6285.tex-inline.latexml.html</p>
 </fieldset>
-<!-- f7c74c8a81f58d7676d5d557d0a32cb2.tex-inline.latexml.html -->
+<!-- a220378f7dc0dc81f8c7cc9442dd6285.tex-inline.latexml.html -->
 If we imagine both players being roughly the same,
 this is what we were calling <fieldset class="ww-messages"><legend>&lt;ww-messages-legend: &gt;</legend><p class='error'>Error: Project file not found: Standalone?ef30f818cc68a6ce98e0bd1db887c655.tex-math › ef30f818cc68a6ce98e0bd1db887c655.tex-math.latexml.html</p>
 </fieldset>

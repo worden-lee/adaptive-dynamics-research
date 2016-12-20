@@ -2,13 +2,7 @@
 from sage.all_cmdline import *   # import sage library
 _sage_const_3 = Integer(3); _sage_const_2 = Integer(2); _sage_const_1 = Integer(1); _sage_const_0 = Integer(0); _sage_const_4 = Integer(4)# requires: maclevmodels.py maclev-1-1-mc-adap-geom.sobj
 # produces: maclev-1-1-d1A-vector-field.png
-import os
-import sys
-sys.path.append( os.environ['SageUtils'] )
-sys.path.append( os.environ['SageDynamics'] )
-sys.path.append( os.environ['SageAdaptiveDynamics'] )
 from dynamicalsystems import *
-from adaptivedynamics import *
 load_session( 'maclev-1-1-mc-adap-geom' )
 fixed_parameter_bindings = Bindings( 
   { SR.var('r_0'): _sage_const_1 , SR.var('w_0'): _sage_const_1 , SR.var('b_0'): _sage_const_1 , SR.var('m_0'): _sage_const_1 ,

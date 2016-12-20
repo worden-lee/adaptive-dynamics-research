@@ -3,7 +3,7 @@ from sage.all_cmdline import *   # import sage library
 _sage_const_0 = Integer(0)# requires: sealv.py
 # requires: sea-up.sobj
 # produces: sea-up-a.sage.out.tex
-# produces: sea-up-a.svg
+# produces: #sea-up-a.svg
 from sealv import *
 from seamodel import *
 import dynamicalsystems, lotkavolterra
@@ -49,4 +49,4 @@ ltx.write( dynamicalsystems.dgroup(
 
 ltx.close()
 
-aap = lotkavolterra.plot_aij_with_arrows( adap_traj, uplv_n, filename='sea-up-a.svg' )
+#aap = lotkavolterra.plot_aij_with_arrows( adap_traj, uplv_n, filename='sea-up-a.svg' )

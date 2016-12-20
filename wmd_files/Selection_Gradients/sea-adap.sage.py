@@ -4,14 +4,13 @@ _sage_const_1 = Integer(1); _sage_const_0 = Integer(0)# requires: sea.sobj
 # produces: sea-adap.sobj sea-adap.sage.out.tex
 from sage.all import * 
 from sage.misc.latex import _latex_file_
-import dynamicalsystems
-from dynamicalsystems import indexer, subscriptedsymbol, Bindings
+from dynamicalsystems import *
 from seamodel import *
 
 load_session( 'sea' )
 ltx = dynamicalsystems.latex_output( 'sea-adap.sage.out.tex' )
 
-sea_adap_c = dynamicalsystems.AdaptiveDynamicsModel( 
+sea_adap_c = AdaptiveDynamicsModel( 
     sea,
     [ sea._indexers[s] for s in ('r', 'c_g','c_a','c_t') ] +
     [ indexer( bcfn ), indexer( pcfn ) ],
@@ -19,8 +18,8 @@ sea_adap_c = dynamicalsystems.AdaptiveDynamicsModel(
 )
 
 ltx.write( 'Whence the selective pressure on the ecological quantities is' )
-ltx.write( dynamicalsystems.dgroup( [ [ v, sea_adap_c._S[v] ] for v in sea_adap_c._vars ], op=r'\to' ) )
-#ltx.write_environment( 'align*', '\\\\\n  '.join( r'\frac{d%s}{dt} &\propto %s' % (dynamicalsystems.latex_math(v), dynamicalsystems.latex_math(sea_adap_c._S[v])) for v in sea_adap_c._vars ) )
+ltx.write( dgroup( [ [ v, sea_adap_c._S[v] ] for v in sea_adap_c._vars ], op=r'\to' ) )
+#ltx.write_environment( 'align*', '\\\\\n  '.join( r'\frac{d%s}{dt} &\propto %s' % (latex_math(v), latex_math(sea_adap_c._S[v])) for v in sea_adap_c._vars ) )
 
 ## phenotype indexers for sea correlation
 
@@ -40,7 +39,7 @@ sea_f = SeaSymbiosisModel(
 ltx.write( 'Dynamics with constraints:' )
 ltx.write( sea_f )
 
-sea_adap_f = dynamicalsystems.AdaptiveDynamicsModel( 
+sea_adap_f = AdaptiveDynamicsModel( 
     sea_f,
     [ a_indexer, t_indexer ],
     equilibrium=sea_f.symbolic_equilibria(),
@@ -51,10 +50,10 @@ sea_adap_f = dynamicalsystems.AdaptiveDynamicsModel(
 seaquil = sea_f.interior_equilibria()
 
 ltx.write( 'And selective pressure on constraining characters is' )
-ltx.write( dynamicalsystems.dgroup( [ [ v, sea_adap_f._S[v] ] for v in sea_adap_f._vars ], op=r'\propto' ) )
+ltx.write( dgroup( [ [ dot(v), latex_partials_representation()( sea_adap_f._S[v] ) ] for v in sea_adap_f._vars ], op=r'\propto' ) )
 
 ltx.close()
 
 _save_symbols = { sv:lv for sv,lv in ( (str(v), latex(v)) for v in sage.symbolic.ring.pynac_symbol_registry.values() ) if sv != lv }
-save_session('sea-adap')
 
+save_session('sea-adap')

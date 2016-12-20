@@ -38,23 +38,32 @@ Or\iflatexml
 \end{dgroup*}
 \fi
 And its adaptive dynamics is\iflatexml
+
 \begin{align*}
-\frac{d{X}_{{a}{0}}}{dt} &= {\left(\hat{{n}}_{0} B\left({x}_{{t}{0}}, {X}_{{t}{0}}\right) D[1]\left(p\right)\left({x}_{{a}{0}}, {X}_{{a}{0}}\right) - \hat{{n}}_{0} C_{t}\left({X}_{{t}{0}}\right) D[1]\left(p\right)\left({x}_{{a}{0}}, {X}_{{a}{0}}\right) - \hat{{n}}_{0} D[0]\left(C_{a}\right)\left({X}_{{a}{0}}\right) - D[0]\left(C_{g}\right)\left({X}_{{a}{0}}\right)\right)} \hat{{N}}_{0}\\
-\frac{d{X}_{{t}{0}}}{dt} &= {\left(\hat{{n}}_{0} p\left({x}_{{a}{0}}, {X}_{{a}{0}}\right) D[1]\left(B\right)\left({x}_{{t}{0}}, {X}_{{t}{0}}\right) - \hat{{n}}_{0} p\left({x}_{{a}{0}}, {X}_{{a}{0}}\right) D[0]\left(C_{t}\right)\left({X}_{{t}{0}}\right)\right)} \hat{{N}}_{0}\\
-\frac{d{x}_{{a}{0}}}{dt} &= {\left(\hat{{N}}_{0} b\left({x}_{{t}{0}}, {X}_{{t}{0}}\right) D[0]\left(p\right)\left({x}_{{a}{0}}, {X}_{{a}{0}}\right) - \hat{{N}}_{0} c_{t}\left({x}_{{t}{0}}\right) D[0]\left(p\right)\left({x}_{{a}{0}}, {X}_{{a}{0}}\right) - \hat{{N}}_{0} D[0]\left(c_{a}\right)\left({x}_{{a}{0}}\right) - D[0]\left(c_{g}\right)\left({x}_{{a}{0}}\right)\right)} \hat{{n}}_{0}\\
-\frac{d{x}_{{t}{0}}}{dt} &= {\left(\hat{{N}}_{0} p\left({x}_{{a}{0}}, {X}_{{a}{0}}\right) D[0]\left(b\right)\left({x}_{{t}{0}}, {X}_{{t}{0}}\right) - \hat{{N}}_{0} p\left({x}_{{a}{0}}, {X}_{{a}{0}}\right) D[0]\left(c_{t}\right)\left({x}_{{t}{0}}\right)\right)} \hat{{n}}_{0}
+  \dot{{X}}_{{a}{0}} = {\left(\hat{{n}}_{0} \partial_{1}p({x}_{{a}{0}}, {X}_{{a}{0}}) B\left({x}_{{t}{0}}, {X}_{{t}{0}}\right) - \hat{{n}}_{0} \partial_{1}p({x}_{{a}{0}}, {X}_{{a}{0}}) C_{t}\left({X}_{{t}{0}}\right) - {C_a}'({X}_{{a}{0}}) \hat{{n}}_{0} - {C_g}'({X}_{{a}{0}})\right)} \hat{{N}}_{0}\\
+  \dot{{X}}_{{t}{0}} = -{\left({C_t}'({X}_{{t}{0}}) \hat{{n}}_{0} p\left({x}_{{a}{0}}, {X}_{{a}{0}}\right) - \hat{{n}}_{0} \partial_{1}B({x}_{{t}{0}}, {X}_{{t}{0}}) p\left({x}_{{a}{0}}, {X}_{{a}{0}}\right)\right)} \hat{{N}}_{0}\\
+  \dot{{x}}_{{a}{0}} = {\left(\hat{{N}}_{0} \partial_{0}p({x}_{{a}{0}}, {X}_{{a}{0}}) b\left({x}_{{t}{0}}, {X}_{{t}{0}}\right) - \hat{{N}}_{0} \partial_{0}p({x}_{{a}{0}}, {X}_{{a}{0}}) c_{t}\left({x}_{{t}{0}}\right) - \hat{{N}}_{0} {c_a}'({x}_{{a}{0}}) - {c_g}'({x}_{{a}{0}})\right)} \hat{{n}}_{0}\\
+  \dot{{x}}_{{t}{0}} = -{\left(\hat{{N}}_{0} {c_t}'({x}_{{t}{0}}) p\left({x}_{{a}{0}}, {X}_{{a}{0}}\right) - \hat{{N}}_{0} \partial_{0}b({x}_{{t}{0}}, {X}_{{t}{0}}) p\left({x}_{{a}{0}}, {X}_{{a}{0}}\right)\right)} \hat{{n}}_{0}
 \end{align*}
 \else
 \begin{dgroup*}
+  
 \begin{dmath*}
-\frac{d{X}_{{a}{0}}}{dt} = {\left(\hat{{n}}_{0} B\left({x}_{{t}{0}}, {X}_{{t}{0}}\right) D[1]\left(p\right)\left({x}_{{a}{0}}, {X}_{{a}{0}}\right) - \hat{{n}}_{0} C_{t}\left({X}_{{t}{0}}\right) D[1]\left(p\right)\left({x}_{{a}{0}}, {X}_{{a}{0}}\right) - \hat{{n}}_{0} D[0]\left(C_{a}\right)\left({X}_{{a}{0}}\right) - D[0]\left(C_{g}\right)\left({X}_{{a}{0}}\right)\right)} \hat{{N}}_{0}\end{dmath*}
-\begin{dmath*}
-\frac{d{X}_{{t}{0}}}{dt} = {\left(\hat{{n}}_{0} p\left({x}_{{a}{0}}, {X}_{{a}{0}}\right) D[1]\left(B\right)\left({x}_{{t}{0}}, {X}_{{t}{0}}\right) - \hat{{n}}_{0} p\left({x}_{{a}{0}}, {X}_{{a}{0}}\right) D[0]\left(C_{t}\right)\left({X}_{{t}{0}}\right)\right)} \hat{{N}}_{0}\end{dmath*}
-\begin{dmath*}
-\frac{d{x}_{{a}{0}}}{dt} = {\left(\hat{{N}}_{0} b\left({x}_{{t}{0}}, {X}_{{t}{0}}\right) D[0]\left(p\right)\left({x}_{{a}{0}}, {X}_{{a}{0}}\right) - \hat{{N}}_{0} c_{t}\left({x}_{{t}{0}}\right) D[0]\left(p\right)\left({x}_{{a}{0}}, {X}_{{a}{0}}\right) - \hat{{N}}_{0} D[0]\left(c_{a}\right)\left({x}_{{a}{0}}\right) - D[0]\left(c_{g}\right)\left({x}_{{a}{0}}\right)\right)} \hat{{n}}_{0}\end{dmath*}
-\begin{dmath*}
-\frac{d{x}_{{t}{0}}}{dt} = {\left(\hat{{N}}_{0} p\left({x}_{{a}{0}}, {X}_{{a}{0}}\right) D[0]\left(b\right)\left({x}_{{t}{0}}, {X}_{{t}{0}}\right) - \hat{{N}}_{0} p\left({x}_{{a}{0}}, {X}_{{a}{0}}\right) D[0]\left(c_{t}\right)\left({x}_{{t}{0}}\right)\right)} \hat{{n}}_{0}
+  \dot{{X}}_{{a}{0}} = {\left(\hat{{n}}_{0} \partial_{1}p({x}_{{a}{0}}, {X}_{{a}{0}}) B\left({x}_{{t}{0}}, {X}_{{t}{0}}\right) - \hat{{n}}_{0} \partial_{1}p({x}_{{a}{0}}, {X}_{{a}{0}}) C_{t}\left({X}_{{t}{0}}\right) - {C_a}'({X}_{{a}{0}}) \hat{{n}}_{0} - {C_g}'({X}_{{a}{0}})\right)} \hat{{N}}_{0}
 \end{dmath*}
+
+\begin{dmath*}
+  \dot{{X}}_{{t}{0}} = -{\left({C_t}'({X}_{{t}{0}}) \hat{{n}}_{0} p\left({x}_{{a}{0}}, {X}_{{a}{0}}\right) - \hat{{n}}_{0} \partial_{1}B({x}_{{t}{0}}, {X}_{{t}{0}}) p\left({x}_{{a}{0}}, {X}_{{a}{0}}\right)\right)} \hat{{N}}_{0}
+\end{dmath*}
+
+\begin{dmath*}
+  \dot{{x}}_{{a}{0}} = {\left(\hat{{N}}_{0} \partial_{0}p({x}_{{a}{0}}, {X}_{{a}{0}}) b\left({x}_{{t}{0}}, {X}_{{t}{0}}\right) - \hat{{N}}_{0} \partial_{0}p({x}_{{a}{0}}, {X}_{{a}{0}}) c_{t}\left({x}_{{t}{0}}\right) - \hat{{N}}_{0} {c_a}'({x}_{{a}{0}}) - {c_g}'({x}_{{a}{0}})\right)} \hat{{n}}_{0}
+\end{dmath*}
+
+\begin{dmath*}
+  \dot{{x}}_{{t}{0}} = -{\left(\hat{{N}}_{0} {c_t}'({x}_{{t}{0}}) p\left({x}_{{a}{0}}, {X}_{{a}{0}}\right) - \hat{{N}}_{0} \partial_{0}b({x}_{{t}{0}}, {X}_{{t}{0}}) p\left({x}_{{a}{0}}, {X}_{{a}{0}}\right)\right)} \hat{{n}}_{0}
+\end{dmath*}
+
 \end{dgroup*}
 \fi
 Or \iflatexml

@@ -30,7 +30,7 @@ ltx.write( 'As before, the adaptive dynamics of $u$ is' )
 ltx.write_equality( wrap_latex('\\mathbf S' + latex( maclev_adap_lv.A(0) )),
     maclev_adap_lv.S( maclev_adap_lv.A(0) ),
     maclev_adap_lv._lv_model.interior_equilibrium_bindings()( maclev_adap_lv.S( maclev_adap_lv.A(0) ) ) )
-ltx.write_block( maclev_adap_lv._adaptivedynamics )
+ltx.write( maclev_adap_lv._adaptivedynamics )
 
 save_session( 'maclev-1-1-ak-adap-geom' )
 ltx.close()
@@ -41,7 +41,7 @@ exit()
 maclev_lv = GeneralizedLotkaVolterraModel( [0], r = indexer('k') )
 
 ltx.write( "Abstract Lotka-Volterra model corresponding to the 1-population Mac-Lev model:" )
-ltx.write_block( maclev_adap_lv )
+ltx.write( maclev_adap_lv )
 
 # Here is the adaptive dynamics of the Lotka-Volterra model
 # We get the general S(A) using this unparametrized lv system; we'll add
@@ -95,19 +95,19 @@ maclev_lv_u = GeneralizedLotkaVolterraModel( [0],
   a = indexer(lambda i: indexer(lambda j: af(SR('u_%s'%i),SR('u_%s'%j)))) )
 
 #ltx.write( 'now with $a$ and $k$ as functions of $u$:' )
-#ltx.write_block( maclev_lv_u )
+#ltx.write( maclev_lv_u )
 
 #ltx.write( 'with coefficients:' )
-#ltx.write_block( A_bindings )
+#ltx.write( A_bindings )
 
 # then bind a, k to specific functions of u, to be precise, with
 # c_0i = u_i, b_i = m_1 = 1
 maclev_lv = maclev_lv_u.bind( A_bindings )
 #ltx.write( 'becomes:' )
-#ltx.write_block( maclev_lv )
+#ltx.write( maclev_lv )
 
 #ltx.write( '(a 2-variable system would be ' )
-#ltx.write_block( GeneralizedLotkaVolterraModel( [0, 1],
+#ltx.write( GeneralizedLotkaVolterraModel( [0, 1],
 #  k = indexer(lambda i:'k(u_%s)'%i),
 #  a = indexer(lambda i: indexer(lambda j: 'a(u_%s,u_%s)'%(i,j))),
 #  bindings = A_bindings ) )
@@ -119,9 +119,9 @@ maclev_lv_c00 = maclev_lv.bind( FunctionBindings( {
     function('m'): symbolic_expression('1').function(u_0) } ) )
 
 ltx.write( 'Now we bind $c, m, b$:' )
-ltx.write_block( maclev_lv_c00 )
+ltx.write( maclev_lv_c00 )
 ltx.write( 'maclev_lv_c00._bindings:' )
-ltx.write_block( maclev_lv_c00._bindings )
+ltx.write( maclev_lv_c00._bindings )
 
 # assign constant values to the rest of the parameters
 maclev_lv_c00_bound = maclev_lv_c00.bind( Bindings( 
@@ -129,7 +129,7 @@ maclev_lv_c00_bound = maclev_lv_c00.bind( Bindings(
     SR.var('K_0'): 2, SR.var('gamma'): 1 } ) )
 
 ltx.write( 'With all the bindings works out to:' )
-ltx.write_block( maclev_lv_c00_bound )
+ltx.write( maclev_lv_c00_bound )
 
 # and derive the adaptive dynamics of u_0 under those assumptions,
 # i.e. the adaptive dynamics of c_00 with all else held fixed.
@@ -142,7 +142,7 @@ maclev_adap_lv_c00_bound = AdaptiveDynamicsModel( maclev_lv_c00_bound,
 ltx.write( 'As before, the adaptive dynamics of $u$ is' )
 ltx.write_equality( wrap_latex('\\mathbf S' + latex( cvector( [ u_j for u_j in maclev_adap_lv_c00_bound._S.keys() ] ) ) ),
             cvector( [ dI_duj for dI_duj in maclev_adap_lv_c00_bound._S.values() ] ) )
-ltx.write_block( maclev_adap_lv_c00_bound )
+ltx.write( maclev_adap_lv_c00_bound )
 
 ltx.write( 'and' )
 ltx.write_equality( X_0, maclev_adap_lv_c00_bound._bindings( X_0 ) )
@@ -224,7 +224,7 @@ ltx.write_equality( wrap_latex('\\partial_1\mathbf A\\partial_1\mathbf A^T S(\ma
 
 d1A_curve = A_j.substitute( { u_j : initial_u } )
 #ltx.write( 'and the mysterious curve (for $v\in[%s,%s]$) is' %(initial_u-2,initial_u+2) )
-#ltx.write_block( d1A_curve )
+#ltx.write( d1A_curve )
  
 d1A_constraint = parametric_plot( (d1A_curve[0], d1A_curve[1]),
   (u_i, initial_u-2, initial_u+2), color='green' )
@@ -232,9 +232,9 @@ d1A_constraint = parametric_plot( (d1A_curve[0], d1A_curve[1]),
 #dAdu_0 = dAdu_0.substitute({u_0: initial_u, v: initial_u})
 
 #ltx.write( 'dA(v,u_0)/dv:\n' )
-#ltx.write_block( dAdv )
+#ltx.write( dAdv )
 #ltx.write( 'dA(v,u_0)/du_0:\n' )
-#ltx.write_block( dAdu_0 )
+#ltx.write( dAdu_0 )
 
 dAdt_unconstrained = A.apply_map( lambda a :  c00_bindings(maclev_adap_lv._flow[a].substitute({SR.var('a_0_0'):A_0[0][0], SR.var('k_0'):A_0[1][0]})) )
 
@@ -273,13 +273,13 @@ ltx.write_equality( wrap_latex('\\frac{dA}{dt}'),
 dudt_0 = initcond_bindings(maclev_adap_c00_bound._flow[u_0])
 dA_du_0c = dA_du_0.transpose()
 #ltx.write( 'dudt_0 =' )
-#ltx.write_block( dudt_0 )
+#ltx.write( dudt_0 )
 #ltx.write( 'dA_du_0 =' )
-#ltx.write_block( dA_du_0c )
+#ltx.write( dA_du_0c )
 
 dAdt_constrained = dA_du_0c * dudt_0
 #ltx.write( 'and dAdt_constrained =' )
-#ltx.write_block( dAdt_constrained )
+#ltx.write( dAdt_constrained )
 
 def arrow_from_cvectors(tail, length, **kargs):
     return arrow( (tail[0][0], tail[1][0]),

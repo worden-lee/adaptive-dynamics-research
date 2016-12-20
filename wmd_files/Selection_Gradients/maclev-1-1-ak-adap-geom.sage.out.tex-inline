@@ -1,0 +1,16 @@
+As before, the adaptive dynamics of $u$ is
+\[
+  \mathbf S \left(k_{0},\,{a}_{00}\right) = \left(1,\,\hat{X}_{0}\right) = \left(1,\,-\frac{k_{0}}{{a}_{00}}\right)
+\]
+\iflatexml
+\begin{align*}
+\frac{du_{0}}{dt} &= -\frac{{\left(2 \, u_{0} - 1\right)} {\left(\frac{2 \, u_{0} - 1}{u_{0}} - 2\right)}}{u_{0}^{2}}
+\end{align*}
+\else
+\begin{dgroup*}
+\begin{dmath*}
+\frac{du_{0}}{dt} = -\frac{{\left(2 \, u_{0} - 1\right)} {\left(\frac{2 \, u_{0} - 1}{u_{0}} - 2\right)}}{u_{0}^{2}}
+\end{dmath*}
+\end{dgroup*}
+\fi
+
