@@ -758,6 +758,24 @@ In this case there are three generic cases:
 Interestingly, mutualism is only possible in the $B>0$ case,
 in which case it is necessary.
 
+What does this have to do with constraint structure and
+constraintfree selection?
+
+By hypothesis, the $B<0$ results must be due to constraint
+structure because constraint-free selection on $a$ points to
+mutualism.
+
+Verify that $\dot{a}$ points negative at the origin?
+
+Given the above, when $a_{gH} = a_{Hg} = 0$,
+we would have
+\[* \frac{b}2\left( \frac{B}\Gamma + 1 + \frac{b}{2\gamma} \right) = 0 \\
+    \frac{B}\Gamma = -1 - \frac{b}{2\gamma} \\
+    \frac{B}2\left( \frac{b}\gamma + 1 + \frac{B}{2\Gamma} \right) = 0 \\
+    \frac{B}{2\Gamma} = -1 - \frac{b}\gamma
+\]
+These can not both co-occur.
+
 # END OF USEFUL PART, MAYBE
 
 The following more complex model treatments might be overkill,
