@@ -253,7 +253,10 @@ ltx.write( dgroup( [ [ dot(v), latex_partials_representation()( sea_adap_f._S[v]
 
 ltx.close()
 
-_save_symbols = { sv:lv for sv,lv in ( (str(v), latex(v)) for v in sage.symbolic.ring.pynac_symbol_registry.values() ) if sv != lv }
+try:
+    _save_symbols = { sv:lv for sv,lv in ( (str(v), latex(v)) for v in SR.symbols.values() ) if sv != lv }
+except AttributeError:
+    _save_symbols = { sv:lv for sv,lv in ( (str(v), latex(v)) for v in sage.symbolic.ring.pynac_symbol_registry.values() ) if sv != lv }
 
 save_session('sea-adap')
 </source-file>
@@ -426,12 +429,15 @@ sea_adap_down = down_b(sea_adap_f)
 ltx.write( 'And pessimistic adaptive dynamics is' )
 ltx.write( sea_adap_down )
 
-sea_adap_down.bind_in_place( seaquil[0] )
+sea_adap_down.bind_in_place( sea_adap_down._bindings(seaquil[0]) )
 #ltx.write( 'With equilibrium populations is', sea_adap_down )
 ltx.write( 'And at starting point ', vector( [ starting_comm(v) for v in sea_adap_down._vars ] ), ' is', starting_comm(sea_adap_down) )
 
 ltx.close()
-_save_symbols = { sv:lv for sv,lv in ( (str(v), latex(v)) for v in sage.symbolic.ring.pynac_symbol_registry.values() ) if sv != lv }
+try:
+    _save_symbols = { sv:lv for sv,lv in ( (str(v), latex(v)) for v in SR.symbols.values() ) if sv != lv }
+except AttributeError:
+    _save_symbols = { sv:lv for sv,lv in ( (str(v), latex(v)) for v in sage.symbolic.ring.pynac_symbol_registry.values() ) if sv != lv }
 
 save_session('sea-down')
 </source-file>
@@ -507,7 +513,7 @@ sea_adap_zero = sea_adap_f.bind( base_b, zero_ass_b, fixed_tran_b )
 ltx.write( 'And its adaptive dynamics is' )
 ltx.write( sea_adap_zero )
 
-sea_adap_zero.bind_in_place( seaquil[0] )
+sea_adap_zero.bind_in_place( Bindings( seaquil[0], sea_adap_zero._bindings ) )
 #ltx.write( 'With equilibrium populations is', sea_adap_down )
 #ltx.write( 'And at starting point ', vector( [ starting_comm(v) for v in sea_adap_zero._vars ] ), ' is', starting_comm(sea_adap_zero) )
 
@@ -556,7 +562,7 @@ ltx.write(
 	dgroup( [ [ dot(v), latex_partials_representation()( sea_adap_ass_formal._flow[v] ) ] for v in sea_adap_ass_formal._vars ], op='=' ),
 	'Or ', sea_adap_ass )
 
-sea_adap_ass.bind_in_place( seaquil[0] )
+sea_adap_ass.bind_in_place( seaquil[0], sea_adap_ass._bindings )
 #ltx.write( 'With equilibrium populations is', sea_adap_ass )
 #ltx.write( 'And at starting point ', vector( [ starting_comm(v) for v in sea_adap_ass._vars ] ), ' is', starting_comm(sea_adap_ass) )
 
@@ -813,7 +819,7 @@ ltx.write(
 	dgroup( [ [ dot(v), latex_partials_representation()( sea_adap_tran_formal._flow[v] ) ] for v in sea_adap_tran_formal._vars ], op='=' ),
 	'Or ', sea_adap_tran )
 
-sea_adap_tran.bind_in_place( seaquil[0], p=1 )
+sea_adap_tran.bind_in_place( seaquil[0], sea_adap_tran._bindings, p=1 )
 #ltx.write( 'With equilibrium populations is', sea_adap_tran )
 #ltx.write( 'And at starting point ', vector( [ starting_comm(v) for v in sea_adap_tran._vars ] ), ' is', starting_comm(sea_adap_tran) )
 
@@ -889,7 +895,7 @@ ltx.write(
 	'Or ', sea_adap_all )
 
 sea_adap_all.bind_in_place( p=1 )
-sea_adap_all_n = sea_adap_all.bind( seaquil[0] )
+sea_adap_all_n = sea_adap_all.bind( sea_adap_all._bindings( seaquil[0] ) )
 
 adap_traj = sea_adap_all_n.solve( starting_comm )
 adap_traj.plot( 't', sea_adap_all_n._vars ).save( filename='sea-all-ts.svg', figsize=(4,3) )
@@ -972,7 +978,7 @@ How to make this model select for mutualism.
 <source-file filename=sea-up.sage.step display=none>
 # requires: sea-down.sobj
 # produces: sea-up.sage.out.tex sea-up-sel.tex
-# produces: sea-up-ts.svg sea-up-values.svg
+# produces: #sea-up-ts.svg sea-up-values.svg
 from sage.all import * 
 from sage.misc.latex import _latex_file_
 import dynamicalsystems

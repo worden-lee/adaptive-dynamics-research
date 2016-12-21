@@ -57,7 +57,7 @@ css/auto-generated-from-ww.css : $(WW_CSS_TO_USE)
 # and pandoc disagree on locations within the page text, with and without
 # the YAML header included).
 WW = /usr/local/src/workingwiki
-_pandoc/%.md : %.md.wmd wmd_files/.workingwiki/.wmd.data
+_pandoc/%.md : %.md.wmd wmd_files/.workingwiki/.wmd.data _pandoc
 	php $(WW)/wmd/wmd.php --pre --title=$(TITLE) --default-project-name=$(PROJECT) --cache-dir=wmd_files --data-store=.wmd.data --modification-time=`date +%Y%m%d%H%M%s` --process-inline-math=1 --output-format=tex < $< > $@
 
 PROJECT = Selection_Gradients
@@ -67,25 +67,28 @@ _pandoc/constraint.md : TITLE="Constraints"
 #_pandoc/paper.tex : WMD_ARGS=--enable-make=0
 _pandoc/Masel.md _pandoc/Masel.tex: TITLE="'Notes on Masel Model'"
 
-_pandoc/%.md : Selection_Gradients/%.md.wmd wmd_files/.workingwiki/.wmd.data
+_pandoc/%.md : Selection_Gradients/%.md.wmd wmd_files/.workingwiki/.wmd.data _pandoc
 	php $(WW)/wmd/wmd.php --pre --title=$(TITLE) --default-project-name=$(PROJECT) --cache-dir=wmd_files --data-store=.wmd.data --modification-time=`date +%Y%m%d%H%M%s` --process-inline-math=1 --output-format=tex < $< > $@
 
-_pandoc/%.intermediate.tex : _pandoc/%.md
+_pandoc/%.intermediate.tex : _pandoc/%.md _pandoc
 	pandoc -f markdown -t latex -s --listings --include-in-header=_assets/latex-header-additions.tex -S --filter pandoc-citeproc $< -o $@
 
-_pandoc/%.tex : _pandoc/%.intermediate.tex
+_pandoc/%.tex : _pandoc/%.intermediate.tex _pandoc
 	php $(WW)/wmd/wmd.php --post --title=$(TITLE) --default-project-name=$(PROJECT) --cache-dir=wmd_files --data-store=.wmd.data --persistent-data-store --modification-time=`date +%Y%m%d%H%M%s` --output-format=tex $(WMD_ARGS) < $< > $@
 
-_pandoc/%.pdf : _pandoc/%.tex
+_pandoc/%.pdf : _pandoc/%.tex _pandoc
 	cd _pandoc && pdflatex $* && pdflatex $*
 
-%.pdf : _pandoc/%.pdf
+%.pdf : _pandoc/%.pdf _pandoc
 	mv _pandoc/$*.pdf $@
 
-#_pandoc/paper.pdf : _pandoc/%.pdf : _pandoc/%.tex
+#_pandoc/paper.pdf : _pandoc/%.pdf : _pandoc/%.tex _pandoc
 #	cd _pandoc && pdflatex $* && bibtex $* && pdflatex $* && pdflatex $*
 
-_pandoc/paper.intermediate.tex : master.bib
+_pandoc/paper.intermediate.tex : master.bib _pandoc
+
+_pandoc :
+	mkdir $@
 
 master.bib :
 	wget 'http://lalashan.mcmaster.ca/theobio/worden/index.php?title=Special:GetProjectFile&display=download&make=false&project=User%3AWuLi&filename=master.bib' -O $@
