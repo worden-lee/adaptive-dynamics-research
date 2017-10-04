@@ -8,7 +8,79 @@ wmd_project: Selection_Gradients
 
 # Introduction
 
-To be written.
+This paper ranges over multiple subjects.
+In my mind its main point is a mathematical argument
+that increase of mutual benefit has a privileged role in
+the dynamics of adaptive change in interactions, and
+an inversion of the usual framework for studying evolution
+of cooperation that follows from that mathematics.
+But if a reader finds this paper a useful description
+of externalities and incentives in evolution,
+or a source of techniques
+for analyzing adaptive change in one set of quantities
+while others are most relevant to selection,
+or a framework for describing changing game theory
+payoff matrices, I have no objection to that.
+
+I will begin by reviewing the "canonical equation" of adaptive dynamics,
+highlighting the special role of a particular partial derivative
+in picking out the changes that are incentivized for a particular
+community member from all the other changes that could happen.
+I will survey how the same form arises in describing self-interested
+change in multiple fields describing both human and natural
+adaptation, of individuals, groups, and populations,
+and how the distinction between the relevant partial derivative
+and a total derivative describes the distinction between internalized
+incentives and positive or negative externalities,
+which is closely related to the notorious tension between self-interest
+and the common good.
+
+I will review how adaptive change in a constrained quantity
+can be analyzed by describing the incentive on an unconstrained
+underlying quantity and the geometry of the constraint structure,
+and then I will use that structure to describe change in quantities
+that are not characteristics of a single adaptive agent.
+First I will look at the interplay of incentives and externalities
+on an environmental quantity, using an ecological version of
+Garrett Hardin's parable of the tragedy of the commons [cite].
+
+Second I will apply this analysis to the interaction terms of
+the generalized Lotka-Volterra model for ecological community
+dynamics, proving a description of the interplay between multiple players'
+incentives and externalized effects in determining quantitative
+and qualitative change in interactions.
+
+This analysis reveals a general and meaningful result: that
+in this framework of description, the "selection gradient"
+describing the direction of incentivized change in interactions
+always points in the direction of increasing mutual benefit.
+It is constraint structures and externalities that prevent
+increase of mutual benefit from dominating in particular cases.
+Based on this result, I argue for an inversion of a commonly
+used framework for studying evolution of cooperation:
+where it is common to assume a conflict between self-interest
+and generosity, and look for ways agents can overcome this
+tension,
+I propose that confluence of self-interest and benefit to the
+other is a default situation, and particular combinations
+of constraints and externalities that interfere with it
+can be studied, with attention to what causes them and how
+they can change.
+
+I will apply this framework to examples from the different
+quadrants of the Lotka-Volterra interaction plane,
+competition, predation, and mutualism, and
+analyze how selection for benefit to each, constraints,
+and externalities interact to produce resultant
+change in interactions due to coevolution.
+Before closing, I will spell out a mapping between
+Lotka-Volterra interactions and the entries of a game
+theory payoff matrix, and show how these results apply
+to adaptive change in those payoffs as well as to
+ecological interactions.
+
+----
+Stuff to add? Here or in discussion?
 
 Use of the four types (quadrants) of Lotka-Volterra interactions to
 classify ecological relationships, interest in the causes of mutualism
@@ -26,41 +98,307 @@ Comments on $$+/+$$ cooperation vs. standard ideas of cooperation/altruism.
 Whatever comes up re common good in the R* section.
 Cost of cooperation, emergence of dilemmas and tragedies.
 
-# Review of multidimensional adaptive dynamics
+# The selection gradient
 
-[bring (some?) from appendix.]
+A number of mathematical conventions are in use for modeling
+the effects of spontaneous variation and natural selection
+on populations of living creatures.
+I base this paper on the formulation known by its proponents
+as adaptive dynamics [@cite],
+and will discuss how the structures of most relevance to my
+argument are common to multiple modeling frameworks.
 
-Cover selection gradient, covariance matrix of mutation distribution.
+Given a mathematical model of the population dynamics of an
+ecological community comprised of one or more species,
+it is possible to use that model to describe how a variant
+population descended from one of those species would fare
+in the community.
+To make this question more tractable, we assume that
+variations arise very rarely, so that we can consider only
+long-term dynamics of the community.
+In the long term, no matter how much the population dynamics
+fluctuate, any population that does not become extinct
+must have population size bounded below by one and bounded above
+by the size of the planet, and generally bounded more strictly
+than that.
+Those conditions impose a long-term growth rate of zero
+for each "resident" population in the community.
+
+A variant introduced in very small numbers may have a positive
+growth rate in the long term if the limits of small population
+size and long duration are taken in the right order.
+In general, such a variant will eventually displace its parent
+population and become a resident population.
+Through successive replacements, gradual change in the traits of
+each population in the community results.
+
+The long term growth rate, or "invasion fitness," of a variant
+population is a function of the relevant traits of the variant,
+which we may call $$\mathbf v$$.
+It is also a function of the nature of the community in which the
+variant is introduced, defined by the traits
+$$\mathbf r_1,\ldots, \mathbf r_n$$ of the resident populations:
+
+$$\mathcal I(\mathbf v | \mathbf r_1,\ldots, \mathbf r_n)$$.
+
+The invasion fitness of each resident is 0:
+
+$$\mathcal I(\mathbf r_i | \mathbf r_1,\ldots, \mathbf r_n), i=1,\ldots,n$$.
+
+When variants are very similar to their resident parent populations,
+under the assumption that the function $$\mathcal I$$ is continuous
+their invasion fitness is close to zero, and can be small and positive
+or small and negative.
+The variant most likely to succeed and replace its parent is in the
+direction of greatest positive change of the invasion fitness $$\mathcal I$$
+when varying the first argument $$\mathbf v$$ while holding all the
+residents $$\mathbf p_1,\ldots,\mathbf p_n$$ fixed.
+That direction of greatest increase is represented by the gradient
+of the function $$\mathbf I$$ with respect to the variant:
+
+$$\nabla_{\!\mathbf v}\mathcal I(\mathbf v | \mathbf p_1, \ldots, \mathbf p_n)$$.
+
+evaluated at $$\mathbf v=\mathbf p_i$$ for the $$i$$th population.
+This gradient vector is called the "selection gradient" of population
+$$i$$.
+
+All else equal, this direction is the mean path of the changing traits
+of that population implied by the adaptive dynamics assumptions
+(see Appendix<latex>~\ref{app:adaptive-dynamics}</latex> for mathematical
+discussion).
+
+In the general case, the dynamics of adaptation takes into account
+the selection gradient, the distribution of available variation,
+and the size of the population producing variants:
+
+$$\frac{d\mathbf p_i}{dt} = \hat{X}_i \Gamma_{\mathbf p_i} \nabla_{\!\mathbf v}\left. \mathcal I(\mathbf v | \mathbf p_1, \ldots, \mathbf p_n)\right|_{\mathbf v=\mathbf p_i}$$,
+
+where $$\hat X_i$$ is the long-term average size of population $$i$$,
+$$\Gamma_{\mathbf p_i}$$ is the covariance matrix of variants produced by population $$i$$,
+and the selection gradient is evaluated at $$\mathbf v=\mathbf p_i$$,
+or in slightly different notation
+
+$$\frac{d\mathbf p_i}{dt} = \hat{X}_i \Gamma_{\mathbf p_i} \nabla_{\!1} \mathcal I(\mathbf p_i | \mathbf p_1, \ldots, \mathbf p_n)$$.
+
+This has been labelled the "canonical equation of adaptive dynamics."
+
+This way of writing it brings out an aspect of this process that will
+be of central importance in this paper.
+Notice that the vector $$\mathbf p_i$$ of the traits of population $$i$$
+appears in two different positions in the arguments to the invasion fitness
+function.
+The selection gradient describes the direction of greatest fitness
+for a rare variant of $$\mathbf p_i$$ when the entire resident community,
+including $$\mathbf p_i$$, is unchanged.
+This is very different from asking how the expression
+$$\mathcal I(\mathbf p_i|\mathbf p_1, \ldots, \mathbf p_n)$$
+would change if the traits of population $$i$$ were changed: that would
+involve changing $$\mathbf p_i$$ everywhere it appears in the expression.
+In fact, changing $$\mathbf p_i$$ would not change the value of this
+expression, as $$\mathcal I(\mathbf p_i | \mathbf p_1,\ldots,\mathbf p_n)$$
+is zero at every value of $$\mathbf p_i$$ as it is when any resident
+community is placed in the first argument position.
+
+The biological interpretation of that distinction is this:
+the invasion fitness of a fit variant $$\mathbf v\approx\mathbf p_i$$
+is the limiting value of its long term growth rate as its initial
+population size is made infinitely small, and can be positive,
+as in this case it would never become large enough to affect its
+environment.
+When the variant population is initially of finite and positive size, 
+it will grow and will eventually begin to have an impact on its
+environment, whether by occupying space that is a site of competition,
+by consuming essential resources, or via other effects.
+This change in the habitat will have the effect of reducing the fitness
+of both the variant and the parent population,
+and since the fitness
+(long term growth rate) of the parent population is initially zero it
+becomes negative and the parent population goes to extinction and
+is replaced.
+(This replacement can fail to happen at singular points of the dynamics,
+but otherwise is guaranteed by continuity assumptions.)
+Ultimately $$\mathbf p_i$$ is no longer a part of the community
+and $$\mathbf v$$, the former variant, is now a resident.
+Thus its fitness is initially approximately
+
+$$\mathcal I(\mathbf v |\mathbf p_1, \ldots, \mathbf p_i, \ldots, \mathbf p_n) > 0$$
+
+and ultimately comes to be
+
+$$\mathcal I(\mathbf v|\mathbf p_1, \ldots, \mathbf v, \ldots, \mathbf p_n) = 0$$.
+
+If we consider this new resident type to be a new value of $$\mathbf p_i$$,
+we are describing adaptive change in the phenotype $$\mathbf p_i$$
+in a direction of increase in the former expression,
+even though it is the latter expression that describes the result
+of that change.
+
+Adaptive change in the phenotype thus follows the direction of the
+gradient with respect to the rare variant only,
+while the resulting change in the community is described by the
+total derivative with phenotype $$\mathbf p_i$$ as both resident and
+variant.
+We may think of the former as the direction of **incentive** for change
+in type $$i$$
+induced by the resident community, and the latter as incorporating
+the **impact** of change in type $$i$$.
+
+This distinction between incentive and impact is
+central to understanding adaptive change in general, whether in
+ecological evolution, animal behavior, economics, or other settings.
+The impact can be described as an **externality** in the language
+of economics, as it is an impact of the change in $$i$$ following
+the incentive experienced by $$i$$ that is not accounted for in the
+incentive.
+It is intimately related to the subject of selfishness and the common
+good, as investigated in a massive literature spanning evolutionary biology,
+game theory, animal behavior, political science, and economics.
+
+Another interesting aspect of this canonical equation is that while
+it describes a process in which variants are generated at random
+and some are filtered out by their inability to thrive in the
+current environment --- a variation process filtered by a selection
+process --- the equation is expressed in the reverse form, as
+a gradient vector describing the selection process that is
+transformed by a matrix describing the distribution of available
+variations.
+
+Because the direction of adaptive change is constructed by selection
+of variants that can invade, and the adaptive dynamics formulation
+entails the assumption of very small variants, in which case
+the invasion fitness behaves linearly near the resident,
+it follows that the direction of change must always be at an
+angle no greater than $$90^\circ$$ to the selection gradient.
+This can be verified with the canonical equation,
+by observing that the covariance matrix $$\Gamma_{\mathbf p_i}$$
+is positive semidefinite, as any covariance matrix must be,
+and therefore the dot product of the direction of motion and
+the selection gradient is nonnegative:
+let $$S$$ stand for the selection gradient, then
+<latex>\[
+\left\langle S, \Gamma_{\mathbf p_i} S\right\rangle = S^T \Gamma_{\mathbf p_i} S \geq 0
+\]</latex>
+because that product is necessarily nonnegative when the matrix
+is positive semidefinite.  It follows immediately that the angle
+between the two vectors is $$90^\circ$$ or less.
+
+As a special case, when variation in each phenotypic trait is
+independent of the others and all equal in magnitude, 
+the covariance matrix is the identity and the direction of
+change is simply a multiple of the selection gradient.
 
 Sidebar?: selection gradient stuff in pop gen
 
 # Coevolution of constrained characters
 
+In this paper we will examine the effect of adaptation on quantities
+other than the "raw" phenotypes $$\mathbf p_i$$ of each population.
+Before taking the unconventional steps of modeling adaptative change
+in non-phenotypic entities such as
+environmental quantities and interactions between populations,
+let us examine how to translate between multiple ways of describing
+a phenotype.
+
+There may often be quantities inherent to a phenotype that are
+most apt for describing its ecological interactions, distinct
+from its physical characteristics but implied by them.
+For example, its rate of uptake of an important resource may be
+a function of its rate of leaf production, size, allocation of biomass to
+roots vs.\ leaves, etc.
+
+In this way it can happen that the production of variants is most naturally
+expressed in terms of physical traits $$\mathbf u_i$$,
+but the population dynamics and thus the selection gradient is
+more naturally expressed in terms of ecological traits $$\mathbf p_i$$.
+These terms can be connected to each other by
+a functional relationship
+$$\mathbf p_i = \mathbf p(\mathbf u_i)$$
+and the chain rule of multivariate calculus can be used to convert
+between the two spaces of phenotypes $$\mathbf u$$ and $$\mathbf p$$.
+The chain rule allows conversion of the invasion fitness into
+physical phenotypes:
+
+<latex>\begin{align*}
+\frac{d\mathbf u_i}{dt}
+ &= \hat{X}_i \Gamma_{\mathbf u_i} \left.\nabla_{\mathbf v}\mathcal I(\mathbf p(\mathbf v) | \mathbf p(\mathbf u_1), \ldots, \mathbf p(\mathbf u_n))\right|_{\mathbf v=\mathbf u_i} \\
+ &= \hat{X}_i \Gamma_{\mathbf u_i} \frac{d\mathbf p}{d\mathbf u_i}^T \left.\nabla_{\mathbf q}\mathcal I(\mathbf q | \mathbf p(\mathbf u_1), \ldots, \mathbf p(\mathbf u_n))\right|_{\mathbf q=\mathbf p(\mathbf u_i)}
+\end{align*}</latex>
+(see appendix for details: $$d\mathbf p/d\mathbf u_i$$ is
+a matrix of scalar derivatives),
+and conversion of the adaptive motion in physical phenotypes
+to motion in ecological phenotypes:
+<latex>\begin{align*}
+\frac{d\mathbf p_i}{dt}
+ &= \frac{d\mathbf p}{d\mathbf u_i} \frac{d\mathbf u_i}{dt} \\
+ &= \hat{X}_i \frac{d\mathbf p}{d\mathbf u_i} \Gamma_{\mathbf u_i} \frac{d\mathbf p}{d\mathbf u_i}^T \left.\nabla_{\mathbf q}\mathcal I(\mathbf q | \mathbf p(\mathbf u_1), \ldots, \mathbf p(\mathbf u_n))\right|_{\mathbf q=\mathbf p(\mathbf u_i)}.
+\end{align*}</latex>
+
+This has the same form as seen previously, with the substitution
+of the matrix product
+
+$$\frac{d\mathbf p}{d\mathbf u_i} \Gamma_{\mathbf u_i} \frac{d\mathbf p}{d\mathbf u_i}^T$$
+
+for the covariance matrix $$\Gamma_{\mathbf p_i}$$ of variants of
+the ecological phenotype.
+It can be verified that when the ecological phenotype is derived
+from the physical phenotype $$\mathbf u_i$$ in this way, this
+is in fact the covariance matrix of variants in $$\mathbf p_i$$.
+
+## Example: constrained adaptation in two dimensions
+
 When there are two or more phenotypic characters, or ecological
 characteristics of a population such as efficiency of resource uptake,
-that are in fact a function of a smaller number of "underlying" characters,
-the population is constrained to a subset of the space of characters.  See
-figure \ref{fig:constrained-p}.
+that are in fact a function of a smaller number of "underlying" or
+physical characters,
+the population's phenotype is constrained to a subset of the space of
+possible phenotypes.
+See figure \ref{fig:constrained-p}.
+The adaptive motion of the physical traits translates into
+motion in the constrained portion of the larger space.
 
-We consider the selection gradient describing motion in the constrained
-space and an abstract selection gradient giving the direction of motion
-that would obtain if all variation in the unconstrained space were available
-(see appendix for details).
+For concreteness, consider the case of a single
+population with two ecological characters
+$$p_1$$ and $$p_2$$
+determined by a single physical character $$u$$.
+In this case the ecological phenotype is the vector
+$$\mathbf p = \left(\begin{array}{c}p_1(u)\\p_2(u)\end{array}\right)$$,
+and the derivative $$d\mathbf p/du$$ is the vector
+$$\left(\begin{array}{c}p_1'(u)\\p_2'(u)\end{array}\right)$$.
+The matrix $$\Gamma_u$$ is simply a scalar value $$\gamma$$,
+the adaptive dynamics of $$u$$ is
 
-The constrained selection gradient is
-at an acute angle to the abstract selection gradient.  That is, it must
-always be located within the half-space of vectors less than $$90^\circ$$ from
-the abstract gradient vector.
+$$\frac{du}{dt} = \gamma \hat{X} \nabla_1\mathcal I(u|u)$$,
 
-TODO: scalar quantity $$p \cdot \mathbf{S}(\mathbf{p})$$ must increase
+and the constrained adaptive dynamics of $$\mathbf p$$ is
 
-At any fixed point of adaptation, either the abstract gradient vanishes,
-or all motion in the constraint space is $$90^\circ$$ or more from the
-abstract gradient.
+$$\frac{d\mathbf p}{dt} = \gamma \hat{X} \frac{d\mathbf p}{du} \frac{d\mathbf p}{du}^T \nabla_1\mathcal I(p|p)$$.
+
+In this case, the product
+
+$$\frac{d\mathbf p}{du}^T \nabla_1\mathcal I(p|p)$$
+
+is a scalar, so we can see that the direction of motion of the vector
+phenotype $$\mathbf p$$ must be in the direction of the derivative
+$$d\mathbf p/du$$.
+This is as it should be, because the motion of the phenotype vector
+$$\mathbf p$$ is contrained to the curve $$\mathbf p(u)$$,
+and this is the tangent direction to that curve.
+
+Now that we have established that the constrained motion of
+$$\mathbf p$$ must be in the direction tangent to the constraint
+curve, and that it must be within $$90^\circ$$ of the
+unconstrained selection gradient $$\nabla_1\mathcal I(p|p)$$,
+the direction of motion is in general determined by those two facts.
+The phenotype vector moves along the curve in the direction closer
+to the unconstrained selection gradient, and any place where it
+stops must be either a place where the curve becomes perpendicular
+to the selection gradient, or where the selection gradient vanishes
+or the derivative vector $$d\mathbf p/du$$ vanishes.
+[Need figures for this.]
 
 <latex>\begin{figure}
 \centering
-\includegraphics[width=0.6\textwidth]{images/constrained-p-sketch.png}
+%\includegraphics[width=0.6\textwidth]{images/constrained-p-sketch.png}
 \caption{ \label{fig:constrained-p}
 Evolution of two characters of a single population, constrained
 to a one-dimensional curve (the heavy black link).
@@ -80,8 +418,6 @@ is the half-plane above the thin dotted line.  The red arrow is the only
 possible direction of resulting motion of $\mathbf{p}(\mathbf{u})$.
 }
 \end{figure}</latex>
-
-TODO: discuss the dialectic between available variation, selection.
 
 # Coevolution of external quantities
 
@@ -360,7 +696,7 @@ term $$a_{01}$$.
 <latex htmldisplay=none>\begin{figure}
 \centering
 </latex>
-<project-file filename=foodweb-pred-prey-adap.svg make=false/>
+<project-file filename=foodweb-pred-prey-adap.svg make=no/>
 <latex htmldisplay=none>
 \caption{Coevolutionary chase of predator and prey's phenotypes
 \label{fig:pred-prey-adap}
@@ -865,7 +1201,7 @@ indicating a decrease in competition.
 \centering
 </latex>
 <project-file filename=maclev-2-2-a-c-c-vs-t.svg/>
-<project-file filename=maclev-2-2-a-c-a-vs-t.svg/>
+<project-file filename=maclev-2-2-a-c-a-vs-t.svg make=no/>
 <latex htmldisplay=none>
 \caption{Change in $c$ and $a$ values due to
 adaptation in the $c$ values when $r$ values are held fixed.
@@ -934,32 +1270,133 @@ payoff matrix.
 
 Let $$\mathbf{p}_i$$ be a vector of numbers representing phenotypic
 characters undergoing adaptive change in the $$i$$th population under
-consideration.  Under adaptive dynamics assumptions [@Metzet1996],
-the dynamics of the population's change in evolutionary time is [@Maet2007]
+consideration.
+In the "adaptive dynamics" limit, in which mutations introducing
+variation in these characters are small and arise infrequently,
+and the size of the variant population is small compared to the
+resident population, the resultant dynamics of change in
+$$\mathbf{p}_i$$ due to invasion of variants and replacement
+of their parent types can be analyzed as a stochastic process
+in the space of values of the $$i$$ trait vectors $$\mathbf{p}_i$$
+[@DieckmannLaw1996].
+The dynamics is driven by the interplay of two processes:
+the generation of variation by rare mutations,
+and the selection of variants by the emergent dynamics
+of the ecological community, in which some variant strains
+invade and persist, and others fail to invade.
 
-$$\frac{d\mathbf p_i}{dt} = \left. \gamma \hat{X}_i \frac{\partial\mathcal I(\mathbf q|\mathbf p_1,\ldots,\mathbf p_n)}{\partial \mathbf q}\right|_{\mathbf q=\mathbf p_i} = \gamma \hat{X}_i \partial_1\mathcal I(\mathbf p_i)^T$$,
+Let a vector $$E$$ describe all the environmental factors contributing
+to the dynamics of the $$i$$ populations in the community, including
+the characteristics and abundances of the populations themselves.
 
-where $$\mathcal I(q|E)$$ is the **invasion fitness** function: the long-term
+A key quantity in this analysis is the invasion fitness
+$$\mathcal I(\mathbf{q}|E)$$: the long-term
 growth rate of a very small population of type $$q$$ in environment $$E$$.
-In the above formulation we assume that the community defined by all
-coexisting populations' monomorphic phenotypes $$\mathbf{p}_j$$ is
+For all the resident populations $$\mathbf{p}_i$$ of a community
+the invasion fitness $$\mathcal I(\mathbf{p}_i|E)$$
+is necessarily zero, because they persist without becoming
+unboundedly large or declining to extinction.
+
+Because of the linearity implied by the assumption of small mutations,
+and because the invasion fitness is zero at each resident type,
+the invasion fitness of mutant types in a neighborhood of each resident is
+positive in half the neighborhood and negative in the other half
+(except at isolated singular points), with by a linear boundary dividing
+the two regions.
+
+Here we assume that the collection of the
+coexisting populations' monomorphic phenotypes $$\mathbf{p}_i$$ is
 sufficient to define the selective environment $$E$$.
+This assumption is good if there are not multiple
+stable equilibria and the habitat is entirely shaped by the
+current community, without long-lasting effects of its history,
+for example.
+These assumptions are valid in the generalized
+Lotka-Volterra framework as long as all populations in the model
+community remain in play without extinctions.
+In this case the invasion fitness can be written
+$$\mathcal I(\mathbf{q}|\mathbf{p}_1,\ldots,\mathbf{p}_n)$$.
 
-In the above notation, $$\mathbf{p}_i$$ is a column vector,
-$$\frac{\partial\mathcal I}{\partial\mathbf p_i}$$ is a row vector,
-$$\hat{X}_i$$ is the long-term average size of population $$i$$,
-the superscript $$T$$ stands for the vector transpose,
-and $$\partial_1$$ stands for the partial derivative with respect to
-the function's first argument.  The variable $$\gamma$$ is a constant
-encapsulating the overall rate of evolutionary change.
+Using that notation, in the adaptive dynamics limit the
+change in phenotype $i$ approaches a continuous mean path:
 
-Both $$\gamma$$ and $$\hat{X}_i$$ in the above expression are positive
-scalar quantities, so the direction of adaptive change in $$\mathbf{p}_i$$
-is in the direction of greatest increase in the invasion fitness available
-to a rare variant $$\mathbf v$$.  Let us refer to that direction as the
-**gradient of selection**, or **selection gradient**, of $$\mathbf{p}_i$$:
+$$\frac{d\mathbf p_i}{dt} = \left. \hat{X}_i \Gamma_i \frac{\partial\mathcal I(\mathbf q|\mathbf p_1,\ldots,\mathbf p_n)}{\partial \mathbf q}^T\right|_{\mathbf q=\mathbf p_i,}$$
 
-$$\mathbf{S}(\mathbf{p}_i) = \partial_1\mathcal I(\mathbf p_i)^T$$,
+where $$\hat{X}_i$$ is the long term average population size of
+population $$i$$ and $$\Gamma_i$$ is a square matrix describing the
+variance-covariance structure of variation in the different
+characters making up the vector $$\mathbf p_i$$.
+
+The vector
+
+$$\left.\frac{\partial\mathcal I(\mathbf q|\mathbf p_1,\ldots,\mathbf p_n)}{\partial \mathbf q}^T\right|_{\mathbf q=\mathbf p_i}$$
+
+is the gradient of the function $$\mathcal I$$ with respect to its first
+argument when the first argument is equal to the $$i$$th resident
+type $$\mathbf p_i$$,
+referred to as the **selection gradient** on the $$\mathbf p_i$$.
+I will sometimes refer to this vector as $$\mathbf{S}(\mathbf p_i)$$,
+or when it is useful to distinguish the
+derivatives of $$\mathcal I$$ with respect to its multiple
+arguments, as
+$$\partial_1\mathcal I(\mathbf p_i|\mathbf p_1,\ldots,\mathbf p_n)$$.
+
+The selection gradient encapsulates the contribution of selection to
+the adaptive dynamics, and the variance-covariance matrix $$\Gamma$$
+represents the mutation process.
+While mechanistically the generation of variation is primary,
+and variants are filtered by the process of selection to yield
+a directional process of adaptive change,
+in this canonical equation of adaptive dynamics the selection
+gradient is transformed by the matrix describing the structure
+of available variation to yield a resulting direction and speed of
+adaptive motion.
+
+The adaptation of phenotypes to the selective pressures imposed by
+their habitats and communities is driven by the 
+relation between invasion and adaptation:
+the resident types are replaced by variant types that are able to
+invade and replace their parents.
+While each invading variant type has positive invasion
+fitness when introduced,
+its invasion fitness drops to zero as it becomes common,
+reflecting a change in its environment, either
+simply an increase in organisms competing for space
+or
+a less direct effect on resources and other aspects of the habitat.
+
+Adaptive change in community members' phenotypes may have any number
+of effects on the community, most of which are not encompassed by the
+gradient that drives the adaptation of each population.
+Changes that increase fitness in the sense of allowing a variant to
+invade and replace its parent can have side effects that make
+conditions ultimately worse for the new type than they were for the
+parent, leading to outcomes that can be described using terms
+like "evolutionary race to the bottom," "tragedy of the commons,"
+"selfishness" and the like.
+
+This "canonical" structure, in which adaptation is driven by
+the fitness of a rare strategy and insensitive to the impact
+on the established strategies, is common to a wide range of
+models of adaptive change:
+it certainly is found in the G-function formulation
+of ecological evolution [@vincent]
+and models of game theory dynamics
+[@taylorjonkers,@hofbauersigmund],
+which are closely related to the adaptive dynamics formalism,
+but also
+
+As we will see [??] the ability of this gradient dynamics to fail to
+optimize conditions relating to fitness has much to do with the
+fact that it follows the first partial derivative of the relevant
+quantity rather than its total derivative.
+This first partial derivative structure may be fundamental to understanding
+a range of problems that relate to selfishness and the common good,
+as selfishness can be understood as the first partial derivative
+and the common good can be understood as the total derivative
+of the relevant quantity. [@@ revisit this after clarifying the difference
+between partials of the invasion fitness and those of a particular
+utility quantity such as environmental quality.]
 
 [To do: the important thing here is that it's the partial derivative with respect
 to the rare type, as opposed to the partial derivative with respect to the
@@ -1047,6 +1484,9 @@ can be obtained by varying the underlying vector $$\mathbf{u}$$.
 The following lemma establishes an important relationship between the
 direction of constrained change and the gradient of unconstrained selection:
 the angle between the two vectors is always $$90^\circ$$ or less.
+
+[To do: simpler proof, covariance matrix $$\Gamma$$ is always positive semidefinite
+therefore $$x\cdot \Gamma x$$ always nonnegative by definition.]
 
 **Lemma.** The direction of motion of the above phenotype vector
 $$\mathbf{p}_i$$ constrained by an underlying phenotype $$\mathbf{u}_i$$
@@ -1195,7 +1635,7 @@ $$\partial_1\mathbf{A}_i$$ is either a column or a rectangular matrix, etc.]
 <latex>\begin{figure}
 \captionsetup{singlelinecheck=off} % http://tex.stackexchange.com/questions/34374/how-can-i-put-a-matrix-in-a-figure-caption
 \centering
-\includegraphics[width=0.6\textwidth]{images/constrained-aij-sketch.png}
+%\includegraphics[width=0.6\textwidth]{images/constrained-aij-sketch.png}
 \caption{
 If we assume for the sake of illustration that $r$ does not vary, and
 that there are only two populations, we can visualize the interaction

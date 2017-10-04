@@ -1,3 +1,10 @@
+# I have been used to using /proc/uptime as a dependency, on linux systems,
+# to force a rule's commands to run because that file is updated every second
+# or similar.  The file doesn't exist on Mac OS, so looking for an alternative.
+ALWAYS_NEW_FILE = always
+ALWAYS_NEW_FILE ?= /proc/uptime
+always : ;
+
 # to make a single target, you can use make wmd_files/Project/target
 # or more usefully, make sync wmd_files/Project/target
 # using the rule below.
@@ -7,13 +14,13 @@
 # sync operation.
 # note a downside of this pattern is that interrupting the job with
 # ^C causes make to remove the log file
-%.make.log : /proc/uptime
+%.make.log : $(ALWAYS_NEW_FILE)
 	php $(WW_DIR)/wmd/wmd.php --post --cache-dir=wmd_files --default-project-name=$(subst /,,$(subst wmd_files/,,$(dir $*))) --make-single-file=$(notdir $*)
 
 # make working files in their directories.
 # Note a file in a subdirectory of a working directory won't be made right,
 # you'll have to construct a make -C command yourself.
-wmd_files/% : /proc/uptime
+wmd_files/% : $(ALWAYS_NEW_FILE)
 	$(MAKE) -C $(dir $@) $(notdir $@)
 
 # make them using .tex output format rules, which is slightly different
@@ -35,7 +42,7 @@ sync :
 # to rebuild a single page, i.e. rebuild the site while only doing make
 # operations on a single page
 # $ make _site/page.html
-_site/%.html : /proc/uptime
+_site/%.html : $(ALWAYS_NEW_FILE)
 	echo wmd_make_page: $*.md > _make_page.yml
 	jekyll build --config=_config.yml,_make_page.yml
 	$(RM) _make_page.yml

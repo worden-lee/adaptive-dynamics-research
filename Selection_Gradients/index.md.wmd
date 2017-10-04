@@ -178,7 +178,9 @@ class DerivedLotkaVolterraModel( GeneralizedLotkaVolterraModel ):
 	    aij = get_coeff( lvi, xi, 2 )
 	    if aij is None: aij = 0
 	    aij_dict[self._a_indexer[i][i]] = aij
+	    print self._a_indexer[i][i], ':', aij
             lvi -= aij * xi**2
+	    print lvi
 	    for j in model._population_indices:
 	        if j != i:
                     xj = x_indexer[j]
@@ -189,9 +191,12 @@ class DerivedLotkaVolterraModel( GeneralizedLotkaVolterraModel ):
 		    aij_dict[self._a_indexer[i][j]] = aij
                     print self._a_indexer[i][j], ':', aij
                     lvi -= aij * xi * xj
+		    print lvi
             print self._r_indexer[i], ':', ri
 	    aij_dict[self._r_indexer[i]] = ri
             lvi -= ri * xi
+	    lvi = lvi.expand()
+	    print lvi
             if lvi != 0:
                 raise LotkaVolterraException( "Population dynamics has excess terms in " + str(i) + "'th component: " + str(lvi) )
             del vars[xi]

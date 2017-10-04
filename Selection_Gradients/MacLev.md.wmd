@@ -290,9 +290,9 @@ class MacArthurLevinsModel(PopulationDynamicsSystem):
         assert len(Rhat_soln) == 1
         #print "R-hat: %s" % Rhat_soln[0][R_l]
         # put it in the bindings in case we want to plot R_l or something
-        self._bindings[R_l] = Rhat_soln[0][R_l]
+        self._bindings._dict[R_l] = Rhat_soln[0][R_l]
         # it's also its own equilibrium
-        self._bindings[hat(R_l)] = self._rescomp_model.add_hats( Rhat_soln[0][R_l] )
+        self._bindings._dict[hat(R_l)] = self._rescomp_model.add_hats( Rhat_soln[0][R_l] )
         return Rhat_soln[0][R_l]
     def set_population_indices(self,xi):
         # need to pass this through to the res-comp system
