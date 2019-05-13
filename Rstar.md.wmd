@@ -27,10 +27,9 @@ These are the values
 $$R^*_\ell$$ of the resource abundances that are found when the
 population sizes are also at equilibrium.  These are described by
 the linear system of equations
-\[* \sum_\ell c_{i\ell}w_\ell R^*_\ell = m_i \quad\text{for all }i \\
-   \mathbf{CWR}^* = \mathbf{M} \\
-   \mathbf{R}^* = \mathbf{W}^{-1} \mathbf{C}^{-1} \mathbf{M},
-\]
+\[* \sum_\ell c_{i\ell}w_\ell R^*_\ell = m_i \quad\text{for all }i \]
+\[* \mathbf{CWR}^* = \mathbf{M} \]
+\[* \mathbf{R}^* = \mathbf{W}^{-1} \mathbf{C}^{-1} \mathbf{M}, \]
 assuming those inverses exist, where
 $$\mathbf{C}$$ is the matrix of $$c_{i\ell}$$
 values, $$\mathbf{W}$$ is a diagonal matrix with entries $$w_\ell$$, and

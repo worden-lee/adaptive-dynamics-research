@@ -334,7 +334,7 @@ class LotkaVolterraAdaptiveDynamics( object ):
 	# _phenotypes_to_fn_bindings: changes u_i to u_i(t)
 	# is used in all the below methods, so that du_i(t)/dt works
 	self._phenotypes_to_fn_bindings = Bindings( dict(
-	    ( u[i], function( str(u[i]), self._adaptivedynamics._time_variable, latex_name=latex(u[i]) ) )
+	    ( u[i], function( str(u[i]), self._adaptivedynamics._time_variable, latex_name=str(latex(u[i])) ) )
 	    for i in self._lv_model._population_indices
 	    for u in self._adaptivedynamics._phenotype_indexers ) )
 	# _phenotypes_from_fn_bindings: the inverse, change u_i(t) to u_i

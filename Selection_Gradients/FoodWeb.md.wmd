@@ -188,7 +188,7 @@ save_session('foodweb-adap')
 <source-file filename="foodweb.plot.sage.step" texdisplay=none>
 # requires: foodweb-adap.sobj
 # produces: foodweb.plot.sage.out.tex 
-# produces: foodweb-pred-prey-adap.png foodweb-pred-prey-adap.svg
+# produces: foodweb-pred-prey-adap.png foodweb-pred-prey-adap.svg foodweb-pred-prey-adap.pdf
 # produces: foodweb-pred-prey-adap-difference.png
 # produces: foodweb-pred-prey-a-vs-t.png foodweb-pred-prey-a-vs-a.png
 # produces: foodweb-pred-prey-x-vs-t.png
@@ -227,6 +227,11 @@ ppp.save( 'foodweb-pred-prey-adap.svg',
     tick_formatter=[None,pi],
     figsize=(3,3)
 )
+ppp.save( 'foodweb-pred-prey-adap.pdf',
+    ticks=[500,pi],
+    tick_formatter=[None,pi],
+    figsize=(3,3)
+)
 
 pred_prey_traj.plot( 't', 'u_0_a - u_0_b', legend_label='$u_0-u_1$' ).save(
     'foodweb-pred-prey-adap-difference.png',
@@ -253,6 +258,11 @@ for i in foodweb_adap._popdyn_model._population_indices:
 	atp += pred_prey_traj.plot( 't', fb( flv._lv_model._A_bindings( flv._lv_model._a_indexer[i][j] ) ),
 	    color = (i == j and 'red' or 'green') )
 atp.save( 'foodweb-pred-prey-a-vs-t.png', figsize=(5,5) )
+
+##
+ltx.close()
+exit(0r)
+##
 
 lotkavolterra.plot_aij_with_arrows( pred_prey_traj, flv, 'foodweb-pred-prey-a-vs-a.png', bindings=fb )
 
@@ -424,6 +434,11 @@ for i in fb_adap._popdyn_model._population_indices:
 	atp += traj_2_2.plot( 't', flv._lv_model._A_bindings( flv._lv_model._a_indexer[i][j] ),
 	    color = (i == j and 'red' or 'green') )
 atp.save( 'foodweb-2-2-a-vs-t.png', figsize=(5,5) )
+
+##
+ltx.close()
+exit(0r)
+##
 
 lotkavolterra.plot_aij_with_arrows( traj_2_2, flv, 'foodweb-2-2-a-vs-a.png' )
 

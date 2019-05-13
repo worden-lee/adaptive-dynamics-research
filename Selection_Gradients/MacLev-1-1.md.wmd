@@ -112,6 +112,7 @@ c_evolution.plot( t, evol_c_bindings( maclev_adap_bound._bindings( Xhat ) ), fil
 Rhat = hat( maclev_adap_bound._popdyn_model._rescomp_model._indexers['R'][0] )
 c_evolution.plot( t, evol_c_bindings( maclev_adap_bound._bindings( Rhat ) ), filename="maclev-1-1-R.svg", figsize=(2,2), ymin=0, ylabel='$\hat{R}_1$' )
 c_evolution.plot( t, evol_c_bindings( maclev_adap_bound._bindings( Rhat ) ), filename="maclev-1-1-R.png", figsize=(4,4), ymin=0, ylabel=Rhat )
+c_evolution.plot( t, evol_c_bindings( maclev_adap_bound._bindings( Rhat ) ), filename="maclev-1-1-R.pdf", figsize=(4,4), ymin=0, ylabel=Rhat )
 # and let's also plot k_0 vs. a_00.
 # these are the coefficients if you rewrite the maclev dynamics
 # as dX_0/dt = X_0(k_0 + a_00 X_0)
@@ -137,10 +138,14 @@ c_evolution.plot( t, maclev_adap_bound._early_bindings( k_0 ), filename="maclev-
   ymin=0, ylabel='$k_1$', figsize=(2,2) )
 c_evolution.plot( t, maclev_adap_bound._early_bindings( k_0 ), filename="maclev-1-1-k.png",
   figsize=(4,4) )
+c_evolution.plot( t, maclev_adap_bound._early_bindings( k_0 ), filename="maclev-1-1-k.pdf",
+  figsize=(4,4) )
 
 c_evolution.plot( t, maclev_adap_bound._early_bindings( a_00 ), filename="maclev-1-1-a.svg",
   ymax=0, ylabel='$a_{11}$', figsize=(2,2) )
 c_evolution.plot( t, maclev_adap_bound._early_bindings( a_00 ), filename="maclev-1-1-a.png",
+  ymax=0, ylabel='$a_{11}$', figsize=(4,4) )
+c_evolution.plot( t, maclev_adap_bound._early_bindings( a_00 ), filename="maclev-1-1-a.pdf",
   ymax=0, ylabel='$a_{11}$', figsize=(4,4) )
 
 c_evolution.plot( maclev_adap_bound._early_bindings( a_00 ), maclev_adap_bound._early_bindings( k_0 ), filename="maclev-1-1-ak.png",

@@ -823,9 +823,9 @@ loss of generality that $$i$$ is the prey of $$j$$) is
      \end{pmatrix} \hat{X}_j \partial_2 f(u_i,u_j) \partial_1\mathbf{A}_j
     \right] \mathbf{S}(\mathbf{A}) \\
   &= \gamma \begin{pmatrix} -1 \\ k \end{pmatrix}
-     \left[ \hat{X}_i \partial_1 f(u_i,u_j) \partial_1\mathbf{A}_i
-     + \begin{pmatrix} -1 \\ k
-     \end{pmatrix} \hat{X}_j \partial_2 f(u_i,u_j) \partial_1\mathbf{A}_j
+     \left[
+     \hat{X}_i \partial_1 f(u_i,u_j) \partial_1\mathbf{A}_i
+     + \hat{X}_j \partial_2 f(u_i,u_j) \partial_1\mathbf{A}_j
     \right] \mathbf{S}(\mathbf{A})
 \end{align*}</latex>
 
