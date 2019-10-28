@@ -381,7 +381,7 @@ is a scalar, so we can see that the direction of motion of the vector
 phenotype $$\mathbf p$$ must be in the direction of the derivative
 $$d\mathbf p/du$$.
 This is as it should be, because the motion of the phenotype vector
-$$\mathbf p$$ is contrained to the curve $$\mathbf p(u)$$,
+$$\mathbf p$$ is constrained to the curve $$\mathbf p(u)$$,
 and this is the tangent direction to that curve.
 
 Now that we have established that the constrained motion of
@@ -401,7 +401,7 @@ or the derivative vector $$d\mathbf p/du$$ vanishes.
 %\includegraphics[width=0.6\textwidth]{images/constrained-p-sketch.png}
 \caption{ \label{fig:constrained-p}
 Evolution of two characters of a single population, constrained
-to a one-dimensional curve (the heavy black link).
+to a one-dimensional curve (the heavy black line).
 Direction of change in one dimension
 (constrained gradient of selection) is
 in the direction closer to the abstract gradient of selection in two
@@ -414,7 +414,7 @@ and the motion of $\mathbf{p}$ when constrained to a one-dimensional
 set of possibilities (red arrow). The set of values
 available to $\mathbf{p}(\mathbf{u})$ is the heavy black line, and the
 half-space of directions of motion that are selectively possible
-is the half-plane above the thin dotted line.  The red arrow is the only
+is the half-plane above the thin dashed line.  The red arrow is the only
 possible direction of resulting motion of $\mathbf{p}(\mathbf{u})$.
 }
 \end{figure}</latex>
@@ -549,7 +549,7 @@ social traps to opportunities for mutual benefit.
 by a negative correlation between $$a_{ij}$$ and $$a_{ji}$$.
 
 This should be a matter of indirect effects.  Presumably if left to
-indirect effects, predators would get fuller and fuller while eating fewer
+direct effects, predators would get fuller and fuller while eating fewer
 and fewer prey.  When this doesn't happen, it's due to some kind of arms
 race which takes the form of a tug-of-war in the indirect effects.  
 Fuller analysis to come.]
