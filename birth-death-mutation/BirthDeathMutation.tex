@@ -1,0 +1,155 @@
+\documentclass[11pt]{amsart}
+
+\usepackage{amsmath,amssymb,amsthm,bm,enumerate,mathtools}
+%\usepackage[all]{xy}
+\usepackage{geometry}                % See geometry.pdf to learn the layout options. There are lots.
+\geometry{a4paper}       
+
+\usepackage{chngcntr}
+\usepackage{apptools}
+\AtAppendix{\counterwithin{lem}{section}}
+
+\newtheorem{thm}{Theorem}
+\newtheorem{lem}{Lemma}
+\newtheorem{prop}{Proposition}
+\newtheorem{cor}{Corollary}
+\theoremstyle{remark} 
+	\newtheorem{rem}{Remark}
+	\newtheorem{assn}{Assumption}
+\theoremstyle{definition} 
+	\newtheorem{mydef}{Definition} 
+	\newtheorem{exmp}{Example} 
+	\newtheorem{cond}{Condition}
+	\newtheorem{conj}{Conjecture}
+
+\newtheorem{innercustomthm}{Propostion}
+\newenvironment{customthm}[1]
+  {\renewcommand\theinnercustomthm{#1}\innercustomthm}
+  {\endinnercustomthm}
+
+\newcommand{\abs}[1]{\left| #1 \right|}
+\newcommand{\BigO}[1]{\mathcal{O}{\textstyle\left( #1\right)}}
+
+\newcommand{\ie}{\textit{i.e.,}\,}
+\newcommand{\eg}{\textit{e.g.,}\,}
+\newcommand{\nb}{\textit{n.b.,}\, }
+\newcommand{\defn}{:=}
+
+
+%\input{../../GlobalDefs}
+
+\begin{document}
+
+\title{Birth-Death-Mutation Process with an Environmental Phenotype}
+%\subtitle{}
+\author{Todd L. Parsons}
+\address{Laboratoire de Probabilit\'es, Statistique et Mod\'elisation, UMR8001, Sorbonne Universit\'e, Paris, 75005, France.}
+%\ead{todd.parsons@upmc.fr}
+
+
+\date{\today}
+
+%\begin{abstract}
+
+%\end{abstract}
+
+\maketitle
+
+Here, we consider a birth-death-mutation process in which each individual has an ``internal'' phenotype $x \in \mathcal{S}$, which is expressed as an ``environmental'' phenotype $\theta(x) \in \mathcal{E}$ that determines the vital rates of the individual.  We assume that $\theta$ is one-to-one, but \emph{not} onto.  
+
+We let $N(t)$ be the number of individuals at time $t$, and set $N(0) = n$ ($n$ is the ``system-size'', and \emph{not} a fixed population size: $N(t)$ will vary stochastically with the birth and death events).  We assume that some ordering is assigned to all individuals alive at time $t$ (\eg we could order them by age) and let $X_{i}(t)$ be the phenotype of the $i$\textsuperscript{th} individual at time $t$.  The population can then be represented by it's empirical measure in $\mathcal{M}_{P}(\mathcal{S})$, the space of point measures on $\mathcal{S}$
+\[
+	 \mu_{t} = \sum_{i=1} \delta_{X_{i}(t)}.
+\]
+\nb the empirical measure is independent of the ordering of the individuals, counting only the number of individuals of a given phenotype at time $t$.  We can equally represent the population by the empirical measure of environmental phenotypes in $\mathcal{M}_{P}(\mathcal{E})$, 
+\[
+	\theta_{*}(\mu_{t}) = \mu_{t} = \sum_{i=1} \delta_{\theta(X_{i}(t))}.
+\]
+Here, $\theta_{*}(\mu_{t})$ is the \textit{pushforward} of $\mu_{t}$ by $\theta$: more generally, given a measure $\mu \in \mathcal{M}(\mathcal{S})$, it's pushforward is the measure $\theta_{*}(\mu) \in \mathcal{M}(\mathcal{E})$ defined by
+\[
+	\int_{\mathcal{E}} f\, d\theta_{*}(\mu) := \int_{\mathcal{S}} f\circ\theta\,  d\mu.
+\] 
+In what follows, we will also make use of the \textit{pullback} of functions $f \in C(\mathcal{E})$ by $\theta$:
+\[
+	\theta^{*}f := f\circ\theta \in C(\mathcal{S}),
+\]
+and the pullback of functions $F \in C(\mathcal{M}(\mathcal{E}))$ by $\theta_{*}$: for $\mu \in \mathcal{M}(\mathcal{S})$,
+\[
+	\Theta^{*}F(\mu) := F(\theta_{*}\mu).
+\]
+
+%\langle f, \theta_{*}(\mu)\rangle
+
+We assume that he birth and death rates of an individual, $b(\vartheta,\nu)$ and $d(\vartheta,\nu)$, respectively, depend on the \emph{environmentl} composition of the community, $\nu \in \mathcal{M}_{P}(\mathcal{E})$, but only on the \emph{environmental} phenotype of the individual; an individual with internal type $x$ has birth and death rates $b(\theta(x),\nu)$ and $d(\theta(x),\nu)$.  Similarly, we assume (Lee?) that the probability that a new-born individual of type $x$ carries a phenotype-changing mutation is $\varepsilon(\theta(x),\nu)$, whereas the probability that a parent of internal phenotype $x$ gives birth to an offspring with internal phenotype $y$ is given by the dispersal kernel $K(x,dy)$. 
+
+With these, we can then describe the generator of the process, $\mathbb{L}:C(\mathcal{M}(\mathcal{S})) \longrightarrow C(\mathcal{M}(\mathcal{S}))$,
+\begin{multline}\label{GENI}
+	\mathbb{L}F(\mu) = \int_{\mathcal{S}} \mu(dx) (1-\varepsilon(\theta(x),\theta_{*}\mu)) b(\theta(x),\theta_{*}\mu)[F(\mu+\delta_{x})-F(\mu)]\\
+	+ d(\theta(x),\theta_{*}\mu)[F(\mu-\delta_{x})-F(\mu)]\\
+	+ \varepsilon(\theta(x),\theta_{*}\mu) b(\theta(x),\theta_{*}\mu)\int_{\mathcal{S}} K(x,dy)[F(\mu+\delta_{y})-F(\mu)].
+\end{multline}
+Alternately, we can consider the generator $\tilde{\mathbb{L}}:C(\mathcal{M}(\mathcal{E})) \longrightarrow C(\mathcal{M}(\mathcal{E}))$ acting on the environmental phenotypes: 
+\begin{multline}\label{GENE}
+	\tilde{\mathbb{L}}\Phi(\nu)
+	 = \int_{\mathcal{E}} \nu(d\vartheta) (1-\varepsilon(\vartheta,\nu)) b(\vartheta,\nu)[\Phi(\nu+\delta_{\vartheta})-\Phi(\nu)]\\
+	+ d(\vartheta,\nu)[\Phi(\nu-\delta_{\vartheta})-\Phi(\nu)]\\
+	+ \varepsilon(\vartheta,\nu) b(\vartheta,\nu)
+		\int_{\mathcal{E}} \theta_{*}K(\theta^{-1}(\vartheta),d\varsigma)[\Phi(\nu+\delta_{\varsigma})-\Phi(\nu)].
+\end{multline}
+	
+Now, consider an internal phenotype process $\mu_{t}$ evolving according to \eqref{GENI}, and the corresponding environmental phenotype process $\theta_{*}\mu_{t}$.  The latter is characterized by knowing $\Phi(\theta_{*}\mu_{t})$ for all $\Phi \in C(\mathcal{M}(\mathcal{E}))$.  Now, $\Phi(\theta_{*}\mu_{t}) = \Theta^{*}\Phi(\mu_{t}) \in C(\mathcal{M}(\mathcal{S}))$, so we can in turn consider the action of \eqref{GENI} on $\Theta^{*}\Phi$:
+\begin{multline*}
+	\mathbb{L}(\Theta^{*}\Phi)(\mu) 
+	= \int_{\mathcal{S}} \mu(dx) (1-\varepsilon(\theta(x),\theta_{*}\mu)) b(\theta(x),\theta_{*}\mu)
+		[\Theta^{*}\Phi(\mu+\delta_{x})-\Theta^{*}\Phi(\mu)]\\
+	+ d(\theta(x),\theta_{*}\mu)[\Theta^{*}\Phi(\mu-\delta_{x})-\Theta^{*}\Phi(\mu)]\\
+	+ \varepsilon(\theta(x),\theta_{*}\mu) b(\theta(x),\theta_{*}\mu)
+		\int_{\mathcal{S}} K(x,dy)[\Theta^{*}\Phi(\mu+\delta_{y})-\Theta^{*}\Phi(\mu)]\\
+	= \int_{\mathcal{S}} \mu(dx) (1-\varepsilon(\theta(x),\theta_{*}\mu)) b(\theta(x),\theta_{*}\mu)
+		[\Phi(\theta_{*}\mu+\delta_{\theta(x)})-\Phi(\theta_{*}\mu)]\\
+	+ d(\theta(x),\theta_{*}\mu)[\Phi(\theta_{*}\mu-\delta_{\theta(x)})-\Phi(\theta_{*}\mu)]\\
+	+ \varepsilon(\theta(x),\theta_{*}\mu) b(\theta(x),\theta_{*}\mu)
+		\int_{\mathcal{S}} K(x,dy)[\Phi(\theta_{*}\mu+\delta_{\theta(y)})-\Phi(\theta_{*}\mu)]\\
+	= \int_{\mathcal{E}} (\theta_{*}\mu)(d\vartheta) (1-\varepsilon(\vartheta,\theta_{*}\mu)) b(\vartheta,\theta_{*}\mu)
+		[\Phi(\theta_{*}\mu+\delta_{\vartheta})-\Phi(\theta_{*}\mu)]\\
+	+ d(\vartheta,\theta_{*}\mu)[\Phi(\theta_{*}\mu-\delta_{\vartheta})-\Phi(\theta_{*}\mu)]\\
+	+ \varepsilon(\vartheta,\theta_{*}\mu) b(\vartheta,\theta_{*}\mu)
+		\int_{\mathcal{E}} \theta_{*}K(\theta^{-1}(\vartheta),d\varsigma)[\Phi(\theta_{*}\mu+\delta_{\varsigma})-\Phi(\theta_{*}\mu)]\\
+	= \tilde{\mathbb{L}}\Phi(\theta_{*}\mu)
+	= \Theta^{*}(\tilde{\mathbb{L}}\Phi)(\mu),
+\end{multline*}
+Giving the desired duality of generators.
+
+To see the effect on selection, consider the case when $\Phi(\nu) = \langle \phi, \nu \rangle$ for some $\phi \in C(\mathcal{E})$ (recall that
+\[
+	\langle f, \mu \rangle = \int_{\mathcal{X}} f d\mu
+\]
+when $f \in C(\mathcal{X})$ and $\mu \in \mathcal{M}(\mathcal{X}))$.  The previous calculations show us that 
+\begin{multline*}
+	\frac{d}{dt} \mathbb{E}[\langle \phi, \theta_{*}\mu_{t} \rangle] 
+	= \mathbb{E}\left[\int_{\mathcal{E}} (\theta_{*}\mu_{})(d\vartheta) 
+	\left((1-\varepsilon(\vartheta,\theta_{*}\mu_{t})) b(\vartheta,\theta_{*}\mu_{t})- d(\vartheta,\theta_{*}\mu_{t})\right)\phi(\vartheta)\right.\\
+	\left.+ \varepsilon(\vartheta,\theta_{*}\mu_{t}) b(\vartheta,\theta_{*}\mu_{t})
+		\int_{\mathcal{E}} \theta_{*}K(\theta^{-1}(\vartheta),d\varsigma)\phi(\varsigma)\right]\\
+	= \mathbb{E}\left[\langle \left((1-\varepsilon(\cdot,\theta_{*}\mu_{t})) b(\cdot,\theta_{*}\mu_{t})
+		- d(\cdot,\theta_{*}\mu_{t})\right)\phi 
+		+ \varepsilon(\cdot,\theta_{*}\mu_{t}) b(\cdot,\theta_{*}\mu_{t})\langle \phi, \theta_{*}K(\theta^{-1}(\cdot)_\rangle, \theta_{*}\mu_{t} \rangle 
+		\right] \\
+	= \mathbb{E}\left[\langle \phi, \left((1-\varepsilon(\cdot,\theta_{*}\mu_{t})) b(\cdot,\theta_{*}\mu_{t})
+		- d(\cdot,\theta_{*}\mu_{t}) \right) \theta_{*}\mu_{t}
+		+ \langle  \varepsilon(\cdot,\theta_{*}\mu_{t}) b(\cdot,\theta_{*}\mu_{t}) \theta_{*}K(\theta^{-1}(\cdot)),\theta_{*}\mu_{t}\rangle \rangle\right]
+\end{multline*}
+
+Morally, this is giving us a PDE for $\theta_{*}\mu_{t}$:
+\[
+	\partial_{t} (\theta_{*}\mu_{t}) ``=\text{''} \left((1-\varepsilon(\cdot,\theta_{*}\mu_{t})) b(\cdot,\theta_{*}\mu_{t})
+		- d(\cdot,\theta_{*}\mu_{t}) \right) \theta_{*}\mu_{t}
+		+ \langle  \varepsilon(\cdot,\theta_{*}\mu_{t}) b(\cdot,\theta_{*}\mu_{t}) \theta_{*}K(\theta^{-1}(\cdot)),\theta_{*}\mu_{t}\rangle
+\]
+
+\bibliography{../../Global}
+\bibliographystyle{plain}
+
+
+
+\end{document}
