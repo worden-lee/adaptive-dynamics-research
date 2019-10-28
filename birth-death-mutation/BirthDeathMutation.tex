@@ -246,6 +246,21 @@ This generalizes the adaptive dynamics result in which the gradient
 of selection in the $\mathcal{E}$ plane always has positive $k$
 component.
 
+Is this better than doing it in the $x$ space? If I did it that way it
+would be
+\begin{align*}
+	\frac{d}{dt}\mathbb{E}\left\langle k, \mu_t \right\rangle
+	&= \left\langle k, (1-\varepsilon) r(x) \left( 1 - \frac{\langle 1,\mu_t\rangle}{k(x)} \right) \mu_t \right\rangle \\
+	& \qquad\mbox{} + \varepsilon \left\langle k, \left\langle r(x) \left( 1 - \frac{\langle 1, \mu_t\rangle}{k(x)} \right) K(cdot), \mu_t \right\rangle \right\rangle \\
+	&= (1-\varepsilon) \left\langle r (k - N(t)), \mu_t \right\rangle \\
+	& \qquad\mbox{} + \varepsilon \left\langle k, \left\langle \frac{r \left( k - N(t) \right)}{k} K(\cdot), \mu_t \right\rangle \right\rangle ,
+\end{align*}
+which pretty much does the same work.  Maybe Price's equation handles a lot of
+the coordinate transforming that I have needed to do explicitly for the
+gradient analysis.
+Maybe I should look at how or whether the gradient is obtained from a
+limit of Price's equation.
+
 %\bibliography{../../Global}
 \bibliographystyle{plain}
 
