@@ -40,11 +40,14 @@
 
 \begin{document}
 
-\title{Birth-Death-Mutation Process with an Environmental Phenotype}
+\title{Birth-Death-Mutation Process with an Ecological Phenotype}
 %\subtitle{}
 \author{Todd L. Parsons}
 \address{Laboratoire de Probabilit\'es, Statistique et Mod\'elisation, UMR8001, Sorbonne Universit\'e, Paris, 75005, France.}
 %\ead{todd.parsons@upmc.fr}
+\author{Lee Worden}
+\address{Oakland, Calif., USA}
+%\ead{worden.lee@gmail.com}
 
 
 \date{\today}
@@ -55,17 +58,17 @@
 
 \maketitle
 
-Here, we consider a birth-death-mutation process in which each individual has an ``internal'' phenotype $x \in \mathcal{S}$, which is expressed as an ``environmental'' phenotype $\theta(x) \in \mathcal{E}$ that determines the vital rates of the individual.  We assume that $\theta$ is one-to-one, but \emph{not} onto.  
+Here, we consider a birth-death-mutation process in which each individual has an ``internal'' phenotype $x \in \mathcal{S}$, which is expressed as an ``ecological'' phenotype $\theta(x) \in \mathcal{E}$ that determines the vital rates of the individual.  We assume that $\theta$ is one-to-one, but \emph{not} onto.  
 
-We let $N(t)$ be the number of individuals at time $t$, and set $N(0) = n$ ($n$ is the ``system-size'', and \emph{not} a fixed population size: $N(t)$ will vary stochastically with the birth and death events).  We assume that some ordering is assigned to all individuals alive at time $t$ (\eg we could order them by age) and let $X_{i}(t)$ be the phenotype of the $i$\textsuperscript{th} individual at time $t$.  The population can then be represented by it's empirical measure in $\mathcal{M}_{P}(\mathcal{S})$, the space of point measures on $\mathcal{S}$
+We let $N(t)$ be the number of individuals at time $t$, and set $N(0) = n$ ($n$ is the ``system size'', and \emph{not} a fixed population size: $N(t)$ will vary stochastically with the birth and death events).  We assume that some ordering is assigned to all individuals alive at time $t$ (\eg we could order them by age) and let $X_{i}(t)$ be the phenotype of the $i$\textsuperscript{th} individual at time $t$.  The population can then be represented by its empirical measure in $\mathcal{M}_{P}(\mathcal{S})$, the space of point measures on $\mathcal{S}$
 \[
-	 \mu_{t} = \sum_{i=1} \delta_{X_{i}(t)}.
+	 \mu_{t} = \sum_{i=1}^{N(t)} \delta_{X_{i}(t)}.
 \]
-\nb the empirical measure is independent of the ordering of the individuals, counting only the number of individuals of a given phenotype at time $t$.  We can equally represent the population by the empirical measure of environmental phenotypes in $\mathcal{M}_{P}(\mathcal{E})$, 
+\nb the empirical measure is independent of the ordering of the individuals, counting only the number of individuals of a given phenotype at time $t$.  We can equally represent the population by the empirical measure of ecological phenotypes in $\mathcal{M}_{P}(\mathcal{E})$, 
 \[
-	\theta_{*}(\mu_{t}) = \mu_{t} = \sum_{i=1} \delta_{\theta(X_{i}(t))}.
+	\theta_{*}(\mu_{t}) = \mu_{t} = \sum_{i=1}^{N(t)} \delta_{\theta(X_{i}(t))}.
 \]
-Here, $\theta_{*}(\mu_{t})$ is the \textit{pushforward} of $\mu_{t}$ by $\theta$: more generally, given a measure $\mu \in \mathcal{M}(\mathcal{S})$, it's pushforward is the measure $\theta_{*}(\mu) \in \mathcal{M}(\mathcal{E})$ defined by
+Here, $\theta_{*}(\mu_{t})$ is the \textit{pushforward} of $\mu_{t}$ by $\theta$: more generally, given a measure $\mu \in \mathcal{M}(\mathcal{S})$, its pushforward is the measure $\theta_{*}(\mu) \in \mathcal{M}(\mathcal{E})$ defined by
 \[
 	\int_{\mathcal{E}} f\, d\theta_{*}(\mu) := \int_{\mathcal{S}} f\circ\theta\,  d\mu.
 \] 
@@ -80,15 +83,15 @@ and the pullback of functions $F \in C(\mathcal{M}(\mathcal{E}))$ by $\theta_{*}
 
 %\langle f, \theta_{*}(\mu)\rangle
 
-We assume that he birth and death rates of an individual, $b(\vartheta,\nu)$ and $d(\vartheta,\nu)$, respectively, depend on the \emph{environmentl} composition of the community, $\nu \in \mathcal{M}_{P}(\mathcal{E})$, but only on the \emph{environmental} phenotype of the individual; an individual with internal type $x$ has birth and death rates $b(\theta(x),\nu)$ and $d(\theta(x),\nu)$.  Similarly, we assume (Lee?) that the probability that a new-born individual of type $x$ carries a phenotype-changing mutation is $\varepsilon(\theta(x),\nu)$, whereas the probability that a parent of internal phenotype $x$ gives birth to an offspring with internal phenotype $y$ is given by the dispersal kernel $K(x,dy)$. 
+We assume that he birth and death rates of an individual, $b(\vartheta,\nu)$ and $d(\vartheta,\nu)$, respectively, depend on the \emph{ecological} composition of the community, $\nu \in \mathcal{M}_{P}(\mathcal{E})$, but only on the \emph{ecological} phenotype of the individual; an individual with internal type $x$ has birth and death rates $b(\theta(x),\nu)$ and $d(\theta(x),\nu)$.  Similarly, we assume that the probability that an offspring of an individual of type $x$ carries a phenotype-changing mutation is $\varepsilon(\theta(x),\nu)$, and the probability that such an offspring is of type $y$ is given by the mutation kernel $K(x,dy)$. 
 
-With these, we can then describe the generator of the process, $\mathbb{L}:C(\mathcal{M}(\mathcal{S})) \longrightarrow C(\mathcal{M}(\mathcal{S}))$,
+With these, we can then describe the generator of the process, $\mathbb{L}\,\colon C(\mathcal{M}(\mathcal{S})) \longrightarrow C(\mathcal{M}(\mathcal{S}))$,
 \begin{multline}\label{GENI}
 	\mathbb{L}F(\mu) = \int_{\mathcal{S}} \mu(dx) (1-\varepsilon(\theta(x),\theta_{*}\mu)) b(\theta(x),\theta_{*}\mu)[F(\mu+\delta_{x})-F(\mu)]\\
 	+ d(\theta(x),\theta_{*}\mu)[F(\mu-\delta_{x})-F(\mu)]\\
 	+ \varepsilon(\theta(x),\theta_{*}\mu) b(\theta(x),\theta_{*}\mu)\int_{\mathcal{S}} K(x,dy)[F(\mu+\delta_{y})-F(\mu)].
 \end{multline}
-Alternately, we can consider the generator $\tilde{\mathbb{L}}:C(\mathcal{M}(\mathcal{E})) \longrightarrow C(\mathcal{M}(\mathcal{E}))$ acting on the environmental phenotypes: 
+Alternately, we can consider the generator $\tilde{\mathbb{L}}\,\colon C(\mathcal{M}(\mathcal{E})) \longrightarrow C(\mathcal{M}(\mathcal{E}))$ acting on the ecological phenotypes: 
 \begin{multline}\label{GENE}
 	\tilde{\mathbb{L}}\Phi(\nu)
 	 = \int_{\mathcal{E}} \nu(d\vartheta) (1-\varepsilon(\vartheta,\nu)) b(\vartheta,\nu)[\Phi(\nu+\delta_{\vartheta})-\Phi(\nu)]\\
@@ -97,7 +100,7 @@ Alternately, we can consider the generator $\tilde{\mathbb{L}}:C(\mathcal{M}(\ma
 		\int_{\mathcal{E}} \theta_{*}K(\theta^{-1}(\vartheta),d\varsigma)[\Phi(\nu+\delta_{\varsigma})-\Phi(\nu)].
 \end{multline}
 	
-Now, consider an internal phenotype process $\mu_{t}$ evolving according to \eqref{GENI}, and the corresponding environmental phenotype process $\theta_{*}\mu_{t}$.  The latter is characterized by knowing $\Phi(\theta_{*}\mu_{t})$ for all $\Phi \in C(\mathcal{M}(\mathcal{E}))$.  Now, $\Phi(\theta_{*}\mu_{t}) = \Theta^{*}\Phi(\mu_{t}) \in C(\mathcal{M}(\mathcal{S}))$, so we can in turn consider the action of \eqref{GENI} on $\Theta^{*}\Phi$:
+Now, consider an internal phenotype process $\mu_{t}$ evolving according to \eqref{GENI}, and the corresponding ecological phenotype process $\theta_{*}\mu_{t}$.  The latter is characterized by knowing $\Phi(\theta_{*}\mu_{t})$ for all $\Phi \in C(\mathcal{M}(\mathcal{E}))$.  Now, $\Phi(\theta_{*}\mu_{t}) = \Theta^{*}\Phi(\mu_{t}) \in C(\mathcal{M}(\mathcal{S}))$, so we can in turn consider the action of \eqref{GENI} on $\Theta^{*}\Phi$:
 \begin{multline*}
 	\mathbb{L}(\Theta^{*}\Phi)(\mu) 
 	= \int_{\mathcal{S}} \mu(dx) (1-\varepsilon(\theta(x),\theta_{*}\mu)) b(\theta(x),\theta_{*}\mu)
@@ -133,7 +136,7 @@ when $f \in C(\mathcal{X})$ and $\mu \in \mathcal{M}(\mathcal{X}))$.  The previo
 		\int_{\mathcal{E}} \theta_{*}K(\theta^{-1}(\vartheta),d\varsigma)\phi(\varsigma)\right]\\
 	= \mathbb{E}\left[\langle \left((1-\varepsilon(\cdot,\theta_{*}\mu_{t})) b(\cdot,\theta_{*}\mu_{t})
 		- d(\cdot,\theta_{*}\mu_{t})\right)\phi 
-		+ \varepsilon(\cdot,\theta_{*}\mu_{t}) b(\cdot,\theta_{*}\mu_{t})\langle \phi, \theta_{*}K(\theta^{-1}(\cdot)_\rangle, \theta_{*}\mu_{t} \rangle 
+		+ \varepsilon(\cdot,\theta_{*}\mu_{t}) b(\cdot,\theta_{*}\mu_{t})\langle \phi, \theta_{*}K(\theta^{-1}(\cdot)) \rangle, \theta_{*}\mu_{t} \rangle 
 		\right] \\
 	= \mathbb{E}\left[\langle \phi, \left((1-\varepsilon(\cdot,\theta_{*}\mu_{t})) b(\cdot,\theta_{*}\mu_{t})
 		- d(\cdot,\theta_{*}\mu_{t}) \right) \theta_{*}\mu_{t}
@@ -147,9 +150,106 @@ Morally, this is giving us a PDE for $\theta_{*}\mu_{t}$:
 		+ \langle  \varepsilon(\cdot,\theta_{*}\mu_{t}) b(\cdot,\theta_{*}\mu_{t}) \theta_{*}K(\theta^{-1}(\cdot)),\theta_{*}\mu_{t}\rangle
 \]
 
-\bibliography{../../Global}
+\section*{Example: $r$ vs $k$ selection}
+
+The $r$-$K$ selection problem worked cleanly in the adaptive dynamics
+case, so let's see how it goes in this framework.
+Note that this ignores all the important points Joanna Masel brought up
+about how this model is misspecified,
+for the sake of a simple example.
+I'll use a lowercase $k$ for carrying capacity since we're using $K$ for
+the mutation kernel.
+
+We could partition the effects across birth and death rates differently,
+but I think of it as a birth rate limited by capacity, so I'll
+just write it that way. The population dynamics is driven by
+ecological parameters $r>0$ and $k>0$:
+\begin{align*}
+	b(x,\mu) &= r(x) \left( 1 - \frac{N(t)}{k(x)} \right) = r(x) \left( 1 - \frac{\int_{\mathcal{S}} \mu(dx)}{k(x)} \right) \\
+	d(x,\mu) &= m
+	%b(\vartheta,\nu) = r(\vartheta) \left( 1 - \int_{\mathcal{E}} \nu(d\varsigma) / k(\vartheta) \\
+	%d(\vartheta,\nu) = 
+\end{align*}
+
+The mutation kernel $K$ is left in general form.
+I don't care much what the mutation $\varepsilon$ is but let's make it
+constant to simplify.
+
+The ``ecological phenotype'' of these creatures is the vector
+$\theta(x) := (r(x),k(x))$, and the hypothesis is that it's good to
+consider the population dynamics to be in $\theta$ space.
+
+So what do we get? In $x$ space the evolution of a test function is
+\begin{align*}
+	\frac{d}{dt} \mathbb{E}\left\langle f, \mu_t \right\rangle 
+	&= \mathbb{E} \int_{\mathcal{S}} \mu_t(dx) \left[ (1-\varepsilon) \left( r(x) \left( 1 - \frac{\int_{\mathcal{S}} \mu_t(dx)}{k(x)} \right) - m \right) f(x) \right. \\
+	& \left. \qquad\mbox{} + \varepsilon r(x) \left( 1 - \frac{\int_{\mathcal{S}} \mu_t(dx)}{k(x)} \right) \int_{S} K(x,dy) f(y) \right] \\
+	&= \mathbb{E}\left\langle f, \left( (1-\varepsilon) b(x) \left(1 - \frac{\langle 1,\mu_t\rangle}{k(x)} \right) - m \right) \mu_t \right. \\
+	& \left. \qquad\mbox{} + \left\langle \varepsilon \left( 1 - \frac{\langle 1,\mu_t\rangle}{k(x)} \right) K(\cdot), \mu_t \right\rangle \right\rangle .
+\end{align*}
+%
+In $\theta$ space it's
+\begin{align*}
+	\frac{d}{dt} \mathbb{E}\left\langle \phi, \theta_{*}\mu_t \right\rangle
+	&= \mathbb{E} \iint \phi(r,k) \left[ (1-\varepsilon)
+		\left( r \left( 1 - \frac{\iint \theta_{*}\mu_t(dr,dk)}{k} \right) - m \right) \right. \\
+	& \left. \qquad\mbox{} + \varepsilon\, r \left( 1 - \frac{\iint \theta_{*}\mu_t(dr,dk)}{k} \right) \iint \phi(r',k')\, \theta_{*}K(\theta^{-1}(r,k),(dr',dk')) \right] \theta_{*}\mu_t(dr,dk) \\
+	&= \mathbb{E}\left\langle \phi, 
+		\left( (1-\varepsilon) r \left( 1 - \frac{\langle 1,\theta_{*}\mu_t\rangle}{k} \right) - m \right) \theta_*{\mu_t} \right. \\
+	& \left. \qquad\mbox{} + \left\langle \varepsilon\, r \left( 1 - \frac{\langle 1,\theta_{*}\mu_t\rangle}{k} \right) \theta_{*}K(\theta^{-1}(\cdot)), \theta_{*}\mu_t \right\rangle \right\rangle .
+\end{align*}
+
+To ask where evolution is likely to go in this system, we can ask what types
+are expected to increase, say a type $z$,
+with ecological type $(r_z,k_z)=\theta(z)$, and test functionals
+$\delta_z$ and $\delta_{r_z,k_z}=\theta_*\delta_z$.
+Without worrying about the angle notation, the expected growth in $z$ is
+\begin{align*}
+	(1-\varepsilon) \left( r_z \left( 1 - \frac{\int_{\mathcal{S}} \mu_t(dx)}{k_z} \right) - m \right) + \varepsilon \int_{\mathcal{S}}\int_{\mathcal{S}}  r(y) \left( 1 - \frac{\int_{\mathcal{S}} \mu_t(dx')}{k(y)} \right) K(y,dx) \delta_z(x) \mu_t(dy).
+\end{align*}
+This can be positive if 
+\[ r_z \left( 1 - \frac{\int_{\mathcal{S}} \mu_t(dx)}{k_z} \right) - m > 0, \]
+\emph{i.e.}\ if $k_z$ is bigger than the current population,
+or if there is significant influx of mutants to type $z$, or both.
+
+Let's look at the evolution of $r$ and $k$ by using their projections
+$\pi_r(r,k)=r$, $\pi_k(r,k)=k$, with the $\theta$-space Price equation:
+%Or actually, let's abuse notation by treating 
+%\newcommand{\id}{\OperatorName{id}}
+%$\id\,\colon\mathcal{S}\to\mathbb{R}_{+}^2$, $\id( (r,k) ) := (r,k)$,
+%as if it were a functional:
+\begin{align*}
+	\frac{d}{dt}\mathbb{E}\left\langle \pi_r, \theta_{*}\mu_t \right\rangle
+	&= \left\langle r, (1-\varepsilon) r \left( 1 - \frac{\langle 1, \theta_*{\mu_t}\rangle}{k} \right) \theta_*\mu_t \right\rangle \\
+	& \qquad\mbox{} + \varepsilon \left\langle r, \left\langle r \left( 1 - \frac{\langle 1, \theta_*{\mu_t}\rangle}{k} \right) \theta_*K(\theta^{-1}(\cdot)), \theta_{*}\mu_t \right\rangle \right\rangle.
+\end{align*}
+The first term of this reflects correlation between $r$ and the sign of
+$1-N(t)/k$,
+and the second reflects correlation between the $r$ of parents and 
+mutant children, and the sign of the parent's $1-N(t)/k$.
+That is, selection on $r$ is driven by whether it coincides with
+$k>N(t)$.
+
+Now the same treatment for $k$:
+\begin{align*}
+	\frac{d}{dt}\mathbb{E}\left\langle \pi_k, \theta_{*}\mu_t \right\rangle
+	&= \left\langle k, (1-\varepsilon) r \left( 1 - \frac{\langle 1, \theta_*{\mu_t}\rangle}{k} \right) \theta_*\mu_t \right\rangle \\
+	& \qquad\mbox{} + \varepsilon \left\langle k, \left\langle r \left( 1 - \frac{\langle 1, \theta_*{\mu_t}\rangle}{k} \right) \theta_*K(\theta^{-1}(\cdot)), \theta_{*}\mu_t \right\rangle \right\rangle \\
+	&= (1-\varepsilon) \left\langle r (k - N(t)), \theta_*\mu_t \right\rangle \\
+	& \qquad\mbox{} + \varepsilon \left\langle k, \left\langle \frac{r \left( k - N(t) \right)}{k} \theta_*K(\theta^{-1}(\cdot)), \theta_{*}\mu_t \right\rangle \right\rangle .
+\end{align*}
+The first term of this indicates selection for $k>N(t)$,
+while the second points to a contribution from the $k$ of mutant children
+of parents whose $k>N(t)$.
+
+This generalizes the adaptive dynamics result in which the gradient
+of selection in the $\mathcal{E}$ plane always has positive $k$
+component.
+
+%\bibliography{../../Global}
 \bibliographystyle{plain}
 
-
+\vfill
 
 \end{document}
+
