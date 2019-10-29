@@ -150,6 +150,11 @@ Morally, this is giving us a PDE for $\theta_{*}\mu_{t}$:
 		+ \langle  \varepsilon(\cdot,\theta_{*}\mu_{t}) b(\cdot,\theta_{*}\mu_{t}) \theta_{*}K(\theta^{-1}(\cdot)),\theta_{*}\mu_{t}\rangle
 \]
 
+% [Question: is this morality concern because it needs a martingale added
+% after which it's actually an SDE, 
+% $\partial_t\theta_*\mu_t = \ldots + m(t)$?
+% Or a deeper problem about measures vs.\ their observation via functionals]
+
 \section*{Example: $r$ vs $k$ selection}
 
 The $r$-$K$ selection problem worked cleanly in the adaptive dynamics
@@ -172,7 +177,7 @@ ecological parameters $r>0$ and $k>0$:
 \end{align*}
 
 The mutation kernel $K$ is left in general form.
-I don't care much what the mutation $\varepsilon$ is but let's make it
+I don't care much what the mutation rate $\varepsilon$ is but let's make it
 constant to simplify.
 
 The ``ecological phenotype'' of these creatures is the vector
@@ -195,71 +200,90 @@ In $\theta$ space it's
 		\left( r \left( 1 - \frac{\iint \theta_{*}\mu_t(dr,dk)}{k} \right) - m \right) \right. \\
 	& \left. \qquad\mbox{} + \varepsilon\, r \left( 1 - \frac{\iint \theta_{*}\mu_t(dr,dk)}{k} \right) \iint \phi(r',k')\, \theta_{*}K(\theta^{-1}(r,k),(dr',dk')) \right] \theta_{*}\mu_t(dr,dk) \\
 	&= \mathbb{E}\left\langle \phi, 
-		\left( (1-\varepsilon) r \left( 1 - \frac{\langle 1,\theta_{*}\mu_t\rangle}{k} \right) - m \right) \theta_*{\mu_t} \right. \\
+		(1-\varepsilon) \left( r \left( 1 - \frac{\langle 1,\theta_{*}\mu_t\rangle}{k} \right) - m \right) \theta_*{\mu_t} \right. \\
 	& \left. \qquad\mbox{} + \left\langle \varepsilon\, r \left( 1 - \frac{\langle 1,\theta_{*}\mu_t\rangle}{k} \right) \theta_{*}K(\theta^{-1}(\cdot)), \theta_{*}\mu_t \right\rangle \right\rangle .
 \end{align*}
 
 To ask where evolution is likely to go in this system, we can ask what types
-are expected to increase, say a type $z$,
-with ecological type $(r_z,k_z)=\theta(z)$, and test functionals
-$\delta_z$ and $\delta_{r_z,k_z}=\theta_*\delta_z$.
-Without worrying about the angle notation, the expected growth in $z$ is
+are expected to increase, by using say a test functional $\delta_z$
+at a type $z$,
+with ecological type $(r_z,k_z)=\theta(z)$ and 
+$\delta_{(r_z,k_z)}=\theta_*\delta_z$.
+The expected growth in $z$ is
 \begin{align*}
 	(1-\varepsilon) \left( r_z \left( 1 - \frac{\int_{\mathcal{S}} \mu_t(dx)}{k_z} \right) - m \right) + \varepsilon \int_{\mathcal{S}}\int_{\mathcal{S}}  r(y) \left( 1 - \frac{\int_{\mathcal{S}} \mu_t(dx')}{k(y)} \right) K(y,dx) \delta_z(x) \mu_t(dy).
 \end{align*}
 This can be positive if 
 \[ r_z \left( 1 - \frac{\int_{\mathcal{S}} \mu_t(dx)}{k_z} \right) - m > 0, \]
-\emph{i.e.}\ if $k_z$ is bigger than the current population,
+\emph{i.e.}\ if $k_z$ is bigger than the current population and $r_z$ is
+sufficiently large,
 or if there is significant influx of mutants to type $z$, or both.
 
 Let's look at the evolution of $r$ and $k$ by using their projections
 $\pi_r(r,k)=r$, $\pi_k(r,k)=k$, with the $\theta$-space Price equation:
-%Or actually, let's abuse notation by treating 
-%\newcommand{\id}{\OperatorName{id}}
-%$\id\,\colon\mathcal{S}\to\mathbb{R}_{+}^2$, $\id( (r,k) ) := (r,k)$,
-%as if it were a functional:
 \begin{align*}
 	\frac{d}{dt}\mathbb{E}\left\langle \pi_r, \theta_{*}\mu_t \right\rangle
-	&= \left\langle r, (1-\varepsilon) r \left( 1 - \frac{\langle 1, \theta_*{\mu_t}\rangle}{k} \right) \theta_*\mu_t \right\rangle \\
-	& \qquad\mbox{} + \varepsilon \left\langle r, \left\langle r \left( 1 - \frac{\langle 1, \theta_*{\mu_t}\rangle}{k} \right) \theta_*K(\theta^{-1}(\cdot)), \theta_{*}\mu_t \right\rangle \right\rangle.
+	&= (1-\varepsilon) \left\langle r, \left( r \left( 1 - \frac{\langle 1, \theta_*{\mu_t}\rangle}{k} \right) - m \right) \theta_*\mu_t \right\rangle \\
+	& \qquad\mbox{} + \varepsilon \left\langle r, \left\langle \left( r \left( 1 - \frac{\langle 1, \theta_*{\mu_t}\rangle}{k} \right) - m \right) \theta_*K(\theta^{-1}(\cdot)), \theta_{*}\mu_t \right\rangle \right\rangle \\
+%	&= (1-\varepsilon) \left\langle r^2 \left( 1 - \frac{N(t)}{k} \right) - r\,m, \theta_*\mu_t \right\rangle \\
+%	& \qquad\mbox{} + \varepsilon \left\langle r, \left\langle \left( r \left( 1 - \frac{N(t)}{k} \right) - m \right) \theta_*K(\theta^{-1}(\cdot)), \theta_{*}\mu_t \right\rangle \right\rangle \\
 \end{align*}
-The first term of this reflects correlation between $r$ and the sign of
-$1-N(t)/k$,
-and the second reflects correlation between the $r$ of parents and 
-mutant children, and the sign of the parent's $1-N(t)/k$.
-That is, selection on $r$ is driven by whether it coincides with
-$k>N(t)$.
+%Let $r=mk/(k-N(t))+r'$, so that
+%\[ r\left( 1 - \frac{N(t)}{k} \right) - m = r' \left( 1 - \frac{N(t)}{k} \right). \]
+%Then we can write
+%\begin{align*}
+%	\frac{d}{dt}\mathbb{E}\left\langle \pi_r, \theta_{*}\mu_t \right\rangle
+%	&= (1-\varepsilon) \left\langle r, r' \left( 1 - \frac{\langle 1, \theta_*{\mu_t}\rangle}{k} \right) \theta_*\mu_t \right\rangle \\
+%	& \qquad\mbox{} + \varepsilon \left\langle r, \left\langle r' \left( 1 - \frac{\langle 1, \theta_*{\mu_t}\rangle}{k} \right) \theta_*K(\theta^{-1}(\cdot)), \theta_{*}\mu_t \right\rangle \right\rangle \\
+%\end{align*}
+The first term of this reflects correlation between $r$ and the
+fitness function,
+and the second reflects correlation between the $r$ of 
+mutant children and the parent's fitness function.
+The fitness function is positive when $k>N(t)$ and $r$ is sufficiently
+large.
 
 Now the same treatment for $k$:
 \begin{align*}
 	\frac{d}{dt}\mathbb{E}\left\langle \pi_k, \theta_{*}\mu_t \right\rangle
-	&= \left\langle k, (1-\varepsilon) r \left( 1 - \frac{\langle 1, \theta_*{\mu_t}\rangle}{k} \right) \theta_*\mu_t \right\rangle \\
-	& \qquad\mbox{} + \varepsilon \left\langle k, \left\langle r \left( 1 - \frac{\langle 1, \theta_*{\mu_t}\rangle}{k} \right) \theta_*K(\theta^{-1}(\cdot)), \theta_{*}\mu_t \right\rangle \right\rangle \\
-	&= (1-\varepsilon) \left\langle r (k - N(t)), \theta_*\mu_t \right\rangle \\
-	& \qquad\mbox{} + \varepsilon \left\langle k, \left\langle \frac{r \left( k - N(t) \right)}{k} \theta_*K(\theta^{-1}(\cdot)), \theta_{*}\mu_t \right\rangle \right\rangle .
+	&= (1-\varepsilon) \left\langle k, \left( r \left( 1 - \frac{\langle 1, \theta_*{\mu_t}\rangle}{k} \right) - m \right ) \theta_*\mu_t \right\rangle \\
+	& \qquad\mbox{} + \varepsilon \left\langle k, \left\langle \left( r \left( 1 - \frac{\langle 1, \theta_*{\mu_t}\rangle}{k} \right) - m \right) \theta_*K(\theta^{-1}(\cdot)), \theta_{*}\mu_t \right\rangle \right\rangle \\
+%	&= (1-\varepsilon) \left\langle r (k - N(t)) - m\,k, \theta_*\mu_t \right\rangle \\
+%	& \qquad\mbox{} + \varepsilon \left\langle k, \left\langle \frac{r \left( k - N(t) \right)}{k} \theta_*K(\theta^{-1}(\cdot)), \theta_{*}\mu_t \right\rangle \right\rangle .
 \end{align*}
-The first term of this indicates selection for $k>N(t)$,
-while the second points to a contribution from the $k$ of mutant children
-of parents whose $k>N(t)$.
+In the adaptive dynamics version, when we take the gradient
+of the invasion fitness at resident equilibrium with respect to
+$r$ and $k$, we find the $r$ component vanishes and the $k$
+component is positive.
+I'm not seeing a corresponding effect here.
 
-This generalizes the adaptive dynamics result in which the gradient
-of selection in the $\mathcal{E}$ plane always has positive $k$
-component.
+One consideration is that selection on $r$ doesn't vanish
+when you don't separate timescales so that selection is evaluated
+at $N(t)\equiv k$.
+When $N$ is away from equilibrium, $r$ can be selected,
+in fact if $N$ happens to fall close to 0 we would transition
+from $K$-selection to the classic $r$-selection scenario.
+The fitness effect of $k$ must also fluctuate with the population size:
+it must be bigger than whatever the current $N$ is, but
+when $N$ happens to be below the resident $k$,
+this could allow values of $k$ smaller than the resident to be selected.
 
-Is this better than doing it in the $x$ space? If I did it that way it
-would be
+Is there an advantage to doing this in the $\theta$ space
+rather than the $x$ space?
+If I shift to $x$ space it's
 \begin{align*}
 	\frac{d}{dt}\mathbb{E}\left\langle k, \mu_t \right\rangle
-	&= \left\langle k, (1-\varepsilon) r(x) \left( 1 - \frac{\langle 1,\mu_t\rangle}{k(x)} \right) \mu_t \right\rangle \\
-	& \qquad\mbox{} + \varepsilon \left\langle k, \left\langle r(x) \left( 1 - \frac{\langle 1, \mu_t\rangle}{k(x)} \right) K(cdot), \mu_t \right\rangle \right\rangle \\
-	&= (1-\varepsilon) \left\langle r (k - N(t)), \mu_t \right\rangle \\
-	& \qquad\mbox{} + \varepsilon \left\langle k, \left\langle \frac{r \left( k - N(t) \right)}{k} K(\cdot), \mu_t \right\rangle \right\rangle ,
+	&= (1-\varepsilon) \left\langle k, \left( r(x) \left( 1 - \frac{\langle 1,\mu_t\rangle}{k(x)} \right) - m \right) \mu_t \right\rangle \\
+	& \qquad\mbox{} + \varepsilon \left\langle k, \left\langle \left( r(x) \left( 1 - \frac{\langle 1, \mu_t\rangle}{k(x)} \right) - m \right) K(\cdot), \mu_t \right\rangle \right\rangle,
 \end{align*}
-which pretty much does the same work.  Maybe Price's equation handles a lot of
+which pretty much does the same work. 
+Maybe Price's equation handles a lot of
 the coordinate transforming that I have needed to do explicitly for the
 gradient analysis.
-Maybe I should look at how or whether the gradient is obtained from a
-limit of Price's equation.
+I might need to look at how or whether the gradient part of the
+canonical adaptive dynamics equation is obtained from a
+limit of the Price equation -- maybe that's a better way of
+looking at all this, with the chain rule piece as a corollary.
 
 %\bibliography{../../Global}
 \bibliographystyle{plain}
