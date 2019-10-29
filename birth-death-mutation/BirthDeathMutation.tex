@@ -158,10 +158,15 @@ Morally, this is giving us a PDE for $\theta_{*}\mu_{t}$:
 \section*{Example: $r$ vs $k$ selection}
 
 The $r$-$K$ selection problem worked cleanly in the adaptive dynamics
-case, so let's see how it goes in this framework.
+case: I found that when you write the selection gradient in terms
+of the ecological phenotype $(r,K)$, the gradient is zero in the $r$
+direction and positive in the $K$ direction.
+The conclusion is that selection on the internal phenotype $x$ is
+in whatever direction increases $K$, without regard to $r$ or anything
+else.
+So let's see how it goes in this framework.
 Note that this ignores all the important points Joanna Masel brought up
-about how this model is misspecified,
-for the sake of a simple example.
+about how this model is misspecified, for the sake of a simple example.
 I'll use a lowercase $k$ for carrying capacity since we're using $K$ for
 the mutation kernel.
 
@@ -215,11 +220,11 @@ are expected to increase, by using say a test functional $\delta_z$
 at a type $z$,
 with ecological phenotype $(r_z,k_z)=\theta(z)$% and $\delta_{(r_z,k_z)}=\theta_*\delta_z$
 .
-The expected growth in $\delta_z(\mu)$ is
+The expected growth in $X_z(t)=\delta_z(\mu_t)$ is
 \begin{align*}
-	(1-\varepsilon) r_z \left( 1 - \frac{\int_{\mathcal{S}} \mu_t(dx)}{k_z} \right) + \varepsilon \int_{\mathcal{S}}\int_{\mathcal{S}}  r(y) K(y,dx) \delta_z(x) \mu_t(dy).
+	(1-\varepsilon) r_z \left( 1 - \frac{\int_{\mathcal{S}} \mu_t(dx)}{k_z} \right) \delta_z(\mu_t) + \varepsilon \int_{\mathcal{S}}  r(y) \delta_z(K(y)) \mu_t(dy).
 \end{align*}
-This will be positive if $k_z>N(t)$,
+This will be positive if $k_z>N(t)$ and $X_z(t)>0$,
 %\[ r_z \left( 1 - \frac{\int_{\mathcal{S}} \mu_t(dx)}{k_z} \right) - m > 0, \]
 %\emph{i.e.}\ if $k_z$ is bigger than the current population and $r_z$ is
 %sufficiently large,
@@ -235,7 +240,7 @@ Starting with $r$,
 \end{align*}
 The first term of this describes correlation between $r^2$ and the
 sign of $k-N(t)$,
-which can be read as selection for whatever $r$ is found where $k>N$,
+which can be read as selection for whatever $r$ values are found where $k>N$,
 and the second reflects correlation between the $r$ of 
 parents and of their mutant children.
 
@@ -257,10 +262,10 @@ component is positive.
 I'm seeing something like that here, though not exactly the same.
 
 One consideration is that selection on $r$ doesn't vanish
-when you don't separate timescales so that selection is evaluated
-at $N(t)\equiv k$.
-When $N$ is away from equilibrium, $r$ can be selected,
-in fact if $N$ happens to drift toward 0 we would transition
+when you don't separate timescales and make $n$ large
+so that selection is evaluated at $N(t)\equiv k$.
+When $N$ is away from equilibrium, $r$ can be selected ---
+in fact if $N$ happens to drift toward 0 we will transition
 from $K$-selection to the classic $r$-selection scenario.
 The selection on $k$ must also fluctuate with the population size:
 it must be bigger than whatever the current $N$ is, but
@@ -272,11 +277,11 @@ rather than the $x$ space?
 If I shift to $x$ space it's
 \begin{align*}
 	\frac{d}{dt}\mathbb{E}\left\langle k, \mu_t \right\rangle
-	&= (1-\varepsilon) \left\langle k, r(x) \left( 1 - \frac{\langle 1,\mu_t\rangle}{k(x)} \right) \mu_t \right\rangle 
+	&= (1-\varepsilon) \left\langle r(x) ( k(x) - \langle 1,\mu_t\rangle ), \mu_t \right\rangle 
 		+ \varepsilon \left\langle k, \left\langle r(x)\, K(\cdot), \mu_t \right\rangle \right\rangle,
 \end{align*}
 which pretty much does the same work. 
-Maybe the Price equation handles a lot of
+It seems like the Price equation handles a lot of
 the coordinate transforming that I have needed to do explicitly for the
 gradient analysis.
 I might need to look at how exactly the gradient part of the
