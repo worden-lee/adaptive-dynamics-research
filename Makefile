@@ -65,7 +65,7 @@ css/auto-generated-from-ww.css : $(WW_CSS_TO_USE)
 # the YAML header included).
 WW = /usr/local/src/workingwiki
 _pandoc/%.md : %.md.wmd wmd_files/.workingwiki/.wmd.data _pandoc
-	php $(WW)/wmd/wmd.php --pre --title=$(TITLE) --default-project-name=$(PROJECT) --cache-dir=wmd_files --data-store=.wmd.data --modification-time=`date +%Y%m%d%H%M%s` --process-inline-math=1 --output-format=tex < $< > $@
+	php $(WW)/wmd/wmd.php --pre --title=$(TITLE) --default-project-name=$(PROJECT) --cache-dir=wmd_files --data-store=.wmd.data --modification-time=`date +%Y%m%d%H%M%s` --process-inline-math=1 --drop-yaml=0 --output-format=tex < $< > $@
 
 PROJECT = Selection_Gradients
 TITLE = "Evolution in a Food Web"
@@ -75,16 +75,19 @@ _pandoc/constraint.md : TITLE="Constraints"
 _pandoc/Masel.md _pandoc/Masel.tex: TITLE="'Notes on Masel Model'"
 
 _pandoc/%.md : Selection_Gradients/%.md.wmd wmd_files/.workingwiki/.wmd.data _pandoc
-	php $(WW)/wmd/wmd.php --pre --title=$(TITLE) --default-project-name=$(PROJECT) --cache-dir=wmd_files --data-store=.wmd.data --modification-time=`date +%Y%m%d%H%M%s` --process-inline-math=1 --output-format=tex < $< > $@
+	php $(WW)/wmd/wmd.php --pre --title=$(TITLE) --default-project-name=$(PROJECT) --cache-dir=wmd_files --data-store=.wmd.data --modification-time=`date +%Y%m%d%H%M%s` --process-inline-math=1 --drop-yaml=0 --output-format=tex < $< > $@
 
 _pandoc/%.intermediate.tex : _pandoc/%.md _pandoc
-	pandoc -f markdown -t latex -s --listings --include-in-header=_assets/latex-header-additions.tex -S --filter pandoc-citeproc $< -o $@
+	pandoc -f markdown+smart -t latex -s --listings --include-in-header=_assets/latex-header-additions.tex --filter pandoc-citeproc $< -o $@
 
 _pandoc/%.tex : _pandoc/%.intermediate.tex _pandoc
 	php $(WW)/wmd/wmd.php --post --title=$(TITLE) --default-project-name=$(PROJECT) --cache-dir=wmd_files --data-store=.wmd.data --persistent-data-store --modification-time=`date +%Y%m%d%H%M%s` --output-format=tex $(WMD_ARGS) < $< > $@
 
 _pandoc/%.pdf : _pandoc/%.tex _pandoc
-	cd _pandoc && pdflatex $* && pdflatex $*
+	cd _pandoc && pdflatex $* && pdflatex $* 
+
+#	bibtex _pandoc/$*
+#	cd _pandoc && pdflatex $*
 
 %.pdf : _pandoc/%.pdf _pandoc
 	mv _pandoc/$*.pdf $@

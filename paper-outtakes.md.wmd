@@ -6,6 +6,116 @@ bibliography: master.bib
 wmd_project: Selection_Gradients
 ---
 
+# Price eqn/what is selected
+
+Price equation uses $$w=1+\mathcal{I}$$.
+The following synthesis of Price and adaptive dynamics is from
+[@lehtonen_price_2018].
+
+If we have mutations along the $x$ direction,
+at resident $\bar{x}$,
+$$w\approx 1 + \left.\frac{\partial w}{\partial x}\right|_{x=\bar{x}} (x-\bar{x})$$
+
+Price equation for short-term change is
+\[* \Delta x
+  = \frac{1}{\bar{w}} \text{cov}(w,x)
+  = \frac{\text{var}(x)}{\bar{w}} \left.\frac{\partial w}{\partial x}\right|_{x=\bar{x}}
+\]
+
+The adaptive dynamics assumptions of rare mutations and complete replacement
+lead to the canonical equation
+\[* \frac{d\bar{x}}{dt} = \gamma X^* \frac{\text{var}(x)}{w(\bar{x},\bar{x})} \left.\frac{\partial w}{\partial x}\right|_{x=\bar{x}}
+\]
+and from the above, if we want we can write this as
+\[* \frac{d\bar{x}}{dt} = \gamma X^* \frac{1}{w(\bar{x},\bar{x})} \text{cov}(\mathcal{I},x) \]
+or
+\[* \frac{d\bar{x}}{dt} = \gamma X^* \frac{1}{w(\bar{x},\bar{x})} \text{cov}\left(\left.\frac{\partial\mathcal{I}}{\partial x}\right|_{x=\bar{x}},x\right) \]
+given that $$x-\bar{x}$$ is small.
+
+For a generalized characteristic $$z$$,
+\[* \frac{d\bar{z}}{dt}
+  = \frac{d\bar{z}}{d\bar{u}} \frac{d\bar{u}}{dt}
+  = \gamma X^* \frac{\text{var}(u)}{\bar{w}} \frac{\partial w}{\partial u} \frac{d\bar{z}}{d\bar{u}}.
+\]
+If $$w(u)$$ is totally mediated by $$z$$, i.e. $$w(z(u))$$, then
+\[* \frac{d\bar{z}}{dt}
+  = \gamma X^* \frac{\text{var}(u)}{\bar{w}} \frac{\partial w}{\partial z} \frac{dz}{du} \frac{d\bar{z}}{d\bar{u}}
+\]
+and since $$\text{var}(z)=\mathbb{E}[\Delta z^2]=\mathbb{E}\left[\left(\frac{dz}{du}\Delta u\right)^2\right]=\left(\frac{dz}{du}\right)^2\text{var}(u)$$,
+\[* = \gamma X^* \frac{\text{var}(z)}{\bar{w}} \frac{\partial w}{\partial z}
+    = \gamma X^* \frac{1}{\bar{w}} \text{cov}(w,z).
+\]
+This seems odd because it kind of obscures the constraint to variation in $$u$$.
+I guess it's encoded in the $$\text{var}$$ and $$\text{cov}$$,
+which are small if $$z$$ doesn't vary much along the $$u$$ curve.
+It's consistent with my understanding of the Price equation.
+
+When it's not totally mediated, and instead
+$$\frac{dw}{du}=\sum_i \frac{\partial w}{\partial x_i} \frac{dx_i}{du}$$,
+then
+\[* \frac{d\bar{z}}{dt}
+    = \gamma X^* \frac{\text{var}(u)}{\bar{w}} \sum_i \frac{\partial w}{\partial x_i} \frac{dx_i}{du} \frac{d\bar{z}}{d\bar{u}}
+    = \gamma X^* \frac{1}{\bar{w}} \text{cov}(w,z).
+\]
+Some expansion of this into covariances of $$z$$ with partitions
+of the variation in $$w$$ due to the different $$x_i$$ might be useful,
+we'll see.
+
+I would like to work through this with $$z=p_i$$ and for the whole
+vector $$\mathbf{p}$$.
+
+For illustration, suppose that $$\mathcal{I} = 2 p_1 + p_2 + K$$.
+Intuitively, this says that there is selection on $$p_1$$ and half as
+strongly on $$p_2$$.
+This should show up in the Price equation.
+
+Then
+\[* \frac{d\bar{u}}{dt}
+    = \gamma X^* \frac{\text{var}(u)}{2\bar{p}_1+\bar{p}_2+K+1} \left(2\frac{dp_1}{du} + \frac{dp_2}{du}\right)_{\bar{u}}
+    = \gamma X^* \frac{1}{\bar{w}} \text{cov}\!\left( 2p_1 + p_2, u \right),
+\]
+which does seem to get that job done.
+So for specific example $$\mathcal{I}$$ functions, there should be
+a Price equation that makes clear the selection on different
+ecological values $$p_i$$.
+
+Turning to adaptive change in the $$p$$ variables, for one $$p_i$$ we have
+\[* \frac{d\bar{p}_i}{dt}
+    = \gamma X^* \frac{d\bar{p}_i}{d\bar{u}} \frac{\text{var}(u)}{\bar{w}} \left(\sum_j\frac{\partial\mathcal{I}}{\partial p_j}\frac{dp_j}{du}\right)_{\bar{u}}
+    = \gamma X^* \frac{1}{\bar{w}} \sum_j \frac{\partial I}{\partial p_j} \text{cov}(p_i,p_j)
+    = \gamma X^* \frac{1}{\bar{w}} \sum_j \text{cov}\left(p_i, \frac{\partial I}{\partial p_j} (p_j-\bar{p}_j)\right)
+\]
+This is the $$i$$th entry of the column vector $$d\mathbf{p}/dt$$,
+and $$\text{cov}(p_i,p_j)$$ is the $$(i,j)$$ entry of the matrix
+$$\text{cov}(\mathbf{p},\mathbf{p}) = \mathbb{E}\left[ (\mathbf{p}-\bar{\mathbf{p}})(\mathbf{p}-\bar{\mathbf{p}})^{\mathrm{T}}\right]$$.
+$$\partial\mathcal{I}/\partial p_j$$ is the $$j$$th entry of row
+vector $$\nabla_{\!1}\mathcal{I}$$ and of the column vector
+$$\mathbf{S}(\mathbf{p})$$.
+$$\sum_j \frac{\partial\mathcal{I}}{\partial p_j}\text{cov}(p_i,p_j)$$
+is the $$i$$th entry of the column vector
+$$\text{cov}(\mathbf{p},\mathbf{p})\mathbf{S}(\mathbf{p})$$.
+As a result we have
+\[* \frac{d\bar{\mathbf{p}}}{dt}
+    = \gamma X^* \frac{1}{\bar{w}} \text{cov}(\mathbf{p},\mathbf{p})\mathbf{S}(\mathbf{p}).
+\]
+Here the autocovariance matrix actually takes the place of $$\text{var}(z)$$
+in the $$z$$-mediated example above, and the last of the above $$d\bar{p}_i/dt$$
+equations gives us the analog of the other $$z$$ equation,
+\[* \frac{d\bar{\mathbf{p}}}{dt}
+    = \gamma X^* \frac{1}{\bar{w}} \text{cov}(\mathbf{p},\mathcal{I})
+    = \gamma X^* \frac{1}{\bar{w}} \text{cov}(\mathbf{p},w),
+\]
+where $$\text{cov}(\mathbf{p},w)$$ is a column vector.
+That last one seems very interesting geometrically.
+It incorporates how much variation in each $$p_i$$ is available
+from $$u$$, and how each correlates with fitness ---
+that is, both the virtual gradient of selection and the
+effect of available variation.
+
+## interaction Price
+
+To come: Price equations for $$a$$ values.
+
 # Overture: evolution of interaction matrix
 
 Introduce the $$\Delta a_{ij}$$ model. Motivations include Kauffman's
@@ -285,3 +395,5 @@ Then make a little sketch of how a social interaction might transition among
 prisoner's dilemma, snowdrift, stag hunt, and byproduct cooperation
 structures, seen as a matter of coevolving constrained terms of the
 payoff matrix.
+
+# References
